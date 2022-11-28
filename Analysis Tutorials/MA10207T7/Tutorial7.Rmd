@@ -51,7 +51,7 @@ It is not always the case that the limit of a sequence exists — take $(a_n)_{n
 
 We also use some different notation to describe the supremum and infimum of the sets $A_k$, namely [^1] $$\sup A_k := \sup_{n\geq k}a_n \quad ; \quad \inf A_k := \inf_{n \geq k}a_n.$$ One thing we can say about these quantities is that since $A_{k+1} \subseteq A_k$, we know that $(\sup A_k)_{k\in\mathbb{N}}$ is a decreasing sequence, and $(\inf A_k)_{k\in\mathbb{N}}$ is an increasing sequence. Now that we've produced two new sequences, the natural thing to do is analyse their convergence. It turns out that if $(a_n)_{n\in\mathbb{N}}$ is bounded, both $(\sup A_k)_{k\in\mathbb{N}}$ and $(\inf A_k)_{k\in\mathbb{N}}$ converge! We define their respective limits to be [^2] $$\limsup_{n \to \infty} a_n := \lim_{k\to\infty}\sup_{n\geq k}a_n \;\, \text{and} \;\, \liminf_{n \to \infty} a_n := \lim_{k\to\infty}\inf_{n\geq k}a_n.$$ The first of these is the *limit superior* and the second is the *limit inferior*. These can be thought of as `eventual' bounds on a sequence, as seen in Figure 
 
-![(\#fig:cars2)Something to do with cars](caj50.github.io/docs/assets/Lim_sup_example_5.png "Some more meaningful alternative text?"){width="60%"}
+![(\#fig:cars2)Something to do with cars](./docs/assets/Lim_sup_example_5.png "Some more meaningful alternative text?"){width="60%"}
 
 [^1]:is is more common usage. Also, for convenience, if the set $A_k$ is not bounded above/below, we set the supremum/infimum to be $\infty$/$-\infty$.
 
