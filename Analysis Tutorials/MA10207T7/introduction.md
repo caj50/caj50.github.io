@@ -51,68 +51,50 @@ It is not always the case that the limit of a sequence exists — take $(a_n)_{n
 
 We also use some different notation to describe the supremum and infimum of the sets $A_k$, namely [^1] $$\sup A_k := \sup_{n\geq k}a_n \quad ; \quad \inf A_k := \inf_{n \geq k}a_n.$$ One thing we can say about these quantities is that since $A_{k+1} \subseteq A_k$, we know that $(\sup A_k)_{k\in\mathbb{N}}$ is a decreasing sequence, and $(\inf A_k)_{k\in\mathbb{N}}$ is an increasing sequence. Now that we've produced two new sequences, the natural thing to do is analyse their convergence. It turns out that if $(a_n)_{n\in\mathbb{N}}$ is bounded, both $(\sup A_k)_{k\in\mathbb{N}}$ and $(\inf A_k)_{k\in\mathbb{N}}$ converge! We define their respective limits to be [^2] $$\limsup_{n \to \infty} a_n := \lim_{k\to\infty}\sup_{n\geq k}a_n \;\, \text{and} \;\, \liminf_{n \to \infty} a_n := \lim_{k\to\infty}\inf_{n\geq k}a_n.$$ The first of these is the *limit superior* and the second is the *limit inferior*. These can be thought of as `eventual' bounds on a sequence, as seen in Figure 
 
-![(\#fig:cars2)Something to do with cars](caj50.github.io/docs/assets/Lim_sup_example_5.png "Some more meaningful alternative text?"){width="60%"}
+![](/Analysis Tutorials/MA10207T7/Lim_sup_example_5.png)
+There is also another way of interpreting the limits superior and inferior. For a sequence $(a_n)_{n\in\mathbb{N}}$, we can also think of $\limsup_{n\to\infty} a_n$ and $\liminf_{n \to \infty}a_n$ as being the largest and smallest possible limits of any subsequence of $(a_n)_{n\in\mathbb{N}}$. We can use this to characterise convergent sequences!
+
+\BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm1"><span class="thm:thm1" custom-style="NameStyle"><strong>(\#thm:thm1) </strong></span><p>A sequence $(a_n)_{n\in\mathbb{N}}$ is convergent if and only if $$\limsup_{n \to \infty} a_n = \liminf_{n \to \infty} a_n.$$</p></div>\EndKnitrBlock{theorem}
+To end this section, we state two more results. They're not mentioned in the lecture notes, but they can be incredibly useful when performing calculations[^3].
+
+\BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm2"><span class="thm:thm2" custom-style="NameStyle"><strong>(\#thm:thm2) </strong></span><p>Let $(a_n)_{n\in\mathbb{N}}$ and $(b_n)_{n\in\mathbb{N}}$ be real sequences. Then: $$\limsup_{n\to\infty}(a_n + b_n) \leq \limsup_{n\to\infty}a_n +\limsup_{n\to\infty}b_n,$$ and $$\liminf_{n\to\infty}(a_n + b_n) \geq \liminf_{n\to\infty}a_n +\liminf_{n\to\infty}b_n.$$</p></div>\EndKnitrBlock{theorem}
 
 [^1]:is is more common usage. Also, for convenience, if the set $A_k$ is not bounded above/below, we set the supremum/infimum to be $\infty$/$-\infty$.
 
 [^2]:Again, if $(\sup A_k)_{k\in\mathbb{N}}$ diverges to $\infty$, $\limsup_{n \to \infty} a_n$ is defined to be $\infty$, and if $(\inf A_k)_{k\in\mathbb{N}}$ diverges to $-\infty$, $\liminf_{n \to \infty} a_n$ is defined to be $-\infty$.
 
-## Ner
-\BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def1"><span class="def:def1" custom-style="NameStyle"><strong>(\#def:def1)  (Series Convergence and Partial Sums) </strong></span><div>Let $(a_n)_{n \in \mathbb{N}}$ be a real sequence. Then $\sum_{n = 1}^{\infty} a_n$ converges if and only if the sequence $(S_N)_{N \in \mathbb{N}}$ converges, where $$S_N:= \sum_{n = 1}^{N} a_n$$ is the $N$\textsuperscript{th} partial sum. If $S_N \to \ell$ as $N \to \infty$, we define $$\ell = \sum_{n = 1}^{\infty}a_n.$$</div></div>\EndKnitrBlock{definition}
-Much like with proving sequence convergence, using the definition each time you want to `evaluate' a series can get tedious really quickly. Therefore, we really want a couple of tests which can prove convergence without too much hassle. Before we discuss these tests though, we need to introduce the ideas of *absolute and conditional convergence*.
+[^3]:Since these results are not in the lecture notes, it's *highly* recommended that you try and prove them yourself. Try using similar techniques to Tutorial Question 2 on Problem Sheet 7 and Homework Question 2 on Problem Sheet 3.
 
-\BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def2"><span class="def:def2" custom-style="NameStyle"><strong>(\#def:def2)  (Absolute Convergence) </strong></span><div>A real series $\sum_{n = 1}^{\infty} a_n$ is absolutely convergent if $\sum_{n = 1}^{\infty} \lvert a_n \rvert$ converges.</div></div>\EndKnitrBlock{definition}
-For example, if we consider the series $\sum_{n = 1}^{\infty} a_n$, where $a_n$ is given by $$a_n = \frac{(-1)^n}{n^2},$$ we find that $$\sum_{n = 1}^{\infty} \lvert a_n \rvert = \sum_{n=1}^{\infty} \frac{1}{n^2},$$ which we know converges from lectures. Hence $\sum_{n = 1}^{\infty} a_n$ is absolutely convergent. Have we learnt anything about the convergence of $\sum_{n=1}^{\infty}a_n$ here? Turns out the answer is yes, and this is because of the following result.
+## Series
+It might look like we're done with sequences, but in the grand scheme of things, we're only really getting started. Since with each sequence $(a_n)_{n\in\mathbb{N}}$, we have an infinite list of real numbers, we might consider trying to manipulate them in some way. One way we can do this is by adding them together, which leads to the notion of a *series*.
 
-\BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop1"><span class="prp:prop1" custom-style="NameStyle"><strong>(\#prp:prop1) </strong></span><p>If a real series $\sum_{n = 1}^{\infty} a_n$ is absolutely convergent, then it is convergent.</p></div>\EndKnitrBlock{proposition}
-At this stage, we can introduce the idea of conditional convergence too.
+\BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def1"><span class="def:def1" custom-style="NameStyle"><strong>(\#def:def1)  (Series) </strong></span><div>Let $(a_n)_{n \in \mathbb{N}}$ be a real sequence. Then $$\sum_{n = 1}^{\infty} a_n$$ is called a series for $(a_n)_{n\in\mathbb{N}}$.</div></div>\EndKnitrBlock{definition}
 
-\BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def3"><span class="def:def3" custom-style="NameStyle"><strong>(\#def:def3)  (Conditional Convergence) </strong></span><div>Let $\sum_{n = 1}^{\infty} a_n$ be a real series. If $\sum_{n = 1}^{\infty} a_n$ is convergent, but $\sum_{n = 1}^{\infty} \lvert a_n \rvert$ is not, then $\sum_{n = 1}^{\infty} a_n$ is said to be conditionally convergent.</div></div>\EndKnitrBlock{definition}
+Much like with sequences, we have an analogous version of convergence for a series:
+\BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def2"><span class="def:def2" custom-style="NameStyle"><strong>(\#def:def2)  (Series Convergence and Partial Sums) </strong></span><div>Let $(a_n)_{n \in \mathbb{N}}$ be a real sequence. Then $\sum_{n = 1}^{\infty} a_n$ converges if and only if the sequence $(S_N)_{N \in \mathbb{N}}$ converges, where $$S_N:= \sum_{n = 1}^{N} a_n$$ is the $N$\textsuperscript{th} partial sum. If $S_N \to \ell$ as $N \to \infty$, we define $$\ell = \sum_{n = 1}^{\infty}a_n.$$</div></div>\EndKnitrBlock{definition}
+If $(S_N)_{N\in\mathbb{N}}$ diverges to $\pm\infty$, we say that the corresponding series $$\sum_{n=1}^{\infty} a_n = \pm\infty.$$ Finally, if $(S_N)_{N\in\mathbb{N}}$ doesn't converge to a limit, we say that the series diverges without limit.
 
+### Algebra of Series
+By applying the algebra of limits to the sequences of partial sums, we can deduce some handy results.
 
-### Series Rearrangement
-So, what can we do with absolutely convergent series?
-\BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm1"><span class="thm:thm1" custom-style="NameStyle"><strong>(\#thm:thm1) </strong></span><p>Suppose $\sum_{n = 1}^{\infty} a_n$ is an absolutely convergent series, and that $\sigma: \mathbb{N} \to \mathbb{N}$ is a bijection. Then $\sum_{n = 1}^{\infty} a_{\sigma(n)}$ is also an absolutely convergent series, and $$\sum_{n = 1}^{\infty} a_n = \sum_{n = 1}^{\infty} a_{\sigma(n)}.$$</p></div>\EndKnitrBlock{theorem}
-This theorem tells us that for an absolutely convergent series, we can order the terms any way we like, and still reach the same value for the series. At this point, you might be interested to know what happens if we don't have absolute convergence. Long story short, weird things can happen, as is seen in the following theorem.
+\BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm3"><span class="thm:thm3" custom-style="NameStyle"><strong>(\#thm:thm3)  (Algebra of Series) </strong></span><p>Let $\sum_{n=1}^{\infty} a_n$ and $\sum_{n=1}^{\infty} b_n$ be convergent series, and let $\alpha,\beta \in \mathbb{R}$. Then $$\sum_{n = 1}^{\infty} (\alpha a_n + \beta b_n) = \alpha\sum_{n=1}^{\infty} a_n + \beta\sum_{n=1}^{\infty} b_n.$$</p></div>\EndKnitrBlock{theorem}
 
-\BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm2"><span class="thm:thm2" custom-style="NameStyle"><strong>(\#thm:thm2)  (Riemann Rearrangement Theorem) </strong></span><p>Suppose $\sum_{n = 1}^{\infty} a_n$ is conditionally convergent. Then, for any $\alpha \in \mathbb{R}$, or $\alpha = \pm\infty$, there exists a bijection $\sigma:\mathbb{N} \to \mathbb{N}$ such that $$\sum_{n = 1}^{\infty} a_{\sigma(n)} = \alpha.$$</p></div>\EndKnitrBlock{theorem}
-So what we see here is that we really need to be careful in which order we sum up the terms of a conditionally convergent series!
+### Some Other Useful Results
+Firstly, we can relate the size of the terms of a series to the overall sum.
 
-## Tests for Convergence
-Now that we have the idea of absolute convergence, we can state some convergence tests applicable to series.
+\BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop1"><span class="prp:prop1" custom-style="NameStyle"><strong>(\#prp:prop1) </strong></span><p>Let $\sum_{n=1}^{\infty} a_n$ and $\sum_{n=1}^{\infty} b_n$ be real series. If $a_n \leq b_n \, \forall n\in\mathbb{N}$, then $$\sum_{n=1}^{\infty} a_n \leq \sum_{n=1}^{\infty} b_n.$$</p></div>\EndKnitrBlock{proposition}
 
-### Comparison Test
-The first of these tests involves comparing the sizes of two series, and is aptly known as the comparison test.
+Secondly, we have a *necessary* condition for convergence of a series.
 
-\BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm3"><span class="thm:thm3" custom-style="NameStyle"><strong>(\#thm:thm3)  (Comparison Test) </strong></span><p>Let $(a_n)_n$ and $(b_n)_n$ be real sequences, and suppose that there exists a $M \in \mathbb{N}$ such that $\lvert a_n \rvert \leq b_n \;\forall n \geq M.$
-Then, if $\sum_{n = 1}^{\infty} b_n$ is convergent, $\sum_{n = 1}^{\infty} a_n$ is convergent.</p></div>\EndKnitrBlock{theorem}
-Naturally, using this, we can also build a test for divergence to $\infty$ out of the comparison test too.
+\BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop2"><span class="prp:prop2" custom-style="NameStyle"><strong>(\#prp:prop2) </strong></span><p>Let $\sum_{n=1}^{\infty} a_n$ be a convergent series. Then $a_n \to 0$ as $n \to \infty$.</p></div>\EndKnitrBlock{proposition}
+Note that the converse of this theorem *does not* hold (think of the sum $\sum_{n=1}^{\infty} \frac{1}{n}). However, the contrapositive is very good at showing that a series does not converge!
 
-\BeginKnitrBlock{corollary}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-corollary" custom-style="TheoremStyle" id="cor:corol1"><span class="cor:corol1" custom-style="NameStyle"><strong>(\#cor:corol1) </strong></span><p>Let $(a_n)_n$ and $(b_n)_n$ be real sequences. If there exists a $M \in \mathbb{N}$ such that $0 \leq a_n \leq b_n \; \forall n \geq M$, and $\sum_{n = 1}^{\infty} a_n$ diverges, then $\sum_{n = 1}^{\infty} b_n$ diverges.</p></div>\EndKnitrBlock{corollary}
-Here, we require the $a_n$ values to be non-negative to force any divergence of $\sum_{n = 1}^{\infty} a_n$ to be to $\infty$. If we allowed, say, $a_n = (-1)^nn$, then $\sum_{n = 1}^{\infty} a_n$ would diverge without limit, making this divergence test useless.
-
-### D'Alembert's Ratio Test
-This one is quite similar to the growth factor test for sequences, except that due to the idea of absolute convergence (and Proposition \@ref(prp:prop1)), the terms of the series only have to be non-zero:
-
-\BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm4"><span class="thm:thm4" custom-style="NameStyle"><strong>(\#thm:thm4)  (D'Alembert's Ratio Test) </strong></span><p>Let $(a_n)_n$ be a real sequence with $a_n \neq 0 \; \forall n \in \mathbb{N}$. Suppose $$\lim_{n\to\infty}\frac{\lvert a_{n+1}\rvert}{\lvert a_n\rvert} = r.$$ Then:
-  
-* If $0 \leq r < 1$, $\sum_{n = 1}^{\infty} a_n$ converges.
-* If $r > 1$, then $\sum_{n = 1}^{\infty} a_n$ diverges.
-* If $r = 1$, the test is inconclusive.
-</p></div>\EndKnitrBlock{theorem}
-To see why the test fails for $r = 1$, consider the three series: $$\sum_{n = 1}^{\infty} \frac{(-1)^{n+1}}{n^2}, \quad \sum_{n = 1}^{\infty} \frac{(-1)^{n+1}}{n} \;\; \text{and} \;\; \sum_{n = 1}^{\infty} (-1)^{n+1}.$$ The first is absolutely convergent, the second is conditionally convergent and the third diverges without any limit at all!
-
-### Cauchy Condensation Test
-The final test we're going to look at here is yet another thing named after Cauchy! This one is very good when the terms of a series involve logarithms, and can also be used to show that $$\sum_{n = 1}^{\infty} \frac{1}{n^{\alpha}} \;\;\text{converges} \Longleftrightarrow \alpha > 1.$$
-
-\BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm5"><span class="thm:thm5" custom-style="NameStyle"><strong>(\#thm:thm5)  (Cauchy) </strong></span><p>Assume $(a_n)_n$ satisfies $a_n \geq 0 \; \forall n \in \mathbb{N}$, and is a decreasing sequence. For $k \in \mathbb{N}$, define $b_k := 2^ka_{2^k}$. Then $$\sum_{n = 1}^{\infty} a_n \;\; \text{converges}\; \Longleftrightarrow\; \sum_{k = 1}^{\infty} b_k \;\; \text{converges}.$$</p></div>\EndKnitrBlock{theorem}
-
-We conclude here with a [link](https://math.stackexchange.com/questions/2071016/does-sum-infty-3-fracn2lnlnnlnn-converge?rq=1) to an example of the Cauchy condensation test in practice. It's highly unlikely you'll ever get something like this in the exam, but the numbers involved are so ridiculous it's worth including here nonetheless!
+\BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop3"><span class="prp:prop3" custom-style="NameStyle"><strong>(\#prp:prop3) </strong></span><p>Let $\sum_{n=1}^{\infty} a_n$ be a series. If $a_n \not\to 0$ as $n \to \infty$, then $\sum_{n=1}^{\infty} a_n$ does not converge.</p></div>\EndKnitrBlock{proposition}
 
 # Hints
 As per usual, here's where you'll find the problem sheet hints!
 
-* [H1.] Think about all the methods you know for proving whether a series converges. Some of the methods from the tutorial may come in handy...
-* [H2.] Pretty much the same as homework question 1. However...
-    * [H2b.] I've got a few pointers for this one. Make sure you know how the binomial coefficient is defined. Also, try to avoid expanding any unnecessary brackets — if you're writing $n^3, n^4$ etc. in your solutions, you're putting in more effort than needed!
-* [H3.] This one is only slightly more involved. Know your definitions, and again, think of possible convergence tests to apply.
+* [H1.] Try using a similar argument to the one used in tutorial question 1 (i.e. use the fact that the sequence can be split into odd and even cases to your advantage)
+* [H2.] For this question, think about what it means for a series to be convergent. You'll also want to split the terms of the series up in some way. (Think of tutorial question 3a.) 
+* [H3.] For the first part, think induction. The only other thing I'll say is to make sure you state all the main results you use!
+
