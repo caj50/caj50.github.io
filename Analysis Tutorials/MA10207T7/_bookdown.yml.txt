@@ -1,4 +1,4 @@
-book_filename: "Notes"
+book_filename: "Tutorial7"
 output_dir: "docs"
 new_theorems:
   Thought: Tho
