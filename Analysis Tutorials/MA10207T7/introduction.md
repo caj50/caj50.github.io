@@ -54,6 +54,7 @@ We also use some different notation to describe the supremum and infimum of the 
 
 ![(\#fig:limsup) Limsup and liminf for a sequence.](/Analysis Tutorials/MA10207T7/Lim_sup_example_5.png "Limit inferior and superior for a sequence.")
 
+
 There is also another way of interpreting the limits superior and inferior. For a sequence $(a_n)_{n\in\mathbb{N}}$, we can also think of $\limsup_{n\to\infty} a_n$ and $\liminf_{n \to \infty}a_n$ as being the largest and smallest possible limits of any subsequence of $(a_n)_{n\in\mathbb{N}}$. We can use this to characterise convergent sequences!
 
 \BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm1"><span class="thm:thm1" custom-style="NameStyle"><strong>(\#thm:thm1) </strong></span><p>A sequence $(a_n)_{n\in\mathbb{N}}$ is convergent if and only if $$\limsup_{n \to \infty} a_n = \liminf_{n \to \infty} a_n.$$</p></div>\EndKnitrBlock{theorem}
