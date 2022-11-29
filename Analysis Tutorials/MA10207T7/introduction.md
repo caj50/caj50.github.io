@@ -52,7 +52,8 @@ It is not always the case that the limit of a sequence exists — take $(a_n)_{n
 We also use some different notation to describe the supremum and infimum of the sets $A_k$, namely [^1] $$\sup A_k := \sup_{n\geq k}a_n \quad ; \quad \inf A_k := \inf_{n \geq k}a_n.$$ One thing we can say about these quantities is that since $A_{k+1} \subseteq A_k$, we know that $(\sup A_k)_{k\in\mathbb{N}}$ is a decreasing sequence, and $(\inf A_k)_{k\in\mathbb{N}}$ is an increasing sequence. Now that we've produced two new sequences, the natural thing to do is analyse their convergence. It turns out that if $(a_n)_{n\in\mathbb{N}}$ is bounded, both $(\sup A_k)_{k\in\mathbb{N}}$ and $(\inf A_k)_{k\in\mathbb{N}}$ converge! We define their respective limits to be [^2] $$\limsup_{n \to \infty} a_n := \lim_{k\to\infty}\sup_{n\geq k}a_n \;\, \text{and} \;\, \liminf_{n \to \infty} a_n := \lim_{k\to\infty}\inf_{n\geq k}a_n.$$ The first of these is the *limit superior* and the second is the *limit inferior*. These can be thought of as `eventual' bounds on a sequence, as seen in Figure \@ref(fig:limsup) (Taken from [Wikipedia](https://en.wikipedia.org/wiki/Limit_inferior_and_limit_superior)).
 
 
-![(\#fig:limsup) Limsup and liminf for a sequence.](/Analysis Tutorials/MA10207T7/Lim_sup_example_5.png "Limit inferior and superior for a sequence.")
+
+![(\#fig:limsup) Limsup and liminf for a sequence.](Lim_sup_example_5.png "Limit inferior and superior for a sequence."){width="50%"}
 
 
 There is also another way of interpreting the limits superior and inferior. For a sequence $(a_n)_{n\in\mathbb{N}}$, we can also think of $\limsup_{n\to\infty} a_n$ and $\liminf_{n \to \infty}a_n$ as being the largest and smallest possible limits of any subsequence of $(a_n)_{n\in\mathbb{N}}$. We can use this to characterise convergent sequences!
@@ -90,7 +91,7 @@ Firstly, we can relate the size of the terms of a series to the overall sum.
 Secondly, we have a *necessary* condition for convergence of a series.
 
 \BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop2"><span class="prp:prop2" custom-style="NameStyle"><strong>(\#prp:prop2) </strong></span><p>Let $\sum_{n=1}^{\infty} a_n$ be a convergent series. Then $a_n \to 0$ as $n \to \infty$.</p></div>\EndKnitrBlock{proposition}
-Note that the converse of this theorem *does not* hold (think of the sum $\sum_{n=1}^{\infty} \frac{1}{n}). However, the contrapositive is very good at showing that a series does not converge!
+Note that the converse of this theorem *does not* hold (think of the sum $\sum_{n=1}^{\infty} \frac{1}{n}$). However, the contrapositive is very good at showing that a series does not converge!
 
 \BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop3"><span class="prp:prop3" custom-style="NameStyle"><strong>(\#prp:prop3) </strong></span><p>Let $\sum_{n=1}^{\infty} a_n$ be a series. If $a_n \not\to 0$ as $n \to \infty$, then $\sum_{n=1}^{\infty} a_n$ does not converge.</p></div>\EndKnitrBlock{proposition}
 
