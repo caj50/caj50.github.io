@@ -14,11 +14,14 @@ output:
     number_sections: true
     keep_md: true
     pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
   clavertondown::gitbook_clav:
     split_by: section
     keep_md: true
     config:
-      download: [["Tutorial7.html", "HTML page"], ["Tutorial7.pdf","Standard print PDF"], ["NTutorial7Clear.pdf","Clear print PDF"], ["NTutorial7Large.pdf","Large print PDF"], ["Tutorial7.docx","Accessible Word document"], ["Tutorial7.epub","Accessible EPub book" ]]
+      download: [["Tutorial7.html", "HTML page"], ["Tutorial7.pdf","Standard print PDF"], ["Tutorial7Clear.pdf","Clear print PDF"], ["Tutorial7Large.pdf","Large print PDF"], ["Tutorial7.docx","Accessible Word document"], ["Tutorial7.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
@@ -30,9 +33,6 @@ output:
     pandoc_args: --default-image-extension=pdf
   clavertondown::html_clav:
     toc: true
-    pandoc_args: --default-image-extension=svg
-  clavertondown::epub_clav:
-    toc: false
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
