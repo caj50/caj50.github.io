@@ -16,6 +16,9 @@ output:
       download: [["Liminfsup.html", "HTML page"], ["Liminfsup.pdf","Standard print PDF"], ["Liminfsup.pdf","Clear print PDF"], ["Liminfsup.pdf","Large print PDF"], ["Liminfsup.docx","Accessible Word document"], ["Liminfsup.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
+  clavertondown::html_clav:
+    toc: true
+    pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
     keep_tex: true
@@ -30,9 +33,6 @@ output:
     toc: true
     number_sections: true
     keep_md: true
-    pandoc_args: --default-image-extension=svg
-  clavertondown::html_clav:
-    toc: true
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
@@ -63,7 +63,7 @@ Similarly, fixing $k \in \mathbb{N}$ again:
 \begin{align*}
 \inf_{k\geq n}a_n &= \inf_{2j \geq k} a_{2j-1}, \; \; &&\text{(since only odd elements are non-positive.)}\\
 &= \lim_{j \to \infty} a_{2j-1}, \; \; &&\text{(since $(a_{2j-1})_j$ is a bounded decreasing sequence)},\\
-&= \lim_{j \to \infty}-\frac{4j-2}{6j - 2}, \; \; \quad &&\text{(by sequence definition)}\\
+&= \lim_{j \to \infty}-\frac{4-\frac{2}{j}}{6 - \frac{2}{j}}, \; \; \quad &&\text{(by sequence definition)}\\
 &= -\frac{2}{3}. \; \; \quad &&\text{(by algebra of limits)}.
 \end{align*}
 
