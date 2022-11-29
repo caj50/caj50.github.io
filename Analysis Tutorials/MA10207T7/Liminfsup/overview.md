@@ -13,8 +13,13 @@ output:
     split_by: section
     keep_md: true
     config:
-      download: [["Liminfsup.html", "HTML page"], ["Liminfsup.pdf","Standard print PDF"], ["Liminfsup.pdf","Clear print PDF"], ["Liminfsup.pdf","Large print PDF"], ["Liminfsup.docx","Accessible Word document"], ["Liminfsup.epub","Accessible EPub book" ]]
+      download: [["Liminfsup.html", "HTML page"], ["Liminfsup.pdf","Standard print PDF"], ["LiminfsupClear.pdf","Clear print PDF"], ["LiminfsupLarge.pdf","Large print PDF"], ["Liminfsup.docx","Accessible Word document"], ["Liminfsup.epub","Accessible EPub book" ]]
       sharing: no
+    pandoc_args: --default-image-extension=svg
+  clavertondown::word_clav:
+    toc: true
+    number_sections: true
+    keep_md: true
     pandoc_args: --default-image-extension=svg
   clavertondown::html_clav:
     toc: true
@@ -28,11 +33,6 @@ output:
     pandoc_args: --default-image-extension=pdf
   clavertondown::epub_clav:
     toc: false
-    pandoc_args: --default-image-extension=svg
-  clavertondown::word_clav:
-    toc: true
-    number_sections: true
-    keep_md: true
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
