@@ -169,68 +169,74 @@ Firstly, note that we can rewrite each \(a_n\) as \[a_n = (-1)^n \frac{2}{3}\fra
 
 Now, fix \(k \in \mathbb{N}\). We have:
 \begin{align*}
-\sup_{k\geq n}a_n &= \sup_{2j \geq k} a_{2j}, \; \; \text{(since only 'even' elements are non-negative.)}\\
-&= \lim_{j \to \infty} a_{2j}, \; \; \text{(since $(a_{2j})_j$ is a bounded increasing sequence)},\\
-&= \frac{2}{3} \; \; \text{(by AoL)}
+\sup_{k\geq n}a_n &= \sup_{2j \geq k} a_{2j}, \; \; &&\text{(since only even elements are non-negative.)}\\
+&= \lim_{j \to \infty} a_{2j}, \; \; &&\text{(since $(a_{2j})_j$ is a bounded increasing sequence)},\\
+&= \frac{2}{3}. \; \; \quad &&\text{(by algebra of limits)}
+\end{align*}
+Hence, taking \(k \to \infty\), we find that \(\sup_{n \geq k} a_n \to \frac{2}{3}\). So, \(\limsup_{n \to \infty} a_n = \frac{2}{3}\).
+
+Similarly, fixing \(k \in \mathbb{N}\) again:
+\begin{align*}
+\inf_{k\geq n}a_n &= \inf_{2j \geq k} a_{2j-1}, \; \; &&\text{(since only odd elements are non-positive.)}\\
+&= \lim_{j \to \infty} a_{2j-1}, \; \; &&\text{(since $(a_{2j-1})_j$ is a bounded decreasing sequence)},\\
+&= \lim_{j \to \infty}-\frac{4j-2}{6j - 2}, \; \; \quad &&\text{(by sequence definition)}\\
+&= -\frac{2}{3}. \; \; \quad &&\text{(by algebra of limits)}.
 \end{align*}
 
-\hypertarget{series}{%
-\subsection{Series}\label{series}}
+Hence, taking \(k \to \infty\), we find that \(\inf_{n \geq k} a_n \to -\frac{2}{3}\). So, \(\liminf_{n \to \infty} a_n = -\frac{2}{3}\).
 
-It might look like we're done with sequences, but in the grand scheme of things, we're only really getting started. Since with each sequence \((a_n)_{n\in\mathbb{N}}\), we have an infinite list of real numbers, we might consider trying to manipulate them in some way. One way we can do this is by adding them together, which leads to the notion of a \emph{series}.
+In case you're interested, the first 100 terms of the sequence \((a_n)_n\) looks like this:
 
-\BeginKnitrBlock{definition}[Series]
-{\label{def:def1} }Let \((a_n)_{n \in \mathbb{N}}\) be a real sequence. Then \[\sum_{n = 1}^{\infty} a_n\] is called a series for \((a_n)_{n\in\mathbb{N}}\).
-\EndKnitrBlock{definition}
+\includegraphics[width=0.5\textwidth,height=\textheight]{Image.png}
 
-Much like with sequences, we have an analogous version of convergence for a series:
-\BeginKnitrBlock{definition}[Series Convergence and Partial Sums]
-{\label{def:def2} }Let \((a_n)_{n \in \mathbb{N}}\) be a real sequence. Then \(\sum_{n = 1}^{\infty} a_n\) converges if and only if the sequence \((S_N)_{N \in \mathbb{N}}\) converges, where \[S_N:= \sum_{n = 1}^{N} a_n\] is the \(N\)\textsuperscript{th} partial sum. If \(S_N \to \ell\) as \(N \to \infty\), we define \[\ell = \sum_{n = 1}^{\infty}a_n.\]
-\EndKnitrBlock{definition}
-If \((S_N)_{N\in\mathbb{N}}\) diverges to \(\pm\infty\), we say that the corresponding series \[\sum_{n=1}^{\infty} a_n = \pm\infty.\] Finally, if \((S_N)_{N\in\mathbb{N}}\) doesn't converge to a limit, we say that the series diverges without limit.
+\hypertarget{example-2}{%
+\subsection{Example 2}\label{example-2}}
 
-\hypertarget{algebra-of-series}{%
-\subsubsection{Algebra of Series}\label{algebra-of-series}}
+\BeginKnitrBlock{example}
+{\label{exm:ex2} }Consider the sequence \((a_n)_{n}\) defined by \[a_n = \frac{1}{n^2} - (-1)^n + 2.\] Find \(\limsup_{n \to \infty} a_n\) and \(\liminf_{n \to \infty} a_n\).
+\EndKnitrBlock{example}
 
-By applying the algebra of limits to the sequences of partial sums, we can deduce some handy results.
+\textbf{Solution}
+First, note that for any \(j\in\mathbb{N}\), \(a_{2j} \leq 2 \leq a_{2j-1}\). But this time, we find that both \((a_{2j})_j\) and \((a_{2j-1})_j\) are decreasing sequences! In this case, the argument used in Example \ref{exm:ex1} will only work for \(\liminf_{n\to\infty} a_n.\) Try using that argument to show that \[\liminf_{n\to\infty}a_n = 1.\] For \(\limsup_{n\to\infty}\), we have to look towards the start of the sequence. To this end, fix \(k \in \mathbb{N}\). Then,
+\begin{align*}
+\sup_{n\geq k}a_n &= \sup_{2j-1 \geq k} a_{2j - 1} \; \; &&\text{(since only the odd elements are $\geq 2$)}\\
+&=\begin{cases}
+a_k \; \text{if $k$ is odd},\\
+a_{k+1} \; \text{if $k$ is even}\end{cases} \; \; &&\text{(because $(a_{2j-1})_j$ is a decreasing sequence)}\\
+&=\begin{cases}
+\frac{1}{k^2} + 3 \; \text{if $k$ is odd},\\
+\frac{1}{(k+1)^2} + 3 \; \text{if $k$ is even}\end{cases}
+\end{align*}
 
-\BeginKnitrBlock{theorem}[Algebra of Series]
-{\label{thm:thm3} }Let \(\sum_{n=1}^{\infty} a_n\) and \(\sum_{n=1}^{\infty} b_n\) be convergent series, and let \(\alpha,\beta \in \mathbb{R}\). Then \[\sum_{n = 1}^{\infty} (\alpha a_n + \beta b_n) = \alpha\sum_{n=1}^{\infty} a_n + \beta\sum_{n=1}^{\infty} b_n.\]
-\EndKnitrBlock{theorem}
+In both cases, as \(k \to \infty\), \(\sup_{n\geq k }a_n \to 3\), so \(\limsup_{n \to \infty} a_n = 3\).
 
-\hypertarget{some-other-useful-results}{%
-\subsubsection{Some Other Useful Results}\label{some-other-useful-results}}
+\hypertarget{example-3}{%
+\subsection{Example 3}\label{example-3}}
 
-Firstly, we can relate the size of the terms of a series to the overall sum.
+\BeginKnitrBlock{example}
+{\label{exm:ex3} }Consider the sequence \((a_n)_{n}\) defined by \[a_n = \cos\left(\frac{n\pi}{3}\right).\] Find \(\limsup_{n \to \infty} a_n\) and \(\liminf_{n \to \infty} a_n\).
+\EndKnitrBlock{example}
+Note that this time, you can't split \((a_n)_n\) up into two monotonic subsequences, so neither of the two methods in the previous examples work. So, we need to be crafty.
 
-\BeginKnitrBlock{proposition}
-{\label{prp:prop1} }Let \(\sum_{n=1}^{\infty} a_n\) and \(\sum_{n=1}^{\infty} b_n\) be real series. If \(a_n \leq b_n \, \forall n\in\mathbb{N}\), then \[\sum_{n=1}^{\infty} a_n \leq \sum_{n=1}^{\infty} b_n.\]
-\EndKnitrBlock{proposition}
+It's always handy to have an idea of what the \(\liminf\) and \(\limsup\) might be. Since \(\left\lvert\cos\left(\frac{n\pi}{3}\right)\right\rvert \leq 1\) for all \(n \in \mathbb{N}\), and \(\frac{(-1)^n}{n} \to 0\) as \(n \to \infty\), we (hopefully) would guess that \[\liminf_{n\to\infty}a_n = -1, \quad \text{and} \quad \limsup_{n \to \infty} a_n = -1.\] So how do we go about showing these?
 
-Secondly, we have a \emph{necessary} condition for convergence of a series.
+Firstly, recall that the \(\limsup\) is the largest limit of any subsequence of \((a_n)_n\). Take \(n_j = 6j\), then \[a_{n_j} = \cos\left(\frac{6j\pi}{3}\right) + \frac{(-1)^{6j}}{6j} = 1 + \frac{1}{6j} \to 1, \; \text{as} \; j \to \infty.\]
 
-\BeginKnitrBlock{proposition}
-{\label{prp:prop2} }Let \(\sum_{n=1}^{\infty} a_n\) be a convergent series. Then \(a_n \to 0\) as \(n \to \infty\).
-\EndKnitrBlock{proposition}
-Note that the converse of this theorem \emph{does not} hold (think of the sum \(\sum_{n=1}^{\infty} \frac{1}{n}\)). However, the contrapositive is very good at showing that a series does not converge!
+So, \(\lim_{j \to \infty} a_{n_j} = 1\), hence \(\limsup_{n \to \infty} a_n \geq 1\).
 
-\BeginKnitrBlock{proposition}
-{\label{prp:prop3} }Let \(\sum_{n=1}^{\infty} a_n\) be a series. If \(a_n \not\to 0\) as \(n \to \infty\), then \(\sum_{n=1}^{\infty} a_n\) does not converge.
-\EndKnitrBlock{proposition}
+To show that \(\limsup_{n \to \infty} a_n \leq 1\), recall that for sequences \((b_n)_n\) and \((c_n)_n\), \[\limsup_{n \to \infty}(b_n + c_n) \leq \limsup_{n \to \infty}b_n + \limsup_{n \to \infty}c_n.\] Taking \[b_n = \cos\left(\frac{n\pi}{3}\right), \; \text{and} \; c_n = \frac{(-1)^n}{n},\] we have that \[\limsup_{n \to \infty} b_n = 1, \; \text{and}\] \[\limsup_{n \to \infty} c_n = 0 \quad \text{(as $(c_n)_n$ converges to $0$)}.\] Hence,
+\[\limsup_{n \to \infty} a_n = \limsup_{n \to \infty}(b_n + c_n) \leq 1 + 0 = 1.\]
 
-\hypertarget{hints}{%
-\section{Hints}\label{hints}}
+Combining the two inequalities we have found allows us to conclude that \(\limsup_{n \to \infty} a_n = 1.\)
 
-As per usual, here's where you'll find the problem sheet hints!
+Have a go at proving that \(\liminf_{n \to \infty} a_n = -1\). You'll need:
 
 \begin{itemize}
 \tightlist
 \item
-  {[}H1.{]} Try using a similar argument to the one used in tutorial question 1 (i.e.~use the fact that the sequence can be split into odd and even cases to your advantage)
+  \(\liminf\) is the smallest limit of any subsequence of \((a_n)_n\).
 \item
-  {[}H2.{]} For this question, think about what it means for a series to be convergent. You'll also want to split the terms of the series up in some way. (Think of tutorial question 3a.)
-\item
-  {[}H3.{]} For the first part, think induction. The only other thing I'll say is to make sure you state all the main results you use!
+  \(\liminf_{n \to \infty}(b_n + c_n) \geq \liminf_{n \to \infty}b_n + \liminf_{n \to \infty}c_n.\)
 \end{itemize}
 
 \end{document}

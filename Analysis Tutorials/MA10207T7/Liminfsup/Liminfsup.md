@@ -9,6 +9,11 @@ classoption: a4paper
 fontsize: 10pt
 geometry: margin=2.5cm
 output:
+  clavertondown::word_clav:
+    toc: true
+    number_sections: true
+    keep_md: true
+    pandoc_args: --default-image-extension=svg
   clavertondown::gitbook_clav:
     split_by: section
     keep_md: true
@@ -26,11 +31,6 @@ output:
   clavertondown::epub_clav:
     toc: false
     pandoc_args: --default-image-extension=svg
-  clavertondown::word_clav:
-    toc: true
-    number_sections: true
-    keep_md: true
-    pandoc_args: --default-image-extension=svg
   clavertondown::html_clav:
     toc: true
     pandoc_args: --default-image-extension=svg
@@ -45,27 +45,27 @@ header-includes:
 In this document, you'll find three different examples of finding the limit superior ($\limsup$) and limit inferior ($\liminf$) of a sequence, with different methods used in each case.
 
 ## Example 1
-\BeginKnitrBlock{example}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex1"><span class="exm:ex1" custom-style="NameStyle"><strong>(\#exm:ex1) </strong></span><div>Consider the sequence $(a_n)_{n}$ defined by $$a_n = (-1)^n\frac{2n}{1+3n}.$$ Find $\limsup_{n \to \infty} a_n$ and $\liminf_{n \to \infty} a_n$.</div></div>\EndKnitrBlock{example}
+\BeginKnitrBlock{example}<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex1"><span class="exm:ex1" custom-style="NameStyle"><strong><span id="exm:ex1"></span>Example 1  </strong></span><div>Consider the sequence $(a_n)_{n}$ defined by $$a_n = (-1)^n\frac{2n}{1+3n}.$$ Find $\limsup_{n \to \infty} a_n$ and $\liminf_{n \to \infty} a_n$.</div></div>\EndKnitrBlock{example}
 
 **Solution**
 Firstly, note that we can rewrite each $a_n$ as $$a_n = (-1)^n \frac{2}{3}\frac{1}{\frac{1}{3n} + 1}.$$ Splitting into odd and even cases, we obtain $$a_n = \begin{cases} \frac{2}{3}\frac{1}{\frac{1}{3n} + 1} &\quad \text{for $n$ even},\\
 \frac{2}{3}\frac{-1}{\frac{1}{3n} + 1} &\quad \text{for $n$ odd}.\end{cases}$$ Note that for $j \in \mathbb{N}$, $a_{2j-1} \leq 0 \leq a_{2j}$. Also note that $(a_{2j-1})_j$ is a decreasing sequence and $(a_{2j})_{j}$ is an increasing sequence [Try showing these!] Moreover, $\lvert a_n \rvert \leq \frac{2}{3} \; \forall n\in\mathbb{N}$, so $(a_n)_n$ is bounded.
 
 Now, fix $k \in \mathbb{N}$. We have:
-\begin{align*}
+$$\begin{align*}
 \sup_{k\geq n}a_n &= \sup_{2j \geq k} a_{2j}, \; \; &&\text{(since only even elements are non-negative.)}\\
 &= \lim_{j \to \infty} a_{2j}, \; \; &&\text{(since $(a_{2j})_j$ is a bounded increasing sequence)},\\
 &= \frac{2}{3}. \; \; \quad &&\text{(by algebra of limits)}
-\end{align*}
+\end{align*}$$
 Hence, taking $k \to \infty$, we find that $\sup_{n \geq k} a_n \to \frac{2}{3}$. So, $\limsup_{n \to \infty} a_n = \frac{2}{3}$.
 
 Similarly, fixing $k \in \mathbb{N}$ again:
-\begin{align*}
+$$\begin{align*}
 \inf_{k\geq n}a_n &= \inf_{2j \geq k} a_{2j-1}, \; \; &&\text{(since only odd elements are non-positive.)}\\
 &= \lim_{j \to \infty} a_{2j-1}, \; \; &&\text{(since $(a_{2j-1})_j$ is a bounded decreasing sequence)},\\
 &= \lim_{j \to \infty}-\frac{4j-2}{6j - 2}, \; \; \quad &&\text{(by sequence definition)}\\
 &= -\frac{2}{3}. \; \; \quad &&\text{(by algebra of limits)}.
-\end{align*}
+\end{align*}$$
 
 Hence, taking $k \to \infty$, we find that $\inf_{n \geq k} a_n \to -\frac{2}{3}$. So, $\liminf_{n \to \infty} a_n = -\frac{2}{3}$.
 
@@ -74,11 +74,11 @@ In case you're interested, the first 100 terms of the sequence $(a_n)_n$ looks l
 ![](Image.png "Sequence plot for Example 1"){width="50%"}
 
 ## Example 2
-\BeginKnitrBlock{example}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex2"><span class="exm:ex2" custom-style="NameStyle"><strong>(\#exm:ex2) </strong></span><div>Consider the sequence $(a_n)_{n}$ defined by $$a_n = \frac{1}{n^2} - (-1)^n + 2.$$ Find $\limsup_{n \to \infty} a_n$ and $\liminf_{n \to \infty} a_n$.</div></div>\EndKnitrBlock{example}
+\BeginKnitrBlock{example}<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex2"><span class="exm:ex2" custom-style="NameStyle"><strong><span id="exm:ex2"></span>Example 2  </strong></span><div>Consider the sequence $(a_n)_{n}$ defined by $$a_n = \frac{1}{n^2} - (-1)^n + 2.$$ Find $\limsup_{n \to \infty} a_n$ and $\liminf_{n \to \infty} a_n$.</div></div>\EndKnitrBlock{example}
 
 **Solution**
-First, note that for any $j\in\mathbb{N}$, $a_{2j} \leq 2 \leq a_{2j-1}$. But this time, we find that both $(a_{2j})_j$ and $(a_{2j-1})_j$ are decreasing sequences! In this case, the argument used in Example \@ref(exm:ex1) will only work for $\liminf_{n\to\infty} a_n.$ Try using that argument to show that $$\liminf_{n\to\infty}a_n = 1.$$ For $\limsup_{n\to\infty}$, we have to look towards the start of the sequence. To this end, fix $k \in \mathbb{N}$. Then,
-\begin{align*}
+First, note that for any $j\in\mathbb{N}$, $a_{2j} \leq 2 \leq a_{2j-1}$. But this time, we find that both $(a_{2j})_j$ and $(a_{2j-1})_j$ are decreasing sequences! In this case, the argument used in Example <a href="#exm:ex1">1</a> will only work for $\liminf_{n\to\infty} a_n.$ Try using that argument to show that $$\liminf_{n\to\infty}a_n = 1.$$ For $\limsup_{n\to\infty}$, we have to look towards the start of the sequence. To this end, fix $k \in \mathbb{N}$. Then,
+$$\begin{align*}
 \sup_{n\geq k}a_n &= \sup_{2j-1 \geq k} a_{2j - 1} \; \; &&\text{(since only the odd elements are $\geq 2$)}\\
 &=\begin{cases}
 a_k \; \text{if $k$ is odd},\\
@@ -86,12 +86,12 @@ a_{k+1} \; \text{if $k$ is even}\end{cases} \; \; &&\text{(because $(a_{2j-1})_j
 &=\begin{cases}
 \frac{1}{k^2} + 3 \; \text{if $k$ is odd},\\
 \frac{1}{(k+1)^2} + 3 \; \text{if $k$ is even}\end{cases}
-\end{align*}
+\end{align*}$$
 
 In both cases, as $k \to \infty$, $\sup_{n\geq k }a_n \to 3$, so $\limsup_{n \to \infty} a_n = 3$.
 
 ## Example 3
-\BeginKnitrBlock{example}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex3"><span class="exm:ex3" custom-style="NameStyle"><strong>(\#exm:ex3) </strong></span><div>Consider the sequence $(a_n)_{n}$ defined by $$a_n = \cos\left(\frac{n\pi}{3}\right).$$ Find $\limsup_{n \to \infty} a_n$ and $\liminf_{n \to \infty} a_n$.</div></div>\EndKnitrBlock{example}
+\BeginKnitrBlock{example}<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex3"><span class="exm:ex3" custom-style="NameStyle"><strong><span id="exm:ex3"></span>Example 3  </strong></span><div>Consider the sequence $(a_n)_{n}$ defined by $$a_n = \cos\left(\frac{n\pi}{3}\right).$$ Find $\limsup_{n \to \infty} a_n$ and $\liminf_{n \to \infty} a_n$.</div></div>\EndKnitrBlock{example}
 Note that this time, you can't split $(a_n)_n$ up into two monotonic subsequences, so neither of the two methods in the previous examples work. So, we need to be crafty.
 
 It's always handy to have an idea of what the $\liminf$ and $\limsup$ might be. Since $\left\lvert\cos\left(\frac{n\pi}{3}\right)\right\rvert \leq 1$ for all $n \in \mathbb{N}$, and $\frac{(-1)^n}{n} \to 0$ as $n \to \infty$, we (hopefully) would guess that $$\liminf_{n\to\infty}a_n = -1, \quad \text{and} \quad \limsup_{n \to \infty} a_n = -1.$$ So how do we go about showing these?
