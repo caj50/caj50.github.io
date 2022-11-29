@@ -1,0 +1,245 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  17pt,
+  a4paper]{extarticle}
+\title{Analysis 1A --- Tutorial 7}
+\author{Christian Jones: University of Bath}
+\date{November 2022}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Analysis 1A --- Tutorial 7},
+  pdfauthor={Christian Jones: University of Bath},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\newcommand{\BOO}{BOO}
+\usepackage{float}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{plain}
+\newtheorem*{lemma*}{Lemma}\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{plain}
+\newtheorem*{corollary*}{Corollary}\newtheorem{corollary}{Corollary}[section]
+\theoremstyle{plain}
+\newtheorem*{proposition*}{Proposition}\newtheorem{proposition}{Proposition}[section]
+\theoremstyle{plain}
+\newtheorem*{conjecture*}{Conjecture}\newtheorem{conjecture}{Conjecture}[section]
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}\newtheorem{definition}{Definition}[section]
+\theoremstyle{definition}
+\newtheorem*{example*}{Example}\newtheorem{example}{Example}[section]
+\theoremstyle{definition}
+\newtheorem*{exercise*}{Exercise}\newtheorem{exercise}{Exercise}[section]
+\theoremstyle{remark}
+\newtheorem*{remark*}{Remark}
+\newtheorem*{solution*}{Solution}
+\let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
+
+
+%\usepackage[english,shorthands=off]{babel}
+\usepackage{etoolbox}
+\usepackage{spverbatim}
+\makeatletter
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\@ifpackageloaded{adjustbox}{}{\usepackage[Export]{adjustbox}}
+\makeatother
+\floatplacement{figure}{H}
+\newcommand{\scalefactor}{1.7}
+\adjustboxset*{min width=\scalefactor\width,max width=\linewidth}
+\renewcommand{\familydefault}{phv}
+\fontfamily{phv}\selectfont
+\renewcommand{\em}{\bf}\renewcommand{\textit}{\textbf}\renewcommand{\emph}{\textbf}\renewcommand{\it}{\bf}\renewcommand{\itshape}{\bf}
+\setlength{\parindent}{0.0pt}
+\setlength{\parskip}{1.0\baselineskip}
+\renewcommand{\baselinestretch}{1.5}\selectfont
+\setlength{\mathsurround}{0.2em}
+\setlength{\arraycolsep}{0.5cm}\renewcommand{\arraystretch}{1.5}
+\addtolength{\jot}{\baselineskip}
+\renewcommand{\;}{\,}
+\sloppy
+\allowdisplaybreaks
+\usepackage{amsthm}
+\newtheoremstyle{plain}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{definition}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{remark}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\csundef{Proof}
+\csundef{endProof}
+\newenvironment{Proof}
+  {\noindent{\bf Proof.}\hspace*{1em}}% Begin
+  {\qed\par}% End
+%% When redefining an environment it is vital that it has 
+%% the same number of arguments as the original
+\renewenvironment{proof}[1][\proofname]
+  {\trivlist\item\relax\noindent{\bf {#1}.}\hspace*{1em}}% Begin
+  {\qed\endtrivlist}% End
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\newpage
+\pagenumbering{arabic}
+
+\hypertarget{introduction}{%
+\section*{Introduction}\label{introduction}}
+\addcontentsline{toc}{section}{Introduction}
+
+Here is the material to accompany the 7th Analysis Tutorial on the 21th November. As usual, send comments and corrections to \href{mailto:caj50@bath.ac.uk}{Christian Jones (caj50)}
+
+\hypertarget{lecture-recap}{%
+\section{Lecture Recap}\label{lecture-recap}}
+
+\hypertarget{limit-superior-and-limit-inferior}{%
+\subsection{Limit Superior and Limit Inferior}\label{limit-superior-and-limit-inferior}}
+
+It is not always the case that the limit of a sequence exists --- take \((a_n)_{n\in\mathbb{N}}\) defined by \(a_n = (-1)^n\), for example. But if a sequence \((a_n)_{n\in\mathbb{N}}\) is bounded, there are two objects that always exist. These are the \emph{limit superior} and \emph{limit inferior} of a sequence. To start define these, we first let \((a_n)\) be a real sequence, and for each \(k \in \mathbb{N}\), define \[A_k = \lbrace a_n \,\lvert\, n \geq k\rbrace = \lbrace a_k,\,a_{k+1}\,\ldots\rbrace\]
+
+We also use some different notation to describe the supremum and infimum of the sets \(A_k\), namely \footnote{is is more common usage. Also, for convenience, if the set \(A_k\) is not bounded above/below, we set the supremum/infimum to be \(\infty\)/\(-\infty\).} \[\sup A_k := \sup_{n\geq k}a_n \quad ; \quad \inf A_k := \inf_{n \geq k}a_n.\] One thing we can say about these quantities is that since \(A_{k+1} \subseteq A_k\), we know that \((\sup A_k)_{k\in\mathbb{N}}\) is a decreasing sequence, and \((\inf A_k)_{k\in\mathbb{N}}\) is an increasing sequence. Now that we've produced two new sequences, the natural thing to do is analyse their convergence. It turns out that if \((a_n)_{n\in\mathbb{N}}\) is bounded, both \((\sup A_k)_{k\in\mathbb{N}}\) and \((\inf A_k)_{k\in\mathbb{N}}\) converge! We define their respective limits to be \footnote{Again, if \((\sup A_k)_{k\in\mathbb{N}}\) diverges to \(\infty\), \(\limsup_{n \to \infty} a_n\) is defined to be \(\infty\), and if \((\inf A_k)_{k\in\mathbb{N}}\) diverges to \(-\infty\), \(\liminf_{n \to \infty} a_n\) is defined to be \(-\infty\).} \[\limsup_{n \to \infty} a_n := \lim_{k\to\infty}\sup_{n\geq k}a_n \;\, \text{and} \;\, \liminf_{n \to \infty} a_n := \lim_{k\to\infty}\inf_{n\geq k}a_n.\] The first of these is the \emph{limit superior} and the second is the \emph{limit inferior}. These can be thought of as `eventual' bounds on a sequence, as seen in Figure \ref{fig:limsup} (Taken from \href{https://en.wikipedia.org/wiki/Limit_inferior_and_limit_superior}{Wikipedia}).
+
+\begin{figure}
+\centering
+\includegraphics[width=\Width,height=\Height]{/Analysis Tutorials/MA10207T7/Lim_sup_example_5.png}
+\caption{\label{fig:limsup} Limsup and liminf for a sequence.}
+\end{figure}
+
+There is also another way of interpreting the limits superior and inferior. For a sequence \((a_n)_{n\in\mathbb{N}}\), we can also think of \(\limsup_{n\to\infty} a_n\) and \(\liminf_{n \to \infty}a_n\) as being the largest and smallest possible limits of any subsequence of \((a_n)_{n\in\mathbb{N}}\). We can use this to characterise convergent sequences!
+
+\BeginKnitrBlock{theorem}
+{\label{thm:thm1} }A sequence \((a_n)_{n\in\mathbb{N}}\) is convergent if and only if \[\limsup_{n \to \infty} a_n = \liminf_{n \to \infty} a_n.\]
+\EndKnitrBlock{theorem}
+To end this section, we state two more results. They're not mentioned in the lecture notes, but they can be incredibly useful when performing calculations\footnote{Since these results are not in the lecture notes, it's \emph{highly} recommended that you try and prove them yourself. Try using similar techniques to Tutorial Question 2 on Problem Sheet 7 and Homework Question 2 on Problem Sheet 3.}.
+
+\BeginKnitrBlock{theorem}
+{\label{thm:thm2} }Let \((a_n)_{n\in\mathbb{N}}\) and \((b_n)_{n\in\mathbb{N}}\) be real sequences. Then: \[\limsup_{n\to\infty}(a_n + b_n) \leq \limsup_{n\to\infty}a_n +\limsup_{n\to\infty}b_n,\] and \[\liminf_{n\to\infty}(a_n + b_n) \geq \liminf_{n\to\infty}a_n +\liminf_{n\to\infty}b_n.\]
+\EndKnitrBlock{theorem}
+
+\hypertarget{series}{%
+\subsection{Series}\label{series}}
+
+It might look like we're done with sequences, but in the grand scheme of things, we're only really getting started. Since with each sequence \((a_n)_{n\in\mathbb{N}}\), we have an infinite list of real numbers, we might consider trying to manipulate them in some way. One way we can do this is by adding them together, which leads to the notion of a \emph{series}.
+
+\BeginKnitrBlock{definition}[Series]
+{\label{def:def1} }Let \((a_n)_{n \in \mathbb{N}}\) be a real sequence. Then \[\sum_{n = 1}^{\infty} a_n\] is called a series for \((a_n)_{n\in\mathbb{N}}\).
+\EndKnitrBlock{definition}
+
+Much like with sequences, we have an analogous version of convergence for a series:
+\BeginKnitrBlock{definition}[Series Convergence and Partial Sums]
+{\label{def:def2} }Let \((a_n)_{n \in \mathbb{N}}\) be a real sequence. Then \(\sum_{n = 1}^{\infty} a_n\) converges if and only if the sequence \((S_N)_{N \in \mathbb{N}}\) converges, where \[S_N:= \sum_{n = 1}^{N} a_n\] is the \(N\)\textsuperscript{th} partial sum. If \(S_N \to \ell\) as \(N \to \infty\), we define \[\ell = \sum_{n = 1}^{\infty}a_n.\]
+\EndKnitrBlock{definition}
+If \((S_N)_{N\in\mathbb{N}}\) diverges to \(\pm\infty\), we say that the corresponding series \[\sum_{n=1}^{\infty} a_n = \pm\infty.\] Finally, if \((S_N)_{N\in\mathbb{N}}\) doesn't converge to a limit, we say that the series diverges without limit.
+
+\hypertarget{algebra-of-series}{%
+\subsubsection{Algebra of Series}\label{algebra-of-series}}
+
+By applying the algebra of limits to the sequences of partial sums, we can deduce some handy results.
+
+\BeginKnitrBlock{theorem}[Algebra of Series]
+{\label{thm:thm3} }Let \(\sum_{n=1}^{\infty} a_n\) and \(\sum_{n=1}^{\infty} b_n\) be convergent series, and let \(\alpha,\beta \in \mathbb{R}\). Then \[\sum_{n = 1}^{\infty} (\alpha a_n + \beta b_n) = \alpha\sum_{n=1}^{\infty} a_n + \beta\sum_{n=1}^{\infty} b_n.\]
+\EndKnitrBlock{theorem}
+
+\hypertarget{some-other-useful-results}{%
+\subsubsection{Some Other Useful Results}\label{some-other-useful-results}}
+
+Firstly, we can relate the size of the terms of a series to the overall sum.
+
+\BeginKnitrBlock{proposition}
+{\label{prp:prop1} }Let \(\sum_{n=1}^{\infty} a_n\) and \(\sum_{n=1}^{\infty} b_n\) be real series. If \(a_n \leq b_n \, \forall n\in\mathbb{N}\), then \[\sum_{n=1}^{\infty} a_n \leq \sum_{n=1}^{\infty} b_n.\]
+\EndKnitrBlock{proposition}
+
+Secondly, we have a \emph{necessary} condition for convergence of a series.
+
+\BeginKnitrBlock{proposition}
+{\label{prp:prop2} }Let \(\sum_{n=1}^{\infty} a_n\) be a convergent series. Then \(a_n \to 0\) as \(n \to \infty\).
+\EndKnitrBlock{proposition}
+Note that the converse of this theorem \emph{does not} hold (think of the sum \$\sum\_\{n=1\}\^{}\{\infty\} \frac{1}{n}). However, the contrapositive is very good at showing that a series does not converge!
+
+\BeginKnitrBlock{proposition}
+{\label{prp:prop3} }Let \(\sum_{n=1}^{\infty} a_n\) be a series. If \(a_n \not\to 0\) as \(n \to \infty\), then \(\sum_{n=1}^{\infty} a_n\) does not converge.
+\EndKnitrBlock{proposition}
+
+\hypertarget{hints}{%
+\section{Hints}\label{hints}}
+
+As per usual, here's where you'll find the problem sheet hints!
+
+\begin{itemize}
+\tightlist
+\item
+  {[}H1.{]} Try using a similar argument to the one used in tutorial question 1 (i.e.~use the fact that the sequence can be split into odd and even cases to your advantage)
+\item
+  {[}H2.{]} For this question, think about what it means for a series to be convergent. You'll also want to split the terms of the series up in some way. (Think of tutorial question 3a.)
+\item
+  {[}H3.{]} For the first part, think induction. The only other thing I'll say is to make sure you state all the main results you use!
+\end{itemize}
+
+\end{document}
