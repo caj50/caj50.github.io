@@ -95,6 +95,7 @@ easy to understand!). -->
   margin-right: 40px;
 }
 
+/* table stuff */
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -110,7 +111,46 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+/* end table stuff */
 
+/*testing collapsible list*/
+.collapsible {
+  background-color: #dddddd;
+  color: black;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  margin-bottom: 5px;
+  border: none;
+  text-align: left;
+  font-weight: bold;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #777;
+}
+
+.collapsible:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: black;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+/* end of collapsible list stuff */
   --></style>
 
   <!-- The next line gives a piece of "metadata" (metadata means data
@@ -132,7 +172,7 @@ tr:nth-child(even) {
     <a href = "tutoring.html">Tutoring</a> |
     <a href = "extra.html">Extra</a>
   </nav>
-  <h1>Postgraduate Student Seminar (PSS) 2022/23</h1>
+  <h1>Postgraduate Seminar Series (PSS) 2022/23</h1>
   <!-- This is a first level header. Headers can be from 1 to 6, use
   H1 for the main heading, H2 for section headings, H3 for sub-section
   headings, and so on. -->
@@ -159,73 +199,94 @@ tr:nth-child(even) {
 
 <p>Interested in having your name added to this list of awesome people? Sign up for a PSS talk <a href = "mailto:caj50@bath.ac.uk"> here! </a> </p></text>
 
-<table>
-  <tr>
-    <th>Date</th>
-    <th>Speaker</th>
-    <th>Title</th> 
-    <th>Abstract</th>
-  </tr>
-  <tr>
-    <td>6/10/2022</td>
-    <td>Seb Scott</td> 
-    <td>The Noisy Image and the Regulariser and Me</td>
-    <td>I love minimising functions. I also love imaging problems. In this talk I motivate how you can phrase denoising images as a minimisation problem. The types of functions that I want to minimise typically involve some unknown parameters that need to be specified beforehand. While there are some general methods on how you can go about choosing said parameters, here I motivate bilevel optimisation, a framework in which you can determine suitable parameter values - and the topic of my PhD! I will cover some cute heuristics and theoretical results and promise to include many pictures of my dog(s).</td>
-  </tr>
-  <tr>
-    <td>13/10/2022</td>
-    <td>Ed Gallagher</td> 
-    <td>Calculus of Variations in L<sup>&infin;</sup></td>
-    <td>What is the shortest path between two points? How much land can you enclose with a given amount of fencing? What happens to an elastic rod if we try and bend it? What shape do we get if we dip a wire frame in soapy water? Why are red blood cells biconcave discs? Which donut has the lowest energy?
-
-The answers to such questions can be found in the field of calculus of variations, which concerns the minimisation of functionals: that is, we want to find the function which minimises some given quantity, usually an integral. Calculus of Variations in L∞, on the other hand, also known as L∞ CoV, focuses on problems where the functional we want to minimise is not an integral but instead a supremum (an L<sup>&infin;</sup> norm). Because integral functionals are sensitive to small changes-- i.e. they are differentiable-- and supremal functionals are not, the theory of L<sup>&infin;</sup> CoV is very different to the usual theory, as in fact the main tool we use to solve problems is no longer available!
-
-In this talk, given at a level such that it is accessible for those without a deep analysis background, I will discuss some of the history and motivation behind L<sup>&infin;</sup> CoV problems and introduce the so-called L<sup>p</sup> approximation, a common tool used to solve L<sup>&infin;</sup> problems. I will go through some specific examples to give a feeling of how variational problems work, while sweeping all the technical analysis underneath the rug, and I will discuss how my own research fits into the wider picture.</td>
-  </tr>
-  <tr>
-    <td>20/10/2022</td>
-    <td>Matthew Pawley</td>
-    <td>How to do OK at GeoGuessr with simple statistics (and 3 CPU years of data processing)</td>
-    <td>GeoGuessr is a popular online game where players guess locations based on Google Street View imagery: the closer you get to the actual location, the more points you score. The problem of geolocating a photograph is challenging for humans (play the game to see for yourself), but can computers do any better? I will show how a very simple learning algorithm, k-nearest neighbours, has been applied to the problem and discuss various statistical concepts that arise along the way.</td>
-  </tr>
-  <tr>
-    <td>27/10/2022</td>
-    <td>Christian Jones</td>
-    <td>From Skeletons to Supercontinents: How Fluid Dynamics Can Model It All.</td>
-    <td>Many materials we encounter in life are really quite complicated! One such class of material exhibits viscoelastic properties, that is, they display behaviours of viscous liquids (such as oil and water) and elastic solids (such as rubber). These viscoelastic materials arise almost everywhere, from the tendons in your body, right through to the Earth’s tectonic plates!</td>
-  </tr>
-  <tr>
-    <td>03/11/2022</td>
-    <td>Kat Phillips</td>
-    <td>Kat Does Maths or: How I learned to stop worrying and love the Comm</td>
-    <td>if you've ever been curious about maths communication this is the talk for you. I will be going over a brief history of what how and why I ended up with a successful twitch channel as well as the ethos of what maths communication effective, and some resources tailored to Bath Students if you're particularly swayed. </td>
-  </tr>
-  <tr>
-    <td>10/11/2022</td>
-    <td>PSS ft SSLC Reps</td>
-    <td>SSLC Forum</td>
-    <td>Feedback on various issues concerning postgraduate students.</td>
-  </tr>
-  <tr>
-    <td>17/11/2022</td>
-    <td>Allen Hart</td>
-    <td>Phase space reconstruction using Echo State Networks</td>
-    <td>In this talk, we will explore how to use an Echo State Neural Network to forecast the future of a time series, where the time series is a sequence of scalar observations from a dynamical system. I gave this talk right at the start of my PhD, and for my final PSS, I will give it again with some commentary on how this shaped the rest of thesis.</td>
-  </tr>
-  <tr>
-    <td>24/11/2022</td>
-    <td>Cameron Smith</td>
-    <td>Defensive symbionts and me: an unexpected tale about an uneasy alliance</td>
-    <td>Most complex organisms can be infected by pathogens, a common class of which are parasites. These lovely critters require a host in order to reproduce by utilising their host's bodies and cells, causing damage and possibly death. On the other hand, defensive symbionts work to protect the host and in return, gain an increased ability to reproduce and transmit. This mutualistic arrangement can evolve to become more or less protective towards the host depending on conditions. On this sunny/rainy/cloudy (delete as appropriate) Thursday morning, I will let you know what happens when a defensive symbiont and parasite go to battle in a population of hosts. We will find out if both can coexist or if one kills the other off, and we will see if the defensive symbiont decides to protect the host at all or whether it thinks better of it. Finally, we will establish what the effect of this is on the host population, and whether the hosts become stronger from their uneasy alliance, or if they are better off suffering from the parasite alone.</td>
-  </tr>
-  <tr>
-    <td>01/12/22</td>
-    <td>Beth Stokes</td>
-    <td>Extremism, segregation and oscillatory states emerge through collective opinion dynamics in a novel agent-based model</td>
-    <td>Humans are pretty complex creatures. Well, some of us at least. And so the way we think and form opinions is undoubtedly even more complex, we couldn't possibly begin to quantify and recreate all of the underlying mechanisms and processes that go into opinion formation. Enter mathematician. In this PSS, I'll be talking you through (and simultaneously reminding myself of) the emergent phenomena produced by an agent-based model of human opinion dynamics. Despite it's simplicity and limiting assumptions, the model is capable of mimicking many socio-psychological phenomena including consensus, segregation, extremism and oscillatory states. So, can we really use mathematics to accurately model the collective behaviour of human opinion dynamics? Maybe I'll let you form your own opinion on that after you've endured my talk. Exit mathematician, pursued by a bear.</td>
-  </tr>
+<h3>Semester 1 2022:</h3>
+<button type="button" class="collapsible">Seb Scott — 06/10/22</button>
+<div class="content">
+  <p><strong>The Noisy Image and the Regulariser and Me</strong></p>
   
-</table>
+  <p>I love minimising functions. I also love imaging problems. In this talk I motivate how you can phrase denoising images as a minimisation problem. The types of functions that I want to minimise typically involve some unknown parameters that need to be specified beforehand. While there are some general methods on how you can go about choosing said parameters, here I motivate bilevel optimisation, a framework in which you can determine suitable parameter values - and the topic of my PhD! I will cover some cute heuristics and theoretical results and promise to include many pictures of my dog(s).</p>
+</div>
+<button type="button" class="collapsible">Ed Gallagher — 13/10/22</button>
+<div class="content">
+  <p><strong>Calculus of Variations in L<sup>&infin;</sup></strong></p>
+  <p>What is the shortest path between two points? How much land can you enclose with a given amount of fencing? What happens to an elastic rod if we try and bend it? What shape do we get if we dip a wire frame in soapy water? Why are red blood cells biconcave discs? Which donut has the lowest energy?</p>
+
+<p>The answers to such questions can be found in the field of calculus of variations, which concerns the minimisation of functionals: that is, we want to find the function which minimises some given quantity, usually an integral. Calculus of Variations in L∞, on the other hand, also known as L∞ CoV, focuses on problems where the functional we want to minimise is not an integral but instead a supremum (an L<sup>&infin;</sup> norm). Because integral functionals are sensitive to small changes-- i.e. they are differentiable-- and supremal functionals are not, the theory of L<sup>&infin;</sup> CoV is very different to the usual theory, as in fact the main tool we use to solve problems is no longer available!</p>
+
+<p>In this talk, given at a level such that it is accessible for those without a deep analysis background, I will discuss some of the history and motivation behind L<sup>&infin;</sup> CoV problems and introduce the so-called L<sup>p</sup> approximation, a common tool used to solve L<sup>&infin;</sup> problems. I will go through some specific examples to give a feeling of how variational problems work, while sweeping all the technical analysis underneath the rug, and I will discuss how my own research fits into the wider picture.</p>
+</div>
+<button type="button" class="collapsible">Matthew Pawley — 20/10/22</button>
+<div class="content">
+  <p><strong>How to do OK at GeoGuessr with simple statistics (and 3 CPU years of data processing)</strong></p>
+  
+  <p>GeoGuessr is a popular online game where players guess locations based on Google Street View imagery: the closer you get to the actual location, the more points you score. The problem of geolocating a photograph is challenging for humans (play the game to see for yourself), but can computers do any better? I will show how a very simple learning algorithm, k-nearest neighbours, has been applied to the problem and discuss various statistical concepts that arise along the way.</p>
+</div>
+
+<button type="button" class="collapsible">Christian Jones — 27/10/22</button>
+<div class="content">
+  <p><strong>From Skeletons to Supercontinents: How Fluid Dynamics Can Model It All.</strong></p>
+  
+  <p>Many materials we encounter in life are really quite complicated! One such class of material exhibits viscoelastic properties, that is, they display behaviours of viscous liquids (such as oil and water) and elastic solids (such as rubber). These viscoelastic materials arise almost everywhere, from the tendons in your body, right through to the Earth’s tectonic plates!</p>
+ 
+<p>But how do we model them? In this talk, I aim to chart the development of some simple viscoelastic models (and one not-so-simple one), and assess whether they are actually any good. On the way, we’ll encounter continuum mechanics, some funky ‘circuit’ diagrams, and even a weird looking time derivative. Naturally, there’ll be some scary looking equations, but despite the fact it’s almost Halloween, these will be kept to a minimum.</p>
+ 
+<p>P.S. If you’re looking for 40 minutes of hardline asymptotics and/or Rick-Rolling, then you’re going to be sorely disappointed.</p>
+</div>
+
+<button type="button" class="collapsible">Kat Phillips — 03/11/22 </button>
+<div class="content">
+  <p><strong>Kat Does Maths or: How I learned to stop worrying and love the Comm</strong></p>
+  
+  <p>If you've ever been curious about maths communication this is the talk for you. I will be going over a brief history of what how and why I ended up with a successful twitch channel as well as the ethos of what maths communication effective, and some resources tailored to Bath Students if you're particularly swayed.</p>
+</div>
+
+<button type="button" class="collapsible">PSS feat. SSLC —10/11/22 </button>
+<div class="content">
+  <p><strong>SSLC Forum</strong></p>
+  
+  <p>This week, we were joined by the postgraduate student reps — Guannan Chen, Nic K&uuml;pper and Pawel Rudnicki, who provided feedback on issues concerning general aspects of postgraduate life.</p>
+</div>
+
+<button type="button" class="collapsible">Allen Hart —17/11/22 </button>
+<div class="content">
+  <p><strong>Phase space reconstruction using Echo State Networks</strong></p>
+  
+  <p>In this talk, we will explore how to use an Echo State Neural Network to forecast the future of a time series, where the time series is a sequence of scalar observations from a dynamical system. I gave this talk right at the start of my PhD, and for my final PSS, I will give it again with some commentary on how this shaped the rest of thesis.</p>
+</div>
+
+<button type="button" class="collapsible">Cameron Smith — 24/11/22 </button>
+<div class="content">
+  <p><strong>Defensive symbionts and me: an unexpected tale about an uneasy alliance</strong></p>
+  
+  <p>Most complex organisms can be infected by pathogens, a common class of which are parasites. These lovely critters require a host in order to reproduce by utilising their host's bodies and cells, causing damage and possibly death. On the other hand, defensive symbionts work to protect the host and in return, gain an increased ability to reproduce and transmit. This mutualistic arrangement can evolve to become more or less protective towards the host depending on conditions.</p>
+
+<p>On this sunny/rainy/cloudy (delete as appropriate) Thursday morning, I will let you know what happens when a defensive symbiont and parasite go to battle in a population of hosts. We will find out if both can coexist or if one kills the other off, and we will see if the defensive symbiont decides to protect the host at all or whether it thinks better of it. Finally, we will establish what the effect of this is on the host population, and whether the hosts become stronger from their uneasy alliance, or if they are better off suffering from the parasite alone.</p>
+</div>
+
+<button type="button" class="collapsible">Beth Stokes — 01/12/22  &nbsp; <span style= "color:blue;">Upcoming!</span> </button>
+<div class="content">
+  <p><strong>Extremism, segregation and oscillatory states emerge through collective opinion dynamics in a novel agent-based model</strong></p>
+  
+  <p>Humans are pretty complex creatures. Well, some of us at least. And so the way we think and form opinions is undoubtedly even more complex, we couldn't possibly begin to quantify and recreate all of the underlying mechanisms and processes that go into opinion formation. Enter mathematician. In this PSS, I'll be talking you through (and simultaneously reminding myself of) the emergent phenomena produced by an agent-based model of human opinion dynamics. Despite it's simplicity and limiting assumptions, the model is capable of mimicking many socio-psychological phenomena including consensus, segregation, extremism and oscillatory states. So, can we really use mathematics to accurately model the collective behaviour of human opinion dynamics? Maybe I'll let you form your own opinion on that after you've endured my talk. Exit mathematician, pursued by a bear.</p>
+</div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
 
   <!-- Below, there is a bit of text with a hyperlink to the
   University of Bath Home page. The link consists of http: to indicate
