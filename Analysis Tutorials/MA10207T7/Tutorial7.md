@@ -14,6 +14,9 @@ output:
     number_sections: true
     keep_md: true
     pandoc_args: --default-image-extension=svg
+  clavertondown::html_clav:
+    toc: true
+    pandoc_args: --default-image-extension=svg
   clavertondown::epub_clav:
     toc: false
     pandoc_args: --default-image-extension=svg
@@ -31,9 +34,6 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
-  clavertondown::html_clav:
-    toc: true
-    pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
 ---
@@ -63,7 +63,7 @@ To end this section, we state two more results. They're not mentioned in the lec
 
 \BeginKnitrBlock{theorem}<div class="bookdown-theorem" custom-style="TheoremStyleUpright" id="thm:thm2"><span class="thm:thm2" custom-style="NameStyle"><strong><span id="thm:thm2"></span>Theorem 1.2  </strong></span><p>Let $(a_n)_{n\in\mathbb{N}}$ and $(b_n)_{n\in\mathbb{N}}$ be real sequences. Then: $$\limsup_{n\to\infty}(a_n + b_n) \leq \limsup_{n\to\infty}a_n +\limsup_{n\to\infty}b_n,$$ and $$\liminf_{n\to\infty}(a_n + b_n) \geq \liminf_{n\to\infty}a_n +\liminf_{n\to\infty}b_n.$$</p></div>\EndKnitrBlock{theorem}
 
-[^1]:is is more common usage. Also, for convenience, if the set $A_k$ is not bounded above/below, we set the supremum/infimum to be $\infty$/$-\infty$.
+[^1]:The notation here follows that used in the lecture notes rather than that used in lectures, as this is more common usage. Also, for convenience, if the set $A_k$ is not bounded above/below, we set the supremum/infimum to be $\infty$/$-\infty$.
 
 [^2]:Again, if $(\sup A_k)_{k\in\mathbb{N}}$ diverges to $\infty$, $\limsup_{n \to \infty} a_n$ is defined to be $\infty$, and if $(\inf A_k)_{k\in\mathbb{N}}$ diverges to $-\infty$, $\liminf_{n \to \infty} a_n$ is defined to be $-\infty$.
 
