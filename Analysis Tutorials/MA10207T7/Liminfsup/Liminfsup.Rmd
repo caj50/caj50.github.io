@@ -9,18 +9,6 @@ classoption: a4paper
 fontsize: 10pt
 geometry: margin=2.5cm
 output:
-  clavertondown::gitbook_clav:
-    split_by: section
-    keep_md: true
-    config:
-      download: [["Liminfsup.html", "HTML page"], ["Liminfsup.pdf","Standard print PDF"], ["LiminfsupClear.pdf","Clear print PDF"], ["LiminfsupLarge.pdf","Large print PDF"], ["Liminfsup.docx","Accessible Word document"], ["Liminfsup.epub","Accessible EPub book" ]]
-      sharing: no
-    pandoc_args: --default-image-extension=svg
-  clavertondown::word_clav:
-    toc: true
-    number_sections: true
-    keep_md: true
-    pandoc_args: --default-image-extension=svg
   clavertondown::html_clav:
     toc: true
     pandoc_args: --default-image-extension=svg
@@ -31,6 +19,18 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
+  clavertondown::word_clav:
+    toc: true
+    number_sections: true
+    keep_md: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::gitbook_clav:
+    split_by: section
+    keep_md: true
+    config:
+      download: [["Liminfsup.html", "HTML page"], ["Liminfsup.pdf","Standard print PDF"], ["LiminfsupClear.pdf","Clear print PDF"], ["LiminfsupLarge.pdf","Large print PDF"], ["Liminfsup.docx","Accessible Word document"], ["Liminfsup.epub","Accessible EPub book" ]]
+      sharing: no
+    pandoc_args: --default-image-extension=svg
   clavertondown::epub_clav:
     toc: false
     pandoc_args: --default-image-extension=svg
@@ -44,7 +44,7 @@ header-includes:
 # Overview {-}
 In this document, you'll find three different examples of finding the limit superior ($\limsup$) and limit inferior ($\liminf$) of a sequence, with different methods used in each case.
 
-## Example 1
+## Example 1 {-}
 ```{example, label = ex1}
 Consider the sequence $(a_n)_{n}$ defined by $$a_n = (-1)^n\frac{2n}{1+3n}.$$ Find $\limsup_{n \to \infty} a_n$ and $\liminf_{n \to \infty} a_n$.
 ```
@@ -75,13 +75,13 @@ In case you're interested, the first 100 terms of the sequence $(a_n)_n$ looks l
 
 ![](Image.png "Sequence plot for Example 1"){width="50%"}
 
-## Example 2
+## Example 2 {-}
 ```{example, label = "ex2"}
 Consider the sequence $(a_n)_{n}$ defined by $$a_n = \frac{1}{n^2} - (-1)^n + 2.$$ Find $\limsup_{n \to \infty} a_n$ and $\liminf_{n \to \infty} a_n$.
 ```
 
 **Solution**
-First, note that for any $j\in\mathbb{N}$, $a_{2j} \leq 2 \leq a_{2j-1}$. But this time, we find that both $(a_{2j})_j$ and $(a_{2j-1})_j$ are decreasing sequences! In this case, the argument used in Example \@ref(exm:ex1) will only work for $\liminf_{n\to\infty} a_n.$ Try using that argument to show that $$\liminf_{n\to\infty}a_n = 1.$$ For $\limsup_{n\to\infty}$, we have to look towards the start of the sequence. To this end, fix $k \in \mathbb{N}$. Then,
+First, note that for any $j\in\mathbb{N}$, $a_{2j} \leq 2 \leq a_{2j-1}$. But this time, we find that both $(a_{2j})_j$ and $(a_{2j-1})_j$ are decreasing sequences! In this case, the argument used in Example \@ref(exm:ex1) will only work for $\liminf_{n\to\infty} a_n.$ Try using that argument to show that $$\liminf_{n\to\infty}a_n = 1.$$ For $\limsup_{n\to\infty} a_n$, we have to look towards the start of the sequence. To this end, fix $k \in \mathbb{N}$. Then,
 \begin{align*}
 \sup_{n\geq k}a_n &= \sup_{2j-1 \geq k} a_{2j - 1} \; \; &&\text{(since only the odd elements are $\geq 2$)}\\
 &=\begin{cases}
@@ -94,7 +94,7 @@ a_{k+1} \; \text{if $k$ is even}\end{cases} \; \; &&\text{(because $(a_{2j-1})_j
 
 In both cases, as $k \to \infty$, $\sup_{n\geq k }a_n \to 3$, so $\limsup_{n \to \infty} a_n = 3$.
 
-## Example 3
+## Example 3 {-}
 ```{example, label = "ex3"}
 Consider the sequence $(a_n)_{n}$ defined by $$a_n = \cos\left(\frac{n\pi}{3}\right).$$ Find $\limsup_{n \to \infty} a_n$ and $\liminf_{n \to \infty} a_n$.
 ```
@@ -102,6 +102,7 @@ Note that this time, you can't split $(a_n)_n$ up into two monotonic subsequence
 
 It's always handy to have an idea of what the $\liminf$ and $\limsup$ might be. Since $\left\lvert\cos\left(\frac{n\pi}{3}\right)\right\rvert \leq 1$ for all $n \in \mathbb{N}$, and $\frac{(-1)^n}{n} \to 0$ as $n \to \infty$, we (hopefully) would guess that $$\liminf_{n\to\infty}a_n = -1, \quad \text{and} \quad \limsup_{n \to \infty} a_n = -1.$$ So how do we go about showing these?
 
+**Solution**
 Firstly, recall that the $\limsup$ is the largest limit of any subsequence of $(a_n)_n$. Take $n_j = 6j$, then $$a_{n_j} = \cos\left(\frac{6j\pi}{3}\right) + \frac{(-1)^{6j}}{6j} = 1 + \frac{1}{6j} \to 1, \; \text{as} \; j \to \infty.$$
 
 So, $\lim_{j \to \infty} a_{n_j} = 1$, hence $\limsup_{n \to \infty} a_n \geq 1$.

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>0.3 Example 3 | Further Examples — Limits Inferior and Superior</title>
-  <meta name="description" content="0.3 Example 3 | Further Examples — Limits Inferior and Superior" />
+  <title>Example 3 | Further Examples — Limits Inferior and Superior</title>
+  <meta name="description" content="Example 3 | Further Examples — Limits Inferior and Superior" />
   <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="0.3 Example 3 | Further Examples — Limits Inferior and Superior" />
+  <meta property="og:title" content="Example 3 | Further Examples — Limits Inferior and Superior" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="0.3 Example 3 | Further Examples — Limits Inferior and Superior" />
+  <meta name="twitter:title" content="Example 3 | Further Examples — Limits Inferior and Superior" />
   
   
   
@@ -268,9 +268,9 @@ MathJax.Hub.Config({
 <ul class="summary">
 <li class="chapter" data-level="" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
-<li class="chapter" data-level="0.1" data-path="example-1.html"><a href="example-1.html"><i class="fa fa-check"></i><b>0.1</b> Example 1</a></li>
-<li class="chapter" data-level="0.2" data-path="example-2.html"><a href="example-2.html"><i class="fa fa-check"></i><b>0.2</b> Example 2</a></li>
-<li class="chapter" data-level="0.3" data-path="example-3.html"><a href="example-3.html"><i class="fa fa-check"></i><b>0.3</b> Example 3</a></li>
+<li class="chapter" data-level="" data-path="example-1.html"><a href="example-1.html"><i class="fa fa-check"></i>Example 1</a></li>
+<li class="chapter" data-level="" data-path="example-2.html"><a href="example-2.html"><i class="fa fa-check"></i>Example 2</a></li>
+<li class="chapter" data-level="" data-path="example-3.html"><a href="example-3.html"><i class="fa fa-check"></i>Example 3</a></li>
 </ul></li>
 </ul>
 
@@ -289,8 +289,8 @@ MathJax.Hub.Config({
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="example-3" class="section level2" number="0.3">
-<h2><span class="header-section-number">0.3</span> Example 3</h2>
+<div id="example-3" class="section level2 unnumbered">
+<h2>Example 3</h2>
 
 <div id="exm:ex3" class="bookdown-example" custom-style="ExampleStyle">
 <span class="exm:ex3" custom-style="NameStyle"><strong>Example 3:  </strong></span>
@@ -300,7 +300,8 @@ Consider the sequence <span class="math inline">\((a_n)_{n}\)</span> defined by 
 </div>
 <p>Note that this time, you can’t split <span class="math inline">\((a_n)_n\)</span> up into two monotonic subsequences, so neither of the two methods in the previous examples work. So, we need to be crafty.</p>
 <p>It’s always handy to have an idea of what the <span class="math inline">\(\liminf\)</span> and <span class="math inline">\(\limsup\)</span> might be. Since <span class="math inline">\(\left\lvert\cos\left(\frac{n\pi}{3}\right)\right\rvert \leq 1\)</span> for all <span class="math inline">\(n \in \mathbb{N}\)</span>, and <span class="math inline">\(\frac{(-1)^n}{n} \to 0\)</span> as <span class="math inline">\(n \to \infty\)</span>, we (hopefully) would guess that <span class="math display">\[\liminf_{n\to\infty}a_n = -1, \quad \text{and} \quad \limsup_{n \to \infty} a_n = -1.\]</span> So how do we go about showing these?</p>
-<p>Firstly, recall that the <span class="math inline">\(\limsup\)</span> is the largest limit of any subsequence of <span class="math inline">\((a_n)_n\)</span>. Take <span class="math inline">\(n_j = 6j\)</span>, then <span class="math display">\[a_{n_j} = \cos\left(\frac{6j\pi}{3}\right) + \frac{(-1)^{6j}}{6j} = 1 + \frac{1}{6j} \to 1, \; \text{as} \; j \to \infty.\]</span></p>
+<p><strong>Solution</strong>
+Firstly, recall that the <span class="math inline">\(\limsup\)</span> is the largest limit of any subsequence of <span class="math inline">\((a_n)_n\)</span>. Take <span class="math inline">\(n_j = 6j\)</span>, then <span class="math display">\[a_{n_j} = \cos\left(\frac{6j\pi}{3}\right) + \frac{(-1)^{6j}}{6j} = 1 + \frac{1}{6j} \to 1, \; \text{as} \; j \to \infty.\]</span></p>
 <p>So, <span class="math inline">\(\lim_{j \to \infty} a_{n_j} = 1\)</span>, hence <span class="math inline">\(\limsup_{n \to \infty} a_n \geq 1\)</span>.</p>
 <p>To show that <span class="math inline">\(\limsup_{n \to \infty} a_n \leq 1\)</span>, recall that for sequences <span class="math inline">\((b_n)_n\)</span> and <span class="math inline">\((c_n)_n\)</span>, <span class="math display">\[\limsup_{n \to \infty}(b_n + c_n) \leq \limsup_{n \to \infty}b_n + \limsup_{n \to \infty}c_n.\]</span> Taking <span class="math display">\[b_n = \cos\left(\frac{n\pi}{3}\right), \; \text{and} \; c_n = \frac{(-1)^n}{n},\]</span> we have that <span class="math display">\[\limsup_{n \to \infty} b_n = 1, \; \text{and}\]</span> <span class="math display">\[\limsup_{n \to \infty} c_n = 0 \quad \text{(as $(c_n)_n$ converges to $0$)}.\]</span> Hence,
 <span class="math display">\[\limsup_{n \to \infty} a_n = \limsup_{n \to \infty}(b_n + c_n) \leq 1 + 0 = 1.\]</span></p>
