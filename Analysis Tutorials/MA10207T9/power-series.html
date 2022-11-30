@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.2 Power Series | Analysis 1A — Tutorial 9</title>
+  <meta name="description" content="1.2 Power Series | Analysis 1A — Tutorial 9" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1.2 Power Series | Analysis 1A — Tutorial 9" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1.2 Power Series | Analysis 1A — Tutorial 9" />
+  
+  
+  
+
+<meta name="author" content="Christian Jones: University of Bath" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="two-more-series-results.html"/>
+<link rel="next" href="hints.html"/>
+
+<script src="libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.MessageHook("End Math", function (msg) {
+  var nodes = Array.from(msg[1].querySelectorAll('.MJX_Assistive_MathML [id]'));
+  while (nodes.length) {
+    nodes.shift().removeAttribute('id');
+  }
+}, 20);
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "fast-preview": {disabled: true},
+  explorer:{ subtitle: true },
+  MatchWebFonts: { 
+    matchFor: { "HTML-CSS": true, NativeMML: false, SVG: false },
+    fontCheckDelay: 2000,
+    fontCheckTimeout: 30 * 1000
+  },
+  "HTML-CSS": {
+    preferredFont: "STIX",
+    availableFonts: ["STIX","TeX"],
+    webFont: "STIX-Web",
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  SVG: {
+    font: "STIX-Web",
+    linebreaks: { automatic: false, width: "90\% container" }
+  },
+  menuSettings: { 
+    collapsible: false, 
+    autocollapse: false, 
+    explorer: false 
+  }
+});
+</script>
+
+
+
+
+<style type="text/css">
+  a {
+   color: blue;
+  }
+  .book .book-summary ul.summary li a, .book .book-summary ul.summary li.active>a, .book .book-body .page-wrapper .page-inner section.normal a {
+  color: blue;
+  }
+
+  [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+   .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #1c242b;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0f6f7;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  
+  [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #182518;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0fcea;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #182518;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0fcea;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  [custom-style=NameStyle]{
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  [custom-style=NameStyleItalics]{
+    font-style: italic;
+  }
+
+  
+  [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #251e18;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #fdf3e9;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #2b1c21;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #fdefef;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+  
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="lecture-recap.html"><a href="lecture-recap.html"><i class="fa fa-check"></i><b>1</b> Lecture Recap</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="two-more-series-results.html"><a href="two-more-series-results.html"><i class="fa fa-check"></i><b>1.1</b> Two More Series Results</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="two-more-series-results.html"><a href="two-more-series-results.html#leibniz-alternating-series-test"><i class="fa fa-check"></i><b>1.1.1</b> Leibniz Alternating Series Test</a></li>
+<li class="chapter" data-level="1.1.2" data-path="two-more-series-results.html"><a href="two-more-series-results.html#multiplying-series"><i class="fa fa-check"></i><b>1.1.2</b> Multiplying Series</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="power-series.html"><a href="power-series.html"><i class="fa fa-check"></i><b>1.2</b> Power Series</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="power-series.html"><a href="power-series.html#how-do-we-find-r"><i class="fa fa-check"></i><b>1.2.1</b> How do we find <span class="math inline">\(R\)</span>?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="hints.html"><a href="hints.html"><i class="fa fa-check"></i><b>2</b> Hints</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis 1A — Tutorial 9</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="power-series" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Power Series</h2>
+<p>To complete our look at series, we’re going to consider a special type of series which may depend on some parameter <span class="math inline">\(x\)</span>. These are known as <em>power series</em>, and are defined as follows:</p>
+
+<div id="def:def1" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Power Series) </strong></span>
+<div>
+A power series is a real series of the form <span class="math inline">\(\sum_{n = 0}^{\infty} a_n x^n\)</span>, where <span class="math inline">\(a_n \in \mathbb{R}\)</span>.
+</div>
+</div>
+<p>Note that compared to many of the series we have seen so far, we have started indexing the sum at <span class="math inline">\(n = 0\)</span>. This is just convention, and will make no difference to the overall convergence properties of these series. Speaking of, we could do with knowing for which values of <span class="math inline">\(x\)</span> these power series converge (or diverge) for.</p>
+
+<div id="prp:prop1" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.1:  </strong></span>
+<p>
+For a power series <span class="math inline">\(\sum_{n = 0}^{\infty} a_n x^n\)</span>, let <span class="math display">\[R:= \sup\lbrace r \geq 0 \lvert \left(\lvert a_n \rvert r^n\right)_{n \in \mathbb{N}} \; \text{is bounded}\rbrace.\]</span> Then <span class="math display">\[\sum_{n = 0}^{\infty} a_n x^n \begin{cases}
+\text{diverges for}\;\lvert x \rvert &gt; R,\\
+\text{converges absolutely for}\; \lvert x \rvert &lt; R. 
+\end{cases}\]</span>
+</p>
+</div>
+<p>Here, <span class="math inline">\(R\)</span> is known as the <em>radius of convergence</em> of the power series. Now, if <span class="math inline">\(R \neq +\infty\)</span>, what happens if <span class="math inline">\(x = \pm R\)</span>? Unfortunately, we need to check the convergence at these points separately, but in doing so, we determine the <em>interval of convergence</em>, which is the set of all <span class="math inline">\(x\)</span> for which the power series converges.</p>
+<div id="how-do-we-find-r" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> How do we find <span class="math inline">\(R\)</span>?</h3>
+<p>Good question. Luckily, there’s two<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> methods of finding <span class="math inline">\(R\)</span>. The first one is a result of d’Alembert’s ratio test.</p>
+
+<div id="thm:thm4" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm4" custom-style="NameStyle"><strong>Theorem 1.4:  </strong></span>
+<p>
+Suppose <span class="math inline">\(\sum_{n = 0}^{\infty} a_n x^n\)</span> is a power series. If <span class="math display">\[\lim_{n \to \infty} \frac{\lvert a_n \rvert}{\lvert a_{n+1}\rvert}\]</span> exists, then the radius of convergence <span class="math inline">\(R\)</span> is the value of this limit.
+</p>
+</div>
+<p>There’s something to be aware of here. In this test, <span class="math inline">\(a_n\)</span> is on the top of the fraction, and <span class="math inline">\(a_{n+1}\)</span> is on the bottom. This is the <strong>other way round</strong> to d’Alembert’s ratio test, so be careful when applying this test! Also, note that if you have infinitely many <span class="math inline">\(a_n\)</span> equal to zero, then you won’t be able to define the fraction in the first place!</p>
+<p>The second method doesn’t look as nice, but it’s very useful if the values of <span class="math inline">\(a_n\)</span> involve powers of <span class="math inline">\(n\)</span>, or if there’s infinitely many of them equal to zero. And it’s also another result due to Cauchy!<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+
+<div id="thm:thm5" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm5" custom-style="NameStyle"><strong>Theorem 1.5:  (Cauchy-Hadamard) </strong></span>
+<p>
+Suppose <span class="math inline">\(\sum_{n = 0}^{\infty} a_n x^n\)</span> is a power series. Then <span class="math display">\[R = \left(\limsup_{n\to\infty}\lvert a_n \rvert^{\frac{1}{n}}\right)^{-1},\]</span> where we define <span class="math inline">\(R = \infty\)</span> if <span class="math inline">\(\frac{1}{R} = 0\)</span>, and <span class="math inline">\(R = 0\)</span> if <span class="math inline">\(\frac{1}{R} = \infty\)</span>.
+</p>
+</div>
+<p>This test is also known as the <em>root test</em>. It is also a good point to mention a particular limit, as it often comes up when applying Cauchy-Hadamard.</p>
+
+<div id="prp:prop2" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop2" custom-style="NameStyle"><strong>Proposition 1.2:  </strong></span>
+<p>
+We have <span class="math inline">\(\lim_{n \to \infty} n^{\frac{1}{n}} = 1\)</span>.
+</p>
+</div>
+<p>Try proving this using a similar argument to that on <em>Exercise Sheet 5, Question 1</em> (but using the binomial theorem instead of just the binomial inequality).</p>
+<p>As a final comment here, there is much more that we can say about power series (in regards to differentiability, integrability, etc.), and we can even extend them to complex <span class="math inline">\(x\)</span>. If you’re interested, you’ll find these results in <a href="https://www.bath.ac.uk/catalogues/2022-2023/ma/MA20218.html">Analysis 2A</a> in Year 2!</p>
+</div>
+</div>
+<!-- </div> -->
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p>Technically, there’s three, but the third is basically by using both versions of the comparison test to compare the power series to something which you know converges/diverges.<a href="power-series.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>This is result number four named after Cauchy!<a href="power-series.html#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="two-more-series-results.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="hints.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["Tutorial9.html", "HTML page"], ["Tutorial9.pdf", "Standard print PDF"], ["Tutorial9Clear.pdf", "Clear print PDF"], ["Tutorial9Large.pdf", "Large print PDF"], ["Tutorial9.docx", "Accessible Word document"], ["Tutorial9.epub", "Accessible EPub book"]],
+"search": false,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

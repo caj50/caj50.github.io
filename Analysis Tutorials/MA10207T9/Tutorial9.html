@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Analysis 1A — Tutorial 9" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Christian Jones: University of Bath" />
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.MessageHook("End Math", function (msg) {
+  var nodes = Array.from(msg[1].querySelectorAll('.MJX_Assistive_MathML [id]'));
+  while (nodes.length) {
+    nodes.shift().removeAttribute('id');
+  }
+}, 20);
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "fast-preview": {disabled: true},
+  explorer:{ subtitle: true },
+  MatchWebFonts: { 
+    matchFor: { "HTML-CSS": true, NativeMML: false, SVG: false },
+    fontCheckDelay: 2000,
+    fontCheckTimeout: 30 * 1000
+  },
+  "HTML-CSS": {
+    preferredFont: "STIX",
+    availableFonts: ["STIX","TeX"],
+    webFont: "STIX-Web",
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  SVG: {
+    font: "STIX-Web",
+    linebreaks: { automatic: false, width: "90\% container" }
+  },
+  menuSettings: { 
+    collapsible: false, 
+    autocollapse: false, 
+    explorer: false 
+  }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta name="description" content="Analysis 1A — Tutorial 9">
+
+<title>Analysis 1A — Tutorial 9</title>
+
+<script src="libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+</style>
+
+<style type="text/css">
+  a {
+   color: blue;
+  }
+
+  [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  [custom-style=NameStyle]{
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  [custom-style=NameStyleItalics]{
+    font-style: italic;
+  }
+
+  
+  [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+  
+  [data-custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  
+</style>
+
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<!--bookdown:title:start-->
+<div id="header">
+<h1 class="title">Analysis 1A — Tutorial 9</h1>
+<h4 class="author"><em>Christian Jones: University of Bath</em></h4>
+<h4 class="date"><em>November 2022</em></h4>
+</div>
+<!--bookdown:title:end-->
+
+<!--bookdown:toc:start-->
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#lecture-recap"><span class="toc-section-number">1</span> Lecture Recap</a>
+<ul>
+<li><a href="#two-more-series-results"><span class="toc-section-number">1.1</span> Two More Series Results</a>
+<ul>
+<li><a href="#leibniz-alternating-series-test"><span class="toc-section-number">1.1.1</span> Leibniz Alternating Series Test</a></li>
+<li><a href="#multiplying-series"><span class="toc-section-number">1.1.2</span> Multiplying Series</a></li>
+</ul></li>
+<li><a href="#power-series"><span class="toc-section-number">1.2</span> Power Series</a>
+<ul>
+<li><a href="#how-do-we-find-r"><span class="toc-section-number">1.2.1</span> How do we find <span class="math inline">\(R\)</span>?</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#hints"><span class="toc-section-number">2</span> Hints</a></li>
+</ul>
+</div>
+<!--bookdown:toc:end-->
+
+<!--bookdown:body:start-->
+<div id="introduction" class="section level1 unnumbered">
+<h1>Introduction</h1>
+<p>Here is the material to accompany the 9th Analysis Tutorial on the 4th December. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to <a href="mailto:caj50@bath.ac.uk">Christian Jones (caj50)</a>.</p>
+</div>
+<div id="lecture-recap" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Lecture Recap</h1>
+<div id="two-more-series-results" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Two More Series Results</h2>
+<div id="leibniz-alternating-series-test" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Leibniz Alternating Series Test</h3>
+<p>So far, we’ve seen three tests which allow us (under certain conditions) to determine whether a series is convergent or not. These were the comparison test, d’Alembert’s ratio test and the Cauchy condensation test. There’s one more test to cover here, and this concerns series which have <em>alternating terms</em>. This is due to Leibniz, who — depending on your point of view — is considered to be the inventor of calculus.</p>
+
+<div id="thm:thm1" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1.1:  (Leibniz Alternating Series Test) </strong></span>
+<p>
+Suppose <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is a decreasing sequence tending to <span class="math inline">\(0\)</span> as <span class="math inline">\(n \to \infty\)</span>. Then <span class="math display">\[\sum_{n=1}^{\infty} (-1)^n a_n\]</span> is a convergent series.
+</p>
+</div>
+<p>Moreover, since the sequence <span class="math inline">\((a_n)_n\)</span> is decreasing towards <span class="math inline">\(0\)</span>, we can say that the value of this sum lies in between <span class="math inline">\(-a_1\)</span> and <span class="math inline">\(a_2 - a_1\)</span>.</p>
+</div>
+<div id="multiplying-series" class="section level3" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Multiplying Series</h3>
+Recall the statement of the Algebra of Series:
+
+<div id="thm:thm2" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm2" custom-style="NameStyle"><strong>Theorem 1.2:  (Algebra of Series) </strong></span>
+<p>
+Let <span class="math inline">\(\sum_{n=1}^{\infty}a_n\)</span> and <span class="math inline">\(\sum_{n=1}^{\infty}b_n\)</span> be convergent series, and let <span class="math inline">\(\alpha, \beta \in \mathbb{R}\)</span>. Then <span class="math display">\[\sum_{n=1}^{\infty}(\alpha a_n + \beta b_n) = \alpha\sum_{n=1}^{\infty}a_n + \beta\sum_{n=1}^{\infty}b_n.\]</span>
+</p>
+</div>
+<p>Now, compare this to the statement of the Algebra of Limits. Notice that we’ve suspiciously omitted any mention about multiplying infinite series together. This is because while for convergent sequences <span class="math inline">\((x_n)_n\)</span> and <span class="math inline">\((y_n)_n\)</span>, <span class="math display">\[\lim_{n\to\infty}(x_ny_n) = \lim_{n\to\infty}x_n \cdot \lim_{n\to\infty}y_n,\]</span>, it does <strong>not</strong> follow that for convergent series <span class="math inline">\(\sum_{n=1}^{\infty}a_n\)</span> and <span class="math inline">\(\sum_{n=1}^{\infty}b_n\)</span> that <span class="math display">\[\sum_{n=1}^{\infty} a_nb_n = \left(\sum_{n=1}^{\infty}a_n\right)\left(\sum_{n=1}^{\infty}b_n\right).\]</span></p>
+<p>If you’re not convinced, try this with <span class="math inline">\(a_n = \frac{1}{n^2}\)</span> and <span class="math inline">\(b_n = 1\)</span>! So, the next question we need to ask is whether a formula for multiplying convergent series exists, and if so, which series can we apply it to. This question was answered by Cauchy<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, and is summarised in the below theorem:</p>
+
+<div id="thm:thm3" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm3" custom-style="NameStyle"><strong>Theorem 1.3:  (Cauchy Multiplication Theorem) </strong></span>
+<p>
+Assume that the real series <span class="math inline">\(\sum_{n=1}^{\infty}a_n\)</span> and <span class="math inline">\(\sum_{n=1}^{\infty}b_n\)</span> converge absolutely, and for <span class="math inline">\(n \in \mathbb{N}\)</span>, define <span class="math display">\[c_n:=\sum_{j=1}^{n}a_j b_{n+1 - j}.\]</span> Then <span class="math inline">\(\sum_{n=1}^{\infty} c_n\)</span> converges absolutely, and <span class="math display">\[\sum_{n=1}^{\infty} c_n = \left(\sum_{n=1}^{\infty}a_n\right)\left(\sum_{n=1}^{\infty}b_n\right).\]</span>
+</p>
+</div>
+<p>Note that we require the condition that the two individual sums are <em>absolutely convergent</em>. To see why, consider the following example:</p>
+
+<div id="exm:ex1" class="bookdown-example" custom-style="ExampleStyle">
+<span class="exm:ex1" custom-style="NameStyle"><strong>Example 1.1:  </strong></span>
+<div>
+For <span class="math inline">\(n\in\mathbb{N}\)</span>, define <span class="math inline">\(a_n = b_n = \frac{(-1)^n}{\sqrt{n}}\)</span>, so that <span class="math inline">\(\sum_{n=1}^{\infty}a_n\)</span> and <span class="math inline">\(\sum_{n=1}^{\infty}b_n\)</span> are conditionally convergent. We can calculate <span class="math inline">\(c_n\)</span> as <span class="math display">\[c_n = \sum_{j = 1}^{n} \frac{(-1)^{(n+1)}}{\sqrt{j}\sqrt{n+1-j}},\]</span> from which (as <span class="math inline">\(1 \leq \sqrt{j} \leq \sqrt{n}\)</span> and <span class="math inline">\(1 \leq \sqrt{n+1-j} \leq \sqrt{n}\)</span>), <span class="math display">\[\lvert c_n \rvert \geq \sum_{j=1}^{n} \frac{1}{n} = n.\]</span> This tells us that <span class="math inline">\(c_n \not\to 0\)</span> as <span class="math inline">\(n\to\infty\)</span>, so <span class="math inline">\(\sum_{n=1}^{\infty} c_n\)</span> must diverge. Hence, the Cauchy Multiplication Theorem fails in this case.
+</div>
+</div>
+</div>
+</div>
+<div id="power-series" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Power Series</h2>
+<p>To complete our look at series, we’re going to consider a special type of series which may depend on some parameter <span class="math inline">\(x\)</span>. These are known as <em>power series</em>, and are defined as follows:</p>
+
+<div id="def:def1" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Power Series) </strong></span>
+<div>
+A power series is a real series of the form <span class="math inline">\(\sum_{n = 0}^{\infty} a_n x^n\)</span>, where <span class="math inline">\(a_n \in \mathbb{R}\)</span>.
+</div>
+</div>
+<p>Note that compared to many of the series we have seen so far, we have started indexing the sum at <span class="math inline">\(n = 0\)</span>. This is just convention, and will make no difference to the overall convergence properties of these series. Speaking of, we could do with knowing for which values of <span class="math inline">\(x\)</span> these power series converge (or diverge) for.</p>
+
+<div id="prp:prop1" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.1:  </strong></span>
+<p>
+For a power series <span class="math inline">\(\sum_{n = 0}^{\infty} a_n x^n\)</span>, let <span class="math display">\[R:= \sup\lbrace r \geq 0 \lvert \left(\lvert a_n \rvert r^n\right)_{n \in \mathbb{N}} \; \text{is bounded}\rbrace.\]</span> Then <span class="math display">\[\sum_{n = 0}^{\infty} a_n x^n \begin{cases}
+\text{diverges for}\;\lvert x \rvert &gt; R,\\
+\text{converges absolutely for}\; \lvert x \rvert &lt; R. 
+\end{cases}\]</span>
+</p>
+</div>
+<p>Here, <span class="math inline">\(R\)</span> is known as the <em>radius of convergence</em> of the power series. Now, if <span class="math inline">\(R \neq +\infty\)</span>, what happens if <span class="math inline">\(x = \pm R\)</span>? Unfortunately, we need to check the convergence at these points separately, but in doing so, we determine the <em>interval of convergence</em>, which is the set of all <span class="math inline">\(x\)</span> for which the power series converges.</p>
+<div id="how-do-we-find-r" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> How do we find <span class="math inline">\(R\)</span>?</h3>
+<p>Good question. Luckily, there’s two<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> methods of finding <span class="math inline">\(R\)</span>. The first one is a result of d’Alembert’s ratio test.</p>
+
+<div id="thm:thm4" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm4" custom-style="NameStyle"><strong>Theorem 1.4:  </strong></span>
+<p>
+Suppose <span class="math inline">\(\sum_{n = 0}^{\infty} a_n x^n\)</span> is a power series. If <span class="math display">\[\lim_{n \to \infty} \frac{\lvert a_n \rvert}{\lvert a_{n+1}\rvert}\]</span> exists, then the radius of convergence <span class="math inline">\(R\)</span> is the value of this limit.
+</p>
+</div>
+<p>There’s something to be aware of here. In this test, <span class="math inline">\(a_n\)</span> is on the top of the fraction, and <span class="math inline">\(a_{n+1}\)</span> is on the bottom. This is the <strong>other way round</strong> to d’Alembert’s ratio test, so be careful when applying this test! Also, note that if you have infinitely many <span class="math inline">\(a_n\)</span> equal to zero, then you won’t be able to define the fraction in the first place!</p>
+<p>The second method doesn’t look as nice, but it’s very useful if the values of <span class="math inline">\(a_n\)</span> involve powers of <span class="math inline">\(n\)</span>, or if there’s infinitely many of them equal to zero. And it’s also another result due to Cauchy!<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+
+<div id="thm:thm5" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm5" custom-style="NameStyle"><strong>Theorem 1.5:  (Cauchy-Hadamard) </strong></span>
+<p>
+Suppose <span class="math inline">\(\sum_{n = 0}^{\infty} a_n x^n\)</span> is a power series. Then <span class="math display">\[R = \left(\limsup_{n\to\infty}\lvert a_n \rvert^{\frac{1}{n}}\right)^{-1},\]</span> where we define <span class="math inline">\(R = \infty\)</span> if <span class="math inline">\(\frac{1}{R} = 0\)</span>, and <span class="math inline">\(R = 0\)</span> if <span class="math inline">\(\frac{1}{R} = \infty\)</span>.
+</p>
+</div>
+<p>This test is also known as the <em>root test</em>. It is also a good point to mention a particular limit, as it often comes up when applying Cauchy-Hadamard.</p>
+
+<div id="prp:prop2" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop2" custom-style="NameStyle"><strong>Proposition 1.2:  </strong></span>
+<p>
+We have <span class="math inline">\(\lim_{n \to \infty} n^{\frac{1}{n}} = 1\)</span>.
+</p>
+</div>
+<p>Try proving this using a similar argument to that on <em>Exercise Sheet 5, Question 1</em> (but using the binomial theorem instead of just the binomial inequality).</p>
+<p>As a final comment here, there is much more that we can say about power series (in regards to differentiability, integrability, etc.), and we can even extend them to complex <span class="math inline">\(x\)</span>. If you’re interested, you’ll find these results in <a href="https://www.bath.ac.uk/catalogues/2022-2023/ma/MA20218.html">Analysis 2A</a> in Year 2!</p>
+</div>
+</div>
+</div>
+<div id="hints" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Hints</h1>
+<p>As per usual, here’s where you’ll find the problem sheet hints!</p>
+<ul>
+<li>[H1.] In this one, remember what we did in tutorials. One uses Leibniz, one can be done with Leibniz (but its quicker not to), and one diverges. Make sure you check the hypotheses of any test you use!</li>
+<li>[H2.] The radius of convergence, <span class="math inline">\(R\)</span>, should be alright — have a look at the theory in lectures/tutorials. For the interval of convergence, remember that if <span class="math inline">\(R \neq \infty\)</span>, you need to test for convergence at <span class="math inline">\(\pm R\)</span>. However…
+<ul>
+<li>[H2a).] For this one, you might want to make a variable substitution first.</li>
+</ul></li>
+<li>[H3.] This one is only slightly more involved. Know your definitions, and again, think of possible convergence tests to apply.</li>
+</ul>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>If you’re keeping track, this is the third time Cauchy has appeared in this course. And we’re not done yet!<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Technically, there’s three, but the third is basically by using both versions of the comparison test to compare the power series to something which you know converges/diverges.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>This is result number four named after Cauchy!<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+<!--bookdown:body:end-->
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>

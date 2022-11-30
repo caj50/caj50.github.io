@@ -1,0 +1,258 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  17pt,
+  a4paper]{extarticle}
+\title{Analysis 1A --- Tutorial 9}
+\author{Christian Jones: University of Bath}
+\date{November 2022}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Analysis 1A --- Tutorial 9},
+  pdfauthor={Christian Jones: University of Bath},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\newcommand{\BOO}{BOO}
+\usepackage{float}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{plain}
+\newtheorem*{lemma*}{Lemma}\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{plain}
+\newtheorem*{corollary*}{Corollary}\newtheorem{corollary}{Corollary}[section]
+\theoremstyle{plain}
+\newtheorem*{proposition*}{Proposition}\newtheorem{proposition}{Proposition}[section]
+\theoremstyle{plain}
+\newtheorem*{conjecture*}{Conjecture}\newtheorem{conjecture}{Conjecture}[section]
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}\newtheorem{definition}{Definition}[section]
+\theoremstyle{definition}
+\newtheorem*{example*}{Example}\newtheorem{example}{Example}[section]
+\theoremstyle{definition}
+\newtheorem*{exercise*}{Exercise}\newtheorem{exercise}{Exercise}[section]
+\theoremstyle{remark}
+\newtheorem*{remark*}{Remark}
+\newtheorem*{solution*}{Solution}
+\let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
+
+
+%\usepackage[english,shorthands=off]{babel}
+\usepackage{etoolbox}
+\usepackage{spverbatim}
+\makeatletter
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\@ifpackageloaded{adjustbox}{}{\usepackage[Export]{adjustbox}}
+\makeatother
+\floatplacement{figure}{H}
+\newcommand{\scalefactor}{1.7}
+\adjustboxset*{min width=\scalefactor\width,max width=\linewidth}
+\renewcommand{\familydefault}{phv}
+\fontfamily{phv}\selectfont
+\renewcommand{\em}{\bf}\renewcommand{\textit}{\textbf}\renewcommand{\emph}{\textbf}\renewcommand{\it}{\bf}\renewcommand{\itshape}{\bf}
+\setlength{\parindent}{0.0pt}
+\setlength{\parskip}{1.0\baselineskip}
+\renewcommand{\baselinestretch}{1.5}\selectfont
+\setlength{\mathsurround}{0.2em}
+\setlength{\arraycolsep}{0.5cm}\renewcommand{\arraystretch}{1.5}
+\addtolength{\jot}{\baselineskip}
+\renewcommand{\;}{\,}
+\sloppy
+\allowdisplaybreaks
+\usepackage{amsthm}
+\newtheoremstyle{plain}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{definition}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{remark}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\csundef{Proof}
+\csundef{endProof}
+\newenvironment{Proof}
+  {\noindent{\bf Proof.}\hspace*{1em}}% Begin
+  {\qed\par}% End
+%% When redefining an environment it is vital that it has 
+%% the same number of arguments as the original
+\renewenvironment{proof}[1][\proofname]
+  {\trivlist\item\relax\noindent{\bf {#1}.}\hspace*{1em}}% Begin
+  {\qed\endtrivlist}% End
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\newpage
+\pagenumbering{arabic}
+
+\hypertarget{introduction}{%
+\section*{Introduction}\label{introduction}}
+\addcontentsline{toc}{section}{Introduction}
+
+Here is the material to accompany the 9th Analysis Tutorial on the 4th December. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to \href{mailto:caj50@bath.ac.uk}{Christian Jones (caj50)}.
+
+\hypertarget{lecture-recap}{%
+\section{Lecture Recap}\label{lecture-recap}}
+
+\hypertarget{two-more-series-results}{%
+\subsection{Two More Series Results}\label{two-more-series-results}}
+
+\hypertarget{leibniz-alternating-series-test}{%
+\subsubsection{Leibniz Alternating Series Test}\label{leibniz-alternating-series-test}}
+
+So far, we've seen three tests which allow us (under certain conditions) to determine whether a series is convergent or not. These were the comparison test, d'Alembert's ratio test and the Cauchy condensation test. There's one more test to cover here, and this concerns series which have \emph{alternating terms}. This is due to Leibniz, who --- depending on your point of view --- is considered to be the inventor of calculus.
+
+\BeginKnitrBlock{theorem}[Leibniz Alternating Series Test]
+{\label{thm:thm1} }Suppose \((a_n)_{n\in\mathbb{N}}\) is a decreasing sequence tending to \(0\) as \(n \to \infty\). Then \[\sum_{n=1}^{\infty} (-1)^n a_n\] is a convergent series.
+\EndKnitrBlock{theorem}
+Moreover, since the sequence \((a_n)_n\) is decreasing towards \(0\), we can say that the value of this sum lies in between \(-a_1\) and \(a_2 - a_1\).
+
+\hypertarget{multiplying-series}{%
+\subsubsection{Multiplying Series}\label{multiplying-series}}
+
+Recall the statement of the Algebra of Series:
+\BeginKnitrBlock{theorem}[Algebra of Series]
+{\label{thm:thm2} }Let \(\sum_{n=1}^{\infty}a_n\) and \(\sum_{n=1}^{\infty}b_n\) be convergent series, and let \(\alpha, \beta \in \mathbb{R}\). Then \[\sum_{n=1}^{\infty}(\alpha a_n + \beta b_n) = \alpha\sum_{n=1}^{\infty}a_n + \beta\sum_{n=1}^{\infty}b_n.\]
+\EndKnitrBlock{theorem}
+Now, compare this to the statement of the Algebra of Limits. Notice that we've suspiciously omitted any mention about multiplying infinite series together. This is because while for convergent sequences \((x_n)_n\) and \((y_n)_n\), \[\lim_{n\to\infty}(x_ny_n) = \lim_{n\to\infty}x_n \cdot \lim_{n\to\infty}y_n,\], it does \textbf{not} follow that for convergent series \(\sum_{n=1}^{\infty}a_n\) and \(\sum_{n=1}^{\infty}b_n\) that \[\sum_{n=1}^{\infty} a_nb_n = \left(\sum_{n=1}^{\infty}a_n\right)\left(\sum_{n=1}^{\infty}b_n\right).\]
+
+If you're not convinced, try this with \(a_n = \frac{1}{n^2}\) and \(b_n = 1\)! So, the next question we need to ask is whether a formula for multiplying convergent series exists, and if so, which series can we apply it to. This question was answered by Cauchy\footnote{If you're keeping track, this is the third time Cauchy has appeared in this course. And we're not done yet!}, and is summarised in the below theorem:
+
+\BeginKnitrBlock{theorem}[Cauchy Multiplication Theorem]
+{\label{thm:thm3} }Assume that the real series \(\sum_{n=1}^{\infty}a_n\) and \(\sum_{n=1}^{\infty}b_n\) converge absolutely, and for \(n \in \mathbb{N}\), define \[c_n:=\sum_{j=1}^{n}a_j b_{n+1 - j}.\] Then \(\sum_{n=1}^{\infty} c_n\) converges absolutely, and \[\sum_{n=1}^{\infty} c_n = \left(\sum_{n=1}^{\infty}a_n\right)\left(\sum_{n=1}^{\infty}b_n\right).\]
+\EndKnitrBlock{theorem}
+Note that we require the condition that the two individual sums are \emph{absolutely convergent}. To see why, consider the following example:
+
+\BeginKnitrBlock{example}
+{\label{exm:ex1} }For \(n\in\mathbb{N}\), define \(a_n = b_n = \frac{(-1)^n}{\sqrt{n}}\), so that \(\sum_{n=1}^{\infty}a_n\) and \(\sum_{n=1}^{\infty}b_n\) are conditionally convergent. We can calculate \(c_n\) as \[c_n = \sum_{j = 1}^{n} \frac{(-1)^{(n+1)}}{\sqrt{j}\sqrt{n+1-j}},\] from which (as \(1 \leq \sqrt{j} \leq \sqrt{n}\) and \(1 \leq \sqrt{n+1-j} \leq \sqrt{n}\)), \[\lvert c_n \rvert \geq \sum_{j=1}^{n} \frac{1}{n} = n.\] This tells us that \(c_n \not\to 0\) as \(n\to\infty\), so \(\sum_{n=1}^{\infty} c_n\) must diverge. Hence, the Cauchy Multiplication Theorem fails in this case.
+\EndKnitrBlock{example}
+
+\hypertarget{power-series}{%
+\subsection{Power Series}\label{power-series}}
+
+To complete our look at series, we're going to consider a special type of series which may depend on some parameter \(x\). These are known as \emph{power series}, and are defined as follows:
+
+\BeginKnitrBlock{definition}[Power Series]
+{\label{def:def1} }A power series is a real series of the form \(\sum_{n = 0}^{\infty} a_n x^n\), where \(a_n \in \mathbb{R}\).
+\EndKnitrBlock{definition}
+Note that compared to many of the series we have seen so far, we have started indexing the sum at \(n = 0\). This is just convention, and will make no difference to the overall convergence properties of these series. Speaking of, we could do with knowing for which values of \(x\) these power series converge (or diverge) for.
+
+\BeginKnitrBlock{proposition}
+{\label{prp:prop1} }For a power series \(\sum_{n = 0}^{\infty} a_n x^n\), let \[R:= \sup\lbrace r \geq 0 \lvert \left(\lvert a_n \rvert r^n\right)_{n \in \mathbb{N}} \; \text{is bounded}\rbrace.\] Then \[\sum_{n = 0}^{\infty} a_n x^n \begin{cases}
+\text{diverges for}\;\lvert x \rvert > R,\\
+\text{converges absolutely for}\; \lvert x \rvert < R. 
+\end{cases}\]
+\EndKnitrBlock{proposition}
+Here, \(R\) is known as the \emph{radius of convergence} of the power series. Now, if \(R \neq +\infty\), what happens if \(x = \pm R\)? Unfortunately, we need to check the convergence at these points separately, but in doing so, we determine the \emph{interval of convergence}, which is the set of all \(x\) for which the power series converges.
+
+\hypertarget{how-do-we-find-r}{%
+\subsubsection{\texorpdfstring{How do we find \(R\)?}{How do we find R?}}\label{how-do-we-find-r}}
+
+Good question. Luckily, there's two\footnote{Technically, there's three, but the third is basically by using both versions of the comparison test to compare the power series to something which you know converges/diverges.} methods of finding \(R\). The first one is a result of d'Alembert's ratio test.
+
+\BeginKnitrBlock{theorem}
+{\label{thm:thm4} }Suppose \(\sum_{n = 0}^{\infty} a_n x^n\) is a power series. If \[\lim_{n \to \infty} \frac{\lvert a_n \rvert}{\lvert a_{n+1}\rvert}\] exists, then the radius of convergence \(R\) is the value of this limit.
+\EndKnitrBlock{theorem}
+There's something to be aware of here. In this test, \(a_n\) is on the top of the fraction, and \(a_{n+1}\) is on the bottom. This is the \textbf{other way round} to d'Alembert's ratio test, so be careful when applying this test! Also, note that if you have infinitely many \(a_n\) equal to zero, then you won't be able to define the fraction in the first place!
+
+The second method doesn't look as nice, but it's very useful if the values of \(a_n\) involve powers of \(n\), or if there's infinitely many of them equal to zero. And it's also another result due to Cauchy!\footnote{This is result number four named after Cauchy!}
+
+\BeginKnitrBlock{theorem}[Cauchy-Hadamard]
+{\label{thm:thm5} }Suppose \(\sum_{n = 0}^{\infty} a_n x^n\) is a power series. Then \[R = \left(\limsup_{n\to\infty}\lvert a_n \rvert^{\frac{1}{n}}\right)^{-1},\] where we define \(R = \infty\) if \(\frac{1}{R} = 0\), and \(R = 0\) if \(\frac{1}{R} = \infty\).
+\EndKnitrBlock{theorem}
+This test is also known as the \emph{root test}. It is also a good point to mention a particular limit, as it often comes up when applying Cauchy-Hadamard.
+
+\BeginKnitrBlock{proposition}
+{\label{prp:prop2} }We have \(\lim_{n \to \infty} n^{\frac{1}{n}} = 1\).
+\EndKnitrBlock{proposition}
+Try proving this using a similar argument to that on \emph{Exercise Sheet 5, Question 1} (but using the binomial theorem instead of just the binomial inequality).
+
+As a final comment here, there is much more that we can say about power series (in regards to differentiability, integrability, etc.), and we can even extend them to complex \(x\). If you're interested, you'll find these results in \href{https://www.bath.ac.uk/catalogues/2022-2023/ma/MA20218.html}{Analysis 2A} in Year 2!
+
+\hypertarget{hints}{%
+\section{Hints}\label{hints}}
+
+As per usual, here's where you'll find the problem sheet hints!
+
+\begin{itemize}
+\tightlist
+\item
+  {[}H1.{]} In this one, remember what we did in tutorials. One uses Leibniz, one can be done with Leibniz (but its quicker not to), and one diverges. Make sure you check the hypotheses of any test you use!
+\item
+  {[}H2.{]} The radius of convergence, \(R\), should be alright --- have a look at the theory in lectures/tutorials. For the interval of convergence, remember that if \(R \neq \infty\), you need to test for convergence at \(\pm R\). However\ldots{}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    {[}H2a).{]} For this one, you might want to make a variable substitution first.
+  \end{itemize}
+\item
+  {[}H3.{]} This one is only slightly more involved. Know your definitions, and again, think of possible convergence tests to apply.
+\end{itemize}
+
+\end{document}
