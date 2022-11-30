@@ -16,6 +16,11 @@ output:
       download: [["Tutorial9.html", "HTML page"], ["Tutorial9.pdf","Standard print PDF"], ["Tutorial9Clear.pdf","Clear print PDF"], ["Tutorial9Large.pdf","Large print PDF"], ["Tutorial9.docx","Accessible Word document"], ["Tutorial9.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
+  clavertondown::word_clav:
+    toc: true
+    number_sections: true
+    keep_md: true
+    pandoc_args: --default-image-extension=svg
   clavertondown::html_clav:
     toc: true
     pandoc_args: --default-image-extension=svg
@@ -29,11 +34,6 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
-  clavertondown::word_clav:
-    toc: true
-    number_sections: true
-    keep_md: true
-    pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
 ---
@@ -57,7 +57,7 @@ Moreover, since the sequence $(a_n)_n$ is decreasing towards $0$, we can say tha
 ### Multiplying Series
 Recall the statement of the Algebra of Series:
 \BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm2"><span class="thm:thm2" custom-style="NameStyle"><strong>(\#thm:thm2)  (Algebra of Series) </strong></span><p>Let $\sum_{n=1}^{\infty}a_n$ and $\sum_{n=1}^{\infty}b_n$ be convergent series, and let $\alpha, \beta \in \mathbb{R}$. Then $$\sum_{n=1}^{\infty}(\alpha a_n + \beta b_n) = \alpha\sum_{n=1}^{\infty}a_n + \beta\sum_{n=1}^{\infty}b_n.$$</p></div>\EndKnitrBlock{theorem}
-Now, compare this to the statement of the Algebra of Limits. Notice that we've suspiciously omitted any mention about multiplying infinite series together. This is because while for convergent sequences $(x_n)_n$ and $(y_n)_n$, $$\lim_{n\to\infty}(x_ny_n) = \lim_{n\to\infty}x_n \cdot \lim_{n\to\infty}y_n,$$, it does **not** follow that for convergent series $\sum_{n=1}^{\infty}a_n$ and $\sum_{n=1}^{\infty}b_n$ that $$\sum_{n=1}^{\infty} a_nb_n = \left(\sum_{n=1}^{\infty}a_n\right)\left(\sum_{n=1}^{\infty}b_n\right).$$
+Now, compare this to the statement of the Algebra of Limits. Notice that we've suspiciously omitted any mention about multiplying infinite series together. This is because while for convergent sequences $(x_n)_n$ and $(y_n)_n$, $$\lim_{n\to\infty}(x_ny_n) = \lim_{n\to\infty}x_n \cdot \lim_{n\to\infty}y_n,$$ it does **not** follow that for convergent series $\sum_{n=1}^{\infty}a_n$ and $\sum_{n=1}^{\infty}b_n$ that $$\sum_{n=1}^{\infty} a_nb_n = \left(\sum_{n=1}^{\infty}a_n\right)\left(\sum_{n=1}^{\infty}b_n\right).$$
 
 If you're not convinced, try this with $a_n = \frac{1}{n^2}$ and $b_n = 1$! So, the next question we need to ask is whether a formula for multiplying convergent series exists, and if so, which series can we apply it to. This question was answered by Cauchy[^1], and is summarised in the below theorem:
 
