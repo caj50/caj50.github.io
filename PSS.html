@@ -287,6 +287,14 @@ for (i = 0; i < coll.length; i++) {
 }
 </script>
 
+<!-- Adds the modified date at the end of the page. Span tags get the date on the same
+line as the words!-->
+<p>This page was last modified: <span id="demo"></span></p>
+
+<script>
+let text = document.lastModified;
+document.getElementById("demo").innerHTML = text;
+</script>
 
   <!-- Below, there is a bit of text with a hyperlink to the
   University of Bath Home page. The link consists of http: to indicate
