@@ -1,7 +1,7 @@
 ---
 title: "Analysis 1A — Tutorial 9"
 author: 'Christian Jones: University of Bath'
-date: 'November 2022'
+date: 'December 2022'
 site: bookdown::bookdown_site
 language: en
 documentclass: article
@@ -28,11 +28,11 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
   clavertondown::html_clav:
     toc: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
@@ -72,7 +72,7 @@ Note that we require the condition that the two individual sums are *absolutely 
 To complete our look at series, we're going to consider a special type of series which may depend on some parameter $x$. These are known as *power series*, and are defined as follows:
 
 \BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def1"><span class="def:def1" custom-style="NameStyle"><strong>(\#def:def1)  (Power Series) </strong></span><div>A power series is a real series of the form $\sum_{n = 0}^{\infty} a_n x^n$, where $a_n \in \mathbb{R}$.</div></div>\EndKnitrBlock{definition}
-Note that compared to many of the series we have seen so far, we have started indexing the sum at $n = 0$. This is just convention, and will make no difference to the overall convergence properties of these series. Speaking of, we could do with knowing for which values of $x$ these power series converge (or diverge) for.
+Note that compared to many of the series we have seen so far, we have started indexing the sum at $n = 0$. This is just convention, and will make no difference to the overall convergence properties of these series. Speaking of, we could do with knowing for which values of $x$ these power series converge (or diverge).
 
 \BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop1"><span class="prp:prop1" custom-style="NameStyle"><strong>(\#prp:prop1) </strong></span><p>For a power series $\sum_{n = 0}^{\infty} a_n x^n$, let $$R:= \sup\lbrace r \geq 0 \lvert \left(\lvert a_n \rvert r^n\right)_{n \in \mathbb{N}} \; \text{is bounded}\rbrace.$$ Then $$\sum_{n = 0}^{\infty} a_n x^n \begin{cases}
 \text{diverges for}\;\lvert x \rvert > R,\\
@@ -105,5 +105,5 @@ As per usual, here’s where you’ll find the problem sheet hints!
 * [H1.] In this one, remember what we did in tutorials. One uses Leibniz, one can be done with Leibniz (but its quicker not to), and one diverges. Make sure you check the hypotheses of any test you use!
 * [H2.] The radius of convergence, $R$, should be alright — have a look at the theory in lectures/tutorials. For the interval of convergence, remember that if $R \neq \infty$, you need to test for convergence at $\pm R$. However...
      * [H2a).] For this one, you might want to make a variable substitution first.
-* [H3.] This one is only slightly more involved. Know your definitions, and again, think of possible convergence tests to apply.
+* [H3.] To begin here, you've seen a similar trick for the square roots in previous problem sheets (e.g. Sheet 4/Sheet 8). Think about your tests for convergence again on this one!
 
