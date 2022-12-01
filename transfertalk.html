@@ -166,11 +166,8 @@ easy to understand!). -->
 
 <!-- Adds the modified date at the end of the page. Span tags get the date on the same
 line as the words!-->
-<p>This page was last modified: <span id="tftalk"></span></p>
-
-<script>
-let text = document.lastModified;
-document.getElementById("tftalk").innerHTML = text;
+<script language="Javascript">
+document.write("This website was last modified on: " + document.lastModified +"");
 </script>
 
   <!-- Below, there is a bit of text with a hyperlink to the
