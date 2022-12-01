@@ -192,11 +192,9 @@ During my MRes year, I have taken the following units:
 
 <!-- Adds the modified date at the end of the page. Span tags get the date on the same
 line as the words!-->
-<p>This page was last modified: <span id="index"></span></p>
 
-<script>
-let text1 = document.lastModified;
-document.getElementById("index").innerHTML = text1;
+<script language="Javascript">
+document.write("This page was last modified on: " + document.lastModified +"");
 </script>
 
   <!-- Below, there is a bit of text with a hyperlink to the
