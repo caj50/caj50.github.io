@@ -330,14 +330,7 @@ Let <span class="math inline">\(\sum_{n=1}^{\infty}a_n\)</span> and <span class=
 Assume that the real series <span class="math inline">\(\sum_{n=1}^{\infty}a_n\)</span> and <span class="math inline">\(\sum_{n=1}^{\infty}b_n\)</span> converge absolutely, and for <span class="math inline">\(n \in \mathbb{N}\)</span>, define <span class="math display">\[c_n:=\sum_{j=1}^{n}a_j b_{n+1 - j}.\]</span> Then <span class="math inline">\(\sum_{n=1}^{\infty} c_n\)</span> converges absolutely, and <span class="math display">\[\sum_{n=1}^{\infty} c_n = \left(\sum_{n=1}^{\infty}a_n\right)\left(\sum_{n=1}^{\infty}b_n\right).\]</span>
 </p>
 </div>
-<p>Note that we require the condition that the two individual sums are <em>absolutely convergent</em>. To see why, consider the following example:</p>
-
-<div id="exm:ex1" class="bookdown-example" custom-style="ExampleStyle">
-<span class="exm:ex1" custom-style="NameStyle"><strong>Example 1.1:  </strong></span>
-<div>
-For <span class="math inline">\(n\in\mathbb{N}\)</span>, define <span class="math inline">\(a_n = b_n = \frac{(-1)^n}{\sqrt{n}}\)</span>, so that <span class="math inline">\(\sum_{n=1}^{\infty}a_n\)</span> and <span class="math inline">\(\sum_{n=1}^{\infty}b_n\)</span> are conditionally convergent. We can calculate <span class="math inline">\(c_n\)</span> as <span class="math display">\[c_n = \sum_{j = 1}^{n} \frac{(-1)^{(n+1)}}{\sqrt{j}\sqrt{n+1-j}},\]</span> from which (as <span class="math inline">\(1 \leq \sqrt{j} \leq \sqrt{n}\)</span> and <span class="math inline">\(1 \leq \sqrt{n+1-j} \leq \sqrt{n}\)</span>), <span class="math display">\[\lvert c_n \rvert \geq \sum_{j=1}^{n} \frac{1}{n} = n.\]</span> This tells us that <span class="math inline">\(c_n \not\to 0\)</span> as <span class="math inline">\(n\to\infty\)</span>, so <span class="math inline">\(\sum_{n=1}^{\infty} c_n\)</span> must diverge. Hence, the Cauchy Multiplication Theorem fails in this case.
-</div>
-</div>
+<p>Note that we require the condition that the two individual sums are <em>absolutely convergent</em>. As you’ve seen in lectures, the Cauchy Multiplication Theorem will fail if the series involved are only conditionally convergent.</p>
 </div>
 </div>
 <div class="footnotes">

@@ -186,11 +186,7 @@ If you're not convinced, we can try this with \(a_n = b_n = \frac{(-1)^{n}}{\sqr
 \BeginKnitrBlock{theorem}[Cauchy Multiplication Theorem]
 {\label{thm:thm3} }Assume that the real series \(\sum_{n=1}^{\infty}a_n\) and \(\sum_{n=1}^{\infty}b_n\) converge absolutely, and for \(n \in \mathbb{N}\), define \[c_n:=\sum_{j=1}^{n}a_j b_{n+1 - j}.\] Then \(\sum_{n=1}^{\infty} c_n\) converges absolutely, and \[\sum_{n=1}^{\infty} c_n = \left(\sum_{n=1}^{\infty}a_n\right)\left(\sum_{n=1}^{\infty}b_n\right).\]
 \EndKnitrBlock{theorem}
-Note that we require the condition that the two individual sums are \emph{absolutely convergent}. To see why, consider the following example:
-
-\BeginKnitrBlock{example}
-{\label{exm:ex1} }For \(n\in\mathbb{N}\), define \(a_n = b_n = \frac{(-1)^n}{\sqrt{n}}\), so that \(\sum_{n=1}^{\infty}a_n\) and \(\sum_{n=1}^{\infty}b_n\) are conditionally convergent. We can calculate \(c_n\) as \[c_n = \sum_{j = 1}^{n} \frac{(-1)^{(n+1)}}{\sqrt{j}\sqrt{n+1-j}},\] from which (as \(1 \leq \sqrt{j} \leq \sqrt{n}\) and \(1 \leq \sqrt{n+1-j} \leq \sqrt{n}\)), \[\lvert c_n \rvert \geq \sum_{j=1}^{n} \frac{1}{n} = n.\] This tells us that \(c_n \not\to 0\) as \(n\to\infty\), so \(\sum_{n=1}^{\infty} c_n\) must diverge. Hence, the Cauchy Multiplication Theorem fails in this case.
-\EndKnitrBlock{example}
+Note that we require the condition that the two individual sums are \emph{absolutely convergent}. As you've seen in lectures, the Cauchy Multiplication Theorem will fail if the series involved are only conditionally convergent.
 
 \hypertarget{power-series}{%
 \subsection{Power Series}\label{power-series}}
@@ -230,7 +226,17 @@ This test is also known as the \emph{root test}. It is also a good point to ment
 \BeginKnitrBlock{proposition}
 {\label{prp:prop2} }We have \(\lim_{n \to \infty} n^{\frac{1}{n}} = 1\).
 \EndKnitrBlock{proposition}
-Try proving this using a similar argument to that on \emph{Exercise Sheet 5, Question 1} (but using the binomial theorem instead of just the binomial inequality).
+Try proving this using a similar argument to that on \emph{Exercise Sheet 5, Question 1} (but using the binomial theorem instead of just the binomial inequality). Now that we have this result, we can cover a more unusual power series example:
+
+\BeginKnitrBlock{example}
+{\label{exm:ex2} }Consider the power series \(\sum_{n=1}^{\infty}a_n x^n\), where \(a_n\) is given by \[a_n = \begin{cases}
+n \quad \text{if $n$ is prime},\\
+0 \quad \text{otherwise}.
+\end{cases}\]
+What is the radius of convergence, \(R\)?
+\EndKnitrBlock{example}
+\textbf{Solution:}
+Since zero occurs as a value of \(a_n\) infinitely often, we resort to using the Cauchy-Hadamard test. As each term of \((a_n)_n\) is non-negative and we can split it up into two monotonic increasing sequences --- one consisting of all zeroes, and one consisting of the prime numbers --- we find that \[\limsup_{n\to\infty}\lvert a_n \rvert^{\frac{1}{n}} = \lim_{n \to \infty} n^{\frac{1}{n}} = 1.\] Taking the reciprocal of this answer gives us that the radius of convergence is \(R = 1\).
 
 As a final comment here, there is much more that we can say about power series (in regards to differentiability, integrability, etc.), and we can even extend them to complex \(x\). If you're interested, you'll find these results in \href{https://www.bath.ac.uk/catalogues/2022-2023/ma/MA20218.html}{Analysis 2A} in Year 2!
 

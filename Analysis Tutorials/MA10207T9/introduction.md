@@ -16,10 +16,8 @@ output:
       download: [["Tutorial9.html", "HTML page"], ["Tutorial9.pdf","Standard print PDF"], ["Tutorial9Clear.pdf","Clear print PDF"], ["Tutorial9Large.pdf","Large print PDF"], ["Tutorial9.docx","Accessible Word document"], ["Tutorial9.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
-  clavertondown::word_clav:
-    toc: true
-    number_sections: true
-    keep_md: true
+  clavertondown::epub_clav:
+    toc: false
     pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
@@ -31,8 +29,10 @@ output:
   clavertondown::html_clav:
     toc: true
     pandoc_args: --default-image-extension=svg
-  clavertondown::epub_clav:
-    toc: false
+  clavertondown::word_clav:
+    toc: true
+    number_sections: true
+    keep_md: true
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
@@ -62,9 +62,9 @@ Now, compare this to the statement of the Algebra of Limits. Notice that we've s
 If you're not convinced, we can try this with $a_n = b_n =  \frac{(-1)^{n}}{\sqrt{n}}$. Using the Leibniz test, we can see that both $\sum_{n=1}^{\infty}a_n$ and $\sum_{n=1}^{\infty}b_n$ converge, but $$\sum_{n=1}^{\infty} a_nb_n = \sum_{n=1}^{\infty}\frac{1}{n} = \infty.$$ So, the next question we need to ask is whether a formula for multiplying convergent series exists, and if so, which series can we apply it to. This question was answered by Cauchy[^2], and is summarised in the below theorem:
 
 \BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm3"><span class="thm:thm3" custom-style="NameStyle"><strong>(\#thm:thm3)  (Cauchy Multiplication Theorem) </strong></span><p>Assume that the real series $\sum_{n=1}^{\infty}a_n$ and $\sum_{n=1}^{\infty}b_n$ converge absolutely, and for $n \in \mathbb{N}$, define $$c_n:=\sum_{j=1}^{n}a_j b_{n+1 - j}.$$ Then $\sum_{n=1}^{\infty} c_n$ converges absolutely, and $$\sum_{n=1}^{\infty} c_n = \left(\sum_{n=1}^{\infty}a_n\right)\left(\sum_{n=1}^{\infty}b_n\right).$$</p></div>\EndKnitrBlock{theorem}
-Note that we require the condition that the two individual sums are *absolutely convergent*. To see why, consider the following example:
+Note that we require the condition that the two individual sums are *absolutely convergent*. As you've seen in lectures, the Cauchy Multiplication Theorem will fail if the series involved are only conditionally convergent.
 
-\BeginKnitrBlock{example}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex1"><span class="exm:ex1" custom-style="NameStyle"><strong>(\#exm:ex1) </strong></span><div>For $n\in\mathbb{N}$, define $a_n = b_n = \frac{(-1)^n}{\sqrt{n}}$, so that $\sum_{n=1}^{\infty}a_n$ and $\sum_{n=1}^{\infty}b_n$ are conditionally convergent. We can calculate $c_n$ as $$c_n = \sum_{j = 1}^{n} \frac{(-1)^{(n+1)}}{\sqrt{j}\sqrt{n+1-j}},$$ from which (as $1 \leq \sqrt{j} \leq \sqrt{n}$ and $1 \leq \sqrt{n+1-j} \leq \sqrt{n}$), $$\lvert c_n \rvert \geq \sum_{j=1}^{n} \frac{1}{n} = n.$$ This tells us that $c_n \not\to 0$ as $n\to\infty$, so $\sum_{n=1}^{\infty} c_n$ must diverge. Hence, the Cauchy Multiplication Theorem fails in this case.</div></div>\EndKnitrBlock{example}
+
 
 [^2]: If you're keeping track, this is the third time Cauchy has appeared in this course. And we're not done yet!
 
@@ -92,7 +92,15 @@ The second method doesn't look as nice, but it's very useful if the values of $a
 This test is also known as the *root test*. It is also a good point to mention a particular limit, as it often comes up when applying Cauchy-Hadamard.
 
 \BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop2"><span class="prp:prop2" custom-style="NameStyle"><strong>(\#prp:prop2) </strong></span><p>We have $\lim_{n \to \infty} n^{\frac{1}{n}} = 1$.</p></div>\EndKnitrBlock{proposition}
-Try proving this using a similar argument to that on *Exercise Sheet 5, Question 1* (but using the binomial theorem instead of just the binomial inequality).
+Try proving this using a similar argument to that on *Exercise Sheet 5, Question 1* (but using the binomial theorem instead of just the binomial inequality). Now that we have this result, we can cover a more unusual power series example:
+
+\BeginKnitrBlock{example}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex2"><span class="exm:ex2" custom-style="NameStyle"><strong>(\#exm:ex2) </strong></span><div>Consider the power series $\sum_{n=1}^{\infty}a_n x^n$, where $a_n$ is given by $$a_n = \begin{cases}
+n \quad \text{if $n$ is prime},\\
+0 \quad \text{otherwise}.
+\end{cases}$$
+What is the radius of convergence, $R$?</div></div>\EndKnitrBlock{example}
+**Solution:**
+Since zero occurs as a value of $a_n$ infinitely often, we resort to using the Cauchy-Hadamard test. As each term of $(a_n)_n$ is non-negative and we can split it up into two monotonic increasing sequences --- one consisting of all zeroes, and one consisting of the prime numbers --- we find that $$\limsup_{n\to\infty}\lvert a_n \rvert^{\frac{1}{n}} = \lim_{n \to \infty} n^{\frac{1}{n}} = 1.$$ Taking the reciprocal of this answer gives us that the radius of convergence is $R = 1$.  
 
 As a final comment here, there is much more that we can say about power series (in regards to differentiability, integrability, etc.), and we can even extend them to complex $x$. If you're interested, you'll find these results in  [Analysis 2A](https://www.bath.ac.uk/catalogues/2022-2023/ma/MA20218.html) in Year 2!
 
