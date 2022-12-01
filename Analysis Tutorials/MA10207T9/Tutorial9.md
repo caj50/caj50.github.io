@@ -14,19 +14,6 @@ output:
     number_sections: true
     keep_md: true
     pandoc_args: --default-image-extension=svg
-  clavertondown::gitbook_clav:
-    split_by: section
-    keep_md: true
-    config:
-      download: [["Tutorial9.html", "HTML page"], ["Tutorial9.pdf","Standard print PDF"], ["Tutorial9Clear.pdf","Clear print PDF"], ["Tutorial9Large.pdf","Large print PDF"], ["Tutorial9.docx","Accessible Word document"], ["Tutorial9.epub","Accessible EPub book" ]]
-      sharing: no
-    pandoc_args: --default-image-extension=svg
-  clavertondown::html_clav:
-    toc: true
-    pandoc_args: --default-image-extension=svg
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
     keep_tex: true
@@ -34,6 +21,19 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
+  clavertondown::gitbook_clav:
+    split_by: section
+    keep_md: true
+    config:
+      download: [["Tutorial9.html", "HTML page"], ["Tutorial9.pdf","Standard print PDF"], ["Tutorial9Clear.pdf","Clear print PDF"], ["Tutorial9Large.pdf","Large print PDF"], ["Tutorial9.docx","Accessible Word document"], ["Tutorial9.epub","Accessible EPub book" ]]
+      sharing: no
+    pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
+  clavertondown::html_clav:
+    toc: true
+    pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
 ---
@@ -57,16 +57,16 @@ Moreover, since the sequence $(a_n)_n$ is decreasing towards $0$, we can say tha
 ### Multiplying Series
 Recall the statement of the Algebra of Series:
 \BeginKnitrBlock{theorem}<div class="bookdown-theorem" custom-style="TheoremStyleUpright" id="thm:thm2"><span class="thm:thm2" custom-style="NameStyle"><strong><span id="thm:thm2"></span>Theorem 1.2   (Algebra of Series) </strong></span><p>Let $\sum_{n=1}^{\infty}a_n$ and $\sum_{n=1}^{\infty}b_n$ be convergent series, and let $\alpha, \beta \in \mathbb{R}$. Then $$\sum_{n=1}^{\infty}(\alpha a_n + \beta b_n) = \alpha\sum_{n=1}^{\infty}a_n + \beta\sum_{n=1}^{\infty}b_n.$$</p></div>\EndKnitrBlock{theorem}
-Now, compare this to the statement of the Algebra of Limits. Notice that we've suspiciously omitted any mention about multiplying infinite series together. This is because while for convergent sequences $(x_n)_n$ and $(y_n)_n$, $$\lim_{n\to\infty}(x_ny_n) = \lim_{n\to\infty}x_n \cdot \lim_{n\to\infty}y_n,$$ it does **not** follow that for convergent series $\sum_{n=1}^{\infty}a_n$ and $\sum_{n=1}^{\infty}b_n$ that $$\sum_{n=1}^{\infty} a_nb_n = \left(\sum_{n=1}^{\infty}a_n\right)\left(\sum_{n=1}^{\infty}b_n\right).$$
+Now, compare this to the statement of the Algebra of Limits. Notice that we've suspiciously omitted any mention about multiplying infinite series together. This is because while for convergent sequences $(x_n)_n$ and $(y_n)_n$, $$\lim_{n\to\infty}(x_ny_n) = \lim_{n\to\infty}x_n \cdot \lim_{n\to\infty}y_n,$$ it does **not** follow that for convergent series $\sum_{n=1}^{\infty}a_n$ and $\sum_{n=1}^{\infty}b_n$, $$\sum_{n=1}^{\infty} a_nb_n = \left(\sum_{n=1}^{\infty}a_n\right)\left(\sum_{n=1}^{\infty}b_n\right).$$
 
-If you're not convinced, try this with $a_n = \frac{1}{n^2}$ and $b_n = 1$! So, the next question we need to ask is whether a formula for multiplying convergent series exists, and if so, which series can we apply it to. This question was answered by Cauchy[^1], and is summarised in the below theorem:
+If you're not convinced, we can try this with $a_n = b_n =  \frac{(-1)^{n}}{\sqrt{n}}$. Using the Leibniz test, we can see that both $\sum_{n=1}^{\infty}a_n$ and $\sum_{n=1}^{\infty}b_n$ converge, but $$\sum_{n=1}^{\infty} a_nb_n = \sum_{n=1}^{\infty}\frac{1}{n} = \infty.$$ So, the next question we need to ask is whether a formula for multiplying convergent series exists, and if so, which series can we apply it to. This question was answered by Cauchy[^2], and is summarised in the below theorem:
 
 \BeginKnitrBlock{theorem}<div class="bookdown-theorem" custom-style="TheoremStyleUpright" id="thm:thm3"><span class="thm:thm3" custom-style="NameStyle"><strong><span id="thm:thm3"></span>Theorem 1.3   (Cauchy Multiplication Theorem) </strong></span><p>Assume that the real series $\sum_{n=1}^{\infty}a_n$ and $\sum_{n=1}^{\infty}b_n$ converge absolutely, and for $n \in \mathbb{N}$, define $$c_n:=\sum_{j=1}^{n}a_j b_{n+1 - j}.$$ Then $\sum_{n=1}^{\infty} c_n$ converges absolutely, and $$\sum_{n=1}^{\infty} c_n = \left(\sum_{n=1}^{\infty}a_n\right)\left(\sum_{n=1}^{\infty}b_n\right).$$</p></div>\EndKnitrBlock{theorem}
 Note that we require the condition that the two individual sums are *absolutely convergent*. To see why, consider the following example:
 
 \BeginKnitrBlock{example}<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex1"><span class="exm:ex1" custom-style="NameStyle"><strong><span id="exm:ex1"></span>Example 1.1  </strong></span><div>For $n\in\mathbb{N}$, define $a_n = b_n = \frac{(-1)^n}{\sqrt{n}}$, so that $\sum_{n=1}^{\infty}a_n$ and $\sum_{n=1}^{\infty}b_n$ are conditionally convergent. We can calculate $c_n$ as $$c_n = \sum_{j = 1}^{n} \frac{(-1)^{(n+1)}}{\sqrt{j}\sqrt{n+1-j}},$$ from which (as $1 \leq \sqrt{j} \leq \sqrt{n}$ and $1 \leq \sqrt{n+1-j} \leq \sqrt{n}$), $$\lvert c_n \rvert \geq \sum_{j=1}^{n} \frac{1}{n} = n.$$ This tells us that $c_n \not\to 0$ as $n\to\infty$, so $\sum_{n=1}^{\infty} c_n$ must diverge. Hence, the Cauchy Multiplication Theorem fails in this case.</div></div>\EndKnitrBlock{example}
 
-[^1]: If you're keeping track, this is the third time Cauchy has appeared in this course. And we're not done yet!
+[^2]: If you're keeping track, this is the third time Cauchy has appeared in this course. And we're not done yet!
 
 ## Power Series
 To complete our look at series, we're going to consider a special type of series which may depend on some parameter $x$. These are known as *power series*, and are defined as follows:
@@ -81,12 +81,12 @@ Note that compared to many of the series we have seen so far, we have started in
 Here, $R$ is known as the *radius of convergence* of the power series. Now, if $R \neq +\infty$, what happens if $x = \pm R$? Unfortunately, we need to check the convergence at these points separately, but in doing so, we determine the *interval of convergence*, which is the set of all $x$ for which the power series converges.
 
 ### How do we find $R$?
-Good question. Luckily, there's two[^2] methods of finding $R$. The first one is a result of d'Alembert's ratio test.
+Good question. Luckily, there's two[^3] methods of finding $R$. The first one is a result of d'Alembert's ratio test.
 
 \BeginKnitrBlock{theorem}<div class="bookdown-theorem" custom-style="TheoremStyleUpright" id="thm:thm4"><span class="thm:thm4" custom-style="NameStyle"><strong><span id="thm:thm4"></span>Theorem 1.4  </strong></span><p>Suppose $\sum_{n = 0}^{\infty} a_n x^n$ is a power series. If $$\lim_{n \to \infty} \frac{\lvert a_n \rvert}{\lvert a_{n+1}\rvert}$$ exists, then the radius of convergence $R$ is the value of this limit.</p></div>\EndKnitrBlock{theorem}
 There's something to be aware of here. In this test, $a_n$ is on the top of the fraction, and $a_{n+1}$ is on the bottom. This is the **other way round** to d'Alembert's ratio test, so be careful when applying this test! Also, note that if you have infinitely many $a_n$ equal to zero, then you won't be able to define the fraction in the first place!
 
-The second method doesn't look as nice, but it's very useful if the values of $a_n$ involve powers of $n$, or if there's infinitely many of them equal to zero. And it's also another result due to Cauchy![^3]
+The second method doesn't look as nice, but it's very useful if the values of $a_n$ involve powers of $n$, or if there's infinitely many of them equal to zero. And it's also another result due to Cauchy![^4]
 
 \BeginKnitrBlock{theorem}<div class="bookdown-theorem" custom-style="TheoremStyleUpright" id="thm:thm5"><span class="thm:thm5" custom-style="NameStyle"><strong><span id="thm:thm5"></span>Theorem 1.5   (Cauchy-Hadamard) </strong></span><p>Suppose $\sum_{n = 0}^{\infty} a_n x^n$ is a power series. Then $$R = \left(\limsup_{n\to\infty}\lvert a_n \rvert^{\frac{1}{n}}\right)^{-1},$$ where we define $R = \infty$ if $\frac{1}{R} = 0$, and $R = 0$ if $\frac{1}{R} = \infty$.</p></div>\EndKnitrBlock{theorem}
 This test is also known as the *root test*. It is also a good point to mention a particular limit, as it often comes up when applying Cauchy-Hadamard.
@@ -96,8 +96,8 @@ Try proving this using a similar argument to that on *Exercise Sheet 5, Question
 
 As a final comment here, there is much more that we can say about power series (in regards to differentiability, integrability, etc.), and we can even extend them to complex $x$. If you're interested, you'll find these results in  [Analysis 2A](https://www.bath.ac.uk/catalogues/2022-2023/ma/MA20218.html) in Year 2!
 
-[^2]:Technically, there's three, but the third is basically by using both versions of the comparison test to compare the power series to something which you know converges/diverges.
-[^3]: This is result number four named after Cauchy!
+[^3]:Technically, there's three, but the third is basically by using both versions of the comparison test to compare the power series to something which you know converges/diverges.
+[^4]: This is result number four named after Cauchy!
 
 # Hints
 As per usual, here’s where you’ll find the problem sheet hints!
