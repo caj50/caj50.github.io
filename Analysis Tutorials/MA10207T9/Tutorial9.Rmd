@@ -9,10 +9,8 @@ classoption: a4paper
 fontsize: 10pt
 geometry: margin=2.5cm
 output:
-  clavertondown::word_clav:
+  clavertondown::html_clav:
     toc: true
-    number_sections: true
-    keep_md: true
     pandoc_args: --default-image-extension=svg
   clavertondown::gitbook_clav:
     split_by: section
@@ -20,6 +18,11 @@ output:
     config:
       download: [["Tutorial9.html", "HTML page"], ["Tutorial9.pdf","Standard print PDF"], ["Tutorial9Clear.pdf","Clear print PDF"], ["Tutorial9Large.pdf","Large print PDF"], ["Tutorial9.docx","Accessible Word document"], ["Tutorial9.epub","Accessible EPub book" ]]
       sharing: no
+    pandoc_args: --default-image-extension=svg
+  clavertondown::word_clav:
+    toc: true
+    number_sections: true
+    keep_md: true
     pandoc_args: --default-image-extension=svg
   clavertondown::epub_clav:
     toc: false
@@ -31,9 +34,6 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
-  clavertondown::html_clav:
-    toc: true
-    pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
 ---
@@ -66,9 +66,9 @@ Now, compare this to the statement of the Algebra of Limits. Notice that we've s
 If you're not convinced, we can try this with $a_n = b_n =  \frac{(-1)^{n}}{\sqrt{n}}$. Using the Leibniz test, we can see that both $\sum_{n=1}^{\infty}a_n$ and $\sum_{n=1}^{\infty}b_n$ converge, but $$\sum_{n=1}^{\infty} a_nb_n = \sum_{n=1}^{\infty}\frac{1}{n} = \infty.$$ So, the next question we need to ask is whether a formula for multiplying convergent series exists, and if so, which series can we apply it to. This question was answered by Cauchy[^2], and is summarised in the below theorem:
 
 ```{theorem, label = "thm3", name = "Cauchy Multiplication Theorem"}
-Assume that the real series $\sum_{n=1}^{\infty}a_n$ and $\sum_{n=1}^{\infty}b_n$ converge absolutely, and for $n \in \mathbb{N}$, define $$c_n:=\sum_{j=1}^{n}a_j b_{n+1 - j}.$$ Then $\sum_{n=1}^{\infty} c_n$ converges absolutely, and $$\sum_{n=1}^{\infty} c_n = \left(\sum_{n=1}^{\infty}a_n\right)\left(\sum_{n=1}^{\infty}b_n\right).$$
+Assume that the real series $\sum_{n=0}^{\infty}a_n$ and $\sum_{n=0}^{\infty}b_n$ converge absolutely, and for $n \in \mathbb{N}$, define $$c_n:=\sum_{j=0}^{n}a_j b_{n - j}.$$ Then $\sum_{n=0}^{\infty} c_n$ converges absolutely, and $$\sum_{n=0}^{\infty} c_n = \left(\sum_{n=0}^{\infty}a_n\right)\left(\sum_{n=0}^{\infty}b_n\right).$$
 ```
-Note that we require the condition that the two individual sums are *absolutely convergent*. As you've seen in lectures, the Cauchy Multiplication Theorem will fail if the series involved are only conditionally convergent.
+Note that we index the sums starting at $n=0$ here. This is purely for convenience, and you could equally formulate this theorem for sums starting at $n=1$ (or any other value of $n$ for that matter). Furthermore, we require the condition that the two individual sums are *absolutely convergent*. As you've seen in lectures, the Cauchy Multiplication Theorem will fail if the series involved are only conditionally convergent.
 
 ```{example, label="ex1", echo=F}
 For $n\in\mathbb{N}$, define $a_n = b_n = \frac{(-1)^n}{\sqrt{n}}$, so that $\sum_{n=1}^{\infty}a_n$ and $\sum_{n=1}^{\infty}b_n$ are conditionally convergent. We can calculate $c_n$ as $$c_n = \sum_{j = 1}^{n} \frac{(-1)^{(n+1)}}{\sqrt{j}\sqrt{n+1-j}},$$ from which (as $1 \leq \sqrt{j} \leq \sqrt{n}$ and $1 \leq \sqrt{n+1-j} \leq \sqrt{n}$), $$\lvert c_n \rvert \geq \sum_{j=1}^{n} \frac{1}{n} = n.$$ This tells us that $c_n \not\to 0$ as $n\to\infty$, so $\sum_{n=1}^{\infty} c_n$ must diverge. Hence, the Cauchy Multiplication Theorem fails in this case.
