@@ -194,7 +194,8 @@ During my MRes year, I have taken the following units:
 line as the words!-->
 
 <script language="Javascript">
-document.write("This website was last modified on: " + document.lastModified +"");
+const DATE = (new Date(document.lastModified)).toLocaleString('en-GB')
+document.write("This website was last modified on: " + DATE + "<br>");
 </script>
 
   <!-- Below, there is a bit of text with a hyperlink to the
