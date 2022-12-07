@@ -312,10 +312,17 @@ MathJax.Hub.Config({
 <div id="def:def2" class="bookdown-definition" custom-style="DefinitionStyle">
 <span class="def:def2" custom-style="NameStyle"><strong>Definition 1.2:  (Sequential Continuity) </strong></span>
 <div>
-Let <span class="math inline">\(I \subseteq \mathbb{R}\)</span> and <span class="math inline">\(x_0 \in I\)</span>. A function <span class="math inline">\(f: I \to \mathbb{R}\)</span> is sequentially continuous at <span class="math inline">\(x_0\)</span> if <span class="math inline">\(\forall (x_n)_{n\in\mathbb{N}}\)</span> in <span class="math inline">\(I\)</span> such that <span class="math inline">\(x_n \to x_0\)</span> as <span class="math inline">\(n \to \infty\)</span>, we have that <span class="math inline">\(f(x_n) \to f(x_0)\)</span> as <span class="math inline">\(n \to \infty\)</span>.
+Let <span class="math inline">\(I \subseteq \mathbb{R}\)</span> and <span class="math inline">\(x_0 \in I\)</span>. A function <span class="math inline">\(f: I \to \mathbb{R}\)</span> is sequentially continuous at <span class="math inline">\(x_0\)</span> if for all sequences <span class="math inline">\((x_n)_{n\in\mathbb{N}}\)</span> in <span class="math inline">\(I\)</span> such that <span class="math inline">\(x_n \to x_0\)</span> as <span class="math inline">\(n \to \infty\)</span>, we have that <span class="math inline">\(f(x_n) \to f(x_0)\)</span> as <span class="math inline">\(n \to \infty\)</span>.
 </div>
 </div>
-<p>This definition looks pretty horrible, but it really amounts to saying that <span class="math inline">\(f\)</span> is sequentially continuous at a point <span class="math inline">\(x_0\)</span> in its domain if for all convergent sequences in the domain tending to <span class="math inline">\(x_0\)</span>, <span class="math display">\[\lim_{n\to\infty}f(x_n) = f\left(\lim_{n\to\infty}x_n\right).\]</span> The main point here is that you need to prove we can swap the limits <strong>for all</strong> sequences converging to <span class="math inline">\(x_0.\)</span> You can’t just test it for a specific sequence.</p>
+<p>This definition looks pretty horrible, but it really amounts to saying that for all convergent sequences in the domain tending to <span class="math inline">\(x_0\)</span>, <span class="math display">\[\lim_{n\to\infty}f(x_n) = f\left(\lim_{n\to\infty}x_n\right).\]</span> The main point here is that you need to prove we can swap the limits <strong>for all</strong> sequences converging to <span class="math inline">\(x_0.\)</span> You can’t just test it for a specific sequence. This is shown graphically in Figure <a href="real-functions.html#fig:seqcnt">1.1</a>.</p>
+<div class="figure"><span id="fig:seqcnt"></span>
+<img src="Seqcnt.svg" alt="A diagram illustrating sequential continuity. As the sequence in the domain converges, so too do the corresponding sequence of function values."  />
+<p class="caption">
+Figure 1.1: A diagram showing the idea of sequential continuity. Note that as the values of <span class="math inline">\(x_n\)</span> get closer to the limiting value <span class="math inline">\(x_0\)</span>, the corresponding values of <span class="math inline">\(f(x_n)\)</span> get closer to a limiting value <span class="math inline">\(f(x_0)\)</span>. This property has to hold for all sequences in the domain converging to <span class="math inline">\(x_0\)</span>.
+</p>
+</div>
+Now, having a definition is all well and good, but how do we use it?
 
 <div id="exm:ex1" class="bookdown-example" custom-style="ExampleStyle">
 <span class="exm:ex1" custom-style="NameStyle"><strong>Example 1.1:  </strong></span>
@@ -336,7 +343,7 @@ f(x_n) &amp;= x_n^{27} - 4x_n^{6} + \frac{3}{x_n^2 +1}\\
 Hence, as the chosen convergent sequence, and <span class="math inline">\(x_0\)</span> was arbitrary, <span class="math inline">\(f\)</span> is sequentially continuous at any <span class="math inline">\(x_0\)</span> in <span class="math inline">\(\mathbb{R}\)</span>.
 </p>
 </div>
-We end this section with a rather interesting example.
+It’s also useful to know how to prove a function isn’t sequentially continuous at a point. To this end, we conclude this section with a rather interesting example.
 
 <div id="exm:ex2" class="bookdown-example" custom-style="ExampleStyle">
 <span class="exm:ex2" custom-style="NameStyle"><strong>Example 1.2:  </strong></span>
@@ -362,10 +369,16 @@ Fix <span class="math inline">\(x_0 \in \mathbb{R}\)</span>. Our aim is to find 
 <div id="thm:thm2" class="bookdown-theorem" custom-style="TheoremStyle">
 <span class="thm:thm2" custom-style="NameStyle"><strong>Theorem 1.2:  (Intermediate Value Theorem (IVT)) </strong></span>
 <p>
-Suppose <span class="math inline">\(a,b \in \mathbb{R}\)</span> with <span class="math inline">\(a &lt; b\)</span>, and that <span class="math inline">\(f:[a,b] \to \mathbb{R}\)</span> is sequentially continuous. Then, if <span class="math inline">\(y \in \mathbb{R}\)</span> is such that either <span class="math inline">\(f(a) \leq f(y) \leq f(b)\)</span>, or <span class="math inline">\(f(b) \leq y \leq f(a)\)</span>, then <span class="math inline">\(\exists c \in [a,b]\)</span> such that <span class="math inline">\(f(c) = y\)</span>.
+Suppose <span class="math inline">\(a,b \in \mathbb{R}\)</span> with <span class="math inline">\(a &lt; b\)</span>, and that <span class="math inline">\(f:[a,b] \to \mathbb{R}\)</span> is sequentially continuous. Then, if <span class="math inline">\(y \in \mathbb{R}\)</span> is such that either <span class="math inline">\(f(a) \leq y \leq f(b)\)</span>, or <span class="math inline">\(f(b) \leq y \leq f(a)\)</span>, then <span class="math inline">\(\exists c \in [a,b]\)</span> such that <span class="math inline">\(f(c) = y\)</span>.
 </p>
 </div>
-<p>Diagrammatically, we might be in a situation like below.Note that there may be more than one <span class="math inline">\(c\)</span> that fulfills the conclusion of this theorem.</p>
+<p>Diagrammatically, we might be in a situation like in Figure <a href="real-functions.html#fig:ivt">1.2</a>. Note that there may be more than one <span class="math inline">\(c\)</span> that fulfills the conclusion of this theorem. Also, the theorem doesn’t tell you what this <span class="math inline">\(c\)</span> is; it only says that a <span class="math inline">\(c\)</span> must exist.</p>
+<div class="figure"><span id="fig:ivt"></span>
+<img src="IVT.svg" alt="A diagram showing how the intermediate value theorem applies to a sequentially continuous function"  />
+<p class="caption">
+Figure 1.2: This function is sequentially continuous on <span class="math inline">\([a,b]\)</span>, and for <span class="math inline">\(y\)</span> as in the diagram, <span class="math inline">\(y\)</span> lies between <span class="math inline">\(f(a)\)</span> and <span class="math inline">\(f(b)\)</span>. Hence the IVT applies, and so there exists <span class="math inline">\(c\)</span> in the interval <span class="math inline">\([a,b]\)</span> such that <span class="math inline">\(f(c)=y\)</span>. In this scenario, <span class="math inline">\(c\)</span> can be any one of <span class="math inline">\(c_1,c_2\)</span> or <span class="math inline">\(c_3\)</span>.
+</p>
+</div>
 <p>The IVT is very good for proving existence of square roots (and roots of any degree!), proving that functions have zeros, and proving that at any given point in time<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>, there exists two points on the equator with exactly the same temperature.</p>
 </div>
 </div>

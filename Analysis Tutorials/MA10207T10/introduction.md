@@ -16,6 +16,9 @@ output:
       download: [["Tutorial10.html", "HTML page"], ["Tutorial10.pdf","Standard print PDF"], ["Tutorial10Clear.pdf","Clear print PDF"], ["Tutorial10Large.pdf","Large print PDF"], ["Tutorial10.docx","Accessible Word document"], ["Tutorial10.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
   clavertondown::html_clav:
     toc: true
     pandoc_args: --default-image-extension=svg
@@ -23,9 +26,6 @@ output:
     toc: true
     number_sections: true
     keep_md: true
-    pandoc_args: --default-image-extension=svg
-  clavertondown::epub_clav:
-    toc: false
     pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
@@ -37,6 +37,7 @@ output:
 header-includes:
   - \newcommand{\BOO}{BOO}
 ---
+<!-- This is needed since I am working with svg files from mathcha.io. It converts the graphics files to something that can be used in the pdf files. Code taken from https://stackoverflow.com/questions/50165404/how-to-make-a-pdf-using-bookdown-including-svg-images/56044642#56044642 -->
 
 \newpage
 \pagenumbering{arabic}
@@ -73,9 +74,16 @@ In words, this theorem says that if we have a sequence of closed[^2], bounded, n
 ### Sequential Continuity
 We've finally reached some of the main results in the course, and certainly ones that will carry you into semester two! Until now, you may have thought of a function being *continuous* if you can draw it without taking your pencil off the page, but we can formalise this idea in the below definition:
 
-\BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def2"><span class="def:def2" custom-style="NameStyle"><strong>(\#def:def2)  (Sequential Continuity) </strong></span><div>Let $I \subseteq \mathbb{R}$ and $x_0 \in I$. A function $f: I \to \mathbb{R}$ is sequentially continuous at $x_0$ if $\forall (x_n)_{n\in\mathbb{N}}$ in $I$ such that $x_n \to x_0$ as $n \to \infty$, we have that $f(x_n) \to f(x_0)$ as $n \to \infty$.</div></div>\EndKnitrBlock{definition}
-This definition looks pretty horrible, but it really amounts to saying that $f$ is sequentially continuous at a point $x_0$ in its domain if for all convergent sequences in the domain tending to $x_0$, $$\lim_{n\to\infty}f(x_n) = f\left(\lim_{n\to\infty}x_n\right).$$ The main point here is that you need to prove we can swap the limits **for all** sequences converging to $x_0.$ You can't just test it for a specific sequence.
+\BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def2"><span class="def:def2" custom-style="NameStyle"><strong>(\#def:def2)  (Sequential Continuity) </strong></span><div>Let $I \subseteq \mathbb{R}$ and $x_0 \in I$. A function $f: I \to \mathbb{R}$ is sequentially continuous at $x_0$ if for all sequences $(x_n)_{n\in\mathbb{N}}$ in $I$ such that $x_n \to x_0$ as $n \to \infty$, we have that $f(x_n) \to f(x_0)$ as $n \to \infty$.</div></div>\EndKnitrBlock{definition}
+This definition looks pretty horrible, but it really amounts to saying that for all convergent sequences in the domain tending to $x_0$, $$\lim_{n\to\infty}f(x_n) = f\left(\lim_{n\to\infty}x_n\right).$$ The main point here is that you need to prove we can swap the limits **for all** sequences converging to $x_0.$ You can't just test it for a specific sequence. This is shown graphically in Figure \@ref(fig:seqcnt).
 
+<div class="figure">
+<img src="Seqcnt.svg" alt="A diagram illustrating sequential continuity. As the sequence in the domain converges, so too do the corresponding sequence of function values."  />
+<p class="caption">(\#fig:seqcnt)A diagram showing the idea of sequential continuity. Note that as the values of $x_n$ get closer to the limiting value $x_0$, the corresponding values of $f(x_n)$ get closer to a limiting value $f(x_0)$. This property has to hold for all sequences in the domain converging to $x_0$.</p>
+</div>
+
+
+Now, having a definition is all well and good, but how do we use it?
 \BeginKnitrBlock{example}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex1"><span class="exm:ex1" custom-style="NameStyle"><strong>(\#exm:ex1) </strong></span><div>Prove that the function $f: \mathbb{R} \to \mathbb{R}$ given by $$f(x) = x^{27} - 4x^6 + \frac{3}{x^2 +1}$$ is sequentially continuous at any $x_0 \in \mathbb{R}$.</div></div>\EndKnitrBlock{example}
 
 \BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyleItalics"><strong>Solution. </strong></span> <p>First take *any* sequence $(x_n)_{n\in\mathbb{N}}$ in $\mathbb{R}$ such that $x_n \to x_0$ as $n \to \infty$. Then by the Algebra of Limits
@@ -87,7 +95,7 @@ f(x_n) &= x_n^{27} - 4x_n^{6} + \frac{3}{x_n^2 +1}\\
 \end{align*}
 Hence, as the chosen convergent sequence, and $x_0$ was arbitrary, $f$ is sequentially continuous at any $x_0$ in $\mathbb{R}$.</p></div>\EndKnitrBlock{solution}
 
-We end this section with a rather interesting example.
+It's also useful to know how to prove a function isn't sequentially continuous at a point. To this end, we conclude this section with a rather interesting example.
 \BeginKnitrBlock{example}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex2"><span class="exm:ex2" custom-style="NameStyle"><strong>(\#exm:ex2) </strong></span><div>Prove that the function $g: \mathbb{R} \to \mathbb{R}$ given by $$g(x) = \begin{cases}
 0 \quad \text{if} \; x \in \mathbb{R}\setminus\mathbb{Q},\\
 1 \quad \text{if} \; x \in \mathbb{Q}.
@@ -98,8 +106,13 @@ We end this section with a rather interesting example.
 ### Intermediate Value Theorem
 Here's the main reason why we needed the Nested Intervals Theorem!
 
-\BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm2"><span class="thm:thm2" custom-style="NameStyle"><strong>(\#thm:thm2)  (Intermediate Value Theorem (IVT)) </strong></span><p>Suppose $a,b \in \mathbb{R}$ with $a < b$, and that $f:[a,b] \to \mathbb{R}$ is sequentially continuous. Then, if $y \in \mathbb{R}$ is such that either $f(a) \leq f(y) \leq f(b)$, or $f(b) \leq y \leq f(a)$, then $\exists c \in [a,b]$ such that $f(c) = y$.</p></div>\EndKnitrBlock{theorem}
-Diagrammatically, we might be in a situation like below.Note that there may be more than one $c$ that fulfills the conclusion of this theorem.
+\BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm2"><span class="thm:thm2" custom-style="NameStyle"><strong>(\#thm:thm2)  (Intermediate Value Theorem (IVT)) </strong></span><p>Suppose $a,b \in \mathbb{R}$ with $a < b$, and that $f:[a,b] \to \mathbb{R}$ is sequentially continuous. Then, if $y \in \mathbb{R}$ is such that either $f(a) \leq y \leq f(b)$, or $f(b) \leq y \leq f(a)$, then $\exists c \in [a,b]$ such that $f(c) = y$.</p></div>\EndKnitrBlock{theorem}
+Diagrammatically, we might be in a situation like in Figure \@ref(fig:ivt). Note that there may be more than one $c$ that fulfills the conclusion of this theorem. Also, the theorem doesn't tell you what this $c$ is; it only says that a $c$ must exist.
+
+<div class="figure">
+<img src="ivt.svg" alt="A diagram showing how the intermediate value theorem applies to a sequentially continuous function"  />
+<p class="caption">(\#fig:ivt)This function is sequentially continuous on $[a,b]$, and for $y$ as in the diagram, $y$ lies between $f(a)$ and $f(b)$. Hence the IVT applies, and so there exists $c$ in the interval $[a,b]$ such that $f(c)=y$. In this scenario, $c$ can be any one of $c_1,c_2$ or $c_3$.</p>
+</div>
 
 The IVT is very good for proving existence of square roots (and roots of any degree!), proving that functions have zeros, and proving that at any given point in time[^4], there exists two points on the equator with exactly the same temperature.
 
@@ -122,7 +135,7 @@ We begin with the concept of a *dense set*.
 Loosely, this says that we can approximate members of $S$ pretty well by using members of $T$ instead. For example, you've seen in lectures that the rational numbers $\mathbb{Q}$ are dense in the real numbers $\mathbb{R}$. Equally, we can use this to show that the irrational numbers $\mathbb{R}\setminus\mathbb{Q}$ are dense in $\mathbb{R}$ too! A useful proposition arising from this is the following:
 
 \BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop1"><span class="prp:prop1" custom-style="NameStyle"><strong>(\#prp:prop1) </strong></span><p>Let $T \subseteq S$ be dense in $S$. Then, for all $x_0 \in S$, there exists a sequence $(x_n)_n$ in $T$ such that $(x_n)_n$ converges to $x_0$ in $S$.</p></div>\EndKnitrBlock{proposition}
-Note that the convergence has to be in $S$, since $x_0$ may not be in $T$ (take for example the sequence $1, 1.4, 1.41,\ldots$ in $\mathbb{Q}$ converging to $\sqrt{2}$.)
+This is the property that we used in Example \@ref(exm:ex2) of Section 1.1 to generate our convergent sequences! Note that the convergence has to be in $S$, since $x_0$ may not be in $T$ (take for example the sequence $1, 1.4, 1.41,\ldots$ in $\mathbb{Q}$ converging to $\sqrt{2}$.)
 
 ## Open and Closed Sets
 The next two concepts we discuss here go hand-in-hand, and are quite important for the Nested Intervals Theorem (Theorem \@ref(thm:thm1)) and the Intermediate Value Theorem (Theorem \@ref(thm:thm2)). We first discuss *open sets*.
@@ -140,7 +153,7 @@ The last of these is vacuously true — since there's no elements in the empty s
 \BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def5"><span class="def:def5" custom-style="NameStyle"><strong>(\#def:def5)  (Closed Set) </strong></span><div>Let $S \subseteq \mathbb{R}$. Then $S$ is closed if its complement $\mathbb{R}\setminus S$ is open. </div></div>\EndKnitrBlock{definition}
 Again, some examples are in order. Working in $\mathbb{R}$:
 
-* For any $a,b \in \mathbb{R}$ with $a < b$ the interval $[a,b] = \lbrace x \;\lvert\; a \leq x \leq b \rbrace$ is closed. This is because $$\mathbb{R}\setminus[a,b] = (-\inf,a)\cup(b,\inf),$$ which is a finite union of open sets, hence open.
+* For any $a,b \in \mathbb{R}$ with $a < b$ the interval $[a,b] = \lbrace x \;\lvert\; a \leq x \leq b \rbrace$ is closed. This is because $$\mathbb{R}\setminus[a,b] = (-\infty,a)\cup(b,\infty),$$ which is a finite union of open sets, hence open.
 * Intervals of the form $[a, \infty)$ or $(-\infty, a]$ are closed.
 * $\mathbb{R}$ is closed.
 * The empty set $\emptyset$ is closed.
