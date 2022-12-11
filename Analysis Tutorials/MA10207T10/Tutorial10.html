@@ -233,7 +233,7 @@ img {
 <li><a href="#intervals"><span class="toc-section-number">1.1.1</span> Intervals</a></li>
 <li><a href="#the-theorem"><span class="toc-section-number">1.1.2</span> The Theorem!</a></li>
 </ul></li>
-<li><a href="#real-functions"><span class="toc-section-number">1.2</span> Real Functions</a>
+<li><a href="#sec1"><span class="toc-section-number">1.2</span> Real Functions</a>
 <ul>
 <li><a href="#sequential-continuity"><span class="toc-section-number">1.2.1</span> Sequential Continuity</a></li>
 <li><a href="#intermediate-value-theorem"><span class="toc-section-number">1.2.2</span> Intermediate Value Theorem</a></li>
@@ -261,15 +261,15 @@ img {
 <h2><span class="header-section-number">1.1</span> Nested Intervals Theorem</h2>
 <div id="intervals" class="section level3" number="1.1.1">
 <h3><span class="header-section-number">1.1.1</span> Intervals</h3>
-<p>Over the last semester, we first studied sequences of numbers, and then we used that theory to study sequences of sums. Now it’s time to focus on sequences of sets. In particular, we are going to focus on sequences of <em>intervals</em>, which are defined as follows:</p>
+<p>Over the last semester, we first studied sequences of numbers, and then we used that theory to study sequences of sums. Now it’s time to focus on sequences of sets. In particular, we are going to look at sequences of <em>intervals</em>, which are defined as follows:</p>
 
 <div id="def:def1" class="bookdown-definition" custom-style="DefinitionStyle">
-<span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Intervals) </strong></span>
+<span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Interval) </strong></span>
 <div>
-Let <span class="math inline">\(S \subseteq \mathbb{R}\)</span>. Then <span class="math inline">\(S\)</span> is an interval if <span class="math inline">\(\forall x,y \in S\)</span> with <span class="math inline">\(x \leq y\)</span>, and <span class="math inline">\(\forall z \in \mathbb{R}\)</span>, <span class="math inline">\(x &lt; z &lt; y\)</span>, implies that <span class="math inline">\(z \in S\)</span>.
+Let <span class="math inline">\(S \subseteq \mathbb{R}\)</span>. Then <span class="math inline">\(S\)</span> is an interval if <span class="math inline">\(\forall x,y \in S\)</span> with <span class="math inline">\(x \leq y\)</span>, and <span class="math inline">\(\forall z \in \mathbb{R}\)</span>, <span class="math inline">\(x &lt; z &lt; y\)</span> implies that <span class="math inline">\(z \in S\)</span>.
 </div>
 </div>
-<p>This definition looks pretty complicated, so we could do with some examples. For example, we could take two real numbers <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> with <span class="math inline">\(a \leq b\)</span>, and consider the set <span class="math display">\[S_1 = \lbrace s \in \mathbb{R}\; \lvert\; a \leq s \leq b \rbrace.\]</span> Similarly, since all quantities involved in the definition are real numbers, we also find that <span class="math inline">\(S_2 = \mathbb{R}\)</span> defines an interval. Quite bizarrely, we see via <em>vacuous reasoning</em><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> that <span class="math inline">\(S_3 = \emptyset\)</span> is also an interval!</p>
+<p>This definition looks pretty complicated, so we could do with some examples. Firstly, we could construct an interval by taking two real numbers <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> with <span class="math inline">\(a \leq b\)</span>, and considering the set <span class="math display">\[S_1 = \lbrace s \in \mathbb{R}\; \lvert\; a \leq s \leq b \rbrace.\]</span> Similarly, since all quantities involved in the definition are real numbers, we also find that <span class="math inline">\(S_2 = \mathbb{R}\)</span> defines an interval. Quite bizarrely, we see via <em>vacuous reasoning</em><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> that <span class="math inline">\(S_3 = \emptyset\)</span> is also an interval!</p>
 <p>Conversely, sets such as <span class="math inline">\(S_4 = \lbrace 0 \rbrace \cup \lbrace 1 \rbrace\)</span> and <span class="math display">\[\mathbb{R}\setminus S_1 = \lbrace s \;\lvert\; s &lt; a \;\; \text{or}\;\; s &gt; b\;\rbrace\]</span> are not intervals.</p>
 </div>
 <div id="the-theorem" class="section level3" number="1.1.2">
@@ -279,13 +279,13 @@ Let <span class="math inline">\(S \subseteq \mathbb{R}\)</span>. Then <span clas
 <div id="thm:thm1" class="bookdown-theorem" custom-style="TheoremStyle">
 <span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1.1:  (Nested Intervals Theorem) </strong></span>
 <p>
-Let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> and <span class="math inline">\((b_n)_{n\in\mathbb{N}}\)</span> be real sequences with <span class="math inline">\(a_n \leq b_n\)</span> for all <span class="math inline">\(n\in\mathbb{N}\)</span>. Suppose also that for all <span class="math inline">\(n\in\mathbb{N}\)</span>, <span class="math inline">\([a_{n+1},b_{n+1}] \subseteq [a_{n},b_{n}]\)</span>. Then <span class="math display">\[\bigcap_{n\in\mathbb{N}}[a_n,b_n] \neq \emptyset.\]</span> Moreover, <span class="math display">\[b_n - a_n \to 0 \;\;\text{as $n \to \infty$} \Longrightarrow \exists! z \in \bigcap_{n\in\mathbb{N}}[a_n,b_n].\]</span>
+Let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> and <span class="math inline">\((b_n)_{n\in\mathbb{N}}\)</span> be real sequences with <span class="math inline">\(a_n \leq b_n\)</span> for all <span class="math inline">\(n\in\mathbb{N}\)</span>. Suppose also that for all <span class="math inline">\(n\in\mathbb{N},\)</span> <span class="math inline">\([a_{n+1},b_{n+1}] \subseteq [a_{n},b_{n}]\)</span>. Then <span class="math display">\[\bigcap_{n\in\mathbb{N}}[a_n,b_n] \neq \emptyset.\]</span> Moreover, <span class="math display">\[b_n - a_n \to 0 \;\;\text{as $n \to \infty$} \Longrightarrow \exists!\; z \in \bigcap_{n\in\mathbb{N}}[a_n,b_n].\]</span>
 </p>
 </div>
-<p>In words, this theorem says that if we have a sequence of closed<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>, bounded, non-empty, nested sets of decreasing length, then their intersection is non-empty. If the length decreases to zero, then there is a unique<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> element in this intersection. As you can see, there’s a lot of hypotheses for this theorem; Homework Question 1 this week has you going through these hypotheses, and exploring what happens when you remove them.</p>
+<p>In words, this theorem says that if we have a sequence of closed<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>, bounded, non-empty, nested intervals of decreasing length, then their intersection is non-empty. If the length of these intervals decreases to zero, then there is a unique<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> element in this intersection. As you can see, there’s a lot of hypotheses for this theorem; Homework Question 1 this week has you going through these hypotheses, and exploring what happens when you remove them.</p>
 </div>
 </div>
-<div id="real-functions" class="section level2" number="1.2">
+<div id="sec1" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Real Functions</h2>
 <div id="sequential-continuity" class="section level3" number="1.2.1">
 <h3><span class="header-section-number">1.2.1</span> Sequential Continuity</h3>
@@ -340,7 +340,7 @@ Prove that the function <span class="math inline">\(g: \mathbb{R} \to \mathbb{R}
 <div class="bookdown-solution" custom-style="ProofStyle">
 <span class="solution" custom-style="NameStyleItalics">Solution. </span>
 <p>
-Fix <span class="math inline">\(x_0 \in \mathbb{R}\)</span>. Our aim is to find two sequences <span class="math inline">\((x_n)_{n\in\mathbb{N}}\)</span> and <span class="math inline">\((y_n)_{n\in\mathbb{N}}\)</span> converging to <span class="math inline">\(x_0\)</span>, such that <span class="math inline">\(\left(g(x_n)\right)_{n\in\mathbb{N}}\)</span> and <span class="math inline">\(\left(g(y_n)\right)_{n\in\mathbb{N}}\)</span> approach different limits. Since both the rational and the irrational numbers are dense in the real numbers, we take <span class="math display">\[(x_n)_{n\in\mathbb{N}}\;\; \text{in}\;\; \mathbb{R}\setminus\mathbb{Q} \;\; \text{such that} \;\; x_n \to x_0 \;\; \text{as}\;\; n \to \infty,\]</span> and <span class="math display">\[(y_n)_{n\in\mathbb{N}}\;\; \text{in}\;\; \mathbb{Q} \;\; \text{such that} \;\; y_n \to x_0 \;\; \text{as}\;\; n \to \infty.\]</span> Now, note that <span class="math display">\[g(x_n) = 0 \to 0, \quad \text{and} \quad g(y_n) = 1 \to 1.\]</span> So, no matter the value of <span class="math inline">\(g(x_0)\)</span>, we have found a sequence — either <span class="math inline">\((x_n)_n\)</span> or <span class="math inline">\((y_n)_n\)</span> — such that one of <span class="math inline">\(\left(g(x_n)\right)_n\)</span> or <span class="math inline">\(\left(g(y_n)\right)_n\)</span> does not tend to <span class="math inline">\(g(x_0)\)</span>. Hence, <span class="math inline">\(g\)</span> is not sequentially continuous anywhere!
+Fix <span class="math inline">\(x_0 \in \mathbb{R}\)</span>. Our aim is to find two sequences <span class="math inline">\((x_n)_{n\in\mathbb{N}}\)</span> and <span class="math inline">\((y_n)_{n\in\mathbb{N}}\)</span> converging to <span class="math inline">\(x_0\)</span>, such that <span class="math inline">\(\left(g(x_n)\right)_{n\in\mathbb{N}}\)</span> and <span class="math inline">\(\left(g(y_n)\right)_{n\in\mathbb{N}}\)</span> approach different limits. Since both the rational and the irrational numbers are dense in the real numbers, we take <span class="math display">\[(x_n)_{n\in\mathbb{N}}\;\; \text{in}\;\; \mathbb{R}\setminus\mathbb{Q} \;\; \text{such that} \;\; x_n \to x_0 \;\; \text{as}\;\; n \to \infty,\]</span> and <span class="math display">\[(y_n)_{n\in\mathbb{N}}\;\; \text{in}\;\; \mathbb{Q} \;\; \text{such that} \;\; y_n \to x_0 \;\; \text{as}\;\; n \to \infty.\]</span> Now, note that as <span class="math inline">\(n \to \infty,\)</span> <span class="math display">\[g(x_n) = 0 \to 0, \quad \text{and} \quad g(y_n) = 1 \to 1.\]</span> So, no matter the value of <span class="math inline">\(g(x_0)\)</span>, we have found a sequence — either <span class="math inline">\((x_n)_n\)</span> or <span class="math inline">\((y_n)_n\)</span> — such that one of <span class="math inline">\(\left(g(x_n)\right)_n\)</span> or <span class="math inline">\(\left(g(y_n)\right)_n\)</span> does not tend to <span class="math inline">\(g(x_0)\)</span>. Hence, <span class="math inline">\(g\)</span> is not sequentially continuous anywhere!
 </p>
 </div>
 </div>
@@ -361,7 +361,7 @@ Suppose <span class="math inline">\(a,b \in \mathbb{R}\)</span> with <span class
 Figure 1.2: This function is sequentially continuous on <span class="math inline">\([a,b]\)</span>, and for <span class="math inline">\(y\)</span> as in the diagram, <span class="math inline">\(y\)</span> lies between <span class="math inline">\(f(a)\)</span> and <span class="math inline">\(f(b)\)</span>. Hence the IVT applies, and so there exists <span class="math inline">\(c\)</span> in the interval <span class="math inline">\([a,b]\)</span> such that <span class="math inline">\(f(c)=y\)</span>. In this scenario, <span class="math inline">\(c\)</span> can be any one of <span class="math inline">\(c_1,c_2\)</span> or <span class="math inline">\(c_3\)</span>.
 </p>
 </div>
-<p>The IVT is very good for proving existence of square roots (and roots of any degree!), proving that functions have zeros, and proving that at any given point in time<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>, there exists two points on the equator with exactly the same temperature.</p>
+<p>The IVT is very good for proving existence of square roots (and roots of any degree!), proving that functions have zeros, and proving that at any given point in time, there exists two points on the equator with exactly the same temperature<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>.</p>
 </div>
 </div>
 </div>
@@ -377,7 +377,7 @@ Figure 1.2: This function is sequentially continuous on <span class="math inline
 </div>
 <div id="sets" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Sets</h1>
-<p>This week, we’ve been exposed to a fair few definitions regarding sets, some of which come up a fair bit on the problem sheet. The precise definitions of open and closed sets are non-examinable, but the concepts (and examples) could well be.</p>
+<p>This week, we’ve been exposed to a fair few definitions regarding sets, some of which come up a fair bit on the problem sheet. The precise definitions of open and closed sets are non-examinable, but you’ll need to be aware of some examples for the exam.</p>
 <div id="dense-sets" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Dense Sets</h2>
 We begin with the concept of a <em>dense set</em>.
@@ -396,7 +396,7 @@ Let <span class="math inline">\(S \subseteq \mathbb{R}\)</span>. A subset <span 
 Let <span class="math inline">\(T \subseteq S\)</span> be dense in <span class="math inline">\(S\)</span>. Then, for all <span class="math inline">\(x_0 \in S\)</span>, there exists a sequence <span class="math inline">\((x_n)_n\)</span> in <span class="math inline">\(T\)</span> such that <span class="math inline">\((x_n)_n\)</span> converges to <span class="math inline">\(x_0\)</span> in <span class="math inline">\(S\)</span>.
 </p>
 </div>
-<p>This is the property that we used in Example <a href="#exm:ex2">1.2</a> of Section 1.1 to generate our convergent sequences! Note that the convergence has to be in <span class="math inline">\(S\)</span>, since <span class="math inline">\(x_0\)</span> may not be in <span class="math inline">\(T\)</span> (take for example the sequence <span class="math inline">\(1, 1.4, 1.41,\ldots\)</span> in <span class="math inline">\(\mathbb{Q}\)</span> converging to <span class="math inline">\(\sqrt{2}\)</span>.)</p>
+<p>This is the property that we used in Example <a href="#exm:ex2">1.2</a> of Section <a href="#sec1">1.2</a> to generate our convergent sequences! Note that the convergence has to be in <span class="math inline">\(S\)</span>, since <span class="math inline">\(x_0\)</span> may not be in <span class="math inline">\(T\)</span> (take for example the sequence <span class="math inline">\(1, 1.4, 1.41,\ldots\)</span> in <span class="math inline">\(\mathbb{Q}\)</span> converging to <span class="math inline">\(\sqrt{2}\)</span>.)</p>
 </div>
 <div id="open-and-closed-sets" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Open and Closed Sets</h2>
@@ -425,7 +425,7 @@ Let <span class="math inline">\(S \subseteq \mathbb{R}\)</span>. Then <span clas
 </div>
 <p>Again, some examples are in order. Working in <span class="math inline">\(\mathbb{R}\)</span>:</p>
 <ul>
-<li>For any <span class="math inline">\(a,b \in \mathbb{R}\)</span> with <span class="math inline">\(a &lt; b\)</span> the interval <span class="math inline">\([a,b] = \lbrace x \;\lvert\; a \leq x \leq b \rbrace\)</span> is closed. This is because <span class="math display">\[\mathbb{R}\setminus[a,b] = (-\infty,a)\cup(b,\infty),\]</span> which is a finite union of open sets, hence open.</li>
+<li>For any <span class="math inline">\(a,b \in \mathbb{R}\)</span> with <span class="math inline">\(a &lt; b\)</span> the interval <span class="math inline">\([a,b] = \lbrace x \;\lvert\; a \leq x \leq b \rbrace\)</span> is closed. This is because <span class="math display">\[\mathbb{R}\setminus[a,b] = (-\infty,a)\cup(b,\infty),\]</span> which is a union of open sets, hence open.</li>
 <li>Intervals of the form <span class="math inline">\([a, \infty)\)</span> or <span class="math inline">\((-\infty, a]\)</span> are closed.</li>
 <li><span class="math inline">\(\mathbb{R}\)</span> is closed.</li>
 <li>The empty set <span class="math inline">\(\emptyset\)</span> is closed.</li>

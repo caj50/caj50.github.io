@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="lecture-recap.html"/>
-<link rel="next" href="real-functions.html"/>
+<link rel="next" href="sec1.html"/>
 
 <script src="libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -274,10 +274,10 @@ MathJax.Hub.Config({
 <li class="chapter" data-level="1.1.1" data-path="nested-intervals-theorem.html"><a href="nested-intervals-theorem.html#intervals"><i class="fa fa-check"></i><b>1.1.1</b> Intervals</a></li>
 <li class="chapter" data-level="1.1.2" data-path="nested-intervals-theorem.html"><a href="nested-intervals-theorem.html#the-theorem"><i class="fa fa-check"></i><b>1.1.2</b> The Theorem!</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="real-functions.html"><a href="real-functions.html"><i class="fa fa-check"></i><b>1.2</b> Real Functions</a>
+<li class="chapter" data-level="1.2" data-path="sec1.html"><a href="sec1.html"><i class="fa fa-check"></i><b>1.2</b> Real Functions</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="real-functions.html"><a href="real-functions.html#sequential-continuity"><i class="fa fa-check"></i><b>1.2.1</b> Sequential Continuity</a></li>
-<li class="chapter" data-level="1.2.2" data-path="real-functions.html"><a href="real-functions.html#intermediate-value-theorem"><i class="fa fa-check"></i><b>1.2.2</b> Intermediate Value Theorem</a></li>
+<li class="chapter" data-level="1.2.1" data-path="sec1.html"><a href="sec1.html#sequential-continuity"><i class="fa fa-check"></i><b>1.2.1</b> Sequential Continuity</a></li>
+<li class="chapter" data-level="1.2.2" data-path="sec1.html"><a href="sec1.html#intermediate-value-theorem"><i class="fa fa-check"></i><b>1.2.2</b> Intermediate Value Theorem</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="hints.html"><a href="hints.html"><i class="fa fa-check"></i><b>2</b> Hints</a></li>
@@ -307,15 +307,15 @@ MathJax.Hub.Config({
 <h2><span class="header-section-number">1.1</span> Nested Intervals Theorem</h2>
 <div id="intervals" class="section level3" number="1.1.1">
 <h3><span class="header-section-number">1.1.1</span> Intervals</h3>
-<p>Over the last semester, we first studied sequences of numbers, and then we used that theory to study sequences of sums. Now it’s time to focus on sequences of sets. In particular, we are going to focus on sequences of <em>intervals</em>, which are defined as follows:</p>
+<p>Over the last semester, we first studied sequences of numbers, and then we used that theory to study sequences of sums. Now it’s time to focus on sequences of sets. In particular, we are going to look at sequences of <em>intervals</em>, which are defined as follows:</p>
 
 <div id="def:def1" class="bookdown-definition" custom-style="DefinitionStyle">
-<span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Intervals) </strong></span>
+<span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Interval) </strong></span>
 <div>
-Let <span class="math inline">\(S \subseteq \mathbb{R}\)</span>. Then <span class="math inline">\(S\)</span> is an interval if <span class="math inline">\(\forall x,y \in S\)</span> with <span class="math inline">\(x \leq y\)</span>, and <span class="math inline">\(\forall z \in \mathbb{R}\)</span>, <span class="math inline">\(x &lt; z &lt; y\)</span>, implies that <span class="math inline">\(z \in S\)</span>.
+Let <span class="math inline">\(S \subseteq \mathbb{R}\)</span>. Then <span class="math inline">\(S\)</span> is an interval if <span class="math inline">\(\forall x,y \in S\)</span> with <span class="math inline">\(x \leq y\)</span>, and <span class="math inline">\(\forall z \in \mathbb{R}\)</span>, <span class="math inline">\(x &lt; z &lt; y\)</span> implies that <span class="math inline">\(z \in S\)</span>.
 </div>
 </div>
-<p>This definition looks pretty complicated, so we could do with some examples. For example, we could take two real numbers <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> with <span class="math inline">\(a \leq b\)</span>, and consider the set <span class="math display">\[S_1 = \lbrace s \in \mathbb{R}\; \lvert\; a \leq s \leq b \rbrace.\]</span> Similarly, since all quantities involved in the definition are real numbers, we also find that <span class="math inline">\(S_2 = \mathbb{R}\)</span> defines an interval. Quite bizarrely, we see via <em>vacuous reasoning</em><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> that <span class="math inline">\(S_3 = \emptyset\)</span> is also an interval!</p>
+<p>This definition looks pretty complicated, so we could do with some examples. Firstly, we could construct an interval by taking two real numbers <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> with <span class="math inline">\(a \leq b\)</span>, and considering the set <span class="math display">\[S_1 = \lbrace s \in \mathbb{R}\; \lvert\; a \leq s \leq b \rbrace.\]</span> Similarly, since all quantities involved in the definition are real numbers, we also find that <span class="math inline">\(S_2 = \mathbb{R}\)</span> defines an interval. Quite bizarrely, we see via <em>vacuous reasoning</em><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> that <span class="math inline">\(S_3 = \emptyset\)</span> is also an interval!</p>
 <p>Conversely, sets such as <span class="math inline">\(S_4 = \lbrace 0 \rbrace \cup \lbrace 1 \rbrace\)</span> and <span class="math display">\[\mathbb{R}\setminus S_1 = \lbrace s \;\lvert\; s &lt; a \;\; \text{or}\;\; s &gt; b\;\rbrace\]</span> are not intervals.</p>
 </div>
 <div id="the-theorem" class="section level3" number="1.1.2">
@@ -325,10 +325,10 @@ Let <span class="math inline">\(S \subseteq \mathbb{R}\)</span>. Then <span clas
 <div id="thm:thm1" class="bookdown-theorem" custom-style="TheoremStyle">
 <span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1.1:  (Nested Intervals Theorem) </strong></span>
 <p>
-Let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> and <span class="math inline">\((b_n)_{n\in\mathbb{N}}\)</span> be real sequences with <span class="math inline">\(a_n \leq b_n\)</span> for all <span class="math inline">\(n\in\mathbb{N}\)</span>. Suppose also that for all <span class="math inline">\(n\in\mathbb{N}\)</span>, <span class="math inline">\([a_{n+1},b_{n+1}] \subseteq [a_{n},b_{n}]\)</span>. Then <span class="math display">\[\bigcap_{n\in\mathbb{N}}[a_n,b_n] \neq \emptyset.\]</span> Moreover, <span class="math display">\[b_n - a_n \to 0 \;\;\text{as $n \to \infty$} \Longrightarrow \exists! z \in \bigcap_{n\in\mathbb{N}}[a_n,b_n].\]</span>
+Let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> and <span class="math inline">\((b_n)_{n\in\mathbb{N}}\)</span> be real sequences with <span class="math inline">\(a_n \leq b_n\)</span> for all <span class="math inline">\(n\in\mathbb{N}\)</span>. Suppose also that for all <span class="math inline">\(n\in\mathbb{N},\)</span> <span class="math inline">\([a_{n+1},b_{n+1}] \subseteq [a_{n},b_{n}]\)</span>. Then <span class="math display">\[\bigcap_{n\in\mathbb{N}}[a_n,b_n] \neq \emptyset.\]</span> Moreover, <span class="math display">\[b_n - a_n \to 0 \;\;\text{as $n \to \infty$} \Longrightarrow \exists!\; z \in \bigcap_{n\in\mathbb{N}}[a_n,b_n].\]</span>
 </p>
 </div>
-<p>In words, this theorem says that if we have a sequence of closed<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>, bounded, non-empty, nested sets of decreasing length, then their intersection is non-empty. If the length decreases to zero, then there is a unique<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> element in this intersection. As you can see, there’s a lot of hypotheses for this theorem; Homework Question 1 this week has you going through these hypotheses, and exploring what happens when you remove them.</p>
+<p>In words, this theorem says that if we have a sequence of closed<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>, bounded, non-empty, nested intervals of decreasing length, then their intersection is non-empty. If the length of these intervals decreases to zero, then there is a unique<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> element in this intersection. As you can see, there’s a lot of hypotheses for this theorem; Homework Question 1 this week has you going through these hypotheses, and exploring what happens when you remove them.</p>
 </div>
 </div>
 <div class="footnotes">
@@ -345,7 +345,7 @@ Let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> and <span class=
         </div>
       </div>
 <a href="lecture-recap.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="real-functions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sec1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

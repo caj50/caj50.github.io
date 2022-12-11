@@ -126,12 +126,12 @@ Here is the material to accompany the 10th Analysis Tutorial on the 12th Decembe
 \hypertarget{intervals}{%
 \subsubsection{Intervals}\label{intervals}}
 
-Over the last semester, we first studied sequences of numbers, and then we used that theory to study sequences of sums. Now it's time to focus on sequences of sets. In particular, we are going to focus on sequences of \emph{intervals}, which are defined as follows:
+Over the last semester, we first studied sequences of numbers, and then we used that theory to study sequences of sums. Now it's time to focus on sequences of sets. In particular, we are going to look at sequences of \emph{intervals}, which are defined as follows:
 
-\BeginKnitrBlock{definition}[Intervals]
-{\label{def:def1} }Let \(S \subseteq \mathbb{R}\). Then \(S\) is an interval if \(\forall x,y \in S\) with \(x \leq y\), and \(\forall z \in \mathbb{R}\), \(x < z < y\), implies that \(z \in S\).
+\BeginKnitrBlock{definition}[Interval]
+{\label{def:def1} }Let \(S \subseteq \mathbb{R}\). Then \(S\) is an interval if \(\forall x,y \in S\) with \(x \leq y\), and \(\forall z \in \mathbb{R}\), \(x < z < y\) implies that \(z \in S\).
 \EndKnitrBlock{definition}
-This definition looks pretty complicated, so we could do with some examples. For example, we could take two real numbers \(a\) and \(b\) with \(a \leq b\), and consider the set \[S_1 = \lbrace s \in \mathbb{R}\; \lvert\; a \leq s \leq b \rbrace.\] Similarly, since all quantities involved in the definition are real numbers, we also find that \(S_2 = \mathbb{R}\) defines an interval. Quite bizarrely, we see via \emph{vacuous reasoning}\footnote{Vacuous reasoning is best summed up with an example. Suppose you were looking into an empty room, and you said that ``everybody in that room was staring at their mobile phone''. As there were no people in the room to begin with, this ends up being a completely true statement.} that \(S_3 = \emptyset\) is also an interval!
+This definition looks pretty complicated, so we could do with some examples. Firstly, we could construct an interval by taking two real numbers \(a\) and \(b\) with \(a \leq b\), and considering the set \[S_1 = \lbrace s \in \mathbb{R}\; \lvert\; a \leq s \leq b \rbrace.\] Similarly, since all quantities involved in the definition are real numbers, we also find that \(S_2 = \mathbb{R}\) defines an interval. Quite bizarrely, we see via \emph{vacuous reasoning}\footnote{Vacuous reasoning is best summed up with an example. Suppose you were looking into an empty room, and you said that ``everybody in that room was staring at their mobile phone''. As there were no people in the room to begin with, this ends up being a completely true statement.} that \(S_3 = \emptyset\) is also an interval!
 
 Conversely, sets such as \(S_4 = \lbrace 0 \rbrace \cup \lbrace 1 \rbrace\) and \[\mathbb{R}\setminus S_1 = \lbrace s \;\lvert\; s < a \;\; \text{or}\;\; s > b\;\rbrace\] are not intervals.
 
@@ -141,12 +141,12 @@ Conversely, sets such as \(S_4 = \lbrace 0 \rbrace \cup \lbrace 1 \rbrace\) and 
 It turns out that if we have a sequence of intervals \((I_n)_{n\in\mathbb{N}}\) which are nested --- so that \(I_{n+1} \subseteq I_n\) for all \(n\in\mathbb{N}\) --- we can construct some major theorems in analysis! To do so; however, requires the following result:
 
 \BeginKnitrBlock{theorem}[Nested Intervals Theorem]
-{\label{thm:thm1} }Let \((a_n)_{n\in\mathbb{N}}\) and \((b_n)_{n\in\mathbb{N}}\) be real sequences with \(a_n \leq b_n\) for all \(n\in\mathbb{N}\). Suppose also that for all \(n\in\mathbb{N}\), \([a_{n+1},b_{n+1}] \subseteq [a_{n},b_{n}]\). Then \[\bigcap_{n\in\mathbb{N}}[a_n,b_n] \neq \emptyset.\] Moreover, \[b_n - a_n \to 0 \;\;\text{as $n \to \infty$} \Longrightarrow \exists! z \in \bigcap_{n\in\mathbb{N}}[a_n,b_n].\]
+{\label{thm:thm1} }Let \((a_n)_{n\in\mathbb{N}}\) and \((b_n)_{n\in\mathbb{N}}\) be real sequences with \(a_n \leq b_n\) for all \(n\in\mathbb{N}\). Suppose also that for all \(n\in\mathbb{N},\) \([a_{n+1},b_{n+1}] \subseteq [a_{n},b_{n}]\). Then \[\bigcap_{n\in\mathbb{N}}[a_n,b_n] \neq \emptyset.\] Moreover, \[b_n - a_n \to 0 \;\;\text{as $n \to \infty$} \Longrightarrow \exists!\; z \in \bigcap_{n\in\mathbb{N}}[a_n,b_n].\]
 \EndKnitrBlock{theorem}
-In words, this theorem says that if we have a sequence of closed\footnote{You may not have seen the definitions of open and closed sets before, so these have been added to a section at the end of this document.}, bounded, non-empty, nested sets of decreasing length, then their intersection is non-empty. If the length decreases to zero, then there is a unique\footnote{This is what the symbol \(\exists!\) is referring to --- the exclamation point indicates the unique part of this statement. It is definitely \emph{not} \(\exists! = \exists(\exists-1)\ldots(2)(1).\)} element in this intersection. As you can see, there's a lot of hypotheses for this theorem; Homework Question 1 this week has you going through these hypotheses, and exploring what happens when you remove them.
+In words, this theorem says that if we have a sequence of closed\footnote{You may not have seen the definitions of open and closed sets before, so these have been added to a section at the end of this document.}, bounded, non-empty, nested intervals of decreasing length, then their intersection is non-empty. If the length of these intervals decreases to zero, then there is a unique\footnote{This is what the symbol \(\exists!\) is referring to --- the exclamation point indicates the unique part of this statement. It is definitely \emph{not} \(\exists! = \exists(\exists-1)\ldots(2)(1).\)} element in this intersection. As you can see, there's a lot of hypotheses for this theorem; Homework Question 1 this week has you going through these hypotheses, and exploring what happens when you remove them.
 
-\hypertarget{real-functions}{%
-\subsection{Real Functions}\label{real-functions}}
+\hypertarget{sec1}{%
+\subsection{Real Functions}\label{sec1}}
 
 \hypertarget{sequential-continuity}{%
 \subsubsection{Sequential Continuity}\label{sequential-continuity}}
@@ -187,7 +187,7 @@ It's also useful to know how to prove a function isn't sequentially continuous a
 \EndKnitrBlock{example}
 
 \BeginKnitrBlock{solution*}
-Fix \(x_0 \in \mathbb{R}\). Our aim is to find two sequences \((x_n)_{n\in\mathbb{N}}\) and \((y_n)_{n\in\mathbb{N}}\) converging to \(x_0\), such that \(\left(g(x_n)\right)_{n\in\mathbb{N}}\) and \(\left(g(y_n)\right)_{n\in\mathbb{N}}\) approach different limits. Since both the rational and the irrational numbers are dense in the real numbers, we take \[(x_n)_{n\in\mathbb{N}}\;\; \text{in}\;\; \mathbb{R}\setminus\mathbb{Q} \;\; \text{such that} \;\; x_n \to x_0 \;\; \text{as}\;\; n \to \infty,\] and \[(y_n)_{n\in\mathbb{N}}\;\; \text{in}\;\; \mathbb{Q} \;\; \text{such that} \;\; y_n \to x_0 \;\; \text{as}\;\; n \to \infty.\] Now, note that \[g(x_n) = 0 \to 0, \quad \text{and} \quad g(y_n) = 1 \to 1.\] So, no matter the value of \(g(x_0)\), we have found a sequence --- either \((x_n)_n\) or \((y_n)_n\) --- such that one of \(\left(g(x_n)\right)_n\) or \(\left(g(y_n)\right)_n\) does not tend to \(g(x_0)\). Hence, \(g\) is not sequentially continuous anywhere!
+Fix \(x_0 \in \mathbb{R}\). Our aim is to find two sequences \((x_n)_{n\in\mathbb{N}}\) and \((y_n)_{n\in\mathbb{N}}\) converging to \(x_0\), such that \(\left(g(x_n)\right)_{n\in\mathbb{N}}\) and \(\left(g(y_n)\right)_{n\in\mathbb{N}}\) approach different limits. Since both the rational and the irrational numbers are dense in the real numbers, we take \[(x_n)_{n\in\mathbb{N}}\;\; \text{in}\;\; \mathbb{R}\setminus\mathbb{Q} \;\; \text{such that} \;\; x_n \to x_0 \;\; \text{as}\;\; n \to \infty,\] and \[(y_n)_{n\in\mathbb{N}}\;\; \text{in}\;\; \mathbb{Q} \;\; \text{such that} \;\; y_n \to x_0 \;\; \text{as}\;\; n \to \infty.\] Now, note that as \(n \to \infty,\) \[g(x_n) = 0 \to 0, \quad \text{and} \quad g(y_n) = 1 \to 1.\] So, no matter the value of \(g(x_0)\), we have found a sequence --- either \((x_n)_n\) or \((y_n)_n\) --- such that one of \(\left(g(x_n)\right)_n\) or \(\left(g(y_n)\right)_n\) does not tend to \(g(x_0)\). Hence, \(g\) is not sequentially continuous anywhere!
 \EndKnitrBlock{solution*}
 
 \hypertarget{intermediate-value-theorem}{%
@@ -204,7 +204,7 @@ Diagrammatically, we might be in a situation like in Figure \ref{fig:ivt}. Note 
 \includegraphics{ivt} \caption{This function is sequentially continuous on $[a,b]$, and for $y$ as in the diagram, $y$ lies between $f(a)$ and $f(b)$. Hence the IVT applies, and so there exists $c$ in the interval $[a,b]$ such that $f(c)=y$. In this scenario, $c$ can be any one of $c_1,c_2$ or $c_3$.}\label{fig:ivt}
 \end{figure}
 
-The IVT is very good for proving existence of square roots (and roots of any degree!), proving that functions have zeros, and proving that at any given point in time\footnote{On an idealised Earth, anyway.}, there exists two points on the equator with exactly the same temperature.
+The IVT is very good for proving existence of square roots (and roots of any degree!), proving that functions have zeros, and proving that at any given point in time, there exists two points on the equator with exactly the same temperature\footnote{On an idealised Earth, anyway.}.
 
 \hypertarget{hints}{%
 \section{Hints}\label{hints}}
@@ -226,7 +226,7 @@ As per usual, here's where you'll find the problem sheet hints! There's no offic
 \hypertarget{sets}{%
 \section{Sets}\label{sets}}
 
-This week, we've been exposed to a fair few definitions regarding sets, some of which come up a fair bit on the problem sheet. The precise definitions of open and closed sets are non-examinable, but the concepts (and examples) could well be.
+This week, we've been exposed to a fair few definitions regarding sets, some of which come up a fair bit on the problem sheet. The precise definitions of open and closed sets are non-examinable, but you'll need to be aware of some examples for the exam.
 
 \hypertarget{dense-sets}{%
 \subsection{Dense Sets}\label{dense-sets}}
@@ -240,7 +240,7 @@ Loosely, this says that we can approximate members of \(S\) pretty well by using
 \BeginKnitrBlock{proposition}
 {\label{prp:prop1} }Let \(T \subseteq S\) be dense in \(S\). Then, for all \(x_0 \in S\), there exists a sequence \((x_n)_n\) in \(T\) such that \((x_n)_n\) converges to \(x_0\) in \(S\).
 \EndKnitrBlock{proposition}
-This is the property that we used in Example \ref{exm:ex2} of Section 1.1 to generate our convergent sequences! Note that the convergence has to be in \(S\), since \(x_0\) may not be in \(T\) (take for example the sequence \(1, 1.4, 1.41,\ldots\) in \(\mathbb{Q}\) converging to \(\sqrt{2}\).)
+This is the property that we used in Example \ref{exm:ex2} of Section \ref{sec1} to generate our convergent sequences! Note that the convergence has to be in \(S\), since \(x_0\) may not be in \(T\) (take for example the sequence \(1, 1.4, 1.41,\ldots\) in \(\mathbb{Q}\) converging to \(\sqrt{2}\).)
 
 \hypertarget{open-and-closed-sets}{%
 \subsection{Open and Closed Sets}\label{open-and-closed-sets}}
@@ -274,7 +274,7 @@ Again, some examples are in order. Working in \(\mathbb{R}\):
 \begin{itemize}
 \tightlist
 \item
-  For any \(a,b \in \mathbb{R}\) with \(a < b\) the interval \([a,b] = \lbrace x \;\lvert\; a \leq x \leq b \rbrace\) is closed. This is because \[\mathbb{R}\setminus[a,b] = (-\infty,a)\cup(b,\infty),\] which is a finite union of open sets, hence open.
+  For any \(a,b \in \mathbb{R}\) with \(a < b\) the interval \([a,b] = \lbrace x \;\lvert\; a \leq x \leq b \rbrace\) is closed. This is because \[\mathbb{R}\setminus[a,b] = (-\infty,a)\cup(b,\infty),\] which is a union of open sets, hence open.
 \item
   Intervals of the form \([a, \infty)\) or \((-\infty, a]\) are closed.
 \item

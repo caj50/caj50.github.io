@@ -276,7 +276,7 @@ MathJax.Hub.Config({
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="real-functions.html"><a href="real-functions.html"><i class="fa fa-check"></i><b>1.2</b> Real Functions</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="real-functions.html"><a href="real-functions.html#sequential-continuity"><i class="fa fa-check"></i><b>1.2.1</b> Sequential Continuity</a></li>
+<li class="chapter" data-level="1.2.1" data-path="real-functions.html"><a href="real-functions.html#sec1"><i class="fa fa-check"></i><b>1.2.1</b> Sequential Continuity</a></li>
 <li class="chapter" data-level="1.2.2" data-path="real-functions.html"><a href="real-functions.html#intermediate-value-theorem"><i class="fa fa-check"></i><b>1.2.2</b> Intermediate Value Theorem</a></li>
 </ul></li>
 </ul></li>
@@ -305,7 +305,7 @@ MathJax.Hub.Config({
             <section class="normal" id="section-">
 <div id="real-functions" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Real Functions</h2>
-<div id="sequential-continuity" class="section level3" number="1.2.1">
+<div id="sec1" class="section level3" number="1.2.1">
 <h3><span class="header-section-number">1.2.1</span> Sequential Continuity</h3>
 <p>We’ve finally reached some of the main results in the course, and certainly ones that will carry you into semester two! Until now, you may have thought of a function being <em>continuous</em> if you can draw it without taking your pencil off the page, but we can formalise this idea in the below definition:</p>
 
@@ -358,7 +358,7 @@ Prove that the function <span class="math inline">\(g: \mathbb{R} \to \mathbb{R}
 <div class="bookdown-solution" custom-style="ProofStyle">
 <span class="solution" custom-style="NameStyleItalics">Solution. </span>
 <p>
-Fix <span class="math inline">\(x_0 \in \mathbb{R}\)</span>. Our aim is to find two sequences <span class="math inline">\((x_n)_{n\in\mathbb{N}}\)</span> and <span class="math inline">\((y_n)_{n\in\mathbb{N}}\)</span> converging to <span class="math inline">\(x_0\)</span>, such that <span class="math inline">\(\left(g(x_n)\right)_{n\in\mathbb{N}}\)</span> and <span class="math inline">\(\left(g(y_n)\right)_{n\in\mathbb{N}}\)</span> approach different limits. Since both the rational and the irrational numbers are dense in the real numbers, we take <span class="math display">\[(x_n)_{n\in\mathbb{N}}\;\; \text{in}\;\; \mathbb{R}\setminus\mathbb{Q} \;\; \text{such that} \;\; x_n \to x_0 \;\; \text{as}\;\; n \to \infty,\]</span> and <span class="math display">\[(y_n)_{n\in\mathbb{N}}\;\; \text{in}\;\; \mathbb{Q} \;\; \text{such that} \;\; y_n \to x_0 \;\; \text{as}\;\; n \to \infty.\]</span> Now, note that <span class="math display">\[g(x_n) = 0 \to 0, \quad \text{and} \quad g(y_n) = 1 \to 1.\]</span> So, no matter the value of <span class="math inline">\(g(x_0)\)</span>, we have found a sequence — either <span class="math inline">\((x_n)_n\)</span> or <span class="math inline">\((y_n)_n\)</span> — such that one of <span class="math inline">\(\left(g(x_n)\right)_n\)</span> or <span class="math inline">\(\left(g(y_n)\right)_n\)</span> does not tend to <span class="math inline">\(g(x_0)\)</span>. Hence, <span class="math inline">\(g\)</span> is not sequentially continuous anywhere!
+Fix <span class="math inline">\(x_0 \in \mathbb{R}\)</span>. Our aim is to find two sequences <span class="math inline">\((x_n)_{n\in\mathbb{N}}\)</span> and <span class="math inline">\((y_n)_{n\in\mathbb{N}}\)</span> converging to <span class="math inline">\(x_0\)</span>, such that <span class="math inline">\(\left(g(x_n)\right)_{n\in\mathbb{N}}\)</span> and <span class="math inline">\(\left(g(y_n)\right)_{n\in\mathbb{N}}\)</span> approach different limits. Since both the rational and the irrational numbers are dense in the real numbers, we take <span class="math display">\[(x_n)_{n\in\mathbb{N}}\;\; \text{in}\;\; \mathbb{R}\setminus\mathbb{Q} \;\; \text{such that} \;\; x_n \to x_0 \;\; \text{as}\;\; n \to \infty,\]</span> and <span class="math display">\[(y_n)_{n\in\mathbb{N}}\;\; \text{in}\;\; \mathbb{Q} \;\; \text{such that} \;\; y_n \to x_0 \;\; \text{as}\;\; n \to \infty.\]</span> Now, note that as <span class="math inline">\(n \to \infty,\)</span> <span class="math display">\[g(x_n) = 0 \to 0, \quad \text{and} \quad g(y_n) = 1 \to 1.\]</span> So, no matter the value of <span class="math inline">\(g(x_0)\)</span>, we have found a sequence — either <span class="math inline">\((x_n)_n\)</span> or <span class="math inline">\((y_n)_n\)</span> — such that one of <span class="math inline">\(\left(g(x_n)\right)_n\)</span> or <span class="math inline">\(\left(g(y_n)\right)_n\)</span> does not tend to <span class="math inline">\(g(x_0)\)</span>. Hence, <span class="math inline">\(g\)</span> is not sequentially continuous anywhere!
 </p>
 </div>
 </div>
@@ -379,7 +379,7 @@ Suppose <span class="math inline">\(a,b \in \mathbb{R}\)</span> with <span class
 Figure 1.2: This function is sequentially continuous on <span class="math inline">\([a,b]\)</span>, and for <span class="math inline">\(y\)</span> as in the diagram, <span class="math inline">\(y\)</span> lies between <span class="math inline">\(f(a)\)</span> and <span class="math inline">\(f(b)\)</span>. Hence the IVT applies, and so there exists <span class="math inline">\(c\)</span> in the interval <span class="math inline">\([a,b]\)</span> such that <span class="math inline">\(f(c)=y\)</span>. In this scenario, <span class="math inline">\(c\)</span> can be any one of <span class="math inline">\(c_1,c_2\)</span> or <span class="math inline">\(c_3\)</span>.
 </p>
 </div>
-<p>The IVT is very good for proving existence of square roots (and roots of any degree!), proving that functions have zeros, and proving that at any given point in time<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>, there exists two points on the equator with exactly the same temperature.</p>
+<p>The IVT is very good for proving existence of square roots (and roots of any degree!), proving that functions have zeros, and proving that at any given point in time, there exists two points on the equator with exactly the same temperature<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>.</p>
 </div>
 </div>
 <!-- </div> -->
