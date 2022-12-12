@@ -327,20 +327,20 @@ Now, having a definition is all well and good, but how do we use it?
 <div id="exm:ex1" class="bookdown-example" custom-style="ExampleStyle">
 <span class="exm:ex1" custom-style="NameStyle"><strong>Example 1.1:  </strong></span>
 <div>
-Prove that the function <span class="math inline">\(f: \mathbb{R} \to \mathbb{R}\)</span> given by <span class="math display">\[f(x) = x^{27} - 4x^6 + \frac{3}{x^2 +1}\]</span> is sequentially continuous at any <span class="math inline">\(x_0 \in \mathbb{R}\)</span>.
+Prove that the function <span class="math inline">\(f: \mathbb{R} \to \mathbb{R}\)</span> given by <span class="math display">\[f(x) = x^{27} - 4x^6 + \frac{3}{x^2 +1}\]</span> is sequentially continuous on <span class="math inline">\(\mathbb{R}\)</span>.
 </div>
 </div>
 
 <div class="bookdown-solution" custom-style="ProofStyle">
 <span class="solution" custom-style="NameStyleItalics">Solution. </span>
 <p>
-<p>First take <em>any</em> sequence <span class="math inline">\((x_n)_{n\in\mathbb{N}}\)</span> in <span class="math inline">\(\mathbb{R}\)</span> such that <span class="math inline">\(x_n \to x_0\)</span> as <span class="math inline">\(n \to \infty\)</span>. Then by the Algebra of Limits</p>
+<p>First fix <span class="math inline">\(x_0 \in \mathbb{R}\)</span>, and take <em>any</em> sequence <span class="math inline">\((x_n)_{n\in\mathbb{N}}\)</span> in <span class="math inline">\(\mathbb{R}\)</span> such that <span class="math inline">\(x_n \to x_0\)</span> as <span class="math inline">\(n \to \infty\)</span>. Then by the Algebra of Limits</p>
 <span class="math display">\[\begin{align*}
 f(x_n) &amp;= x_n^{27} - 4x_n^{6} + \frac{3}{x_n^2 +1}\\
 &amp;\to x_0^{27} - 4x_0^6 + \frac{3}{x_0^2 + 1}\; \; \text{as $n \to \infty$}\\
 &amp; = f(x_0) 
 \end{align*}\]</span>
-Hence, as the chosen convergent sequence, and <span class="math inline">\(x_0\)</span> was arbitrary, <span class="math inline">\(f\)</span> is sequentially continuous at any <span class="math inline">\(x_0\)</span> in <span class="math inline">\(\mathbb{R}\)</span>.
+Hence, as the chosen convergent sequence was arbitrary, <span class="math inline">\(f\)</span> is sequentially continuous at <span class="math inline">\(x_0\)</span>. Since <span class="math inline">\(x_0\)</span> was arbitrary, <span class="math inline">\(f\)</span> is sequentially continuous on <span class="math inline">\(\mathbb{R}\)</span>.
 </p>
 </div>
 It’s also useful to know how to prove a function isn’t sequentially continuous at a point. To this end, we conclude this section with a rather interesting example.

@@ -84,16 +84,16 @@ This definition looks pretty horrible, but it really amounts to saying that for 
 
 
 Now, having a definition is all well and good, but how do we use it?
-\BeginKnitrBlock{example}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex1"><span class="exm:ex1" custom-style="NameStyle"><strong>(\#exm:ex1) </strong></span><div>Prove that the function $f: \mathbb{R} \to \mathbb{R}$ given by $$f(x) = x^{27} - 4x^6 + \frac{3}{x^2 +1}$$ is sequentially continuous at any $x_0 \in \mathbb{R}$.</div></div>\EndKnitrBlock{example}
+\BeginKnitrBlock{example}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex1"><span class="exm:ex1" custom-style="NameStyle"><strong>(\#exm:ex1) </strong></span><div>Prove that the function $f: \mathbb{R} \to \mathbb{R}$ given by $$f(x) = x^{27} - 4x^6 + \frac{3}{x^2 +1}$$ is sequentially continuous on $\mathbb{R}$.</div></div>\EndKnitrBlock{example}
 
-\BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyleItalics"><strong>Solution. </strong></span> <p>First take *any* sequence $(x_n)_{n\in\mathbb{N}}$ in $\mathbb{R}$ such that $x_n \to x_0$ as $n \to \infty$. Then by the Algebra of Limits
+\BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyleItalics"><strong>Solution. </strong></span> <p>First fix $x_0 \in \mathbb{R}$, and take *any* sequence $(x_n)_{n\in\mathbb{N}}$ in $\mathbb{R}$ such that $x_n \to x_0$ as $n \to \infty$. Then by the Algebra of Limits
 
 \begin{align*}
 f(x_n) &= x_n^{27} - 4x_n^{6} + \frac{3}{x_n^2 +1}\\
 &\to x_0^{27} - 4x_0^6 + \frac{3}{x_0^2 + 1}\; \; \text{as $n \to \infty$}\\
 & = f(x_0) 
 \end{align*}
-Hence, as the chosen convergent sequence, and $x_0$ was arbitrary, $f$ is sequentially continuous at any $x_0$ in $\mathbb{R}$.</p></div>\EndKnitrBlock{solution}
+Hence, as the chosen convergent sequence was arbitrary, $f$ is sequentially continuous at $x_0$. Since $x_0$ was arbitrary, $f$ is sequentially continuous on $\mathbb{R}$.</p></div>\EndKnitrBlock{solution}
 
 It's also useful to know how to prove a function isn't sequentially continuous at a point. To this end, we conclude this section with a rather interesting example.
 \BeginKnitrBlock{example}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex2"><span class="exm:ex2" custom-style="NameStyle"><strong>(\#exm:ex2) </strong></span><div>Prove that the function $g: \mathbb{R} \to \mathbb{R}$ given by $$g(x) = \begin{cases}
