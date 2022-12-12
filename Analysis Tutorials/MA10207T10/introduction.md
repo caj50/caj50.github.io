@@ -93,6 +93,7 @@ f(x_n) &= x_n^{27} - 4x_n^{6} + \frac{3}{x_n^2 +1}\\
 &\to x_0^{27} - 4x_0^6 + \frac{3}{x_0^2 + 1}\; \; \text{as $n \to \infty$}\\
 & = f(x_0) 
 \end{align*}
+
 Hence, as the chosen convergent sequence was arbitrary, $f$ is sequentially continuous at $x_0$. Since $x_0$ was arbitrary, $f$ is sequentially continuous on $\mathbb{R}$.</p></div>\EndKnitrBlock{solution}
 
 It's also useful to know how to prove a function isn't sequentially continuous at a point. To this end, we conclude this section with a rather interesting example.
