@@ -1,0 +1,105 @@
+---
+title: "Analysis 1A — Tutorial 6"
+author: 'Christian Jones: University of Bath'
+date: 'December 2022'
+site: bookdown::bookdown_site
+language: en
+documentclass: article
+classoption: a4paper
+fontsize: 10pt
+geometry: margin=2.5cm
+output:
+  clavertondown::gitbook_clav:
+    split_by: section
+    keep_md: true
+    config:
+      download: [["Tutorial6.html", "HTML page"], ["Tutorial6.pdf","Standard print PDF"], ["Tutorial6Clear.pdf","Clear print PDF"], ["Tutorial6Large.pdf","Large print PDF"], ["Tutorial6.docx","Accessible Word document"], ["Tutorial6.epub","Accessible EPub book" ]]
+      sharing: no
+    pandoc_args: --default-image-extension=svg
+  clavertondown::word_clav:
+    toc: true
+    number_sections: true
+    keep_md: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
+  clavertondown::html_clav:
+    toc: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::pdf_clav:
+    latex_engine: pdflatex
+    keep_tex: true
+    fig_caption: true
+    toc: true
+    extra_dependencies: ["float"]
+    pandoc_args: --default-image-extension=pdf
+header-includes:
+  - \newcommand{\BOO}{BOO}
+---
+<!-- This is needed since I am working with svg files from mathcha.io. It converts the graphics files to something that can be used in the pdf files. Code taken from https://stackoverflow.com/questions/50165404/how-to-make-a-pdf-using-bookdown-including-svg-images/56044642#56044642 -->
+
+\newpage
+\pagenumbering{arabic}
+
+# Introduction {-}
+Here is the material to accompany the 6th Analysis Tutorial on the 14th November. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk).
+
+# Lecture Recap
+
+## Tests for Convergence
+As you've seen, using the definition to prove that sequences converge can get quite tedious! Hence, it's useful to have some 'quick' tests to determine whether sequences converge. This is where the *Growth Factor Test* (or *ratio test*) comes in.
+
+\BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm1"><span class="thm:thm1" custom-style="NameStyle"><strong>(\#thm:thm1)  (Growth Factor Test) </strong></span><p>Let $(a_n)_{n\in\mathbb{N}}$ be a real sequence with $a_n>0 \; \forall n\in\mathbb{N}$, and with $$\lim_{n\to\infty} \frac{a_{n+1}}{a_n} = r.$$ Then:
+  
+* If $r < 1$, $a_n \to 0$ as $n \to \infty$.
+* If $r > 1$, $a_n \to \infty$ as $n \to \infty$.
+* If $r = 1$, the test is inconclusive.
+</p></div>\EndKnitrBlock{theorem}
+
+To see why the test fails for $r = 1$, consider the sequences $(a_n)$ and $(b_n)$ where $a_n = n$ and $b_n = 1/n$. Something to note here is that if the terms of a sequence are defined by a ratio of polynomials, then the growth factor test will be inconclusive (Can you see/prove why?).
+
+## Subsequences
+If we have a sequence $(a_n)_{n}$, we can just as easily make a new sequence by selecting members of $(a_n)_{n}$. These will turn out to be useful when trying to prove results about functions in a few weeks.
+
+\BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def1"><span class="def:def1" custom-style="NameStyle"><strong>(\#def:def1)  (Subsequence) </strong></span><div>Let $(a_n)_{n \in \mathbb{N}}$ be a real sequence, and let $(n_k)_{k\in\mathbb{N}}$ be a strictly increasing sequence. Then $(a_{n_k})_{k\in\mathbb{N}}$ is called a subsequence of $(a_n)$.</div></div>\EndKnitrBlock{definition}
+As a (slightly boring) example, suppose that the terms of a sequence $(a_n)_n$ are given by $a_n = n$. Then, possible choices for the sequence $(n_k)_k$ are
+
+* $n_k = 2k$. This choice gives us the subsequence of $(a_n)_n$ containing all the even numbers.
+* $n_k = k^{\text{th}}\, \text{prime}$. This choice gives us the subsequence of $(a_n)_n$ consisting of all prime numbers. Note that we may not know each possible $n_k$, but $(n_k)_k$ is still a strictly increasing sequence.
+
+Moreover, since $(n_k)_{k\in\mathbb{N}}$ is a strictly increasing sequence, we must have that $n_k \geq k$. This is because for each $k \in \mathbb{N}$, the first possible choice we could make for $a_{n_k}$ in our subsequence is simply $a_k$.
+
+We also have a few useful results regarding subsequences:
+\BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop1"><span class="prp:prop1" custom-style="NameStyle"><strong>(\#prp:prop1) </strong></span><p>If a real sequence $(a_n)_n$ converges to a limit $L$, then all subsequences $(a_{n_k})_k$ of $(a_n)_n$ also converge to $L$.</p></div>\EndKnitrBlock{proposition}
+The contrapositive of this result is very good for proving that sequences do not converge, i.e. if you can find two subsequences converging to different limits, then the original sequence does not converge. We also have the following result linking bounded sequences and subsequences.
+
+\BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm2"><span class="thm:thm2" custom-style="NameStyle"><strong>(\#thm:thm2)  (Bolzano-Weierstrass) </strong></span><p>Every bounded real sequence has a convergent subsequence.</p></div>\EndKnitrBlock{theorem}
+Following the explanation [here](https://math.libretexts.org/Bookshelves/Analysis/Book%3A_Real_Analysis_(Boman_and_Rogers)/07%3A_Intermediate_and_Extreme_Values/7.03%3A_The_Bolzano-Weierstrass_Theorem), this theorem says that no matter how 'random' a sequence might be, as long as its bounded then some part of it must converge. This theorem may seem innocuous for now, but you'll see it appear in later courses to prove some key results in analysis.
+
+## Cauchy Sequences
+To conclude the lecture recap, we discuss another type of sequence known as a *Cauchy sequence*[^1].
+
+\BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def2"><span class="def:def2" custom-style="NameStyle"><strong>(\#def:def2)  (Cauchy Sequence) </strong></span><div>A real sequence $(a_n)_n$ is called a Cauchy sequence if $$\forall \epsilon >0, \exists N \in \mathbb{N} \; \text{such that} \; \forall n,m \geq N, \; \lvert a_n - a_m\rvert < \epsilon.$$</div></div>\EndKnitrBlock{definition}
+The idea here is that however close you want members of the sequence to get, say a distance $\epsilon$, there will always be a point in the sequence after which any two members of the sequence are within a distance $\epsilon$ of each other. 
+
+You've already met some Cauchy sequences. For example, all convergent sequences are Cauchy sequences. You might also be tempted to think that the converse holds, that all Cauchy sequences are convergent. Working in the real numbers, you would be right.
+
+\BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm3"><span class="thm:thm3" custom-style="NameStyle"><strong>(\#thm:thm3) </strong></span><p>Any real sequence $(a_n)_n$ is convergent if and only if it is a Cauchy sequence.</p></div>\EndKnitrBlock{theorem}
+So, if these things are the same in $\mathbb{R}$, why do we make the distinction? Suppose we were only working in $\mathbb{Q}$, and we were given the sequence $1,1.4,1.41,1.414,1.4142,\ldots$. In $\mathbb{R}$, this converges to $\sqrt{2}$, so by our theorem above, this sequence is a Cauchy sequence in $\mathbb{R}$. As each member of the sequence is rational, we then know that the sequence is a Cauchy sequence in $\mathbb{Q}$. But since $\sqrt{2} \not\in \mathbb{Q}$, it is not a convergent sequence in $\mathbb{Q}$!
+
+This example shows why the Completeness Axiom is so important! Assuming this axiom allows us to take limits in $\mathbb{R}$, and its why we're studying real analysis this semester (and not rational analysis!)
+
+[^1]:This is one of (way too) many things in analysis named after Cauchy. If you take Analysis 2B next year, you'll find that most of complex analysis — analysis in $\mathbb{C}$ instead of $\mathbb{R}$ — is due to Cauchy.
+
+# Hints
+As per usual, here's where you'll find the problem sheet hints!
+
+* [H1.] Think about all the tests for convergence that you've seen so far! A reminder for d) — the growth factor test won't work on a ratio of polynomials.
+* [H2.] Firstly, this is an \emph{if and only if} statement. So you have to prove two things:
+     * $(a_n)$ convergent $\implies$ $(a_{2k})_k, (a_{2k-1})_k$ and $(a_{3k})_k$ are convergent.
+     * $(a_{2k})_k, (a_{2k-1})_k$ and $(a_{3k})_k$ are convergent $\implies$ $(a_n)$ convergent.
+     
+  For the second implication, try and find common subsequences of the three given subsequences to show that $(a_{2k})_k, (a_{2k-1})_k$ and $(a_{3k})_k$ all have the same limit. One of the tutorial questions from Problem Sheet 6 might come in handy at this point...
+* [H3a).] Can you think of any inequalities relating $k$ and $n_k$, where $k \in \mathbb{N}$? Also, this question asks about monotone sequences, so you'll have to prove that this result holds for both increasing and decreasing sequences.
+* [H3b).] Again, two things to prove here (due to the if and only if). Make sure you understand the definitions involved — it'll make it easier to construct the proofs.

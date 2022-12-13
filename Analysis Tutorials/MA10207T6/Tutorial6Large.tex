@@ -1,0 +1,260 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  17pt,
+  a4paper]{extarticle}
+\title{Analysis 1A --- Tutorial 6}
+\author{Christian Jones: University of Bath}
+\date{December 2022}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Analysis 1A --- Tutorial 6},
+  pdfauthor={Christian Jones: University of Bath},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\newcommand{\BOO}{BOO}
+\usepackage{float}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{plain}
+\newtheorem*{lemma*}{Lemma}\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{plain}
+\newtheorem*{corollary*}{Corollary}\newtheorem{corollary}{Corollary}[section]
+\theoremstyle{plain}
+\newtheorem*{proposition*}{Proposition}\newtheorem{proposition}{Proposition}[section]
+\theoremstyle{plain}
+\newtheorem*{conjecture*}{Conjecture}\newtheorem{conjecture}{Conjecture}[section]
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}\newtheorem{definition}{Definition}[section]
+\theoremstyle{definition}
+\newtheorem*{example*}{Example}\newtheorem{example}{Example}[section]
+\theoremstyle{definition}
+\newtheorem*{exercise*}{Exercise}\newtheorem{exercise}{Exercise}[section]
+\theoremstyle{remark}
+\newtheorem*{remark*}{Remark}
+\newtheorem*{solution*}{Solution}
+\let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
+
+
+%\usepackage[english,shorthands=off]{babel}
+\usepackage{etoolbox}
+\usepackage{spverbatim}
+\makeatletter
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\@ifpackageloaded{adjustbox}{}{\usepackage[Export]{adjustbox}}
+\makeatother
+\floatplacement{figure}{H}
+\newcommand{\scalefactor}{1.7}
+\adjustboxset*{min width=\scalefactor\width,max width=\linewidth}
+\renewcommand{\familydefault}{phv}
+\fontfamily{phv}\selectfont
+\renewcommand{\em}{\bf}\renewcommand{\textit}{\textbf}\renewcommand{\emph}{\textbf}\renewcommand{\it}{\bf}\renewcommand{\itshape}{\bf}
+\setlength{\parindent}{0.0pt}
+\setlength{\parskip}{1.0\baselineskip}
+\renewcommand{\baselinestretch}{1.5}\selectfont
+\setlength{\mathsurround}{0.2em}
+\setlength{\arraycolsep}{0.5cm}\renewcommand{\arraystretch}{1.5}
+\addtolength{\jot}{\baselineskip}
+\renewcommand{\;}{\,}
+\sloppy
+\allowdisplaybreaks
+\usepackage{amsthm}
+\newtheoremstyle{plain}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{definition}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{remark}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\csundef{Proof}
+\csundef{endProof}
+\newenvironment{Proof}
+  {\noindent{\bf Proof.}\hspace*{1em}}% Begin
+  {\qed\par}% End
+%% When redefining an environment it is vital that it has 
+%% the same number of arguments as the original
+\renewenvironment{proof}[1][\proofname]
+  {\trivlist\item\relax\noindent{\bf {#1}.}\hspace*{1em}}% Begin
+  {\qed\endtrivlist}% End
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\newpage
+\pagenumbering{arabic}
+
+\hypertarget{introduction}{%
+\section*{Introduction}\label{introduction}}
+\addcontentsline{toc}{section}{Introduction}
+
+Here is the material to accompany the 6th Analysis Tutorial on the 14th November. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to \href{mailto:caj50@bath.ac.uk}{Christian Jones (caj50)}.
+
+\hypertarget{lecture-recap}{%
+\section{Lecture Recap}\label{lecture-recap}}
+
+\hypertarget{tests-for-convergence}{%
+\subsection{Tests for Convergence}\label{tests-for-convergence}}
+
+As you've seen, using the definition to prove that sequences converge can get quite tedious! Hence, it's useful to have some `quick' tests to determine whether sequences converge. This is where the \emph{Growth Factor Test} (or \emph{ratio test}) comes in.
+
+\BeginKnitrBlock{theorem}[Growth Factor Test]
+{\label{thm:thm1} }Let \((a_n)_{n\in\mathbb{N}}\) be a real sequence with \(a_n>0 \; \forall n\in\mathbb{N}\), and with \[\lim_{n\to\infty} \frac{a_{n+1}}{a_n} = r.\] Then:
+
+\begin{itemize}
+\tightlist
+\item
+  If \(r < 1\), \(a_n \to 0\) as \(n \to \infty\).
+\item
+  If \(r > 1\), \(a_n \to \infty\) as \(n \to \infty\).
+\item
+  If \(r = 1\), the test is inconclusive.
+\end{itemize}
+\EndKnitrBlock{theorem}
+
+To see why the test fails for \(r = 1\), consider the sequences \((a_n)\) and \((b_n)\) where \(a_n = n\) and \(b_n = 1/n\). Something to note here is that if the terms of a sequence are defined by a ratio of polynomials, then the growth factor test will be inconclusive (Can you see/prove why?).
+
+\hypertarget{subsequences}{%
+\subsection{Subsequences}\label{subsequences}}
+
+If we have a sequence \((a_n)_{n}\), we can just as easily make a new sequence by selecting members of \((a_n)_{n}\). These will turn out to be useful when trying to prove results about functions in a few weeks.
+
+\BeginKnitrBlock{definition}[Subsequence]
+{\label{def:def1} }Let \((a_n)_{n \in \mathbb{N}}\) be a real sequence, and let \((n_k)_{k\in\mathbb{N}}\) be a strictly increasing sequence. Then \((a_{n_k})_{k\in\mathbb{N}}\) is called a subsequence of \((a_n)\).
+\EndKnitrBlock{definition}
+As a (slightly boring) example, suppose that the terms of a sequence \((a_n)_n\) are given by \(a_n = n\). Then, possible choices for the sequence \((n_k)_k\) are
+
+\begin{itemize}
+\tightlist
+\item
+  \(n_k = 2k\). This choice gives us the subsequence of \((a_n)_n\) containing all the even numbers.
+\item
+  \(n_k = k^{\text{th}}\, \text{prime}\). This choice gives us the subsequence of \((a_n)_n\) consisting of all prime numbers. Note that we may not know each possible \(n_k\), but \((n_k)_k\) is still a strictly increasing sequence.
+\end{itemize}
+
+Moreover, since \((n_k)_{k\in\mathbb{N}}\) is a strictly increasing sequence, we must have that \(n_k \geq k\). This is because for each \(k \in \mathbb{N}\), the first possible choice we could make for \(a_{n_k}\) in our subsequence is simply \(a_k\).
+
+We also have a few useful results regarding subsequences:
+\BeginKnitrBlock{proposition}
+{\label{prp:prop1} }If a real sequence \((a_n)_n\) converges to a limit \(L\), then all subsequences \((a_{n_k})_k\) of \((a_n)_n\) also converge to \(L\).
+\EndKnitrBlock{proposition}
+The contrapositive of this result is very good for proving that sequences do not converge, i.e.~if you can find two subsequences converging to different limits, then the original sequence does not converge. We also have the following result linking bounded sequences and subsequences.
+
+\BeginKnitrBlock{theorem}[Bolzano-Weierstrass]
+{\label{thm:thm2} }Every bounded real sequence has a convergent subsequence.
+\EndKnitrBlock{theorem}
+Following the explanation \href{https://math.libretexts.org/Bookshelves/Analysis/Book\%3A_Real_Analysis_(Boman_and_Rogers)/07\%3A_Intermediate_and_Extreme_Values/7.03\%3A_The_Bolzano-Weierstrass_Theorem}{here}, this theorem says that no matter how `random' a sequence might be, as long as its bounded then some part of it must converge. This theorem may seem innocuous for now, but you'll see it appear in later courses to prove some key results in analysis.
+
+\hypertarget{cauchy-sequences}{%
+\subsection{Cauchy Sequences}\label{cauchy-sequences}}
+
+To conclude the lecture recap, we discuss another type of sequence known as a \emph{Cauchy sequence}\footnote{This is one of (way too) many things in analysis named after Cauchy. If you take Analysis 2B next year, you'll find that most of complex analysis --- analysis in \(\mathbb{C}\) instead of \(\mathbb{R}\) --- is due to Cauchy.}.
+
+\BeginKnitrBlock{definition}[Cauchy Sequence]
+{\label{def:def2} }A real sequence \((a_n)_n\) is called a Cauchy sequence if \[\forall \epsilon >0, \exists N \in \mathbb{N} \; \text{such that} \; \forall n,m \geq N, \; \lvert a_n - a_m\rvert < \epsilon.\]
+\EndKnitrBlock{definition}
+The idea here is that however close you want members of the sequence to get, say a distance \(\epsilon\), there will always be a point in the sequence after which any two members of the sequence are within a distance \(\epsilon\) of each other.
+
+You've already met some Cauchy sequences. For example, all convergent sequences are Cauchy sequences. You might also be tempted to think that the converse holds, that all Cauchy sequences are convergent. Working in the real numbers, you would be right.
+
+\BeginKnitrBlock{theorem}
+{\label{thm:thm3} }Any real sequence \((a_n)_n\) is convergent if and only if it is a Cauchy sequence.
+\EndKnitrBlock{theorem}
+So, if these things are the same in \(\mathbb{R}\), why do we make the distinction? Suppose we were only working in \(\mathbb{Q}\), and we were given the sequence \(1,1.4,1.41,1.414,1.4142,\ldots\). In \(\mathbb{R}\), this converges to \(\sqrt{2}\), so by our theorem above, this sequence is a Cauchy sequence in \(\mathbb{R}\). As each member of the sequence is rational, we then know that the sequence is a Cauchy sequence in \(\mathbb{Q}\). But since \(\sqrt{2} \not\in \mathbb{Q}\), it is not a convergent sequence in \(\mathbb{Q}\)!
+
+This example shows why the Completeness Axiom is so important! Assuming this axiom allows us to take limits in \(\mathbb{R}\), and its why we're studying real analysis this semester (and not rational analysis!)
+
+\hypertarget{hints}{%
+\section{Hints}\label{hints}}
+
+As per usual, here's where you'll find the problem sheet hints!
+
+\begin{itemize}
+\tightlist
+\item
+  {[}H1.{]} Think about all the tests for convergence that you've seen so far! A reminder for d) --- the growth factor test won't work on a ratio of polynomials.
+\item
+  {[}H2.{]} Firstly, this is an \emph{if and only if} statement. So you have to prove two things:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \((a_n)\) convergent \(\implies\) \((a_{2k})_k, (a_{2k-1})_k\) and \((a_{3k})_k\) are convergent.
+  \item
+    \((a_{2k})_k, (a_{2k-1})_k\) and \((a_{3k})_k\) are convergent \(\implies\) \((a_n)\) convergent.
+  \end{itemize}
+
+  For the second implication, try and find common subsequences of the three given subsequences to show that \((a_{2k})_k, (a_{2k-1})_k\) and \((a_{3k})_k\) all have the same limit. One of the tutorial questions from Problem Sheet 6 might come in handy at this point\ldots{}
+\item
+  {[}H3a).{]} Can you think of any inequalities relating \(k\) and \(n_k\), where \(k \in \mathbb{N}\)? Also, this question asks about monotone sequences, so you'll have to prove that this result holds for both increasing and decreasing sequences.
+\item
+  {[}H3b).{]} Again, two things to prove here (due to the if and only if). Make sure you understand the definitions involved --- it'll make it easier to construct the proofs.
+\end{itemize}
+
+\end{document}
