@@ -36,6 +36,8 @@ output:
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
+  - \usepackage {hyperref}
+  - \hypersetup {colorlinks = true, linkcolor = blue, urlcolor = blue}
 ---
 
 \newpage

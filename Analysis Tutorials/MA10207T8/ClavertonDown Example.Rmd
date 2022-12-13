@@ -9,9 +9,6 @@ classoption: a4paper
 fontsize: 10pt
 geometry: margin=2.5cm
 output:
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
     keep_tex: true
@@ -19,6 +16,9 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
   clavertondown::gitbook_clav:
     split_by: section
     keep_md: true
@@ -36,6 +36,8 @@ output:
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
+  - \usepackage {hyperref}
+  - \hypersetup {colorlinks = true, linkcolor = blue, urlcolor = blue}
 ---
 
 \newpage
