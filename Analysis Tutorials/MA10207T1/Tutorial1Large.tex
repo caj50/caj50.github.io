@@ -1,0 +1,282 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  17pt,
+  a4paper]{extarticle}
+\title{Analysis 1A --- Tutorial 1}
+\author{Christian Jones: University of Bath}
+\date{October 2022}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Analysis 1A --- Tutorial 1},
+  pdfauthor={Christian Jones: University of Bath},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\newcommand{\BOO}{BOO}
+\usepackage {hyperref}
+\hypersetup {colorlinks = true, linkcolor = blue, urlcolor = blue}
+\usepackage{float}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}\newtheorem{definition}{Definition}[section]
+\theoremstyle{plain}
+\newtheorem*{proposition*}{Proposition}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{Definitions*}{Definitions}\newtheorem{Definitions}[definition]{Definitions}
+\theoremstyle{plain}
+\newtheorem*{lemma*}{Lemma}\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{plain}
+\newtheorem*{corollary*}{Corollary}\newtheorem{corollary}{Corollary}[section]
+\theoremstyle{plain}
+\newtheorem*{conjecture*}{Conjecture}\newtheorem{conjecture}{Conjecture}[section]
+\theoremstyle{definition}
+\newtheorem*{example*}{Example}\newtheorem{example}{Example}[section]
+\theoremstyle{definition}
+\newtheorem*{exercise*}{Exercise}\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{Non-theorem*}{Non-theorem}\newtheorem{Non-theorem}{Non-theorem}[section]
+\newtheorem*{Order Axioms*}{Order Axioms}\newtheorem{Order Axioms}{Order Axioms}[section]
+\newtheorem*{Thought*}{Thought}\newtheorem{Thought}{Thought}[section]
+\theoremstyle{remark}
+\newtheorem*{remark*}{Remark}
+\newtheorem*{solution*}{Solution}
+\newtheorem*{Example*}{Example}
+\theoremstyle{remark}
+\newtheorem*{Proof*}{Proof}
+\newtheorem*{Examples*}{Examples}
+\let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
+
+
+%\usepackage[english,shorthands=off]{babel}
+\usepackage{etoolbox}
+\usepackage{spverbatim}
+\makeatletter
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\@ifpackageloaded{adjustbox}{}{\usepackage[Export]{adjustbox}}
+\makeatother
+\floatplacement{figure}{H}
+\newcommand{\scalefactor}{1.7}
+\adjustboxset*{min width=\scalefactor\width,max width=\linewidth}
+\renewcommand{\familydefault}{phv}
+\fontfamily{phv}\selectfont
+\renewcommand{\em}{\bf}\renewcommand{\textit}{\textbf}\renewcommand{\emph}{\textbf}\renewcommand{\it}{\bf}\renewcommand{\itshape}{\bf}
+\setlength{\parindent}{0.0pt}
+\setlength{\parskip}{1.0\baselineskip}
+\renewcommand{\baselinestretch}{1.5}\selectfont
+\setlength{\mathsurround}{0.2em}
+\setlength{\arraycolsep}{0.5cm}\renewcommand{\arraystretch}{1.5}
+\addtolength{\jot}{\baselineskip}
+\renewcommand{\;}{\,}
+\sloppy
+\allowdisplaybreaks
+\usepackage{amsthm}
+\newtheoremstyle{plain}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{definition}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{remark}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\csundef{Proof}
+\csundef{endProof}
+\newenvironment{Proof}
+  {\noindent{\bf Proof.}\hspace*{1em}}% Begin
+  {\qed\par}% End
+%% When redefining an environment it is vital that it has 
+%% the same number of arguments as the original
+\renewenvironment{proof}[1][\proofname]
+  {\trivlist\item\relax\noindent{\bf {#1}.}\hspace*{1em}}% Begin
+  {\qed\endtrivlist}% End
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\newpage
+\pagenumbering{arabic}
+
+\hypertarget{introduction}{%
+\section*{Introduction}\label{introduction}}
+\addcontentsline{toc}{section}{Introduction}
+
+Here is the material to accompany the 1st Analysis Tutorial on the 10th October. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to \href{mailto:caj50@bath.ac.uk}{Christian Jones (caj50)}.
+
+\hypertarget{lecture-recap}{%
+\section{Lecture Recap}\label{lecture-recap}}
+
+\hypertarget{statements}{%
+\subsection{Statements}\label{statements}}
+
+This week has been all about logic, and is pretty much the foundation of most of maths! To begin, we need some `building blocks', and these come in the form of \emph{statements} --- sentences which are either true or false. For example, \color{blue} `The sky is blue' \color{black} is a statement, whereas \color{red} `Why is the sky blue?' \color{black} is not. In this course, statements are denoted by capital letters (usually \(P,Q,R,\ldots\))\footnote{You can use any capital letter you want; I can only presume we start at \(P\) because of the word `proposition'.}
+
+Now that we have some statements, it makes sense to see if we can build something more complicated using them, and this is where the idea of \emph{logical operations} come in. Suppose \(P\) and \(Q\) are statements. Then, there are four main ones you should be aware of:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Conjunction} (\(P \wedge Q\)): Said `\(P\) and \(Q\)', this is true if both \(P\) and \(Q\) are true; it is false otherwise.
+\item
+  \textbf{Disjunction} (\(P \;\vee\; Q\)): Said `\(P\) or \(Q\)', this is true when \emph{at least} one of \(P\) or \(Q\) is true.
+\item
+  \textbf{Negation} (\(\neg P\)): Said `not \(P\)', this is true when \(P\) is false, and vice versa.
+\item
+  \textbf{Implication} (\(P\Rightarrow Q\)): We have that `\(P\) implies \(Q\)' is true, except when \(P\) is true and \(Q\) is false.\footnote{In case it comes up in anything you read, we can also say that \(P\) is \emph{sufficient} for \(Q\) and also that \(Q\) is necessary for \(P\).} If you're still unsure as to what this statement means, there's a good example \href{https://simple.wikipedia.org/wiki/Implication_(logic)}{here}.
+\end{itemize}
+
+One way we can represent these statements is via a \emph{truth table}. Below is a (combined) truth table for \(P \Rightarrow Q\) and \(\neg P \;\vee Q\):
+
+\begin{longtable}[]{@{}ccccc@{}}
+\toprule
+\(P\) & \(Q\) & \(P \Rightarrow Q\) & \(\neg P\) & \(\neg P \; \vee Q\) \\
+\midrule
+\endhead
+\(T\) & \(T\) & \(T\) & \(F\) & \(T\) \\
+\(T\) & \(F\) & \(F\) & \(F\) & \(F\) \\
+\(F\) & \(T\) & \(T\) & \(T\) & \(T\) \\
+\(F\) & \(F\) & \(T\) & \(T\) & \(T\) \\
+\bottomrule
+\end{longtable}
+
+Note that in this table, the `simple' statements are on the left, and the `compound' statements are written afterwards.\footnote{Ideally, you'd separate the simple statements from the compound ones by use of a double vertical line. However, due to Markdown's apparent lack of syntax for adding a double line, you'll just have to imagine one there.} Also, what we can see is that the truth table columns for both \(P \Rightarrow Q\) and \(\neg P \;\vee Q\) are identical. This means that both statements are \emph{equivalent}, leading to a fifth logical operation:
+
+\begin{itemize}
+\tightlist
+\item
+  Equivalence (\(P \Leftrightarrow Q\)): Two statements are equivalent if they're both simultaneously true or simultaneously false. This can also be written \((P \Rightarrow Q) \wedge (Q \Rightarrow P)\).
+\end{itemize}
+
+In regards to statements, there are two more types which we can discuss. Firstly, if a statement is always true, it is known as a \emph{tautology}. Similarly, if a statement is always false, it is known as a \emph{contradiction}.
+
+\hypertarget{some-useful-laws}{%
+\subsection{Some Useful Laws}\label{some-useful-laws}}
+
+In the previous section, we combined statements via logical operations. There is nothing stopping us combining these new statements too! We just need to know how to do it systematically. This relies on \emph{distributive laws} and \emph{De Morgan's laws}. Here, \(P,Q,R\) are statements.
+
+\BeginKnitrBlock{proposition}[Distributive Laws]
+{\label{prp:prop1} }\begin{align*}
+    P \wedge (Q \; \vee R) &\Leftrightarrow (P \wedge Q)\; \vee (P \wedge R),\\
+    P \; \vee (Q \wedge R) &\Leftrightarrow (P \; \vee Q) \wedge (P \, \vee R).
+\end{align*}
+\EndKnitrBlock{proposition}
+
+\BeginKnitrBlock{proposition}[De Morgan's Laws]
+{\label{prp:prop2} }\begin{align*}
+    \neg (P \, \vee Q) &\Leftrightarrow (\neg P) \wedge (\neg Q),\\
+    \neg (P \wedge Q) &\Leftrightarrow (\neg P) \, \vee (\neg Q).
+\end{align*}
+\EndKnitrBlock{proposition}
+If you're ever in a situation where you need to prove these laws, use truth tables! They're also really helpful when writing complex statements in simpler forms (see, for example, Homework Questions 2 \& 3).
+
+\hypertarget{quantifiers}{%
+\subsection{Quantifiers}\label{quantifiers}}
+
+Put simply, these are just ways of making your life easier, so that you have fewer words to write out when doing maths. There are two quantifiers you'll come across in common usage:
+
+\begin{itemize}
+\tightlist
+\item
+  Firstly, the phrase `for all' can be represented by \(\forall\).
+\item
+  Secondly, the phrase `there exists' can be represented by \(\exists\).
+\end{itemize}
+
+For example, consider the statements
+\begin{align*}
+    (\forall x \in \mathbb{R})(x > 2),\\
+    (\exists x \in \mathbb{R})(x > 2).
+\end{align*}
+The first one says `for all real numbers \(x\), \(x\) is greater than 2', whereas the second says `there exists a real number \(x\) such that \(x\) is greater than 2'. Hopefully you can see that the choice of quantifier can make a huge difference to the truth of a statement! Naturally, for a statement \(P\), these can be negated too in the following ways:
+\begin{align*}
+    \neg(\forall x \; P) &\Leftrightarrow \exists x \; \neg P,\\
+    \neg(\exists x \; P) &\Leftrightarrow \forall x\;  \neg P.
+\end{align*}
+As a final note, if you have statements in which both quantifiers appear, don't swap them! For example, suppose \(S \subseteq \mathbb{R}\) is a non-empty set, and consider the two statements
+\begin{align*}
+    (\forall x \in S)(\exists y \in S)(x < y),\\
+    (\exists y \in S)(\forall x \in S)(x < y).
+\end{align*}
+The first of these says that \(S\) has no largest element, and is a perfectly valid statement. However, if we choose \(x\) to be equal to \(y\) in the second statement, we can see that this version of the statement is totally impossible!
+
+\hypertarget{hints}{%
+\section{Hints}\label{hints}}
+
+Each week, I'll send out a list of hints for the homework questions. Try and have a go without them, but if you need them, you'll usually find them in a document like this one. Anyway, without further ado\ldots{}
+
+\begin{itemize}
+\tightlist
+\item
+  {[}H1.{]} You've got a few examples of truth tables from lectures, and we just about managed to do tutorial question 1a) in the physical tutorial, so look back over these. Also, recall what it means for two statements to be equivalent.
+\item
+  {[}H2.{]} Recall the definition of a tautology. If you're content writing truth tables out, then this question is similar to H1. Alternatively, you could try applying the different laws from Section 1.2 to simplify the statement.
+\item
+  {[}H3.{]} This is similar to the previous two questions.
+\item
+  {[}H4.{]} We did an example in tutorials similar to this one --- try some values from the sets \(A\) and \(B\)! For the negation, just take it one step at a time, and apply the rules you've learnt this week.
+\end{itemize}
+
+\end{document}

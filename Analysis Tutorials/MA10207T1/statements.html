@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.1 Statements | Analysis 1A — Tutorial 1</title>
+  <meta name="description" content="1.1 Statements | Analysis 1A — Tutorial 1" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1.1 Statements | Analysis 1A — Tutorial 1" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1.1 Statements | Analysis 1A — Tutorial 1" />
+  
+  
+  
+
+<meta name="author" content="Christian Jones: University of Bath" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="lecture-recap.html"/>
+<link rel="next" href="some-useful-laws.html"/>
+
+<script src="libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.MessageHook("End Math", function (msg) {
+  var nodes = Array.from(msg[1].querySelectorAll('.MJX_Assistive_MathML [id]'));
+  while (nodes.length) {
+    nodes.shift().removeAttribute('id');
+  }
+}, 20);
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "fast-preview": {disabled: true},
+  explorer:{ subtitle: true },
+  MatchWebFonts: { 
+    matchFor: { "HTML-CSS": true, NativeMML: false, SVG: false },
+    fontCheckDelay: 2000,
+    fontCheckTimeout: 30 * 1000
+  },
+  "HTML-CSS": {
+    preferredFont: "STIX",
+    availableFonts: ["STIX","TeX"],
+    webFont: "STIX-Web",
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  SVG: {
+    font: "STIX-Web",
+    linebreaks: { automatic: false, width: "90\% container" }
+  },
+  menuSettings: { 
+    collapsible: false, 
+    autocollapse: false, 
+    explorer: false 
+  }
+});
+</script>
+
+
+
+
+<style type="text/css">
+  a {
+   color: blue;
+  }
+  .book .book-summary ul.summary li a, .book .book-summary ul.summary li.active>a, .book .book-body .page-wrapper .page-inner section.normal a {
+  color: blue;
+  }
+
+  [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+   .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #1c242b;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0f6f7;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  
+  [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #182518;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0fcea;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #182518;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0fcea;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  [custom-style=NameStyle]{
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  [custom-style=NameStyleItalics]{
+    font-style: italic;
+  }
+
+  
+  [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #251e18;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #fdf3e9;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #2b1c21;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #fdefef;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+  
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="lecture-recap.html"><a href="lecture-recap.html"><i class="fa fa-check"></i><b>1</b> Lecture Recap</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="statements.html"><a href="statements.html"><i class="fa fa-check"></i><b>1.1</b> Statements</a></li>
+<li class="chapter" data-level="1.2" data-path="some-useful-laws.html"><a href="some-useful-laws.html"><i class="fa fa-check"></i><b>1.2</b> Some Useful Laws</a></li>
+<li class="chapter" data-level="1.3" data-path="quantifiers.html"><a href="quantifiers.html"><i class="fa fa-check"></i><b>1.3</b> Quantifiers</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="hints.html"><a href="hints.html"><i class="fa fa-check"></i><b>2</b> Hints</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis 1A — Tutorial 1</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="statements" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Statements</h2>
+<p>This week has been all about logic, and is pretty much the foundation of most of maths! To begin, we need some ‘building blocks’, and these come in the form of <em>statements</em> — sentences which are either true or false. For example,  ‘The sky is blue’  is a statement, whereas  ‘Why is the sky blue?’  is not. In this course, statements are denoted by capital letters (usually <span class="math inline">\(P,Q,R,\ldots\)</span>)<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<p>Now that we have some statements, it makes sense to see if we can build something more complicated using them, and this is where the idea of  come in. Suppose <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> are statements. Then, there are four main ones you should be aware of:</p>
+<ul>
+<li><strong>Conjunction</strong> (<span class="math inline">\(P \wedge Q\)</span>): Said ‘<span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span>’, this is true if both <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> are true; it is false otherwise.</li>
+<li><strong>Disjunction</strong> (<span class="math inline">\(P \;\vee\; Q\)</span>): Said ‘<span class="math inline">\(P\)</span> or <span class="math inline">\(Q\)</span>’, this is true when <em>at least</em> one of <span class="math inline">\(P\)</span> or <span class="math inline">\(Q\)</span> is true.</li>
+<li><strong>Negation</strong> (<span class="math inline">\(\neg P\)</span>): Said ‘not <span class="math inline">\(P\)</span>’, this is true when <span class="math inline">\(P\)</span> is false, and vice versa.</li>
+<li><strong>Implication</strong> (<span class="math inline">\(P\Rightarrow Q\)</span>): We have that ‘<span class="math inline">\(P\)</span> implies <span class="math inline">\(Q\)</span>’ is true, except when <span class="math inline">\(P\)</span> is true and <span class="math inline">\(Q\)</span> is false.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> If you’re still unsure as to what this statement means, there’s a good example <a href="https://simple.wikipedia.org/wiki/Implication_(logic)">here</a>.</li>
+</ul>
+<p>One way we can represent these statements is via a <em>truth table</em>. Below is a (combined) truth table for <span class="math inline">\(P \Rightarrow Q\)</span> and <span class="math inline">\(\neg P \;\vee Q\)</span>:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(P\)</span></th>
+<th align="center"><span class="math inline">\(Q\)</span></th>
+<th align="center"><span class="math inline">\(P \Rightarrow Q\)</span></th>
+<th align="center"><span class="math inline">\(\neg P\)</span></th>
+<th align="center"><span class="math inline">\(\neg P \; \vee Q\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(T\)</span></td>
+<td align="center"><span class="math inline">\(T\)</span></td>
+<td align="center"><span class="math inline">\(T\)</span></td>
+<td align="center"><span class="math inline">\(F\)</span></td>
+<td align="center"><span class="math inline">\(T\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(T\)</span></td>
+<td align="center"><span class="math inline">\(F\)</span></td>
+<td align="center"><span class="math inline">\(F\)</span></td>
+<td align="center"><span class="math inline">\(F\)</span></td>
+<td align="center"><span class="math inline">\(F\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(F\)</span></td>
+<td align="center"><span class="math inline">\(T\)</span></td>
+<td align="center"><span class="math inline">\(T\)</span></td>
+<td align="center"><span class="math inline">\(T\)</span></td>
+<td align="center"><span class="math inline">\(T\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(F\)</span></td>
+<td align="center"><span class="math inline">\(F\)</span></td>
+<td align="center"><span class="math inline">\(T\)</span></td>
+<td align="center"><span class="math inline">\(T\)</span></td>
+<td align="center"><span class="math inline">\(T\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Note that in this table, the ‘simple’ statements are on the left, and the ‘compound’ statements are written afterwards.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> Also, what we can see is that the truth table columns for both <span class="math inline">\(P \Rightarrow Q\)</span> and <span class="math inline">\(\neg P \;\vee Q\)</span> are identical. This means that both statements are <em>equivalent</em>, leading to a fifth logical operation:</p>
+<ul>
+<li>Equivalence (<span class="math inline">\(P \Leftrightarrow Q\)</span>): Two statements are equivalent if they’re both simultaneously true or simultaneously false. This can also be written <span class="math inline">\((P \Rightarrow Q) \wedge (Q \Rightarrow P)\)</span>.</li>
+</ul>
+<p>In regards to statements, there are two more types which we can discuss. Firstly, if a statement is always true, it is known as a <em>tautology</em>. Similarly, if a statement is always false, it is known as a <em>contradiction</em>.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>You can use any capital letter you want; I can only presume we start at <span class="math inline">\(P\)</span> because of the word ‘proposition’.<a href="statements.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>In case it comes up in anything you read, we can also say that <span class="math inline">\(P\)</span> is <em>sufficient</em> for <span class="math inline">\(Q\)</span> and also that <span class="math inline">\(Q\)</span> is necessary for <span class="math inline">\(P\)</span>.<a href="statements.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Ideally, you’d separate the simple statements from the compound ones by use of a double vertical line. However, due to Markdown’s apparent lack of syntax for adding a double line, you’ll just have to imagine one there.<a href="statements.html#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="lecture-recap.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="some-useful-laws.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["Tutorial1.html", "HTML page"], ["Tutorial1.pdf", "Standard print PDF"], ["Tutorial1Clear.pdf", "Clear print PDF"], ["Tutorial1Large.pdf", "Large print PDF"], ["Tutorial1.docx", "Accessible Word document"], ["Tutorial1.epub", "Accessible EPub book"]],
+"search": false,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
