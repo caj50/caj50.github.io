@@ -1,0 +1,262 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  10pt,
+  a4paper]{article}
+\title{Analysis 1A --- Tutorial 5}
+\author{Christian Jones: University of Bath}
+\date{November 2022}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Analysis 1A --- Tutorial 5},
+  pdfauthor={Christian Jones: University of Bath},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\newcommand{\BOO}{BOO}
+\usepackage{float}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{plain}
+\newtheorem*{lemma*}{Lemma}\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{plain}
+\newtheorem*{corollary*}{Corollary}\newtheorem{corollary}{Corollary}[section]
+\theoremstyle{plain}
+\newtheorem*{proposition*}{Proposition}\newtheorem{proposition}{Proposition}[section]
+\theoremstyle{plain}
+\newtheorem*{conjecture*}{Conjecture}\newtheorem{conjecture}{Conjecture}[section]
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}\newtheorem{definition}{Definition}[section]
+\theoremstyle{definition}
+\newtheorem*{example*}{Example}\newtheorem{example}{Example}[section]
+\theoremstyle{definition}
+\newtheorem*{exercise*}{Exercise}\newtheorem{exercise}{Exercise}[section]
+\theoremstyle{remark}
+\newtheorem*{remark*}{Remark}
+\newtheorem*{solution*}{Solution}
+\let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\newpage
+\pagenumbering{arabic}
+
+\hypertarget{introduction}{%
+\section*{Introduction}\label{introduction}}
+\addcontentsline{toc}{section}{Introduction}
+
+Here is the material to accompany the 5th Analysis Tutorial on the 7th November. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to \href{mailto:caj50@bath.ac.uk}{Christian Jones (caj50)}.
+
+\hypertarget{infinite-limits}{%
+\section{Infinite Limits}\label{infinite-limits}}
+
+Before we cover any material from this week, its worth discussing the use of \(\infty\) as a limit, especially when applying the Algebra of Limits. The main thing to note is that expressions such as \(\infty - \infty\) and \(\frac{\infty}{\infty}\) don't really make a lot of sense, for example:
+
+\BeginKnitrBlock{example}
+{\label{exm:ex1} }Give examples of sequences \((a_n)_{n\in\mathbb{N}}\) and \((b_n)_{n\in\mathbb{N}}\), both diverging to \(\infty\) for which:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \((a_n - b_n)_{n\in\mathbb{N}}\) diverges to \(\infty\),
+\item
+  \((a_n - b_n)_{n\in\mathbb{N}}\) diverges to \(-\infty\), and
+\item
+  \((a_n - b_n)_{n\in\mathbb{N}}\) converges to \(0\).
+\end{enumerate}
+\EndKnitrBlock{example}
+
+\BeginKnitrBlock{solution*}
+The idea here is to look for fairly simple sequences. With that in mind:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  If we take \(a_n = 2n\) and \(b_n = n\), we see that \(a_n - b_n = n\), and \((n)_{n\in\mathbb{N}}\) diverges to \(\infty\). But if we tried to apply the algebra of limits to this result, it would suggest that \(\infty - \infty = \infty\).
+\item
+  If we take \(a_n = n\) and \(b_n = 2n\), we see that \(a_n - b_n = -n\), and \((-n)_{n\in\mathbb{N}}\) diverges to \(\infty\). But, again, if we tried to apply AoL to this result, it would suggest that \(\infty - \infty = -\infty\). Immediately this conflicts with the answer to part 1)!
+\item
+  Finally, if we take \(a_n = b_n = n\), we see that \(a_n - b_n = 0\), and \((0)_{n \in \mathbb{N}}\) is a convergent sequence --- it converges to \(0\). Attempting to apply AoL to this result suggests that \(\infty - \infty = 0\).
+\end{enumerate}
+\EndKnitrBlock{solution*}
+
+What parts 1), 2) and 3) demonstrate is that you can't consistently define \(\infty - \infty\). (Note: if you take the same sequences from 1), 2) and 3) and divide them, you can see why \(\frac{\infty}{\infty}\) isn't consistently define-able either).
+
+\hypertarget{lecture-recap}{%
+\section{Lecture Recap}\label{lecture-recap}}
+
+\hypertarget{monotonic-subsequences}{%
+\subsection{Monotonic Subsequences}\label{monotonic-subsequences}}
+
+In reverse order to how it was discussed in tutorials, we begin with some special types of sequences. First, we need to define what these sequences are. This definition might look long, but it's really just five concepts grouped together.
+\BeginKnitrBlock{definition}[Monotonic Sequences]
+{\label{def:def1} }Let \((a_n)_{n\in\mathbb{N}}\) be a real sequence. Then if \(\forall n \in \mathbb{N}\):
+
+\begin{itemize}
+\tightlist
+\item
+  \(a_{n+1} \geq a_n,\;\) \((a_n)_{n\in\mathbb{N}}\) is increasing,
+\item
+  \(a_{n+1} > a_n,\;\) \((a_n)_{n\in\mathbb{N}}\) is strictly increasing,
+\item
+  \(a_{n+1} \leq a_n,\;\) \((a_n)_{n\in\mathbb{N}}\) is decreasing,
+\item
+  \(a_{n+1} < a_n,\;\) \((a_n)_{n\in\mathbb{N}}\) is strictly decreasing.
+\end{itemize}
+
+If the sequence has any one of these properties, it is called monotone, or a monotonic sequence.
+\EndKnitrBlock{definition}
+For a given sequence \((a_n)\), the two main ways of checking monotonicity are by considering \(a_{n+1} - a_n\) and/or \(\frac{a_{n+1}}{a_n}\), and comparing these objects to \(0\) and \(1\) respectively. The second of these methods is especially useful when you're dealing with powers of \(n\), such as for the sequence \((b_n)\) in Exercise Sheet 5, Question 2.
+
+A useful theorem for these sequences is the following\footnote{If you're interested, this statement is completely equivalent to the completeness axiom from Section 2 of the lecture notes. In fact, back in the prehistoric times of 2016 --- when I took the course --- this result was stated as the completeness axiom.}:
+\BeginKnitrBlock{theorem}
+{\label{thm:thm1} }Let \((a_n)_{n\in\mathbb{N}}\) be a bounded, monotone sequence. Then \((a_n)_{n\in\mathbb{N}}\) is convergent.
+\EndKnitrBlock{theorem}
+In fact, if a sequence \((a_n)_{n \in \mathbb{N}}\) is increasing, then it converges to the supremum of the set of \(a_n\) values, and if it is decreasing, then it converges to the infimum of the set of \(a_n\) values.
+
+\hypertarget{the-sandwichpinchingsqueeze-theorem2}{%
+\subsection[The Sandwich/Pinching/Squeeze Theorem]{\texorpdfstring{The Sandwich/Pinching/Squeeze Theorem\footnote{Other names for this theorem must surely exist. If you find one out in the wild, tell me, and I'll add it to the name of this section.}}{The Sandwich/Pinching/Squeeze Theorem}}\label{the-sandwichpinchingsqueeze-theorem2}}
+
+This is a way of finding the limit of a sequence if you can find two other sequences to `trap' it with. It's quite a good method for rational functions and proving statements about \(n\)-th roots.
+
+\BeginKnitrBlock{theorem}[Sandwich Theorem]
+{\label{thm:thm2} }Suppose that \((a_n)_{n\in\mathbb{N}}\, , \, (b_n)_{n\in\mathbb{N}}\, , \, (c_n)_{n\in\mathbb{N}}\) are real sequences. If \(a_n \leq b_n \leq c_n \quad \forall n \in \mathbb{N}\), and \(\exists L \in \mathbb{R}\) such that
+\begin{align*}
+    \lim_{n \to \infty} a_n = L = \lim_{n \to \infty} c_n,
+\end{align*}
+then \(\lim_{n \to \infty}b_n = L\).
+\EndKnitrBlock{theorem}
+There's also a slight modification to this theorem, called the `Bitten Sandwich Theorem'.
+\BeginKnitrBlock{theorem}[Bitten Sandwich Theorem]
+{\label{thm:thm3} }Suppose that \((a_n)_{n\in\mathbb{N}}\, , \, (b_n)_{n\in\mathbb{N}}\, , \, (c_n)_{n\in\mathbb{N}}\) are real sequences. If \(\exists N \in \mathbb{N}\) such that \(a_n \leq b_n \leq c_n \; \forall n \geq N\), and \(\exists L \in \mathbb{R}\) such that
+\begin{align*}
+    \lim_{n \to \infty} a_n = L = \lim_{n \to \infty} c_n,
+\end{align*}
+then \(\lim_{n \to \infty}b_n = L\).
+\EndKnitrBlock{theorem}
+This just says that as long as after some \(N \in \mathbb{N}\), \((b_n)_n\) is trapped between sequences \((a_n)_n\) and \((c_n)_n\) that share a common limit, then all three sequences will share that common limit.
+
+It is worth noting that adaptations of theorems in this way exist all across analysis. This is because when studying convergence, we don't really care about what is happening at the start of the sequence. We only care about the ``long term'' behaviour.
+
+\hypertarget{more-on-infinite-limits}{%
+\subsection{More on Infinite Limits}\label{more-on-infinite-limits}}
+
+We can also make the idea of a sequence getting increasingly more positive (or more negative) more precise via the idea of divergence to \(\pm\infty\). We present the definition for `positive' \(\infty\) here.
+
+\BeginKnitrBlock{definition}[Divergence to Infinity]
+{\label{def:def2} }A real sequence \((a_n)_{n\in\mathbb{N}}\) diverges to \(\infty\) if \[\forall M \in \mathbb{R}, \; \exists N \in \mathbb{N} \; \text{such that}\; \forall n \geq N, \; a_n > M.\]
+\EndKnitrBlock{definition}
+
+There is also a corresponding version of the `algebra of limits' for divergence to \(\pm\infty\) (see \ref{thm:thm4}). This version has been stolen and adapted from an old set of lecture notes (ones from 2016 to be precise!), so some of these results may not appear in the current lecture notes. Consequently, you won't have seen the proofs for these results, so you can't use them in Tutorial Question 4, Exercise Sheet Five.\footnote{This question asks you to prove parts of this theorem, so using the theorem to prove the theorem is purely circular reasoning, and should absolutely be avoided.}
+
+\BeginKnitrBlock{theorem}[Algebra of Infinite Limits]
+{\label{thm:thm4} }Let \((a_n)_{n\in\mathbb{N}}\) and \((b_n)_{n\in\mathbb{N}}\) be real sequences.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  If \(a_n \to \infty\) and \(y_n \to \infty\) as \(n \to \infty\), then \(a_n + b_n \to \infty\) as \(n\to\infty\).
+\item
+  If \(a_n \to \infty\) and \(c > 0\), then \(ca_n \to \infty\) as \(n \to \infty\).
+\item
+  If \(a_n \to \infty\) and \(y_n \to \infty\) as \(n \to \infty\), then \(a_nb_n \to \infty\) as \(n\to\infty\).
+\item
+  We have \(a_n \to \infty\) as \(n \to \infty\) if and only if \(-a_n \to -\infty\) as \(n \to \infty\).
+\item
+  For \(a_n \neq 0\; \forall n \in \mathbb{N}\), if \(a_n \to \infty\) as \(n \to \infty\), then \(\frac{1}{a_n} \to 0\) as \(n \to \infty\).
+\item
+  If If \(a_n \to 0\) as \(n\to\infty\) and \(a_n > 0\; \forall n \in \mathbb{N}\), then \(\frac{1}{a_n} \to \infty\) as \(n \to \infty\).
+\end{enumerate}
+\EndKnitrBlock{theorem}
+
+\hypertarget{hints}{%
+\section{Hints}\label{hints}}
+
+As per usual, here's where you'll find the problem sheet hints!
+
+\begin{itemize}
+\tightlist
+\item
+  {[}H1.{]} Try applying one of the tests for monotonicity. For the limit, if you need to use any theorems anywhere, state them!
+\item
+  {[}H2.{]} If \(a_n \neq 0 \, \; \forall n \in \mathbb{N}\), then this would just be an application of the algebra of (infinite) limits! Since you don't know if this is the case, you'll need to use the definition again for this question. You'll end up with an inequality of the form \(a_n^2 > g(\epsilon)\), where \(g\) is a rational function of \(\epsilon\), at some point in your solution. Take cases on the sign of the numerator of \(g(\epsilon)\) to find the required \(N\) in the definition of limit.
+\item
+  {[}H3.{]} This is similar to the supremum question we did in tutorials. If you need a refresher on the argument involved, look in the solutions to Exercise Sheet 4. Try adapting this for infima!
+\item
+  {[}H4.{]} This is similar to tutorial question 3 off Exercise Sheet 5. Try a few terms of the sequence to get a feel for what's happening first. Note that you're not explicitly told to find the limit, but it's really worth doing if you can!
+\end{itemize}
+
+\end{document}
