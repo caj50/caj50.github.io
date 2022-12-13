@@ -21,6 +21,9 @@ output:
       download: [["Tutorial4.html", "HTML page"], ["Tutorial4.pdf","Standard print PDF"], ["Tutorial4Clear.pdf","Clear print PDF"], ["Tutorial4Large.pdf","Large print PDF"], ["Tutorial4.docx","Accessible Word document"], ["Tutorial4.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
+  clavertondown::html_clav:
+    toc: true
+    pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
     keep_tex: true
@@ -28,14 +31,13 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
-  clavertondown::html_clav:
-    toc: true
-    pandoc_args: --default-image-extension=svg
   clavertondown::epub_clav:
     toc: false
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
+  - \usepackage {hyperref}
+  - \hypersetup {colorlinks = true, linkcolor = blue, urlcolor = blue}
 ---
 <!-- This is needed since I am working with svg files from mathcha.io. It converts the graphics files to something that can be used in the pdf files. Code taken from https://stackoverflow.com/questions/50165404/how-to-make-a-pdf-using-bookdown-including-svg-images/56044642#56044642 -->
 
@@ -79,10 +81,10 @@ There are two good uses for this theorem. The first says that non-negative seque
 \BeginKnitrBlock{Non-theorem}<div class="Non-theorem" custom-style="ExampleStyle" id="Non:unnamed-chunk-2"><span class="Non-theorem" custom-style="NameStyle"><strong> Non-theorem: </strong></span><p> Let $(a_n)_{n\in\mathbb{N}}$ and $(b_n)_{n\in\mathbb{N}}$ be sequences and let $L,M \in \mathbb{R}$ be such that $a_n \to L$ and $b_n \to L$ as $n \to \infty$. If $a_n < b_n \; \forall n \in \mathbb{N}$, then $L < M$.</p></div>\EndKnitrBlock{Non-theorem}
 To see why this is false, consider the sequences defined by $a_n = 1 - \frac{1}{n}$ and $b_n = 1$. We note that each $a_n$ is strictly less than each corresponding $b_n$, but we find that $$\lim_{n \to \infty} a_n = 1 = \lim_{n \to \infty} b_n.$$
 
-The second reason why <a href="#thm:thm1">1.1</a> is so important, is that it gives us this second theorem[^1]:
+The second reason why Theorem <a href="#thm:thm1">1.1</a> is so important, is that it gives us this second theorem[^1]:
 \BeginKnitrBlock{theorem}<div class="bookdown-theorem" custom-style="TheoremStyleUpright" id="thm:thm2"><span class="thm:thm2" custom-style="NameStyle"><strong><span id="thm:thm2"></span>Theorem 1.2   (Uniqueness of Limits) </strong></span><p>If $(a_n)_{n\in\mathbb{N}}$ is convergent with $a_n \to L$ and $a_n \to M$ as $n \to \infty$, then $L = M$.</p></div>\EndKnitrBlock{theorem}
 
-[^1]: Feel free to ignore this footnote, but there are areas of maths where limits are not unique. This is usually in the realm of topology, which you can take in Year 3 [MA30055](https://www.bath.ac.uk/catalogues/2022-2023/ma/MA30055.html). Luckily for us, everything behaves nicely, and our limits are unique.
+[^1]: Feel free to ignore this footnote, but there are areas of maths where limits are not unique. This is usually in the realm of topology, which you can take in Year 3 [(MA30055)](https://www.bath.ac.uk/catalogues/2022-2023/ma/MA30055.html). Luckily for us, everything behaves nicely, and our limits are unique.
 
 ### Bounded Sequences
 Much like we have done with sets, we can formulate a definition which allows us to `trap' sequences.

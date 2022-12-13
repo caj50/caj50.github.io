@@ -75,6 +75,8 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
 \newcommand{\BOO}{BOO}
+\usepackage {hyperref}
+\hypersetup {colorlinks = true, linkcolor = blue, urlcolor = blue}
 \usepackage{float}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
@@ -218,7 +220,7 @@ There are two good uses for this theorem. The first says that non-negative seque
 \EndKnitrBlock{Non-theorem*}
 To see why this is false, consider the sequences defined by \(a_n = 1 - \frac{1}{n}\) and \(b_n = 1\). We note that each \(a_n\) is strictly less than each corresponding \(b_n\), but we find that \[\lim_{n \to \infty} a_n = 1 = \lim_{n \to \infty} b_n.\]
 
-The second reason why \ref{thm:thm1} is so important, is that it gives us this second theorem\footnote{Feel free to ignore this footnote, but there are areas of maths where limits are not unique. This is usually in the realm of topology, which you can take in Year 3 \href{https://www.bath.ac.uk/catalogues/2022-2023/ma/MA30055.html}{MA30055}. Luckily for us, everything behaves nicely, and our limits are unique.}:
+The second reason why Theorem \ref{thm:thm1} is so important, is that it gives us this second theorem\footnote{Feel free to ignore this footnote, but there are areas of maths where limits are not unique. This is usually in the realm of topology, which you can take in Year 3 \href{https://www.bath.ac.uk/catalogues/2022-2023/ma/MA30055.html}{(MA30055)}. Luckily for us, everything behaves nicely, and our limits are unique.}:
 \BeginKnitrBlock{theorem}[Uniqueness of Limits]
 {\label{thm:thm2} }If \((a_n)_{n\in\mathbb{N}}\) is convergent with \(a_n \to L\) and \(a_n \to M\) as \(n \to \infty\), then \(L = M\).
 \EndKnitrBlock{theorem}
