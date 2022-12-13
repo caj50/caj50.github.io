@@ -1,0 +1,23 @@
+book_filename: "Tutorial3"
+output_dir: "~/Documents/GitHub/caj50.github.io/Analysis Tutorials/Ma10207T3"
+new_theorems:
+  Non-theorem: Non
+  Thought: Tho
+  Definitions: Def
+  Example: ---
+  Proof: ---
+  Examples: ---
+number_by:
+  prp: thm
+  Def: def
+style_with:
+  plain: ["Definitions", "definition"]
+  definition: []
+  remark: ["Proof"]
+  colouroff: ["Examples"]
+  italicsoff: FALSE
+classify_as:
+  TheoremStyle: []
+  DefinitionStyle: []
+  ExampleStyle: ["Thought", "Non-theorem"]
+  ProofStyle: []

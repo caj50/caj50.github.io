@@ -1,0 +1,265 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  17pt,
+  a4paper]{extarticle}
+\title{Analysis 1A --- Tutorial 3}
+\author{Christian Jones: University of Bath}
+\date{October 2022}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Analysis 1A --- Tutorial 3},
+  pdfauthor={Christian Jones: University of Bath},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\newcommand{\BOO}{BOO}
+\usepackage {hyperref}
+\hypersetup {colorlinks = true, linkcolor = blue, urlcolor = blue}
+\usepackage{float}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}\newtheorem{definition}{Definition}[section]
+\theoremstyle{plain}
+\newtheorem*{proposition*}{Proposition}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{Definitions*}{Definitions}\newtheorem{Definitions}[definition]{Definitions}
+\theoremstyle{plain}
+\newtheorem*{lemma*}{Lemma}\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{plain}
+\newtheorem*{corollary*}{Corollary}\newtheorem{corollary}{Corollary}[section]
+\theoremstyle{plain}
+\newtheorem*{conjecture*}{Conjecture}\newtheorem{conjecture}{Conjecture}[section]
+\theoremstyle{definition}
+\newtheorem*{example*}{Example}\newtheorem{example}{Example}[section]
+\theoremstyle{definition}
+\newtheorem*{exercise*}{Exercise}\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{Non-theorem*}{Non-theorem}\newtheorem{Non-theorem}{Non-theorem}[section]
+\newtheorem*{Thought*}{Thought}\newtheorem{Thought}{Thought}[section]
+\theoremstyle{remark}
+\newtheorem*{remark*}{Remark}
+\newtheorem*{solution*}{Solution}
+\newtheorem*{Example*}{Example}
+\theoremstyle{remark}
+\newtheorem*{Proof*}{Proof}
+\newtheorem*{Examples*}{Examples}
+\let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
+
+
+%\usepackage[english,shorthands=off]{babel}
+\usepackage{etoolbox}
+\usepackage{spverbatim}
+\makeatletter
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\@ifpackageloaded{adjustbox}{}{\usepackage[Export]{adjustbox}}
+\makeatother
+\floatplacement{figure}{H}
+\newcommand{\scalefactor}{1.7}
+\adjustboxset*{min width=\scalefactor\width,max width=\linewidth}
+\renewcommand{\familydefault}{phv}
+\fontfamily{phv}\selectfont
+\renewcommand{\em}{\bf}\renewcommand{\textit}{\textbf}\renewcommand{\emph}{\textbf}\renewcommand{\it}{\bf}\renewcommand{\itshape}{\bf}
+\setlength{\parindent}{0.0pt}
+\setlength{\parskip}{1.0\baselineskip}
+\renewcommand{\baselinestretch}{1.5}\selectfont
+\setlength{\mathsurround}{0.2em}
+\setlength{\arraycolsep}{0.5cm}\renewcommand{\arraystretch}{1.5}
+\addtolength{\jot}{\baselineskip}
+\renewcommand{\;}{\,}
+\sloppy
+\allowdisplaybreaks
+\usepackage{amsthm}
+\newtheoremstyle{plain}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{definition}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{remark}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\csundef{Proof}
+\csundef{endProof}
+\newenvironment{Proof}
+  {\noindent{\bf Proof.}\hspace*{1em}}% Begin
+  {\qed\par}% End
+%% When redefining an environment it is vital that it has 
+%% the same number of arguments as the original
+\renewenvironment{proof}[1][\proofname]
+  {\trivlist\item\relax\noindent{\bf {#1}.}\hspace*{1em}}% Begin
+  {\qed\endtrivlist}% End
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\newpage
+\pagenumbering{arabic}
+
+\hypertarget{introduction}{%
+\section*{Introduction}\label{introduction}}
+\addcontentsline{toc}{section}{Introduction}
+
+Here is the material to accompany the 3rd Analysis Tutorial on the 24th October. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to \href{mailto:caj50@bath.ac.uk}{Christian Jones (caj50)}.
+
+\hypertarget{lecture-recap}{%
+\section{Lecture Recap}\label{lecture-recap}}
+
+\hypertarget{suprema-and-infima}{%
+\subsection{Suprema and Infima}\label{suprema-and-infima}}
+
+There's still a little bit of material to cover regarding the supremum and infimum of a set. To begin, we re-cover the definitions from last week.
+\BeginKnitrBlock{definition}[Supremum]
+{\label{def:def1} }Let \(S \in \mathbb{R}\). A number \(T \in \mathbb{R}\) is said to be the supremum of \(S\) if it is an upper bound for \(S\), and for any other upper bound \(M\), \(T \leq M\). Here, we write \(T = \sup(S)\).
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{definition}[Infimum]
+{\label{def:def2} }Let \(S \in \mathbb{R}\). A number \(t \in \mathbb{R}\) is said to be the infimum of \(S\) if it is a lower bound for \(S\), and for any other lower bound \(m\), \(t\geq m\). Here, we write \(t = \inf(S)\).
+\EndKnitrBlock{definition}
+It also turns out that there's an alternative characterisation of suprema and infima which turns out to be very useful, especially if the members of a set aren't indexed by natural numbers.
+
+\BeginKnitrBlock{proposition}
+{\label{prp:prop1} }Let \(S\subseteq\mathbb{R}\). Then a number \(T\in\mathbb{R}\) is the \emph{supremum} of \(S\), denoted \(\sup(S)\) if: \[\forall \epsilon > 0, \exists s \in S\; \text{such that} \; s > T - \epsilon.\]
+\EndKnitrBlock{proposition}
+
+\BeginKnitrBlock{proposition}
+{\label{prp:prop2} }Let \(S\subseteq\mathbb{R}\). Then a number \(t\in\mathbb{R}\) is the \emph{infimum} of \(S\), denoted \(\inf(S)\) if: \[\forall \epsilon > 0, \exists s \in S\; \text{such that} \; s < t + \epsilon.\]
+\EndKnitrBlock{proposition}
+As an example, take the set \(S = (-1,2] = \lbrace x \, \lvert\, -1 < x \leq 2\rbrace\), and fix some \(\epsilon > 0\). Then, if we take \(s_1 = 2 - \epsilon/2\) and \(s_2 = -1 + \epsilon/2\), we see that
+
+\begin{itemize}
+\tightlist
+\item
+  \(s_1\) and \(s_2\) are in the set \(S\),
+\item
+  \(s_1 > 2 - \epsilon\), and
+\item
+  \(s_2 < -1 + \epsilon\).
+\end{itemize}
+
+Hence, as \(\epsilon\) was arbitrary, the alternative characterisation of suprema and infima says that \(\sup(S) = 2\) and \(\inf(S) = -1\).
+
+\hypertarget{inequalities}{%
+\subsection{Inequalities}\label{inequalities}}
+
+Inequalities come up everywhere in maths! For example, they can be used in statistics for estimation (Markov/Chebyshev inequalities), they can be used as constraints in optimisation problems (see Section 3.1 of \href{https://en.wikipedia.org/wiki/Linear_programming}{this Wikipedia link.}), and quite famously appear in Quantum Mechanics. In this latter case, we have the \href{http://hyperphysics.phy-astr.gsu.edu/hbase/uncer.html}{Heisenberg Uncertainty Principle}, and this inequality states that you can't simultaneously know the position and momentum of a quantum particle, such as an electron.
+
+Most of the inequalities in this course will be based on the absolute value, which is defined as follows:
+\BeginKnitrBlock{definition}[Absolute Value]
+{\label{def:def3} }For \(x \in \mathbb{R}\), the absolute value of \(x\) is given by \begin{align*}
+    \lvert x \rvert = \begin{cases}
+    x \quad &\text{if} \; x \geq 0,\\
+    -x \quad &\text{if} \; x < 0
+    \end{cases}\;\; = \max\lbrace x, -x \rbrace.
+\end{align*}
+\EndKnitrBlock{definition}
+
+The absolute value has the following properties:
+\BeginKnitrBlock{proposition}
+{\label{prp:prop3} }For \(x,y \in \mathbb{R}\):
+\begin{gather*}
+   x \leq \lvert x \rvert,\quad -x \leq \lvert x \rvert,\quad \lvert -x \rvert = \lvert x \rvert\quad \text{and}\quad \lvert x y \rvert = \lvert x \rvert \lvert y \rvert.
+\end{gather*}
+\EndKnitrBlock{proposition}
+Now we come on to what I consider to be the most important thing in this course.
+
+\BeginKnitrBlock{theorem}[Triangle Inequalities]
+{\label{thm:thm4} }For \(x,y\in\mathbb{R}\):
+
+\begin{itemize}
+\tightlist
+\item
+  \(\lvert x + y \rvert \leq \lvert x \rvert + \lvert y \rvert\), and
+\item
+  \(\left\lvert \lvert x \rvert - \lvert y \rvert \right\rvert \leq \lvert x - y \rvert.\)
+\end{itemize}
+\EndKnitrBlock{theorem}
+
+The first of these is known as the \textbf{Triangle Inequality}, and the second is the \textbf{Reverse Triangle Inequality}. Why do I think this is so important? This will come up in almost any course you take at university that uses analysis! If you're studying vector calculus, fluid mechanics, statistics, probability, or anything that's not abstract algebra, there's guaranteed to be a proof or technique which involves an inequality of this form! So if you only learn one result from Analysis 1, make it this one.
+
+Finally, there's one more inequality to mention --- the binomial inequality.
+\BeginKnitrBlock{proposition}[Binomial Inequality]
+{\label{prp:prop4} }We have \(\forall n \in \mathbb{N}_0\) (i.e.~all the natural numbers with \(0\)), and \(\forall x \geq -1\), \[(1 + x)^n \geq 1 + nx.\]
+\EndKnitrBlock{proposition}
+
+\hypertarget{hints}{%
+\section{Hints}\label{hints}}
+
+As per usual, here's where you'll find the problem sheet hints!
+
+\begin{itemize}
+\tightlist
+\item
+  {[}H1.{]} Take cases on \(x\).
+\item
+  {[}H2.{]} You should only need the definitions given in lectures to solve this question. Make sure to write things logically!
+\item
+  {[}H3.{]} Without loss of generality (WLOG), consider \(x \geq y\) (otherwise you can just swap them), and consider \(\lvert \sqrt{x} - \sqrt{y} \rvert^2\). On expanding, try and find a bound for the `middle' term.
+\item
+  {[}H4.{]} Solve the modulus equation, and then use your solutions to formulate simultaneous equations for \(c\) and \(r\).
+\end{itemize}
+
+\end{document}
