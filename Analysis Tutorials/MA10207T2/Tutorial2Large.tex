@@ -1,0 +1,297 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  17pt,
+  a4paper]{extarticle}
+\title{Analysis 1A --- Tutorial 2}
+\author{Christian Jones: University of Bath}
+\date{October 2022}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Analysis 1A --- Tutorial 2},
+  pdfauthor={Christian Jones: University of Bath},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\newcommand{\BOO}{BOO}
+\usepackage {hyperref}
+\hypersetup {colorlinks = true, linkcolor = blue, urlcolor = blue}
+\usepackage{float}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}\newtheorem{definition}{Definition}[section]
+\theoremstyle{plain}
+\newtheorem*{proposition*}{Proposition}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{Definitions*}{Definitions}\newtheorem{Definitions}[definition]{Definitions}
+\theoremstyle{plain}
+\newtheorem*{lemma*}{Lemma}\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{plain}
+\newtheorem*{corollary*}{Corollary}\newtheorem{corollary}{Corollary}[section]
+\theoremstyle{plain}
+\newtheorem*{conjecture*}{Conjecture}\newtheorem{conjecture}{Conjecture}[section]
+\theoremstyle{definition}
+\newtheorem*{example*}{Example}\newtheorem{example}{Example}[section]
+\theoremstyle{definition}
+\newtheorem*{exercise*}{Exercise}\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{Non-theorem*}{Non-theorem}\newtheorem{Non-theorem}{Non-theorem}[section]
+\newtheorem*{Order Axioms*}{Order Axioms}\newtheorem{Order Axioms}{Order Axioms}[section]
+\newtheorem*{Thought*}{Thought}\newtheorem{Thought}{Thought}[section]
+\theoremstyle{remark}
+\newtheorem*{remark*}{Remark}
+\newtheorem*{solution*}{Solution}
+\newtheorem*{Example*}{Example}
+\theoremstyle{remark}
+\newtheorem*{Proof*}{Proof}
+\newtheorem*{Examples*}{Examples}
+\let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
+
+
+%\usepackage[english,shorthands=off]{babel}
+\usepackage{etoolbox}
+\usepackage{spverbatim}
+\makeatletter
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\@ifpackageloaded{adjustbox}{}{\usepackage[Export]{adjustbox}}
+\makeatother
+\floatplacement{figure}{H}
+\newcommand{\scalefactor}{1.7}
+\adjustboxset*{min width=\scalefactor\width,max width=\linewidth}
+\renewcommand{\familydefault}{phv}
+\fontfamily{phv}\selectfont
+\renewcommand{\em}{\bf}\renewcommand{\textit}{\textbf}\renewcommand{\emph}{\textbf}\renewcommand{\it}{\bf}\renewcommand{\itshape}{\bf}
+\setlength{\parindent}{0.0pt}
+\setlength{\parskip}{1.0\baselineskip}
+\renewcommand{\baselinestretch}{1.5}\selectfont
+\setlength{\mathsurround}{0.2em}
+\setlength{\arraycolsep}{0.5cm}\renewcommand{\arraystretch}{1.5}
+\addtolength{\jot}{\baselineskip}
+\renewcommand{\;}{\,}
+\sloppy
+\allowdisplaybreaks
+\usepackage{amsthm}
+\newtheoremstyle{plain}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{definition}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{remark}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\csundef{Proof}
+\csundef{endProof}
+\newenvironment{Proof}
+  {\noindent{\bf Proof.}\hspace*{1em}}% Begin
+  {\qed\par}% End
+%% When redefining an environment it is vital that it has 
+%% the same number of arguments as the original
+\renewenvironment{proof}[1][\proofname]
+  {\trivlist\item\relax\noindent{\bf {#1}.}\hspace*{1em}}% Begin
+  {\qed\endtrivlist}% End
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\newpage
+\pagenumbering{arabic}
+
+\hypertarget{introduction}{%
+\section*{Introduction}\label{introduction}}
+\addcontentsline{toc}{section}{Introduction}
+
+Here is the material to accompany the 2nd Analysis Tutorial on the 17th October. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to \href{mailto:caj50@bath.ac.uk}{Christian Jones (caj50)}.
+
+\hypertarget{lecture-recap}{%
+\section{Lecture Recap}\label{lecture-recap}}
+
+\hypertarget{induction}{%
+\subsection{Induction}\label{induction}}
+
+This week first involves a little bit more about statements, namely those that involve the natural numbers \(\mathbb{N}\). Suppose we have a statement \(P(n)\) which depends on a natural number \(n\). If we want to prove this true for all natural numbers, we use the principle of \emph{mathematical induction}.
+
+Firstly, let \(\Lambda \subseteq \mathbb{N}\) be the set of all \(n \in \mathbb{N}\) such that \(P(n)\) is true. Then, to prove something by induction, we use the following procedure:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Show \(1 \in \Lambda\).
+\item
+  Assume \(k \in \Lambda\) for some \(k \in \mathbb{N}\). Prove \(k + 1 \in \Lambda\).
+\end{enumerate}
+
+If these two steps are satisfied, then \(\Lambda = \mathbb{N}\), and \(P(n)\) holds for all natural numbers \(n\). You may come across different styles of inductive proofs from different lecturers at Bath, but as long as you write everything logically, these are fine for this course too!
+
+\hypertarget{axioms1}{%
+\subsection[Axioms]{\texorpdfstring{Axioms\footnote{Or Axiomata, if you're into your archaic English.}}{Axioms}}\label{axioms1}}
+
+\hypertarget{field-axioms}{%
+\subsubsection{Field Axioms}\label{field-axioms}}
+
+As you might know from experience, natural numbers won't get us very far in maths. So instead, we turn to studying the real numbers (\(\mathbb{R}\)). But before we do, we need to know how these numbers behave under certain operations. This is where the \emph{field axioms} come in. There's a long list of them in Section 2.1 of the lecture notes , so they're not repeated here in full. However, we can summarise\footnote{Once you've learned some group theory, we can obscure everything behind more definitions. The first two bullet points can be stated as: \((\mathbb{R},+)\) and \((\mathbb{R}\setminus\lbrace0\rbrace, \cdot)\) are abelian groups. The third bullet point remains the same.} them as follows:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Addition}: On \(\mathbb{R}\), addition is \emph{associative} and \emph{commutative}, an \emph{additive identity} exists, and \emph{additive inverses} exist.
+\item
+  \textbf{Multiplication}: On \(\mathbb{R}\setminus \lbrace 0 \rbrace\), multiplication is \emph{associative} and \emph{commutative}, a \emph{multiplicative identity} exists, and \emph{multiplicative inverses} exist.
+\item
+  Multiplication \emph{distributes} over addition.
+\end{itemize}
+
+Try matching the properties here to the numbered axioms in the lecture notes!
+
+\hypertarget{order-axioms}{%
+\subsubsection{Order Axioms}\label{order-axioms}}
+
+As if the first 9 field axioms weren't enough, there are 5 \emph{order axioms} you need to know. As these are useful for the problem sheet, they are presented below.
+\BeginKnitrBlock{Order Axioms*}
+{}For \(x,y,z \in \mathbb{R}\):
+
+\begin{itemize}
+\tightlist
+\item
+  \(x \leq y\) or \(y \leq x\).
+\item
+  If \(x\leq y\) and \(y \leq x\), then \(x = y\).
+\item
+  If \(x \leq y\) and \(y \leq z\), then \(x \leq z\).
+\item
+  If \(x \leq y\), then \(x + z \leq y + z\).
+\item
+  If \(x\leq y\) and \(z\geq0\), then \(xz\leq yz\).
+\end{itemize}
+\EndKnitrBlock{Order Axioms*}
+
+\hypertarget{set-bounds}{%
+\subsection{Set Bounds}\label{set-bounds}}
+
+You might be interested to know that at this stage, despite the fact we have specified 14 axioms, these still aren't unique to the real numbers! For example, the exact same axioms also apply to the set of rational numbers \(\mathbb{Q}\). Luckily, we only need one more axiom to complete our description of the real numbers. Unfortunately, there are a few definitions we need first\ldots{}
+
+\BeginKnitrBlock{definition}[Upper Bound]
+{\label{def:def1} }Let \(S \subseteq \mathbb{R}\). Then \(M \in \mathbb{R}\) is an upper bound for \(S\) if for all \(x \in S\), \(x \leq M\). In this case, we say \(S\) is bounded above.
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{definition}[Lower Bound]
+{\label{def:def2} }Let \(S \subseteq \mathbb{R}\). Then \(m \in \mathbb{R}\) is a lower bound for \(S\) if for all \(x \in S\), \(x \geq m\). In this case, we say that \(S\) is bounded below.
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{definition}[Bounded Set]
+{\label{def:def3} }A set \(S\) is bounded if it is both bounded above and below. Equivalently, \(S\) is bounded if there exists \(m, M \in \mathbb{R}\) such that for all \(x \in S\), \(m\leq x \leq M\).
+\EndKnitrBlock{definition}
+We can go one step further with the definition of a bounded set. Namely, we can say that \(S\) is bounded if \(\exists M^{*}\geq0\) such that \(\lvert x \rvert \leq M\) for all members \(x\) of \(S\). The link here is that \(M^{*} = \max\left\lbrace \lvert m \rvert, \lvert M \rvert \right\rbrace\).
+
+Thinking of upper bounds for a moment, if we have one, we could ask if there is a smaller number which also bounds the set from above. You might also be tempted to ask what the `best' upper bound on a set could be, such that no smaller number will bound the set from above. This leads to the ideas of suprema and infima:
+
+\BeginKnitrBlock{definition}[Supremum]
+{\label{def:def4} }Let \(S \in \mathbb{R}\). A number \(T \in \mathbb{R}\) is said to be the supremum of \(S\) if it is an upper bound for \(S\), and for any other upper bound \(M\), \(T \leq M\). Here, we write \(T = \sup(S)\).
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{definition}[Infimum]
+{\label{def:def5} }Let \(S \in \mathbb{R}\). A number \(t \in \mathbb{R}\) is said to be the infimum of \(S\) if it is a lower bound for \(S\), and for any other lower bound \(m\), \(t\geq m\). Here, we write \(t = \inf(S)\).
+\EndKnitrBlock{definition}
+
+For example, if we consider the set \(S = (-1,2] = \lbrace x \lvert -1<x\leq2\rbrace\), we can see that possible upper and lower bounds are \(M = 3\) and \(m = -2\) respectively, so the set is bounded. Its supremum and infimum are \(\sup(S) = 2\) and \(\inf(S) = -1\). However, note that the supremum lies inside \(S\), whereas the infimum does not lie inside \(S\). This also tells us that the maximum element of \(S\) is \(2\), whereas \(S\) has no minimum element!
+
+\hypertarget{the-completeness-axiom}{%
+\subsubsection{The Completeness Axiom}\label{the-completeness-axiom}}
+
+Finally, we are ready to state the required \(15^{th}\) axiom! As the title suggests, this is known as the \emph{Completeness Axiom}. It says that every non-empty set \(S\) in \(\mathbb{R}\) that is bounded above has a supremum\footnote{In the lecture notes, it also states that `Every non-empty set of real numbers that is bounded below has an infimum.' But you can deduce this from the supremum result by considering the set \(-S:=\lbrace -x \lvert x \in S\rbrace.\)}.
+
+Loosely, this axiom ensures that there are no `gaps' in the real number line. For some more (precise) information, see \href{https://en.wikipedia.org/wiki/Completeness_of_the_real_numbers}{this link.}
+
+\hypertarget{the-archimedian-postulate}{%
+\subsubsection{The Archimedian Postulate}\label{the-archimedian-postulate}}
+
+To finish, we mention one result which will become very useful when studying sequences in the next few weeks. This is the \emph{Archimedian Postulate}, and says that the set of natural numbers is unbounded above. In maths terms:
+
+\BeginKnitrBlock{proposition}[Archimedian Postulate]
+{\label{prp:prop1} }We have that \(\forall x \in \mathbb{R}, \exists N \in \mathbb{N}\) such that \(N > x.\)
+\EndKnitrBlock{proposition}
+
+\hypertarget{hints}{%
+\section{Hints}\label{hints}}
+
+As per last week, here's the hints section of this document.
+
+\begin{itemize}
+\tightlist
+\item
+  {[}H1.{]} Recall that a number \(N\) is a multiple of 3 if there exists \(j \in \mathbb{Z}\) such that \(N = 3j\). The proof is then similar to tutorial question 1.
+\item
+  {[}H2.{]} Try and get the problems into the form of one of the order axioms. Make sure to state each axiom you use, when you use it!
+\item
+  {[}H3.{]} This is a similar procedure to tutorial question 3. Splitting the fraction up will help!
+\item
+  {[}H4.{]} The induction should be straightforward. To find the formula you need to prove, have you seen a way of rewriting \(\begin{pmatrix}  n\\  10  \end{pmatrix}\) recently? (Have a look at the proof of the binomial theorem).
+\item
+  {[}H5.{]} Think back to the definitions, and use them to construct your proof of this result.
+\end{itemize}
+
+\end{document}
