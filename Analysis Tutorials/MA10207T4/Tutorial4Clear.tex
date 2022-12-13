@@ -1,0 +1,275 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  12pt,
+  a4paper]{extarticle}
+\title{Analysis 1A --- Tutorial 4}
+\author{Christian Jones: University of Bath}
+\date{October 2022}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Analysis 1A --- Tutorial 4},
+  pdfauthor={Christian Jones: University of Bath},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\newcommand{\BOO}{BOO}
+\usepackage{float}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}\newtheorem{definition}{Definition}[section]
+\theoremstyle{plain}
+\newtheorem*{proposition*}{Proposition}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{Definitions*}{Definitions}\newtheorem{Definitions}[definition]{Definitions}
+\theoremstyle{plain}
+\newtheorem*{lemma*}{Lemma}\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{plain}
+\newtheorem*{corollary*}{Corollary}\newtheorem{corollary}{Corollary}[section]
+\theoremstyle{plain}
+\newtheorem*{conjecture*}{Conjecture}\newtheorem{conjecture}{Conjecture}[section]
+\theoremstyle{definition}
+\newtheorem*{example*}{Example}\newtheorem{example}{Example}[section]
+\theoremstyle{definition}
+\newtheorem*{exercise*}{Exercise}\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{Non-theorem*}{Non-theorem}\newtheorem{Non-theorem}{Non-theorem}[section]
+\newtheorem*{Thought*}{Thought}\newtheorem{Thought}{Thought}[section]
+\theoremstyle{remark}
+\newtheorem*{remark*}{Remark}
+\newtheorem*{solution*}{Solution}
+\newtheorem*{Example*}{Example}
+\theoremstyle{remark}
+\newtheorem*{Proof*}{Proof}
+\newtheorem*{Examples*}{Examples}
+\let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
+
+
+%\usepackage[english,shorthands=off]{babel}
+\usepackage{etoolbox}
+\usepackage{spverbatim}
+\makeatletter
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\@ifpackageloaded{adjustbox}{}{\usepackage[Export]{adjustbox}}
+\makeatother
+\floatplacement{figure}{H}
+\newcommand{\scalefactor}{1.2}
+\adjustboxset*{min width=\scalefactor\width,max width=\linewidth}
+\renewcommand{\familydefault}{phv}
+\fontfamily{phv}\selectfont
+\renewcommand{\em}{\bf}\renewcommand{\textit}{\textbf}\renewcommand{\emph}{\textbf}\renewcommand{\it}{\bf}\renewcommand{\itshape}{\bf}
+\setlength{\parindent}{0.0pt}
+\setlength{\parskip}{1.0\baselineskip}
+\renewcommand{\baselinestretch}{1.5}\selectfont
+\setlength{\mathsurround}{0.2em}
+\setlength{\arraycolsep}{0.5cm}\renewcommand{\arraystretch}{1.5}
+\addtolength{\jot}{\baselineskip}
+\renewcommand{\;}{\,}
+\sloppy
+\allowdisplaybreaks
+\usepackage{amsthm}
+\newtheoremstyle{plain}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{definition}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{remark}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\csundef{Proof}
+\csundef{endProof}
+\newenvironment{Proof}
+  {\noindent{\bf Proof.}\hspace*{1em}}% Begin
+  {\qed\par}% End
+%% When redefining an environment it is vital that it has 
+%% the same number of arguments as the original
+\renewenvironment{proof}[1][\proofname]
+  {\trivlist\item\relax\noindent{\bf {#1}.}\hspace*{1em}}% Begin
+  {\qed\endtrivlist}% End
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\newpage
+\pagenumbering{arabic}
+
+\hypertarget{introduction}{%
+\section*{Introduction}\label{introduction}}
+\addcontentsline{toc}{section}{Introduction}
+
+Here is the material to accompany the 4th Analysis Tutorial on the 31st October. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to \href{mailto:caj50@bath.ac.uk}{Christian Jones (caj50)}.
+
+\hypertarget{lecture-recap}{%
+\section{Lecture Recap}\label{lecture-recap}}
+
+\hypertarget{sequences-and-convergence}{%
+\subsection{Sequences and Convergence}\label{sequences-and-convergence}}
+
+Firstly, to discuss anything this week, we need to introduce the idea of a sequence.
+\BeginKnitrBlock{definition}[Sequence]
+{\label{def:def1} }A \emph{sequence} of real numbers is a function
+\begin{align*}
+    a:\; &\mathbb{N} \longrightarrow \mathbb{R},\\
+    &n \longmapsto a_n.
+\end{align*}
+\EndKnitrBlock{definition}
+Since this notation can get kind of annoying, we instead denote a sequence by \((a_n)_{n\in\mathbb{N}}\). If it's clear from the context what set we're indexing over, we can even just simply write a sequence as \((a_n)_n\).
+
+Now, this gives us an infinitely long list of real numbers, and sometimes its interesting to look at the `long-term' behaviour of these lists. This gives rise to the idea of convergence.
+
+\BeginKnitrBlock{definition}[Sequence Convergence]
+{\label{def:def2} }A sequence \((a_n)_{n\in\mathbb{N}}\) converges to a real number \(L\) as \(n \longrightarrow \infty\), written as either \(a_n \longrightarrow L\), or \(\lim_{n \to \infty}a_n = L\) if \[\forall \epsilon > 0, \; \exists N = N(\epsilon) \in \mathbb{N}, \; \text{such that} \; \forall n \geq N, \; \lvert a_n - L \rvert < \epsilon.\]
+\EndKnitrBlock{definition}
+Loosely speaking, this says that no matter how close you want the sequence to get to \(L\), you will always be able to find some point in the sequence after which all points in the sequence will be as close to \(L\) as you wanted. For an example of this, have a look at this \href{https://www.desmos.com/calculator/dfkjgg0wzj}{Desmos link}. For \(\epsilon = 0.5\) and \(L = 3\), you can see that every member of the sequence after the \(11^{th}\) lies within a strip of width \(2\epsilon\) around \(L\). Have a go at messing with the value of \(\epsilon\)!
+
+Something else we can mention for the definition is its \emph{negation}. Specifically, a sequence \((a_n)_n\) does not converge to \(L\) if
+\begin{align*}
+    \exists\; \epsilon_0 > 0, \; \text{such that} \; \forall N \in \mathbb{N}, \exists n \geq N \; \text{such that} \; \lvert a_n - L \rvert \geq \epsilon_0.
+\end{align*}
+
+\hypertarget{useful-sequences}{%
+\subsubsection{Useful Sequences}\label{useful-sequences}}
+
+Some (straightforward) results from using the definition include
+
+\begin{itemize}
+\tightlist
+\item
+  As \(n \longrightarrow \infty\): \[\frac{1}{n} \longrightarrow 0.\]
+\item
+  For a real number \(c\): as \(n \longrightarrow \infty\), \[c \longrightarrow c.\]
+\item
+  For \(q \in \mathbb{R}\) with \(\lvert q \rvert < 1\): as \(n \longrightarrow \infty\) \[q^n \longrightarrow 0.\]
+\end{itemize}
+
+\hypertarget{two-useful-theorems}{%
+\subsubsection{Two Useful Theorems}\label{two-useful-theorems}}
+
+\BeginKnitrBlock{theorem}[Preservation of Non-Strict Inequalities]
+{\label{thm:thm1} }Let \((a_n)_{n\in\mathbb{N}}\) and \((b_n)_{n\in\mathbb{N}}\) be sequences and let \(L,M \in \mathbb{R}\) be such that \(a_n \to L\) and \(b_n \to L\) as \(n \to \infty\). If \(a_n \leq b_n \; \forall n \in \mathbb{N}\), then \(L \leq M\).
+\EndKnitrBlock{theorem}
+There are two good uses for this theorem. The first says that non-negative sequences should have non-negative limits (which is something you might expect). Before we state the second, we mention one more thing, which is \textbf{not true}:
+\BeginKnitrBlock{Non-theorem*}
+{} Let \((a_n)_{n\in\mathbb{N}}\) and \((b_n)_{n\in\mathbb{N}}\) be sequences and let \(L,M \in \mathbb{R}\) be such that \(a_n \to L\) and \(b_n \to L\) as \(n \to \infty\). If \(a_n < b_n \; \forall n \in \mathbb{N}\), then \(L < M\).
+\EndKnitrBlock{Non-theorem*}
+To see why this is false, consider the sequences defined by \(a_n = 1 - \frac{1}{n}\) and \(b_n = 1\). We note that each \(a_n\) is strictly less than each corresponding \(b_n\), but we find that \[\lim_{n \to \infty} a_n = 1 = \lim_{n \to \infty} b_n.\]
+
+The second reason why \ref{thm:thm1} is so important, is that it gives us this second theorem\footnote{Feel free to ignore this footnote, but there are areas of maths where limits are not unique. This is usually in the realm of topology, which you can take in Year 3 \href{https://www.bath.ac.uk/catalogues/2022-2023/ma/MA30055.html}{MA30055}. Luckily for us, everything behaves nicely, and our limits are unique.}:
+\BeginKnitrBlock{theorem}[Uniqueness of Limits]
+{\label{thm:thm2} }If \((a_n)_{n\in\mathbb{N}}\) is convergent with \(a_n \to L\) and \(a_n \to M\) as \(n \to \infty\), then \(L = M\).
+\EndKnitrBlock{theorem}
+
+\hypertarget{bounded-sequences}{%
+\subsubsection{Bounded Sequences}\label{bounded-sequences}}
+
+Much like we have done with sets, we can formulate a definition which allows us to `trap' sequences.
+
+\BeginKnitrBlock{definition}[Bounded Sequence]
+{\label{def:def3} }A sequence \((a_n)\) is bounded if there exists \(M \in \mathbb{R}\) such that \(\lvert a_n \rvert \leq M\).
+\EndKnitrBlock{definition}
+If you prefer to think diagramatically, this says we can trap the sequence within a strip of width \(2M\) around \(0\). More importantly, this leads to the idea that \emph{all convergent sequences are bounded}. Note that this is equivalent to saying that if a sequence is not bounded, then it is not convergent.
+
+\hypertarget{algebra-of-limits}{%
+\subsubsection{Algebra of Limits}\label{algebra-of-limits}}
+
+Using the definition to prove all limits would be an incredibly boring way to go through this course. Luckily, there are a few general results we can prove which make our lives so much easier. This is known as the \emph{algebra of limits} (AoL).
+
+\BeginKnitrBlock{theorem}[Algebra of Limits]
+{\label{thm:thm4} }Let \(A,B,c \in \mathbb{R}\) and let \((a_n)\) and \((b_n)\) be sequences with \(a_n \to A\) and \(b_n \to B\) as \(n \to \infty\). Then:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\lim_{n \to \infty} (a_n + b_n) = A + B\),
+\item
+  \(\lim_{n \to \infty} (ca_n) = cA\),
+\item
+  \(\lim_{n \to \infty} (a_n b_n) = AB\),
+\item
+  If \(b_n \neq 0 \; \forall n \in \mathbb{N}\) and \(B \neq 0\), \(\lim_{n \to \infty} \frac{a_n}{b_n} = \frac{A}{B}\).
+\end{enumerate}
+\EndKnitrBlock{theorem}
+
+\hypertarget{hints}{%
+\section{Hints}\label{hints}}
+
+As per usual, here's where you'll find the problem sheet hints!
+
+\begin{itemize}
+\tightlist
+\item
+  {[}H1.{]} Use the definition! Try and follow a similar format to what we did in tutorials. Make sure to write things logically, and ensure that you've satisfied each part of the definition.
+\item
+  {[}H2i).{]} The hint on the sheet will certainly help (can you see the difference of two squares trick here?) The definition is probably the best way to go here. Remember that making a positive denominator smaller will also make the fraction bigger too!
+\item
+  {[}H2ii).{]} Feel free to use AoL here, but make sure to justify why you can use it!
+\item
+  {[}H3.{]} This one is a bit tricky. Firstly, what do you get if you factorise \(x^3 - y^3\)? Next, you'll want to use the fact that \(\lim_{n \to \infty} a_n = 1\) twice --- once to introduce an \(\epsilon\) into the problem, and again to find a point in the sequence after which all of the \(a_n\) are positive. Combining all this information should help you prove the required result.
+\end{itemize}
+
+\end{document}
