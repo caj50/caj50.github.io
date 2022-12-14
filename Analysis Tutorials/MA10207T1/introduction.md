@@ -23,11 +23,11 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
   clavertondown::html_clav:
     toc: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
     pandoc_args: --default-image-extension=svg
   clavertondown::word_clav:
     toc: true
@@ -63,7 +63,7 @@ One way we can represent these statements is via a *truth table*. Below is a (co
 
 
    $P$   $Q$   $P \Rightarrow Q$   $\neg P$   $\neg P \; \vee Q$
-  :-----: :-----: :-------------------: :----------: :--------------------:
+  ----- ----- ------------------- ---------- --------------------
    $T$   $T$          $T$            $F$             $T$
    $T$   $F$          $F$            $F$             $F$
    $F$   $T$          $T$            $T$             $T$
