@@ -302,47 +302,22 @@ MathJax.Hub.Config({
 <li><strong>Implication</strong> (<span class="math inline">\(P\Rightarrow Q\)</span>): We have that ‘<span class="math inline">\(P\)</span> implies <span class="math inline">\(Q\)</span>’ is true, except when <span class="math inline">\(P\)</span> is true and <span class="math inline">\(Q\)</span> is false.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> If you’re still unsure as to what this statement means, there’s a good example <a href="https://simple.wikipedia.org/wiki/Implication_(logic)">here</a>.</li>
 </ul>
 <p>One way we can represent these statements is via a <em>truth table</em>. Below is a (combined) truth table for <span class="math inline">\(P \Rightarrow Q\)</span> and <span class="math inline">\(\neg P \;\vee Q\)</span>:</p>
-<table>
-<thead>
-<tr class="header">
-<th align="center"><span class="math inline">\(P\)</span></th>
-<th align="center"><span class="math inline">\(Q\)</span></th>
-<th align="center"><span class="math inline">\(P \Rightarrow Q\)</span></th>
-<th align="center"><span class="math inline">\(\neg P\)</span></th>
-<th align="center"><span class="math inline">\(\neg P \; \vee Q\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center"><span class="math inline">\(T\)</span></td>
-<td align="center"><span class="math inline">\(T\)</span></td>
-<td align="center"><span class="math inline">\(T\)</span></td>
-<td align="center"><span class="math inline">\(F\)</span></td>
-<td align="center"><span class="math inline">\(T\)</span></td>
-</tr>
-<tr class="even">
-<td align="center"><span class="math inline">\(T\)</span></td>
-<td align="center"><span class="math inline">\(F\)</span></td>
-<td align="center"><span class="math inline">\(F\)</span></td>
-<td align="center"><span class="math inline">\(F\)</span></td>
-<td align="center"><span class="math inline">\(F\)</span></td>
-</tr>
-<tr class="odd">
-<td align="center"><span class="math inline">\(F\)</span></td>
-<td align="center"><span class="math inline">\(T\)</span></td>
-<td align="center"><span class="math inline">\(T\)</span></td>
-<td align="center"><span class="math inline">\(T\)</span></td>
-<td align="center"><span class="math inline">\(T\)</span></td>
-</tr>
-<tr class="even">
-<td align="center"><span class="math inline">\(F\)</span></td>
-<td align="center"><span class="math inline">\(F\)</span></td>
-<td align="center"><span class="math inline">\(T\)</span></td>
-<td align="center"><span class="math inline">\(T\)</span></td>
-<td align="center"><span class="math inline">\(T\)</span></td>
-</tr>
-</tbody>
-</table>
+<p><span class="math display">\[\begin{equation*}
+        \begin{array}{c|c||c|c|c}
+            P &amp; Q &amp; P \Rightarrow Q &amp; \neg P &amp; \neg P \; \vee Q  \\
+            \hline
+            T &amp; T &amp; T &amp; F &amp; T \\
+            T &amp; F &amp; F  &amp; F &amp; F \\
+            F &amp; T &amp; T  &amp; T &amp; T \\
+            F &amp; F &amp; T  &amp; T &amp; T \\
+        \end{array}
+\end{equation*}\]</span></p>
+<!--   $P$   $Q$   $P \Rightarrow Q$   $\neg P$   $\neg P \; \vee Q$
+  ----- ----- ------------------- ---------- --------------------
+   $T$   $T$          $T$            $F$             $T$
+   $T$   $F$          $F$            $F$             $F$
+   $F$   $T$          $T$            $T$             $T$
+   $F$   $F$          $T$            $T$             $T$ -->
 <p>Note that in this table, the ‘simple’ statements are on the left, and the ‘compound’ statements are written afterwards.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> Also, what we can see is that the truth table columns for both <span class="math inline">\(P \Rightarrow Q\)</span> and <span class="math inline">\(\neg P \;\vee Q\)</span> are identical. This means that both statements are <em>equivalent</em>, leading to a fifth logical operation:</p>
 <ul>
 <li>Equivalence (<span class="math inline">\(P \Leftrightarrow Q\)</span>): Two statements are equivalent if they’re both simultaneously true or simultaneously false. This can also be written <span class="math inline">\((P \Rightarrow Q) \wedge (Q \Rightarrow P)\)</span>.</li>
@@ -354,7 +329,7 @@ MathJax.Hub.Config({
 <ol start="1">
 <li id="fn1"><p>You can use any capital letter you want; I can only presume we start at <span class="math inline">\(P\)</span> because of the word ‘proposition’.<a href="statements.html#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>In case it comes up in anything you read, we can also say that <span class="math inline">\(P\)</span> is <em>sufficient</em> for <span class="math inline">\(Q\)</span> and also that <span class="math inline">\(Q\)</span> is necessary for <span class="math inline">\(P\)</span>.<a href="statements.html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>Ideally, you’d separate the simple statements from the compound ones by use of a double vertical line. However, due to Markdown’s apparent lack of syntax for adding a double line, you’ll just have to imagine one there.<a href="statements.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Ideally, you’d separate the simple statements from the compound ones by use of a double vertical line. However, due to Markdown’s apparent lack of syntax for adding a double line, you’ll just have to imagine one there. It does appear if you download the PDF version though.<a href="statements.html#fnref3" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

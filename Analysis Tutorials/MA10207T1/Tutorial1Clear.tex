@@ -190,19 +190,18 @@ Now that we have some statements, it makes sense to see if we can build somethin
 
 One way we can represent these statements is via a \emph{truth table}. Below is a (combined) truth table for \(P \Rightarrow Q\) and \(\neg P \;\vee Q\):
 
-\begin{longtable}[]{@{}ccccc@{}}
-\toprule
-\(P\) & \(Q\) & \(P \Rightarrow Q\) & \(\neg P\) & \(\neg P \; \vee Q\) \\
-\midrule
-\endhead
-\(T\) & \(T\) & \(T\) & \(F\) & \(T\) \\
-\(T\) & \(F\) & \(F\) & \(F\) & \(F\) \\
-\(F\) & \(T\) & \(T\) & \(T\) & \(T\) \\
-\(F\) & \(F\) & \(T\) & \(T\) & \(T\) \\
-\bottomrule
-\end{longtable}
+\begin{equation*}
+        \begin{array}{c|c||c|c|c}
+            P & Q & P \Rightarrow Q & \neg P & \neg P \; \vee Q  \\
+            \hline
+            T & T & T & F & T \\
+            T & F & F  & F & F \\
+            F & T & T  & T & T \\
+            F & F & T  & T & T \\
+        \end{array}
+\end{equation*}
 
-Note that in this table, the `simple' statements are on the left, and the `compound' statements are written afterwards.\footnote{Ideally, you'd separate the simple statements from the compound ones by use of a double vertical line. However, due to Markdown's apparent lack of syntax for adding a double line, you'll just have to imagine one there.} Also, what we can see is that the truth table columns for both \(P \Rightarrow Q\) and \(\neg P \;\vee Q\) are identical. This means that both statements are \emph{equivalent}, leading to a fifth logical operation:
+Note that in this table, the `simple' statements are on the left, and the `compound' statements are written afterwards.\footnote{Ideally, you'd separate the simple statements from the compound ones by use of a double vertical line. However, due to Markdown's apparent lack of syntax for adding a double line, you'll just have to imagine one there. It does appear if you download the PDF version though.} Also, what we can see is that the truth table columns for both \(P \Rightarrow Q\) and \(\neg P \;\vee Q\) are identical. This means that both statements are \emph{equivalent}, leading to a fifth logical operation:
 
 \begin{itemize}
 \tightlist

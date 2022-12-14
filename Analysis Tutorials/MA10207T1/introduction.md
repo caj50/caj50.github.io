@@ -16,6 +16,14 @@ output:
       download: [["Tutorial1.html", "HTML page"], ["Tutorial1.pdf","Standard print PDF"], ["Tutorial1Clear.pdf","Clear print PDF"], ["Tutorial1Large.pdf","Large print PDF"], ["Tutorial1.docx","Accessible Word document"], ["Tutorial1.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
+  clavertondown::html_clav:
+    toc: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::word_clav:
+    toc: true
+    number_sections: true
+    keep_md: true
+    pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
     keep_tex: true
@@ -23,16 +31,8 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
-  clavertondown::html_clav:
-    toc: true
-    pandoc_args: --default-image-extension=svg
   clavertondown::epub_clav:
     toc: false
-    pandoc_args: --default-image-extension=svg
-  clavertondown::word_clav:
-    toc: true
-    number_sections: true
-    keep_md: true
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
@@ -61,13 +61,23 @@ Now that we have some statements, it makes sense to see if we can build somethin
 
 One way we can represent these statements is via a *truth table*. Below is a (combined) truth table for $P \Rightarrow Q$ and $\neg P \;\vee Q$:
 
+\begin{equation*}
+        \begin{array}{c|c||c|c|c}
+            P & Q & P \Rightarrow Q & \neg P & \neg P \; \vee Q  \\
+            \hline
+            T & T & T & F & T \\
+            T & F & F  & F & F \\
+            F & T & T  & T & T \\
+            F & F & T  & T & T \\
+        \end{array}
+\end{equation*}
 
-   $P$   $Q$   $P \Rightarrow Q$   $\neg P$   $\neg P \; \vee Q$
+<!--   $P$   $Q$   $P \Rightarrow Q$   $\neg P$   $\neg P \; \vee Q$
   ----- ----- ------------------- ---------- --------------------
    $T$   $T$          $T$            $F$             $T$
    $T$   $F$          $F$            $F$             $F$
    $F$   $T$          $T$            $T$             $T$
-   $F$   $F$          $T$            $T$             $T$
+   $F$   $F$          $T$            $T$             $T$ -->
 
 Note that in this table, the 'simple' statements are on the left, and the 'compound' statements are written afterwards.[^3] Also, what we can see is that the truth table columns for both $P \Rightarrow Q$ and $\neg P \;\vee Q$ are identical. This means that both statements are *equivalent*, leading to a fifth logical operation:
 
@@ -77,7 +87,7 @@ In regards to statements, there are two more types which we can discuss. Firstly
 
 [^1]: You can use any capital letter you want; I can only presume we start at $P$ because of the word 'proposition'.
 [^2]: In case it comes up in anything you read, we can also say that $P$ is *sufficient* for $Q$ and also that $Q$ is necessary for $P$.
-[^3]: Ideally, you'd separate the simple statements from the compound ones by use of a double vertical line. However, due to Markdown's apparent lack of syntax for adding a double line, you'll just have to imagine one there.
+[^3]: Ideally, you'd separate the simple statements from the compound ones by use of a double vertical line. However, due to Markdown's apparent lack of syntax for adding a double line, you'll just have to imagine one there. It does appear if you download the PDF version though.
 
 ## Some Useful Laws
 In the previous section, we combined statements via logical operations. There is nothing stopping us combining these new statements too! We just need to know how to do it systematically. This relies on *distributive laws* and *De Morgan's laws*. Here, $P,Q,R$ are statements.
