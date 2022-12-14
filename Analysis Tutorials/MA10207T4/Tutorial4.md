@@ -14,6 +14,9 @@ output:
     number_sections: true
     keep_md: true
     pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
   clavertondown::gitbook_clav:
     split_by: section
     keep_md: true
@@ -31,9 +34,6 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
   - \usepackage {hyperref}
@@ -51,7 +51,7 @@ Here is the material to accompany the 4th Analysis Tutorial on the 31st October.
 
 ## Sequences and Convergence
 Firstly, to discuss anything this week, we need to introduce the idea of a sequence.
-\BeginKnitrBlock{definition}<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def1"><span class="def:def1" custom-style="NameStyle"><strong><span id="def:def1"></span>Definition 1.1   (Sequence) </strong></span><div>A \emph{sequence} of real numbers is a function
+\BeginKnitrBlock{definition}<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def1"><span class="def:def1" custom-style="NameStyle"><strong><span id="def:def1"></span>Definition 1.1   (Sequence) </strong></span><div>A sequence of real numbers is a function
 $$\begin{align*}
     a:\; &\mathbb{N} \longrightarrow \mathbb{R},\\
     &n \longmapsto a_n.

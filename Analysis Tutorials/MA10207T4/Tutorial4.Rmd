@@ -9,6 +9,11 @@ classoption: a4paper
 fontsize: 10pt
 geometry: margin=2.5cm
 output:
+  clavertondown::word_clav:
+    toc: true
+    number_sections: true
+    keep_md: true
+    pandoc_args: --default-image-extension=svg
   clavertondown::epub_clav:
     toc: false
     pandoc_args: --default-image-extension=svg
@@ -29,11 +34,6 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
-  clavertondown::word_clav:
-    toc: true
-    number_sections: true
-    keep_md: true
-    pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
   - \usepackage {hyperref}
@@ -63,7 +63,7 @@ Here is the material to accompany the 4th Analysis Tutorial on the 31st October.
 ## Sequences and Convergence
 Firstly, to discuss anything this week, we need to introduce the idea of a sequence.
 ```{definition, label = "def1", name = "Sequence"}
-A \emph{sequence} of real numbers is a function
+A sequence of real numbers is a function
 \begin{align*}
     a:\; &\mathbb{N} \longrightarrow \mathbb{R},\\
     &n \longmapsto a_n.

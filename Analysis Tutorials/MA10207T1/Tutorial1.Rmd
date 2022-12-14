@@ -9,8 +9,8 @@ classoption: a4paper
 fontsize: 10pt
 geometry: margin=2.5cm
 output:
-  clavertondown::epub_clav:
-    toc: false
+  clavertondown::html_clav:
+    toc: true
     pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
@@ -26,8 +26,8 @@ output:
       download: [["Tutorial1.html", "HTML page"], ["Tutorial1.pdf","Standard print PDF"], ["Tutorial1Clear.pdf","Clear print PDF"], ["Tutorial1Large.pdf","Large print PDF"], ["Tutorial1.docx","Accessible Word document"], ["Tutorial1.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
-  clavertondown::html_clav:
-    toc: true
+  clavertondown::epub_clav:
+    toc: false
     pandoc_args: --default-image-extension=svg
   clavertondown::word_clav:
     toc: true
