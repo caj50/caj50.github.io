@@ -87,7 +87,7 @@ In regards to statements, there are two more types which we can discuss. Firstly
 
 [^1]: You can use any capital letter you want; I can only presume we start at $P$ because of the word 'proposition'.
 [^2]: In case it comes up in anything you read, we can also say that $P$ is *sufficient* for $Q$ and also that $Q$ is necessary for $P$.
-[^3]: Ideally, you'd separate the simple statements from the compound ones by use of a double vertical line. However, due to Markdown's apparent lack of syntax for adding a double line, you'll just have to imagine one there. It does appear if you download the PDF version though.
+[^3]: *If you're reading the PDF version of this, ignore this footnote.* Ideally, you'd separate the simple statements from the compound ones by use of a double vertical line. However, due to Markdown's apparent lack of syntax for adding a double line, you'll just have to imagine one there.
 
 ## Some Useful Laws
 In the previous section, we combined statements via logical operations. There is nothing stopping us combining these new statements too! We just need to know how to do it systematically. This relies on *distributive laws* and *De Morgan's laws*. Here, $P,Q,R$ are statements.
