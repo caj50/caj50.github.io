@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.1 Two More Series Results | Analysis 1A — Tutorial 9</title>
-  <meta name="description" content="1.1 Two More Series Results | Analysis 1A — Tutorial 9" />
+  <title>Analysis 1A — Tutorial 9</title>
+  <meta name="description" content="Analysis 1A — Tutorial 9" />
   <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.1 Two More Series Results | Analysis 1A — Tutorial 9" />
+  <meta property="og:title" content="Analysis 1A — Tutorial 9" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.1 Two More Series Results | Analysis 1A — Tutorial 9" />
+  <meta name="twitter:title" content="Analysis 1A — Tutorial 9" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="lecture-recap.html"/>
-<link rel="next" href="power-series.html"/>
+
+<link rel="next" href="lecture-recap.html"/>
 
 <script src="libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -297,55 +297,22 @@ MathJax.Hub.Config({
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="two-more-series-results" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Two More Series Results</h2>
-<div id="leibniz-alternating-series-test" class="section level3" number="1.1.1">
-<h3><span class="header-section-number">1.1.1</span> Leibniz Alternating Series Test</h3>
-<p>So far, we’ve seen three tests which allow us (under certain conditions) to determine whether a series is convergent or not. These were the comparison test, d’Alembert’s ratio test and the Cauchy condensation test. There’s one more test to cover here, and this concerns series which have <em>alternating terms</em>. This is due to Leibniz, who — depending on your point of view — is considered to be the inventor of calculus.</p>
-
-<div id="thm:thm1" class="bookdown-theorem" custom-style="TheoremStyle">
-<span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1.1:  (Leibniz Alternating Series Test) </strong></span>
-<p>
-Suppose <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is a decreasing sequence tending to <span class="math inline">\(0\)</span> as <span class="math inline">\(n \to \infty\)</span>. Then <span class="math display">\[\sum_{n=1}^{\infty} (-1)^n a_n\]</span> is a convergent series.
-</p>
+<div id="header">
+<h1 class="title"><span style="font-size:150%; margin-bottom:0">Analysis 1A — Tutorial 9</span></h1>
+<p class="author" style="font-size:120%; margin-bottom:0"><em>Christian Jones: University of Bath</em></p>
+<p class="date" style="font-size:120%; margin-bottom:0"><em>December 2022</em></p>
 </div>
-<p>Moreover, since the sequence <span class="math inline">\((a_n)_n\)</span> is decreasing towards <span class="math inline">\(0\)</span>, we can say that the value of this sum lies in between <span class="math inline">\(-a_1\)</span> and <span class="math inline">\(a_2 - a_1\)</span>.</p>
-</div>
-<div id="multiplying-series" class="section level3" number="1.1.2">
-<h3><span class="header-section-number">1.1.2</span> Multiplying Series</h3>
-Recall the statement of the Algebra of Series:
-
-<div id="thm:thm2" class="bookdown-theorem" custom-style="TheoremStyle">
-<span class="thm:thm2" custom-style="NameStyle"><strong>Theorem 1.2:  (Algebra of Series) </strong></span>
-<p>
-Let <span class="math inline">\(\sum_{n=1}^{\infty}a_n\)</span> and <span class="math inline">\(\sum_{n=1}^{\infty}b_n\)</span> be convergent series, and let <span class="math inline">\(\alpha, \beta \in \mathbb{R}\)</span>. Then <span class="math display">\[\sum_{n=1}^{\infty}(\alpha a_n + \beta b_n) = \alpha\sum_{n=1}^{\infty}a_n + \beta\sum_{n=1}^{\infty}b_n.\]</span>
-</p>
-</div>
-<p>Now, compare this to the statement of the Algebra of Limits. Notice that we’ve suspiciously omitted any mention about multiplying infinite series together. This is because while for convergent sequences <span class="math inline">\((x_n)_n\)</span> and <span class="math inline">\((y_n)_n\)</span>, <span class="math display">\[\lim_{n\to\infty}(x_ny_n) = \lim_{n\to\infty}x_n \cdot \lim_{n\to\infty}y_n,\]</span> it does <strong>not</strong> follow that for convergent series <span class="math inline">\(\sum_{n=1}^{\infty}a_n\)</span> and <span class="math inline">\(\sum_{n=1}^{\infty}b_n\)</span>, <span class="math display">\[\sum_{n=1}^{\infty} a_nb_n = \left(\sum_{n=1}^{\infty}a_n\right)\left(\sum_{n=1}^{\infty}b_n\right).\]</span></p>
-<p>If you’re not convinced, we can try this with <span class="math inline">\(a_n = b_n = \frac{(-1)^{n}}{\sqrt{n}}\)</span>. Using the Leibniz test, we can see that both <span class="math inline">\(\sum_{n=1}^{\infty}a_n\)</span> and <span class="math inline">\(\sum_{n=1}^{\infty}b_n\)</span> converge, but <span class="math display">\[\sum_{n=1}^{\infty} a_nb_n = \sum_{n=1}^{\infty}\frac{1}{n} = \infty.\]</span> So, the next question we need to ask is whether a formula for multiplying convergent series exists, and if so, which series can we apply it to. This question was answered by Cauchy<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, and is summarised in the below theorem:</p>
-
-<div id="thm:thm3" class="bookdown-theorem" custom-style="TheoremStyle">
-<span class="thm:thm3" custom-style="NameStyle"><strong>Theorem 1.3:  (Cauchy Multiplication Theorem) </strong></span>
-<p>
-Assume that the real series <span class="math inline">\(\sum_{n=0}^{\infty}a_n\)</span> and <span class="math inline">\(\sum_{n=0}^{\infty}b_n\)</span> converge absolutely, and for <span class="math inline">\(n \in \mathbb{N}\)</span>, define <span class="math display">\[c_n:=\sum_{j=0}^{n}a_j b_{n - j}.\]</span> Then <span class="math inline">\(\sum_{n=0}^{\infty} c_n\)</span> converges absolutely, and <span class="math display">\[\sum_{n=0}^{\infty} c_n = \left(\sum_{n=0}^{\infty}a_n\right)\left(\sum_{n=0}^{\infty}b_n\right).\]</span>
-</p>
-</div>
-<p>Note that we index the sums starting at <span class="math inline">\(n=0\)</span> here. This is purely for convenience, and you could equally formulate this theorem for sums starting at <span class="math inline">\(n=1\)</span> (or any other value of <span class="math inline">\(n\)</span> for that matter). Furthermore, we require the condition that the two individual sums are <em>absolutely convergent</em>. As you’ve seen in lectures, the Cauchy Multiplication Theorem will fail if the series involved are only conditionally convergent.</p>
-</div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>If you’re keeping track, this is the third time Cauchy has appeared in this course. And we’re not done yet!<a href="two-more-series-results.html#fnref1" class="footnote-back">↩︎</a></p></li>
-</ol>
+<div id="introduction" class="section level1 unnumbered">
+<h1>Introduction</h1>
+<p>Here is the material to accompany the 9th Analysis Tutorial on the 5th December. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to <a href="mailto:caj50@bath.ac.uk">Christian Jones (caj50)</a>.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="lecture-recap.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="power-series.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+
+<a href="lecture-recap.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
