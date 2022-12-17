@@ -310,7 +310,7 @@ A power series is a real series of the form <span class="math inline">\(\sum_{n 
 <p>Note that compared to many of the series we have seen so far, we have started indexing the sum at <span class="math inline">\(n = 0\)</span>. This is just convention, and will make no difference to the overall convergence properties of these series. Speaking of, we could do with knowing for which values of <span class="math inline">\(x\)</span> these power series converge (or diverge).</p>
 
 <div id="prp:prop1" class="bookdown-proposition" custom-style="TheoremStyle">
-<span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.1:  </strong></span>
+<span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.4:  </strong></span>
 <p>
 For a power series <span class="math inline">\(\sum_{n = 0}^{\infty} a_n x^n\)</span>, let <span class="math display">\[R:= \sup\lbrace r \geq 0 \lvert \left(\lvert a_n \rvert r^n\right)_{n \in \mathbb{N}} \; \text{is bounded}\rbrace.\]</span> Then <span class="math display">\[\sum_{n = 0}^{\infty} a_n x^n \begin{cases}
 \text{diverges for}\;\lvert x \rvert &gt; R,\\
@@ -324,7 +324,7 @@ For a power series <span class="math inline">\(\sum_{n = 0}^{\infty} a_n x^n\)</
 <p>Good question. Luckily, there’s two<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> methods of finding <span class="math inline">\(R\)</span>. The first one is a result of d’Alembert’s ratio test.</p>
 
 <div id="thm:thm4" class="bookdown-theorem" custom-style="TheoremStyle">
-<span class="thm:thm4" custom-style="NameStyle"><strong>Theorem 1.4:  </strong></span>
+<span class="thm:thm4" custom-style="NameStyle"><strong>Theorem 1.5:  </strong></span>
 <p>
 Suppose <span class="math inline">\(\sum_{n = 0}^{\infty} a_n x^n\)</span> is a power series. If <span class="math display">\[\lim_{n \to \infty} \frac{\lvert a_n \rvert}{\lvert a_{n+1}\rvert}\]</span> exists, then the radius of convergence <span class="math inline">\(R\)</span> is the value of this limit.
 </p>
@@ -333,7 +333,7 @@ Suppose <span class="math inline">\(\sum_{n = 0}^{\infty} a_n x^n\)</span> is a 
 <p>The second method doesn’t look as nice, but it’s very useful if the values of <span class="math inline">\(a_n\)</span> involve powers of <span class="math inline">\(n\)</span>, or if there’s infinitely many of them equal to zero. And it’s also another result due to Cauchy!<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
 
 <div id="thm:thm5" class="bookdown-theorem" custom-style="TheoremStyle">
-<span class="thm:thm5" custom-style="NameStyle"><strong>Theorem 1.5:  (Cauchy-Hadamard) </strong></span>
+<span class="thm:thm5" custom-style="NameStyle"><strong>Theorem 1.6:  (Cauchy-Hadamard) </strong></span>
 <p>
 Suppose <span class="math inline">\(\sum_{n = 0}^{\infty} a_n x^n\)</span> is a power series. Then <span class="math display">\[R = \left(\limsup_{n\to\infty}\lvert a_n \rvert^{\frac{1}{n}}\right)^{-1},\]</span> where we define <span class="math inline">\(R = \infty\)</span> if <span class="math inline">\(\frac{1}{R} = 0\)</span>, and <span class="math inline">\(R = 0\)</span> if <span class="math inline">\(\frac{1}{R} = \infty\)</span>.
 </p>
@@ -341,7 +341,7 @@ Suppose <span class="math inline">\(\sum_{n = 0}^{\infty} a_n x^n\)</span> is a 
 <p>This test is also known as the <em>root test</em>. It is also a good point to mention a particular limit, as it often comes up when applying Cauchy-Hadamard.</p>
 
 <div id="prp:prop2" class="bookdown-proposition" custom-style="TheoremStyle">
-<span class="prp:prop2" custom-style="NameStyle"><strong>Proposition 1.2:  </strong></span>
+<span class="prp:prop2" custom-style="NameStyle"><strong>Proposition 1.7:  </strong></span>
 <p>
 We have <span class="math inline">\(\lim_{n \to \infty} n^{\frac{1}{n}} = 1\)</span>.
 </p>
