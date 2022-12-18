@@ -52,7 +52,7 @@ Here is the material to accompany the 1st Analysis Tutorial on the 10th October.
 ## Statements
 This week has been all about logic, and is pretty much the foundation of most of maths! To begin, we need some 'building blocks', and these come in the form of *statements* — sentences which are either true or false. For example, \color{blue} 'The sky is blue' \color{black} is a statement, whereas \color{red} 'Why is the sky blue?' \color{black} is not. In this course, statements are denoted by capital letters (usually $P,Q,R,\ldots$)[^1]
 
-Now that we have some statements, it makes sense to see if we can build something more complicated using them, and this is where the idea of \emph{logical operations} come in. Suppose $P$ and $Q$ are statements. Then, there are four main ones you should be aware of:
+Now that we have some statements, it makes sense to see if we can build something more complicated using them, and this is where the idea of logical operations come in. Suppose $P$ and $Q$ are statements. Then, there are four main ones you should be aware of:
 
 * **Conjunction** ($P \wedge Q$): Said '$P$ and $Q$', this is true if both $P$ and $Q$ are true; it is false otherwise.
 * **Disjunction** ($P \;\vee\; Q$): Said '$P$ or $Q$', this is true when *at least* one of $P$ or $Q$ is true.

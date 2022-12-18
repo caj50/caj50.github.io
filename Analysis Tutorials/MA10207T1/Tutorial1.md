@@ -17,13 +17,6 @@ output:
   clavertondown::html_clav:
     toc: true
     pandoc_args: --default-image-extension=svg
-  clavertondown::gitbook_clav:
-    split_by: section
-    keep_md: true
-    config:
-      download: [["Tutorial1.html", "HTML page"], ["Tutorial1.pdf","Standard print PDF"], ["Tutorial1Clear.pdf","Clear print PDF"], ["Tutorial1Large.pdf","Large print PDF"], ["Tutorial1.docx","Accessible Word document"], ["Tutorial1.epub","Accessible EPub book" ]]
-      sharing: no
-    pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
     keep_tex: true
@@ -31,6 +24,13 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
+  clavertondown::gitbook_clav:
+    split_by: section
+    keep_md: true
+    config:
+      download: [["Tutorial1.html", "HTML page"], ["Tutorial1.pdf","Standard print PDF"], ["Tutorial1Clear.pdf","Clear print PDF"], ["Tutorial1Large.pdf","Large print PDF"], ["Tutorial1.docx","Accessible Word document"], ["Tutorial1.epub","Accessible EPub book" ]]
+      sharing: no
+    pandoc_args: --default-image-extension=svg
   clavertondown::epub_clav:
     toc: false
     pandoc_args: --default-image-extension=svg
@@ -45,14 +45,14 @@ header-includes:
 \pagenumbering{arabic}
 
 # Introduction {-}
-Here is the material to accompany the 1st Analysis Tutorial on the 10th October. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk).
+Here is the material to accompany the 1st Analysis Tutorial on the 10th October. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk). To return to the homepage, click [here](http://caj50.github.io/tutoring.html).
 
 # Lecture Recap
 
 ## Statements
 This week has been all about logic, and is pretty much the foundation of most of maths! To begin, we need some 'building blocks', and these come in the form of *statements* — sentences which are either true or false. For example, \color{blue} 'The sky is blue' \color{black} is a statement, whereas \color{red} 'Why is the sky blue?' \color{black} is not. In this course, statements are denoted by capital letters (usually $P,Q,R,\ldots$)[^1]
 
-Now that we have some statements, it makes sense to see if we can build something more complicated using them, and this is where the idea of \emph{logical operations} come in. Suppose $P$ and $Q$ are statements. Then, there are four main ones you should be aware of:
+Now that we have some statements, it makes sense to see if we can build something more complicated using them, and this is where the idea of logical operations come in. Suppose $P$ and $Q$ are statements. Then, there are four main ones you should be aware of:
 
 * **Conjunction** ($P \wedge Q$): Said '$P$ and $Q$', this is true if both $P$ and $Q$ are true; it is false otherwise.
 * **Disjunction** ($P \;\vee\; Q$): Said '$P$ or $Q$', this is true when *at least* one of $P$ or $Q$ is true.
@@ -87,7 +87,7 @@ In regards to statements, there are two more types which we can discuss. Firstly
 
 [^1]: You can use any capital letter you want; I can only presume we start at $P$ because of the word 'proposition'.
 [^2]: In case it comes up in anything you read, we can also say that $P$ is *sufficient* for $Q$ and also that $Q$ is necessary for $P$.
-[^3]: Ideally, you'd separate the simple statements from the compound ones by use of a double vertical line. However, due to Markdown's apparent lack of syntax for adding a double line, you'll just have to imagine one there. It does appear if you download the PDF version though.
+[^3]: *If you're reading the PDF version of this, ignore this footnote.* Ideally, you'd separate the simple statements from the compound ones by use of a double vertical line. However, due to Markdown's apparent lack of syntax for adding a double line, you'll just have to imagine one there.
 
 ## Some Useful Laws
 In the previous section, we combined statements via logical operations. There is nothing stopping us combining these new statements too! We just need to know how to do it systematically. This relies on *distributive laws* and *De Morgan's laws*. Here, $P,Q,R$ are statements.
@@ -134,3 +134,6 @@ Each week, I'll send out a list of hints for the homework questions. Try and hav
 * [H2.] Recall the definition of a tautology. If you're content writing truth tables out, then this question is similar to H1. Alternatively, you could try applying the different laws from Section 1.2 to simplify the statement.
 * [H3.] This is similar to the previous two questions.
 * [H4.] We did an example in tutorials similar to this one — try some values from the sets $A$ and $B$! For the negation, just take it one step at a time, and apply the rules you've learnt this week.
+
+<!--chapter:end:index.Rmd-->
+
