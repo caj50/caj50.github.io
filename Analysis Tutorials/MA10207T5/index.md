@@ -45,7 +45,7 @@ header-includes:
 \pagenumbering{arabic}
 
 # Introduction {-}
-Here is the material to accompany the 5th Analysis Tutorial on the 7th November. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk). To return to the homepage, click [here](caj50.github.io/tutoring.html).
+Here is the material to accompany the 5th Analysis Tutorial on the 7th November. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk). To return to the homepage, click [here](http://caj50.github.io/tutoring.html).
 
 # Infinite Limits
 Before we cover any material from this week, its worth discussing the use of $\infty$ as a limit, especially when applying the Algebra of Limits. The main thing to note is that expressions such as $\infty - \infty$ and $\frac{\infty}{\infty}$ don't really make a lot of sense, for example:

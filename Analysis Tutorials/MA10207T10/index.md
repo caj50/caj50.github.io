@@ -16,6 +16,13 @@ output:
       download: [["Tutorial10.html", "HTML page"], ["Tutorial10.pdf","Standard print PDF"], ["Tutorial10Clear.pdf","Clear print PDF"], ["Tutorial10Large.pdf","Large print PDF"], ["Tutorial10.docx","Accessible Word document"], ["Tutorial10.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
+  clavertondown::pdf_clav:
+    latex_engine: pdflatex
+    keep_tex: true
+    fig_caption: true
+    toc: true
+    extra_dependencies: ["float"]
+    pandoc_args: --default-image-extension=pdf
   clavertondown::word_clav:
     toc: true
     number_sections: true
@@ -27,13 +34,6 @@ output:
   clavertondown::html_clav:
     toc: true
     pandoc_args: --default-image-extension=svg
-  clavertondown::pdf_clav:
-    latex_engine: pdflatex
-    keep_tex: true
-    fig_caption: true
-    toc: true
-    extra_dependencies: ["float"]
-    pandoc_args: --default-image-extension=pdf
 header-includes:
   - \newcommand{\BOO}{BOO}
   - \usepackage {hyperref}
@@ -45,7 +45,7 @@ header-includes:
 \pagenumbering{arabic}
 
 # Introduction {-}
-Here is the material to accompany the 10th Analysis Tutorial on the 12th December. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk). To return to the homepage, click [here](caj50.github.io/tutoring.html).
+Here is the material to accompany the 10th Analysis Tutorial on the 12th December. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk). To return to the homepage, click [here](http://caj50.github.io/tutoring.html).
 
 # Lecture Recap
 

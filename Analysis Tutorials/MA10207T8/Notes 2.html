@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Analysis 1A — Tutorial 8" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Christian Jones: University of Bath" />
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.MessageHook("End Math", function (msg) {
+  var nodes = Array.from(msg[1].querySelectorAll('.MJX_Assistive_MathML [id]'));
+  while (nodes.length) {
+    nodes.shift().removeAttribute('id');
+  }
+}, 20);
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "fast-preview": {disabled: true},
+  explorer:{ subtitle: true },
+  MatchWebFonts: { 
+    matchFor: { "HTML-CSS": true, NativeMML: false, SVG: false },
+    fontCheckDelay: 2000,
+    fontCheckTimeout: 30 * 1000
+  },
+  "HTML-CSS": {
+    preferredFont: "STIX",
+    availableFonts: ["STIX","TeX"],
+    webFont: "STIX-Web",
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  SVG: {
+    font: "STIX-Web",
+    linebreaks: { automatic: false, width: "90\% container" }
+  },
+  menuSettings: { 
+    collapsible: false, 
+    autocollapse: false, 
+    explorer: false 
+  }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta name="description" content="Analysis 1A — Tutorial 8">
+
+<title>Analysis 1A — Tutorial 8</title>
+
+<script src="libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+</style>
+
+<style type="text/css">
+  a {
+   color: blue;
+  }
+
+  [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  [custom-style=NameStyle]{
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  [custom-style=NameStyleItalics]{
+    font-style: italic;
+  }
+
+  
+  [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+  
+  [data-custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  
+</style>
+
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<!--bookdown:title:start-->
+<div id="header">
+<h1 class="title">Analysis 1A — Tutorial 8</h1>
+<h4 class="author"><em>Christian Jones: University of Bath</em></h4>
+<h4 class="date"><em>November 2022</em></h4>
+</div>
+<!--bookdown:title:end-->
+
+<!--bookdown:toc:start-->
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#lecture-recap"><span class="toc-section-number">1</span> Lecture Recap</a>
+<ul>
+<li><a href="#series-convergence"><span class="toc-section-number">1.1</span> Series Convergence</a>
+<ul>
+<li><a href="#series-rearrangement"><span class="toc-section-number">1.1.1</span> Series Rearrangement</a></li>
+</ul></li>
+<li><a href="#tests-for-convergence"><span class="toc-section-number">1.2</span> Tests for Convergence</a>
+<ul>
+<li><a href="#comparison-test"><span class="toc-section-number">1.2.1</span> Comparison Test</a></li>
+<li><a href="#dalemberts-ratio-test"><span class="toc-section-number">1.2.2</span> D’Alembert’s Ratio Test</a></li>
+<li><a href="#cauchy-condensation-test"><span class="toc-section-number">1.2.3</span> Cauchy Condensation Test</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#hints"><span class="toc-section-number">2</span> Hints</a></li>
+</ul>
+</div>
+<!--bookdown:toc:end-->
+
+<!--bookdown:body:start-->
+<div id="introduction" class="section level1 unnumbered">
+<h1>Introduction</h1>
+<p>Here is the material to accompany the 8th Analysis Tutorial on the 28th November. As usual, send comments and corrections to <a href="mailto:caj50@bath.ac.uk">Christian Jones (caj50)</a>. To return to the homepage, click <a href="caj50.github.io/tutoring.html">here</a>.</p>
+</div>
+<div id="lecture-recap" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Lecture Recap</h1>
+<div id="series-convergence" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Series Convergence</h2>
+<p>Recall from last week that we can define the convergence of an infinite sum/series as follows:</p>
+
+<div id="def:def1" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Series Convergence and Partial Sums) </strong></span>
+<div>
+Let <span class="math inline">\((a_n)_{n \in \mathbb{N}}\)</span> be a real sequence. Then <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> converges if and only if the sequence <span class="math inline">\((S_N)_{N \in \mathbb{N}}\)</span> converges, where <span class="math display">\[S_N:= \sum_{n = 1}^{N} a_n\]</span> is the <span class="math inline">\(N\)</span> partial sum. If <span class="math inline">\(S_N \to \ell\)</span> as <span class="math inline">\(N \to \infty\)</span>, we define <span class="math display">\[\ell = \sum_{n = 1}^{\infty}a_n.\]</span>
+</div>
+</div>
+<p>Much like with proving sequence convergence, using the definition each time you want to `evaluate’ a series can get tedious really quickly. Therefore, we really want a couple of tests which can prove convergence without too much hassle. Before we discuss these tests though, we need to introduce the ideas of <em>absolute and conditional convergence</em>.</p>
+
+<div id="def:def2" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def2" custom-style="NameStyle"><strong>Definition 1.2:  (Absolute Convergence) </strong></span>
+<div>
+A real series <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> is absolutely convergent if <span class="math inline">\(\sum_{n = 1}^{\infty} \lvert a_n \rvert\)</span> converges.
+</div>
+</div>
+<p>For example, if we consider the series <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span>, where <span class="math inline">\(a_n\)</span> is given by <span class="math display">\[a_n = \frac{(-1)^n}{n^2},\]</span> we find that <span class="math display">\[\sum_{n = 1}^{\infty} \lvert a_n \rvert = \sum_{n=1}^{\infty} \frac{1}{n^2},\]</span> which we know converges from lectures<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. Hence <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> is absolutely convergent. Have we learnt anything about the convergence of <span class="math inline">\(\sum_{n=1}^{\infty}a_n\)</span> here? Turns out the answer is yes, and this is because of the following result.</p>
+
+<div id="prp:prop1" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.1:  </strong></span>
+<p>
+If a real series <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> is absolutely convergent, then it is convergent.
+</p>
+</div>
+<p>At this stage, we can introduce the idea of conditional convergence too.</p>
+
+<div id="def:def3" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def3" custom-style="NameStyle"><strong>Definition 1.3:  (Conditional Convergence) </strong></span>
+<div>
+Let <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> be a real series. If <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> is convergent, but <span class="math inline">\(\sum_{n = 1}^{\infty} \lvert a_n \rvert\)</span> is not, then <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> is said to be conditionally convergent.
+</div>
+</div>
+<div id="series-rearrangement" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Series Rearrangement</h3>
+So, what can we do with absolutely convergent series?
+
+<div id="thm:thm1" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1.2:  </strong></span>
+<p>
+Suppose <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> is an absolutely convergent series, and that <span class="math inline">\(\sigma: \mathbb{N} \to \mathbb{N}\)</span> is a bijection. Then <span class="math inline">\(\sum_{n = 1}^{\infty} a_{\sigma(n)}\)</span> is also an absolutely convergent series, and <span class="math display">\[\sum_{n = 1}^{\infty} a_n = \sum_{n = 1}^{\infty} a_{\sigma(n)}.\]</span>
+</p>
+</div>
+<p>This theorem tells us that for an absolutely convergent series, we can order the terms any way we like, and still reach the same value for the series. At this point, you might be interested to know what happens if we don’t have absolute convergence. Long story short, weird things can happen, as is seen in the following theorem.</p>
+
+<div id="thm:thm2" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm2" custom-style="NameStyle"><strong>Theorem 1.3:  (Riemann Rearrangement Theorem) </strong></span>
+<p>
+Suppose <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> is conditionally convergent. Then, for any <span class="math inline">\(\alpha \in \mathbb{R}\)</span>, or <span class="math inline">\(\alpha = \pm\infty\)</span>, there exists a bijection <span class="math inline">\(\sigma:\mathbb{N} \to \mathbb{N}\)</span> such that <span class="math display">\[\sum_{n = 1}^{\infty} a_{\sigma(n)} = \alpha.\]</span>
+</p>
+</div>
+<p>So what we see here is that we really need to be careful in which order we sum up the terms of a conditionally convergent series!</p>
+</div>
+</div>
+<div id="tests-for-convergence" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Tests for Convergence</h2>
+<p>Now that we have the idea of absolute convergence, we can state some convergence tests applicable to series.</p>
+<div id="comparison-test" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Comparison Test</h3>
+<p>The first of these tests involves comparing the sizes of two series, and is aptly known as the comparison test.</p>
+
+<div id="thm:thm3" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm3" custom-style="NameStyle"><strong>Theorem 1.4:  (Comparison Test) </strong></span>
+<p>
+Let <span class="math inline">\((a_n)_n\)</span> and <span class="math inline">\((b_n)_n\)</span> be real sequences, and suppose that there exists a <span class="math inline">\(M \in \mathbb{N}\)</span> such that <span class="math inline">\(\lvert a_n \rvert \leq b_n \;\forall n \geq M.\)</span>
+Then, if <span class="math inline">\(\sum_{n = 1}^{\infty} b_n\)</span> is convergent, <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> is convergent.
+</p>
+</div>
+<p>Naturally, using this, we can also build a test for divergence to <span class="math inline">\(\infty\)</span> out of the comparison test too.</p>
+
+<div id="cor:corol1" class="bookdown-corollary" custom-style="TheoremStyle">
+<span class="cor:corol1" custom-style="NameStyle"><strong>Corollary 1.1:  </strong></span>
+<p>
+Let <span class="math inline">\((a_n)_n\)</span> and <span class="math inline">\((b_n)_n\)</span> be real sequences. If there exists a <span class="math inline">\(M \in \mathbb{N}\)</span> such that <span class="math inline">\(0 \leq a_n \leq b_n \; \forall n \geq M\)</span>, and <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> diverges, then <span class="math inline">\(\sum_{n = 1}^{\infty} b_n\)</span> diverges.
+</p>
+</div>
+<p>Here, we require the <span class="math inline">\(a_n\)</span> values to be non-negative to force any divergence of <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> to be to <span class="math inline">\(\infty\)</span>. If we allowed, say, <span class="math inline">\(a_n = (-1)^nn\)</span>, then <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> would diverge without limit, making this divergence test useless.</p>
+</div>
+<div id="dalemberts-ratio-test" class="section level3" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> D’Alembert’s Ratio Test</h3>
+<p>This one is quite similar to the growth factor test for sequences, except that due to the idea of absolute convergence (and Proposition <a href="#prp:prop1">1.1</a>), the terms of the series only have to be non-zero:</p>
+
+<div id="thm:thm4" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm4" custom-style="NameStyle"><strong>Theorem 1.5:  (D’Alembert’s Ratio Test) </strong></span>
+<p>
+<p>Let <span class="math inline">\((a_n)_n\)</span> be a real sequence with <span class="math inline">\(a_n \neq 0 \; \forall n \in \mathbb{N}\)</span>. Suppose <span class="math display">\[\lim_{n\to\infty}\frac{\lvert a_{n+1}\rvert}{\lvert a_n\rvert} = r.\]</span> Then:</p>
+<ul>
+<li>If <span class="math inline">\(0 \leq r &lt; 1\)</span>, <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> converges.</li>
+<li>If <span class="math inline">\(r &gt; 1\)</span>, then <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> diverges.</li>
+<li>If <span class="math inline">\(r = 1\)</span>, the test is inconclusive.</li>
+</ul>
+</p>
+</div>
+<p>To see why the test fails for <span class="math inline">\(r = 1\)</span>, consider the three series: <span class="math display">\[\sum_{n = 1}^{\infty} \frac{(-1)^{n+1}}{n^2}, \quad \sum_{n = 1}^{\infty} \frac{(-1)^{n+1}}{n} \;\; \text{and} \;\; \sum_{n = 1}^{\infty} (-1)^{n+1}.\]</span> The first is absolutely convergent, the second is conditionally convergent and the third diverges without any limit at all!</p>
+</div>
+<div id="cauchy-condensation-test" class="section level3" number="1.2.3">
+<h3><span class="header-section-number">1.2.3</span> Cauchy Condensation Test</h3>
+<p>The final test we’re going to look at here is yet another thing named after Cauchy! This one is very good when the terms of a series involve logarithms, and can also be used to show that <span class="math display">\[\sum_{n = 1}^{\infty} \frac{1}{n^{\alpha}} \;\;\text{converges} \Longleftrightarrow \alpha &gt; 1.\]</span></p>
+
+<div id="thm:thm5" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm5" custom-style="NameStyle"><strong>Theorem 1.6:  (Cauchy) </strong></span>
+<p>
+Assume <span class="math inline">\((a_n)_n\)</span> satisfies <span class="math inline">\(a_n \geq 0 \; \forall n \in \mathbb{N}\)</span>, and is a decreasing sequence. For <span class="math inline">\(k \in \mathbb{N}\)</span>, define <span class="math inline">\(b_k := 2^ka_{2^k}\)</span>. Then <span class="math display">\[\sum_{n = 1}^{\infty} a_n \;\; \text{converges}\; \Longleftrightarrow\; \sum_{k = 1}^{\infty} b_k \;\; \text{converges}.\]</span>
+</p>
+</div>
+<p>We conclude here with a <a href="https://math.stackexchange.com/questions/2071016/does-sum-infty-3-fracn2lnlnnlnn-converge?rq=1">link</a> to an example of the Cauchy condensation test in practice. It’s highly unlikely you’ll ever get something like this in the exam, but the numbers involved are so ridiculous it’s worth including here nonetheless!</p>
+</div>
+</div>
+</div>
+<div id="hints" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Hints</h1>
+<p>As per usual, here’s where you’ll find the problem sheet hints!</p>
+<ul>
+<li>[H1.] Think about all the methods you know for proving whether a series converges. Some of the methods from the tutorial may come in handy…</li>
+<li>[H2.] Pretty much the same as homework question 1. However…
+<ul>
+<li>[H2b.] I’ve got a few pointers for this one. Make sure you know how the binomial coefficient is defined. Also, try to avoid expanding any unnecessary brackets — if you’re writing <span class="math inline">\(n^3, n^4\)</span> etc. in your solutions, you’re putting in more effort than needed!</li>
+</ul></li>
+<li>[H3.] This one is only slightly more involved. Know your definitions, and again, think of possible convergence tests to apply.</li>
+</ul>
+<!--chapter:end:index.Rmd-->
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>If you take the <em>Vector Calculus and PDEs</em> module next year, you’ll show that this sum equals <span class="math inline">\(\frac{\pi^2}{6}\)</span>.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+<!--bookdown:body:end-->
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>

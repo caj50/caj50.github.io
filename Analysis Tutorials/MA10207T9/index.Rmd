@@ -44,7 +44,7 @@ header-includes:
 \pagenumbering{arabic}
 
 # Introduction {-}
-Here is the material to accompany the 9th Analysis Tutorial on the 5th December. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk). To return to the homepage, click [here](caj50.github.io/tutoring.html).
+Here is the material to accompany the 9th Analysis Tutorial on the 5th December. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk). To return to the homepage, click [here](http://caj50.github.io/tutoring.html).
 
 # Lecture Recap
 

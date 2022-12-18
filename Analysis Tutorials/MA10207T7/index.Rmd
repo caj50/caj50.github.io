@@ -44,7 +44,7 @@ header-includes:
 \pagenumbering{arabic}
 
 # Introduction {-}
-Here is the material to accompany the 7th Analysis Tutorial on the 21th November. As usual, send comments and corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk). To return to the homepage, click [here](caj50.github.io/tutoring.html).
+Here is the material to accompany the 7th Analysis Tutorial on the 21th November. As usual, send comments and corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk). To return to the homepage, click [here](http://caj50.github.io/tutoring.html).
 
 # Lecture Recap
 
