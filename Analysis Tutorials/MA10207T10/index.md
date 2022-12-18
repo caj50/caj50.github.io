@@ -45,7 +45,7 @@ header-includes:
 \pagenumbering{arabic}
 
 # Introduction {-}
-Here is the material to accompany the 10th Analysis Tutorial on the 12th December. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk).
+Here is the material to accompany the 10th Analysis Tutorial on the 12th December. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk). To return to the homepage, click [here](caj50.github.io/tutoring.html).
 
 # Lecture Recap
 
@@ -55,9 +55,11 @@ Here is the material to accompany the 10th Analysis Tutorial on the 12th Decembe
 Over the last semester, we first studied sequences of numbers, and then we used that theory to study sequences of sums. Now it's time to focus on sequences of sets. In particular, we are going to look at sequences of *intervals*, which are defined as follows:
 
 \BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def1"><span class="def:def1" custom-style="NameStyle"><strong>(\#def:def1)  (Interval) </strong></span><div>Let $S \subseteq \mathbb{R}$. Then $S$ is an interval if $\forall x,y \in S$ with $x \leq y$, and $\forall z \in \mathbb{R}$, $x < z < y$ implies that $z \in S$.</div></div>\EndKnitrBlock{definition}
-This definition looks pretty complicated, so we could do with some examples. Firstly, we could construct an interval by taking two real numbers $a$ and $b$ with $a \leq b$, and considering the set $$S_1 = \lbrace s \in \mathbb{R}\; \lvert\; a \leq s \leq b \rbrace.$$ Similarly, since all quantities involved in the definition are real numbers, we also find that $S_2 = \mathbb{R}$ defines an interval. Quite bizarrely, we see via *vacuous reasoning*[^1] that $S_3 = \emptyset$ is also an interval! 
+This definition looks pretty complicated, so we could do with some examples. Firstly, we could construct an interval by taking two real numbers $a$ and $b$ with $a \leq b$, and considering the sets $$S_1 = \lbrace s \in \mathbb{R}\; \lvert\; a \leq s \leq b \rbrace \quad \text{and} \quad S_2 = \lbrace s \in \mathbb{R}\; \lvert\; a < s < b \rbrace.$$ Similarly, since all quantities involved in the definition are real numbers, we also find that $S_3 = \mathbb{R}$ defines an interval. Quite bizarrely, we see via *vacuous reasoning*[^1] that $S_4 = \emptyset$ is also an interval! 
 
-Conversely, sets such as $S_4 = \lbrace 0 \rbrace \cup \lbrace 1 \rbrace$ and $$\mathbb{R}\setminus S_1 = \lbrace s \;\lvert\; s < a \;\; \text{or}\;\; s > b\;\rbrace$$ are not intervals.
+Conversely, sets such as $S_5 = \lbrace 0 \rbrace \cup \lbrace 1 \rbrace$ and $$\mathbb{R}\setminus S_1 = \lbrace s \;\lvert\; s < a \;\; \text{or}\;\; s > b\;\rbrace$$ are not intervals.
+
+We also have some special notation for intervals, in which we use a square bracket if an endpoint is included in the interval, and a 'round' bracket if an endpoint is not. Hence, for our sets $S_1,S_2$ and $S_3$ above, we may write $$S_1 = [a,b], \quad S_2 = (a,b), \quad S_3 = (-\infty, \infty).$$ As $\pm\infty$ are not real numbers, they are never written next to a square bracket in interval notation (i.e. writing something like $(a,\infty]$ is forbidden!) 
 
 ### The Theorem!
 It turns out that if we have a sequence of intervals $(I_n)_{n\in\mathbb{N}}$ which are nested --- so that $I_{n+1} \subseteq I_n$ for all $n\in\mathbb{N}$ --- we can construct some major theorems in analysis! To do so; however, requires the following result:

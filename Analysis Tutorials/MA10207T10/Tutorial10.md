@@ -14,15 +14,15 @@ output:
     number_sections: true
     keep_md: true
     pandoc_args: --default-image-extension=svg
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
   clavertondown::gitbook_clav:
     split_by: section
     keep_md: true
     config:
       download: [["Tutorial10.html", "HTML page"], ["Tutorial10.pdf","Standard print PDF"], ["Tutorial10Clear.pdf","Clear print PDF"], ["Tutorial10Large.pdf","Large print PDF"], ["Tutorial10.docx","Accessible Word document"], ["Tutorial10.epub","Accessible EPub book" ]]
       sharing: no
+    pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
     pandoc_args: --default-image-extension=svg
   clavertondown::html_clav:
     toc: true
@@ -36,6 +36,8 @@ output:
     pandoc_args: --default-image-extension=pdf
 header-includes:
   - \newcommand{\BOO}{BOO}
+  - \usepackage {hyperref}
+  - \hypersetup {colorlinks = true, linkcolor = blue, urlcolor = blue}
 ---
 <!-- This is needed since I am working with svg files from mathcha.io. It converts the graphics files to something that can be used in the pdf files. Code taken from https://stackoverflow.com/questions/50165404/how-to-make-a-pdf-using-bookdown-including-svg-images/56044642#56044642 -->
 
@@ -43,7 +45,7 @@ header-includes:
 \pagenumbering{arabic}
 
 # Introduction {-}
-Here is the material to accompany the 10th Analysis Tutorial on the 12th December. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk).
+Here is the material to accompany the 10th Analysis Tutorial on the 12th December. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk). To return to the homepage, click [here](caj50.github.io/tutoring.html).
 
 # Lecture Recap
 
@@ -53,9 +55,11 @@ Here is the material to accompany the 10th Analysis Tutorial on the 12th Decembe
 Over the last semester, we first studied sequences of numbers, and then we used that theory to study sequences of sums. Now it's time to focus on sequences of sets. In particular, we are going to look at sequences of *intervals*, which are defined as follows:
 
 \BeginKnitrBlock{definition}<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def1"><span class="def:def1" custom-style="NameStyle"><strong><span id="def:def1"></span>Definition 1.1   (Interval) </strong></span><div>Let $S \subseteq \mathbb{R}$. Then $S$ is an interval if $\forall x,y \in S$ with $x \leq y$, and $\forall z \in \mathbb{R}$, $x < z < y$ implies that $z \in S$.</div></div>\EndKnitrBlock{definition}
-This definition looks pretty complicated, so we could do with some examples. Firstly, we could construct an interval by taking two real numbers $a$ and $b$ with $a \leq b$, and considering the set $$S_1 = \lbrace s \in \mathbb{R}\; \lvert\; a \leq s \leq b \rbrace.$$ Similarly, since all quantities involved in the definition are real numbers, we also find that $S_2 = \mathbb{R}$ defines an interval. Quite bizarrely, we see via *vacuous reasoning*[^1] that $S_3 = \emptyset$ is also an interval! 
+This definition looks pretty complicated, so we could do with some examples. Firstly, we could construct an interval by taking two real numbers $a$ and $b$ with $a \leq b$, and considering the sets $$S_1 = \lbrace s \in \mathbb{R}\; \lvert\; a \leq s \leq b \rbrace \quad \text{and} \quad S_2 = \lbrace s \in \mathbb{R}\; \lvert\; a < s < b \rbrace.$$ Similarly, since all quantities involved in the definition are real numbers, we also find that $S_3 = \mathbb{R}$ defines an interval. Quite bizarrely, we see via *vacuous reasoning*[^1] that $S_4 = \emptyset$ is also an interval! 
 
-Conversely, sets such as $S_4 = \lbrace 0 \rbrace \cup \lbrace 1 \rbrace$ and $$\mathbb{R}\setminus S_1 = \lbrace s \;\lvert\; s < a \;\; \text{or}\;\; s > b\;\rbrace$$ are not intervals.
+Conversely, sets such as $S_5 = \lbrace 0 \rbrace \cup \lbrace 1 \rbrace$ and $$\mathbb{R}\setminus S_1 = \lbrace s \;\lvert\; s < a \;\; \text{or}\;\; s > b\;\rbrace$$ are not intervals.
+
+We also have some special notation for intervals, in which we use a square bracket if an endpoint is included in the interval, and a 'round' bracket if an endpoint is not. Hence, for our sets $S_1,S_2$ and $S_3$ above, we may write $$S_1 = [a,b], \quad S_2 = (a,b), \quad S_3 = (-\infty, \infty).$$ As $\pm\infty$ are not real numbers, they are never written next to a square bracket in interval notation (i.e. writing something like $(a,\infty]$ is forbidden!) 
 
 ### The Theorem!
 It turns out that if we have a sequence of intervals $(I_n)_{n\in\mathbb{N}}$ which are nested --- so that $I_{n+1} \subseteq I_n$ for all $n\in\mathbb{N}$ --- we can construct some major theorems in analysis! To do so; however, requires the following result:
@@ -81,16 +85,15 @@ This definition looks pretty horrible, but it really amounts to saying that for 
 
 
 Now, having a definition is all well and good, but how do we use it?
-\BeginKnitrBlock{example}<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex1"><span class="exm:ex1" custom-style="NameStyle"><strong><span id="exm:ex1"></span>Example 1.1  </strong></span><div>Prove that the function $f: \mathbb{R} \to \mathbb{R}$ given by $$f(x) = x^{27} - 4x^6 + \frac{3}{x^2 +1}$$ is sequentially continuous at any $x_0 \in \mathbb{R}$.</div></div>\EndKnitrBlock{example}
+\BeginKnitrBlock{example}<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex1"><span class="exm:ex1" custom-style="NameStyle"><strong><span id="exm:ex1"></span>Example 1.1  </strong></span><div>Prove that the function $f: \mathbb{R} \to \mathbb{R}$ given by $$f(x) = x^{27} - 4x^6 + \frac{3}{x^2 +1}$$ is sequentially continuous on $\mathbb{R}$.</div></div>\EndKnitrBlock{example}
 
-\BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyle"><strong>Solution. </strong></span> <p>First take *any* sequence $(x_n)_{n\in\mathbb{N}}$ in $\mathbb{R}$ such that $x_n \to x_0$ as $n \to \infty$. Then by the Algebra of Limits
-
+\BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyle"><strong>Solution. </strong></span> <p>First fix $x_0 \in \mathbb{R}$, and take *any* sequence $(x_n)_{n\in\mathbb{N}}$ in $\mathbb{R}$ such that $x_n \to x_0$ as $n \to \infty$. Then by the Algebra of Limits
 $$\begin{align*}
 f(x_n) &= x_n^{27} - 4x_n^{6} + \frac{3}{x_n^2 +1}\\
 &\to x_0^{27} - 4x_0^6 + \frac{3}{x_0^2 + 1}\; \; \text{as $n \to \infty$}\\
-& = f(x_0) 
+& = f(x_0).
 \end{align*}$$
-Hence, as the chosen convergent sequence, and $x_0$ was arbitrary, $f$ is sequentially continuous at any $x_0$ in $\mathbb{R}$.</p></div>\EndKnitrBlock{solution}
+Hence, as the chosen convergent sequence was arbitrary, $f$ is sequentially continuous at $x_0$. Since $x_0$ was arbitrary, $f$ is sequentially continuous on $\mathbb{R}$.</p></div>\EndKnitrBlock{solution}
 
 It's also useful to know how to prove a function isn't sequentially continuous at a point. To this end, we conclude this section with a rather interesting example.
 \BeginKnitrBlock{example}<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex2"><span class="exm:ex2" custom-style="NameStyle"><strong><span id="exm:ex2"></span>Example 1.2  </strong></span><div>Prove that the function $g: \mathbb{R} \to \mathbb{R}$ given by $$g(x) = \begin{cases}
@@ -164,3 +167,6 @@ For any $a,b \in \mathbb{R}$ with $a < b$:
 
 
 [^5]: We could instead define 'closed-ness' in terms of sequences, but for brevity we defer this to Analysis 2A.
+
+<!--chapter:end:index.Rmd-->
+

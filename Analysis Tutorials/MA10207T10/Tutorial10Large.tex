@@ -85,23 +85,29 @@
 \usepackage{amsthm}
 \theoremstyle{plain}
 \newtheorem*{theorem*}{Theorem}\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}\newtheorem{definition}{Definition}[section]
+\theoremstyle{plain}
+\newtheorem*{proposition*}{Proposition}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{Definitions*}{Definitions}\newtheorem{Definitions}[definition]{Definitions}
 \theoremstyle{plain}
 \newtheorem*{lemma*}{Lemma}\newtheorem{lemma}{Lemma}[section]
 \theoremstyle{plain}
 \newtheorem*{corollary*}{Corollary}\newtheorem{corollary}{Corollary}[section]
 \theoremstyle{plain}
-\newtheorem*{proposition*}{Proposition}\newtheorem{proposition}{Proposition}[section]
-\theoremstyle{plain}
 \newtheorem*{conjecture*}{Conjecture}\newtheorem{conjecture}{Conjecture}[section]
-\theoremstyle{definition}
-\newtheorem*{definition*}{Definition}\newtheorem{definition}{Definition}[section]
 \theoremstyle{definition}
 \newtheorem*{example*}{Example}\newtheorem{example}{Example}[section]
 \theoremstyle{definition}
 \newtheorem*{exercise*}{Exercise}\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{Thought*}{Thought}\newtheorem{Thought}{Thought}[section]
 \theoremstyle{remark}
 \newtheorem*{remark*}{Remark}
 \newtheorem*{solution*}{Solution}
+\newtheorem*{Example*}{Example}
+\theoremstyle{remark}
+\newtheorem*{Proof*}{Proof}
+\newtheorem*{Examples*}{Examples}
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 
 
@@ -156,7 +162,7 @@
 \section*{Introduction}\label{introduction}}
 \addcontentsline{toc}{section}{Introduction}
 
-Here is the material to accompany the 10th Analysis Tutorial on the 12th December. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to \href{mailto:caj50@bath.ac.uk}{Christian Jones (caj50)}.
+Here is the material to accompany the 10th Analysis Tutorial on the 12th December. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to \href{mailto:caj50@bath.ac.uk}{Christian Jones (caj50)}. To return to the homepage, click \href{caj50.github.io/tutoring.html}{here}.
 
 \hypertarget{lecture-recap}{%
 \section{Lecture Recap}\label{lecture-recap}}
@@ -172,9 +178,11 @@ Over the last semester, we first studied sequences of numbers, and then we used 
 \BeginKnitrBlock{definition}[Interval]
 {\label{def:def1} }Let \(S \subseteq \mathbb{R}\). Then \(S\) is an interval if \(\forall x,y \in S\) with \(x \leq y\), and \(\forall z \in \mathbb{R}\), \(x < z < y\) implies that \(z \in S\).
 \EndKnitrBlock{definition}
-This definition looks pretty complicated, so we could do with some examples. Firstly, we could construct an interval by taking two real numbers \(a\) and \(b\) with \(a \leq b\), and considering the set \[S_1 = \lbrace s \in \mathbb{R}\; \lvert\; a \leq s \leq b \rbrace.\] Similarly, since all quantities involved in the definition are real numbers, we also find that \(S_2 = \mathbb{R}\) defines an interval. Quite bizarrely, we see via \emph{vacuous reasoning}\footnote{Vacuous reasoning is best summed up with an example. Suppose you were looking into an empty room, and you said that ``everybody in that room was staring at their mobile phone''. As there were no people in the room to begin with, this ends up being a completely true statement.} that \(S_3 = \emptyset\) is also an interval!
+This definition looks pretty complicated, so we could do with some examples. Firstly, we could construct an interval by taking two real numbers \(a\) and \(b\) with \(a \leq b\), and considering the sets \[S_1 = \lbrace s \in \mathbb{R}\; \lvert\; a \leq s \leq b \rbrace \quad \text{and} \quad S_2 = \lbrace s \in \mathbb{R}\; \lvert\; a < s < b \rbrace.\] Similarly, since all quantities involved in the definition are real numbers, we also find that \(S_3 = \mathbb{R}\) defines an interval. Quite bizarrely, we see via \emph{vacuous reasoning}\footnote{Vacuous reasoning is best summed up with an example. Suppose you were looking into an empty room, and you said that ``everybody in that room was staring at their mobile phone''. As there were no people in the room to begin with, this ends up being a completely true statement.} that \(S_4 = \emptyset\) is also an interval!
 
-Conversely, sets such as \(S_4 = \lbrace 0 \rbrace \cup \lbrace 1 \rbrace\) and \[\mathbb{R}\setminus S_1 = \lbrace s \;\lvert\; s < a \;\; \text{or}\;\; s > b\;\rbrace\] are not intervals.
+Conversely, sets such as \(S_5 = \lbrace 0 \rbrace \cup \lbrace 1 \rbrace\) and \[\mathbb{R}\setminus S_1 = \lbrace s \;\lvert\; s < a \;\; \text{or}\;\; s > b\;\rbrace\] are not intervals.
+
+We also have some special notation for intervals, in which we use a square bracket if an endpoint is included in the interval, and a `round' bracket if an endpoint is not. Hence, for our sets \(S_1,S_2\) and \(S_3\) above, we may write \[S_1 = [a,b], \quad S_2 = (a,b), \quad S_3 = (-\infty, \infty).\] As \(\pm\infty\) are not real numbers, they are never written next to a square bracket in interval notation (i.e.~writing something like \((a,\infty]\) is forbidden!)
 
 \hypertarget{the-theorem}{%
 \subsubsection{The Theorem!}\label{the-theorem}}
