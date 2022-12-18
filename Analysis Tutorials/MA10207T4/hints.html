@@ -266,7 +266,7 @@ MathJax.Hub.Config({
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="1" data-path="lecture-recap.html"><a href="lecture-recap.html"><i class="fa fa-check"></i><b>1</b> Lecture Recap</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="sequences-and-convergence.html"><a href="sequences-and-convergence.html"><i class="fa fa-check"></i><b>1.1</b> Sequences and Convergence</a>
@@ -304,6 +304,7 @@ MathJax.Hub.Config({
 <li>[H2ii).] Feel free to use AoL here, but make sure to justify why you can use it!</li>
 <li>[H3.] This one is a bit tricky. Firstly, what do you get if you factorise <span class="math inline">\(x^3 - y^3\)</span>? Next, you’ll want to use the fact that <span class="math inline">\(\lim_{n \to \infty} a_n = 1\)</span> twice — once to introduce an <span class="math inline">\(\epsilon\)</span> into the problem, and again to find a point in the sequence after which all of the <span class="math inline">\(a_n\)</span> are positive. Combining all this information should help you prove the required result.</li>
 </ul>
+
 </div>
 
 
@@ -350,7 +351,10 @@ gitbook.start({
 "text": null
 },
 "download": [["Tutorial4.html", "HTML page"], ["Tutorial4.pdf", "Standard print PDF"], ["Tutorial4Clear.pdf", "Clear print PDF"], ["Tutorial4Large.pdf", "Large print PDF"], ["Tutorial4.docx", "Accessible Word document"], ["Tutorial4.epub", "Accessible EPub book"]],
-"search": false,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

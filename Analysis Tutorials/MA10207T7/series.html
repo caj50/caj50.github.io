@@ -266,7 +266,7 @@ MathJax.Hub.Config({
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="1" data-path="lecture-recap.html"><a href="lecture-recap.html"><i class="fa fa-check"></i><b>1</b> Lecture Recap</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="limit-superior-and-limit-inferior.html"><a href="limit-superior-and-limit-inferior.html"><i class="fa fa-check"></i><b>1.1</b> Limit Superior and Limit Inferior</a></li>
@@ -329,7 +329,7 @@ Let <span class="math inline">\(\sum_{n=1}^{\infty} a_n\)</span> and <span class
 <p>Firstly, we can relate the size of the terms of a series to the overall sum.</p>
 
 <div id="prp:prop1" class="bookdown-proposition" custom-style="TheoremStyle">
-<span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.1:  </strong></span>
+<span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.4:  </strong></span>
 <p>
 Let <span class="math inline">\(\sum_{n=1}^{\infty} a_n\)</span> and <span class="math inline">\(\sum_{n=1}^{\infty} b_n\)</span> be real series. If <span class="math inline">\(a_n \leq b_n \, \forall n\in\mathbb{N}\)</span>, then <span class="math display">\[\sum_{n=1}^{\infty} a_n \leq \sum_{n=1}^{\infty} b_n.\]</span>
 </p>
@@ -337,7 +337,7 @@ Let <span class="math inline">\(\sum_{n=1}^{\infty} a_n\)</span> and <span class
 <p>Secondly, we have a <em>necessary</em> condition for convergence of a series.</p>
 
 <div id="prp:prop2" class="bookdown-proposition" custom-style="TheoremStyle">
-<span class="prp:prop2" custom-style="NameStyle"><strong>Proposition 1.2:  </strong></span>
+<span class="prp:prop2" custom-style="NameStyle"><strong>Proposition 1.5:  </strong></span>
 <p>
 Let <span class="math inline">\(\sum_{n=1}^{\infty} a_n\)</span> be a convergent series. Then <span class="math inline">\(a_n \to 0\)</span> as <span class="math inline">\(n \to \infty\)</span>.
 </p>
@@ -345,7 +345,7 @@ Let <span class="math inline">\(\sum_{n=1}^{\infty} a_n\)</span> be a convergent
 <p>Note that the converse of this theorem <em>does not</em> hold (think of the sum <span class="math inline">\(\sum_{n=1}^{\infty} \frac{1}{n}\)</span>). However, the contrapositive is very good at showing that a series does not converge!</p>
 
 <div id="prp:prop3" class="bookdown-proposition" custom-style="TheoremStyle">
-<span class="prp:prop3" custom-style="NameStyle"><strong>Proposition 1.3:  </strong></span>
+<span class="prp:prop3" custom-style="NameStyle"><strong>Proposition 1.6:  </strong></span>
 <p>
 Let <span class="math inline">\(\sum_{n=1}^{\infty} a_n\)</span> be a series. If <span class="math inline">\(a_n \not\to 0\)</span> as <span class="math inline">\(n \to \infty\)</span>, then <span class="math inline">\(\sum_{n=1}^{\infty} a_n\)</span> does not converge.
 </p>
@@ -392,7 +392,10 @@ gitbook.start({
 "text": null
 },
 "download": [["Tutorial7.html", "HTML page"], ["Tutorial7.pdf", "Standard print PDF"], ["Tutorial7Clear.pdf", "Clear print PDF"], ["Tutorial7Large.pdf", "Large print PDF"], ["Tutorial7.docx", "Accessible Word document"], ["Tutorial7.epub", "Accessible EPub book"]],
-"search": false,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

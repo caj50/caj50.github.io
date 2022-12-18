@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Analysis 1A — Tutorial 4" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Christian Jones: University of Bath" />
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.MessageHook("End Math", function (msg) {
+  var nodes = Array.from(msg[1].querySelectorAll('.MJX_Assistive_MathML [id]'));
+  while (nodes.length) {
+    nodes.shift().removeAttribute('id');
+  }
+}, 20);
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "fast-preview": {disabled: true},
+  explorer:{ subtitle: true },
+  MatchWebFonts: { 
+    matchFor: { "HTML-CSS": true, NativeMML: false, SVG: false },
+    fontCheckDelay: 2000,
+    fontCheckTimeout: 30 * 1000
+  },
+  "HTML-CSS": {
+    preferredFont: "STIX",
+    availableFonts: ["STIX","TeX"],
+    webFont: "STIX-Web",
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  SVG: {
+    font: "STIX-Web",
+    linebreaks: { automatic: false, width: "90\% container" }
+  },
+  menuSettings: { 
+    collapsible: false, 
+    autocollapse: false, 
+    explorer: false 
+  }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta name="description" content="Analysis 1A — Tutorial 4">
+
+<title>Analysis 1A — Tutorial 4</title>
+
+<script src="libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+</style>
+
+<style type="text/css">
+  a {
+   color: blue;
+  }
+
+  [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  [custom-style=NameStyle]{
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  [custom-style=NameStyleItalics]{
+    font-style: italic;
+  }
+
+  
+  [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+  
+  [data-custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  
+</style>
+
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<!--bookdown:title:start-->
+<div id="header">
+<h1 class="title">Analysis 1A — Tutorial 4</h1>
+<h4 class="author"><em>Christian Jones: University of Bath</em></h4>
+<h4 class="date"><em>October 2022</em></h4>
+</div>
+<!--bookdown:title:end-->
+
+<!--bookdown:toc:start-->
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#lecture-recap"><span class="toc-section-number">1</span> Lecture Recap</a>
+<ul>
+<li><a href="#sequences-and-convergence"><span class="toc-section-number">1.1</span> Sequences and Convergence</a>
+<ul>
+<li><a href="#useful-sequences"><span class="toc-section-number">1.1.1</span> Useful Sequences</a></li>
+<li><a href="#two-useful-theorems"><span class="toc-section-number">1.1.2</span> Two Useful Theorems</a></li>
+<li><a href="#bounded-sequences"><span class="toc-section-number">1.1.3</span> Bounded Sequences</a></li>
+<li><a href="#algebra-of-limits"><span class="toc-section-number">1.1.4</span> Algebra of Limits</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#hints"><span class="toc-section-number">2</span> Hints</a></li>
+</ul>
+</div>
+<!--bookdown:toc:end-->
+
+<!--bookdown:body:start-->
+<!-- This is needed since I am working with svg files from mathcha.io. It converts the graphics files to something that can be used in the pdf files. Code taken from https://stackoverflow.com/questions/50165404/how-to-make-a-pdf-using-bookdown-including-svg-images/56044642#56044642 -->
+<div id="introduction" class="section level1 unnumbered">
+<h1>Introduction</h1>
+<p>Here is the material to accompany the 4th Analysis Tutorial on the 31st October. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to <a href="mailto:caj50@bath.ac.uk">Christian Jones (caj50)</a>.</p>
+</div>
+<div id="lecture-recap" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Lecture Recap</h1>
+<div id="sequences-and-convergence" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Sequences and Convergence</h2>
+Firstly, to discuss anything this week, we need to introduce the idea of a sequence.
+
+<div id="def:def1" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Sequence) </strong></span>
+<div>
+A sequence of real numbers is a function
+<span class="math display">\[\begin{align*}
+    a:\; &amp;\mathbb{N} \longrightarrow \mathbb{R},\\
+    &amp;n \longmapsto a_n.
+\end{align*}\]</span>
+</div>
+</div>
+<p>Since this notation can get kind of annoying, we instead denote a sequence by <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span>. If it’s clear from the context what set we’re indexing over, we can even just simply write a sequence as <span class="math inline">\((a_n)_n\)</span>.</p>
+<p>Now, this gives us an infinitely long list of real numbers, and sometimes its interesting to look at the ‘long-term’ behaviour of these lists. This gives rise to the idea of convergence.</p>
+
+<div id="def:def2" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def2" custom-style="NameStyle"><strong>Definition 1.2:  (Sequence Convergence) </strong></span>
+<div>
+A sequence <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> converges to a real number <span class="math inline">\(L\)</span> as <span class="math inline">\(n \longrightarrow \infty\)</span>, written as either <span class="math inline">\(a_n \longrightarrow L\)</span>, or <span class="math inline">\(\lim_{n \to \infty}a_n = L\)</span> if <span class="math display">\[\forall \epsilon &gt; 0, \; \exists N = N(\epsilon) \in \mathbb{N}, \; \text{such that} \; \forall n \geq N, \; \lvert a_n - L \rvert &lt; \epsilon.\]</span>
+</div>
+</div>
+<p>Loosely speaking, this says that no matter how close you want the sequence to get to <span class="math inline">\(L\)</span>, you will always be able to find some point in the sequence after which all points in the sequence will be as close to <span class="math inline">\(L\)</span> as you wanted. For an example of this, have a look at this <a href="https://www.desmos.com/calculator/dfkjgg0wzj">Desmos link</a>. For <span class="math inline">\(\epsilon = 0.5\)</span> and <span class="math inline">\(L = 3\)</span>, you can see that every member of the sequence after the <span class="math inline">\(11^{th}\)</span> lies within a strip of width <span class="math inline">\(2\epsilon\)</span> around <span class="math inline">\(L\)</span>. Have a go at messing with the value of <span class="math inline">\(\epsilon\)</span>!</p>
+<p>Something else we can mention for the definition is its <em>negation</em>. Specifically, a sequence <span class="math inline">\((a_n)_n\)</span> does not converge to <span class="math inline">\(L\)</span> if
+<span class="math display">\[\begin{align*}
+    \exists\; \epsilon_0 &gt; 0, \; \text{such that} \; \forall N \in \mathbb{N}, \exists n \geq N \; \text{such that} \; \lvert a_n - L \rvert \geq \epsilon_0.
+\end{align*}\]</span></p>
+<div id="useful-sequences" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Useful Sequences</h3>
+<p>Some (straightforward) results from using the definition include</p>
+<ul>
+<li>As <span class="math inline">\(n \longrightarrow \infty\)</span>: <span class="math display">\[\frac{1}{n} \longrightarrow 0.\]</span></li>
+<li>For a real number <span class="math inline">\(c\)</span>: as <span class="math inline">\(n \longrightarrow \infty\)</span>, <span class="math display">\[c \longrightarrow c.\]</span></li>
+<li>For <span class="math inline">\(q \in \mathbb{R}\)</span> with <span class="math inline">\(\lvert q \rvert &lt; 1\)</span>: as <span class="math inline">\(n \longrightarrow \infty\)</span> <span class="math display">\[q^n \longrightarrow 0.\]</span></li>
+</ul>
+</div>
+<div id="two-useful-theorems" class="section level3" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Two Useful Theorems</h3>
+
+<div id="thm:thm1" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1.1:  (Preservation of Non-Strict Inequalities) </strong></span>
+<p>
+Let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> and <span class="math inline">\((b_n)_{n\in\mathbb{N}}\)</span> be sequences and let <span class="math inline">\(L,M \in \mathbb{R}\)</span> be such that <span class="math inline">\(a_n \to L\)</span> and <span class="math inline">\(b_n \to L\)</span> as <span class="math inline">\(n \to \infty\)</span>. If <span class="math inline">\(a_n \leq b_n \; \forall n \in \mathbb{N}\)</span>, then <span class="math inline">\(L \leq M\)</span>.
+</p>
+</div>
+There are two good uses for this theorem. The first says that non-negative sequences should have non-negative limits (which is something you might expect). Before we state the second, we mention one more thing, which is <strong>not true</strong>:
+
+<div id="Non:unnamed-chunk-2" class="Non-theorem" custom-style="ExampleStyle">
+<span class="Non-theorem" custom-style="NameStyle"><strong> Non-theorem: </strong></span>
+<p>
+Let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> and <span class="math inline">\((b_n)_{n\in\mathbb{N}}\)</span> be sequences and let <span class="math inline">\(L,M \in \mathbb{R}\)</span> be such that <span class="math inline">\(a_n \to L\)</span> and <span class="math inline">\(b_n \to L\)</span> as <span class="math inline">\(n \to \infty\)</span>. If <span class="math inline">\(a_n &lt; b_n \; \forall n \in \mathbb{N}\)</span>, then <span class="math inline">\(L &lt; M\)</span>.
+</p>
+</div>
+<p>To see why this is false, consider the sequences defined by <span class="math inline">\(a_n = 1 - \frac{1}{n}\)</span> and <span class="math inline">\(b_n = 1\)</span>. We note that each <span class="math inline">\(a_n\)</span> is strictly less than each corresponding <span class="math inline">\(b_n\)</span>, but we find that <span class="math display">\[\lim_{n \to \infty} a_n = 1 = \lim_{n \to \infty} b_n.\]</span></p>
+The second reason why Theorem <a href="#thm:thm1">1.1</a> is so important, is that it gives us this second theorem<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>:
+
+<div id="thm:thm2" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm2" custom-style="NameStyle"><strong>Theorem 1.2:  (Uniqueness of Limits) </strong></span>
+<p>
+If <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is convergent with <span class="math inline">\(a_n \to L\)</span> and <span class="math inline">\(a_n \to M\)</span> as <span class="math inline">\(n \to \infty\)</span>, then <span class="math inline">\(L = M\)</span>.
+</p>
+</div>
+</div>
+<div id="bounded-sequences" class="section level3" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> Bounded Sequences</h3>
+<p>Much like we have done with sets, we can formulate a definition which allows us to `trap’ sequences.</p>
+
+<div id="def:def3" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def3" custom-style="NameStyle"><strong>Definition 1.3:  (Bounded Sequence) </strong></span>
+<div>
+A sequence <span class="math inline">\((a_n)\)</span> is bounded if there exists <span class="math inline">\(M \in \mathbb{R}\)</span> such that <span class="math inline">\(\lvert a_n \rvert \leq M\)</span>.
+</div>
+</div>
+<p>If you prefer to think diagramatically, this says we can trap the sequence within a strip of width <span class="math inline">\(2M\)</span> around <span class="math inline">\(0\)</span>. More importantly, this leads to the idea that <em>all convergent sequences are bounded</em>. Note that this is equivalent to saying that if a sequence is not bounded, then it is not convergent.</p>
+</div>
+<div id="algebra-of-limits" class="section level3" number="1.1.4">
+<h3><span class="header-section-number">1.1.4</span> Algebra of Limits</h3>
+<p>Using the definition to prove all limits would be an incredibly boring way to go through this course. Luckily, there are a few general results we can prove which make our lives so much easier. This is known as the <em>algebra of limits</em> (AoL).</p>
+
+<div id="thm:thm4" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm4" custom-style="NameStyle"><strong>Theorem 1.3:  (Algebra of Limits) </strong></span>
+<p>
+<p>Let <span class="math inline">\(A,B,c \in \mathbb{R}\)</span> and let <span class="math inline">\((a_n)\)</span> and <span class="math inline">\((b_n)\)</span> be sequences with <span class="math inline">\(a_n \to A\)</span> and <span class="math inline">\(b_n \to B\)</span> as <span class="math inline">\(n \to \infty\)</span>. Then:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\lim_{n \to \infty} (a_n + b_n) = A + B\)</span>,</li>
+<li><span class="math inline">\(\lim_{n \to \infty} (ca_n) = cA\)</span>,</li>
+<li><span class="math inline">\(\lim_{n \to \infty} (a_n b_n) = AB\)</span>,</li>
+<li>If <span class="math inline">\(b_n \neq 0 \; \forall n \in \mathbb{N}\)</span> and <span class="math inline">\(B \neq 0\)</span>, <span class="math inline">\(\lim_{n \to \infty} \frac{a_n}{b_n} = \frac{A}{B}\)</span>.</li>
+</ol>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="hints" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Hints</h1>
+<p>As per usual, here’s where you’ll find the problem sheet hints!</p>
+<ul>
+<li>[H1.] Use the definition! Try and follow a similar format to what we did in tutorials. Make sure to write things logically, and ensure that you’ve satisfied each part of the definition.</li>
+<li>[H2i).] The hint on the sheet will certainly help (can you see the difference of two squares trick here?) The definition is probably the best way to go here. Remember that making a positive denominator smaller will also make the fraction bigger too!</li>
+<li>[H2ii).] Feel free to use AoL here, but make sure to justify why you can use it!</li>
+<li>[H3.] This one is a bit tricky. Firstly, what do you get if you factorise <span class="math inline">\(x^3 - y^3\)</span>? Next, you’ll want to use the fact that <span class="math inline">\(\lim_{n \to \infty} a_n = 1\)</span> twice — once to introduce an <span class="math inline">\(\epsilon\)</span> into the problem, and again to find a point in the sequence after which all of the <span class="math inline">\(a_n\)</span> are positive. Combining all this information should help you prove the required result.</li>
+</ul>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Feel free to ignore this footnote, but there are areas of maths where limits are not unique. This is usually in the realm of topology, which you can take in Year 3 <a href="https://www.bath.ac.uk/catalogues/2022-2023/ma/MA30055.html">(MA30055)</a>. Luckily for us, everything behaves nicely, and our limits are unique.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+<!--bookdown:body:end-->
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>

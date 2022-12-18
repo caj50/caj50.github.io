@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Analysis 1A — Tutorial 7" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Christian Jones: University of Bath" />
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.MessageHook("End Math", function (msg) {
+  var nodes = Array.from(msg[1].querySelectorAll('.MJX_Assistive_MathML [id]'));
+  while (nodes.length) {
+    nodes.shift().removeAttribute('id');
+  }
+}, 20);
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "fast-preview": {disabled: true},
+  explorer:{ subtitle: true },
+  MatchWebFonts: { 
+    matchFor: { "HTML-CSS": true, NativeMML: false, SVG: false },
+    fontCheckDelay: 2000,
+    fontCheckTimeout: 30 * 1000
+  },
+  "HTML-CSS": {
+    preferredFont: "STIX",
+    availableFonts: ["STIX","TeX"],
+    webFont: "STIX-Web",
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  SVG: {
+    font: "STIX-Web",
+    linebreaks: { automatic: false, width: "90\% container" }
+  },
+  menuSettings: { 
+    collapsible: false, 
+    autocollapse: false, 
+    explorer: false 
+  }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta name="description" content="Analysis 1A — Tutorial 7">
+
+<title>Analysis 1A — Tutorial 7</title>
+
+<script src="libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+</style>
+
+<style type="text/css">
+  a {
+   color: blue;
+  }
+
+  [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  [custom-style=NameStyle]{
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  [custom-style=NameStyleItalics]{
+    font-style: italic;
+  }
+
+  
+  [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+  
+  [data-custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  
+</style>
+
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<!--bookdown:title:start-->
+<div id="header">
+<h1 class="title">Analysis 1A — Tutorial 7</h1>
+<h4 class="author"><em>Christian Jones: University of Bath</em></h4>
+<h4 class="date"><em>November 2022</em></h4>
+</div>
+<!--bookdown:title:end-->
+
+<!--bookdown:toc:start-->
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#lecture-recap"><span class="toc-section-number">1</span> Lecture Recap</a>
+<ul>
+<li><a href="#limit-superior-and-limit-inferior"><span class="toc-section-number">1.1</span> Limit Superior and Limit Inferior</a></li>
+<li><a href="#series"><span class="toc-section-number">1.2</span> Series</a>
+<ul>
+<li><a href="#algebra-of-series"><span class="toc-section-number">1.2.1</span> Algebra of Series</a></li>
+<li><a href="#some-other-useful-results"><span class="toc-section-number">1.2.2</span> Some Other Useful Results</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#hints"><span class="toc-section-number">2</span> Hints</a></li>
+</ul>
+</div>
+<!--bookdown:toc:end-->
+
+<!--bookdown:body:start-->
+<div id="introduction" class="section level1 unnumbered">
+<h1>Introduction</h1>
+<p>Here is the material to accompany the 7th Analysis Tutorial on the 21th November. As usual, send comments and corrections to <a href="mailto:caj50@bath.ac.uk">Christian Jones (caj50)</a>. To return to the homepage, click <a href="caj50.github.io/tutoring.html">here</a>.</p>
+</div>
+<div id="lecture-recap" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Lecture Recap</h1>
+<div id="limit-superior-and-limit-inferior" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Limit Superior and Limit Inferior</h2>
+<p>It is not always the case that the limit of a sequence exists — take <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> defined by <span class="math inline">\(a_n = (-1)^n\)</span>, for example. But if a sequence <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is bounded, there are two objects that always exist. These are the <em>limit superior</em> and <em>limit inferior</em> of a sequence. To start define these, we first let <span class="math inline">\((a_n)\)</span> be a real sequence, and for each <span class="math inline">\(k \in \mathbb{N}\)</span>, define <span class="math display">\[A_k = \lbrace a_n \,\lvert\, n \geq k\rbrace = \lbrace a_k,\,a_{k+1}\,\ldots\rbrace\]</span></p>
+<p>We also use some different notation to describe the supremum and infimum of the sets <span class="math inline">\(A_k\)</span>, namely <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> <span class="math display">\[\sup A_k := \sup_{n\geq k}a_n \quad ; \quad \inf A_k := \inf_{n \geq k}a_n.\]</span> One thing we can say about these quantities is that since <span class="math inline">\(A_{k+1} \subseteq A_k\)</span>, we know that <span class="math inline">\((\sup A_k)_{k\in\mathbb{N}}\)</span> is a decreasing sequence, and <span class="math inline">\((\inf A_k)_{k\in\mathbb{N}}\)</span> is an increasing sequence. Now that we’ve produced two new sequences, the natural thing to do is analyse their convergence. It turns out that if <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is bounded, both <span class="math inline">\((\sup A_k)_{k\in\mathbb{N}}\)</span> and <span class="math inline">\((\inf A_k)_{k\in\mathbb{N}}\)</span> converge! We define their respective limits to be <a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> <span class="math display">\[\limsup_{n \to \infty} a_n := \lim_{k\to\infty}\sup_{n\geq k}a_n \;\, \text{and} \;\, \liminf_{n \to \infty} a_n := \lim_{k\to\infty}\inf_{n\geq k}a_n.\]</span> The first of these is the <em>limit superior</em> and the second is the <em>limit inferior</em>. These can be thought of as `eventual’ bounds on a sequence, as seen in Figure <a href="#fig:limsup">1.1</a> (Taken from <a href="https://en.wikipedia.org/wiki/Limit_inferior_and_limit_superior">Wikipedia</a>).</p>
+<div class="figure"><span id="fig:limsup"></span>
+<img src="Lim_sup_example_5.png" title="Limit inferior and superior for a sequence." style="width:50.0%" alt="" />
+<p class="caption">Figure 1.1:  Limsup and liminf for a sequence.</p>
+</div>
+<p>There is also another way of interpreting the limits superior and inferior. For a sequence <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span>, we can also think of <span class="math inline">\(\limsup_{n\to\infty} a_n\)</span> and <span class="math inline">\(\liminf_{n \to \infty}a_n\)</span> as being the largest and smallest possible limits of any subsequence of <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span>. We can use this to characterise convergent sequences!</p>
+
+<div id="thm:thm1" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1.1:  </strong></span>
+<p>
+A sequence <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is convergent if and only if <span class="math display">\[\limsup_{n \to \infty} a_n = \liminf_{n \to \infty} a_n.\]</span>
+</p>
+</div>
+<p>To end this section, we state two more results. They’re not mentioned in the lecture notes, but they can be incredibly useful when performing calculations<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>
+
+<div id="thm:thm2" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm2" custom-style="NameStyle"><strong>Theorem 1.2:  </strong></span>
+<p>
+Let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> and <span class="math inline">\((b_n)_{n\in\mathbb{N}}\)</span> be real sequences. Then: <span class="math display">\[\limsup_{n\to\infty}(a_n + b_n) \leq \limsup_{n\to\infty}a_n +\limsup_{n\to\infty}b_n,\]</span> and <span class="math display">\[\liminf_{n\to\infty}(a_n + b_n) \geq \liminf_{n\to\infty}a_n +\liminf_{n\to\infty}b_n.\]</span>
+</p>
+</div>
+</div>
+<div id="series" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Series</h2>
+<p>It might look like we’re done with sequences, but in the grand scheme of things, we’re only really getting started. Since with each sequence <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span>, we have an infinite list of real numbers, we might consider trying to manipulate them in some way. One way we can do this is by adding them together, which leads to the notion of a <em>series</em>.</p>
+
+<div id="def:def1" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Series) </strong></span>
+<div>
+Let <span class="math inline">\((a_n)_{n \in \mathbb{N}}\)</span> be a real sequence. Then <span class="math display">\[\sum_{n = 1}^{\infty} a_n\]</span> is called a series for <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span>.
+</div>
+</div>
+Much like with sequences, we have an analogous version of convergence for a series:
+
+<div id="def:def2" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def2" custom-style="NameStyle"><strong>Definition 1.2:  (Series Convergence and Partial Sums) </strong></span>
+<div>
+Let <span class="math inline">\((a_n)_{n \in \mathbb{N}}\)</span> be a real sequence. Then <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> converges if and only if the sequence <span class="math inline">\((S_N)_{N \in \mathbb{N}}\)</span> converges, where <span class="math display">\[S_N:= \sum_{n = 1}^{N} a_n\]</span> is the <span class="math inline">\(N\)</span> partial sum. If <span class="math inline">\(S_N \to \ell\)</span> as <span class="math inline">\(N \to \infty\)</span>, we define <span class="math display">\[\ell = \sum_{n = 1}^{\infty}a_n.\]</span>
+</div>
+</div>
+<p>If <span class="math inline">\((S_N)_{N\in\mathbb{N}}\)</span> diverges to <span class="math inline">\(\pm\infty\)</span>, we say that the corresponding series <span class="math display">\[\sum_{n=1}^{\infty} a_n = \pm\infty.\]</span> Finally, if <span class="math inline">\((S_N)_{N\in\mathbb{N}}\)</span> doesn’t converge to a limit, we say that the series diverges without limit.</p>
+<div id="algebra-of-series" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Algebra of Series</h3>
+<p>By applying the algebra of limits to the sequences of partial sums, we can deduce some handy results.</p>
+
+<div id="thm:thm3" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm3" custom-style="NameStyle"><strong>Theorem 1.3:  (Algebra of Series) </strong></span>
+<p>
+Let <span class="math inline">\(\sum_{n=1}^{\infty} a_n\)</span> and <span class="math inline">\(\sum_{n=1}^{\infty} b_n\)</span> be convergent series, and let <span class="math inline">\(\alpha,\beta \in \mathbb{R}\)</span>. Then <span class="math display">\[\sum_{n = 1}^{\infty} (\alpha a_n + \beta b_n) = \alpha\sum_{n=1}^{\infty} a_n + \beta\sum_{n=1}^{\infty} b_n.\]</span>
+</p>
+</div>
+</div>
+<div id="some-other-useful-results" class="section level3" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Some Other Useful Results</h3>
+<p>Firstly, we can relate the size of the terms of a series to the overall sum.</p>
+
+<div id="prp:prop1" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.4:  </strong></span>
+<p>
+Let <span class="math inline">\(\sum_{n=1}^{\infty} a_n\)</span> and <span class="math inline">\(\sum_{n=1}^{\infty} b_n\)</span> be real series. If <span class="math inline">\(a_n \leq b_n \, \forall n\in\mathbb{N}\)</span>, then <span class="math display">\[\sum_{n=1}^{\infty} a_n \leq \sum_{n=1}^{\infty} b_n.\]</span>
+</p>
+</div>
+<p>Secondly, we have a <em>necessary</em> condition for convergence of a series.</p>
+
+<div id="prp:prop2" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop2" custom-style="NameStyle"><strong>Proposition 1.5:  </strong></span>
+<p>
+Let <span class="math inline">\(\sum_{n=1}^{\infty} a_n\)</span> be a convergent series. Then <span class="math inline">\(a_n \to 0\)</span> as <span class="math inline">\(n \to \infty\)</span>.
+</p>
+</div>
+<p>Note that the converse of this theorem <em>does not</em> hold (think of the sum <span class="math inline">\(\sum_{n=1}^{\infty} \frac{1}{n}\)</span>). However, the contrapositive is very good at showing that a series does not converge!</p>
+
+<div id="prp:prop3" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop3" custom-style="NameStyle"><strong>Proposition 1.6:  </strong></span>
+<p>
+Let <span class="math inline">\(\sum_{n=1}^{\infty} a_n\)</span> be a series. If <span class="math inline">\(a_n \not\to 0\)</span> as <span class="math inline">\(n \to \infty\)</span>, then <span class="math inline">\(\sum_{n=1}^{\infty} a_n\)</span> does not converge.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="hints" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Hints</h1>
+<p>As per usual, here’s where you’ll find the problem sheet hints!</p>
+<ul>
+<li>[H1.] Try using a similar argument to the one used in tutorial question 1 (i.e. use the fact that the sequence can be split into odd and even cases to your advantage)</li>
+<li>[H2.] For this question, think about what it means for a series to be convergent. You’ll also want to split the terms of the series up in some way. (Think of tutorial question 3a.)</li>
+<li>[H3.] For the first part, think induction. The only other thing I’ll say is to make sure you state all the main results you use!</li>
+</ul>
+<!--chapter:end:index.Rmd-->
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>The notation here follows that used in the lecture notes rather than that used in lectures, as this is more common usage. Also, for convenience, if the set <span class="math inline">\(A_k\)</span> is not bounded above/below, we set the supremum/infimum to be <span class="math inline">\(\infty\)</span>/<span class="math inline">\(-\infty\)</span>.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Again, if <span class="math inline">\((\sup A_k)_{k\in\mathbb{N}}\)</span> diverges to <span class="math inline">\(\infty\)</span>, <span class="math inline">\(\limsup_{n \to \infty} a_n\)</span> is defined to be <span class="math inline">\(\infty\)</span>, and if <span class="math inline">\((\inf A_k)_{k\in\mathbb{N}}\)</span> diverges to <span class="math inline">\(-\infty\)</span>, <span class="math inline">\(\liminf_{n \to \infty} a_n\)</span> is defined to be <span class="math inline">\(-\infty\)</span>.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Since these results are not in the lecture notes, it’s <em>highly</em> recommended that you try and prove them yourself. Try using similar techniques to Tutorial Question 2 on Problem Sheet 7 and Homework Question 2 on Problem Sheet 3.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+<!--bookdown:body:end-->
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>

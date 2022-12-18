@@ -1,5 +1,5 @@
 book_filename: "Tutorial2"
-output_dir: "~/Documents/GitHub/caj50.github.io/Analysis Tutorials/Ma10207T2"
+output_dir: "./"
 new_theorems:
   Non-theorem: Non
   Order Axioms: OA

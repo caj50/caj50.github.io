@@ -247,7 +247,7 @@ img {
 <!--bookdown:body:start-->
 <div id="introduction" class="section level1 unnumbered">
 <h1>Introduction</h1>
-<p>Here is the material to accompany the 8th Analysis Tutorial on the 28th November. As usual, send comments and corrections to <a href="mailto:caj50@bath.ac.uk">Christian Jones (caj50)</a></p>
+<p>Here is the material to accompany the 8th Analysis Tutorial on the 28th November. As usual, send comments and corrections to <a href="mailto:caj50@bath.ac.uk">Christian Jones (caj50)</a>. To return to the homepage, click <a href="caj50.github.io/tutoring.html">here</a>.</p>
 </div>
 <div id="lecture-recap" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Lecture Recap</h1>
@@ -290,7 +290,7 @@ Let <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> be a real ser
 So, what can we do with absolutely convergent series?
 
 <div id="thm:thm1" class="bookdown-theorem" custom-style="TheoremStyle">
-<span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1.1:  </strong></span>
+<span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1.2:  </strong></span>
 <p>
 Suppose <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> is an absolutely convergent series, and that <span class="math inline">\(\sigma: \mathbb{N} \to \mathbb{N}\)</span> is a bijection. Then <span class="math inline">\(\sum_{n = 1}^{\infty} a_{\sigma(n)}\)</span> is also an absolutely convergent series, and <span class="math display">\[\sum_{n = 1}^{\infty} a_n = \sum_{n = 1}^{\infty} a_{\sigma(n)}.\]</span>
 </p>
@@ -298,7 +298,7 @@ Suppose <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> is an abs
 <p>This theorem tells us that for an absolutely convergent series, we can order the terms any way we like, and still reach the same value for the series. At this point, you might be interested to know what happens if we don’t have absolute convergence. Long story short, weird things can happen, as is seen in the following theorem.</p>
 
 <div id="thm:thm2" class="bookdown-theorem" custom-style="TheoremStyle">
-<span class="thm:thm2" custom-style="NameStyle"><strong>Theorem 1.2:  (Riemann Rearrangement Theorem) </strong></span>
+<span class="thm:thm2" custom-style="NameStyle"><strong>Theorem 1.3:  (Riemann Rearrangement Theorem) </strong></span>
 <p>
 Suppose <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> is conditionally convergent. Then, for any <span class="math inline">\(\alpha \in \mathbb{R}\)</span>, or <span class="math inline">\(\alpha = \pm\infty\)</span>, there exists a bijection <span class="math inline">\(\sigma:\mathbb{N} \to \mathbb{N}\)</span> such that <span class="math display">\[\sum_{n = 1}^{\infty} a_{\sigma(n)} = \alpha.\]</span>
 </p>
@@ -314,7 +314,7 @@ Suppose <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> is condit
 <p>The first of these tests involves comparing the sizes of two series, and is aptly known as the comparison test.</p>
 
 <div id="thm:thm3" class="bookdown-theorem" custom-style="TheoremStyle">
-<span class="thm:thm3" custom-style="NameStyle"><strong>Theorem 1.3:  (Comparison Test) </strong></span>
+<span class="thm:thm3" custom-style="NameStyle"><strong>Theorem 1.4:  (Comparison Test) </strong></span>
 <p>
 Let <span class="math inline">\((a_n)_n\)</span> and <span class="math inline">\((b_n)_n\)</span> be real sequences, and suppose that there exists a <span class="math inline">\(M \in \mathbb{N}\)</span> such that <span class="math inline">\(\lvert a_n \rvert \leq b_n \;\forall n \geq M.\)</span>
 Then, if <span class="math inline">\(\sum_{n = 1}^{\infty} b_n\)</span> is convergent, <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> is convergent.
@@ -335,7 +335,7 @@ Let <span class="math inline">\((a_n)_n\)</span> and <span class="math inline">\
 <p>This one is quite similar to the growth factor test for sequences, except that due to the idea of absolute convergence (and Proposition <a href="#prp:prop1">1.1</a>), the terms of the series only have to be non-zero:</p>
 
 <div id="thm:thm4" class="bookdown-theorem" custom-style="TheoremStyle">
-<span class="thm:thm4" custom-style="NameStyle"><strong>Theorem 1.4:  (D’Alembert’s Ratio Test) </strong></span>
+<span class="thm:thm4" custom-style="NameStyle"><strong>Theorem 1.5:  (D’Alembert’s Ratio Test) </strong></span>
 <p>
 <p>Let <span class="math inline">\((a_n)_n\)</span> be a real sequence with <span class="math inline">\(a_n \neq 0 \; \forall n \in \mathbb{N}\)</span>. Suppose <span class="math display">\[\lim_{n\to\infty}\frac{\lvert a_{n+1}\rvert}{\lvert a_n\rvert} = r.\]</span> Then:</p>
 <ul>
@@ -352,7 +352,7 @@ Let <span class="math inline">\((a_n)_n\)</span> and <span class="math inline">\
 <p>The final test we’re going to look at here is yet another thing named after Cauchy! This one is very good when the terms of a series involve logarithms, and can also be used to show that <span class="math display">\[\sum_{n = 1}^{\infty} \frac{1}{n^{\alpha}} \;\;\text{converges} \Longleftrightarrow \alpha &gt; 1.\]</span></p>
 
 <div id="thm:thm5" class="bookdown-theorem" custom-style="TheoremStyle">
-<span class="thm:thm5" custom-style="NameStyle"><strong>Theorem 1.5:  (Cauchy) </strong></span>
+<span class="thm:thm5" custom-style="NameStyle"><strong>Theorem 1.6:  (Cauchy) </strong></span>
 <p>
 Assume <span class="math inline">\((a_n)_n\)</span> satisfies <span class="math inline">\(a_n \geq 0 \; \forall n \in \mathbb{N}\)</span>, and is a decreasing sequence. For <span class="math inline">\(k \in \mathbb{N}\)</span>, define <span class="math inline">\(b_k := 2^ka_{2^k}\)</span>. Then <span class="math display">\[\sum_{n = 1}^{\infty} a_n \;\; \text{converges}\; \Longleftrightarrow\; \sum_{k = 1}^{\infty} b_k \;\; \text{converges}.\]</span>
 </p>
@@ -372,6 +372,7 @@ Assume <span class="math inline">\((a_n)_n\)</span> satisfies <span class="math 
 </ul></li>
 <li>[H3.] This one is only slightly more involved. Know your definitions, and again, think of possible convergence tests to apply.</li>
 </ul>
+<!--chapter:end:index.Rmd-->
 </div>
 <div class="footnotes">
 <hr />

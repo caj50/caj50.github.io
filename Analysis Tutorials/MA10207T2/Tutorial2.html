@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Analysis 1A — Tutorial 2" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Christian Jones: University of Bath" />
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.MessageHook("End Math", function (msg) {
+  var nodes = Array.from(msg[1].querySelectorAll('.MJX_Assistive_MathML [id]'));
+  while (nodes.length) {
+    nodes.shift().removeAttribute('id');
+  }
+}, 20);
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "fast-preview": {disabled: true},
+  explorer:{ subtitle: true },
+  MatchWebFonts: { 
+    matchFor: { "HTML-CSS": true, NativeMML: false, SVG: false },
+    fontCheckDelay: 2000,
+    fontCheckTimeout: 30 * 1000
+  },
+  "HTML-CSS": {
+    preferredFont: "STIX",
+    availableFonts: ["STIX","TeX"],
+    webFont: "STIX-Web",
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  SVG: {
+    font: "STIX-Web",
+    linebreaks: { automatic: false, width: "90\% container" }
+  },
+  menuSettings: { 
+    collapsible: false, 
+    autocollapse: false, 
+    explorer: false 
+  }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta name="description" content="Analysis 1A — Tutorial 2">
+
+<title>Analysis 1A — Tutorial 2</title>
+
+<script src="libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+</style>
+
+<style type="text/css">
+  a {
+   color: blue;
+  }
+
+  [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  [custom-style=NameStyle]{
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  [custom-style=NameStyleItalics]{
+    font-style: italic;
+  }
+
+  
+  [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+  
+  [data-custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  
+</style>
+
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<!--bookdown:title:start-->
+<div id="header">
+<h1 class="title">Analysis 1A — Tutorial 2</h1>
+<h4 class="author"><em>Christian Jones: University of Bath</em></h4>
+<h4 class="date"><em>October 2022</em></h4>
+</div>
+<!--bookdown:title:end-->
+
+<!--bookdown:toc:start-->
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#lecture-recap"><span class="toc-section-number">1</span> Lecture Recap</a>
+<ul>
+<li><a href="#induction"><span class="toc-section-number">1.1</span> Induction</a></li>
+<li><a href="#axioms1"><span class="toc-section-number">1.2</span> Axioms</a>
+<ul>
+<li><a href="#field-axioms"><span class="toc-section-number">1.2.1</span> Field Axioms</a></li>
+<li><a href="#order-axioms"><span class="toc-section-number">1.2.2</span> Order Axioms</a></li>
+</ul></li>
+<li><a href="#set-bounds"><span class="toc-section-number">1.3</span> Set Bounds</a>
+<ul>
+<li><a href="#the-completeness-axiom"><span class="toc-section-number">1.3.1</span> The Completeness Axiom</a></li>
+<li><a href="#the-archimedian-postulate"><span class="toc-section-number">1.3.2</span> The Archimedian Postulate</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#hints"><span class="toc-section-number">2</span> Hints</a></li>
+</ul>
+</div>
+<!--bookdown:toc:end-->
+
+<!--bookdown:body:start-->
+<!-- This is needed since I am working with svg files from mathcha.io. It converts the graphics files to something that can be used in the pdf files. Code taken from https://stackoverflow.com/questions/50165404/how-to-make-a-pdf-using-bookdown-including-svg-images/56044642#56044642 -->
+<div id="introduction" class="section level1 unnumbered">
+<h1>Introduction</h1>
+<p>Here is the material to accompany the 2nd Analysis Tutorial on the 17th October. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to <a href="mailto:caj50@bath.ac.uk">Christian Jones (caj50)</a>. To return to the homepage, click <a href="caj50.github.io/tutoring.html">here</a>.</p>
+</div>
+<div id="lecture-recap" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Lecture Recap</h1>
+<div id="induction" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Induction</h2>
+<p>This week first involves a little bit more about statements, namely those that involve the natural numbers <span class="math inline">\(\mathbb{N}\)</span>. Suppose we have a statement <span class="math inline">\(P(n)\)</span> which depends on a natural number <span class="math inline">\(n\)</span>. If we want to prove this true for all natural numbers, we use the principle of <em>mathematical induction</em>.</p>
+<p>Firstly, let <span class="math inline">\(\Lambda \subseteq \mathbb{N}\)</span> be the set of all <span class="math inline">\(n \in \mathbb{N}\)</span> such that <span class="math inline">\(P(n)\)</span> is true. Then, to prove something by induction, we use the following procedure:</p>
+<ol style="list-style-type: decimal">
+<li>Show <span class="math inline">\(1 \in \Lambda\)</span>.</li>
+<li>Assume <span class="math inline">\(k \in \Lambda\)</span> for some <span class="math inline">\(k \in \mathbb{N}\)</span>. Prove <span class="math inline">\(k + 1 \in \Lambda\)</span>.</li>
+</ol>
+<p>If these two steps are satisfied, then <span class="math inline">\(\Lambda = \mathbb{N}\)</span>, and <span class="math inline">\(P(n)\)</span> holds for all natural numbers <span class="math inline">\(n\)</span>. You may come across different styles of inductive proofs from different lecturers at Bath, but as long as you write everything logically, these are fine for this course too!</p>
+</div>
+<div id="axioms1" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Axioms<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></h2>
+<div id="field-axioms" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Field Axioms</h3>
+<p>As you might know from experience, natural numbers won’t get us very far in maths. So instead, we turn to studying the real numbers (<span class="math inline">\(\mathbb{R}\)</span>). But before we do, we need to know how these numbers behave under certain operations. This is where the <em>field axioms</em> come in. There’s a long list of them in Section 2.1 of the lecture notes , so they’re not repeated here in full. However, we can summarise<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> them as follows:</p>
+<ul>
+<li><strong>Addition</strong>: On <span class="math inline">\(\mathbb{R}\)</span>, addition is <em>associative</em> and <em>commutative</em>, an <em>additive identity</em> exists, and <em>additive inverses</em> exist.</li>
+<li><strong>Multiplication</strong>: On <span class="math inline">\(\mathbb{R}\setminus \lbrace 0 \rbrace\)</span>, multiplication is <em>associative</em> and <em>commutative</em>, a <em>multiplicative identity</em> exists, and <em>multiplicative inverses</em> exist.</li>
+<li>Multiplication <em>distributes</em> over addition.</li>
+</ul>
+<p>Try matching the properties here to the numbered axioms in the lecture notes!</p>
+</div>
+<div id="order-axioms" class="section level3" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Order Axioms</h3>
+As if the first 9 field axioms weren’t enough, there are 5 <em>order axioms</em> you need to know. As these are useful for the problem sheet, they are presented below.
+
+<div id="OA:unnamed-chunk-2" class="Order Axioms" custom-style="TheoremStyle">
+<span class="Order Axioms" custom-style="NameStyle"><strong> Order Axioms: </strong></span>
+<p>
+<p>For <span class="math inline">\(x,y,z \in \mathbb{R}\)</span>:</p>
+<ul>
+<li><span class="math inline">\(x \leq y\)</span> or <span class="math inline">\(y \leq x\)</span>.</li>
+<li>If <span class="math inline">\(x\leq y\)</span> and <span class="math inline">\(y \leq x\)</span>, then <span class="math inline">\(x = y\)</span>.</li>
+<li>If <span class="math inline">\(x \leq y\)</span> and <span class="math inline">\(y \leq z\)</span>, then <span class="math inline">\(x \leq z\)</span>.</li>
+<li>If <span class="math inline">\(x \leq y\)</span>, then <span class="math inline">\(x + z \leq y + z\)</span>.</li>
+<li>If <span class="math inline">\(x\leq y\)</span> and <span class="math inline">\(z\geq0\)</span>, then <span class="math inline">\(xz\leq yz\)</span>.</li>
+</ul>
+</p>
+</div>
+</div>
+</div>
+<div id="set-bounds" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Set Bounds</h2>
+<p>You might be interested to know that at this stage, despite the fact we have specified 14 axioms, these still aren’t unique to the real numbers! For example, the exact same axioms also apply to the set of rational numbers <span class="math inline">\(\mathbb{Q}\)</span>. Luckily, we only need one more axiom to complete our description of the real numbers. Unfortunately, there are a few definitions we need first…</p>
+
+<div id="def:def1" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Upper Bound) </strong></span>
+<div>
+Let <span class="math inline">\(S \subseteq \mathbb{R}\)</span>. Then <span class="math inline">\(M \in \mathbb{R}\)</span> is an upper bound for <span class="math inline">\(S\)</span> if for all <span class="math inline">\(x \in S\)</span>, <span class="math inline">\(x \leq M\)</span>. In this case, we say <span class="math inline">\(S\)</span> is bounded above.
+</div>
+</div>
+
+<div id="def:def2" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def2" custom-style="NameStyle"><strong>Definition 1.2:  (Lower Bound) </strong></span>
+<div>
+Let <span class="math inline">\(S \subseteq \mathbb{R}\)</span>. Then <span class="math inline">\(m \in \mathbb{R}\)</span> is a lower bound for <span class="math inline">\(S\)</span> if for all <span class="math inline">\(x \in S\)</span>, <span class="math inline">\(x \geq m\)</span>. In this case, we say that <span class="math inline">\(S\)</span> is bounded below.
+</div>
+</div>
+
+<div id="def:def3" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def3" custom-style="NameStyle"><strong>Definition 1.3:  (Bounded Set) </strong></span>
+<div>
+A set <span class="math inline">\(S\)</span> is bounded if it is both bounded above and below. Equivalently, <span class="math inline">\(S\)</span> is bounded if there exists <span class="math inline">\(m, M \in \mathbb{R}\)</span> such that for all <span class="math inline">\(x \in S\)</span>, <span class="math inline">\(m\leq x \leq M\)</span>.
+</div>
+</div>
+<p>We can go one step further with the definition of a bounded set. Namely, we can say that <span class="math inline">\(S\)</span> is bounded if <span class="math inline">\(\exists M^{*}\geq0\)</span> such that <span class="math inline">\(\lvert x \rvert \leq M\)</span> for all members <span class="math inline">\(x\)</span> of <span class="math inline">\(S\)</span>. The link here is that <span class="math inline">\(M^{*} = \max\left\lbrace \lvert m \rvert, \lvert M \rvert \right\rbrace\)</span>.</p>
+<p>Thinking of upper bounds for a moment, if we have one, we could ask if there is a smaller number which also bounds the set from above. You might also be tempted to ask what the ‘best’ upper bound on a set could be, such that no smaller number will bound the set from above. This leads to the ideas of suprema and infima:</p>
+
+<div id="def:def4" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def4" custom-style="NameStyle"><strong>Definition 1.4:  (Supremum) </strong></span>
+<div>
+Let <span class="math inline">\(S \in \mathbb{R}\)</span>. A number <span class="math inline">\(T \in \mathbb{R}\)</span> is said to be the supremum of <span class="math inline">\(S\)</span> if it is an upper bound for <span class="math inline">\(S\)</span>, and for any other upper bound <span class="math inline">\(M\)</span>, <span class="math inline">\(T \leq M\)</span>. Here, we write <span class="math inline">\(T = \sup(S)\)</span>.
+</div>
+</div>
+
+<div id="def:def5" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def5" custom-style="NameStyle"><strong>Definition 1.5:  (Infimum) </strong></span>
+<div>
+Let <span class="math inline">\(S \in \mathbb{R}\)</span>. A number <span class="math inline">\(t \in \mathbb{R}\)</span> is said to be the infimum of <span class="math inline">\(S\)</span> if it is a lower bound for <span class="math inline">\(S\)</span>, and for any other lower bound <span class="math inline">\(m\)</span>, <span class="math inline">\(t\geq m\)</span>. Here, we write <span class="math inline">\(t = \inf(S)\)</span>.
+</div>
+</div>
+<p>For example, if we consider the set <span class="math inline">\(S = (-1,2] = \lbrace x \lvert -1&lt;x\leq2\rbrace\)</span>, we can see that possible upper and lower bounds are <span class="math inline">\(M = 3\)</span> and <span class="math inline">\(m = -2\)</span> respectively, so the set is bounded. Its supremum and infimum are <span class="math inline">\(\sup(S) = 2\)</span> and <span class="math inline">\(\inf(S) = -1\)</span>. However, note that the supremum lies inside <span class="math inline">\(S\)</span>, whereas the infimum does not lie inside <span class="math inline">\(S\)</span>. This also tells us that the maximum element of <span class="math inline">\(S\)</span> is <span class="math inline">\(2\)</span>, whereas <span class="math inline">\(S\)</span> has no minimum element!</p>
+<div id="the-completeness-axiom" class="section level3" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> The Completeness Axiom</h3>
+<p>Finally, we are ready to state the required <span class="math inline">\(15^{th}\)</span> axiom! As the title suggests, this is known as the <em>Completeness Axiom</em>. It says that every non-empty set <span class="math inline">\(S\)</span> in <span class="math inline">\(\mathbb{R}\)</span> that is bounded above has a supremum<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>
+<p>Loosely, this axiom ensures that there are no ‘gaps’ in the real number line. For some more (precise) information, see <a href="https://en.wikipedia.org/wiki/Completeness_of_the_real_numbers">this link.</a></p>
+</div>
+<div id="the-archimedian-postulate" class="section level3" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> The Archimedian Postulate</h3>
+<p>To finish, we mention one result which will become very useful when studying sequences in the next few weeks. This is the <em>Archimedian Postulate</em>, and says that the set of natural numbers is unbounded above. In maths terms:</p>
+
+<div id="prp:prop1" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.1:  (Archimedian Postulate) </strong></span>
+<p>
+We have that <span class="math inline">\(\forall x \in \mathbb{R}, \exists N \in \mathbb{N}\)</span> such that <span class="math inline">\(N &gt; x.\)</span>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="hints" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Hints</h1>
+<p>As per last week, here’s the hints section of this document.</p>
+<ul>
+<li>[H1.] Recall that a number <span class="math inline">\(N\)</span> is a multiple of 3 if there exists <span class="math inline">\(j \in \mathbb{Z}\)</span> such that <span class="math inline">\(N = 3j\)</span>. The proof is then similar to tutorial question 1.</li>
+<li>[H2.] Try and get the problems into the form of one of the order axioms. Make sure to state each axiom you use, when you use it!</li>
+<li>[H3.] This is a similar procedure to tutorial question 3. Splitting the fraction up will help!</li>
+<li>[H4.] The induction should be straightforward. To find the formula you need to prove, have you seen a way of rewriting <span class="math inline">\(\begin{pmatrix}  n\\  10  \end{pmatrix}\)</span> recently? (Have a look at the proof of the binomial theorem).</li>
+<li>[H5.] Think back to the definitions, and use them to construct your proof of this result.</li>
+</ul>
+<!--chapter:end:index.Rmd-->
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Or Axiomata, if you’re into your archaic English.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Once you’ve learned some group theory, we can obscure everything behind more definitions. The first two bullet points can be stated as: <span class="math inline">\((\mathbb{R},+)\)</span> and <span class="math inline">\((\mathbb{R}\setminus\lbrace0\rbrace, \cdot)\)</span> are abelian groups. The third bullet point remains the same.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>In the lecture notes, it also states that ‘Every non-empty set of real numbers that is bounded below has an infimum.’ But you can deduce this from the supremum result by considering the set <span class="math inline">\(-S:=\lbrace -x \lvert x \in S\rbrace.\)</span><a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+<!--bookdown:body:end-->
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>
