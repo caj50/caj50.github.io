@@ -1,0 +1,233 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  17pt,
+  a4paper]{extarticle}
+\title{Analysis 1A --- Supremum Example}
+\author{Christian Jones: University of Bath}
+\date{October 2022}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Analysis 1A --- Supremum Example},
+  pdfauthor={Christian Jones: University of Bath},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\newcommand{\BOO}{BOO}
+\usepackage {hyperref}
+\hypersetup {colorlinks = true, linkcolor = blue, urlcolor = blue}
+\usepackage{float}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}\newtheorem{definition}{Definition}[section]
+\theoremstyle{plain}
+\newtheorem*{proposition*}{Proposition}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{Definitions*}{Definitions}\newtheorem{Definitions}[definition]{Definitions}
+\theoremstyle{plain}
+\newtheorem*{lemma*}{Lemma}\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{plain}
+\newtheorem*{corollary*}{Corollary}\newtheorem{corollary}{Corollary}[section]
+\theoremstyle{plain}
+\newtheorem*{conjecture*}{Conjecture}\newtheorem{conjecture}{Conjecture}[section]
+\theoremstyle{definition}
+\newtheorem*{example*}{Example}\newtheorem{example}{Example}[section]
+\theoremstyle{definition}
+\newtheorem*{exercise*}{Exercise}\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{Non-theorem*}{Non-theorem}\newtheorem{Non-theorem}{Non-theorem}[section]
+\newtheorem*{Order Axioms*}{Order Axioms}\newtheorem{Order Axioms}{Order Axioms}[section]
+\newtheorem*{Thought*}{Thought}\newtheorem{Thought}{Thought}[section]
+\theoremstyle{remark}
+\newtheorem*{remark*}{Remark}
+\newtheorem*{solution*}{Solution}
+\newtheorem*{Example*}{Example}
+\theoremstyle{remark}
+\newtheorem*{Proof*}{Proof}
+\newtheorem*{Examples*}{Examples}
+\let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
+
+
+%\usepackage[english,shorthands=off]{babel}
+\usepackage{etoolbox}
+\usepackage{spverbatim}
+\makeatletter
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\@ifpackageloaded{adjustbox}{}{\usepackage[Export]{adjustbox}}
+\makeatother
+\floatplacement{figure}{H}
+\newcommand{\scalefactor}{1.7}
+\adjustboxset*{min width=\scalefactor\width,max width=\linewidth}
+\renewcommand{\familydefault}{phv}
+\fontfamily{phv}\selectfont
+\renewcommand{\em}{\bf}\renewcommand{\textit}{\textbf}\renewcommand{\emph}{\textbf}\renewcommand{\it}{\bf}\renewcommand{\itshape}{\bf}
+\setlength{\parindent}{0.0pt}
+\setlength{\parskip}{1.0\baselineskip}
+\renewcommand{\baselinestretch}{1.5}\selectfont
+\setlength{\mathsurround}{0.2em}
+\setlength{\arraycolsep}{0.5cm}\renewcommand{\arraystretch}{1.5}
+\addtolength{\jot}{\baselineskip}
+\renewcommand{\;}{\,}
+\sloppy
+\allowdisplaybreaks
+\usepackage{amsthm}
+\newtheoremstyle{plain}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{definition}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{remark}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\csundef{Proof}
+\csundef{endProof}
+\newenvironment{Proof}
+  {\noindent{\bf Proof.}\hspace*{1em}}% Begin
+  {\qed\par}% End
+%% When redefining an environment it is vital that it has 
+%% the same number of arguments as the original
+\renewenvironment{proof}[1][\proofname]
+  {\trivlist\item\relax\noindent{\bf {#1}.}\hspace*{1em}}% Begin
+  {\qed\endtrivlist}% End
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\newpage
+\pagenumbering{arabic}
+
+\hypertarget{question}{%
+\section*{Question}\label{question}}
+\addcontentsline{toc}{section}{Question}
+
+Here is an example of finding the supremum of a set taken from an old problem sheet, together with three possible methods to find it.
+\BeginKnitrBlock{example}
+{\label{exm:unnamed-chunk-2} }Let \[B = \left\lbrace \frac{2n-1}{n+1} \lvert n \in \mathbb{N}\right\rbrace.\] Show that \(B\) is bounded above and find \(\sup(B).\)
+\EndKnitrBlock{example}
+
+\hypertarget{method-1-contradiction}{%
+\subsection*{Method 1 --- Contradiction}\label{method-1-contradiction}}
+\addcontentsline{toc}{subsection}{Method 1 --- Contradiction}
+
+\BeginKnitrBlock{solution*}
+First, note for \(n\in\mathbb{N}\): \[\frac{2n-1}{n+1} = \frac{2n+2-3}{n+1} = 2 - \frac{3}{n+1} < 2.\] Hence \(B\) is bounded above by \(2\). Therefore, by the completeness axiom, as \(B \neq \emptyset,\) \(\sup(B)\) exists and \(\sup(B) \leq 2.\)
+
+Next, suppose for contradiction that \(\sup(B) < 2\). Now, for any \(x < 2,\) \[2 - \frac{3}{n+1} > x \Leftrightarrow n+1 > \frac{3}{2-x} \Leftrightarrow n > \frac{3}{2-x} - 1.\] Taking \(x = \sup(B)\) and applying Archimedes' Postulate, \(\exists N \in \mathbb{N}\) such that
+\begin{align*}
+N &> \frac{3}{2-\sup(B)} - 1,\\
+\Leftrightarrow 2 - \frac{3}{N+1} &> \sup(B),
+\end{align*}
+which is a contradiction as \(2 - \frac{3}{N+1} \in B.\) Hence \(\sup(B) \geq 2\), and by combining our found inequalities, \(\sup(B)=2\).
+\EndKnitrBlock{solution*}
+
+\hypertarget{method-2-alternative-characterisation-of-suprema}{%
+\subsection*{Method 2 --- Alternative Characterisation of Suprema}\label{method-2-alternative-characterisation-of-suprema}}
+\addcontentsline{toc}{subsection}{Method 2 --- Alternative Characterisation of Suprema}
+
+\BeginKnitrBlock{solution*}
+First, note for \(n\in\mathbb{N}\): \[\frac{2n-1}{n+1} = \frac{2n+2-3}{n+1} = 2 - \frac{3}{n+1} < 2.\] Hence \(B\) is bounded above by \(2\). Therefore as \(B \neq \emptyset,\) the completeness axiom says that \(\sup(B)\) exists.
+
+We claim that \(\sup(B) = 2.\) Fix \(\epsilon > 0.\) Then, for \(n \in \mathbb{N}:\)
+\begin{align*}
+2 - \frac{3}{n+1} &> 2-\epsilon,\\
+\Leftrightarrow \epsilon &> \frac{3}{n+1},\\
+\Leftrightarrow n\epsilon &> 3 - \epsilon,\\
+\Leftrightarrow n &> \frac{3-\epsilon}{\epsilon}.
+\end{align*}
+Now, by Archimedes' Postulate, \(\exists N \in \mathbb{N}\) such that \(N > \frac{3-\epsilon}{\epsilon}\), from which \[2 - \frac{3}{N+1} > 2- \epsilon.\] At this stage, take \(b = 2 - \frac{3}{N+1} \in B\). Since \(\epsilon > 0\) was arbitrary, we have that \(\forall \epsilon > 0, \exists b \in B\) such that \(b > 2-\epsilon.\) So, by the alternative characterisation of suprema (Theorem 2.1), \(\sup(B) = 2.\)
+\EndKnitrBlock{solution*}
+
+\hypertarget{method-3-limits}{%
+\subsection*{Method 3 --- Limits}\label{method-3-limits}}
+\addcontentsline{toc}{subsection}{Method 3 --- Limits}
+
+Note that this doesn't work in general, but it might be quicker when you can use it. It relies on the following theorem (which we'll eventually cover):
+\BeginKnitrBlock{theorem}
+{\label{thm:unnamed-chunk-5} }A bounded, increasing sequence \((b_n)_{n \in \mathbb{N}}\) is convergent, and its limit is given by \[\lim_{n \to \infty} b_n = \sup\lbrace b_n \,\lvert\, n \in \mathbb{N} \rbrace.\]
+\EndKnitrBlock{theorem}
+
+\BeginKnitrBlock{solution*}
+Define \(b_n = \frac{2n - 1}{n+1}\) for \(n \in \mathbb{N}\).
+
+\textbf{Step 1 --- Show \((b_n)_n\) is bounded above}:
+
+First, note for \(n\in\mathbb{N}\): \[b_n = \frac{2n+2-3}{n+1} = 2 - \frac{3}{n+1} < 2.\] Hence \(B\) is bounded above by \(2\). Therefore, as \(B \neq \emptyset,\) the completeness axiom says that \(\sup(B)\) exists.
+
+\textbf{Step 2 --- Show \((b_n)_n\) is increasing (i.e.~show \(b_{n+1} \geq b_n \; \forall n \in \mathbb{N}\))}:
+
+We have for \(n \in \mathbb{N}\),
+\begin{align*}
+b_{n+1} - b_{n} &= 2 - \frac{3}{n+2} - \left(2 - \frac{3}{n+1}\right),\\
+&= \frac{3(n+2)-3(n+1)}{(n+1)(n+2)},\\
+&= \frac{3}{(n+1)(n+2)},\\
+&\geq 0.
+\end{align*}
+So \((b_n)\) is increasing. Hence, by the above theorem, \((b_n)\) converges, and by the \emph{Algebra of Limits}, \[\sup(B) = \lim_{n \to \infty} b_n = \lim_{n \to \infty} \left(2 - \frac{\frac{3}{n}}{1 + \frac{1}{n}}\right) = 2,\]
+as expected!
+\EndKnitrBlock{solution*}
+
+\end{document}

@@ -1,0 +1,238 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  12pt,
+  a4paper]{extarticle}
+\title{Analysis 1A --- Tutorial 3}
+\author{Christian Jones: University of Bath}
+\date{October 2022}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Analysis 1A --- Tutorial 3},
+  pdfauthor={Christian Jones: University of Bath},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\newcommand{\BOO}{BOO}
+\usepackage {hyperref}
+\hypersetup {colorlinks = true, linkcolor = blue, urlcolor = blue}
+\usepackage{float}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}\newtheorem{definition}{Definition}[section]
+\theoremstyle{plain}
+\newtheorem*{proposition*}{Proposition}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{Definitions*}{Definitions}\newtheorem{Definitions}[definition]{Definitions}
+\theoremstyle{plain}
+\newtheorem*{lemma*}{Lemma}\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{plain}
+\newtheorem*{corollary*}{Corollary}\newtheorem{corollary}{Corollary}[section]
+\theoremstyle{plain}
+\newtheorem*{conjecture*}{Conjecture}\newtheorem{conjecture}{Conjecture}[section]
+\theoremstyle{definition}
+\newtheorem*{example*}{Example}\newtheorem{example}{Example}[section]
+\theoremstyle{definition}
+\newtheorem*{exercise*}{Exercise}\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{Non-theorem*}{Non-theorem}\newtheorem{Non-theorem}{Non-theorem}[section]
+\newtheorem*{Thought*}{Thought}\newtheorem{Thought}{Thought}[section]
+\theoremstyle{remark}
+\newtheorem*{remark*}{Remark}
+\newtheorem*{solution*}{Solution}
+\newtheorem*{Example*}{Example}
+\theoremstyle{remark}
+\newtheorem*{Proof*}{Proof}
+\newtheorem*{Examples*}{Examples}
+\let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
+
+
+%\usepackage[english,shorthands=off]{babel}
+\usepackage{etoolbox}
+\usepackage{spverbatim}
+\makeatletter
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\@ifpackageloaded{adjustbox}{}{\usepackage[Export]{adjustbox}}
+\makeatother
+\floatplacement{figure}{H}
+\newcommand{\scalefactor}{1.2}
+\adjustboxset*{min width=\scalefactor\width,max width=\linewidth}
+\renewcommand{\familydefault}{phv}
+\fontfamily{phv}\selectfont
+\renewcommand{\em}{\bf}\renewcommand{\textit}{\textbf}\renewcommand{\emph}{\textbf}\renewcommand{\it}{\bf}\renewcommand{\itshape}{\bf}
+\setlength{\parindent}{0.0pt}
+\setlength{\parskip}{1.0\baselineskip}
+\renewcommand{\baselinestretch}{1.5}\selectfont
+\setlength{\mathsurround}{0.2em}
+\setlength{\arraycolsep}{0.5cm}\renewcommand{\arraystretch}{1.5}
+\addtolength{\jot}{\baselineskip}
+\renewcommand{\;}{\,}
+\sloppy
+\allowdisplaybreaks
+\usepackage{amsthm}
+\newtheoremstyle{plain}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{definition}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{remark}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\csundef{Proof}
+\csundef{endProof}
+\newenvironment{Proof}
+  {\noindent{\bf Proof.}\hspace*{1em}}% Begin
+  {\qed\par}% End
+%% When redefining an environment it is vital that it has 
+%% the same number of arguments as the original
+\renewenvironment{proof}[1][\proofname]
+  {\trivlist\item\relax\noindent{\bf {#1}.}\hspace*{1em}}% Begin
+  {\qed\endtrivlist}% End
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\newpage
+\pagenumbering{arabic}
+
+\hypertarget{introduction}{%
+\section*{Introduction}\label{introduction}}
+\addcontentsline{toc}{section}{Introduction}
+
+Here is a version of Tutorial Question 3 off of Problem Sheet 3 with an alternative solution for part c). Parts a) and b) are included for completeness.
+
+\BeginKnitrBlock{example}[PS3 Question 3]
+{\label{exm:ex1} }a) Show that \[ 2xy \leq x^2 + y^2, \;\; \forall x,y \in \mathbb{R},\] and that equality holds only if \(x = y\).
+b) Show that \[\sqrt{\frac{x}{2}} + \sqrt{\frac{y}{2}} \leq \sqrt{x + y} \leq \sqrt{x} + \sqrt{y}, \;\; \forall x,y > 0.\]
+c) Prove that \[\lvert \sqrt{1 + x^2} - \sqrt{1 + y^2} \rvert \leq \lvert x - y \rvert \;\; \forall x,y \in \mathbb{R}.\]
+\EndKnitrBlock{example}
+
+\hypertarget{part-a}{%
+\subsection*{Part a)}\label{part-a}}
+\addcontentsline{toc}{subsection}{Part a)}
+
+\BeginKnitrBlock{solution*}
+We have that for any \(x,y\in\mathbb{R},\) \[ 0 \leq (x-y)^2 = x^2 - 2xy + y^2,\] from which rearranging gives \[2xy \leq x^2 + y^2.\] Now, \[2xy = x^2 + y^2\; \Leftrightarrow\; 0 = (x-y)^2 \;\Leftrightarrow \;x-y = 0 \;\Leftrightarrow\; x=y.\] So equality holds \emph{if and only if} \(x = y.\)
+\EndKnitrBlock{solution*}
+
+\hypertarget{part-b}{%
+\subsection*{Part b)}\label{part-b}}
+\addcontentsline{toc}{subsection}{Part b)}
+
+\BeginKnitrBlock{solution*}
+Consider the second inequality first. Note that since \(x,y > 0\), \(\sqrt{x}, \sqrt{y} > 0\), and so \[x + y \leq x + 2\sqrt{x}\sqrt{y} + y = (\sqrt{x} + \sqrt{y})^2.\] Square rooting this result gives us that \[\sqrt{x + y} \leq \sqrt{x} + \sqrt{y}.\] Next, we have that
+\begin{align*}
+\left(\sqrt{\frac{x}{2}} + \sqrt{\frac{y}{2}}\right)^2 &= \frac{x}{2} + 2\sqrt{\frac{x}{2}}\sqrt{\frac{y}{2}} + \frac{y}{2},\\
+&\leq \frac{x}{2} + 2\left(\frac{x}{2} + \frac{y}{2}\right) + \frac{y}{2} \;\;\; \text{(by part a)},\\
+&= x + y.
+\end{align*}
+Again, square rooting gives us that \[\sqrt{\frac{x}{2}} + \sqrt{\frac{y}{2}} \leq \sqrt{x + y}.\]
+\EndKnitrBlock{solution*}
+
+\hypertarget{part-c}{%
+\subsection*{Part c)}\label{part-c}}
+\addcontentsline{toc}{subsection}{Part c)}
+
+\BeginKnitrBlock{solution*}
+Firstly for \(x = -y\), \[\lvert \sqrt{1 + x^2} - \sqrt{1 + y^2}\rvert = 0 \leq \lvert -2y \rvert = \lvert x - y \rvert.\] For \(x \neq -y\), we have
+\begin{align}
+\lvert \sqrt{1 + x^2} - \sqrt{1 + y^2}\rvert &= \frac{1 + \lvert x^2 - (1 + y^2) \rvert}{\sqrt{1 + x^2} + \sqrt{1 + y^2}},\tag{*}\\
+&= \frac{\lvert x^2 - y^2 \rvert}{\sqrt{1 + x^2} + \sqrt{1 + y^2}},\notag\\
+&= \frac{\lvert x + y \rvert \lvert x - y \rvert}{\sqrt{1 + x^2} + \sqrt{1 + y^2}}.\notag
+\end{align}
+Now, \[\lvert x \rvert \leq \sqrt{1 + x^2}, \;\;\text{and}\;\; \lvert y \rvert \leq \sqrt{1 + y^2}.\] (This can be seen by squaring both sides of each inequality)
+
+So,
+\begin{align*}
+\lvert x + y \rvert &\leq \lvert x \rvert + \lvert y \rvert \;\;\; \text{(by the triangle inequality)}\\
+&\leq \sqrt{1 + x^2} + \sqrt{1 + y^2},\\
+\Leftrightarrow \frac{1}{\lvert x + y \rvert} &\geq \frac{1}{\sqrt{1 + x^2} + \sqrt{1 + y^2}}.
+\end{align*}
+Therefore,
+\begin{align}
+\lvert \sqrt{1 + x^2} - \sqrt{1 + y^2}\rvert &= \frac{\lvert x + y \rvert \lvert x - y \rvert}{\sqrt{1 + x^2} + \sqrt{1 + y^2}},\notag\\
+&\leq \frac{\lvert x - y \rvert\lvert x + y \rvert}{\lvert x + y \rvert},\tag{**}\\
+& = \lvert x - y \rvert,\notag
+\end{align}
+as required!
+\EndKnitrBlock{solution*}
+
+You might have a few questions about this:
+
+\textbf{Q1)} Why is 3c) done in this way?
+
+A1) It's an alternative way to the one in the model solutions, but I think it's good because it uses some techniques that are useful for the sequences part of the course (e.g.~the triangle inequality and step (*)).
+
+\textbf{Q2)} Where on Earth did the case \(x = -y\) come from?
+
+A2) If you look at (**), this expression doesn't work if \(x = -y\), so you need to consider this separately. It's not an obvious case until you actually reach (**), but once you realise it, it's an easy thing to add to the start of your solution.
+
+\textbf{Q3)} What about (*)? Where does this come from?
+
+A3) Recall for \(a,b \in \mathbb{R}\), \[(a-b)(a+b) = a^2 - b^2.\] Taking \(a = \sqrt{1 + x^2}, \;\; \text{and} \;\; b = \sqrt{1 + y^2},\) we have that \[\sqrt{1 + x^2} - \sqrt{1 + y^2} = \frac{(1+x^2)-(1+y^2)}{\sqrt{1 + x^2} + \sqrt{1 + y^2}}.\]
+
+\end{document}
