@@ -14,12 +14,8 @@ output:
     number_sections: true
     keep_md: true
     pandoc_args: --default-image-extension=svg
-  clavertondown::gitbook_clav:
-    split_by: section
-    keep_md: true
-    config:
-      download: [["AltPS3.html", "HTML page"], ["AltPS3.pdf","Standard print PDF"], ["AltPS3Clear.pdf","Clear print PDF"], ["AltPS3Large.pdf","Large print PDF"], ["AltPS3.docx","Accessible Word document"], ["AltPS3.epub","Accessible EPub book" ]]
-      sharing: no
+  clavertondown::epub_clav:
+    toc: false
     pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
@@ -28,8 +24,12 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
-  clavertondown::epub_clav:
-    toc: false
+  clavertondown::gitbook_clav:
+    split_by: section
+    keep_md: true
+    config:
+      download: [["AltPS3.html", "HTML page"], ["AltPS3.pdf","Standard print PDF"], ["AltPS3Clear.pdf","Clear print PDF"], ["AltPS3Large.pdf","Large print PDF"], ["AltPS3.docx","Accessible Word document"], ["AltPS3.epub","Accessible EPub book" ]]
+      sharing: no
     pandoc_args: --default-image-extension=svg
   clavertondown::html_clav:
     toc: true
@@ -66,9 +66,9 @@ Again, square rooting gives us that $$\sqrt{\frac{x}{2}} + \sqrt{\frac{y}{2}} \l
 ## Part c) {-}
 \BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyle"><strong>Solution. </strong></span> <p>Firstly for $x = -y$, $$\lvert \sqrt{1 + x^2} - \sqrt{1 + y^2}\rvert = 0 \leq \lvert -2y \rvert = \lvert x - y \rvert.$$ For $x \neq -y$, we have
 $$\begin{align}
-\lvert \sqrt{1 + x^2} - \sqrt{1 + y^2}\rvert &= \frac{1 + \lvert x^2 - (1 + y^2) \rvert}{\sqrt{1 + x^2} + \sqrt{1 + y^2}},\tag{*}\\
-&= \frac{\lvert x^2 - y^2 \rvert}{\sqrt{1 + x^2} + \sqrt{1 + y^2}},\notag\\
-&= \frac{\lvert x + y \rvert \lvert x - y \rvert}{\sqrt{1 + x^2} + \sqrt{1 + y^2}}.\notag
+\lvert \sqrt{1 + x^2} - \sqrt{1 + y^2}\rvert &= \frac{\lvert 1 + x^2 - (1 + y^2) \rvert}{\sqrt{1 + x^2} + \sqrt{1 + y^2}},\tag{*}\\
+&= \frac{\lvert x^2 - y^2 \rvert}{\sqrt{1 + x^2} + \sqrt{1 + y^2}},\nonumber\\
+&= \frac{\lvert x + y \rvert \lvert x - y \rvert}{\sqrt{1 + x^2} + \sqrt{1 + y^2}}.\nonumber
 \end{align}$$
 Now, $$\lvert x \rvert \leq \sqrt{1 + x^2}, \;\;\text{and}\;\; \lvert y \rvert \leq \sqrt{1 + y^2}.$$ (This can be seen by squaring both sides of each inequality)
 
@@ -80,9 +80,9 @@ $$\begin{align*}
 \end{align*}$$
 Therefore,
 $$\begin{align}
-\lvert \sqrt{1 + x^2} - \sqrt{1 + y^2}\rvert &= \frac{\lvert x + y \rvert \lvert x - y \rvert}{\sqrt{1 + x^2} + \sqrt{1 + y^2}},\notag\\
+\lvert \sqrt{1 + x^2} - \sqrt{1 + y^2}\rvert &= \frac{\lvert x + y \rvert \lvert x - y \rvert}{\sqrt{1 + x^2} + \sqrt{1 + y^2}},\nonumber\\
 &\leq \frac{\lvert x - y \rvert\lvert x + y \rvert}{\lvert x + y \rvert},\tag{**}\\
-& = \lvert x - y \rvert,\notag
+&= \lvert x - y \rvert,\nonumber
 \end{align}$$
 as required!</p></div>\EndKnitrBlock{solution}
 You might have a few questions about this:

@@ -16,13 +16,9 @@ output:
       download: [["OldPS2.html", "HTML page"], ["OldPS2.pdf","Standard print PDF"], ["OldPS2Clear.pdf","Clear print PDF"], ["OldPS2Large.pdf","Large print PDF"], ["OldPS2.docx","Accessible Word document"], ["OldPS2.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
-  clavertondown::pdf_clav:
-    latex_engine: pdflatex
-    keep_tex: true
-    fig_caption: true
+  clavertondown::html_clav:
     toc: true
-    extra_dependencies: ["float"]
-    pandoc_args: --default-image-extension=pdf
+    pandoc_args: --default-image-extension=svg
   clavertondown::word_clav:
     toc: true
     number_sections: true
@@ -31,9 +27,13 @@ output:
   clavertondown::epub_clav:
     toc: false
     pandoc_args: --default-image-extension=svg
-  clavertondown::html_clav:
+  clavertondown::pdf_clav:
+    latex_engine: pdflatex
+    keep_tex: true
+    fig_caption: true
     toc: true
-    pandoc_args: --default-image-extension=svg
+    extra_dependencies: ["float"]
+    pandoc_args: --default-image-extension=pdf
 header-includes:
   - \newcommand{\BOO}{BOO}
   - \usepackage {hyperref}
@@ -51,7 +51,7 @@ Here is an example of finding the supremum of a set taken from an old problem sh
 ## Method 1 --- Contradiction {-}
 \BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyleItalics"><strong>Solution. </strong></span> <p>First, note for $n\in\mathbb{N}$: $$\frac{2n-1}{n+1} = \frac{2n+2-3}{n+1} = 2 - \frac{3}{n+1} < 2.$$ Hence $B$ is bounded above by $2$. Therefore, by the completeness axiom, as $B \neq \emptyset,$ $\sup(B)$ exists and $\sup(B) \leq 2.$
 
-Next, suppose for contradiction that $\sup(B) < 2$. Now, for any $x < 2,$ $$2 - \frac{3}{n+1} > x \Leftrightarrow n+1 > \frac{3}{2-x} \Leftrightarrow n > \frac{3}{2-x} - 1.$$ Taking $x = \sup(B)$ and applying Archimedes\' Postulate, $\exists N \in \mathbb{N}$ such that
+Next, suppose for contradiction that $\sup(B) < 2$. Now, for any $x < 2,$ $$2 - \frac{3}{n+1} > x \Leftrightarrow n+1 > \frac{3}{2-x} \Leftrightarrow n > \frac{3}{2-x} - 1.$$ Taking $x = \sup(B)$ and applying Archimedes Postulate, $\exists N \in \mathbb{N}$ such that
 \begin{align*}
 N &> \frac{3}{2-\sup(B)} - 1,\\
 \Leftrightarrow 2 - \frac{3}{N+1} &> \sup(B),
@@ -69,7 +69,7 @@ We claim that $\sup(B) = 2.$ Fix $\epsilon > 0.$ Then, for $n \in \mathbb{N}:$
 \Leftrightarrow n\epsilon &> 3 - \epsilon,\\
 \Leftrightarrow n &> \frac{3-\epsilon}{\epsilon}.
 \end{align*}
-Now, by Archimedes\' Postulate, $\exists N \in \mathbb{N}$ such that $N > \frac{3-\epsilon}{\epsilon}$, from which $$2 - \frac{3}{N+1} > 2- \epsilon.$$ At this stage, take $b = 2 - \frac{3}{N+1} \in B$. Since $\epsilon > 0$ was arbitrary, we have that $\forall \epsilon > 0, \exists b \in B$ such that $b > 2-\epsilon.$ So, by the alternative characterisation of suprema (Theorem 2.1), $\sup(B) = 2.$</p></div>\EndKnitrBlock{solution}
+Now, by Archimedes Postulate, $\exists N \in \mathbb{N}$ such that $N > \frac{3-\epsilon}{\epsilon}$, from which $$2 - \frac{3}{N+1} > 2- \epsilon.$$ At this stage, take $b = 2 - \frac{3}{N+1} \in B$. Since $\epsilon > 0$ was arbitrary, we have that $\forall \epsilon > 0, \exists b \in B$ such that $b > 2-\epsilon.$ So, by the alternative characterisation of suprema (Theorem 2.1), $\sup(B) = 2.$</p></div>\EndKnitrBlock{solution}
 
 ## Method 3 --- Limits {-}
 Note that this doesn't work in general, but it might be quicker when you can use it. It relies on the following theorem (which we'll eventually cover):
