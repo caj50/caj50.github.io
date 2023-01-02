@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Question 3 | Analysis 1A — Supplementary Paper 2020</title>
+  <meta name="description" content="3 Question 3 | Analysis 1A — Supplementary Paper 2020" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Question 3 | Analysis 1A — Supplementary Paper 2020" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Question 3 | Analysis 1A — Supplementary Paper 2020" />
+  
+  
+  
+
+<meta name="author" content="Christian Jones: University of Bath" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="question-2.html"/>
+<link rel="next" href="question-4.html"/>
+
+<script src="libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.MessageHook("End Math", function (msg) {
+  var nodes = Array.from(msg[1].querySelectorAll('.MJX_Assistive_MathML [id]'));
+  while (nodes.length) {
+    nodes.shift().removeAttribute('id');
+  }
+}, 20);
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "fast-preview": {disabled: true},
+  explorer:{ subtitle: true },
+  MatchWebFonts: { 
+    matchFor: { "HTML-CSS": true, NativeMML: false, SVG: false },
+    fontCheckDelay: 2000,
+    fontCheckTimeout: 30 * 1000
+  },
+  "HTML-CSS": {
+    preferredFont: "STIX",
+    availableFonts: ["STIX","TeX"],
+    webFont: "STIX-Web",
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  SVG: {
+    font: "STIX-Web",
+    linebreaks: { automatic: false, width: "90\% container" }
+  },
+  menuSettings: { 
+    collapsible: false, 
+    autocollapse: false, 
+    explorer: false 
+  }
+});
+</script>
+
+
+
+
+<style type="text/css">
+  a {
+   color: blue;
+  }
+  .book .book-summary ul.summary li a, .book .book-summary ul.summary li.active>a, .book .book-body .page-wrapper .page-inner section.normal a {
+  color: blue;
+  }
+
+  [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+   .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #1c242b;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0f6f7;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  
+  [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #182518;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0fcea;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #182518;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0fcea;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  [custom-style=NameStyle]{
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  [custom-style=NameStyleItalics]{
+    font-style: italic;
+  }
+
+  
+  [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #251e18;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #fdf3e9;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #2b1c21;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #fdefef;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+  
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="question-1.html"><a href="question-1.html"><i class="fa fa-check"></i><b>1</b> Question 1</a></li>
+<li class="chapter" data-level="2" data-path="question-2.html"><a href="question-2.html"><i class="fa fa-check"></i><b>2</b> Question 2</a></li>
+<li class="chapter" data-level="3" data-path="question-3.html"><a href="question-3.html"><i class="fa fa-check"></i><b>3</b> Question 3</a></li>
+<li class="chapter" data-level="4" data-path="question-4.html"><a href="question-4.html"><i class="fa fa-check"></i><b>4</b> Question 4</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis 1A — Supplementary Paper 2020</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="question-3" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Question 3</h1>
+
+<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex3">
+<span class="exm:ex3" custom-style="NameStyle"><strong>Example 3.1:  </strong></span>
+<div>
+<p>Let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> be a real sequence and <span class="math inline">\(L \in \mathbb{R}\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Show that <span class="math inline">\(a_n \to \infty\)</span> if and only if <span class="math inline">\(-a_n \to -\infty\)</span> as <span class="math inline">\(n \to \infty\)</span>.</li>
+<li>Assuming that <span class="math inline">\(\lim_{n\to\infty}a_n = L\)</span>, show that <span class="math inline">\(\left(\lvert a_n \rvert\right)_{n\in\mathbb{N}}\)</span> does <em>not</em> diverge to <span class="math inline">\(\infty.\)</span></li>
+<li><ol style="list-style-type: lower-roman">
+<li>Use the growth factor test to show that <span class="math display">\[\lim_{n\to\infty}\frac{n^n}{(n!)^2} = 0.\]</span> You may use without proof that <span class="math inline">\(\lim_{n\to\infty}\left(1 + \frac{1}{n}\right)^n\)</span> exists.</li>
+<li>Show that there exists <span class="math inline">\(N \in \mathbb{N}\)</span> such that <span class="math display">\[n! \leq n^n \leq \left(\frac{n!}{100}\right)^2,\]</span> for all <span class="math inline">\(n \in \mathbb{N}\)</span>.</li>
+</ol></li>
+</ol>
+<p>In the following questions (d) and (e), you may use any result from the lectures without proof.</p>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Find <span class="math display">\[\lim_{n\to\infty}\sqrt{n}(\sqrt{n+1} - \sqrt{n}).\]</span></li>
+<li>Show that <span class="math display">\[\lim_{n\to\infty} \sqrt[n]{2} = 1.\]</span>
+</div>
+</div></li>
+</ol>
+
+<div class="bookdown-solution" custom-style="ProofStyle">
+<span class="solution" custom-style="NameStyleItalics">Solution. </span>
+<p>
+<ol style="list-style-type: lower-alpha">
+<li>We have that <span class="math display">\[\begin{align*} a_n \to \infty &amp;\Longleftrightarrow \forall M \in \mathbb{R}, \; \exists N \in \mathbb{N} \; \text{such that} \;\, a_n \geq M,\\
+&amp;\Longleftrightarrow \forall M \in \mathbb{R}, \; \exists N \in \mathbb{N} \; \text{such that} \;\, -a_n \leq -M.\end{align*}\]</span> Setting <span class="math inline">\(K = -M\)</span> in this last statement gives <span class="math display">\[\begin{align*} a_n \to \infty &amp;\Longleftrightarrow \forall K \in \mathbb{R}, \; \exists N \in \mathbb{N} \; \text{such that} \;\, a_n \leq K, \\
+&amp;\Longleftrightarrow -a_n \to -\infty,\end{align*}\]</span> as required.</li>
+<li>We claim that <span class="math inline">\(\lim_{n\to\infty}\lvert a_n \rvert = \lvert L \rvert.\)</span> To this end, fix <span class="math inline">\(\epsilon &gt;0\)</span>. Since <span class="math inline">\(\lim_{n \to \infty} a_n = L\)</span>, we know that there exists <span class="math inline">\(N \in \mathbb{N}\)</span> such that <span class="math display">\[\lvert a_n - L \rvert &lt; \epsilon \;\; \forall n \geq N.\]</span> Now, for all <span class="math inline">\(N \geq \mathbb{N},\)</span> <span class="math display">\[\begin{align*} \left\lvert \lvert a_n \rvert - \lvert L \rvert \right\rvert &amp;\leq \lvert a_n - L \rvert, \; \; \text{(by the reverse triangle inequality)}\\
+&amp;&lt; \epsilon \end{align*}\]</span> Hence, since <span class="math inline">\(\epsilon\)</span> was arbitrary, we conclude that <span class="math inline">\(\lim_{n\to\infty}\lvert a_n \rvert = \lvert L \rvert.\)</span> In particular, <span class="math inline">\(\left(\lvert a_n \rvert\right)_{n\in\mathbb{N}}\)</span> does not diverge to <span class="math inline">\(\infty.\)</span></li>
+<li><ol style="list-style-type: lower-roman">
+<li>Setting <span class="math inline">\(b_n = \frac{n^n}{(n!)^2}\)</span> for <span class="math inline">\(n \in \mathbb{N}\)</span>, we see that <span class="math inline">\(b_n \geq 0\)</span>, and <span class="math display">\[\begin{align*}\frac{b_{n+1}}{b_n} &amp;= \frac{(n+1)^{n+1}}{((n+1)!)^2}\frac{(n!)^2}{n^n}\\
+&amp;= (n+1)\frac{(n+1)^n}{n^n}\left(\frac{n!}{(n+1)!}\right)^2\\
+&amp;= (n+1)\left(1 + \frac{1}{n}\right)^n\frac{1}{(n+1)^2}\\
+&amp;= \frac{1/n}{1 + 1/n}\left(1 + \frac{1}{n}\right)^n.\end{align*}\]</span> Since <span class="math inline">\(\frac{1}{n} \to 0\)</span>, and <span class="math inline">\(\left(1 + \frac{1}{n}\right)^n \to \mathrm{e}\)</span> as <span class="math inline">\(n \to \infty\)</span>, we find by the algebra of limits that <span class="math display">\[\frac{b_{n+1}}{b_n} \to 0\cdot\mathrm{e} = 0 \;\; \text{as}\;\; n \to \infty.\]</span> Since <span class="math inline">\(0 &lt; 1\)</span>, we find by the growth factor test that <span class="math display">\[\lim_{n\to\infty}\frac{n^n}{(n!)^2} = 0,\]</span> as required.</li>
+<li>By part i) and the definition of convergence, we know that <span class="math inline">\(\exists N \in \mathbb{N}\)</span> such that <span class="math inline">\(\forall n \geq N\)</span>, <span class="math display">\[\left\lvert\frac{n^n}{(n!)^2} - 0 \right\rvert =  \frac{n^n}{(n!)^2} \leq \left(\frac{1}{100}\right)^2.\]</span> Also, note that since <span class="math inline">\(n! \leq n^n\)</span> for all <span class="math inline">\(n \in \mathbb{N},\)</span> <span class="math display">\[\frac{1}{n!} \leq \frac{n^n}{(n!)^2}.\]</span> Hence, for all <span class="math inline">\(n \geq N,\)</span> <span class="math display">\[\frac{1}{n!} \leq \frac{n^n}{(n!)^2} \leq \left(\frac{1}{100}\right)^2 \Longleftrightarrow n! \leq n^n \leq \left(\frac{n!}{100}\right)^2,\]</span> as required.</li>
+</ol></li>
+<li>First, note that via completing the square, <span class="math display">\[\begin{align}\sqrt{n}(\sqrt{n+1} - \sqrt{n}) &amp;= \frac{\sqrt{n}(n+1 - n)}{\sqrt{n+1} + \sqrt{n}}\nonumber\\ &amp;= \frac{\sqrt{n}}{\sqrt{n+1} + \sqrt{n}}\nonumber\\ &amp;= \frac{1}{\sqrt{1 + \frac{1}{n}} + 1}.\tag{*}\end{align}\]</span> Now, we claim that <span class="math display">\[\lim_{n \to \infty} \sqrt{1 + \frac{1}{n}} = 1.\]</span> To show this, we fix <span class="math inline">\(\epsilon &gt; 0\)</span> and consider for <span class="math inline">\(n \in \mathbb{N}:\)</span> <span class="math display">\[\left\lvert \sqrt{1 + \frac{1}{n}} - 1\right\rvert = \frac{1 + \frac{1}{n}-1}{\sqrt{1 + 1/n}+1} \leq \frac{1}{n}.\]</span> We then have that <span class="math display">\[\frac{1}{n} &lt; \epsilon \Longleftrightarrow n &gt; \frac{1}{\epsilon}.\]</span> Hence, for any <span class="math inline">\(n \geq N,\)</span> <span class="math display">\[\left\lvert \sqrt{1 + \frac{1}{n}} - 1\right\rvert \leq \frac{1}{n} \leq \frac{1}{N} &lt; \epsilon.\]</span> Therefore, <span class="math display">\[\lim_{n \to \infty} \sqrt{1 + \frac{1}{n}} = 1.\]</span> Returning to (*) and applying the algebra of limits, we find that as <span class="math inline">\(n \to \infty\)</span>, <span class="math display">\[\lim_{n \to \infty}\sqrt{n}(\sqrt{n+1} - \sqrt{n}) = \frac{1}{1+1} = \frac{1}{2}.\]</span></li>
+<li>Since <span class="math inline">\(2 &gt; 1\)</span>, we write <span class="math inline">\(\sqrt[n]{2} = 1 + x_n,\)</span> where <span class="math inline">\(x_n \geq 0\)</span>. This gives <span class="math display">\[2 = (1 + x_n)^n \geq 1 + nx_n \geq 1\;\; \text{by the binomial inequality}.\]</span> Rearranging, we find <span class="math display">\[0 \leq x_n \leq \frac{1}{n}.\]</span> Now, since <span class="math inline">\(0 \to 0\)</span> and <span class="math inline">\(\frac{1}{n} \to 0\)</span> as <span class="math inline">\(n \to \infty\)</span>, <span class="math inline">\(x_n \to 0\)</span> by the sandwich theorem. Hence, by the algebra of limits, <span class="math display">\[\lim_{n \to \infty} \sqrt[n]{2} = \lim_{n\to\infty}(1 + x_n) = 1 + 0 = 1,\]</span> as required.</li>
+</ol>
+</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="question-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="question-4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["MA10207Paper2020.html", "HTML page"], ["MA10207Paper2020.pdf", "Standard print PDF"], ["MA10207Paper2020Clear.pdf", "Clear print PDF"], ["MA10207Paper2020Large.pdf", "Large print PDF"], ["MA10207Paper2020.docx", "Accessible Word document"], ["MA10207Paper2020.epub", "Accessible EPub book"]],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

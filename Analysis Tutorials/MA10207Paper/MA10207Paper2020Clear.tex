@@ -1,0 +1,393 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  12pt,
+  a4paper]{extarticle}
+\title{Analysis 1A --- Supplementary Paper 2020}
+\author{Christian Jones: University of Bath}
+\date{January 2023}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Analysis 1A --- Supplementary Paper 2020},
+  pdfauthor={Christian Jones: University of Bath},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\newcommand{\BOO}{BOO}
+\usepackage {hyperref}
+\hypersetup {colorlinks = true, linkcolor = blue, urlcolor = blue}
+\usepackage{float}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}\newtheorem{definition}{Definition}[section]
+\theoremstyle{plain}
+\newtheorem*{proposition*}{Proposition}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{Definitions*}{Definitions}\newtheorem{Definitions}[definition]{Definitions}
+\theoremstyle{plain}
+\newtheorem*{lemma*}{Lemma}\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{plain}
+\newtheorem*{corollary*}{Corollary}\newtheorem{corollary}{Corollary}[section]
+\theoremstyle{plain}
+\newtheorem*{conjecture*}{Conjecture}\newtheorem{conjecture}{Conjecture}[section]
+\theoremstyle{definition}
+\newtheorem*{example*}{Example}\newtheorem{example}{Example}[section]
+\theoremstyle{definition}
+\newtheorem*{exercise*}{Exercise}\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{Non-theorem*}{Non-theorem}\newtheorem{Non-theorem}{Non-theorem}[section]
+\newtheorem*{Order Axioms*}{Order Axioms}\newtheorem{Order Axioms}{Order Axioms}[section]
+\newtheorem*{Thought*}{Thought}\newtheorem{Thought}{Thought}[section]
+\theoremstyle{remark}
+\newtheorem*{remark*}{Remark}
+\newtheorem*{solution*}{Solution}
+\newtheorem*{Example*}{Example}
+\theoremstyle{remark}
+\newtheorem*{Proof*}{Proof}
+\newtheorem*{Examples*}{Examples}
+\let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
+
+
+%\usepackage[english,shorthands=off]{babel}
+\usepackage{etoolbox}
+\usepackage{spverbatim}
+\makeatletter
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\@ifpackageloaded{adjustbox}{}{\usepackage[Export]{adjustbox}}
+\makeatother
+\floatplacement{figure}{H}
+\newcommand{\scalefactor}{1.2}
+\adjustboxset*{min width=\scalefactor\width,max width=\linewidth}
+\renewcommand{\familydefault}{phv}
+\fontfamily{phv}\selectfont
+\renewcommand{\em}{\bf}\renewcommand{\textit}{\textbf}\renewcommand{\emph}{\textbf}\renewcommand{\it}{\bf}\renewcommand{\itshape}{\bf}
+\setlength{\parindent}{0.0pt}
+\setlength{\parskip}{1.0\baselineskip}
+\renewcommand{\baselinestretch}{1.5}\selectfont
+\setlength{\mathsurround}{0.2em}
+\setlength{\arraycolsep}{0.5cm}\renewcommand{\arraystretch}{1.5}
+\addtolength{\jot}{\baselineskip}
+\renewcommand{\;}{\,}
+\sloppy
+\allowdisplaybreaks
+\usepackage{amsthm}
+\newtheoremstyle{plain}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{definition}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{remark}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\csundef{Proof}
+\csundef{endProof}
+\newenvironment{Proof}
+  {\noindent{\bf Proof.}\hspace*{1em}}% Begin
+  {\qed\par}% End
+%% When redefining an environment it is vital that it has 
+%% the same number of arguments as the original
+\renewenvironment{proof}[1][\proofname]
+  {\trivlist\item\relax\noindent{\bf {#1}.}\hspace*{1em}}% Begin
+  {\qed\endtrivlist}% End
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\newpage
+\pagenumbering{arabic}
+
+\hypertarget{introduction}{%
+\section*{Introduction}\label{introduction}}
+\addcontentsline{toc}{section}{Introduction}
+
+Here are the solutions to the past paper discussed in the revision session on XXth January 2023. This is designed as a guide to how much to write in the exam, and how you might want to style your solutions. To return to the homepage, click \href{http://caj50.github.io/tutoring.html}{here}.
+
+\hypertarget{question-1}{%
+\section{Question 1}\label{question-1}}
+
+\BeginKnitrBlock{example}
+{\label{exm:ex1} }For each of the following concepts, give an example that satisfies the definition and an example that does not. (You need not give any proofs.)
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  A Cauchy sequence.
+\item
+  A decreasing sequence.
+\item
+  A sequentially continuous function.
+\item
+  A conditionally convergent series.
+\item
+  An interval.
+\end{enumerate}
+\EndKnitrBlock{example}
+
+\BeginKnitrBlock{solution*}
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  An example is the sequence \((a_n)_{n\in\mathbb{N}}\), where \(a_n = \frac{1}{n}\). A non-example is the sequence \((b_n)_{n\in\mathbb{N}}\) where \(b_n = n\).
+\item
+  An example is the sequence \((a_n)_{n\in\mathbb{N}}\), where \(a_n = \frac{1}{n}\). A non-example is the sequence \((b_n)_{n\in\mathbb{N}}\) where \(b_n = n\).
+\item
+  An example is the function \(f:[0,1] \to \mathbb{R}\) defined by \(f(x) = x\). A non-example is the function \(g:[0,1] \to \mathbb{R}\), where \[g(x) = \begin{cases}
+  0 \;\; \text{if}\;\; 0\leq x < 0.5,\\
+  1 \;\; \text{if}\;\; 0.5\leq x \leq 1.
+  \end{cases}\]
+\item
+  An example is the series \(\sum_{n=1}^{\infty}\frac{(-1)^n}{n}.\) A non-example is \(\sum_{n=1}^{\infty}\frac{(-1)^n}{n^2}\).
+\item
+  An example of an interval is the set \(S_1 = (0,1)\). A non-example is the set \(S_2 = (-1,0)\cup(1,2).\)
+\end{enumerate}
+
+(If question 1 is like this in the exam, examples which can be used in more than one part will help you save time!)
+\EndKnitrBlock{solution*}
+
+\hypertarget{question-2}{%
+\section{Question 2}\label{question-2}}
+
+\BeginKnitrBlock{example}
+{\label{exm:ex2} }The following statements paraphrase theorems, corollaries, propositions, or lemmas from the lectures. Identify them by their names.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Let \((a_n)_{n\in\mathbb{N}}\) be a real sequence. If \(\sup_{n\in\mathbb{N}}\lvert a_n \rvert < \infty\), then there exists a sequence \((n_k)_{k\in\mathbb{N}}\) such that \[\forall k\in\mathbb{N}:\; (n_k \in \mathbb{N})\wedge(n_{k+1} > n_k)\] and there exists \(B \in \mathbb{R}\) such that \[\forall \epsilon > 0 \;\exists K \in \mathbb{N}\;\forall k \geq K: \; \lvert a_{n_{k}} - B \rvert < \epsilon.\]
+\item
+  Suppose that \((a_n)_{n\in\mathbb{N}}\) and \((s_n)_{n\in\mathbb{N}}\) are two real sequences such that \[s_n = \sum_{n=1}^{\infty} (-1)^ka_k\] for all \(n\in\mathbb{N}\). If \(a_{n+1} \leq a_n\) for all \(n \in \mathbb{N}\) and \(a_n \to 0\) as \(n \to \infty\), then \((s_n)_{n \in \mathbb{N}}\) converges.
+\item
+  \(\forall x \in \mathbb{R}\;\exists k \in \mathbb{N}: \; k > x.\)
+\item
+  Let \((x_n)_{n\in\mathbb{N}}\) and \((y_n)_{n\in\mathbb{N}}\) be two sequences such that \[\forall n \in \mathbb{N}: x_n \leq x_{n+1} \leq y_{n+1} \leq y_n.\] Then, there exists \(a \in \mathbb{R}\) such that \[\forall n \in \mathbb{N}: \; x_n \leq a \leq y_n.\]
+\item
+  Suppose that \(a \in [-1\,\infty)\) and \(k \in \mathbb{N}_0\). Then \[1 + ka \leq (1+a)^k.\]
+\end{enumerate}
+\EndKnitrBlock{example}
+
+\BeginKnitrBlock{solution*}
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  This is the \emph{Bolzano-Weierstrass} theorem.
+\item
+  This is the \emph{Leibniz alternating series test} for series.
+\item
+  This is the \emph{Archimedian Postulate}.
+\item
+  This is the \emph{Nested Intervals Theorem}.
+\item
+  This is the \emph{Binomial inequality}.
+\end{enumerate}
+\EndKnitrBlock{solution*}
+
+\hypertarget{question-3}{%
+\section{Question 3}\label{question-3}}
+
+\BeginKnitrBlock{example}
+{\label{exm:ex3} }Let \((a_n)_{n\in\mathbb{N}}\) be a real sequence and \(L \in \mathbb{R}\).
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\item
+  Show that \(a_n \to \infty\) if and only if \(-a_n \to -\infty\) as \(n \to \infty\).
+\item
+  Assuming that \(\lim_{n\to\infty}a_n = L\), show that \(\left(\lvert a_n \rvert\right)_{n\in\mathbb{N}}\) does \emph{not} diverge to \(\infty.\)
+\item
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii})}
+  \tightlist
+  \item
+    Use the growth factor test to show that \[\lim_{n\to\infty}\frac{n^n}{(n!)^2} = 0.\] You may use without proof that \(\lim_{n\to\infty}\left(1 + \frac{1}{n}\right)^n\) exists.
+  \item
+    Show that there exists \(N \in \mathbb{N}\) such that \[n! \leq n^n \leq \left(\frac{n!}{100}\right)^2,\] for all \(n \in \mathbb{N}\).
+  \end{enumerate}
+\end{enumerate}
+
+In the following questions (d) and (e), you may use any result from the lectures without proof.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Find \[\lim_{n\to\infty}\sqrt{n}(\sqrt{n+1} - \sqrt{n}).\]
+\item
+  Show that \[\lim_{n\to\infty} \sqrt[n]{2} = 1.\]
+\end{enumerate}
+\EndKnitrBlock{example}
+
+\BeginKnitrBlock{solution*}
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\item
+  We have that \begin{align*} a_n \to \infty &\Longleftrightarrow \forall M \in \mathbb{R}, \; \exists N \in \mathbb{N} \; \text{such that} \;\, a_n \geq M,\\
+  &\Longleftrightarrow \forall M \in \mathbb{R}, \; \exists N \in \mathbb{N} \; \text{such that} \;\, -a_n \leq -M.\end{align*} Setting \(K = -M\) in this last statement gives \begin{align*} a_n \to \infty &\Longleftrightarrow \forall K \in \mathbb{R}, \; \exists N \in \mathbb{N} \; \text{such that} \;\, a_n \leq K, \\
+  &\Longleftrightarrow -a_n \to -\infty,\end{align*} as required.
+\item
+  We claim that \(\lim_{n\to\infty}\lvert a_n \rvert = \lvert L \rvert.\) To this end, fix \(\epsilon >0\). Since \(\lim_{n \to \infty} a_n = L\), we know that there exists \(N \in \mathbb{N}\) such that \[\lvert a_n - L \rvert < \epsilon \;\; \forall n \geq N.\] Now, for all \(N \geq \mathbb{N},\) \begin{align*} \left\lvert \lvert a_n \rvert - \lvert L \rvert \right\rvert &\leq \lvert a_n - L \rvert, \; \; \text{(by the reverse triangle inequality)}\\
+  &< \epsilon \end{align*} Hence, since \(\epsilon\) was arbitrary, we conclude that \(\lim_{n\to\infty}\lvert a_n \rvert = \lvert L \rvert.\) In particular, \(\left(\lvert a_n \rvert\right)_{n\in\mathbb{N}}\) does not diverge to \(\infty.\)
+\item
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii})}
+  \tightlist
+  \item
+    Setting \(b_n = \frac{n^n}{(n!)^2}\) for \(n \in \mathbb{N}\), we see that \(b_n \geq 0\), and \begin{align*}\frac{b_{n+1}}{b_n} &= \frac{(n+1)^{n+1}}{((n+1)!)^2}\frac{(n!)^2}{n^n}\\
+    &= (n+1)\frac{(n+1)^n}{n^n}\left(\frac{n!}{(n+1)!}\right)^2\\
+    &= (n+1)\left(1 + \frac{1}{n}\right)^n\frac{1}{(n+1)^2}\\
+    &= \frac{1/n}{1 + 1/n}\left(1 + \frac{1}{n}\right)^n.\end{align*} Since \(\frac{1}{n} \to 0\), and \(\left(1 + \frac{1}{n}\right)^n \to \mathrm{e}\) as \(n \to \infty\), we find by the algebra of limits that \[\frac{b_{n+1}}{b_n} \to 0\cdot\mathrm{e} = 0 \;\; \text{as}\;\; n \to \infty.\] Since \(0 < 1\), we find by the growth factor test that \[\lim_{n\to\infty}\frac{n^n}{(n!)^2} = 0,\] as required.
+  \item
+    By part i) and the definition of convergence, we know that \(\exists N \in \mathbb{N}\) such that \(\forall n \geq N\), \[\left\lvert\frac{n^n}{(n!)^2} - 0 \right\rvert =  \frac{n^n}{(n!)^2} \leq \left(\frac{1}{100}\right)^2.\] Also, note that since \(n! \leq n^n\) for all \(n \in \mathbb{N},\) \[\frac{1}{n!} \leq \frac{n^n}{(n!)^2}.\] Hence, for all \(n \geq N,\) \[\frac{1}{n!} \leq \frac{n^n}{(n!)^2} \leq \left(\frac{1}{100}\right)^2 \Longleftrightarrow n! \leq n^n \leq \left(\frac{n!}{100}\right)^2,\] as required.
+  \end{enumerate}
+\item
+  First, note that via completing the square, \begin{align}\sqrt{n}(\sqrt{n+1} - \sqrt{n}) &= \frac{\sqrt{n}(n+1 - n)}{\sqrt{n+1} + \sqrt{n}}\nonumber\\ &= \frac{\sqrt{n}}{\sqrt{n+1} + \sqrt{n}}\nonumber\\ &= \frac{1}{\sqrt{1 + \frac{1}{n}} + 1}.\tag{*}\end{align} Now, we claim that \[\lim_{n \to \infty} \sqrt{1 + \frac{1}{n}} = 1.\] To show this, we fix \(\epsilon > 0\) and consider for \(n \in \mathbb{N}:\) \[\left\lvert \sqrt{1 + \frac{1}{n}} - 1\right\rvert = \frac{1 + \frac{1}{n}-1}{\sqrt{1 + 1/n}+1} \leq \frac{1}{n}.\] We then have that \[\frac{1}{n} < \epsilon \Longleftrightarrow n > \frac{1}{\epsilon}.\] Hence, for any \(n \geq N,\) \[\left\lvert \sqrt{1 + \frac{1}{n}} - 1\right\rvert \leq \frac{1}{n} \leq \frac{1}{N} < \epsilon.\] Therefore, \[\lim_{n \to \infty} \sqrt{1 + \frac{1}{n}} = 1.\] Returning to (*) and applying the algebra of limits, we find that as \(n \to \infty\), \[\lim_{n \to \infty}\sqrt{n}(\sqrt{n+1} - \sqrt{n}) = \frac{1}{1+1} = \frac{1}{2}.\]
+\item
+  Since \(2 > 1\), we write \(\sqrt[n]{2} = 1 + x_n,\) where \(x_n \geq 0\). This gives \[2 = (1 + x_n)^n \geq 1 + nx_n \geq 1\;\; \text{by the binomial inequality}.\] Rearranging, we find \[0 \leq x_n \leq \frac{1}{n}.\] Now, since \(0 \to 0\) and \(\frac{1}{n} \to 0\) as \(n \to \infty\), \(x_n \to 0\) by the sandwich theorem. Hence, by the algebra of limits, \[\lim_{n \to \infty} \sqrt[n]{2} = \lim_{n\to\infty}(1 + x_n) = 1 + 0 = 1,\] as required.
+\end{enumerate}
+\EndKnitrBlock{solution*}
+
+\hypertarget{question-4}{%
+\section{Question 4}\label{question-4}}
+
+\BeginKnitrBlock{example}
+{\label{exm:ex4} }In this question, you may use any result from the lectures without proof.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Let \(a \in (0,1)\). Using the theorem on the Cauchy product of series, or otherwise, show that \[\left(\sum_{n=0}^{\infty} a^n\right)^2 = \sum_{n=0}^{\infty} (n+1)a^n.\]
+\item
+  Find the radii of convergence of the following power series.
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii})}
+  \tightlist
+  \item
+    \[\sum_{n=0}^{\infty}x^n.\]
+  \item
+    \[\sum_{n=1}^{\infty}\frac{x^n}{n^n}.\]
+  \item
+    \[\sum_{n=0}^{\infty}\left(\frac{2\pi}{13}\right)^n\cos\left(\frac{2\pi n}{13}\right)x^n.\]
+  \end{enumerate}
+\item
+  Say whether or not the following series converge and explain your reasoning.
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii})}
+  \tightlist
+  \item
+    \[\sum_{n=1}^{\infty}\frac{1}{\sqrt{n}}.\]
+  \item
+    \[\sum_{n=1}^{\infty}\frac{n}{2^n + n^2}.\]
+  \item
+    \[\sum_{n=1}^{\infty}\frac{1}{n\log(n)}.\]
+  \end{enumerate}
+\end{enumerate}
+\EndKnitrBlock{example}
+
+\BeginKnitrBlock{solution*}
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\item
+  Recall that for \(a \in (0,1)\), the sum is a geometric series with \[\sum_{n=0}^{\infty} a^n = \frac{1}{1-a}.\] As \(\lvert a^n \rvert = a^n \; \forall n \in \mathbb{N}_0\), this series is absolutely convergent, so the Cauchy multiplication theorem gives that \[\left(\sum_{n=0}^{\infty} a^n\right)^2 = \sum_{n=0}^{\infty}c_n,\] where for \(n \in \mathbb{N}_0,\) \[c_n = \sum_{k=0}^{n} a^k a^{n-k} = \sum_{k=0}^{n} a^n = (n+1)a^n.\] Hence \[\left(\sum_{n=0}^{\infty} a^n\right)^2 = \sum_{n=0}^{\infty} (n+1)a^n,\] as required.
+\item
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii})}
+  \tightlist
+  \item
+    Writing \[\sum_{n=0}^{\infty} x^n = \sum_{n=0}^{\infty} a_n x^n,\] with \(a_n = 1\), we calculate the radius of convergence, \(R\), as \[R = \lim_{n \to \infty} \frac{\lvert a_{n}\rvert}{\lvert a_{n+1}\rvert} = \lim_{n\to\infty} \frac{1}{1} = 1.\]
+  \item
+    Writing \[\sum_{n=1}^{\infty} \frac{x^n}{n^n} = \sum_{n=1}^{\infty} b_n x^n,\] with \(b_n = \frac{1}{n^n}\), we calculate \[\limsup_{n \to \infty}\lvert b_n \rvert^{1/n} = \limsup_{n\to \infty}\frac{1}{n} = 0.\] Hence, by Cauchy-Hadamard, the radius of convergence \(R\) for this power series is \(R = \infty\).
+  \item
+    Writing \[\sum_{n=0}^{\infty}\left(\frac{2\pi}{13}\right)^n\cos\left(\frac{2\pi n}{13}\right)x^n = \sum_{n=0}^{\infty} c_n x^n,\] with \(c_n = \left(\frac{2\pi}{13}\right)^n\cos\left(\frac{2\pi n}{13}\right)\), we calculate \[\limsup_{n \to \infty}\left\lvert c_n\right\rvert^{1/n} = \limsup_{n \to \infty}\frac{2\pi}{13}\left\lvert\cos\left(\frac{2\pi n}{13}\right)\right\rvert^{1/n}.\] Setting \(d_n = \frac{2\pi}{13}\left\lvert\cos\left(\frac{2\pi n}{13}\right)\right\rvert^{1/n},\) we claim that \(\limsup_{n \to \infty} d_n = \frac{2\pi}{13}.\) First, as for all \(y \in \mathbb{R}\), \(\lvert \cos(y)\rvert \leq 1\), we see that \(d_n \leq \frac{2\pi}{13}\). This means that \[\limsup_{n\to\infty}d_n \leq \frac{2\pi}{13}.\] Moreover, taking the subsequence \((d_{n_k})_{k\in\mathbb{N}}\), where \(n_k = 13k\), we see that as \(k \to \infty,\) \[d_{13k} = \frac{2\pi}{13}\left\lvert\cos\left(2\pi k \right)\right\rvert^{\frac{1}{13k}} = \frac{2\pi}{13}\cdot 1 \to \frac{2\pi}{13} \;\; \text{(by AoL.)}\] So, \(\limsup_{n \to \infty} d_n \geq \frac{2\pi}{13}\), from which we conclude that \(\limsup_{n \to \infty} d_n = \frac{2\pi}{13}.\) Hence, by Cauchy-Hadamard, the radius of convergence \(R\) for this power series is given by \[R = \left(\limsup_{n \to \infty} d_n = \frac{2\pi}{13}\right)^{-1} = \frac{13}{2\pi}.\]
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii})}
+  \tightlist
+  \item
+    Recall from lectures that the series \[\sum_{n=1}^{\infty} \frac{1}{n^{\alpha}}\;\;\begin{cases}\text{diverges if}\;\; \alpha \leq 1,\\
+    \text{converges if}\;\; \alpha > 1.
+    \end{cases}\] Since \(\sqrt{n} = n^{1/2}\), and \(\frac{1}{2}<1\), we know that the series \(\sum_{n=1}^{\infty}\frac{1}{\sqrt{n}}\) diverges.
+  \item
+    First, note that
+    \begin{align}
+    \frac{n}{2^n + n^2} \leq \frac{n}{2^n}.\tag{**}
+    \end{align}
+    Now, setting \(x_n = \frac{n}{2^n}\), we find \[\frac{\lvert x_{n+1}\rvert}{\lvert x_n \rvert} = \frac{(n+1)2^n}{2^{n+1}n} = \frac{1}{2}\left(1 + \frac{1}{n}\right).\] Hence, by the algebra of limits, \[\frac{\lvert x_{n+1}\rvert}{\lvert x_n \rvert} \to \frac{1}{2} < 1,\] as \(n \to \infty\). So, by d'Alembert's ratio test, we find that \[\sum_{n=1}^{\infty}\frac{n}{2^n} \; \; \text{converges.}\] Finally, by the comparison test as applied to (**), we conclude that \[\sum_{n=1}^{\infty}\frac{n}{2^n + n^2} \; \; \text{converges.}\]
+  \item
+    Setting \(y_n = \frac{1}{n\log(n)}\), we define for \(k \geq 1,\) \[z_{k}:= 2^k y_{2^k} = \frac{2^k}{2^k\log(2^k)} = \frac{1}{k\log(2)}.\] Using the result stated in part i), we know that as \(\sum_{k=1}^{\infty}k\) diverges, \(\sum_{k=1}^{\infty} z_k\) diverges. Hence, by the Cauchy condensation test, the given series \(\sum_{n=1}^{\infty}y_n\) diverges.
+  \end{enumerate}
+\end{enumerate}
+\EndKnitrBlock{solution*}
+
+\end{document}
