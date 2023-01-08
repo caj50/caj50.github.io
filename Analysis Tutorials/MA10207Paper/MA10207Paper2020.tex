@@ -351,7 +351,7 @@ In the following questions (d) and (e), you may use any result from the lectures
     \end{align}
     Now, setting \(x_n = \frac{n}{2^n}\), we find \[\frac{\lvert x_{n+1}\rvert}{\lvert x_n \rvert} = \frac{(n+1)2^n}{2^{n+1}n} = \frac{1}{2}\left(1 + \frac{1}{n}\right).\] Hence, by the algebra of limits, \[\frac{\lvert x_{n+1}\rvert}{\lvert x_n \rvert} \to \frac{1}{2} < 1,\] as \(n \to \infty\). So, by d'Alembert's ratio test, we find that \[\sum_{n=1}^{\infty}\frac{n}{2^n} \; \; \text{converges.}\] Finally, by the comparison test as applied to (**), we conclude that \[\sum_{n=1}^{\infty}\frac{n}{2^n + n^2} \; \; \text{converges.}\]
   \item
-    Setting \(y_n = \frac{1}{n\log(n)}\), we define for \(k \geq 1,\) \[z_{k}:= 2^k y_{2^k} = \frac{2^k}{2^k\log(2^k)} = \frac{1}{k\log(2)}.\] Using the result stated in part i), we know that as \(\sum_{k=1}^{\infty}k\) diverges, \(\sum_{k=1}^{\infty} z_k\) diverges. Hence, by the Cauchy condensation test, the given series \(\sum_{n=1}^{\infty}y_n\) diverges.
+    Setting \(y_n = \frac{1}{n\log(n)}\), we define for \(k \geq 1,\) \[z_{k}:= 2^k y_{2^k} = \frac{2^k}{2^k\log(2^k)} = \frac{1}{k\log(2)}.\] Using the result stated in part i), we know that as \(\sum_{k=1}^{\infty}\frac{1}{k}\) diverges, \(\sum_{k=1}^{\infty} z_k\) diverges. Hence, by the Cauchy condensation test, the given series \(\sum_{n=1}^{\infty}y_n\) diverges.
   \end{enumerate}
 \end{enumerate}
 \EndKnitrBlock{solution*}

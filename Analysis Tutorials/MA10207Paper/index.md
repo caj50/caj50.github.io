@@ -16,6 +16,16 @@ output:
       download: [["MA10207Paper2020.html", "HTML page"], ["MA10207Paper2020.pdf","Standard print PDF"], ["MA10207Paper2020Clear.pdf","Clear print PDF"], ["MA10207Paper2020Large.pdf","Large print PDF"], ["MA10207Paper2020.docx","Accessible Word document"], ["MA10207Paper2020.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
+  clavertondown::pdf_clav:
+    latex_engine: pdflatex
+    keep_tex: true
+    fig_caption: true
+    toc: true
+    extra_dependencies: ["float"]
+    pandoc_args: --default-image-extension=pdf
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
   clavertondown::word_clav:
     toc: true
     number_sections: true
@@ -24,16 +34,6 @@ output:
   clavertondown::html_clav:
     toc: true
     pandoc_args: --default-image-extension=svg
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
-  clavertondown::pdf_clav:
-    latex_engine: pdflatex
-    keep_tex: true
-    fig_caption: true
-    toc: true
-    extra_dependencies: ["float"]
-    pandoc_args: --default-image-extension=pdf
 header-includes:
   - \newcommand{\BOO}{BOO}
   - \usepackage {hyperref}
@@ -145,7 +145,7 @@ c)  i)  Recall from lectures that the series $$\sum_{n=1}^{\infty} \frac{1}{n^{\
 \frac{n}{2^n + n^2} \leq \frac{n}{2^n}.\tag{**}
 \end{align}
 Now, setting $x_n = \frac{n}{2^n}$, we find $$\frac{\lvert x_{n+1}\rvert}{\lvert x_n \rvert} = \frac{(n+1)2^n}{2^{n+1}n} = \frac{1}{2}\left(1 + \frac{1}{n}\right).$$ Hence, by the algebra of limits, $$\frac{\lvert x_{n+1}\rvert}{\lvert x_n \rvert} \to \frac{1}{2} < 1,$$ as $n \to \infty$. So, by d'Alembert's ratio test, we find that $$\sum_{n=1}^{\infty}\frac{n}{2^n} \; \; \text{converges.}$$ Finally, by the comparison test as applied to (**), we conclude that $$\sum_{n=1}^{\infty}\frac{n}{2^n + n^2} \; \; \text{converges.}$$
-    iii) Setting $y_n = \frac{1}{n\log(n)}$, we define for $k \geq 1,$ $$z_{k}:= 2^k y_{2^k} = \frac{2^k}{2^k\log(2^k)} = \frac{1}{k\log(2)}.$$ Using the result stated in part i), we know that as $\sum_{k=1}^{\infty}k$ diverges, $\sum_{k=1}^{\infty} z_k$ diverges. Hence, by the Cauchy condensation test, the given series $\sum_{n=1}^{\infty}y_n$ diverges.
+    iii) Setting $y_n = \frac{1}{n\log(n)}$, we define for $k \geq 1,$ $$z_{k}:= 2^k y_{2^k} = \frac{2^k}{2^k\log(2^k)} = \frac{1}{k\log(2)}.$$ Using the result stated in part i), we know that as $\sum_{k=1}^{\infty}\frac{1}{k}$ diverges, $\sum_{k=1}^{\infty} z_k$ diverges. Hence, by the Cauchy condensation test, the given series $\sum_{n=1}^{\infty}y_n$ diverges.
 </p></div>\EndKnitrBlock{solution}
 
 <!--chapter:end:index.Rmd-->
