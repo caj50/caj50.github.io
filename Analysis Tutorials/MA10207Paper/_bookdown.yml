@@ -2,7 +2,7 @@ book_filename: "MA10207Paper2020"
 output_dir: "./"
 new_theorems:
   Non-theorem: Non
-  Order Axioms: OA
+  Question: Que
   Thought: Tho
   Definitions: Def
   Example: ---
@@ -20,5 +20,5 @@ style_with:
 classify_as:
   TheoremStyle: []
   DefinitionStyle: []
-  ExampleStyle: ["Thought", "Non-theorem"]
+  ExampleStyle: ["Thought", "Non-theorem", "Question"]
   ProofStyle: []

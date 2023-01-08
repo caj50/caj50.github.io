@@ -16,6 +16,14 @@ output:
       download: [["MA10207Paper2020.html", "HTML page"], ["MA10207Paper2020.pdf","Standard print PDF"], ["MA10207Paper2020Clear.pdf","Clear print PDF"], ["MA10207Paper2020Large.pdf","Large print PDF"], ["MA10207Paper2020.docx","Accessible Word document"], ["MA10207Paper2020.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
+  clavertondown::word_clav:
+    toc: true
+    number_sections: true
+    keep_md: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::html_clav:
+    toc: true
+    pandoc_args: --default-image-extension=svg
   clavertondown::epub_clav:
     toc: false
     pandoc_args: --default-image-extension=svg
@@ -26,14 +34,6 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
-  clavertondown::html_clav:
-    toc: true
-    pandoc_args: --default-image-extension=svg
-  clavertondown::word_clav:
-    toc: true
-    number_sections: true
-    keep_md: true
-    pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
   - \usepackage {hyperref}
@@ -45,17 +45,17 @@ header-includes:
 \pagenumbering{arabic}
 
 # Introduction {-}
-Here are the solutions to the past paper discussed in the revision session on XXth January 2023. This is designed as a guide to how much to write in the exam, and how you might want to style your solutions. To return to the homepage, click [here](http://caj50.github.io/tutoring.html).
+Here are the solutions to the past paper discussed in the revision session on 9th January 2023. This is designed as a guide to how much to write in the exam, and how you might want to style your solutions. To return to the homepage, click [here](http://caj50.github.io/tutoring.html).
 
-# Question 1
-\BeginKnitrBlock{example}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex1"><span class="exm:ex1" custom-style="NameStyle"><strong>(\#exm:ex1) </strong></span><div>For each of the following concepts, give an example that satisfies the definition and an example that does not. (You need not give any proofs.)
+# Question 1 {-}
+\BeginKnitrBlock{Question}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="Question" custom-style="TheoremStyle" id="Question:unnamed-chunk-2"><span class="Question" custom-style="NameStyle"><strong> Question: </strong></span><p>For each of the following concepts, give an example that satisfies the definition and an example that does not. (You need not give any proofs.)
 
 a)  A Cauchy sequence.
 b)  A decreasing sequence.
 c)  A sequentially continuous function.
 d)  A conditionally convergent series.
 e)  An interval.
-</div></div>\EndKnitrBlock{example}
+</p></div>\EndKnitrBlock{Question}
 
 \BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyleItalics"><strong>Solution. </strong></span> <p>
 a)  An example is the sequence $(a_n)_{n\in\mathbb{N}}$, where $a_n = \frac{1}{n}$. A non-example is the sequence $(b_n)_{n\in\mathbb{N}}$ where $b_n = n$.
@@ -70,15 +70,15 @@ e)  An example of an interval is the set $S_1 = (0,1)$. A non-example is the set
 (If question 1 is like this in the exam, examples which can be used in more than one part will help you save time!)
 </p></div>\EndKnitrBlock{solution}
 
-# Question 2
-\BeginKnitrBlock{example}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex2"><span class="exm:ex2" custom-style="NameStyle"><strong>(\#exm:ex2) </strong></span><div>The following statements paraphrase theorems, corollaries, propositions, or lemmas from the lectures. Identify them by their names.
+# Question 2 {-}
+\BeginKnitrBlock{Question}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="Question" custom-style="TheoremStyle" id="Question:unnamed-chunk-4"><span class="Question" custom-style="NameStyle"><strong> Question: </strong></span><p>The following statements paraphrase theorems, corollaries, propositions, or lemmas from the lectures. Identify them by their names.
 
 a)  Let $(a_n)_{n\in\mathbb{N}}$ be a real sequence. If $\sup_{n\in\mathbb{N}}\lvert a_n \rvert < \infty$, then there exists a sequence $(n_k)_{k\in\mathbb{N}}$ such that $$\forall k\in\mathbb{N}:\; (n_k \in \mathbb{N})\wedge(n_{k+1} > n_k)$$ and there exists $B \in \mathbb{R}$ such that $$\forall \epsilon > 0 \;\exists K \in \mathbb{N}\;\forall k \geq K: \; \lvert a_{n_{k}} - B \rvert < \epsilon.$$
 b)  Suppose that $(a_n)_{n\in\mathbb{N}}$ and $(s_n)_{n\in\mathbb{N}}$ are two real sequences such that $$s_n = \sum_{n=1}^{\infty} (-1)^ka_k$$ for all $n\in\mathbb{N}$. If $a_{n+1} \leq a_n$ for all $n \in \mathbb{N}$ and $a_n \to 0$ as $n \to \infty$, then $(s_n)_{n \in \mathbb{N}}$ converges.
 c)  $\forall x \in \mathbb{R}\;\exists k \in \mathbb{N}: \; k > x.$
 d)  Let $(x_n)_{n\in\mathbb{N}}$ and $(y_n)_{n\in\mathbb{N}}$ be two sequences such that $$\forall n \in \mathbb{N}: x_n \leq x_{n+1} \leq y_{n+1} \leq y_n.$$ Then, there exists $a \in \mathbb{R}$ such that $$\forall n \in \mathbb{N}: \; x_n \leq a \leq y_n.$$
 e)  Suppose that $a \in [-1\,\infty)$ and $k \in \mathbb{N}_0$. Then $$1 + ka \leq (1+a)^k.$$
-  </div></div>\EndKnitrBlock{example}
+  </p></div>\EndKnitrBlock{Question}
 
 \BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyleItalics"><strong>Solution. </strong></span> <p>
 a)  This is the *Bolzano-Weierstrass* theorem.
@@ -88,8 +88,8 @@ d)  This is the *Nested Intervals Theorem*.
 e)  This is the *Binomial inequality*.
 </p></div>\EndKnitrBlock{solution}
 
-# Question 3
-\BeginKnitrBlock{example}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex3"><span class="exm:ex3" custom-style="NameStyle"><strong>(\#exm:ex3) </strong></span><div>Let $(a_n)_{n\in\mathbb{N}}$ be a real sequence and $L \in \mathbb{R}$.
+# Question 3 {-}
+\BeginKnitrBlock{Question}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="Question" custom-style="TheoremStyle" id="Question:unnamed-chunk-6"><span class="Question" custom-style="NameStyle"><strong> Question: </strong></span><p>Let $(a_n)_{n\in\mathbb{N}}$ be a real sequence and $L \in \mathbb{R}$.
 
 a)  Show that $a_n \to \infty$ if and only if $-a_n \to -\infty$ as $n \to \infty$.
 b)  Assuming that $\lim_{n\to\infty}a_n = L$, show that $\left(\lvert a_n \rvert\right)_{n\in\mathbb{N}}$ does *not* diverge to $\infty.$
@@ -100,13 +100,13 @@ In the following questions (d) and (e), you may use any result from the lectures
 
 d)  Find $$\lim_{n\to\infty}\sqrt{n}(\sqrt{n+1} - \sqrt{n}).$$
 e)  Show that $$\lim_{n\to\infty} \sqrt[n]{2} = 1.$$
-  </div></div>\EndKnitrBlock{example}
+  </p></div>\EndKnitrBlock{Question}
 
 \BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyleItalics"><strong>Solution. </strong></span> <p>
 a)  We have that \begin{align*} a_n \to \infty &\Longleftrightarrow \forall M \in \mathbb{R}, \; \exists N \in \mathbb{N} \; \text{such that} \;\, a_n \geq M,\\
-&\Longleftrightarrow \forall M \in \mathbb{R}, \; \exists N \in \mathbb{N} \; \text{such that} \;\, -a_n \leq -M.\end{align*} Setting $K = -M$ in this last statement gives \begin{align*} a_n \to \infty &\Longleftrightarrow \forall K \in \mathbb{R}, \; \exists N \in \mathbb{N} \; \text{such that} \;\, a_n \leq K, \\
+&\Longleftrightarrow \forall M \in \mathbb{R}, \; \exists N \in \mathbb{N} \; \text{such that} \;\, -a_n \leq -M.\end{align*} Setting $K = -M$ in this last statement gives \begin{align*} a_n \to \infty &\Longleftrightarrow \forall K \in \mathbb{R}, \; \exists N \in \mathbb{N} \; \text{such that} \;\, -a_n \leq K, \\
 &\Longleftrightarrow -a_n \to -\infty,\end{align*} as required.
-b)  We claim that $\lim_{n\to\infty}\lvert a_n \rvert = \lvert L \rvert.$ To this end, fix $\epsilon >0$. Since $\lim_{n \to \infty} a_n = L$, we know that there exists $N \in \mathbb{N}$ such that $$\lvert a_n - L \rvert < \epsilon \;\; \forall n \geq N.$$ Now, for all $N \geq \mathbb{N},$ \begin{align*} \left\lvert \lvert a_n \rvert - \lvert L \rvert \right\rvert &\leq \lvert a_n - L \rvert, \; \; \text{(by the reverse triangle inequality)}\\
+b)  We claim that $\lim_{n\to\infty}\lvert a_n \rvert = \lvert L \rvert.$ To this end, fix $\epsilon >0$. Since $\lim_{n \to \infty} a_n = L$, we know that there exists $N \in \mathbb{N}$ such that $$\lvert a_n - L \rvert < \epsilon \;\; \forall n \geq N.$$ Now, for all $n \geq N,$ \begin{align*} \left\lvert \lvert a_n \rvert - \lvert L \rvert \right\rvert &\leq \lvert a_n - L \rvert, \; \; \text{(by the reverse triangle inequality)}\\
 &< \epsilon \end{align*} Hence, since $\epsilon$ was arbitrary, we conclude that $\lim_{n\to\infty}\lvert a_n \rvert = \lvert L \rvert.$ In particular, $\left(\lvert a_n \rvert\right)_{n\in\mathbb{N}}$ does not diverge to $\infty.$
 c)  i)  Setting $b_n = \frac{n^n}{(n!)^2}$ for $n \in \mathbb{N}$, we see that $b_n \geq 0$, and \begin{align*}\frac{b_{n+1}}{b_n} &= \frac{(n+1)^{n+1}}{((n+1)!)^2}\frac{(n!)^2}{n^n}\\
 &= (n+1)\frac{(n+1)^n}{n^n}\left(\frac{n!}{(n+1)!}\right)^2\\
@@ -114,11 +114,12 @@ c)  i)  Setting $b_n = \frac{n^n}{(n!)^2}$ for $n \in \mathbb{N}$, we see that $
 &= \frac{1/n}{1 + 1/n}\left(1 + \frac{1}{n}\right)^n.\end{align*} Since $\frac{1}{n} \to 0$, and $\left(1 + \frac{1}{n}\right)^n \to \mathrm{e}$ as $n \to \infty$, we find by the algebra of limits that $$\frac{b_{n+1}}{b_n} \to 0\cdot\mathrm{e} = 0 \;\; \text{as}\;\; n \to \infty.$$ Since $0 < 1$, we find by the growth factor test that $$\lim_{n\to\infty}\frac{n^n}{(n!)^2} = 0,$$ as required.
     ii)  By part i) and the definition of convergence, we know that $\exists N \in \mathbb{N}$ such that $\forall n \geq N$, $$\left\lvert\frac{n^n}{(n!)^2} - 0 \right\rvert =  \frac{n^n}{(n!)^2} \leq \left(\frac{1}{100}\right)^2.$$ Also, note that since $n! \leq n^n$ for all $n \in \mathbb{N},$ $$\frac{1}{n!} \leq \frac{n^n}{(n!)^2}.$$ Hence, for all $n \geq N,$ $$\frac{1}{n!} \leq \frac{n^n}{(n!)^2} \leq \left(\frac{1}{100}\right)^2 \Longleftrightarrow n! \leq n^n \leq \left(\frac{n!}{100}\right)^2,$$ as required.
 d)  First, note that via completing the square, \begin{align}\sqrt{n}(\sqrt{n+1} - \sqrt{n}) &= \frac{\sqrt{n}(n+1 - n)}{\sqrt{n+1} + \sqrt{n}}\nonumber\\ &= \frac{\sqrt{n}}{\sqrt{n+1} + \sqrt{n}}\nonumber\\ &= \frac{1}{\sqrt{1 + \frac{1}{n}} + 1}.\tag{*}\end{align} Now, we claim that $$\lim_{n \to \infty} \sqrt{1 + \frac{1}{n}} = 1.$$  To show this, we fix $\epsilon > 0$ and consider for $n \in \mathbb{N}:$ $$\left\lvert \sqrt{1 + \frac{1}{n}} - 1\right\rvert = \frac{1 + \frac{1}{n}-1}{\sqrt{1 + 1/n}+1} \leq \frac{1}{n}.$$ We then have that $$\frac{1}{n} < \epsilon \Longleftrightarrow n > \frac{1}{\epsilon}.$$ Hence, for any $n \geq N,$ $$\left\lvert \sqrt{1 + \frac{1}{n}} - 1\right\rvert \leq \frac{1}{n} \leq \frac{1}{N} < \epsilon.$$ Therefore, $$\lim_{n \to \infty} \sqrt{1 + \frac{1}{n}} = 1.$$ Returning to (*) and applying the algebra of limits, we find that as $n \to \infty$, $$\lim_{n \to \infty}\sqrt{n}(\sqrt{n+1} - \sqrt{n}) = \frac{1}{1+1} = \frac{1}{2}.$$
-e)  Since $2 > 1$, we write $\sqrt[n]{2} = 1 + x_n,$ where $x_n \geq 0$. This gives $$2 = (1 + x_n)^n \geq 1 + nx_n \geq 1\;\; \text{by the binomial inequality}.$$ Rearranging, we find $$0 \leq x_n \leq \frac{1}{n}.$$ Now, since $0 \to 0$ and $\frac{1}{n} \to 0$ as $n \to \infty$, $x_n \to 0$ by the sandwich theorem. Hence, by the algebra of limits, $$\lim_{n \to \infty} \sqrt[n]{2} = \lim_{n\to\infty}(1 + x_n) = 1 + 0 = 1,$$ as required.
+e)  Since $2 > 1$, we write $\sqrt[n]{2} = 1 + x_n,$ where $x_n \geq 0$. This gives \begin{align*}
+2 = (1 + x_n)^n &\geq 1 + nx_n \;\; \text{(by the binomial inequality)}\\ &\geq 1. \end{align*} Rearranging, we find $$0 \leq x_n \leq \frac{1}{n}.$$ Now, since $0 \to 0$ and $\frac{1}{n} \to 0$ as $n \to \infty$, $x_n \to 0$ by the sandwich theorem. Hence, by the algebra of limits, $$\lim_{n \to \infty} \sqrt[n]{2} = \lim_{n\to\infty}(1 + x_n) = 1 + 0 = 1,$$ as required.
 </p></div>\EndKnitrBlock{solution}
 
-# Question 4
-\BeginKnitrBlock{example}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex4"><span class="exm:ex4" custom-style="NameStyle"><strong>(\#exm:ex4) </strong></span><div>In this question, you may use any result from the lectures without proof.
+# Question 4 {-}
+\BeginKnitrBlock{Question}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="Question" custom-style="TheoremStyle" id="Question:unnamed-chunk-8"><span class="Question" custom-style="NameStyle"><strong> Question: </strong></span><p>In this question, you may use any result from the lectures without proof.
 
 a)  Let $a \in (0,1)$. Using the theorem on the Cauchy product of series, or otherwise, show that $$\left(\sum_{n=0}^{\infty} a^n\right)^2 = \sum_{n=0}^{\infty} (n+1)a^n.$$
 b)  Find the radii of convergence of the following power series.
@@ -129,13 +130,13 @@ c)  Say whether or not the following series converge and explain your reasoning.
     i)  $$\sum_{n=1}^{\infty}\frac{1}{\sqrt{n}}.$$
     ii)  $$\sum_{n=1}^{\infty}\frac{n}{2^n + n^2}.$$
     iii)  $$\sum_{n=1}^{\infty}\frac{1}{n\log(n)}.$$
-  </div></div>\EndKnitrBlock{example}
+  </p></div>\EndKnitrBlock{Question}
 
 \BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyleItalics"><strong>Solution. </strong></span> <p>
 a)  Recall that for $a \in (0,1)$, the sum is a geometric series with $$\sum_{n=0}^{\infty} a^n = \frac{1}{1-a}.$$ As $\lvert a^n \rvert = a^n \; \forall n \in \mathbb{N}_0$, this series is absolutely convergent, so the Cauchy multiplication theorem gives that $$\left(\sum_{n=0}^{\infty} a^n\right)^2 = \sum_{n=0}^{\infty}c_n,$$ where for $n \in \mathbb{N}_0,$ $$c_n = \sum_{k=0}^{n} a^k a^{n-k} = \sum_{k=0}^{n} a^n = (n+1)a^n.$$ Hence $$\left(\sum_{n=0}^{\infty} a^n\right)^2 = \sum_{n=0}^{\infty} (n+1)a^n,$$ as required.
 b)  i)  Writing $$\sum_{n=0}^{\infty} x^n = \sum_{n=0}^{\infty} a_n x^n,$$ with $a_n = 1$, we calculate the radius of convergence, $R$, as $$R = \lim_{n \to \infty} \frac{\lvert a_{n}\rvert}{\lvert a_{n+1}\rvert} = \lim_{n\to\infty} \frac{1}{1} = 1.$$
     ii)  Writing $$\sum_{n=1}^{\infty} \frac{x^n}{n^n} = \sum_{n=1}^{\infty} b_n x^n,$$ with $b_n = \frac{1}{n^n}$, we calculate $$\limsup_{n \to \infty}\lvert b_n \rvert^{1/n} = \limsup_{n\to \infty}\frac{1}{n} = 0.$$ Hence, by Cauchy-Hadamard, the radius of convergence $R$ for this power series is $R = \infty$.
-    iii)  Writing $$\sum_{n=0}^{\infty}\left(\frac{2\pi}{13}\right)^n\cos\left(\frac{2\pi n}{13}\right)x^n = \sum_{n=0}^{\infty} c_n x^n,$$ with $c_n = \left(\frac{2\pi}{13}\right)^n\cos\left(\frac{2\pi n}{13}\right)$, we calculate $$\limsup_{n \to \infty}\left\lvert c_n\right\rvert^{1/n} = \limsup_{n \to \infty}\frac{2\pi}{13}\left\lvert\cos\left(\frac{2\pi n}{13}\right)\right\rvert^{1/n}.$$ Setting $d_n = \frac{2\pi}{13}\left\lvert\cos\left(\frac{2\pi n}{13}\right)\right\rvert^{1/n},$ we claim that $\limsup_{n \to \infty} d_n = \frac{2\pi}{13}.$ First, as for all $y \in \mathbb{R}$, $\lvert \cos(y)\rvert \leq 1$, we see that $d_n \leq \frac{2\pi}{13}$. This means that $$\limsup_{n\to\infty}d_n \leq \frac{2\pi}{13}.$$ Moreover, taking the subsequence $(d_{n_k})_{k\in\mathbb{N}}$, where $n_k = 13k$, we see that as $k \to \infty,$ $$d_{13k} = \frac{2\pi}{13}\left\lvert\cos\left(2\pi k \right)\right\rvert^{\frac{1}{13k}} = \frac{2\pi}{13}\cdot 1 \to \frac{2\pi}{13} \;\; \text{(by AoL.)}$$ So, $\limsup_{n \to \infty} d_n \geq \frac{2\pi}{13}$, from which we conclude that $\limsup_{n \to \infty} d_n = \frac{2\pi}{13}.$ Hence, by Cauchy-Hadamard, the radius of convergence $R$ for this power series is given by $$R = \left(\limsup_{n \to \infty} d_n = \frac{2\pi}{13}\right)^{-1} = \frac{13}{2\pi}.$$
+    iii)  Writing $$\sum_{n=0}^{\infty}\left(\frac{2\pi}{13}\right)^n\cos\left(\frac{2\pi n}{13}\right)x^n = \sum_{n=0}^{\infty} c_n x^n,$$ with $c_n = \left(\frac{2\pi}{13}\right)^n\cos\left(\frac{2\pi n}{13}\right)$, we calculate $$\limsup_{n \to \infty}\left\lvert c_n\right\rvert^{1/n} = \limsup_{n \to \infty}\frac{2\pi}{13}\left\lvert\cos\left(\frac{2\pi n}{13}\right)\right\rvert^{1/n}.$$ Setting $d_n = \frac{2\pi}{13}\left\lvert\cos\left(\frac{2\pi n}{13}\right)\right\rvert^{1/n},$ we claim that $\limsup_{n \to \infty} d_n = \frac{2\pi}{13}.$ First, as for all $y \in \mathbb{R}$, $\lvert \cos(y)\rvert \leq 1$, we see that $d_n \leq \frac{2\pi}{13}$. This means that $$\limsup_{n\to\infty}d_n \leq \frac{2\pi}{13}.$$ Moreover, taking the subsequence $(d_{n_k})_{k\in\mathbb{N}}$, where $n_k = 13k$, we see that as $k \to \infty,$ $$d_{13k} = \frac{2\pi}{13}\left\lvert\cos\left(2\pi k \right)\right\rvert^{\frac{1}{13k}} = \frac{2\pi}{13}\cdot 1 \to \frac{2\pi}{13} \;\; \text{(by AoL.)}$$ So, $\limsup_{n \to \infty} d_n \geq \frac{2\pi}{13}$, from which we conclude that $\limsup_{n \to \infty} d_n = \frac{2\pi}{13}.$ Hence, by Cauchy-Hadamard, the radius of convergence $R$ for this power series is given by $$R = \left(\limsup_{n \to \infty} d_n\right)^{-1} = \frac{13}{2\pi}.$$
 c)  i)  Recall from lectures that the series $$\sum_{n=1}^{\infty} \frac{1}{n^{\alpha}}\;\;\begin{cases}\text{diverges if}\;\; \alpha \leq 1,\\
 \text{converges if}\;\; \alpha > 1.
 \end{cases}$$ Since $\sqrt{n} = n^{1/2}$, and $\frac{1}{2}<1$, we know that the series $\sum_{n=1}^{\infty}\frac{1}{\sqrt{n}}$ diverges.

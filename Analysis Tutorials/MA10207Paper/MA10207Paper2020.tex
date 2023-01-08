@@ -101,7 +101,7 @@
 \theoremstyle{definition}
 \newtheorem*{exercise*}{Exercise}\newtheorem{exercise}{Exercise}[section]
 \newtheorem*{Non-theorem*}{Non-theorem}\newtheorem{Non-theorem}{Non-theorem}[section]
-\newtheorem*{Order Axioms*}{Order Axioms}\newtheorem{Order Axioms}{Order Axioms}[section]
+\newtheorem*{Question*}{Question}\newtheorem{Question}{Question}[section]
 \newtheorem*{Thought*}{Thought}\newtheorem{Thought}{Thought}[section]
 \theoremstyle{remark}
 \newtheorem*{remark*}{Remark}
@@ -125,13 +125,14 @@
 \section*{Introduction}\label{introduction}}
 \addcontentsline{toc}{section}{Introduction}
 
-Here are the solutions to the past paper discussed in the revision session on XXth January 2023. This is designed as a guide to how much to write in the exam, and how you might want to style your solutions. To return to the homepage, click \href{http://caj50.github.io/tutoring.html}{here}.
+Here are the solutions to the past paper discussed in the revision session on 9th January 2023. This is designed as a guide to how much to write in the exam, and how you might want to style your solutions. To return to the homepage, click \href{http://caj50.github.io/tutoring.html}{here}.
 
 \hypertarget{question-1}{%
-\section{Question 1}\label{question-1}}
+\section*{Question 1}\label{question-1}}
+\addcontentsline{toc}{section}{Question 1}
 
-\BeginKnitrBlock{example}
-{\label{exm:ex1} }For each of the following concepts, give an example that satisfies the definition and an example that does not. (You need not give any proofs.)
+\BeginKnitrBlock{Question*}
+{}For each of the following concepts, give an example that satisfies the definition and an example that does not. (You need not give any proofs.)
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
@@ -147,7 +148,7 @@ Here are the solutions to the past paper discussed in the revision session on XX
 \item
   An interval.
 \end{enumerate}
-\EndKnitrBlock{example}
+\EndKnitrBlock{Question*}
 
 \BeginKnitrBlock{solution*}
 \begin{enumerate}
@@ -172,10 +173,11 @@ Here are the solutions to the past paper discussed in the revision session on XX
 \EndKnitrBlock{solution*}
 
 \hypertarget{question-2}{%
-\section{Question 2}\label{question-2}}
+\section*{Question 2}\label{question-2}}
+\addcontentsline{toc}{section}{Question 2}
 
-\BeginKnitrBlock{example}
-{\label{exm:ex2} }The following statements paraphrase theorems, corollaries, propositions, or lemmas from the lectures. Identify them by their names.
+\BeginKnitrBlock{Question*}
+{}The following statements paraphrase theorems, corollaries, propositions, or lemmas from the lectures. Identify them by their names.
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
@@ -191,7 +193,7 @@ Here are the solutions to the past paper discussed in the revision session on XX
 \item
   Suppose that \(a \in [-1\,\infty)\) and \(k \in \mathbb{N}_0\). Then \[1 + ka \leq (1+a)^k.\]
 \end{enumerate}
-\EndKnitrBlock{example}
+\EndKnitrBlock{Question*}
 
 \BeginKnitrBlock{solution*}
 \begin{enumerate}
@@ -211,10 +213,11 @@ Here are the solutions to the past paper discussed in the revision session on XX
 \EndKnitrBlock{solution*}
 
 \hypertarget{question-3}{%
-\section{Question 3}\label{question-3}}
+\section*{Question 3}\label{question-3}}
+\addcontentsline{toc}{section}{Question 3}
 
-\BeginKnitrBlock{example}
-{\label{exm:ex3} }Let \((a_n)_{n\in\mathbb{N}}\) be a real sequence and \(L \in \mathbb{R}\).
+\BeginKnitrBlock{Question*}
+{}Let \((a_n)_{n\in\mathbb{N}}\) be a real sequence and \(L \in \mathbb{R}\).
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
@@ -244,17 +247,17 @@ In the following questions (d) and (e), you may use any result from the lectures
 \item
   Show that \[\lim_{n\to\infty} \sqrt[n]{2} = 1.\]
 \end{enumerate}
-\EndKnitrBlock{example}
+\EndKnitrBlock{Question*}
 
 \BeginKnitrBlock{solution*}
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
 \item
   We have that \begin{align*} a_n \to \infty &\Longleftrightarrow \forall M \in \mathbb{R}, \; \exists N \in \mathbb{N} \; \text{such that} \;\, a_n \geq M,\\
-  &\Longleftrightarrow \forall M \in \mathbb{R}, \; \exists N \in \mathbb{N} \; \text{such that} \;\, -a_n \leq -M.\end{align*} Setting \(K = -M\) in this last statement gives \begin{align*} a_n \to \infty &\Longleftrightarrow \forall K \in \mathbb{R}, \; \exists N \in \mathbb{N} \; \text{such that} \;\, a_n \leq K, \\
+  &\Longleftrightarrow \forall M \in \mathbb{R}, \; \exists N \in \mathbb{N} \; \text{such that} \;\, -a_n \leq -M.\end{align*} Setting \(K = -M\) in this last statement gives \begin{align*} a_n \to \infty &\Longleftrightarrow \forall K \in \mathbb{R}, \; \exists N \in \mathbb{N} \; \text{such that} \;\, -a_n \leq K, \\
   &\Longleftrightarrow -a_n \to -\infty,\end{align*} as required.
 \item
-  We claim that \(\lim_{n\to\infty}\lvert a_n \rvert = \lvert L \rvert.\) To this end, fix \(\epsilon >0\). Since \(\lim_{n \to \infty} a_n = L\), we know that there exists \(N \in \mathbb{N}\) such that \[\lvert a_n - L \rvert < \epsilon \;\; \forall n \geq N.\] Now, for all \(N \geq \mathbb{N},\) \begin{align*} \left\lvert \lvert a_n \rvert - \lvert L \rvert \right\rvert &\leq \lvert a_n - L \rvert, \; \; \text{(by the reverse triangle inequality)}\\
+  We claim that \(\lim_{n\to\infty}\lvert a_n \rvert = \lvert L \rvert.\) To this end, fix \(\epsilon >0\). Since \(\lim_{n \to \infty} a_n = L\), we know that there exists \(N \in \mathbb{N}\) such that \[\lvert a_n - L \rvert < \epsilon \;\; \forall n \geq N.\] Now, for all \(n \geq N,\) \begin{align*} \left\lvert \lvert a_n \rvert - \lvert L \rvert \right\rvert &\leq \lvert a_n - L \rvert, \; \; \text{(by the reverse triangle inequality)}\\
   &< \epsilon \end{align*} Hence, since \(\epsilon\) was arbitrary, we conclude that \(\lim_{n\to\infty}\lvert a_n \rvert = \lvert L \rvert.\) In particular, \(\left(\lvert a_n \rvert\right)_{n\in\mathbb{N}}\) does not diverge to \(\infty.\)
 \item
   \begin{enumerate}
@@ -271,15 +274,17 @@ In the following questions (d) and (e), you may use any result from the lectures
 \item
   First, note that via completing the square, \begin{align}\sqrt{n}(\sqrt{n+1} - \sqrt{n}) &= \frac{\sqrt{n}(n+1 - n)}{\sqrt{n+1} + \sqrt{n}}\nonumber\\ &= \frac{\sqrt{n}}{\sqrt{n+1} + \sqrt{n}}\nonumber\\ &= \frac{1}{\sqrt{1 + \frac{1}{n}} + 1}.\tag{*}\end{align} Now, we claim that \[\lim_{n \to \infty} \sqrt{1 + \frac{1}{n}} = 1.\] To show this, we fix \(\epsilon > 0\) and consider for \(n \in \mathbb{N}:\) \[\left\lvert \sqrt{1 + \frac{1}{n}} - 1\right\rvert = \frac{1 + \frac{1}{n}-1}{\sqrt{1 + 1/n}+1} \leq \frac{1}{n}.\] We then have that \[\frac{1}{n} < \epsilon \Longleftrightarrow n > \frac{1}{\epsilon}.\] Hence, for any \(n \geq N,\) \[\left\lvert \sqrt{1 + \frac{1}{n}} - 1\right\rvert \leq \frac{1}{n} \leq \frac{1}{N} < \epsilon.\] Therefore, \[\lim_{n \to \infty} \sqrt{1 + \frac{1}{n}} = 1.\] Returning to (*) and applying the algebra of limits, we find that as \(n \to \infty\), \[\lim_{n \to \infty}\sqrt{n}(\sqrt{n+1} - \sqrt{n}) = \frac{1}{1+1} = \frac{1}{2}.\]
 \item
-  Since \(2 > 1\), we write \(\sqrt[n]{2} = 1 + x_n,\) where \(x_n \geq 0\). This gives \[2 = (1 + x_n)^n \geq 1 + nx_n \geq 1\;\; \text{by the binomial inequality}.\] Rearranging, we find \[0 \leq x_n \leq \frac{1}{n}.\] Now, since \(0 \to 0\) and \(\frac{1}{n} \to 0\) as \(n \to \infty\), \(x_n \to 0\) by the sandwich theorem. Hence, by the algebra of limits, \[\lim_{n \to \infty} \sqrt[n]{2} = \lim_{n\to\infty}(1 + x_n) = 1 + 0 = 1,\] as required.
+  Since \(2 > 1\), we write \(\sqrt[n]{2} = 1 + x_n,\) where \(x_n \geq 0\). This gives \begin{align*}
+  2 = (1 + x_n)^n &\geq 1 + nx_n \;\; \text{(by the binomial inequality)}\\ &\geq 1. \end{align*} Rearranging, we find \[0 \leq x_n \leq \frac{1}{n}.\] Now, since \(0 \to 0\) and \(\frac{1}{n} \to 0\) as \(n \to \infty\), \(x_n \to 0\) by the sandwich theorem. Hence, by the algebra of limits, \[\lim_{n \to \infty} \sqrt[n]{2} = \lim_{n\to\infty}(1 + x_n) = 1 + 0 = 1,\] as required.
 \end{enumerate}
 \EndKnitrBlock{solution*}
 
 \hypertarget{question-4}{%
-\section{Question 4}\label{question-4}}
+\section*{Question 4}\label{question-4}}
+\addcontentsline{toc}{section}{Question 4}
 
-\BeginKnitrBlock{example}
-{\label{exm:ex4} }In this question, you may use any result from the lectures without proof.
+\BeginKnitrBlock{Question*}
+{}In this question, you may use any result from the lectures without proof.
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
@@ -313,7 +318,7 @@ In the following questions (d) and (e), you may use any result from the lectures
     \[\sum_{n=1}^{\infty}\frac{1}{n\log(n)}.\]
   \end{enumerate}
 \end{enumerate}
-\EndKnitrBlock{example}
+\EndKnitrBlock{Question*}
 
 \BeginKnitrBlock{solution*}
 \begin{enumerate}
@@ -329,7 +334,7 @@ In the following questions (d) and (e), you may use any result from the lectures
   \item
     Writing \[\sum_{n=1}^{\infty} \frac{x^n}{n^n} = \sum_{n=1}^{\infty} b_n x^n,\] with \(b_n = \frac{1}{n^n}\), we calculate \[\limsup_{n \to \infty}\lvert b_n \rvert^{1/n} = \limsup_{n\to \infty}\frac{1}{n} = 0.\] Hence, by Cauchy-Hadamard, the radius of convergence \(R\) for this power series is \(R = \infty\).
   \item
-    Writing \[\sum_{n=0}^{\infty}\left(\frac{2\pi}{13}\right)^n\cos\left(\frac{2\pi n}{13}\right)x^n = \sum_{n=0}^{\infty} c_n x^n,\] with \(c_n = \left(\frac{2\pi}{13}\right)^n\cos\left(\frac{2\pi n}{13}\right)\), we calculate \[\limsup_{n \to \infty}\left\lvert c_n\right\rvert^{1/n} = \limsup_{n \to \infty}\frac{2\pi}{13}\left\lvert\cos\left(\frac{2\pi n}{13}\right)\right\rvert^{1/n}.\] Setting \(d_n = \frac{2\pi}{13}\left\lvert\cos\left(\frac{2\pi n}{13}\right)\right\rvert^{1/n},\) we claim that \(\limsup_{n \to \infty} d_n = \frac{2\pi}{13}.\) First, as for all \(y \in \mathbb{R}\), \(\lvert \cos(y)\rvert \leq 1\), we see that \(d_n \leq \frac{2\pi}{13}\). This means that \[\limsup_{n\to\infty}d_n \leq \frac{2\pi}{13}.\] Moreover, taking the subsequence \((d_{n_k})_{k\in\mathbb{N}}\), where \(n_k = 13k\), we see that as \(k \to \infty,\) \[d_{13k} = \frac{2\pi}{13}\left\lvert\cos\left(2\pi k \right)\right\rvert^{\frac{1}{13k}} = \frac{2\pi}{13}\cdot 1 \to \frac{2\pi}{13} \;\; \text{(by AoL.)}\] So, \(\limsup_{n \to \infty} d_n \geq \frac{2\pi}{13}\), from which we conclude that \(\limsup_{n \to \infty} d_n = \frac{2\pi}{13}.\) Hence, by Cauchy-Hadamard, the radius of convergence \(R\) for this power series is given by \[R = \left(\limsup_{n \to \infty} d_n = \frac{2\pi}{13}\right)^{-1} = \frac{13}{2\pi}.\]
+    Writing \[\sum_{n=0}^{\infty}\left(\frac{2\pi}{13}\right)^n\cos\left(\frac{2\pi n}{13}\right)x^n = \sum_{n=0}^{\infty} c_n x^n,\] with \(c_n = \left(\frac{2\pi}{13}\right)^n\cos\left(\frac{2\pi n}{13}\right)\), we calculate \[\limsup_{n \to \infty}\left\lvert c_n\right\rvert^{1/n} = \limsup_{n \to \infty}\frac{2\pi}{13}\left\lvert\cos\left(\frac{2\pi n}{13}\right)\right\rvert^{1/n}.\] Setting \(d_n = \frac{2\pi}{13}\left\lvert\cos\left(\frac{2\pi n}{13}\right)\right\rvert^{1/n},\) we claim that \(\limsup_{n \to \infty} d_n = \frac{2\pi}{13}.\) First, as for all \(y \in \mathbb{R}\), \(\lvert \cos(y)\rvert \leq 1\), we see that \(d_n \leq \frac{2\pi}{13}\). This means that \[\limsup_{n\to\infty}d_n \leq \frac{2\pi}{13}.\] Moreover, taking the subsequence \((d_{n_k})_{k\in\mathbb{N}}\), where \(n_k = 13k\), we see that as \(k \to \infty,\) \[d_{13k} = \frac{2\pi}{13}\left\lvert\cos\left(2\pi k \right)\right\rvert^{\frac{1}{13k}} = \frac{2\pi}{13}\cdot 1 \to \frac{2\pi}{13} \;\; \text{(by AoL.)}\] So, \(\limsup_{n \to \infty} d_n \geq \frac{2\pi}{13}\), from which we conclude that \(\limsup_{n \to \infty} d_n = \frac{2\pi}{13}.\) Hence, by Cauchy-Hadamard, the radius of convergence \(R\) for this power series is given by \[R = \left(\limsup_{n \to \infty} d_n\right)^{-1} = \frac{13}{2\pi}.\]
   \end{enumerate}
 \item
   \begin{enumerate}
