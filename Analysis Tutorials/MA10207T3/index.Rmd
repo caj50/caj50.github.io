@@ -9,6 +9,11 @@ classoption: a4paper
 fontsize: 10pt
 geometry: margin=2.5cm
 output:
+  clavertondown::word_clav:
+    toc: true
+    number_sections: true
+    keep_md: true
+    pandoc_args: --default-image-extension=svg
   clavertondown::html_clav:
     toc: true
     pandoc_args: --default-image-extension=svg
@@ -21,11 +26,6 @@ output:
     pandoc_args: --default-image-extension=pdf
   clavertondown::epub_clav:
     toc: false
-    pandoc_args: --default-image-extension=svg
-  clavertondown::word_clav:
-    toc: true
-    number_sections: true
-    keep_md: true
     pandoc_args: --default-image-extension=svg
   clavertondown::gitbook_clav:
     split_by: section
@@ -72,11 +72,11 @@ Let $S \in \mathbb{R}$. A number $t \in \mathbb{R}$ is said to be the infimum of
 It also turns out that there's an alternative characterisation of suprema and infima which turns out to be very useful, especially if the members of a set aren't indexed by natural numbers.
 
 ```{proposition, label = "prop1"}
-Let $S\subseteq\mathbb{R}$. Then a number $T\in\mathbb{R}$ is the \emph{supremum} of $S$, denoted $\sup(S)$ if: $$\forall \epsilon > 0, \exists s \in S\; \text{such that} \; s > T - \epsilon.$$
+Let $S\subseteq\mathbb{R}$. Then a number $T\in\mathbb{R}$ is the supremum of $S$, denoted $\sup(S)$ if: $$\forall \epsilon > 0, \exists s \in S\; \text{such that} \; s > T - \epsilon.$$
 ```
 
 ```{proposition, label = "prop2"}
-Let $S\subseteq\mathbb{R}$. Then a number $t\in\mathbb{R}$ is the \emph{infimum} of $S$, denoted $\inf(S)$ if: $$\forall \epsilon > 0, \exists s \in S\; \text{such that} \; s < t + \epsilon.$$
+Let $S\subseteq\mathbb{R}$. Then a number $t\in\mathbb{R}$ is the infimum of $S$, denoted $\inf(S)$ if: $$\forall \epsilon > 0, \exists s \in S\; \text{such that} \; s < t + \epsilon.$$
 ```
 As an example, take the set $S = (-1,2] = \lbrace x \, \lvert\, -1 < x \leq 2\rbrace$, and fix some $\epsilon > 0$. Then, if we take $s_1 = 2 - \epsilon/2$ and $s_2 = -1 + \epsilon/2$, we see that
 
