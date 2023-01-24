@@ -75,6 +75,8 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
 \newcommand{\BOO}{BOO}
+\usepackage {hyperref}
+\hypersetup {colorlinks = true, linkcolor = blue, urlcolor = blue}
 \usepackage{float}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
@@ -83,23 +85,29 @@
 \usepackage{amsthm}
 \theoremstyle{plain}
 \newtheorem*{theorem*}{Theorem}\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}\newtheorem{definition}{Definition}[section]
+\theoremstyle{plain}
+\newtheorem*{proposition*}{Proposition}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{Definitions*}{Definitions}\newtheorem{Definitions}[definition]{Definitions}
 \theoremstyle{plain}
 \newtheorem*{lemma*}{Lemma}\newtheorem{lemma}{Lemma}[section]
 \theoremstyle{plain}
 \newtheorem*{corollary*}{Corollary}\newtheorem{corollary}{Corollary}[section]
 \theoremstyle{plain}
-\newtheorem*{proposition*}{Proposition}\newtheorem{proposition}{Proposition}[section]
-\theoremstyle{plain}
 \newtheorem*{conjecture*}{Conjecture}\newtheorem{conjecture}{Conjecture}[section]
-\theoremstyle{definition}
-\newtheorem*{definition*}{Definition}\newtheorem{definition}{Definition}[section]
 \theoremstyle{definition}
 \newtheorem*{example*}{Example}\newtheorem{example}{Example}[section]
 \theoremstyle{definition}
 \newtheorem*{exercise*}{Exercise}\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{Thought*}{Thought}\newtheorem{Thought}{Thought}[section]
 \theoremstyle{remark}
 \newtheorem*{remark*}{Remark}
 \newtheorem*{solution*}{Solution}
+\newtheorem*{Example*}{Example}
+\theoremstyle{remark}
+\newtheorem*{Proof*}{Proof}
+\newtheorem*{Examples*}{Examples}
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 
 
@@ -154,7 +162,7 @@
 \section*{Introduction}\label{introduction}}
 \addcontentsline{toc}{section}{Introduction}
 
-Here is the material to accompany the 8th Analysis Tutorial on the 28th November. As usual, send comments and corrections to \href{mailto:caj50@bath.ac.uk}{Christian Jones (caj50)}
+Here is the material to accompany the 8th Analysis Tutorial on the 28th November. As usual, send comments and corrections to \href{mailto:caj50@bath.ac.uk}{Christian Jones (caj50)}. To return to the homepage, click \href{http://caj50.github.io/tutoring.html}{here}.
 
 \hypertarget{lecture-recap}{%
 \section{Lecture Recap}\label{lecture-recap}}
@@ -165,7 +173,7 @@ Here is the material to accompany the 8th Analysis Tutorial on the 28th November
 Recall from last week that we can define the convergence of an infinite sum/series as follows:
 
 \BeginKnitrBlock{definition}[Series Convergence and Partial Sums]
-{\label{def:def1} }Let \((a_n)_{n \in \mathbb{N}}\) be a real sequence. Then \(\sum_{n = 1}^{\infty} a_n\) converges if and only if the sequence \((S_N)_{N \in \mathbb{N}}\) converges, where \[S_N:= \sum_{n = 1}^{N} a_n\] is the \(N\)\textsuperscript{th} partial sum. If \(S_N \to \ell\) as \(N \to \infty\), we define \[\ell = \sum_{n = 1}^{\infty}a_n.\]
+{\label{def:def1} }Let \((a_n)_{n \in \mathbb{N}}\) be a real sequence. Then \(\sum_{n = 1}^{\infty} a_n\) converges if and only if the sequence \((S_N)_{N \in \mathbb{N}}\) converges, where \[S_N:= \sum_{n = 1}^{N} a_n\] is the \(N^{\text{th}}\) partial sum. If \(S_N \to \ell\) as \(N \to \infty\), we define \[\ell = \sum_{n = 1}^{\infty}a_n.\]
 \EndKnitrBlock{definition}
 Much like with proving sequence convergence, using the definition each time you want to `evaluate' a series can get tedious really quickly. Therefore, we really want a couple of tests which can prove convergence without too much hassle. Before we discuss these tests though, we need to introduce the ideas of \emph{absolute and conditional convergence}.
 
