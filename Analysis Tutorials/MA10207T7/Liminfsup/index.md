@@ -91,7 +91,7 @@ a_{k+1} \; \text{if $k$ is even}\end{cases} \; \; &&\text{(because $(a_{2j-1})_j
 In both cases, as $k \to \infty$, $\sup_{n\geq k }a_n \to 3$, so $\limsup_{n \to \infty} a_n = 3$.
 
 ## Example 3 {-}
-\BeginKnitrBlock{example}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex3"><span class="exm:ex3" custom-style="NameStyle"><strong>(\#exm:ex3) </strong></span><div>Consider the sequence $(a_n)_{n}$ defined by $$a_n = \cos\left(\frac{n\pi}{3}\right).$$ Find $\limsup_{n \to \infty} a_n$ and $\liminf_{n \to \infty} a_n$.</div></div>\EndKnitrBlock{example}
+\BeginKnitrBlock{example}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex3"><span class="exm:ex3" custom-style="NameStyle"><strong>(\#exm:ex3) </strong></span><div>Consider the sequence $(a_n)_{n}$ defined by $$a_n = \cos\left(\frac{n\pi}{3}\right) + \frac{(-1)^n}{n}.$$ Find $\limsup_{n \to \infty} a_n$ and $\liminf_{n \to \infty} a_n$.</div></div>\EndKnitrBlock{example}
 Note that this time, you can't split $(a_n)_n$ up into two monotonic subsequences, so neither of the two methods in the previous examples work. So, we need to be crafty.
 
 It's always handy to have an idea of what the $\liminf$ and $\limsup$ might be. Since $\left\lvert\cos\left(\frac{n\pi}{3}\right)\right\rvert \leq 1$ for all $n \in \mathbb{N}$, and $\frac{(-1)^n}{n} \to 0$ as $n \to \infty$, we (hopefully) would guess that $$\liminf_{n\to\infty}a_n = -1, \quad \text{and} \quad \limsup_{n \to \infty} a_n = -1.$$ So how do we go about showing these?

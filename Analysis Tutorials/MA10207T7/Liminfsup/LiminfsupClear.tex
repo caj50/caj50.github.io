@@ -83,23 +83,29 @@
 \usepackage{amsthm}
 \theoremstyle{plain}
 \newtheorem*{theorem*}{Theorem}\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}\newtheorem{definition}{Definition}[section]
+\theoremstyle{plain}
+\newtheorem*{proposition*}{Proposition}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{Definitions*}{Definitions}\newtheorem{Definitions}[definition]{Definitions}
 \theoremstyle{plain}
 \newtheorem*{lemma*}{Lemma}\newtheorem{lemma}{Lemma}[section]
 \theoremstyle{plain}
 \newtheorem*{corollary*}{Corollary}\newtheorem{corollary}{Corollary}[section]
 \theoremstyle{plain}
-\newtheorem*{proposition*}{Proposition}\newtheorem{proposition}{Proposition}[section]
-\theoremstyle{plain}
 \newtheorem*{conjecture*}{Conjecture}\newtheorem{conjecture}{Conjecture}[section]
-\theoremstyle{definition}
-\newtheorem*{definition*}{Definition}\newtheorem{definition}{Definition}[section]
 \theoremstyle{definition}
 \newtheorem*{example*}{Example}\newtheorem{example}{Example}[section]
 \theoremstyle{definition}
 \newtheorem*{exercise*}{Exercise}\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{Thought*}{Thought}\newtheorem{Thought}{Thought}[section]
 \theoremstyle{remark}
 \newtheorem*{remark*}{Remark}
 \newtheorem*{solution*}{Solution}
+\newtheorem*{Example*}{Example}
+\theoremstyle{remark}
+\newtheorem*{Proof*}{Proof}
+\newtheorem*{Examples*}{Examples}
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 
 
@@ -217,7 +223,7 @@ In both cases, as \(k \to \infty\), \(\sup_{n\geq k }a_n \to 3\), so \(\limsup_{
 \addcontentsline{toc}{subsection}{Example 3}
 
 \BeginKnitrBlock{example}
-{\label{exm:ex3} }Consider the sequence \((a_n)_{n}\) defined by \[a_n = \cos\left(\frac{n\pi}{3}\right).\] Find \(\limsup_{n \to \infty} a_n\) and \(\liminf_{n \to \infty} a_n\).
+{\label{exm:ex3} }Consider the sequence \((a_n)_{n}\) defined by \[a_n = \cos\left(\frac{n\pi}{3}\right) + \frac{(-1)^n}{n}.\] Find \(\limsup_{n \to \infty} a_n\) and \(\liminf_{n \to \infty} a_n\).
 \EndKnitrBlock{example}
 Note that this time, you can't split \((a_n)_n\) up into two monotonic subsequences, so neither of the two methods in the previous examples work. So, we need to be crafty.
 

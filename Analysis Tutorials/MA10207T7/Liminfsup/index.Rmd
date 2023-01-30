@@ -9,20 +9,8 @@ classoption: a4paper
 fontsize: 10pt
 geometry: margin=2.5cm
 output:
-  clavertondown::html_clav:
-    toc: true
-    pandoc_args: --default-image-extension=svg
-  clavertondown::pdf_clav:
-    latex_engine: pdflatex
-    keep_tex: true
-    fig_caption: true
-    toc: true
-    extra_dependencies: ["float"]
-    pandoc_args: --default-image-extension=pdf
-  clavertondown::word_clav:
-    toc: true
-    number_sections: true
-    keep_md: true
+  clavertondown::epub_clav:
+    toc: false
     pandoc_args: --default-image-extension=svg
   clavertondown::gitbook_clav:
     split_by: section
@@ -31,8 +19,20 @@ output:
       download: [["Liminfsup.html", "HTML page"], ["Liminfsup.pdf","Standard print PDF"], ["LiminfsupClear.pdf","Clear print PDF"], ["LiminfsupLarge.pdf","Large print PDF"], ["Liminfsup.docx","Accessible Word document"], ["Liminfsup.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
-  clavertondown::epub_clav:
-    toc: false
+  clavertondown::word_clav:
+    toc: true
+    number_sections: true
+    keep_md: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::pdf_clav:
+    latex_engine: pdflatex
+    keep_tex: true
+    fig_caption: true
+    toc: true
+    extra_dependencies: ["float"]
+    pandoc_args: --default-image-extension=pdf
+  clavertondown::html_clav:
+    toc: true
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
@@ -96,7 +96,7 @@ In both cases, as $k \to \infty$, $\sup_{n\geq k }a_n \to 3$, so $\limsup_{n \to
 
 ## Example 3 {-}
 ```{example, label = "ex3"}
-Consider the sequence $(a_n)_{n}$ defined by $$a_n = \cos\left(\frac{n\pi}{3}\right).$$ Find $\limsup_{n \to \infty} a_n$ and $\liminf_{n \to \infty} a_n$.
+Consider the sequence $(a_n)_{n}$ defined by $$a_n = \cos\left(\frac{n\pi}{3}\right) + \frac{(-1)^n}{n}.$$ Find $\limsup_{n \to \infty} a_n$ and $\liminf_{n \to \infty} a_n$.
 ```
 Note that this time, you can't split $(a_n)_n$ up into two monotonic subsequences, so neither of the two methods in the previous examples work. So, we need to be crafty.
 
