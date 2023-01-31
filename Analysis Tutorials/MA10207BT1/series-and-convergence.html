@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.2 Series and Convergence | Analysis 1B — Tutorial 1</title>
+  <meta name="description" content="1.2 Series and Convergence | Analysis 1B — Tutorial 1" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1.2 Series and Convergence | Analysis 1B — Tutorial 1" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1.2 Series and Convergence | Analysis 1B — Tutorial 1" />
+  
+  
+  
+
+<meta name="author" content="Christian Jones: University of Bath" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="sequences-and-convergence.html"/>
+<link rel="next" href="sets-and-bounds.html"/>
+
+<script src="libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.MessageHook("End Math", function (msg) {
+  var nodes = Array.from(msg[1].querySelectorAll('.MJX_Assistive_MathML [id]'));
+  while (nodes.length) {
+    nodes.shift().removeAttribute('id');
+  }
+}, 20);
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "fast-preview": {disabled: true},
+  explorer:{ subtitle: true },
+  MatchWebFonts: { 
+    matchFor: { "HTML-CSS": true, NativeMML: false, SVG: false },
+    fontCheckDelay: 2000,
+    fontCheckTimeout: 30 * 1000
+  },
+  "HTML-CSS": {
+    preferredFont: "STIX",
+    availableFonts: ["STIX","TeX"],
+    webFont: "STIX-Web",
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  SVG: {
+    font: "STIX-Web",
+    linebreaks: { automatic: false, width: "90\% container" }
+  },
+  menuSettings: { 
+    collapsible: false, 
+    autocollapse: false, 
+    explorer: false 
+  }
+});
+</script>
+
+
+
+
+<style type="text/css">
+  a {
+   color: blue;
+  }
+  .book .book-summary ul.summary li a, .book .book-summary ul.summary li.active>a, .book .book-body .page-wrapper .page-inner section.normal a {
+  color: blue;
+  }
+
+  [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+   .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #1c242b;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0f6f7;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  
+  [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #182518;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0fcea;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #182518;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0fcea;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  [custom-style=NameStyle]{
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  [custom-style=NameStyleItalics]{
+    font-style: italic;
+  }
+
+  
+  [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #251e18;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #fdf3e9;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #2b1c21;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #fdefef;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+  
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="lecture-recap.html"><a href="lecture-recap.html"><i class="fa fa-check"></i><b>1</b> Lecture Recap</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="sequences-and-convergence.html"><a href="sequences-and-convergence.html"><i class="fa fa-check"></i><b>1.1</b> Sequences and Convergence</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="sequences-and-convergence.html"><a href="sequences-and-convergence.html#definition-of-convergence"><i class="fa fa-check"></i><b>1.1.1</b> Definition of Convergence</a></li>
+<li class="chapter" data-level="1.1.2" data-path="sequences-and-convergence.html"><a href="sequences-and-convergence.html#tests-for-convergence"><i class="fa fa-check"></i><b>1.1.2</b> Tests for Convergence</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="series-and-convergence.html"><a href="series-and-convergence.html"><i class="fa fa-check"></i><b>1.2</b> Series and Convergence</a></li>
+<li class="chapter" data-level="1.3" data-path="sets-and-bounds.html"><a href="sets-and-bounds.html"><i class="fa fa-check"></i><b>1.3</b> Sets and Bounds</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="hints.html"><a href="hints.html"><i class="fa fa-check"></i><b>2</b> Hints</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis 1B — Tutorial 1</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="series-and-convergence" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Series and Convergence</h2>
+The mathematics in this section is nothing new either — it’s really just sequences in disguise. Given a sequence <span class="math inline">\((a_n)_n\)</span>, one thing we can do is add up all the terms and see what happens. This leads on to the idea of an (infinite) series:
+
+<div id="def:def4" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def4" custom-style="NameStyle"><strong>Definition 1.4:  (Series) </strong></span>
+<div>
+Let <span class="math inline">\((a_n)_{n \in \mathbb{N}}\)</span> be a real sequence. Then <span class="math display">\[\sum_{n = 1}^{\infty} a_n\]</span> is called a series for <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span>.
+</div>
+</div>
+So when does this series converge? In other words, when is this object a real number? To answer these questions, we have the following definition:
+
+<div id="def:def5" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def5" custom-style="NameStyle"><strong>Definition 1.5:  (Series Convergence and Partial Sums) </strong></span>
+<div>
+Let <span class="math inline">\((a_n)_{n \in \mathbb{N}}\)</span> be a real sequence. Then <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> converges if and only if the sequence <span class="math inline">\((S_N)_{N \in \mathbb{N}}\)</span> converges, where <span class="math display">\[S_N:= \sum_{n = 1}^{N} a_n\]</span> is the <span class="math inline">\(N\)</span> partial sum. If <span class="math inline">\(S_N \to \ell\)</span> as <span class="math inline">\(N \to \infty\)</span>, we define <span class="math display">\[\ell = \sum_{n = 1}^{\infty}a_n.\]</span>
+</div>
+</div>
+Much like with proving sequence convergence, using the definition each time you want to `evaluate’ a series can get tedious really quickly. Therefore, we really want a couple of tests which can prove convergence without too much hassle. The first of these tests involves comparing the sizes of two series, and is aptly known as the comparison test.
+
+<div id="thm:thm4" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm4" custom-style="NameStyle"><strong>Theorem 1.4:  (Comparison Test) </strong></span>
+<p>
+Let <span class="math inline">\((a_n)_n\)</span> and <span class="math inline">\((b_n)_n\)</span> be real sequences, and suppose that there exists a <span class="math inline">\(M \in \mathbb{N}\)</span> such that <span class="math inline">\(\lvert a_n \rvert \leq b_n \;\forall n \geq M.\)</span>
+Then, if <span class="math inline">\(\sum_{n = 1}^{\infty} b_n\)</span> is convergent, <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> is convergent.
+</p>
+</div>
+<p>Naturally, using this, we can also build a test for divergence to <span class="math inline">\(\infty\)</span> out of the comparison test too.</p>
+
+<div id="cor:corol1" class="bookdown-corollary" custom-style="TheoremStyle">
+<span class="cor:corol1" custom-style="NameStyle"><strong>Corollary 1.1:  </strong></span>
+<p>
+Let <span class="math inline">\((a_n)_n\)</span> and <span class="math inline">\((b_n)_n\)</span> be real sequences. If there exists a <span class="math inline">\(M \in \mathbb{N}\)</span> such that <span class="math inline">\(0 \leq a_n \leq b_n \; \forall n \geq M\)</span>, and <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> diverges, then <span class="math inline">\(\sum_{n = 1}^{\infty} b_n\)</span> diverges.
+</p>
+</div>
+The second test we look at here is similar to the Growth Factor test (Theorem <a href="sequences-and-convergence.html#thm:thm2">1.2</a>), in that it assesses convergence of a series by examining the ratio of successive terms:
+
+<div id="thm:thm5" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm5" custom-style="NameStyle"><strong>Theorem 1.5:  (D’Alembert’s Ratio Test) </strong></span>
+<p>
+<p>Let <span class="math inline">\((a_n)_n\)</span> be a real sequence with <span class="math inline">\(a_n \neq 0 \; \forall n \in \mathbb{N}\)</span>. Suppose <span class="math display">\[\lim_{n\to\infty}\frac{\lvert a_{n+1}\rvert}{\lvert a_n\rvert} = r.\]</span> Then:</p>
+<ul>
+<li>If <span class="math inline">\(0 \leq r &lt; 1\)</span>, <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> converges.</li>
+<li>If <span class="math inline">\(r &gt; 1\)</span>, then <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> diverges.</li>
+<li>If <span class="math inline">\(r = 1\)</span>, the test is inconclusive.</li>
+</ul>
+</p>
+</div>
+<p>Again, this test fails if the series terms are formed of ratios of polynomials.</p>
+The final test presented here is applicable when the terms of the series alternate in sign:
+
+<div id="thm:thm6" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm6" custom-style="NameStyle"><strong>Theorem 1.6:  (Leibniz Alternating Series Test) </strong></span>
+<p>
+Suppose <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is a decreasing sequence tending to <span class="math inline">\(0\)</span> as <span class="math inline">\(n \to \infty\)</span>. Then <span class="math display">\[\sum_{n=1}^{\infty} (-1)^n a_n\]</span> is a convergent series.
+</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="sequences-and-convergence.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sets-and-bounds.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["Tutorial1.html", "HTML page"], ["Tutorial1.pdf", "Standard print PDF"], ["Tutorial1Clear.pdf", "Clear print PDF"], ["Tutorial1Large.pdf", "Large print PDF"], ["Tutorial1.docx", "Accessible Word document"], ["Tutorial1.epub", "Accessible EPub book"]],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+book_filename: "Tutorial1"
+output_dir: "./"
+new_theorems:
+  Thought: Tho
+  Definitions: Def
+  Example: ---
+  Proof: ---
+  Examples: ---
+number_by:
+  prp: thm
+  Def: def
+style_with:
+  plain: ["Definitions", "definition"]
+  definition: []
+  remark: ["Proof"]
+  colouroff: ["Examples"]
+  italicsoff: FALSE
+classify_as:
+  TheoremStyle: []
+  DefinitionStyle: []
+  ExampleStyle: ["Thought"]
+  ProofStyle: []
