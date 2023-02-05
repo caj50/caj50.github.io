@@ -201,11 +201,9 @@ Namely, \textbf{if there exists two subsequences converging to different limits}
 \hypertarget{limits-superior-and-inferior}{%
 \subsubsection{Limits Superior and Inferior}\label{limits-superior-and-inferior}}
 
-It is not always the case that the limit of a sequence exists --- take \((a_n)_{n\in\mathbb{N}}\) defined by \(a_n = (-1)^n\), for example. But there are two `limiting' objects which we can still talk about. These are the \emph{limit superior} and \emph{limit inferior} of a sequence, and can be thought of as `eventual' bounds on a sequence:
+It is not always the case that the limit of a sequence exists --- take for example the sequence \(\left((-1)^n\right)_{n\in\mathbb{N}}.\) But there are two `limiting' objects which we can still talk about. These are the \emph{limit superior} and \emph{limit inferior} of a sequence, and can be thought of as `eventual' bounds on a sequence:
 \BeginKnitrBlock{definition}[Limits Superior and Inferior]
-{\label{def:def100} }For a sequence \((a_n)_{n\in\mathbb{N}}\), we define the limits superior and inferior to be \[\limsup_{n \to \infty} a_n := \lim_{k\to\infty}\sup_{n\geq k}a_n \;\, \text{and} \;\, \liminf_{n \to \infty} a_n := \lim_{k\to\infty}\inf_{n\geq k}a_n.\]
-
-If \((a_n)_{n\in\mathbb{N}}\) is unbounded above, we set \(\limsup_{n \to \infty} a_n = +\infty\), and if \((a_n)_{n\in\mathbb{N}}\) is unbounded below, we set \(\liminf_{n \to \infty} a_n = -\infty.\)
+{\label{def:def100} }For a sequence \((a_n)_{n\in\mathbb{N}}\), we define the limits superior and inferior to be \[\limsup_{n \to \infty} a_n := \lim_{k\to\infty}\sup_{n\geq k}a_n \;\, \text{and} \;\, \liminf_{n \to \infty} a_n := \lim_{k\to\infty}\inf_{n\geq k}a_n.\] If the sequence \((a_n)_{n\in\mathbb{N}}\) is unbounded above, we say that \(\limsup_{n \to \infty} a_n = +\infty\). If \((a_n)_{n\in\mathbb{N}}\) is unbounded below, we set \(\liminf_{n \to \infty} a_n = -\infty.\)
 \EndKnitrBlock{definition}
 Alternatively, we can think of \(\limsup_{n\to\infty} a_n\) and \(\liminf_{n \to \infty}a_n\) as being the largest and smallest possible limits of any subsequence of \((a_n)_{n\in\mathbb{N}}\) respectively.
 

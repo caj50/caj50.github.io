@@ -16,11 +16,11 @@ output:
       download: [["Tutorial1.html", "HTML page"], ["Tutorial1.pdf","Standard print PDF"], ["Tutorial1Clear.pdf","Clear print PDF"], ["Tutorial1Large.pdf","Large print PDF"], ["Tutorial1.docx","Accessible Word document"], ["Tutorial1.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
-  clavertondown::html_clav:
-    toc: true
-    pandoc_args: --default-image-extension=svg
   clavertondown::epub_clav:
     toc: false
+    pandoc_args: --default-image-extension=svg
+  clavertondown::html_clav:
+    toc: true
     pandoc_args: --default-image-extension=svg
   clavertondown::word_clav:
     toc: true
@@ -94,10 +94,8 @@ Using these subsequences to prove non-convergence relies on the contrapositive o
 Namely, **if there exists two subsequences converging to different limits**, then the **original sequence does not converge**!
 
 ### Limits Superior and Inferior
-It is not always the case that the limit of a sequence exists — take for example $(a_n)_{n\in\mathbb{N}}$ defined by $a_n = (-1)^n$. But there are two 'limiting' objects which we can still talk about. These are the *limit superior* and *limit inferior* of a sequence, and can be thought of as 'eventual' bounds on a sequence:
-\BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def100"><span class="def:def100" custom-style="NameStyle"><strong>(\#def:def100)  (Limits Superior and Inferior) </strong></span><div>For a sequence $(a_n)_{n\in\mathbb{N}}$, we define the limits superior and inferior to be $$\limsup_{n \to \infty} a_n := \lim_{k\to\infty}\sup_{n\geq k}a_n \;\, \text{and} \;\, \liminf_{n \to \infty} a_n := \lim_{k\to\infty}\inf_{n\geq k}a_n.$$
-
-If $(a_n)_{n\in\mathbb{N}}$ is unbounded above, we say that $\limsup_{n \to \infty} a_n = +\infty$, and if $(a_n)_{n\in\mathbb{N}}$ is unbounded below, we set $\liminf_{n \to \infty} a_n = -\infty.$</div></div>\EndKnitrBlock{definition}
+It is not always the case that the limit of a sequence exists — take for example the sequence $\left((-1)^n\right)_{n\in\mathbb{N}}.$ But there are two 'limiting' objects which we can still talk about. These are the *limit superior* and *limit inferior* of a sequence, and can be thought of as 'eventual' bounds on a sequence:
+\BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def100"><span class="def:def100" custom-style="NameStyle"><strong>(\#def:def100)  (Limits Superior and Inferior) </strong></span><div>For a sequence $(a_n)_{n\in\mathbb{N}}$, we define the limits superior and inferior to be $$\limsup_{n \to \infty} a_n := \lim_{k\to\infty}\sup_{n\geq k}a_n \;\, \text{and} \;\, \liminf_{n \to \infty} a_n := \lim_{k\to\infty}\inf_{n\geq k}a_n.$$ If the sequence $(a_n)_{n\in\mathbb{N}}$ is unbounded above, we say that $\limsup_{n \to \infty} a_n = +\infty$. If $(a_n)_{n\in\mathbb{N}}$ is unbounded below, we set $\liminf_{n \to \infty} a_n = -\infty.$</div></div>\EndKnitrBlock{definition}
 Alternatively, we can think of $\limsup_{n\to\infty} a_n$ and $\liminf_{n \to \infty}a_n$ as being the largest and smallest possible limits of any subsequence of $(a_n)_{n\in\mathbb{N}}$ respectively.
 
 ## Series and Convergence
