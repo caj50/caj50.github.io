@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Analysis 1B — Tutorial 1" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Christian Jones: University of Bath" />
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.MessageHook("End Math", function (msg) {
+  var nodes = Array.from(msg[1].querySelectorAll('.MJX_Assistive_MathML [id]'));
+  while (nodes.length) {
+    nodes.shift().removeAttribute('id');
+  }
+}, 20);
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "fast-preview": {disabled: true},
+  explorer:{ subtitle: true },
+  MatchWebFonts: { 
+    matchFor: { "HTML-CSS": true, NativeMML: false, SVG: false },
+    fontCheckDelay: 2000,
+    fontCheckTimeout: 30 * 1000
+  },
+  "HTML-CSS": {
+    preferredFont: "STIX",
+    availableFonts: ["STIX","TeX"],
+    webFont: "STIX-Web",
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  SVG: {
+    font: "STIX-Web",
+    linebreaks: { automatic: false, width: "90\% container" }
+  },
+  menuSettings: { 
+    collapsible: false, 
+    autocollapse: false, 
+    explorer: false 
+  }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta name="description" content="Analysis 1B — Tutorial 1">
+
+<title>Analysis 1B — Tutorial 1</title>
+
+<script src="libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+</style>
+
+<style type="text/css">
+  a {
+   color: blue;
+  }
+
+  [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  [custom-style=NameStyle]{
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  [custom-style=NameStyleItalics]{
+    font-style: italic;
+  }
+
+  
+  [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+  
+  [data-custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  
+</style>
+
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<!--bookdown:title:start-->
+<div id="header">
+<h1 class="title">Analysis 1B — Tutorial 1</h1>
+<h4 class="author"><em>Christian Jones: University of Bath</em></h4>
+<h4 class="date"><em>February 2023</em></h4>
+</div>
+<!--bookdown:title:end-->
+
+<!--bookdown:toc:start-->
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#lecture-recap"><span class="toc-section-number">1</span> Lecture Recap</a>
+<ul>
+<li><a href="#sequences-and-convergence"><span class="toc-section-number">1.1</span> Sequences and Convergence</a>
+<ul>
+<li><a href="#definition-of-convergence"><span class="toc-section-number">1.1.1</span> Definition of Convergence</a></li>
+<li><a href="#tests-for-convergence"><span class="toc-section-number">1.1.2</span> Tests for Convergence</a></li>
+<li><a href="#subsequences"><span class="toc-section-number">1.1.3</span> Subsequences</a></li>
+<li><a href="#limits-superior-and-inferior"><span class="toc-section-number">1.1.4</span> Limits Superior and Inferior</a></li>
+</ul></li>
+<li><a href="#series-and-convergence"><span class="toc-section-number">1.2</span> Series and Convergence</a>
+<ul>
+<li><a href="#definitions"><span class="toc-section-number">1.2.1</span> Definitions</a></li>
+<li><a href="#tests-for-convergence-1"><span class="toc-section-number">1.2.2</span> Tests for Convergence</a></li>
+</ul></li>
+<li><a href="#sets-and-bounds"><span class="toc-section-number">1.3</span> Sets and Bounds</a>
+<ul>
+<li><a href="#upper-and-lower-bounds"><span class="toc-section-number">1.3.1</span> Upper and Lower Bounds</a></li>
+<li><a href="#suprema-and-infima"><span class="toc-section-number">1.3.2</span> Suprema and Infima</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#hints"><span class="toc-section-number">2</span> Hints</a></li>
+</ul>
+</div>
+<!--bookdown:toc:end-->
+
+<!--bookdown:body:start-->
+<!-- This is needed since I am working with svg files from mathcha.io. It converts the graphics files to something that can be used in the pdf files. Code taken from https://stackoverflow.com/questions/50165404/how-to-make-a-pdf-using-bookdown-including-svg-images/56044642#56044642 -->
+<div id="introduction" class="section level1 unnumbered">
+<h1>Introduction</h1>
+<p>Here is the material to accompany the 1st Analysis 1B Tutorial on the 6th February. Alternative formats can be downloaded by clicking the download icon at the top of the page. Please send any comments or corrections to <a href="mailto:caj50@bath.ac.uk">Christian Jones (caj50)</a>. To return to the homepage, click <a href="http://caj50.github.io/tutoring.html">here</a>.</p>
+</div>
+<div id="lecture-recap" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Lecture Recap</h1>
+<p>This is somewhat a disingenuous title, as there haven’t been any lectures for this unit yet! Instead, we are going to recap some of the material from last semester, which will come in handy for the content you’ll see over the next eleven weeks. The material here is quite terse, but should hopefully provide a useful summary of some of the main results. For more details, see the Analysis 1A files from Semester 1.</p>
+<div id="sequences-and-convergence" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Sequences and Convergence</h2>
+<div id="definition-of-convergence" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Definition of Convergence</h3>
+To begin, we recall the definition of a sequence:
+
+<div id="def:def1" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Sequence) </strong></span>
+<div>
+A sequence of real numbers is a function
+<span class="math display">\[\begin{align*}
+    a:\; &amp;\mathbb{N} \longrightarrow \mathbb{R},\\
+    &amp;n \longmapsto a_n.
+\end{align*}\]</span>
+</div>
+</div>
+<p>As you saw last semester, this notation can get pretty annoying, so instead we write a sequence as <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span>. If it’s clear from the context what set we’re indexing over, we can even just write <span class="math inline">\((a_n)_n\)</span>.</p>
+Since the natural numbers forms a countably infinite set, a sequence gives us a countably infinite list of real numbers. Sometimes it’s interesting to look at the ‘long-term’ behaviour of this list which leads on to the idea of convergence:
+
+<div id="def:def2" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def2" custom-style="NameStyle"><strong>Definition 1.2:  (Sequence Convergence) </strong></span>
+<div>
+A sequence <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> converges to a real number <span class="math inline">\(L\)</span> as <span class="math inline">\(n \longrightarrow \infty\)</span>, written as either <span class="math inline">\(a_n \longrightarrow L\)</span>, or <span class="math inline">\(\lim_{n \to \infty}a_n = L\)</span> if <span class="math display">\[\forall \epsilon &gt; 0, \; \exists N = N(\epsilon) \in \mathbb{N}, \; \text{such that} \; \forall n \geq N, \; \lvert a_n - L \rvert &lt; \epsilon.\]</span>
+</div>
+</div>
+<p>Loosely speaking, this says that no matter how close you want the sequence to get to <span class="math inline">\(L\)</span>, you will always be able to find some point in the sequence after which all points in the sequence will be as close to <span class="math inline">\(L\)</span> as desired.</p>
+</div>
+<div id="tests-for-convergence" class="section level3" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Tests for Convergence</h3>
+<p>Using the definition to prove sequence convergence (or otherwise) for every possible sequence is incredibly tedious. So what we really want is some criteria or tests which make these proofs much easier. You’ll find some of these tests below.</p>
+The first test is the <em>sandwich</em> (or <em>pinching</em> or <em>squeeze</em>) theorem:
+
+<div id="thm:thm1" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1.1:  (Sandwich Theorem) </strong></span>
+<p>
+Suppose that <span class="math inline">\((a_n)_{n\in\mathbb{N}}\, , \, (b_n)_{n\in\mathbb{N}}\, , \, (c_n)_{n\in\mathbb{N}}\)</span> are real sequences. If <span class="math inline">\(a_n \leq b_n \leq c_n \quad \forall n \in \mathbb{N}\)</span>, and <span class="math inline">\(\exists L \in \mathbb{R}\)</span> such that
+<span class="math display">\[\begin{align*}
+    \lim_{n \to \infty} a_n = L = \lim_{n \to \infty} c_n,
+\end{align*}\]</span>
+then <span class="math inline">\(\lim_{n \to \infty}b_n = L\)</span>.
+</p>
+</div>
+<p>In words, this says that if you can ‘trap’ a sequence between two other sequences converging to a common limit, then all three sequences involved will converge to the same limit.</p>
+The second test is known as the <em>Growth Factor Test</em>, and aims to determine convergence by comparing the ratio of successive terms in a sequence:
+
+<div id="thm:thm2" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm2" custom-style="NameStyle"><strong>Theorem 1.2:  (Growth Factor Test) </strong></span>
+<p>
+<p>Let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> be a real sequence with <span class="math inline">\(a_n&gt;0 \; \forall n\in\mathbb{N}\)</span>, and with <span class="math display">\[\lim_{n\to\infty} \frac{a_{n+1}}{a_n} = r.\]</span> Then:</p>
+<ul>
+<li>If <span class="math inline">\(r &lt; 1\)</span>, <span class="math inline">\(a_n \to 0\)</span> as <span class="math inline">\(n \to \infty\)</span>.</li>
+<li>If <span class="math inline">\(r &gt; 1\)</span>, <span class="math inline">\(a_n \to \infty\)</span> as <span class="math inline">\(n \to \infty\)</span>.</li>
+<li>If <span class="math inline">\(r = 1\)</span>, the test is inconclusive.</li>
+</ul>
+</p>
+</div>
+<p>Note that this test won’t work if the terms of the sequence <span class="math inline">\((a_n)_n\)</span> are given by rational functions (i.e. ratios of polynomials). Can you see/prove why?</p>
+</div>
+<div id="subsequences" class="section level3" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> Subsequences</h3>
+The two tests above are great at proving convergence, but is there a quick way of proving non-convergence? As you’ve seen before, we can do this using subsequences:
+
+<div id="def:def3" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def3" custom-style="NameStyle"><strong>Definition 1.3:  (Subsequence) </strong></span>
+<div>
+Let <span class="math inline">\((a_n)_{n \in \mathbb{N}}\)</span> be a real sequence, and let <span class="math inline">\((n_k)_{k\in\mathbb{N}}\)</span> be a strictly increasing sequence. Then <span class="math inline">\((a_{n_k})_{k\in\mathbb{N}}\)</span> is called a subsequence of <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span>.
+</div>
+</div>
+Using these subsequences to prove non-convergence relies on the contrapositive of the following proposition:
+
+<div id="prp:prop1" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.3:  </strong></span>
+<p>
+If a real sequence <span class="math inline">\((a_n)_n\)</span> converges to a limit <span class="math inline">\(L\)</span>, then all subsequences <span class="math inline">\((a_{n_k})_k\)</span> of <span class="math inline">\((a_n)_n\)</span> also converge to <span class="math inline">\(L\)</span>.
+</p>
+</div>
+<p>Namely, <strong>if there exists two subsequences converging to different limits</strong>, then the <strong>original sequence does not converge</strong>!</p>
+</div>
+<div id="limits-superior-and-inferior" class="section level3" number="1.1.4">
+<h3><span class="header-section-number">1.1.4</span> Limits Superior and Inferior</h3>
+It is not always the case that the limit of a sequence exists — take <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> defined by <span class="math inline">\(a_n = (-1)^n\)</span>, for example. But there are two ‘limiting’ objects which we can still talk about. These are the <em>limit superior</em> and <em>limit inferior</em> of a sequence, and can be thought of as ‘eventual’ bounds on a sequence:
+
+<div id="def:def100" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def100" custom-style="NameStyle"><strong>Definition 1.4:  (Limits Superior and Inferior) </strong></span>
+<div>
+<p>For a sequence <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span>, we define the limits superior and inferior to be <span class="math display">\[\limsup_{n \to \infty} a_n := \lim_{k\to\infty}\sup_{n\geq k}a_n \;\, \text{and} \;\, \liminf_{n \to \infty} a_n := \lim_{k\to\infty}\inf_{n\geq k}a_n.\]</span></p>
+If <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is unbounded above, we set <span class="math inline">\(\limsup_{n \to \infty} a_n = +\infty\)</span>, and if <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is unbounded below, we set <span class="math inline">\(\liminf_{n \to \infty} a_n = -\infty.\)</span>
+</div>
+</div>
+<p>Alternatively, we can think of <span class="math inline">\(\limsup_{n\to\infty} a_n\)</span> and <span class="math inline">\(\liminf_{n \to \infty}a_n\)</span> as being the largest and smallest possible limits of any subsequence of <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> respectively.</p>
+</div>
+</div>
+<div id="series-and-convergence" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Series and Convergence</h2>
+<div id="definitions" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Definitions</h3>
+The mathematics in this section is nothing new either — it’s really just sequences in disguise. Given a sequence, one thing we can do is add up all the terms and see what happens. This results in the idea of an (infinite) series:
+
+<div id="def:def4" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def4" custom-style="NameStyle"><strong>Definition 1.5:  (Series) </strong></span>
+<div>
+Let <span class="math inline">\((a_n)_{n \in \mathbb{N}}\)</span> be a real sequence. Then <span class="math display">\[\sum_{n = 1}^{\infty} a_n\]</span> is called a series for <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span>.
+</div>
+</div>
+So when does this series converge? In other words, when is the object in Definition <a href="#def:def4">1.5</a> a real number? To answer these questions, we have the following definition:
+
+<div id="def:def5" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def5" custom-style="NameStyle"><strong>Definition 1.6:  (Series Convergence and Partial Sums) </strong></span>
+<div>
+Let <span class="math inline">\((a_n)_{n \in \mathbb{N}}\)</span> be a real sequence. Then <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> converges if and only if the sequence <span class="math inline">\((S_N)_{N \in \mathbb{N}}\)</span> converges, where <span class="math display">\[S_N:= \sum_{n = 1}^{N} a_n\]</span> is the <span class="math inline">\(N^{\text{th}}\)</span> partial sum. If <span class="math inline">\(S_N \to \ell\)</span> as <span class="math inline">\(N \to \infty\)</span>, we define <span class="math display">\[\ell = \sum_{n = 1}^{\infty}a_n.\]</span>
+</div>
+</div>
+</div>
+<div id="tests-for-convergence-1" class="section level3" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Tests for Convergence</h3>
+Much like with proving sequence convergence, using the definition each time you want to ‘evaluate’ a series can get tedious really quickly. Therefore, we really want a couple of tests which can prove convergence without too much hassle. The first of these tests involves comparing the sizes of two series, and is aptly known as the comparison test.
+
+<div id="thm:thm4" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm4" custom-style="NameStyle"><strong>Theorem 1.4:  (Comparison Test) </strong></span>
+<p>
+Let <span class="math inline">\((a_n)_n\)</span> and <span class="math inline">\((b_n)_n\)</span> be real sequences, and suppose that there exists a <span class="math inline">\(M \in \mathbb{N}\)</span> such that <span class="math inline">\(\lvert a_n \rvert \leq b_n \;\forall n \geq M.\)</span>
+Then, if <span class="math inline">\(\sum_{n = 1}^{\infty} b_n\)</span> is convergent, <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> is convergent.
+</p>
+</div>
+<p>Naturally, using this, we can also build a test for divergence to <span class="math inline">\(\infty\)</span> out of the comparison test too.</p>
+
+<div id="cor:corol1" class="bookdown-corollary" custom-style="TheoremStyle">
+<span class="cor:corol1" custom-style="NameStyle"><strong>Corollary 1.1:  </strong></span>
+<p>
+Let <span class="math inline">\((a_n)_n\)</span> and <span class="math inline">\((b_n)_n\)</span> be real sequences. If there exists a <span class="math inline">\(M \in \mathbb{N}\)</span> such that <span class="math inline">\(0 \leq a_n \leq b_n \; \forall n \geq M\)</span>, and <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> diverges, then <span class="math inline">\(\sum_{n = 1}^{\infty} b_n\)</span> diverges.
+</p>
+</div>
+The second test we look at here is similar to the Growth Factor test (Theorem <a href="#thm:thm2">1.2</a>), in that it assesses convergence of a series by examining the ratio of successive terms:
+
+<div id="thm:thm5" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm5" custom-style="NameStyle"><strong>Theorem 1.5:  (D’Alembert’s Ratio Test) </strong></span>
+<p>
+<p>Let <span class="math inline">\((a_n)_n\)</span> be a real sequence with <span class="math inline">\(a_n \neq 0 \; \forall n \in \mathbb{N}\)</span>. Suppose <span class="math display">\[\lim_{n\to\infty}\frac{\lvert a_{n+1}\rvert}{\lvert a_n\rvert} = r.\]</span> Then:</p>
+<ul>
+<li>If <span class="math inline">\(0 \leq r &lt; 1\)</span>, <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> converges.</li>
+<li>If <span class="math inline">\(r &gt; 1\)</span>, then <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> diverges.</li>
+<li>If <span class="math inline">\(r = 1\)</span>, the test is inconclusive.</li>
+</ul>
+</p>
+</div>
+<p>Like the Growth Factor Test, d’Alembert’s test fails if the terms of the series are formed of ratios of polynomials.</p>
+The final test presented here is applicable when the terms of the series alternate in sign:
+
+<div id="thm:thm6" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm6" custom-style="NameStyle"><strong>Theorem 1.6:  (Leibniz Alternating Series Test) </strong></span>
+<p>
+Suppose <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is a decreasing sequence tending to <span class="math inline">\(0\)</span> as <span class="math inline">\(n \to \infty\)</span>. Then <span class="math display">\[\sum_{n=1}^{\infty} (-1)^n a_n\]</span> is a convergent series. Further, the value of this series lies between <span class="math inline">\(-a_1\)</span> and <span class="math inline">\(a_2 - a_1\)</span>.
+</p>
+</div>
+</div>
+</div>
+<div id="sets-and-bounds" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Sets and Bounds</h2>
+<div id="upper-and-lower-bounds" class="section level3" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> Upper and Lower Bounds</h3>
+The final topic we are going to re-cover here involves sets of real numbers, and deciding on whether we can ‘trap’ these sets between an upper bound — which no member of the set can lie above — and a lower bound — which no member of the set can lie below. To do this requires a few defintions, which are presented below:
+
+<div id="def:def6" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def6" custom-style="NameStyle"><strong>Definition 1.7:  (Upper Bound) </strong></span>
+<div>
+Let <span class="math inline">\(S \subseteq \mathbb{R}\)</span>. Then <span class="math inline">\(M \in \mathbb{R}\)</span> is an upper bound for <span class="math inline">\(S\)</span> if for all <span class="math inline">\(x \in S\)</span>, <span class="math inline">\(x \leq M\)</span>. In this case, we say <span class="math inline">\(S\)</span> is bounded above.
+</div>
+</div>
+
+<div id="def:def7" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def7" custom-style="NameStyle"><strong>Definition 1.8:  (Lower Bound) </strong></span>
+<div>
+Let <span class="math inline">\(S \subseteq \mathbb{R}\)</span>. Then <span class="math inline">\(m \in \mathbb{R}\)</span> is a lower bound for <span class="math inline">\(S\)</span> if for all <span class="math inline">\(x \in S\)</span>, <span class="math inline">\(x \geq m\)</span>. In this case, we say that <span class="math inline">\(S\)</span> is bounded below.
+</div>
+</div>
+
+<div id="def:def8" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def8" custom-style="NameStyle"><strong>Definition 1.9:  (Bounded Set) </strong></span>
+<div>
+A set <span class="math inline">\(S\)</span> is bounded if it is both bounded above and below. Equivalently, <span class="math inline">\(S\)</span> is bounded if there exists <span class="math inline">\(m, M \in \mathbb{R}\)</span> such that for all <span class="math inline">\(x \in S\)</span>, <span class="math inline">\(m\leq x \leq M\)</span>.
+</div>
+</div>
+</div>
+<div id="suprema-and-infima" class="section level3" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> Suprema and Infima</h3>
+<p>Think about upper bounds for a moment: if we have one, we could ask if there is a smaller number that also bounds the set from above. You might also be tempted to ask what the ‘best’ upper bound on a set could be, such that no smaller number will bound the set from above. This leads to the ideas of suprema and, analogously for lower bounds, infima:</p>
+
+<div id="def:def9" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def9" custom-style="NameStyle"><strong>Definition 1.10:  (Supremum) </strong></span>
+<div>
+Let <span class="math inline">\(S \in \mathbb{R}\)</span>. A number <span class="math inline">\(T \in \mathbb{R}\)</span> is said to be the supremum of <span class="math inline">\(S\)</span> if it is an upper bound for <span class="math inline">\(S\)</span>, and for any other upper bound <span class="math inline">\(M\)</span>, <span class="math inline">\(T \leq M\)</span>. Here, we write <span class="math inline">\(T = \sup(S)\)</span>.
+</div>
+</div>
+
+<div id="def:def10" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def10" custom-style="NameStyle"><strong>Definition 1.11:  (Infimum) </strong></span>
+<div>
+Let <span class="math inline">\(S \in \mathbb{R}\)</span>. A number <span class="math inline">\(t \in \mathbb{R}\)</span> is said to be the infimum of <span class="math inline">\(S\)</span> if it is a lower bound for <span class="math inline">\(S\)</span>, and for any other lower bound <span class="math inline">\(m\)</span>, <span class="math inline">\(t\geq m\)</span>. Here, we write <span class="math inline">\(t = \inf(S)\)</span>.
+</div>
+</div>
+Finally, we state an alternative characterisation of the supremum/infimum of a set.
+
+<div id="prp:prop2" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop2" custom-style="NameStyle"><strong>Proposition 1.7:  </strong></span>
+<p>
+Let <span class="math inline">\(S\subseteq\mathbb{R}\)</span>. Then a number <span class="math inline">\(T\in\mathbb{R}\)</span> is the supremum of <span class="math inline">\(S\)</span>, denoted <span class="math inline">\(\sup(S)\)</span> if: <span class="math display">\[\forall \epsilon &gt; 0, \exists s \in S\; \text{such that} \; s &gt; T - \epsilon.\]</span>
+</p>
+</div>
+
+<div id="prp:prop3" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop3" custom-style="NameStyle"><strong>Proposition 1.8:  </strong></span>
+<p>
+Let <span class="math inline">\(S\subseteq\mathbb{R}\)</span>. Then a number <span class="math inline">\(t\in\mathbb{R}\)</span> is the infimum of <span class="math inline">\(S\)</span>, denoted <span class="math inline">\(\inf(S)\)</span> if: <span class="math display">\[\forall \epsilon &gt; 0, \exists s \in S\; \text{such that} \; s &lt; t + \epsilon.\]</span>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="hints" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Hints</h1>
+<p>In this section, you’ll find hints for the current week’s problem sheet. Try and have a go without them first, but hopefully these will help you solve the problems.</p>
+<ol style="list-style-type: decimal">
+<li>This question is all about sequences!
+<ol style="list-style-type: lower-alpha">
+<li>This one requires you to use the definition, so you can’t use any of the tests!
+<ol style="list-style-type: lower-roman">
+<li>Remember, if you make the denominator of a fraction smaller, you make the overall fraction larger.</li>
+<li><span class="math inline">\(\sqrt[4]{n} = \sqrt{\sqrt{n}}\)</span>.</li>
+</ol></li>
+<li>Think about which tests you can apply for convergence. As a further hint, one of these sequences converges, and one doesn’t.</li>
+</ol></li>
+<li>This question is all about series! Think about all the tests you’ve seen for series convergence, and also, think about some of the series you calculated last semester.</li>
+<li>This questions is all about sets and bounds!
+<ol style="list-style-type: lower-alpha">
+<li>Before you start calculating the <span class="math inline">\(\sup\)</span>,<span class="math inline">\(\inf\)</span>, etc., draw a graph — it’ll help you rewrite this set.</li>
+<li>Try writing out the first few components of the infinite union, this might suggest whether the set is bounded or not.</li>
+</ol></li>
+</ol>
+<!--chapter:end:index.Rmd-->
+</div>
+<!--bookdown:body:end-->
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>

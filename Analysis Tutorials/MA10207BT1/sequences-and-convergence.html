@@ -273,9 +273,19 @@ MathJax.Hub.Config({
 <ul>
 <li class="chapter" data-level="1.1.1" data-path="sequences-and-convergence.html"><a href="sequences-and-convergence.html#definition-of-convergence"><i class="fa fa-check"></i><b>1.1.1</b> Definition of Convergence</a></li>
 <li class="chapter" data-level="1.1.2" data-path="sequences-and-convergence.html"><a href="sequences-and-convergence.html#tests-for-convergence"><i class="fa fa-check"></i><b>1.1.2</b> Tests for Convergence</a></li>
+<li class="chapter" data-level="1.1.3" data-path="sequences-and-convergence.html"><a href="sequences-and-convergence.html#subsequences"><i class="fa fa-check"></i><b>1.1.3</b> Subsequences</a></li>
+<li class="chapter" data-level="1.1.4" data-path="sequences-and-convergence.html"><a href="sequences-and-convergence.html#limits-superior-and-inferior"><i class="fa fa-check"></i><b>1.1.4</b> Limits Superior and Inferior</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="series-and-convergence.html"><a href="series-and-convergence.html"><i class="fa fa-check"></i><b>1.2</b> Series and Convergence</a></li>
-<li class="chapter" data-level="1.3" data-path="sets-and-bounds.html"><a href="sets-and-bounds.html"><i class="fa fa-check"></i><b>1.3</b> Sets and Bounds</a></li>
+<li class="chapter" data-level="1.2" data-path="series-and-convergence.html"><a href="series-and-convergence.html"><i class="fa fa-check"></i><b>1.2</b> Series and Convergence</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="series-and-convergence.html"><a href="series-and-convergence.html#definitions"><i class="fa fa-check"></i><b>1.2.1</b> Definitions</a></li>
+<li class="chapter" data-level="1.2.2" data-path="series-and-convergence.html"><a href="series-and-convergence.html#tests-for-convergence-1"><i class="fa fa-check"></i><b>1.2.2</b> Tests for Convergence</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="sets-and-bounds.html"><a href="sets-and-bounds.html"><i class="fa fa-check"></i><b>1.3</b> Sets and Bounds</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="sets-and-bounds.html"><a href="sets-and-bounds.html#upper-and-lower-bounds"><i class="fa fa-check"></i><b>1.3.1</b> Upper and Lower Bounds</a></li>
+<li class="chapter" data-level="1.3.2" data-path="sets-and-bounds.html"><a href="sets-and-bounds.html#suprema-and-infima"><i class="fa fa-check"></i><b>1.3.2</b> Suprema and Infima</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="hints.html"><a href="hints.html"><i class="fa fa-check"></i><b>2</b> Hints</a></li>
 </ul>
@@ -311,8 +321,8 @@ A sequence of real numbers is a function
 \end{align*}\]</span>
 </div>
 </div>
-<p>As you saw last semester, this notation can get pretty annoying, so instead we use the notation <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span>. If it’s clear from the context what set we’re indexing over, we can even just write <span class="math inline">\((a_n)_n\)</span>.</p>
-Since the natural numbers forms a countably infinite set, a sequence gives us a countably infinite list of real numbers. Sometimes it’s interesting to look at the ‘long-term’ behaviour of this list, which gives us the idea of convergence:
+<p>As you saw last semester, this notation can get pretty annoying, so instead we write a sequence as <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span>. If it’s clear from the context what set we’re indexing over, we can even just write <span class="math inline">\((a_n)_n\)</span>.</p>
+Since the natural numbers forms a countably infinite set, a sequence gives us a countably infinite list of real numbers. Sometimes it’s interesting to look at the ‘long-term’ behaviour of this list which leads on to the idea of convergence:
 
 <div id="def:def2" class="bookdown-definition" custom-style="DefinitionStyle">
 <span class="def:def2" custom-style="NameStyle"><strong>Definition 1.2:  (Sequence Convergence) </strong></span>
@@ -320,12 +330,12 @@ Since the natural numbers forms a countably infinite set, a sequence gives us a 
 A sequence <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> converges to a real number <span class="math inline">\(L\)</span> as <span class="math inline">\(n \longrightarrow \infty\)</span>, written as either <span class="math inline">\(a_n \longrightarrow L\)</span>, or <span class="math inline">\(\lim_{n \to \infty}a_n = L\)</span> if <span class="math display">\[\forall \epsilon &gt; 0, \; \exists N = N(\epsilon) \in \mathbb{N}, \; \text{such that} \; \forall n \geq N, \; \lvert a_n - L \rvert &lt; \epsilon.\]</span>
 </div>
 </div>
-<p>Loosely speaking, this says that no matter how close you want the sequence to get to <span class="math inline">\(L\)</span>, you will always be able to find some point in the sequence after which all points in the sequence will be as close to <span class="math inline">\(L\)</span> as you wanted.</p>
+<p>Loosely speaking, this says that no matter how close you want the sequence to get to <span class="math inline">\(L\)</span>, you will always be able to find some point in the sequence after which all points in the sequence will be as close to <span class="math inline">\(L\)</span> as desired.</p>
 </div>
 <div id="tests-for-convergence" class="section level3" number="1.1.2">
 <h3><span class="header-section-number">1.1.2</span> Tests for Convergence</h3>
 <p>Using the definition to prove sequence convergence (or otherwise) for every possible sequence is incredibly tedious. So what we really want is some criteria or tests which make these proofs much easier. You’ll find some of these tests below.</p>
-The first test is the <em>sandwich/pinching/squeeze</em> theorem:
+The first test is the <em>sandwich</em> (or <em>pinching</em> or <em>squeeze</em>) theorem:
 
 <div id="thm:thm1" class="bookdown-theorem" custom-style="TheoremStyle">
 <span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1.1:  (Sandwich Theorem) </strong></span>
@@ -337,7 +347,7 @@ Suppose that <span class="math inline">\((a_n)_{n\in\mathbb{N}}\, , \, (b_n)_{n\
 then <span class="math inline">\(\lim_{n \to \infty}b_n = L\)</span>.
 </p>
 </div>
-<p>In words, this says that if you can ‘trap’ the sequence under consideration between two other sequences which converge to a common limit, then all three sequences involved will converge to the same limit.</p>
+<p>In words, this says that if you can ‘trap’ a sequence between two other sequences converging to a common limit, then all three sequences involved will converge to the same limit.</p>
 The second test is known as the <em>Growth Factor Test</em>, and aims to determine convergence by comparing the ratio of successive terms in a sequence:
 
 <div id="thm:thm2" class="bookdown-theorem" custom-style="TheoremStyle">
@@ -351,13 +361,16 @@ The second test is known as the <em>Growth Factor Test</em>, and aims to determi
 </ul>
 </p>
 </div>
-<p>Note that this test won’t work if the terms of the sequence <span class="math inline">\((a_n)_n\)</span> are given by ratios of polynomials (can you see/prove why?)</p>
-These two tests are good at proving convergence, but is there a quick way of proving non-convergence? As you’ve seen before, we can do this using subsequences:
+<p>Note that this test won’t work if the terms of the sequence <span class="math inline">\((a_n)_n\)</span> are given by rational functions (i.e. ratios of polynomials). Can you see/prove why?</p>
+</div>
+<div id="subsequences" class="section level3" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> Subsequences</h3>
+The two tests above are great at proving convergence, but is there a quick way of proving non-convergence? As you’ve seen before, we can do this using subsequences:
 
 <div id="def:def3" class="bookdown-definition" custom-style="DefinitionStyle">
 <span class="def:def3" custom-style="NameStyle"><strong>Definition 1.3:  (Subsequence) </strong></span>
 <div>
-Let <span class="math inline">\((a_n)_{n \in \mathbb{N}}\)</span> be a real sequence, and let <span class="math inline">\((n_k)_{k\in\mathbb{N}}\)</span> be a strictly increasing sequence. Then <span class="math inline">\((a_{n_k})_{k\in\mathbb{N}}\)</span> is called a subsequence of <span class="math inline">\((a_n)\)</span>.
+Let <span class="math inline">\((a_n)_{n \in \mathbb{N}}\)</span> be a real sequence, and let <span class="math inline">\((n_k)_{k\in\mathbb{N}}\)</span> be a strictly increasing sequence. Then <span class="math inline">\((a_{n_k})_{k\in\mathbb{N}}\)</span> is called a subsequence of <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span>.
 </div>
 </div>
 Using these subsequences to prove non-convergence relies on the contrapositive of the following proposition:
@@ -368,7 +381,20 @@ Using these subsequences to prove non-convergence relies on the contrapositive o
 If a real sequence <span class="math inline">\((a_n)_n\)</span> converges to a limit <span class="math inline">\(L\)</span>, then all subsequences <span class="math inline">\((a_{n_k})_k\)</span> of <span class="math inline">\((a_n)_n\)</span> also converge to <span class="math inline">\(L\)</span>.
 </p>
 </div>
-<p>Namely, if there exists two subsequences converging to different limits, then the original sequence does not converge!</p>
+<p>Namely, <strong>if there exists two subsequences converging to different limits</strong>, then the <strong>original sequence does not converge</strong>!</p>
+</div>
+<div id="limits-superior-and-inferior" class="section level3" number="1.1.4">
+<h3><span class="header-section-number">1.1.4</span> Limits Superior and Inferior</h3>
+It is not always the case that the limit of a sequence exists — take <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> defined by <span class="math inline">\(a_n = (-1)^n\)</span>, for example. But there are two ‘limiting’ objects which we can still talk about. These are the <em>limit superior</em> and <em>limit inferior</em> of a sequence, and can be thought of as ‘eventual’ bounds on a sequence:
+
+<div id="def:def100" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def100" custom-style="NameStyle"><strong>Definition 1.4:  (Limits Superior and Inferior) </strong></span>
+<div>
+<p>For a sequence <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span>, we define the limits superior and inferior to be <span class="math display">\[\limsup_{n \to \infty} a_n := \lim_{k\to\infty}\sup_{n\geq k}a_n \;\, \text{and} \;\, \liminf_{n \to \infty} a_n := \lim_{k\to\infty}\inf_{n\geq k}a_n.\]</span></p>
+If <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is unbounded above, we set <span class="math inline">\(\limsup_{n \to \infty} a_n = +\infty\)</span>, and if <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is unbounded below, we set <span class="math inline">\(\liminf_{n \to \infty} a_n = -\infty.\)</span>
+</div>
+</div>
+<p>Alternatively, we can think of <span class="math inline">\(\limsup_{n\to\infty} a_n\)</span> and <span class="math inline">\(\liminf_{n \to \infty}a_n\)</span> as being the largest and smallest possible limits of any subsequence of <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> respectively.</p>
 </div>
 </div>
             </section>

@@ -1,0 +1,347 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  10pt,
+  a4paper]{article}
+\title{Analysis 1B --- Tutorial 1}
+\author{Christian Jones: University of Bath}
+\date{February 2023}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Analysis 1B --- Tutorial 1},
+  pdfauthor={Christian Jones: University of Bath},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\newcommand{\BOO}{BOO}
+\usepackage {hyperref}
+\hypersetup {colorlinks = true, linkcolor = blue, urlcolor = blue}
+\usepackage{float}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}\newtheorem{definition}{Definition}[section]
+\theoremstyle{plain}
+\newtheorem*{proposition*}{Proposition}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{Definitions*}{Definitions}\newtheorem{Definitions}[definition]{Definitions}
+\theoremstyle{plain}
+\newtheorem*{lemma*}{Lemma}\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{plain}
+\newtheorem*{corollary*}{Corollary}\newtheorem{corollary}{Corollary}[section]
+\theoremstyle{plain}
+\newtheorem*{conjecture*}{Conjecture}\newtheorem{conjecture}{Conjecture}[section]
+\theoremstyle{definition}
+\newtheorem*{example*}{Example}\newtheorem{example}{Example}[section]
+\theoremstyle{definition}
+\newtheorem*{exercise*}{Exercise}\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{Thought*}{Thought}\newtheorem{Thought}{Thought}[section]
+\theoremstyle{remark}
+\newtheorem*{remark*}{Remark}
+\newtheorem*{solution*}{Solution}
+\newtheorem*{Example*}{Example}
+\theoremstyle{remark}
+\newtheorem*{Proof*}{Proof}
+\newtheorem*{Examples*}{Examples}
+\let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\newpage
+\pagenumbering{arabic}
+
+\hypertarget{introduction}{%
+\section*{Introduction}\label{introduction}}
+\addcontentsline{toc}{section}{Introduction}
+
+Here is the material to accompany the 1st Analysis 1B Tutorial on the 6th February. Alternative formats can be downloaded by clicking the download icon at the top of the page. Please send any comments or corrections to \href{mailto:caj50@bath.ac.uk}{Christian Jones (caj50)}. To return to the homepage, click \href{http://caj50.github.io/tutoring.html}{here}.
+
+\hypertarget{lecture-recap}{%
+\section{Lecture Recap}\label{lecture-recap}}
+
+This is somewhat a disingenuous title, as there haven't been any lectures for this unit yet! Instead, we are going to recap some of the material from last semester, which will come in handy for the content you'll see over the next eleven weeks. The material here is quite terse, but should hopefully provide a useful summary of some of the main results. For more details, see the Analysis 1A files from Semester 1.
+
+\hypertarget{sequences-and-convergence}{%
+\subsection{Sequences and Convergence}\label{sequences-and-convergence}}
+
+\hypertarget{definition-of-convergence}{%
+\subsubsection{Definition of Convergence}\label{definition-of-convergence}}
+
+To begin, we recall the definition of a sequence:
+\BeginKnitrBlock{definition}[Sequence]
+{\label{def:def1} }A sequence of real numbers is a function
+\begin{align*}
+    a:\; &\mathbb{N} \longrightarrow \mathbb{R},\\
+    &n \longmapsto a_n.
+\end{align*}
+\EndKnitrBlock{definition}
+As you saw last semester, this notation can get pretty annoying, so instead we write a sequence as \((a_n)_{n\in\mathbb{N}}\). If it's clear from the context what set we're indexing over, we can even just write \((a_n)_n\).
+
+Since the natural numbers forms a countably infinite set, a sequence gives us a countably infinite list of real numbers. Sometimes it's interesting to look at the `long-term' behaviour of this list which leads on to the idea of convergence:
+\BeginKnitrBlock{definition}[Sequence Convergence]
+{\label{def:def2} }A sequence \((a_n)_{n\in\mathbb{N}}\) converges to a real number \(L\) as \(n \longrightarrow \infty\), written as either \(a_n \longrightarrow L\), or \(\lim_{n \to \infty}a_n = L\) if \[\forall \epsilon > 0, \; \exists N = N(\epsilon) \in \mathbb{N}, \; \text{such that} \; \forall n \geq N, \; \lvert a_n - L \rvert < \epsilon.\]
+\EndKnitrBlock{definition}
+Loosely speaking, this says that no matter how close you want the sequence to get to \(L\), you will always be able to find some point in the sequence after which all points in the sequence will be as close to \(L\) as desired.
+
+\hypertarget{tests-for-convergence}{%
+\subsubsection{Tests for Convergence}\label{tests-for-convergence}}
+
+Using the definition to prove sequence convergence (or otherwise) for every possible sequence is incredibly tedious. So what we really want is some criteria or tests which make these proofs much easier. You'll find some of these tests below.
+
+The first test is the \emph{sandwich} (or \emph{pinching} or \emph{squeeze}) theorem:
+\BeginKnitrBlock{theorem}[Sandwich Theorem]
+{\label{thm:thm1} }Suppose that \((a_n)_{n\in\mathbb{N}}\, , \, (b_n)_{n\in\mathbb{N}}\, , \, (c_n)_{n\in\mathbb{N}}\) are real sequences. If \(a_n \leq b_n \leq c_n \quad \forall n \in \mathbb{N}\), and \(\exists L \in \mathbb{R}\) such that
+\begin{align*}
+    \lim_{n \to \infty} a_n = L = \lim_{n \to \infty} c_n,
+\end{align*}
+then \(\lim_{n \to \infty}b_n = L\).
+\EndKnitrBlock{theorem}
+In words, this says that if you can `trap' a sequence between two other sequences converging to a common limit, then all three sequences involved will converge to the same limit.
+
+The second test is known as the \emph{Growth Factor Test}, and aims to determine convergence by comparing the ratio of successive terms in a sequence:
+\BeginKnitrBlock{theorem}[Growth Factor Test]
+{\label{thm:thm2} }Let \((a_n)_{n\in\mathbb{N}}\) be a real sequence with \(a_n>0 \; \forall n\in\mathbb{N}\), and with \[\lim_{n\to\infty} \frac{a_{n+1}}{a_n} = r.\] Then:
+
+\begin{itemize}
+\tightlist
+\item
+  If \(r < 1\), \(a_n \to 0\) as \(n \to \infty\).
+\item
+  If \(r > 1\), \(a_n \to \infty\) as \(n \to \infty\).
+\item
+  If \(r = 1\), the test is inconclusive.
+\end{itemize}
+\EndKnitrBlock{theorem}
+
+Note that this test won't work if the terms of the sequence \((a_n)_n\) are given by rational functions (i.e.~ratios of polynomials). Can you see/prove why?
+
+\hypertarget{subsequences}{%
+\subsubsection{Subsequences}\label{subsequences}}
+
+The two tests above are great at proving convergence, but is there a quick way of proving non-convergence? As you've seen before, we can do this using subsequences:
+\BeginKnitrBlock{definition}[Subsequence]
+{\label{def:def3} }Let \((a_n)_{n \in \mathbb{N}}\) be a real sequence, and let \((n_k)_{k\in\mathbb{N}}\) be a strictly increasing sequence. Then \((a_{n_k})_{k\in\mathbb{N}}\) is called a subsequence of \((a_n)_{n\in\mathbb{N}}\).
+\EndKnitrBlock{definition}
+
+Using these subsequences to prove non-convergence relies on the contrapositive of the following proposition:
+\BeginKnitrBlock{proposition}
+{\label{prp:prop1} }If a real sequence \((a_n)_n\) converges to a limit \(L\), then all subsequences \((a_{n_k})_k\) of \((a_n)_n\) also converge to \(L\).
+\EndKnitrBlock{proposition}
+Namely, \textbf{if there exists two subsequences converging to different limits}, then the \textbf{original sequence does not converge}!
+
+\hypertarget{limits-superior-and-inferior}{%
+\subsubsection{Limits Superior and Inferior}\label{limits-superior-and-inferior}}
+
+It is not always the case that the limit of a sequence exists --- take \((a_n)_{n\in\mathbb{N}}\) defined by \(a_n = (-1)^n\), for example. But there are two `limiting' objects which we can still talk about. These are the \emph{limit superior} and \emph{limit inferior} of a sequence, and can be thought of as `eventual' bounds on a sequence:
+\BeginKnitrBlock{definition}[Limits Superior and Inferior]
+{\label{def:def100} }For a sequence \((a_n)_{n\in\mathbb{N}}\), we define the limits superior and inferior to be \[\limsup_{n \to \infty} a_n := \lim_{k\to\infty}\sup_{n\geq k}a_n \;\, \text{and} \;\, \liminf_{n \to \infty} a_n := \lim_{k\to\infty}\inf_{n\geq k}a_n.\]
+
+If \((a_n)_{n\in\mathbb{N}}\) is unbounded above, we set \(\limsup_{n \to \infty} a_n = +\infty\), and if \((a_n)_{n\in\mathbb{N}}\) is unbounded below, we set \(\liminf_{n \to \infty} a_n = -\infty.\)
+\EndKnitrBlock{definition}
+Alternatively, we can think of \(\limsup_{n\to\infty} a_n\) and \(\liminf_{n \to \infty}a_n\) as being the largest and smallest possible limits of any subsequence of \((a_n)_{n\in\mathbb{N}}\) respectively.
+
+\hypertarget{series-and-convergence}{%
+\subsection{Series and Convergence}\label{series-and-convergence}}
+
+\hypertarget{definitions}{%
+\subsubsection{Definitions}\label{definitions}}
+
+The mathematics in this section is nothing new either --- it's really just sequences in disguise. Given a sequence, one thing we can do is add up all the terms and see what happens. This results in the idea of an (infinite) series:
+\BeginKnitrBlock{definition}[Series]
+{\label{def:def4} }Let \((a_n)_{n \in \mathbb{N}}\) be a real sequence. Then \[\sum_{n = 1}^{\infty} a_n\] is called a series for \((a_n)_{n\in\mathbb{N}}\).
+\EndKnitrBlock{definition}
+So when does this series converge? In other words, when is the object in Definition \ref{def:def4} a real number? To answer these questions, we have the following definition:
+\BeginKnitrBlock{definition}[Series Convergence and Partial Sums]
+{\label{def:def5} }Let \((a_n)_{n \in \mathbb{N}}\) be a real sequence. Then \(\sum_{n = 1}^{\infty} a_n\) converges if and only if the sequence \((S_N)_{N \in \mathbb{N}}\) converges, where \[S_N:= \sum_{n = 1}^{N} a_n\] is the \(N^{\text{th}}\) partial sum. If \(S_N \to \ell\) as \(N \to \infty\), we define \[\ell = \sum_{n = 1}^{\infty}a_n.\]
+\EndKnitrBlock{definition}
+
+\hypertarget{tests-for-convergence-1}{%
+\subsubsection{Tests for Convergence}\label{tests-for-convergence-1}}
+
+Much like with proving sequence convergence, using the definition each time you want to `evaluate' a series can get tedious really quickly. Therefore, we really want a couple of tests which can prove convergence without too much hassle. The first of these tests involves comparing the sizes of two series, and is aptly known as the comparison test.
+\BeginKnitrBlock{theorem}[Comparison Test]
+{\label{thm:thm4} }Let \((a_n)_n\) and \((b_n)_n\) be real sequences, and suppose that there exists a \(M \in \mathbb{N}\) such that \(\lvert a_n \rvert \leq b_n \;\forall n \geq M.\)
+Then, if \(\sum_{n = 1}^{\infty} b_n\) is convergent, \(\sum_{n = 1}^{\infty} a_n\) is convergent.
+\EndKnitrBlock{theorem}
+Naturally, using this, we can also build a test for divergence to \(\infty\) out of the comparison test too.
+
+\BeginKnitrBlock{corollary}
+{\label{cor:corol1} }Let \((a_n)_n\) and \((b_n)_n\) be real sequences. If there exists a \(M \in \mathbb{N}\) such that \(0 \leq a_n \leq b_n \; \forall n \geq M\), and \(\sum_{n = 1}^{\infty} a_n\) diverges, then \(\sum_{n = 1}^{\infty} b_n\) diverges.
+\EndKnitrBlock{corollary}
+
+The second test we look at here is similar to the Growth Factor test (Theorem \ref{thm:thm2}), in that it assesses convergence of a series by examining the ratio of successive terms:
+\BeginKnitrBlock{theorem}[D'Alembert's Ratio Test]
+{\label{thm:thm5} }Let \((a_n)_n\) be a real sequence with \(a_n \neq 0 \; \forall n \in \mathbb{N}\). Suppose \[\lim_{n\to\infty}\frac{\lvert a_{n+1}\rvert}{\lvert a_n\rvert} = r.\] Then:
+
+\begin{itemize}
+\tightlist
+\item
+  If \(0 \leq r < 1\), \(\sum_{n = 1}^{\infty} a_n\) converges.
+\item
+  If \(r > 1\), then \(\sum_{n = 1}^{\infty} a_n\) diverges.
+\item
+  If \(r = 1\), the test is inconclusive.
+\end{itemize}
+\EndKnitrBlock{theorem}
+
+Like the Growth Factor Test, d'Alembert's test fails if the terms of the series are formed of ratios of polynomials.
+
+The final test presented here is applicable when the terms of the series alternate in sign:
+\BeginKnitrBlock{theorem}[Leibniz Alternating Series Test]
+{\label{thm:thm6} }Suppose \((a_n)_{n\in\mathbb{N}}\) is a decreasing sequence tending to \(0\) as \(n \to \infty\). Then \[\sum_{n=1}^{\infty} (-1)^n a_n\] is a convergent series. Further, the value of this series lies between \(-a_1\) and \(a_2 - a_1\).
+\EndKnitrBlock{theorem}
+
+\hypertarget{sets-and-bounds}{%
+\subsection{Sets and Bounds}\label{sets-and-bounds}}
+
+\hypertarget{upper-and-lower-bounds}{%
+\subsubsection{Upper and Lower Bounds}\label{upper-and-lower-bounds}}
+
+The final topic we are going to re-cover here involves sets of real numbers, and deciding on whether we can `trap' these sets between an upper bound --- which no member of the set can lie above --- and a lower bound --- which no member of the set can lie below. To do this requires a few defintions, which are presented below:
+\BeginKnitrBlock{definition}[Upper Bound]
+{\label{def:def6} }Let \(S \subseteq \mathbb{R}\). Then \(M \in \mathbb{R}\) is an upper bound for \(S\) if for all \(x \in S\), \(x \leq M\). In this case, we say \(S\) is bounded above.
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{definition}[Lower Bound]
+{\label{def:def7} }Let \(S \subseteq \mathbb{R}\). Then \(m \in \mathbb{R}\) is a lower bound for \(S\) if for all \(x \in S\), \(x \geq m\). In this case, we say that \(S\) is bounded below.
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{definition}[Bounded Set]
+{\label{def:def8} }A set \(S\) is bounded if it is both bounded above and below. Equivalently, \(S\) is bounded if there exists \(m, M \in \mathbb{R}\) such that for all \(x \in S\), \(m\leq x \leq M\).
+\EndKnitrBlock{definition}
+
+\hypertarget{suprema-and-infima}{%
+\subsubsection{Suprema and Infima}\label{suprema-and-infima}}
+
+Think about upper bounds for a moment: if we have one, we could ask if there is a smaller number that also bounds the set from above. You might also be tempted to ask what the `best' upper bound on a set could be, such that no smaller number will bound the set from above. This leads to the ideas of suprema and, analogously for lower bounds, infima:
+
+\BeginKnitrBlock{definition}[Supremum]
+{\label{def:def9} }Let \(S \in \mathbb{R}\). A number \(T \in \mathbb{R}\) is said to be the supremum of \(S\) if it is an upper bound for \(S\), and for any other upper bound \(M\), \(T \leq M\). Here, we write \(T = \sup(S)\).
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{definition}[Infimum]
+{\label{def:def10} }Let \(S \in \mathbb{R}\). A number \(t \in \mathbb{R}\) is said to be the infimum of \(S\) if it is a lower bound for \(S\), and for any other lower bound \(m\), \(t\geq m\). Here, we write \(t = \inf(S)\).
+\EndKnitrBlock{definition}
+
+Finally, we state an alternative characterisation of the supremum/infimum of a set.
+\BeginKnitrBlock{proposition}
+{\label{prp:prop2} }Let \(S\subseteq\mathbb{R}\). Then a number \(T\in\mathbb{R}\) is the supremum of \(S\), denoted \(\sup(S)\) if: \[\forall \epsilon > 0, \exists s \in S\; \text{such that} \; s > T - \epsilon.\]
+\EndKnitrBlock{proposition}
+
+\BeginKnitrBlock{proposition}
+{\label{prp:prop3} }Let \(S\subseteq\mathbb{R}\). Then a number \(t\in\mathbb{R}\) is the infimum of \(S\), denoted \(\inf(S)\) if: \[\forall \epsilon > 0, \exists s \in S\; \text{such that} \; s < t + \epsilon.\]
+\EndKnitrBlock{proposition}
+
+\hypertarget{hints}{%
+\section{Hints}\label{hints}}
+
+In this section, you'll find hints for the current week's problem sheet. Try and have a go without them first, but hopefully these will help you solve the problems.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  This question is all about sequences!
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii})}
+  \tightlist
+  \item
+    This one requires you to use the definition, so you can't use any of the tests!
+
+    \begin{enumerate}
+    \def\labelenumiii{\roman{enumiii})}
+    \tightlist
+    \item
+      Remember, if you make the denominator of a fraction smaller, you make the overall fraction larger.
+    \item
+      \(\sqrt[4]{n} = \sqrt{\sqrt{n}}\).
+    \end{enumerate}
+  \item
+    Think about which tests you can apply for convergence. As a further hint, one of these sequences converges, and one doesn't.
+  \end{enumerate}
+\item
+  This question is all about series! Think about all the tests you've seen for series convergence, and also, think about some of the series you calculated last semester.
+\item
+  This questions is all about sets and bounds!
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii})}
+  \tightlist
+  \item
+    Before you start calculating the \(\sup\),\(\inf\), etc., draw a graph --- it'll help you rewrite this set.
+  \item
+    Try writing out the first few components of the infinite union, this might suggest whether the set is bounded or not.
+  \end{enumerate}
+\end{enumerate}
+
+\end{document}

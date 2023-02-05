@@ -273,9 +273,19 @@ MathJax.Hub.Config({
 <ul>
 <li class="chapter" data-level="1.1.1" data-path="sequences-and-convergence.html"><a href="sequences-and-convergence.html#definition-of-convergence"><i class="fa fa-check"></i><b>1.1.1</b> Definition of Convergence</a></li>
 <li class="chapter" data-level="1.1.2" data-path="sequences-and-convergence.html"><a href="sequences-and-convergence.html#tests-for-convergence"><i class="fa fa-check"></i><b>1.1.2</b> Tests for Convergence</a></li>
+<li class="chapter" data-level="1.1.3" data-path="sequences-and-convergence.html"><a href="sequences-and-convergence.html#subsequences"><i class="fa fa-check"></i><b>1.1.3</b> Subsequences</a></li>
+<li class="chapter" data-level="1.1.4" data-path="sequences-and-convergence.html"><a href="sequences-and-convergence.html#limits-superior-and-inferior"><i class="fa fa-check"></i><b>1.1.4</b> Limits Superior and Inferior</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="series-and-convergence.html"><a href="series-and-convergence.html"><i class="fa fa-check"></i><b>1.2</b> Series and Convergence</a></li>
-<li class="chapter" data-level="1.3" data-path="sets-and-bounds.html"><a href="sets-and-bounds.html"><i class="fa fa-check"></i><b>1.3</b> Sets and Bounds</a></li>
+<li class="chapter" data-level="1.2" data-path="series-and-convergence.html"><a href="series-and-convergence.html"><i class="fa fa-check"></i><b>1.2</b> Series and Convergence</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="series-and-convergence.html"><a href="series-and-convergence.html#definitions"><i class="fa fa-check"></i><b>1.2.1</b> Definitions</a></li>
+<li class="chapter" data-level="1.2.2" data-path="series-and-convergence.html"><a href="series-and-convergence.html#tests-for-convergence-1"><i class="fa fa-check"></i><b>1.2.2</b> Tests for Convergence</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="sets-and-bounds.html"><a href="sets-and-bounds.html"><i class="fa fa-check"></i><b>1.3</b> Sets and Bounds</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="sets-and-bounds.html"><a href="sets-and-bounds.html#upper-and-lower-bounds"><i class="fa fa-check"></i><b>1.3.1</b> Upper and Lower Bounds</a></li>
+<li class="chapter" data-level="1.3.2" data-path="sets-and-bounds.html"><a href="sets-and-bounds.html#suprema-and-infima"><i class="fa fa-check"></i><b>1.3.2</b> Suprema and Infima</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="hints.html"><a href="hints.html"><i class="fa fa-check"></i><b>2</b> Hints</a></li>
 </ul>
@@ -297,44 +307,49 @@ MathJax.Hub.Config({
             <section class="normal" id="section-">
 <div id="sets-and-bounds" class="section level2" number="1.3">
 <h2><span class="header-section-number">1.3</span> Sets and Bounds</h2>
-The final topic we are going to re-cover here involves sets of real numbers, and deciding on whether we can ‘trap’ these sets between an upper bound <span class="math inline">\(M\)</span> — so that no member of the set lies above <span class="math inline">\(M\)</span> — and a lower bound <span class="math inline">\(m\)</span> — so that no member of the set lies below <span class="math inline">\(m\)</span>. This gives rise to the defintion of a bounded set, as is seen below:
+<div id="upper-and-lower-bounds" class="section level3" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> Upper and Lower Bounds</h3>
+The final topic we are going to re-cover here involves sets of real numbers, and deciding on whether we can ‘trap’ these sets between an upper bound — which no member of the set can lie above — and a lower bound — which no member of the set can lie below. To do this requires a few defintions, which are presented below:
 
 <div id="def:def6" class="bookdown-definition" custom-style="DefinitionStyle">
-<span class="def:def6" custom-style="NameStyle"><strong>Definition 1.6:  (Upper Bound) </strong></span>
+<span class="def:def6" custom-style="NameStyle"><strong>Definition 1.7:  (Upper Bound) </strong></span>
 <div>
 Let <span class="math inline">\(S \subseteq \mathbb{R}\)</span>. Then <span class="math inline">\(M \in \mathbb{R}\)</span> is an upper bound for <span class="math inline">\(S\)</span> if for all <span class="math inline">\(x \in S\)</span>, <span class="math inline">\(x \leq M\)</span>. In this case, we say <span class="math inline">\(S\)</span> is bounded above.
 </div>
 </div>
 
 <div id="def:def7" class="bookdown-definition" custom-style="DefinitionStyle">
-<span class="def:def7" custom-style="NameStyle"><strong>Definition 1.7:  (Lower Bound) </strong></span>
+<span class="def:def7" custom-style="NameStyle"><strong>Definition 1.8:  (Lower Bound) </strong></span>
 <div>
 Let <span class="math inline">\(S \subseteq \mathbb{R}\)</span>. Then <span class="math inline">\(m \in \mathbb{R}\)</span> is a lower bound for <span class="math inline">\(S\)</span> if for all <span class="math inline">\(x \in S\)</span>, <span class="math inline">\(x \geq m\)</span>. In this case, we say that <span class="math inline">\(S\)</span> is bounded below.
 </div>
 </div>
 
 <div id="def:def8" class="bookdown-definition" custom-style="DefinitionStyle">
-<span class="def:def8" custom-style="NameStyle"><strong>Definition 1.8:  (Bounded Set) </strong></span>
+<span class="def:def8" custom-style="NameStyle"><strong>Definition 1.9:  (Bounded Set) </strong></span>
 <div>
 A set <span class="math inline">\(S\)</span> is bounded if it is both bounded above and below. Equivalently, <span class="math inline">\(S\)</span> is bounded if there exists <span class="math inline">\(m, M \in \mathbb{R}\)</span> such that for all <span class="math inline">\(x \in S\)</span>, <span class="math inline">\(m\leq x \leq M\)</span>.
 </div>
 </div>
-<p>Thinking of upper bounds for a moment, if we have one, we could ask if there is a smaller number which also bounds the set from above. You might also be tempted to ask what the ‘best’ upper bound on a set could be, such that no smaller number will bound the set from above. This leads to the ideas of suprema and (analogously for lower bounds) infima:</p>
+</div>
+<div id="suprema-and-infima" class="section level3" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> Suprema and Infima</h3>
+<p>Think about upper bounds for a moment: if we have one, we could ask if there is a smaller number that also bounds the set from above. You might also be tempted to ask what the ‘best’ upper bound on a set could be, such that no smaller number will bound the set from above. This leads to the ideas of suprema and, analogously for lower bounds, infima:</p>
 
 <div id="def:def9" class="bookdown-definition" custom-style="DefinitionStyle">
-<span class="def:def9" custom-style="NameStyle"><strong>Definition 1.9:  (Supremum) </strong></span>
+<span class="def:def9" custom-style="NameStyle"><strong>Definition 1.10:  (Supremum) </strong></span>
 <div>
 Let <span class="math inline">\(S \in \mathbb{R}\)</span>. A number <span class="math inline">\(T \in \mathbb{R}\)</span> is said to be the supremum of <span class="math inline">\(S\)</span> if it is an upper bound for <span class="math inline">\(S\)</span>, and for any other upper bound <span class="math inline">\(M\)</span>, <span class="math inline">\(T \leq M\)</span>. Here, we write <span class="math inline">\(T = \sup(S)\)</span>.
 </div>
 </div>
 
 <div id="def:def10" class="bookdown-definition" custom-style="DefinitionStyle">
-<span class="def:def10" custom-style="NameStyle"><strong>Definition 1.10:  (Infimum) </strong></span>
+<span class="def:def10" custom-style="NameStyle"><strong>Definition 1.11:  (Infimum) </strong></span>
 <div>
 Let <span class="math inline">\(S \in \mathbb{R}\)</span>. A number <span class="math inline">\(t \in \mathbb{R}\)</span> is said to be the infimum of <span class="math inline">\(S\)</span> if it is a lower bound for <span class="math inline">\(S\)</span>, and for any other lower bound <span class="math inline">\(m\)</span>, <span class="math inline">\(t\geq m\)</span>. Here, we write <span class="math inline">\(t = \inf(S)\)</span>.
 </div>
 </div>
-Finally, we can alternatively characterise the supremum/infimum of a set as follows:
+Finally, we state an alternative characterisation of the supremum/infimum of a set.
 
 <div id="prp:prop2" class="bookdown-proposition" custom-style="TheoremStyle">
 <span class="prp:prop2" custom-style="NameStyle"><strong>Proposition 1.7:  </strong></span>
@@ -348,6 +363,7 @@ Let <span class="math inline">\(S\subseteq\mathbb{R}\)</span>. Then a number <sp
 <p>
 Let <span class="math inline">\(S\subseteq\mathbb{R}\)</span>. Then a number <span class="math inline">\(t\in\mathbb{R}\)</span> is the infimum of <span class="math inline">\(S\)</span>, denoted <span class="math inline">\(\inf(S)\)</span> if: <span class="math display">\[\forall \epsilon &gt; 0, \exists s \in S\; \text{such that} \; s &lt; t + \epsilon.\]</span>
 </p>
+</div>
 </div>
 </div>
 <!-- </div> -->
