@@ -1,0 +1,271 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  12pt,
+  a4paper]{extarticle}
+\title{Analysis 1B --- Tutorial 2}
+\author{Christian Jones: University of Bath}
+\date{February 2023}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Analysis 1B --- Tutorial 2},
+  pdfauthor={Christian Jones: University of Bath},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\newcommand{\BOO}{BOO}
+\usepackage {hyperref}
+\hypersetup {colorlinks = true, linkcolor = blue, urlcolor = blue}
+\usepackage{float}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}\newtheorem{definition}{Definition}[section]
+\theoremstyle{plain}
+\newtheorem*{proposition*}{Proposition}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{Definitions*}{Definitions}\newtheorem{Definitions}[definition]{Definitions}
+\theoremstyle{plain}
+\newtheorem*{lemma*}{Lemma}\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{plain}
+\newtheorem*{corollary*}{Corollary}\newtheorem{corollary}{Corollary}[section]
+\theoremstyle{plain}
+\newtheorem*{conjecture*}{Conjecture}\newtheorem{conjecture}{Conjecture}[section]
+\theoremstyle{definition}
+\newtheorem*{example*}{Example}\newtheorem{example}{Example}[section]
+\theoremstyle{definition}
+\newtheorem*{exercise*}{Exercise}\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{Thought*}{Thought}\newtheorem{Thought}{Thought}[section]
+\theoremstyle{remark}
+\newtheorem*{remark*}{Remark}
+\newtheorem*{solution*}{Solution}
+\newtheorem*{Example*}{Example}
+\theoremstyle{remark}
+\newtheorem*{Proof*}{Proof}
+\newtheorem*{Examples*}{Examples}
+\let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
+
+
+%\usepackage[english,shorthands=off]{babel}
+\usepackage{etoolbox}
+\usepackage{spverbatim}
+\makeatletter
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\@ifpackageloaded{adjustbox}{}{\usepackage[Export]{adjustbox}}
+\makeatother
+\floatplacement{figure}{H}
+\newcommand{\scalefactor}{1.2}
+\adjustboxset*{min width=\scalefactor\width,max width=\linewidth}
+\renewcommand{\familydefault}{phv}
+\fontfamily{phv}\selectfont
+\renewcommand{\em}{\bf}\renewcommand{\textit}{\textbf}\renewcommand{\emph}{\textbf}\renewcommand{\it}{\bf}\renewcommand{\itshape}{\bf}
+\setlength{\parindent}{0.0pt}
+\setlength{\parskip}{1.0\baselineskip}
+\renewcommand{\baselinestretch}{1.5}\selectfont
+\setlength{\mathsurround}{0.2em}
+\setlength{\arraycolsep}{0.5cm}\renewcommand{\arraystretch}{1.5}
+\addtolength{\jot}{\baselineskip}
+\renewcommand{\;}{\,}
+\sloppy
+\allowdisplaybreaks
+\usepackage{amsthm}
+\newtheoremstyle{plain}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{definition}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{remark}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\csundef{Proof}
+\csundef{endProof}
+\newenvironment{Proof}
+  {\noindent{\bf Proof.}\hspace*{1em}}% Begin
+  {\qed\par}% End
+%% When redefining an environment it is vital that it has 
+%% the same number of arguments as the original
+\renewenvironment{proof}[1][\proofname]
+  {\trivlist\item\relax\noindent{\bf {#1}.}\hspace*{1em}}% Begin
+  {\qed\endtrivlist}% End
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\newpage
+\pagenumbering{arabic}
+
+\hypertarget{introduction}{%
+\section*{Introduction}\label{introduction}}
+\addcontentsline{toc}{section}{Introduction}
+
+Here is the material to accompany the 2nd Analysis 1B Tutorial on the 13th February. Alternative formats can be downloaded by clicking the download icon at the top of the page. Please send any comments or corrections to \href{mailto:caj50@bath.ac.uk}{Christian Jones (caj50)}. To return to the homepage, click \href{http://caj50.github.io/tutoring.html}{here}.
+
+\hypertarget{lecture-recap}{%
+\section{Lecture Recap}\label{lecture-recap}}
+
+The course has finally begun proper! For the next few weeks, we're going to see the first section: limits and continuity of functions. Despite another complicated definition to work with, it will turn out that many of the concepts can be made eerily similar to stuff you saw from Semester 1.
+
+\hypertarget{definition-of-a-limit}{%
+\subsection{Definition of a Limit}\label{definition-of-a-limit}}
+
+\hypertarget{functions}{%
+\subsubsection{Functions}\label{functions}}
+
+To begin, we pick up where Analysis 1A left off, and start talking about functions.
+\BeginKnitrBlock{definition}[Function]
+{\label{def:def1} }Let \(A\) and \(B\) be sets. A function from \(A\) to \(B\) is a rule that assigns to each element of \(A\) a unique element of \(B\). The set \(A\) is called the domain of the function, and \(B\) is called the codomain of the function.
+\EndKnitrBlock{definition}
+So, to specify a function, we need a domain, codomain and a rule that tells us how to get between the two. We can write a function \(f\) symbolically as follows:
+\begin{align*}
+f:\; &A \longrightarrow B,\\
+&x \longmapsto f(x).
+\end{align*}
+
+A specific type of domain we are going to need in the near future is that of a \emph{punctured neighbourhood}.
+\BeginKnitrBlock{definition}[Punctured Neighbourhood]
+{\label{def:def2} }Let \(c\in\mathbb{R}\), and \(D \subseteq \mathbb{R}\). Then \(D\) is a punctured neighbourhood of \(c\) if there exists a \(\delta_0\) such that the set \((c-\delta_0,c)\cup(c,c + \delta_0) \subseteq D.\)
+\EndKnitrBlock{definition}
+For example, if we take \(c = 0\), potential punctured neighbourhoods include:
+
+\begin{itemize}
+\tightlist
+\item
+  \(D = (-2,2)\) (This works with any \(0 < \delta_0 < 2\))
+\item
+  \(D = (-2,2)\setminus\lbrace0,1\rbrace\) (This works with any \(0 < \delta_0 < 1\))
+\item
+  \(D = \mathbb{R}\) (This works with \emph{any} positive \(\delta_0\))
+\end{itemize}
+
+\hypertarget{the-definition}{%
+\subsubsection{The Definition}\label{the-definition}}
+
+One thing we may be interested in for a function is what happens as we approach a particular value from inside the domain. More specifically, we are interested in what happens to the corresponding codomain values: do they approach something finite, oscillate wildly, or behave even more bizarrely? In the first case, we can talk about a limiting value, of which the precise definition is formulated below:
+\BeginKnitrBlock{definition}[Limit of a Function]
+{\label{def:def3} }Let \(c, L\in\mathbb{R}\), and let \(f: D \longrightarrow \mathbb{R}\) be a function defined on a punctured neighbourhood of \(c\). Then \(\lim_{x \to c} f(x) = L\) means \[\forall \epsilon > 0 \;\; \exists \delta > 0\;\; \text{s.t.} \;\; \forall x \in D, \;\; 0 < \lvert x - c \rvert < \delta \;\Rightarrow\; \lvert f(x) - L \rvert < \epsilon.\]
+\EndKnitrBlock{definition}
+Alternatively, we can say that \(f(x) \to L\) as \(x \to c\) if this definition is satisfied. Loosely, this says that ``however close you want the function to be to \(L\) at \(x = c\), you can always find a range of \(x\) values that make this possible.'' Graphically, we may be in a situation as in Figure \ref{fig:funclim}.
+
+\begin{figure}
+\includegraphics[width=\Width,height=\Height]{Functionlimit} \caption{A diagram showing the limiting process for functions. For the given $\epsilon$ in the diagram, we see that whenever we are within a distance $\delta$ of $c$ in the domain, evaluating the function leaves us within a distance $\epsilon$ of $L$. Note that the function isn't defined at $c$, but the limiting value $L$ still exists.}\label{fig:funclim}
+\end{figure}
+
+Once we have a definition, it makes sense to also consider its negation. Namely, we have that \(f(x) \not\to L\) as \(x \to c\) when \[\exists \epsilon_0 > 0\;\;\text{s.t}\;\;\forall \delta > 0,\;\; \exists x_0 \in D \;\; \text{s.t.}\;\; 0 < \lvert x_0 - c \rvert < \delta\;\; \text{and}\;\; \lvert f(x_0) - L \rvert \geq \epsilon_0.\]
+
+\hypertarget{two-useful-results}{%
+\subsection{Two Useful Results}\label{two-useful-results}}
+
+One thing we would definitely like to know is that if a limit of a function exists, is it unique? Luckily, the answer to this is yes, and is summed up in the following result:
+\BeginKnitrBlock{proposition}[Uniqueness of Limits]
+{\label{prp:prop1} }Let \(c\in\mathbb{R}\) and let \(f:D \to \mathbb{R}\) be a function defined on a punctured neighbourhood \(D\) of \(c\). If \(\exists L, M \in \mathbb{R}\) such that \(\lim_{x\to c} f(x) = L\) and \(\lim_{x\to c} f(x) = M\), then \(L=M\).
+\EndKnitrBlock{proposition}
+
+Another useful result regarding functions we can state here is known as the \emph{inertia principle}:
+\BeginKnitrBlock{proposition}[Inertia]
+{\label{prp:prop2} }Let \(c\in\mathbb{R}\) and let \(f:D \to \mathbb{R}\) be a function defined on a punctured neighbourhood \(D\) of \(c\). If \(\lim_{x\to c} f(x) = L\), then for any \(M < L\), there exists \(\delta > 0\) such that \[\forall x \in D,\;\; 0 < \lvert x - c \rvert < \delta \; \Rightarrow \;\; f(x) > M.\]
+\EndKnitrBlock{proposition}
+This idea is summed up in Figure \ref{fig:inertia} below. This principle is especially useful when the limit of a function at a point \(c\) is positive, as it says that there is a punctured neighbourhood around \(c\) in which the function remains positive.
+
+\begin{figure}
+\includegraphics[width=\Width,height=\Height]{Inertia} \caption{A diagram showing the inertia principle in action. This principle says that if a function approaches a limit at a point, there is always an interval in which the function stays within a specified distance of the limit}\label{fig:inertia}
+\end{figure}
+
+\hypertarget{sequential-characterisation-of-limits}{%
+\subsection{Sequential Characterisation of Limits}\label{sequential-characterisation-of-limits}}
+
+Using an \(\epsilon\)-\(\delta\) definition of the limit is not the only way we can define the limit of a function! In fact, you've already seen something similar when dealing with sequential continuity last semester.
+
+\BeginKnitrBlock{theorem}[Sequential Characterisation of Limit]
+{\label{thm:thm1} }Let \(c\in\mathbb{R}\) and let \(f: D \to \mathbb{R}\), with \(D\) a punctured neighbourhood of \(c\). Then the following are equivalent\footnote{You may see this abbreviated to `TFAE' in some contexts.}:
+
+\begin{itemize}
+\item
+  \(\lim_{x\to c}f(x) = L,\)
+\item
+  For any sequence \((x_n)_n\) in \(D\setminus\lbrace c \rbrace\) which converges to \(c\), \[\lim_{n\to\infty}f(x_n) =L.\]
+\end{itemize}
+\EndKnitrBlock{theorem}
+
+Why should you be pleased about this theorem? This allows you to apply all your Semester 1 knowledge of sequences to functions (for example, the algebra of limits)! In particular, if you can find two sequences \((x_n)_n\) and \((y_n)_n\) in \(D\setminus\lbrace c\rbrace\) converging to \(c\), but the sequences \(\left(f(x_n)\right)_n\) and \(\left(f(y_n)\right)_n\) approach different limits, this gives you an easy way of proving that function limits do not exist.
+
+\hypertarget{hints}{%
+\section{Hints}\label{hints}}
+
+In this section, you'll find hints for the current week's problem sheet. Try and have a go without them first, but hopefully these will help you solve the problems.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  This one is mostly similar to the examples seen in lectures and the one we did in the tutorial. You might have to make a choice of delta near the start of your argument though, just so that \(\lvert f(x) - L \rvert\) is well defined.
+\item
+  Try making a clever choice of epsilon in the definition of limit. Then you should be able to rearrange and find the required \(c_1\), \(c_2\) and \(\delta\).
+\item
+  Again, this is fairly similar to the ones we did in tutorials. Some Semester 1 material may also help here!
+\end{enumerate}
+
+\end{document}
