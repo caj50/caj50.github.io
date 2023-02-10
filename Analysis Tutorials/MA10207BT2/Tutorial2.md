@@ -14,13 +14,6 @@ output:
     number_sections: true
     keep_md: true
     pandoc_args: --default-image-extension=svg
-  clavertondown::gitbook_clav:
-    split_by: section
-    keep_md: true
-    config:
-      download: [["Tutorial2.html", "HTML page"], ["Tutorial2.pdf","Standard print PDF"], ["Tutorial2Clear.pdf","Clear print PDF"], ["Tutorial2Large.pdf","Large print PDF"], ["Tutorial2.docx","Accessible Word document"], ["Tutorial2.epub","Accessible EPub book" ]]
-      sharing: no
-    pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
     keep_tex: true
@@ -28,11 +21,18 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
   clavertondown::html_clav:
     toc: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::gitbook_clav:
+    split_by: section
+    keep_md: true
+    config:
+      download: [["Tutorial2.html", "HTML page"], ["Tutorial2.pdf","Standard print PDF"], ["Tutorial2Clear.pdf","Clear print PDF"], ["Tutorial2Large.pdf","Large print PDF"], ["Tutorial2.docx","Accessible Word document"], ["Tutorial2.epub","Accessible EPub book" ]]
+      sharing: no
+    pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
@@ -66,7 +66,7 @@ A specific type of domain we are going to need in the near future is that of a *
 For example, if we take $c = 0$, potential punctured neighbourhoods include:
 
 * $D = (-2,2)$ (This works with any $0 < \delta_0 < 2$)
-* $D = (-2,2)\setminus\lbrace0,1\rbrace$ (This works with any $0 < \delta_0 < 1$)
+* $D = (-3,5)\setminus\lbrace0,1\rbrace$ (This works with any $0 < \delta_0 < 1$)
 * $D = \mathbb{R}$ (This works with *any* positive $\delta_0$)
 
 ### The Definition
@@ -76,14 +76,25 @@ Alternatively, we can say that $f(x) \to L$ as $x \to c$ if this definition is s
 
 ![Figure 1.1: A diagram showing the limiting process for functions. For the given $\epsilon$ in the diagram, we see that whenever we are within a distance $\delta$ of $c$ in the domain, evaluating the function leaves us within a distance $\epsilon$ of $L$. Note that the function isn't defined at $c$, but the limiting value $L$ still exists.](Functionlimit.svg)
 
-Once we have a definition, it makes sense to also consider its negation. Namely, we have that $f(x) \not\to L$ as $x \to c$ when $$\exists \epsilon_0 > 0\;\;\text{s.t}\;\;\forall \delta > 0,\;\; \exists x_0 \in D \;\; \text{s.t.}\;\; 0 < \lvert x_0 - c \rvert < \delta\;\; \text{and}\;\; \lvert f(x_0) - L \rvert \geq \epsilon_0.$$
+Once we have a definition, it makes sense to also consider its negation. Namely, we have that $f(x)$ does not approach[^1] $L$ as $x \to c$ when $$\exists \epsilon_0 > 0\;\;\text{s.t}\;\;\forall \delta > 0,\;\; \exists x_0 \in D \;\; \text{s.t.}\;\; 0 < \lvert x_0 - c \rvert < \delta\;\; \text{and}\;\; \lvert f(x_0) - L \rvert \geq \epsilon_0.$$
+
+### Using the Definition in Practice
+In the exam, it is **highly** likely that you'll be made to use this definition to calculate a limit. In doing so, you'll need to bound a function that is wrapped up in an absolute value. There are two results from Semester 1 that can help with this, and if you haven't already, make sure that you commit these results to memory.
+\BeginKnitrBlock{theorem}<div class="bookdown-theorem" custom-style="TheoremStyleUpright" id="thm:thm46"><span class="thm:thm46" custom-style="NameStyle"><strong><span id="thm:thm46"></span>Theorem 1.1   (Triangle Inequalities) </strong></span><p>For $x,y \in \mathbb{R}$:
+  
+  *  $\lvert x + y \rvert \leq \lvert x \rvert + \lvert y \rvert.$
+  *  $\left\lvert \lvert x \rvert - \lvert y \rvert \right\rvert \leq \lvert x - y \rvert.$
+  </p></div>\EndKnitrBlock{theorem}
+The second result here --- the *reverse triangle inequality* --- will be incredibly useful when we need to bound fractions.
+
+[^1]: This can also be written $f(x) \not\to L$.
 
 ## Two Useful Results
 One thing we would definitely like to know is that if a limit of a function exists, is it unique? Luckily, the answer to this is yes, and is summed up in the following result:
-\BeginKnitrBlock{proposition}<div class="bookdown-proposition" custom-style="TheoremStyleUpright" id="prp:prop1"><span class="prp:prop1" custom-style="NameStyle"><strong><span id="prp:prop1"></span>Proposition 1.1   (Uniqueness of Limits) </strong></span><p>Let $c\in\mathbb{R}$ and let $f:D \to \mathbb{R}$ be a function defined on a punctured neighbourhood $D$ of $c$. If $\exists L, M \in \mathbb{R}$ such that $\lim_{x\to c} f(x) = L$ and $\lim_{x\to c} f(x) = M$, then $L=M$.</p></div>\EndKnitrBlock{proposition}
+\BeginKnitrBlock{proposition}<div class="bookdown-proposition" custom-style="TheoremStyleUpright" id="prp:prop1"><span class="prp:prop1" custom-style="NameStyle"><strong><span id="prp:prop1"></span>Proposition 1.2   (Uniqueness of Limits) </strong></span><p>Let $c\in\mathbb{R}$ and let $f:D \to \mathbb{R}$ be a function defined on a punctured neighbourhood $D$ of $c$. If $\exists L, M \in \mathbb{R}$ such that $\lim_{x\to c} f(x) = L$ and $\lim_{x\to c} f(x) = M$, then $L=M$.</p></div>\EndKnitrBlock{proposition}
 
 Another useful result regarding functions we can state here is known as the *inertia principle*:
-\BeginKnitrBlock{proposition}<div class="bookdown-proposition" custom-style="TheoremStyleUpright" id="prp:prop2"><span class="prp:prop2" custom-style="NameStyle"><strong><span id="prp:prop2"></span>Proposition 1.2   (Inertia) </strong></span><p>Let $c\in\mathbb{R}$ and let $f:D \to \mathbb{R}$ be a function defined on a punctured neighbourhood $D$ of $c$. If $\lim_{x\to c} f(x) = L$, then for any $M < L$, there exists $\delta > 0$ such that $$\forall x \in D,\;\; 0 < \lvert x - c \rvert < \delta \; \Rightarrow \;\; f(x) > M.$$</p></div>\EndKnitrBlock{proposition}
+\BeginKnitrBlock{proposition}<div class="bookdown-proposition" custom-style="TheoremStyleUpright" id="prp:prop2"><span class="prp:prop2" custom-style="NameStyle"><strong><span id="prp:prop2"></span>Proposition 1.3   (Inertia) </strong></span><p>Let $c\in\mathbb{R}$ and let $f:D \to \mathbb{R}$ be a function defined on a punctured neighbourhood $D$ of $c$. If $\lim_{x\to c} f(x) = L$, then for any $M < L$, there exists $\delta > 0$ such that $$\forall x \in D,\;\; 0 < \lvert x - c \rvert < \delta \; \Rightarrow \;\; f(x) > M.$$</p></div>\EndKnitrBlock{proposition}
 This idea is summed up in Figure <a href="#fig:inertia">1.2</a> below. This principle is especially useful when the limit of a function at a point $c$ is positive, as it says that there is a punctured neighbourhood around $c$ in which the function remains positive.
 
 ![Figure 1.2: A diagram showing the inertia principle in action. This principle says that if a function approaches a limit at a point, there is always an interval in which the function stays within a specified distance of the limit](Inertia.svg)
@@ -91,7 +102,7 @@ This idea is summed up in Figure <a href="#fig:inertia">1.2</a> below. This prin
 ## Sequential Characterisation of Limits
 Using an $\epsilon$-$\delta$ definition of the limit is not the only way we can define the limit of a function! In fact, you've already seen something similar when dealing with sequential continuity last semester.
 
-\BeginKnitrBlock{theorem}<div class="bookdown-theorem" custom-style="TheoremStyleUpright" id="thm:thm1"><span class="thm:thm1" custom-style="NameStyle"><strong><span id="thm:thm1"></span>Theorem 1.3   (Sequential Characterisation of Limit) </strong></span><p>Let $c\in\mathbb{R}$ and let $f: D \to \mathbb{R}$, with $D$ a punctured neighbourhood of $c$. Then the following are equivalent[^1]:
+\BeginKnitrBlock{theorem}<div class="bookdown-theorem" custom-style="TheoremStyleUpright" id="thm:thm1"><span class="thm:thm1" custom-style="NameStyle"><strong><span id="thm:thm1"></span>Theorem 1.4   (Sequential Characterisation of Limit) </strong></span><p>Let $c\in\mathbb{R}$ and let $f: D \to \mathbb{R}$, with $D$ a punctured neighbourhood of $c$. Then the following are equivalent[^2]:
   
 * $\lim_{x\to c}f(x) = L,$
   
@@ -100,7 +111,7 @@ Using an $\epsilon$-$\delta$ definition of the limit is not the only way we can 
 
 Why should you be pleased about this theorem? This allows you to apply all your Semester 1 knowledge of sequences to functions (for example, the algebra of limits)! In particular, if you can find two sequences $(x_n)_n$ and $(y_n)_n$ in $D\setminus\lbrace c\rbrace$ converging to $c$, but the sequences $\left(f(x_n)\right)_n$ and $\left(f(y_n)\right)_n$ approach different limits, this gives you an easy way of proving that function limits do not exist.
 
-[^1]: You may see this abbreviated to 'TFAE' in some contexts.
+[^2]: You may see this abbreviated to 'TFAE' in some contexts.
 
 # Hints
 In this section, you'll find hints for the current week's problem sheet. Try and have a go without them first, but hopefully these will help you solve the problems.

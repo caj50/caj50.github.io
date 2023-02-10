@@ -273,6 +273,7 @@ MathJax.Hub.Config({
 <ul>
 <li class="chapter" data-level="1.1.1" data-path="definition-of-a-limit.html"><a href="definition-of-a-limit.html#functions"><i class="fa fa-check"></i><b>1.1.1</b> Functions</a></li>
 <li class="chapter" data-level="1.1.2" data-path="definition-of-a-limit.html"><a href="definition-of-a-limit.html#the-definition"><i class="fa fa-check"></i><b>1.1.2</b> The Definition</a></li>
+<li class="chapter" data-level="1.1.3" data-path="definition-of-a-limit.html"><a href="definition-of-a-limit.html#using-the-definition-in-practice"><i class="fa fa-check"></i><b>1.1.3</b> Using the Definition in Practice</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="two-useful-results.html"><a href="two-useful-results.html"><i class="fa fa-check"></i><b>1.2</b> Two Useful Results</a></li>
 <li class="chapter" data-level="1.3" data-path="sequential-characterisation-of-limits.html"><a href="sequential-characterisation-of-limits.html"><i class="fa fa-check"></i><b>1.3</b> Sequential Characterisation of Limits</a></li>
@@ -300,7 +301,7 @@ MathJax.Hub.Config({
 One thing we would definitely like to know is that if a limit of a function exists, is it unique? Luckily, the answer to this is yes, and is summed up in the following result:
 
 <div id="prp:prop1" class="bookdown-proposition" custom-style="TheoremStyle">
-<span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.1:  (Uniqueness of Limits) </strong></span>
+<span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.2:  (Uniqueness of Limits) </strong></span>
 <p>
 Let <span class="math inline">\(c\in\mathbb{R}\)</span> and let <span class="math inline">\(f:D \to \mathbb{R}\)</span> be a function defined on a punctured neighbourhood <span class="math inline">\(D\)</span> of <span class="math inline">\(c\)</span>. If <span class="math inline">\(\exists L, M \in \mathbb{R}\)</span> such that <span class="math inline">\(\lim_{x\to c} f(x) = L\)</span> and <span class="math inline">\(\lim_{x\to c} f(x) = M\)</span>, then <span class="math inline">\(L=M\)</span>.
 </p>
@@ -308,7 +309,7 @@ Let <span class="math inline">\(c\in\mathbb{R}\)</span> and let <span class="mat
 Another useful result regarding functions we can state here is known as the <em>inertia principle</em>:
 
 <div id="prp:prop2" class="bookdown-proposition" custom-style="TheoremStyle">
-<span class="prp:prop2" custom-style="NameStyle"><strong>Proposition 1.2:  (Inertia) </strong></span>
+<span class="prp:prop2" custom-style="NameStyle"><strong>Proposition 1.3:  (Inertia) </strong></span>
 <p>
 Let <span class="math inline">\(c\in\mathbb{R}\)</span> and let <span class="math inline">\(f:D \to \mathbb{R}\)</span> be a function defined on a punctured neighbourhood <span class="math inline">\(D\)</span> of <span class="math inline">\(c\)</span>. If <span class="math inline">\(\lim_{x\to c} f(x) = L\)</span>, then for any <span class="math inline">\(M &lt; L\)</span>, there exists <span class="math inline">\(\delta &gt; 0\)</span> such that <span class="math display">\[\forall x \in D,\;\; 0 &lt; \lvert x - c \rvert &lt; \delta \; \Rightarrow \;\; f(x) &gt; M.\]</span>
 </p>

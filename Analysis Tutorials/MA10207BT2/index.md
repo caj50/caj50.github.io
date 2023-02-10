@@ -66,7 +66,7 @@ A specific type of domain we are going to need in the near future is that of a *
 For example, if we take $c = 0$, potential punctured neighbourhoods include:
 
 * $D = (-2,2)$ (This works with any $0 < \delta_0 < 2$)
-* $D = (-2,2)\setminus\lbrace0,1\rbrace$ (This works with any $0 < \delta_0 < 1$)
+* $D = (-3,5)\setminus\lbrace0,1\rbrace$ (This works with any $0 < \delta_0 < 1$)
 * $D = \mathbb{R}$ (This works with *any* positive $\delta_0$)
 
 ### The Definition
@@ -80,6 +80,15 @@ Alternatively, we can say that $f(x) \to L$ as $x \to c$ if this definition is s
 </div>
 
 Once we have a definition, it makes sense to also consider its negation. Namely, we have that $f(x)$ does not approach[^1] $L$ as $x \to c$ when $$\exists \epsilon_0 > 0\;\;\text{s.t}\;\;\forall \delta > 0,\;\; \exists x_0 \in D \;\; \text{s.t.}\;\; 0 < \lvert x_0 - c \rvert < \delta\;\; \text{and}\;\; \lvert f(x_0) - L \rvert \geq \epsilon_0.$$
+
+### Using the Definition in Practice
+In the exam, it is **highly** likely that you'll be made to use this definition to calculate a limit. In doing so, you'll need to bound a function that is wrapped up in an absolute value. There are two results from Semester 1 that can help with this, and if you haven't already, make sure that you commit these results to memory.
+\BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm46"><span class="thm:thm46" custom-style="NameStyle"><strong>(\#thm:thm46)  (Triangle Inequalities) </strong></span><p>For $x,y \in \mathbb{R}$:
+  
+  *  $\lvert x + y \rvert \leq \lvert x \rvert + \lvert y \rvert.$
+  *  $\left\lvert \lvert x \rvert - \lvert y \rvert \right\rvert \leq \lvert x - y \rvert.$
+  </p></div>\EndKnitrBlock{theorem}
+The second result here --- the *reverse triangle inequality* --- will be incredibly useful when we need to bound fractions.
 
 [^1]: This can also be written $f(x) \not\to L$.
 

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Analysis 1B — Tutorial 2" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Christian Jones: University of Bath" />
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.MessageHook("End Math", function (msg) {
+  var nodes = Array.from(msg[1].querySelectorAll('.MJX_Assistive_MathML [id]'));
+  while (nodes.length) {
+    nodes.shift().removeAttribute('id');
+  }
+}, 20);
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "fast-preview": {disabled: true},
+  explorer:{ subtitle: true },
+  MatchWebFonts: { 
+    matchFor: { "HTML-CSS": true, NativeMML: false, SVG: false },
+    fontCheckDelay: 2000,
+    fontCheckTimeout: 30 * 1000
+  },
+  "HTML-CSS": {
+    preferredFont: "STIX",
+    availableFonts: ["STIX","TeX"],
+    webFont: "STIX-Web",
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  SVG: {
+    font: "STIX-Web",
+    linebreaks: { automatic: false, width: "90\% container" }
+  },
+  menuSettings: { 
+    collapsible: false, 
+    autocollapse: false, 
+    explorer: false 
+  }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta name="description" content="Analysis 1B — Tutorial 2">
+
+<title>Analysis 1B — Tutorial 2</title>
+
+<script src="libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+</style>
+
+<style type="text/css">
+  a {
+   color: blue;
+  }
+
+  [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  [custom-style=NameStyle]{
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  [custom-style=NameStyleItalics]{
+    font-style: italic;
+  }
+
+  
+  [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+  
+  [data-custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  
+</style>
+
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<!--bookdown:title:start-->
+<div id="header">
+<h1 class="title">Analysis 1B — Tutorial 2</h1>
+<h4 class="author"><em>Christian Jones: University of Bath</em></h4>
+<h4 class="date"><em>February 2023</em></h4>
+</div>
+<!--bookdown:title:end-->
+
+<!--bookdown:toc:start-->
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#lecture-recap"><span class="toc-section-number">1</span> Lecture Recap</a>
+<ul>
+<li><a href="#definition-of-a-limit"><span class="toc-section-number">1.1</span> Definition of a Limit</a>
+<ul>
+<li><a href="#functions"><span class="toc-section-number">1.1.1</span> Functions</a></li>
+<li><a href="#the-definition"><span class="toc-section-number">1.1.2</span> The Definition</a></li>
+<li><a href="#using-the-definition-in-practice"><span class="toc-section-number">1.1.3</span> Using the Definition in Practice</a></li>
+</ul></li>
+<li><a href="#two-useful-results"><span class="toc-section-number">1.2</span> Two Useful Results</a></li>
+<li><a href="#sequential-characterisation-of-limits"><span class="toc-section-number">1.3</span> Sequential Characterisation of Limits</a></li>
+</ul></li>
+<li><a href="#hints"><span class="toc-section-number">2</span> Hints</a></li>
+</ul>
+</div>
+<!--bookdown:toc:end-->
+
+<!--bookdown:body:start-->
+<!-- This is needed since I am working with svg files from mathcha.io. It converts the graphics files to something that can be used in the pdf files. Code taken from https://stackoverflow.com/questions/50165404/how-to-make-a-pdf-using-bookdown-including-svg-images/56044642#56044642 -->
+<div id="introduction" class="section level1 unnumbered">
+<h1>Introduction</h1>
+<p>Here is the material to accompany the 2nd Analysis 1B Tutorial on the 13th February. Alternative formats can be downloaded by clicking the download icon at the top of the page. Please send any comments or corrections to <a href="mailto:caj50@bath.ac.uk">Christian Jones (caj50)</a>. To return to the homepage, click <a href="http://caj50.github.io/tutoring.html">here</a>.</p>
+</div>
+<div id="lecture-recap" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Lecture Recap</h1>
+<p>The course has finally begun proper! For the next few weeks, we’re going to see the first section: limits and continuity of functions. Despite another complicated definition to work with, it will turn out that many of the concepts can be made eerily similar to stuff you saw from Semester 1.</p>
+<div id="definition-of-a-limit" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Definition of a Limit</h2>
+<div id="functions" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Functions</h3>
+To begin, we pick up where Analysis 1A left off, and start talking about functions.
+
+<div id="def:def1" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Function) </strong></span>
+<div>
+Let <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> be sets. A function from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span> is a rule that assigns to each element of <span class="math inline">\(A\)</span> a unique element of <span class="math inline">\(B\)</span>. The set <span class="math inline">\(A\)</span> is called the domain of the function, and <span class="math inline">\(B\)</span> is called the codomain of the function.
+</div>
+</div>
+<p>So, to specify a function, we need a domain, codomain and a rule that tells us how to get between the two. We can write a function <span class="math inline">\(f\)</span> symbolically as follows:
+<span class="math display">\[\begin{align*}
+f:\; &amp;A \longrightarrow B,\\
+&amp;x \longmapsto f(x).
+\end{align*}\]</span></p>
+A specific type of domain we are going to need in the near future is that of a <em>punctured neighbourhood</em>.
+
+<div id="def:def2" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def2" custom-style="NameStyle"><strong>Definition 1.2:  (Punctured Neighbourhood) </strong></span>
+<div>
+Let <span class="math inline">\(c\in\mathbb{R}\)</span>, and <span class="math inline">\(D \subseteq \mathbb{R}\)</span>. Then <span class="math inline">\(D\)</span> is a punctured neighbourhood of <span class="math inline">\(c\)</span> if there exists a <span class="math inline">\(\delta_0\)</span> such that the set <span class="math inline">\((c-\delta_0,c)\cup(c,c + \delta_0) \subseteq D.\)</span>
+</div>
+</div>
+<p>For example, if we take <span class="math inline">\(c = 0\)</span>, potential punctured neighbourhoods include:</p>
+<ul>
+<li><span class="math inline">\(D = (-2,2)\)</span> (This works with any <span class="math inline">\(0 &lt; \delta_0 &lt; 2\)</span>)</li>
+<li><span class="math inline">\(D = (-3,5)\setminus\lbrace0,1\rbrace\)</span> (This works with any <span class="math inline">\(0 &lt; \delta_0 &lt; 1\)</span>)</li>
+<li><span class="math inline">\(D = \mathbb{R}\)</span> (This works with <em>any</em> positive <span class="math inline">\(\delta_0\)</span>)</li>
+</ul>
+</div>
+<div id="the-definition" class="section level3" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> The Definition</h3>
+One thing we may be interested in for a function is what happens as we approach a particular value from inside the domain. More specifically, we are interested in what happens to the corresponding codomain values: do they approach something finite, oscillate wildly, or behave even more bizarrely? In the first case, we can talk about a limiting value, of which the precise definition is formulated below:
+
+<div id="def:def3" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def3" custom-style="NameStyle"><strong>Definition 1.3:  (Limit of a Function) </strong></span>
+<div>
+Let <span class="math inline">\(c, L\in\mathbb{R}\)</span>, and let <span class="math inline">\(f: D \longrightarrow \mathbb{R}\)</span> be a function defined on a punctured neighbourhood of <span class="math inline">\(c\)</span>. Then <span class="math inline">\(\lim_{x \to c} f(x) = L\)</span> means <span class="math display">\[\forall \epsilon &gt; 0 \;\; \exists \delta &gt; 0\;\; \text{s.t.} \;\; \forall x \in D, \;\; 0 &lt; \lvert x - c \rvert &lt; \delta \;\Rightarrow\; \lvert f(x) - L \rvert &lt; \epsilon.\]</span>
+</div>
+</div>
+<p>Alternatively, we can say that <span class="math inline">\(f(x) \to L\)</span> as <span class="math inline">\(x \to c\)</span> if this definition is satisfied. Loosely, this says that “however close you want the function to be to <span class="math inline">\(L\)</span> at <span class="math inline">\(x = c\)</span>, you can always find a range of <span class="math inline">\(x\)</span> values that make this possible.” Graphically, we may be in a situation as in Figure <a href="#fig:funclim">1.1</a>.</p>
+<div class="figure"><span id="fig:funclim"></span>
+<img src="Functionlimit.svg" alt="A diagram illustrating the definition of limits for functions."  />
+<p class="caption">
+Figure 1.1: A diagram showing the limiting process for functions. For the given <span class="math inline">\(\epsilon\)</span> in the diagram, we see that whenever we are within a distance <span class="math inline">\(\delta\)</span> of <span class="math inline">\(c\)</span> in the domain, evaluating the function leaves us within a distance <span class="math inline">\(\epsilon\)</span> of <span class="math inline">\(L\)</span>. Note that the function isn’t defined at <span class="math inline">\(c\)</span>, but the limiting value <span class="math inline">\(L\)</span> still exists.
+</p>
+</div>
+<p>Once we have a definition, it makes sense to also consider its negation. Namely, we have that <span class="math inline">\(f(x)\)</span> does not approach<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> <span class="math inline">\(L\)</span> as <span class="math inline">\(x \to c\)</span> when <span class="math display">\[\exists \epsilon_0 &gt; 0\;\;\text{s.t}\;\;\forall \delta &gt; 0,\;\; \exists x_0 \in D \;\; \text{s.t.}\;\; 0 &lt; \lvert x_0 - c \rvert &lt; \delta\;\; \text{and}\;\; \lvert f(x_0) - L \rvert \geq \epsilon_0.\]</span></p>
+</div>
+<div id="using-the-definition-in-practice" class="section level3" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> Using the Definition in Practice</h3>
+In the exam, it is <strong>highly</strong> likely that you’ll be made to use this definition to calculate a limit. In doing so, you’ll need to bound a function that is wrapped up in an absolute value. There are two results from Semester 1 that can help with this, and if you haven’t already, make sure that you commit these results to memory.
+
+<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm46">
+<span class="thm:thm46" custom-style="NameStyle"><strong>Theorem 1.1:  (Triangle Inequalities) </strong></span>
+<p>
+<p>For <span class="math inline">\(x,y \in \mathbb{R}\)</span>:</p>
+<ul>
+<li><span class="math inline">\(\lvert x + y \rvert \leq \lvert x \rvert + \lvert y \rvert.\)</span></li>
+<li><span class="math inline">\(\left\lvert \lvert x \rvert - \lvert y \rvert \right\rvert \leq \lvert x - y \rvert.\)</span>
+</p>
+</div>
+The second result here — the <em>reverse triangle inequality</em> — will be incredibly useful when we need to bound fractions.</li>
+</ul>
+</div>
+</div>
+<div id="two-useful-results" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Two Useful Results</h2>
+One thing we would definitely like to know is that if a limit of a function exists, is it unique? Luckily, the answer to this is yes, and is summed up in the following result:
+
+<div id="prp:prop1" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.2:  (Uniqueness of Limits) </strong></span>
+<p>
+Let <span class="math inline">\(c\in\mathbb{R}\)</span> and let <span class="math inline">\(f:D \to \mathbb{R}\)</span> be a function defined on a punctured neighbourhood <span class="math inline">\(D\)</span> of <span class="math inline">\(c\)</span>. If <span class="math inline">\(\exists L, M \in \mathbb{R}\)</span> such that <span class="math inline">\(\lim_{x\to c} f(x) = L\)</span> and <span class="math inline">\(\lim_{x\to c} f(x) = M\)</span>, then <span class="math inline">\(L=M\)</span>.
+</p>
+</div>
+Another useful result regarding functions we can state here is known as the <em>inertia principle</em>:
+
+<div id="prp:prop2" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop2" custom-style="NameStyle"><strong>Proposition 1.3:  (Inertia) </strong></span>
+<p>
+Let <span class="math inline">\(c\in\mathbb{R}\)</span> and let <span class="math inline">\(f:D \to \mathbb{R}\)</span> be a function defined on a punctured neighbourhood <span class="math inline">\(D\)</span> of <span class="math inline">\(c\)</span>. If <span class="math inline">\(\lim_{x\to c} f(x) = L\)</span>, then for any <span class="math inline">\(M &lt; L\)</span>, there exists <span class="math inline">\(\delta &gt; 0\)</span> such that <span class="math display">\[\forall x \in D,\;\; 0 &lt; \lvert x - c \rvert &lt; \delta \; \Rightarrow \;\; f(x) &gt; M.\]</span>
+</p>
+</div>
+<p>This idea is summed up in Figure <a href="#fig:inertia">1.2</a> below. This principle is especially useful when the limit of a function at a point <span class="math inline">\(c\)</span> is positive, as it says that there is a punctured neighbourhood around <span class="math inline">\(c\)</span> in which the function remains positive.</p>
+<div class="figure"><span id="fig:inertia"></span>
+<img src="Inertia.svg" alt="A diagram illustrating the inertia principle for a concave function."  />
+<p class="caption">
+Figure 1.2: A diagram showing the inertia principle in action. This principle says that if a function approaches a limit at a point, there is always an interval in which the function stays within a specified distance of the limit
+</p>
+</div>
+</div>
+<div id="sequential-characterisation-of-limits" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Sequential Characterisation of Limits</h2>
+<p>Using an <span class="math inline">\(\epsilon\)</span>-<span class="math inline">\(\delta\)</span> definition of the limit is not the only way we can define the limit of a function! In fact, you’ve already seen something similar when dealing with sequential continuity last semester.</p>
+
+<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm1">
+<span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1.4:  (Sequential Characterisation of Limit) </strong></span>
+<p>
+<p>Let <span class="math inline">\(c\in\mathbb{R}\)</span> and let <span class="math inline">\(f: D \to \mathbb{R}\)</span>, with <span class="math inline">\(D\)</span> a punctured neighbourhood of <span class="math inline">\(c\)</span>. Then the following are equivalent<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>:</p>
+<ul>
+<li><p><span class="math inline">\(\lim_{x\to c}f(x) = L,\)</span></p></li>
+<li><p>For any sequence <span class="math inline">\((x_n)_n\)</span> in <span class="math inline">\(D\setminus\lbrace c \rbrace\)</span> which converges to <span class="math inline">\(c\)</span>, <span class="math display">\[\lim_{n\to\infty}f(x_n) =L.\]</span></p>
+</p>
+</div></li>
+</ul>
+<p>Why should you be pleased about this theorem? This allows you to apply all your Semester 1 knowledge of sequences to functions (for example, the algebra of limits)! In particular, if you can find two sequences <span class="math inline">\((x_n)_n\)</span> and <span class="math inline">\((y_n)_n\)</span> in <span class="math inline">\(D\setminus\lbrace c\rbrace\)</span> converging to <span class="math inline">\(c\)</span>, but the sequences <span class="math inline">\(\left(f(x_n)\right)_n\)</span> and <span class="math inline">\(\left(f(y_n)\right)_n\)</span> approach different limits, this gives you an easy way of proving that function limits do not exist.</p>
+</div>
+</div>
+<div id="hints" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Hints</h1>
+<p>In this section, you’ll find hints for the current week’s problem sheet. Try and have a go without them first, but hopefully these will help you solve the problems.</p>
+<ol style="list-style-type: decimal">
+<li>This one is mostly similar to the examples seen in lectures and the one we did in the tutorial. You might have to make a choice of delta near the start of your argument though, just so that <span class="math inline">\(\lvert f(x) - L \rvert\)</span> is well defined.</li>
+<li>Try making a clever choice of epsilon in the definition of limit. Then you should be able to rearrange and find the required <span class="math inline">\(c_1\)</span>, <span class="math inline">\(c_2\)</span> and <span class="math inline">\(\delta\)</span>.</li>
+<li>Again, this is fairly similar to the ones we did in tutorials. Some Semester 1 material may also help here!</li>
+</ol>
+<!--chapter:end:index.Rmd-->
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>This can also be written <span class="math inline">\(f(x) \not\to L\)</span>.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>You may see this abbreviated to ‘TFAE’ in some contexts.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+<!--bookdown:body:end-->
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>

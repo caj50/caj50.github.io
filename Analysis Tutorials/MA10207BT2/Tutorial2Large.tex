@@ -196,7 +196,7 @@ For example, if we take \(c = 0\), potential punctured neighbourhoods include:
 \item
   \(D = (-2,2)\) (This works with any \(0 < \delta_0 < 2\))
 \item
-  \(D = (-2,2)\setminus\lbrace0,1\rbrace\) (This works with any \(0 < \delta_0 < 1\))
+  \(D = (-3,5)\setminus\lbrace0,1\rbrace\) (This works with any \(0 < \delta_0 < 1\))
 \item
   \(D = \mathbb{R}\) (This works with \emph{any} positive \(\delta_0\))
 \end{itemize}
@@ -214,7 +214,25 @@ Alternatively, we can say that \(f(x) \to L\) as \(x \to c\) if this definition 
 \includegraphics[width=\Width,height=\Height]{Functionlimit} \caption{A diagram showing the limiting process for functions. For the given $\epsilon$ in the diagram, we see that whenever we are within a distance $\delta$ of $c$ in the domain, evaluating the function leaves us within a distance $\epsilon$ of $L$. Note that the function isn't defined at $c$, but the limiting value $L$ still exists.}\label{fig:funclim}
 \end{figure}
 
-Once we have a definition, it makes sense to also consider its negation. Namely, we have that \(f(x) \not\to L\) as \(x \to c\) when \[\exists \epsilon_0 > 0\;\;\text{s.t}\;\;\forall \delta > 0,\;\; \exists x_0 \in D \;\; \text{s.t.}\;\; 0 < \lvert x_0 - c \rvert < \delta\;\; \text{and}\;\; \lvert f(x_0) - L \rvert \geq \epsilon_0.\]
+Once we have a definition, it makes sense to also consider its negation. Namely, we have that \(f(x)\) does not approach\footnote{This can also be written \(f(x) \not\to L\).} \(L\) as \(x \to c\) when \[\exists \epsilon_0 > 0\;\;\text{s.t}\;\;\forall \delta > 0,\;\; \exists x_0 \in D \;\; \text{s.t.}\;\; 0 < \lvert x_0 - c \rvert < \delta\;\; \text{and}\;\; \lvert f(x_0) - L \rvert \geq \epsilon_0.\]
+
+\hypertarget{using-the-definition-in-practice}{%
+\subsubsection{Using the Definition in Practice}\label{using-the-definition-in-practice}}
+
+In the exam, it is \textbf{highly} likely that you'll be made to use this definition to calculate a limit. In doing so, you'll need to bound a function that is wrapped up in an absolute value. There are two results from Semester 1 that can help with this, and if you haven't already, make sure that you commit these results to memory.
+\BeginKnitrBlock{theorem}[Triangle Inequalities]
+{\label{thm:thm46} }For \(x,y \in \mathbb{R}\):
+
+\begin{itemize}
+\tightlist
+\item
+  \(\lvert x + y \rvert \leq \lvert x \rvert + \lvert y \rvert.\)
+\item
+  \(\left\lvert \lvert x \rvert - \lvert y \rvert \right\rvert \leq \lvert x - y \rvert.\)
+\end{itemize}
+\EndKnitrBlock{theorem}
+
+The second result here --- the \emph{reverse triangle inequality} --- will be incredibly useful when we need to bound fractions.
 
 \hypertarget{two-useful-results}{%
 \subsection{Two Useful Results}\label{two-useful-results}}
