@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Analysis 1B — Epsilon-Delta Example" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Christian Jones: University of Bath" />
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.MessageHook("End Math", function (msg) {
+  var nodes = Array.from(msg[1].querySelectorAll('.MJX_Assistive_MathML [id]'));
+  while (nodes.length) {
+    nodes.shift().removeAttribute('id');
+  }
+}, 20);
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "fast-preview": {disabled: true},
+  explorer:{ subtitle: true },
+  MatchWebFonts: { 
+    matchFor: { "HTML-CSS": true, NativeMML: false, SVG: false },
+    fontCheckDelay: 2000,
+    fontCheckTimeout: 30 * 1000
+  },
+  "HTML-CSS": {
+    preferredFont: "STIX",
+    availableFonts: ["STIX","TeX"],
+    webFont: "STIX-Web",
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  SVG: {
+    font: "STIX-Web",
+    linebreaks: { automatic: false, width: "90\% container" }
+  },
+  menuSettings: { 
+    collapsible: false, 
+    autocollapse: false, 
+    explorer: false 
+  }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta name="description" content="Analysis 1B — Epsilon-Delta Example">
+
+<title>Analysis 1B — Epsilon-Delta Example</title>
+
+<script src="libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+</style>
+
+<style type="text/css">
+  a {
+   color: blue;
+  }
+
+  [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  [custom-style=NameStyle]{
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  [custom-style=NameStyleItalics]{
+    font-style: italic;
+  }
+
+  
+  [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+  
+  [data-custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  
+</style>
+
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<!--bookdown:title:start-->
+<div id="header">
+<h1 class="title">Analysis 1B — Epsilon-Delta Example</h1>
+<h4 class="author"><em>Christian Jones: University of Bath</em></h4>
+<h4 class="date"><em>February 2023</em></h4>
+</div>
+<!--bookdown:title:end-->
+
+<!--bookdown:toc:start-->
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#worked-example"><span class="toc-section-number">1</span> Worked Example</a></li>
+</ul>
+</div>
+<!--bookdown:toc:end-->
+
+<!--bookdown:body:start-->
+<!-- This is needed since I am working with svg files from mathcha.io. It converts the graphics files to something that can be used in the pdf files. Code taken from https://stackoverflow.com/questions/50165404/how-to-make-a-pdf-using-bookdown-including-svg-images/56044642#56044642 -->
+<div id="introduction" class="section level1 unnumbered">
+<h1>Introduction</h1>
+<p>Here is an extra example of finding the limit of a function using the definition. This should hopefully give you a guide to the techniques required, and how much detail you should put in your solutions.</p>
+</div>
+<div id="worked-example" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Worked Example</h1>
+
+<div id="Que:unnamed-chunk-2" class="Question" custom-style="ExampleStyle">
+<span class="Question" custom-style="NameStyle"><strong> Question: </strong></span>
+<p>
+Let <span class="math inline">\(f : \mathbb{R} \to \mathbb{R}\)</span> be defined by <span class="math display">\[f(x) = \begin{cases}
+\frac{1}{x^2}\;\;\text{if}\;\;x\in\mathbb{R}\setminus\lbrace 0\rbrace,\\
+0 \;\;\;\;\text{if}\;\;x=0.\end{cases}\]</span> Prove that <span class="math inline">\(\lim_{x\to 1} f(x) = 1.\)</span>
+</p>
+</div>
+
+<div class="bookdown-solution" custom-style="ProofStyle">
+<span class="solution" custom-style="NameStyleItalics">Solution. </span>
+<p>
+<p>Fix <span class="math inline">\(\epsilon&gt;0\)</span>, and suppose that <span class="math inline">\(0&lt;\lvert x - 1 \rvert &lt; \delta\)</span> for some <span class="math inline">\(\delta &gt; 0\)</span> to be chosen later. Without loss of generality, suppose that <span class="math inline">\(\delta \leq 1\)</span>. Then
+<span class="math display">\[\begin{align*}
+\lvert f(x) - 1 \rvert &amp;= \bigg\lvert \frac{1}{x^2} - 1 \bigg\rvert,\\
+&amp;= \bigg\lvert \frac{1 - x^2}{x^2} \bigg\rvert,\\
+&amp;= \frac{\lvert x - 1 \rvert \lvert x + 1\rvert}{\lvert x \rvert ^2}.
+\end{align*}\]</span></p>
+<p>Now, by the triangle inequality, we have that <span class="math display">\[\lvert x + 1 \rvert = \lvert x - 1 + 2 \rvert \leq \lvert x - 1 \rvert + 2.\]</span> Also, by the reverse triangle inequality, <span class="math display">\[\lvert x \rvert = \lvert x - 1 + 1 \rvert \geq 1 - \lvert x - 1 \rvert.\]</span> So, if <span class="math inline">\(\delta \leq \frac{1}{2}\)</span>, we obtain <span class="math inline">\(\lvert x + 1 \rvert &lt; \frac{5}{2}\)</span>, <span class="math inline">\(\lvert x \rvert &gt; \frac{1}{2}\)</span>, and
+<span class="math display">\[\begin{align*}
+\lvert f(x) - 1 \rvert &lt; \frac{5/2 \lvert x - 1 \rvert}{\left(1/2\right)^2} = 10\lvert x - 1 \rvert &lt; 10\delta.
+\end{align*}\]</span></p>
+<p>Hence, if <span class="math inline">\(\delta = \min\lbrace 1 , 1/2, \epsilon/10\rbrace\)</span>, we find that
+<span class="math display">\[\begin{align*}
+0&lt;\lvert x - 1 \rvert &lt; \delta \Longrightarrow \lvert f(x) - 1 \rvert &lt; \epsilon
+\end{align*}\]</span></p>
+Finally, since <span class="math inline">\(\epsilon\)</span> was arbitrary, we conclude that <span class="math inline">\(\lim_{x\to 1} f(x) = 1,\)</span> as required.
+</p>
+</div>
+<!--chapter:end:index.Rmd-->
+</div>
+<!--bookdown:body:end-->
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>
