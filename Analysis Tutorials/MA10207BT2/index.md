@@ -16,14 +16,6 @@ output:
       download: [["Tutorial2.html", "HTML page"], ["Tutorial2.pdf","Standard print PDF"], ["Tutorial2Clear.pdf","Clear print PDF"], ["Tutorial2Large.pdf","Large print PDF"], ["Tutorial2.docx","Accessible Word document"], ["Tutorial2.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
-  clavertondown::word_clav:
-    toc: true
-    number_sections: true
-    keep_md: true
-    pandoc_args: --default-image-extension=svg
-  clavertondown::html_clav:
-    toc: true
-    pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
     keep_tex: true
@@ -31,8 +23,16 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
+  clavertondown::word_clav:
+    toc: true
+    number_sections: true
+    keep_md: true
+    pandoc_args: --default-image-extension=svg
   clavertondown::epub_clav:
     toc: false
+    pandoc_args: --default-image-extension=svg
+  clavertondown::html_clav:
+    toc: true
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
@@ -120,10 +120,10 @@ Why should you be pleased about this theorem? This allows you to apply all your 
 [^2]: You may see this abbreviated to 'TFAE' in some contexts.
 
 # Hints
-In this section, you'll find hints for the current week's problem sheet. Try and have a go without them first, but hopefully these will help you solve the problems.
+As per usual, here's where you'll find the problem sheet hints!
 
 1) This one is mostly similar to the examples seen in lectures and the one we did in the tutorial. You might have to make a choice of delta near the start of your argument though, just so that $\lvert f(x) - L \rvert$ is well defined.
-2) Try making a clever choice of epsilon in the definition of limit. Then you should be able to rearrange and find the required $c_1$, $c_2$ and $\delta$.
+2) Choose a specific $\epsilon$ dependent on $L$ in the definition of limit. Then you should be able to rearrange and find the required $c_1$, $c_2$ and $\delta$.
 3) Again, this is fairly similar to the ones we did in tutorials. Some Semester 1 material may also help here!
  
 
