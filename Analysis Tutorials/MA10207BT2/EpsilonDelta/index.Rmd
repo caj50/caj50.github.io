@@ -16,7 +16,7 @@ output:
     split_by: section
     keep_md: true
     config:
-      download: [["EpsilonDelta.html", "HTML page"], ["EpsilonDelta.pdf","Standard print PDF"], ["EpsilonDelta.pdf","Clear print PDF"], ["EpsilonDelta.pdf","Large print PDF"], ["EpsilonDelta.docx","Accessible Word document"], ["EpsilonDelta.epub","Accessible EPub book" ]]
+      download: [["EpsilonDelta.html", "HTML page"], ["EpsilonDelta.pdf","Standard print PDF"], ["EpsilonDeltaClear.pdf","Clear print PDF"], ["EpsilonDeltaLarge.pdf","Large print PDF"], ["EpsilonDelta.docx","Accessible Word document"], ["EpsilonDelta.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
   clavertondown::word_clav:
