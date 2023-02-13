@@ -52,7 +52,7 @@ Here is an extra example of finding the limit of a function using the definition
 \frac{1}{x^2}\;\;\text{if}\;\;x\in\mathbb{R}\setminus\lbrace 0\rbrace,\\
 0 \;\;\;\;\text{if}\;\;x=0.\end{cases}$$ Prove that $\lim_{x\to 1} f(x) = 1.$</p></div>\EndKnitrBlock{Question}
 
-\BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyleItalics"><strong>Solution. </strong></span> <p>Fix $\epsilon>0$, and suppose that $0<\lvert x - 1 \rvert < \delta$ for some $\delta > 0$ to be chosen later. Without loss of generality, suppose that $\delta \leq 1$. Then 
+\BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyleItalics"><strong>Solution. </strong></span> <p>Fix $\epsilon>0$, and suppose that $0<\lvert x - 1 \rvert < \delta$ for some $\delta > 0$ to be chosen later. Without loss of generality, suppose that $\delta \leq 1$ (this deals with the different definition of $f$ at $x=0$). Then 
 \begin{align*}
 \lvert f(x) - 1 \rvert &= \bigg\lvert \frac{1}{x^2} - 1 \bigg\rvert,\\
 &= \bigg\lvert \frac{1 - x^2}{x^2} \bigg\rvert,\\
@@ -60,17 +60,18 @@ Here is an extra example of finding the limit of a function using the definition
 \end{align*}
 
 Now, by the triangle inequality, we have that $$\lvert x + 1 \rvert = \lvert x - 1 + 2 \rvert \leq \lvert x - 1 \rvert + 2.$$ Also, by the reverse triangle inequality, $$\lvert x \rvert = \lvert x - 1 + 1 \rvert \geq 1 - \lvert x - 1 \rvert.$$ So, if $\delta \leq \frac{1}{2}$, we obtain $\lvert x + 1 \rvert < \frac{5}{2}$, $\lvert x \rvert > \frac{1}{2}$, and
+
 \begin{align*}
 \lvert f(x) - 1 \rvert < \frac{5/2 \lvert x - 1 \rvert}{\left(1/2\right)^2} = 10\lvert x - 1 \rvert < 10\delta.
 \end{align*}
 
 Hence, if $\delta = \min\lbrace 1 , 1/2, \epsilon/10\rbrace$, we find that
+
 \begin{align*}
-0<\lvert x - 1 \rvert < \delta \Longrightarrow \lvert f(x) - 1 \rvert < \epsilon
+0<\lvert x - 1 \rvert < \delta \Longrightarrow \lvert f(x) - 1 \rvert < \epsilon.
 \end{align*}
 
-Finally, since $\epsilon$ was arbitrary, we conclude that $\lim_{x\to 1} f(x) = 1,$ as required.
-</p></div>\EndKnitrBlock{solution}
+Therefore, as $\epsilon$ was arbitrary, we conclude that $\lim_{x \to 1} f(x) = 1.$</p></div>\EndKnitrBlock{solution}
 
 <!--chapter:end:index.Rmd-->
 

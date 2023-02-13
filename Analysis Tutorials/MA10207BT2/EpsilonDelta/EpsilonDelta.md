@@ -14,6 +14,13 @@ output:
     number_sections: true
     keep_md: true
     pandoc_args: --default-image-extension=svg
+  clavertondown::gitbook_clav:
+    split_by: section
+    keep_md: true
+    config:
+      download: [["EpsilonDelta.html", "HTML page"], ["EpsilonDelta.pdf","Standard print PDF"], ["EpsilonDeltaClear.pdf","Clear print PDF"], ["EpsilonDeltaLarge.pdf","Large print PDF"], ["EpsilonDelta.docx","Accessible Word document"], ["EpsilonDelta.epub","Accessible EPub book" ]]
+      sharing: no
+    pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
     keep_tex: true
@@ -21,18 +28,11 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
   clavertondown::html_clav:
     toc: true
     pandoc_args: --default-image-extension=svg
-  clavertondown::gitbook_clav:
-    split_by: section
-    keep_md: true
-    config:
-      download: [["EpsilonDelta.html", "HTML page"], ["EpsilonDelta.pdf","Standard print PDF"], ["EpsilonDelta.pdf","Clear print PDF"], ["EpsilonDelta.pdf","Large print PDF"], ["EpsilonDelta.docx","Accessible Word document"], ["EpsilonDelta.epub","Accessible EPub book" ]]
-      sharing: no
+  clavertondown::epub_clav:
+    toc: false
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
@@ -52,24 +52,26 @@ Here is an extra example of finding the limit of a function using the definition
 \frac{1}{x^2}\;\;\text{if}\;\;x\in\mathbb{R}\setminus\lbrace 0\rbrace,\\
 0 \;\;\;\;\text{if}\;\;x=0.\end{cases}$$ Prove that $\lim_{x\to 1} f(x) = 1.$</p></div>\EndKnitrBlock{Question}
 
-\BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyle"><strong>Solution. </strong></span> <p>Fix $\epsilon>0$, and suppose that $0<\lvert x - 1 \rvert < \delta$ for some $\delta > 0$ to be chosen later. Without loss of generality, suppose that $\delta \leq 1$. Then 
+\BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyle"><strong>Solution. </strong></span> <p>Fix $\epsilon>0$, and suppose that $0<\lvert x - 1 \rvert < \delta$ for some $\delta > 0$ to be chosen later. Without loss of generality, suppose that $\delta \leq 1$ (this deals with the different definition of $f$ at $x=0$). Then 
 $$\begin{align*}
 \lvert f(x) - 1 \rvert &= \bigg\lvert \frac{1}{x^2} - 1 \bigg\rvert,\\
 &= \bigg\lvert \frac{1 - x^2}{x^2} \bigg\rvert,\\
 &= \frac{\lvert x - 1 \rvert \lvert x + 1\rvert}{\lvert x \rvert ^2}.
 \end{align*}$$
 
-Now, by the triangle inequality, we have that $$\lvert x + 1 \rvert = \lvert x - 1 + 2 \rvert \leq \lvert x - 1 \rvert + 2.$$ Also, by the reverse triangle inequality, $$\lvert x \rvert = \lvert x - 1 + 1 \rvert \geq 1 - \lvert x - 1 \rvert.$$ So, if $\delta \leq \frac{1}{2}$, say we obtain $\lvert x + 1 \rvert < \frac{5}{2}$, $\lvert x \rvert > \frac{1}{2}$, and
+Now, by the triangle inequality, we have that $$\lvert x + 1 \rvert = \lvert x - 1 + 2 \rvert \leq \lvert x - 1 \rvert + 2.$$ Also, by the reverse triangle inequality, $$\lvert x \rvert = \lvert x - 1 + 1 \rvert \geq 1 - \lvert x - 1 \rvert.$$ So, if $\delta \leq \frac{1}{2}$, we obtain $\lvert x + 1 \rvert < \frac{5}{2}$, $\lvert x \rvert > \frac{1}{2}$, and
+
 $$\begin{align*}
 \lvert f(x) - 1 \rvert < \frac{5/2 \lvert x - 1 \rvert}{\left(1/2\right)^2} = 10\lvert x - 1 \rvert < 10\delta.
 \end{align*}$$
 
 Hence, if $\delta = \min\lbrace 1 , 1/2, \epsilon/10\rbrace$, we find that
+
 $$\begin{align*}
-0<\lvert x - 1 \rvert < \delta \Longrightarrow \lvert f(x) - 1 \rvert < \epsilon
+0<\lvert x - 1 \rvert < \delta \Longrightarrow \lvert f(x) - 1 \rvert < \epsilon.
 \end{align*}$$
 
-Finally, since $\epsilon$ was arbitrary, we conclude that $\lim_{x\to 1} f(x) = 1,$ as required.</p></div>\EndKnitrBlock{solution}
+Therefore, as $\epsilon$ was arbitrary, we conclude that $\lim_{x \to 1} f(x) = 1.$</p></div>\EndKnitrBlock{solution}
 
 <!--chapter:end:index.Rmd-->
 
