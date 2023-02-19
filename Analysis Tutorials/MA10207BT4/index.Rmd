@@ -1,0 +1,176 @@
+---
+title: "Analysis 1B — Tutorial 4"
+author: 'Christian Jones: University of Bath'
+date: 'February 2023'
+site: bookdown::bookdown_site
+language: en
+documentclass: article
+classoption: a4paper
+fontsize: 10pt
+geometry: margin=2.5cm
+output:
+  clavertondown::pdf_clav:
+    latex_engine: pdflatex
+    keep_tex: true
+    fig_caption: true
+    toc: true
+    extra_dependencies: ["float"]
+    pandoc_args: --default-image-extension=pdf
+  clavertondown::gitbook_clav:
+    split_by: section
+    keep_md: true
+    config:
+      download: [["Tutorial4.html", "HTML page"], ["Tutorial4.pdf","Standard print PDF"], ["Tutorial4Clear.pdf","Clear print PDF"], ["Tutorial4Large.pdf","Large print PDF"], ["Tutorial4.docx","Accessible Word document"], ["Tutorial4.epub","Accessible EPub book" ]]
+      sharing: no
+    pandoc_args: --default-image-extension=svg
+  clavertondown::word_clav:
+    toc: true
+    number_sections: true
+    keep_md: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::html_clav:
+    toc: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
+header-includes:
+  - \newcommand{\BOO}{BOO}
+  - \usepackage {hyperref}
+  - \hypersetup {colorlinks = true, linkcolor = blue, urlcolor = blue}
+---
+<!-- This is needed since I am working with svg files from mathcha.io. It converts the graphics files to something that can be used in the pdf files. Code taken from https://stackoverflow.com/questions/50165404/how-to-make-a-pdf-using-bookdown-including-svg-images/56044642#56044642 -->
+```{r, echo=F}
+show_fig <- function(f)
+  {if (knitr::is_latex_output())
+  {
+    output = xfun::with_ext(f, 'pdf')
+    rsvg::rsvg_pdf(xfun::with_ext(f,'svg'), file=output)
+  } else {
+    output = xfun::with_ext(f, 'svg')
+  }
+  knitr::include_graphics(output)
+}
+```
+\newpage
+\pagenumbering{arabic}
+
+# Introduction {-}
+Here is the material to accompany the 4th Analysis 1B Tutorial on the 27th February. Alternative formats can be downloaded by clicking the download icon at the top of the page. Please send any comments or corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk). To return to the homepage, click [here](http://caj50.github.io/tutoring.html).
+
+<!--<details open>
+<summary>Want to ruin the surprise?</summary>
+<br>
+Well, you asked for it!
+</details>-->
+
+# Lecture Recap
+
+## Sequential Continuity
+Recall the definition of function continuity from last week:
+```{definition, label = "def1", name = "Continuity"}
+Let $D \subseteq \mathbb{R}$, and $f: D \to \mathbb{R}$. Then $f$ is continuous at a point $c$ if $$\forall \epsilon > 0\;\;\exists \delta > 0\;\;\text{s.t.}\;\;\forall x \in D,\;\; \lvert x - c \rvert < \delta \Rightarrow \lvert f(x) - f(c) \rvert < \epsilon.$$
+```
+Much like we did with limits, we can characterise continuity in terms of sequences. A bit of déjà vu here is completely normal, as this is something that was covered in Semester 1:
+
+```{definition, label = "def2", name = "Sequential Continuity"}
+Let $D \subseteq \mathbb{R}$, and $f: D \to \mathbb{R}$. Then $f$ is sequentially continuous at a point $c$ if for all sequences $(x_n)_n$ in $D$ converging to $c$, we have that $\lim_{n \to \infty}f(x_n) = f(c).$
+```
+
+A comparison between the two definitions is seen in Figure \@ref(fig:seqcnt). Remarkably, we can show that these two definitions are equivalent to each other:
+
+```{theorem, label = "thm1", name = "Sequential Characterisation of Continuity"}
+Let $D \subseteq \mathbb{R}$, and $f: D \to \mathbb{R}$. Then $f$ is continuous at a point $c$ if and only if it is sequentially continuous at $c$.
+```
+So why is this theorem useful? Basically, it says that you can use all the theory you learnt about sequences last semester to continuous functions. For example, last semester you showed that $\sin$, $cos$ and the exponential function $\exp$ were sequentially continuous on $\mathbb{R}$. Now you know they are continuous without doing any extra work! Also, this allows you to deduce the *Intermediate Value Theorem* for continuous functions too --- see later for more details.
+
+```{r,seqcnt,fig.show='hold',fig.cap='A diagram illustrating the definitions of continuity at a point $c$ (left), and sequential continuity at a point $c$ (right), for a function $f$. It turns out that these definitions are completely equivalent!', fig.alt = 'A diagram illustrating the difference between continuity and sequential continuity at a point $c$ in the domain of a function $f$.', echo=F}
+show_fig("Sequential Continuity")
+```
+
+Before we move on, Theorem \@ref(thm:thm1) also gives us a way of proving that a function is *not* continuous. We show this through an example, which extends Tutorial Question 2 on Problem Sheet 4.
+
+```{example, label = "ex1"}
+Let $f:\mathbb{R} \to \mathbb{R}$ be defined by $$f(x) = \begin{cases}
+1 \;\;\text{if}\;\;x\in\mathbb{Q},\\
+0 \;\;\text{if}\;\;x\in\mathbb{R}\setminus\mathbb{Q}.\end{cases}$$ Further, define $h:\mathbb{R} \to \mathbb{R}$ by $h(x) = xf(x)$. Determine all points where $h$ is continuous.
+```
+
+```{solution, label = "sol1"}
+Firstly, in tutorial question 2, you showed that $f$ is discontinuous at all points in $\mathbb{R}$. But does this extend to $h$? In fact, $h$ is continuous at exactly one point --- zero.
+
+To prove $h$ is continuous at $0$, fix $\epsilon > 0$, and suppose $\lvert x \rvert < \delta$ for some $\delta > 0$ to be chosen later. Then
+\begin{align*}
+\lvert h(x) - h(0) \rvert = \lvert x f(x) \rvert \leq \lvert x \rvert < \delta.
+\end{align*}
+Hence, taking $\delta = \epsilon$ gives that
+\begin{align*}
+\lvert x \rvert < \delta \Longrightarrow \lvert h(x) - h(0) \rvert < \epsilon.
+\end{align*}
+As $\epsilon$ was arbitrary, we have shown $h$ is continuous at $0$.
+
+To prove $h$ is discontinuous everywhere else, fix $c \in \mathbb{R}\setminus \lbrace 0 \rbrace.$ Since both the rational numbers ($\mathbb{Q}$) and irrational numbers ($\mathbb{R}\setminus\mathbb{Q}$) are dense in $\mathbb{R}$, we can choose sequences $(x_n)_n$ and $(y_n)_n$ in $\mathbb{R}$ such that
+
+1.  $\lim_{n \to \infty} x_n = c = \lim_{n \to \infty} y_n$,
+2.  $x_n \in \mathbb{Q}\;\;\forall n \in \mathbb{N},$ and
+3.  $y_n \in \mathbb{R}\setminus\mathbb{Q}\;\;\forall n \in \mathbb{N}.$
+  
+Now, $$h(x_n) = x_n f(x_n) = x_n \to c \;\;\text{as}\;\; n \to \infty,$$ and $$h(y_n) = y_n f(y_n) = 0 \to 0 \;\;\text{as}\;\; n \to \infty.$$ So, if $c$ is rational, we have shown that $h(y_n)\not\to h(c)$. If $c$ is irrational, we have shown that $h(x_n)\not\to h(c)$. Therefore, $h$ cannot be continuous at $c$ by Theorem \@ref(thm:thm1).
+
+
+```
+
+## Building Continuous Functions
+Another thing that the sequential characterisation of continuity gives you is an 'algebra of continuity'. In other words, continuous functions behave as you'd expect them to:
+
+```{theorem, label = "thm2", name = "Algebra of Continuity"}
+Let $c, \lambda \in \mathbb{R}$, and let $f,g: D \to \mathbb{R}$ Suppose $f$ and $g$ are continuous at $c \in D$. Then the following functions are continuous at $c$:
+  
+  1. $f + g$.
+  
+  2. $\lambda f$
+  
+  3. $fg$ (where $(fg)(x) = f(x)g(x)$)
+  
+  4. $\frac{f}{g}$ (when $g(c) \neq 0.$)
+  
+```
+However, one thing that we can do with functions that we couldn't do with sequences is compose them. The following result tells us exactly when the composition $f\circ g$ is continuous!
+
+```{proposition, label = "prop1", name = "Continuity of Composition"}
+Let $f: D \to \mathbb{R}$ and $g: E \to \mathbb{R}$, with $g(x) \in D \;\; \forall x \in E.$ Then, if $g$ is continuous at $c \in E$, and $f$ is continuous at $g(c) \in D$, then the composition $f\circ g : E \to \mathbb{R}$ is continuous at $c$.
+```
+A similar statement for limits also holds, but in that case, the continuity of $f$ is crucial --- see Problem Sheet 4 for more details!
+
+## Intermediate Value Theorem
+Here's one of the main theorems from last semester!
+
+```{theorem, label = "thm3", name = "Intermediate Value Theorem (IVT)"}
+Suppose $a,b \in \mathbb{R}$ with $a < b$, and that $f:[a,b] \to \mathbb{R}$ is continuous[^1]. Then, if $y \in \mathbb{R}$ is such that $f(a) \leq y \leq f(b)$, then $\exists c \in [a,b]$ such that $f(c) = y$.
+```
+Diagrammatically, we might be in a situation like in Figure \@ref(fig:ivt). Note that there may be more than one $c$ that fulfills the conclusion of this theorem. Also, the theorem doesn't tell you what this $c$ is; it only says that a $c$ must exist.
+
+```{r, ivt, fig.show='hold', fig.cap='This function is continuous on $[a,b]$, and for $y$ as in the diagram, $y$ lies between $f(a)$ and $f(b)$. Hence the IVT applies, and so there exists $c$ in the interval $[a,b]$ such that $f(c)=y$. In this scenario, $c$ can be any one of $c_1,c_2$ or $c_3$.', fig.alt ='A diagram showing how the intermediate value theorem applies to a continuous function', echo=F}
+show_fig("ivt")
+```
+
+The IVT is very good for proving existence of square roots (and roots of any degree!), proving that functions have zeros, and proving that at any given point in time, there exists two points on the equator with exactly the same temperature[^2].
+
+[^1]: If you like your notation, you can say that $f \in C^0([a,b]),$ which is the set of continuous functions on $[a,b]$.
+[^2]: On an idealised Earth, anyway.
+ 
+# Hints
+As per usual, here's where you'll find the problem sheet hints!
+
+1) These two examples are largely similar to the ones we did in tutorials (and I think there's a couple of examples in the lecture notes). Just make sure to explain fully why the function is/isn't continuous at a given point. And for once, there's no $\epsilon-\delta$ argument in sight!
+2)  There's an example of how to solve this type of problem in the lecture notes. I'd also recommend looking at 'Problem Sheet Week 10' from last semester too, if you want another example along these lines. In regards to your solution, make it explicit that all hypotheses of the IVT are satisfied!
+3) For the first part (i.e. proving the given result), use the sequential characterisation of limits and continuity. For the second part, try and find functions $f,g: \mathbb{R} \to \mathbb{R}$ which satisfy
+\begin{align*}
+g(f(x)) = \begin{cases}
+1 \quad x\leq 0,\\
+0 \quad x > 0.
+\end{cases}
+\end{align*}
+*(Googling 'ramp function' might help with choosing one of $f$ or $g$.)*
+
+ 

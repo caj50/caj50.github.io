@@ -301,7 +301,14 @@ MathJax.Hub.Config({
 Let <span class="math inline">\(D \subseteq \mathbb{R}\)</span>, and <span class="math inline">\(f: D \to \mathbb{R}\)</span>. Then <span class="math inline">\(f\)</span> is continuous at a point <span class="math inline">\(c\)</span> if <span class="math display">\[\forall \epsilon &gt; 0\;\;\exists \delta &gt; 0\;\;\text{s.t.}\;\;\forall x \in D,\;\; \lvert x - c \rvert &lt; \delta \Rightarrow \lvert f(x) - f(c) \rvert &lt; \epsilon.\]</span>
 </div>
 </div>
-<p>You might be thinking that this looks remarkably like the definition of a limit from last week, and you would be right. In fact: <span class="math display">\[f\;\;\text{is continuous at}\;\; c \Longleftrightarrow \lim_{x \to \infty}f(x) = f(c).\]</span> However, note that we require <span class="math inline">\(f\)</span> to be defined at <span class="math inline">\(c\)</span> for <span class="math inline">\(f\)</span> to be continuous; in the limit definition, we didn’t care whether or not <span class="math inline">\(f(c)\)</span> existed.</p>
+<p>A graphical example of this definition can be seen in Figure <a href="continuity.html#fig:cont">1.1</a>.</p>
+<div class="figure"><span id="fig:cont"></span>
+<img src="Continuity.svg" alt="A diagram illustrating the difference between a function that is continuous at a point $c$ in the domain, and a function that only approaches a limit at $c$."  />
+<p class="caption">
+Figure 1.1: A diagram illustrating the definition of a continuous function at a point <span class="math inline">\(c\)</span> (left). Compare this to a function which only approaches a limit <span class="math inline">\(L\)</span> as <span class="math inline">\(x \to c\)</span> (right).
+</p>
+</div>
+<p>You might be thinking that this looks remarkably like the definition of a limit from last week, and you would be right. In fact: <span class="math display">\[f\;\;\text{is continuous at}\;\; c \Longleftrightarrow \lim_{x \to c}f(x) = f(c).\]</span> However, note that we require <span class="math inline">\(f\)</span> to be defined at <span class="math inline">\(c\)</span> for <span class="math inline">\(f\)</span> to be continuous; in the limit definition, we didn’t care whether or not <span class="math inline">\(f(c)\)</span> existed.</p>
 </div>
 <!-- </div> -->
             </section>

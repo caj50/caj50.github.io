@@ -14,6 +14,9 @@ output:
     number_sections: true
     keep_md: true
     pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
   clavertondown::gitbook_clav:
     split_by: section
     keep_md: true
@@ -30,9 +33,6 @@ output:
     pandoc_args: --default-image-extension=pdf
   clavertondown::html_clav:
     toc: true
-    pandoc_args: --default-image-extension=svg
-  clavertondown::epub_clav:
-    toc: false
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
@@ -71,7 +71,9 @@ $$\begin{align*}
 0<\lvert x - 1 \rvert < \delta \Longrightarrow \lvert f(x) - 1 \rvert < \epsilon.
 \end{align*}$$
 
-Therefore, as $\epsilon$ was arbitrary, we conclude that $\lim_{x \to 1} f(x) = 1.$</p></div>\EndKnitrBlock{solution}
+Therefore, as $\epsilon$ was arbitrary, we conclude that $\lim_{x \to 1} f(x) = 1.$
+  
+  </p></div>\EndKnitrBlock{solution}
 
 <!--chapter:end:index.Rmd-->
 

@@ -16,11 +16,13 @@ output:
       download: [["Tutorial3.html", "HTML page"], ["Tutorial3.pdf","Standard print PDF"], ["Tutorial3Clear.pdf","Clear print PDF"], ["Tutorial3Large.pdf","Large print PDF"], ["Tutorial3.docx","Accessible Word document"], ["Tutorial3.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
   clavertondown::html_clav:
     toc: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::word_clav:
+    toc: true
+    number_sections: true
+    keep_md: true
     pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
@@ -29,10 +31,8 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
-  clavertondown::word_clav:
-    toc: true
-    number_sections: true
-    keep_md: true
+  clavertondown::epub_clav:
+    toc: false
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
@@ -68,13 +68,13 @@ Note that here, we define the *product* of $f$ and $g$ by $(fg)(x) = f(x)g(x)$ -
 ## Left and Right Limits
 When finding the limit of a function $f$ at a point $c$ in the interior of its domain, we are free to approach $c$ from whichever direction we like. However, we could equally restrict ourselves to approaching $c$ only from the left or the right, and observing how the function values respond. This gives rise to the idea of *left and right hand limits*.
 
-\BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def1"><span class="def:def1" custom-style="NameStyle"><strong>(\#def:def1)  (Left and Right Hand Limits) </strong></span><div>Let $c, L, M \in \mathbb{R}$, and let $f: D \to \mathbb{R}$, where $D$ is a punctured neighbourhood of $c$. Then:
+\BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def1"><span class="def:def1" custom-style="NameStyle"><strong>(\#def:def1)  (Left and Right Hand Limits) </strong></span><div>Let $c, L, M \in \mathbb{R}$, and let $f: D \to \mathbb{R}$.
   
-  1. (Right hand limit) $\lim_{x \to c^{+}}f(x) = L$ means that $$\forall \epsilon >0\;\;\exists \delta>0\;\;\text{s.t}\;\; \forall x \in D,\;\; 0 < x - c < \delta \Rightarrow \lvert f(x) - L \rvert < \epsilon.$$
-  2. (Left hand limit) $\lim_{x \to c^{-}}f(x) = M$ means that $$\forall \epsilon >0\;\;\exists \delta>0\;\;\text{s.t}\;\; \forall x \in D,\;\; 0 < x - c < \delta \Rightarrow \lvert f(x) - M \rvert < \epsilon.$$
+  1. Suppose $\exists \delta_0 > 0$ such that $(c, c + \delta_0) \subseteq D$. Then $\lim_{x \to c^{+}}f(x) = L$ means that $$\forall \epsilon >0\;\;\exists \delta>0\;\;\text{s.t}\;\; \forall x \in D,\;\; 0 < x - c < \delta \Rightarrow \lvert f(x) - L \rvert < \epsilon.$$ This is the *right-hand limit* at $c$.
+  2. Suppose $\exists \delta_0 > 0$ such that $(c - \delta_0, c) \subseteq D$. Then $\lim_{x \to c^{-}}f(x) = M$ means that $$\forall \epsilon >0\;\;\exists \delta>0\;\;\text{s.t}\;\; \forall x \in D,\;\; 0 < x - c < \delta \Rightarrow \lvert f(x) - M \rvert < \epsilon.$$ This is the *left-hand limit* at $c$.
 </div></div>\EndKnitrBlock{definition}
 
-As the names suggest, we approach $c$ from the left when calculating the left hand limit, and we approach $c$ from the right when calculating the right hand limit. It also turns out that these objects can be very useful in calculating function limits, especially when the function is defined piecewise:
+As the names suggest, we approach $c$ from the left when calculating the left-hand limit, and we approach $c$ from the right when calculating the right-hand limit. It also turns out that these objects can be very useful in calculating function limits, especially when the function is defined piecewise:
 
 \BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop1"><span class="prp:prop1" custom-style="NameStyle"><strong>(\#prp:prop1) </strong></span><p>Let $c \in \mathbb{R}$, and let $f: D \to \mathbb{R}$, where $D$ is a punctured neighbourhood of $c$. Then $\lim_{x \to c}f(x)$ exists if and only if both the left and right hand limits exist, and are equal.</p></div>\EndKnitrBlock{proposition}
 
@@ -85,14 +85,21 @@ A stronger statement than requiring a function to have a limit at a value $c$ is
 
 \BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def2"><span class="def:def2" custom-style="NameStyle"><strong>(\#def:def2)  (Continuity) </strong></span><div>Let $D \subseteq \mathbb{R}$, and $f: D \to \mathbb{R}$. Then $f$ is continuous at a point $c$ if $$\forall \epsilon > 0\;\;\exists \delta > 0\;\;\text{s.t.}\;\;\forall x \in D,\;\; \lvert x - c \rvert < \delta \Rightarrow \lvert f(x) - f(c) \rvert < \epsilon.$$</div></div>\EndKnitrBlock{definition}
 
-You might be thinking that this looks remarkably like the definition of a limit from last week, and you would be right. In fact: $$f\;\;\text{is continuous at}\;\; c \Longleftrightarrow \lim_{x \to \infty}f(x) = f(c).$$ However, note that we require $f$ to be defined at $c$ for $f$ to be continuous; in the limit definition, we didn't care whether or not $f(c)$ existed.
+A graphical example of this definition can be seen in Figure \@ref(fig:cont).
+
+<div class="figure">
+<img src="Continuity.svg" alt="A diagram illustrating the difference between a function that is continuous at a point $c$ in the domain, and a function that only approaches a limit at $c$."  />
+<p class="caption">(\#fig:cont)A diagram illustrating the definition of a continuous function at a point $c$ (left). Compare this to a function which only approaches a limit $L$ as $x \to c$ (right).</p>
+</div>
+
+You might be thinking that this looks remarkably like the definition of a limit from last week, and you would be right. In fact: $$f\;\;\text{is continuous at}\;\; c \Longleftrightarrow \lim_{x \to c}f(x) = f(c).$$ However, note that we require $f$ to be defined at $c$ for $f$ to be continuous; in the limit definition, we didn't care whether or not $f(c)$ existed.
 
 # Hints
 As per usual, here's where you'll find the problem sheet hints!
 
 1) Part a) is all about using the epsilon-delta definition of limit. Firstly, note that there are two things to prove here because of the `if and only if'. Think about how you can substitute variables to move from the definition of one limit to the definition of the other.  For part b), think about using a step function for $f$.
 2) Again, this is all about manipulating an unfamiliar definition, and again, there are two things to prove! Pretty much the same idea applies here too — try and rewrite one definition so it starts to look like the other, then use that to make a choice of $\delta$ and/or $M$ (depending on which implication you are proving).
-3) This is very similar to the example we did in tutorials. The trick $(a-b)(a+b) = a^2 - b^2$, and the triangle inequality should come in handy for this one!
+3) This is quite similar to the example we did in tutorials. Note that you'll have to take cases on $x$ when evaluating $\lvert f(x) - f(0)\rvert$, but in both cases, you'll end up with the same bound in terms of $\delta$.
  
 
 <!--chapter:end:index.Rmd-->

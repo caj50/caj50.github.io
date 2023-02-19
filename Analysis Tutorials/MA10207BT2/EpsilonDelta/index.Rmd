@@ -9,6 +9,11 @@ classoption: a4paper
 fontsize: 10pt
 geometry: margin=2.5cm
 output:
+  clavertondown::word_clav:
+    toc: true
+    number_sections: true
+    keep_md: true
+    pandoc_args: --default-image-extension=svg
   clavertondown::epub_clav:
     toc: false
     pandoc_args: --default-image-extension=svg
@@ -28,11 +33,6 @@ output:
     pandoc_args: --default-image-extension=pdf
   clavertondown::html_clav:
     toc: true
-    pandoc_args: --default-image-extension=svg
-  clavertondown::word_clav:
-    toc: true
-    number_sections: true
-    keep_md: true
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
@@ -86,4 +86,6 @@ Hence, if $\delta = \min\lbrace 1 , 1/2, \epsilon/10\rbrace$, we find that
 \end{align*}
 
 Therefore, as $\epsilon$ was arbitrary, we conclude that $\lim_{x \to 1} f(x) = 1.$
+  
+  
 ```

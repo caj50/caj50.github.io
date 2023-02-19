@@ -270,14 +270,14 @@ img {
 <div id="def:def1" class="bookdown-definition" custom-style="DefinitionStyle">
 <span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Left and Right Hand Limits) </strong></span>
 <div>
-<p>Let <span class="math inline">\(c, L, M \in \mathbb{R}\)</span>, and let <span class="math inline">\(f: D \to \mathbb{R}\)</span>, where <span class="math inline">\(D\)</span> is a punctured neighbourhood of <span class="math inline">\(c\)</span>. Then:</p>
+<p>Let <span class="math inline">\(c, L, M \in \mathbb{R}\)</span>, and let <span class="math inline">\(f: D \to \mathbb{R}\)</span>.</p>
 <ol style="list-style-type: decimal">
-<li>(Right hand limit) <span class="math inline">\(\lim_{x \to c^{+}}f(x) = L\)</span> means that <span class="math display">\[\forall \epsilon &gt;0\;\;\exists \delta&gt;0\;\;\text{s.t}\;\; \forall x \in D,\;\; 0 &lt; x - c &lt; \delta \Rightarrow \lvert f(x) - L \rvert &lt; \epsilon.\]</span></li>
-<li>(Left hand limit) <span class="math inline">\(\lim_{x \to c^{-}}f(x) = M\)</span> means that <span class="math display">\[\forall \epsilon &gt;0\;\;\exists \delta&gt;0\;\;\text{s.t}\;\; \forall x \in D,\;\; 0 &lt; x - c &lt; \delta \Rightarrow \lvert f(x) - M \rvert &lt; \epsilon.\]</span></li>
+<li>Suppose <span class="math inline">\(\exists \delta_0 &gt; 0\)</span> such that <span class="math inline">\((c, c + \delta_0) \subseteq D\)</span>. Then <span class="math inline">\(\lim_{x \to c^{+}}f(x) = L\)</span> means that <span class="math display">\[\forall \epsilon &gt;0\;\;\exists \delta&gt;0\;\;\text{s.t}\;\; \forall x \in D,\;\; 0 &lt; x - c &lt; \delta \Rightarrow \lvert f(x) - L \rvert &lt; \epsilon.\]</span> This is the <em>right-hand limit</em> at <span class="math inline">\(c\)</span>.</li>
+<li>Suppose <span class="math inline">\(\exists \delta_0 &gt; 0\)</span> such that <span class="math inline">\((c - \delta_0, c) \subseteq D\)</span>. Then <span class="math inline">\(\lim_{x \to c^{-}}f(x) = M\)</span> means that <span class="math display">\[\forall \epsilon &gt;0\;\;\exists \delta&gt;0\;\;\text{s.t}\;\; \forall x \in D,\;\; 0 &lt; x - c &lt; \delta \Rightarrow \lvert f(x) - M \rvert &lt; \epsilon.\]</span> This is the <em>left-hand limit</em> at <span class="math inline">\(c\)</span>.</li>
 </ol>
 </div>
 </div>
-<p>As the names suggest, we approach <span class="math inline">\(c\)</span> from the left when calculating the left hand limit, and we approach <span class="math inline">\(c\)</span> from the right when calculating the right hand limit. It also turns out that these objects can be very useful in calculating function limits, especially when the function is defined piecewise:</p>
+<p>As the names suggest, we approach <span class="math inline">\(c\)</span> from the left when calculating the left-hand limit, and we approach <span class="math inline">\(c\)</span> from the right when calculating the right-hand limit. It also turns out that these objects can be very useful in calculating function limits, especially when the function is defined piecewise:</p>
 
 <div id="prp:prop1" class="bookdown-proposition" custom-style="TheoremStyle">
 <span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.2:  </strong></span>
@@ -297,7 +297,14 @@ Let <span class="math inline">\(c \in \mathbb{R}\)</span>, and let <span class="
 Let <span class="math inline">\(D \subseteq \mathbb{R}\)</span>, and <span class="math inline">\(f: D \to \mathbb{R}\)</span>. Then <span class="math inline">\(f\)</span> is continuous at a point <span class="math inline">\(c\)</span> if <span class="math display">\[\forall \epsilon &gt; 0\;\;\exists \delta &gt; 0\;\;\text{s.t.}\;\;\forall x \in D,\;\; \lvert x - c \rvert &lt; \delta \Rightarrow \lvert f(x) - f(c) \rvert &lt; \epsilon.\]</span>
 </div>
 </div>
-<p>You might be thinking that this looks remarkably like the definition of a limit from last week, and you would be right. In fact: <span class="math display">\[f\;\;\text{is continuous at}\;\; c \Longleftrightarrow \lim_{x \to \infty}f(x) = f(c).\]</span> However, note that we require <span class="math inline">\(f\)</span> to be defined at <span class="math inline">\(c\)</span> for <span class="math inline">\(f\)</span> to be continuous; in the limit definition, we didn’t care whether or not <span class="math inline">\(f(c)\)</span> existed.</p>
+<p>A graphical example of this definition can be seen in Figure <a href="#fig:cont">1.1</a>.</p>
+<div class="figure"><span id="fig:cont"></span>
+<img src="Continuity.svg" alt="A diagram illustrating the difference between a function that is continuous at a point $c$ in the domain, and a function that only approaches a limit at $c$."  />
+<p class="caption">
+Figure 1.1: A diagram illustrating the definition of a continuous function at a point <span class="math inline">\(c\)</span> (left). Compare this to a function which only approaches a limit <span class="math inline">\(L\)</span> as <span class="math inline">\(x \to c\)</span> (right).
+</p>
+</div>
+<p>You might be thinking that this looks remarkably like the definition of a limit from last week, and you would be right. In fact: <span class="math display">\[f\;\;\text{is continuous at}\;\; c \Longleftrightarrow \lim_{x \to c}f(x) = f(c).\]</span> However, note that we require <span class="math inline">\(f\)</span> to be defined at <span class="math inline">\(c\)</span> for <span class="math inline">\(f\)</span> to be continuous; in the limit definition, we didn’t care whether or not <span class="math inline">\(f(c)\)</span> existed.</p>
 </div>
 </div>
 <div id="hints" class="section level1" number="2">
@@ -306,7 +313,7 @@ Let <span class="math inline">\(D \subseteq \mathbb{R}\)</span>, and <span class
 <ol style="list-style-type: decimal">
 <li>Part a) is all about using the epsilon-delta definition of limit. Firstly, note that there are two things to prove here because of the `if and only if’. Think about how you can substitute variables to move from the definition of one limit to the definition of the other. For part b), think about using a step function for <span class="math inline">\(f\)</span>.</li>
 <li>Again, this is all about manipulating an unfamiliar definition, and again, there are two things to prove! Pretty much the same idea applies here too — try and rewrite one definition so it starts to look like the other, then use that to make a choice of <span class="math inline">\(\delta\)</span> and/or <span class="math inline">\(M\)</span> (depending on which implication you are proving).</li>
-<li>This is very similar to the example we did in tutorials. The trick <span class="math inline">\((a-b)(a+b) = a^2 - b^2\)</span>, and the triangle inequality should come in handy for this one!</li>
+<li>This is quite similar to the example we did in tutorials. Note that you’ll have to take cases on <span class="math inline">\(x\)</span> when evaluating <span class="math inline">\(\lvert f(x) - f(0)\rvert\)</span>, but in both cases, you’ll end up with the same bound in terms of <span class="math inline">\(\delta\)</span>.</li>
 </ol>
 <!--chapter:end:index.Rmd-->
 </div>

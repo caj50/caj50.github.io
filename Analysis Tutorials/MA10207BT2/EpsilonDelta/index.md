@@ -16,13 +16,8 @@ output:
       download: [["EpsilonDelta.html", "HTML page"], ["EpsilonDelta.pdf","Standard print PDF"], ["EpsilonDeltaClear.pdf","Clear print PDF"], ["EpsilonDeltaLarge.pdf","Large print PDF"], ["EpsilonDelta.docx","Accessible Word document"], ["EpsilonDelta.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
-  clavertondown::html_clav:
-    toc: true
-    pandoc_args: --default-image-extension=svg
-  clavertondown::word_clav:
-    toc: true
-    number_sections: true
-    keep_md: true
+  clavertondown::epub_clav:
+    toc: false
     pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
@@ -31,8 +26,13 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
-  clavertondown::epub_clav:
-    toc: false
+  clavertondown::html_clav:
+    toc: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::word_clav:
+    toc: true
+    number_sections: true
+    keep_md: true
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
@@ -71,7 +71,9 @@ Hence, if $\delta = \min\lbrace 1 , 1/2, \epsilon/10\rbrace$, we find that
 0<\lvert x - 1 \rvert < \delta \Longrightarrow \lvert f(x) - 1 \rvert < \epsilon.
 \end{align*}
 
-Therefore, as $\epsilon$ was arbitrary, we conclude that $\lim_{x \to 1} f(x) = 1.$</p></div>\EndKnitrBlock{solution}
+Therefore, as $\epsilon$ was arbitrary, we conclude that $\lim_{x \to 1} f(x) = 1.$
+  
+  </p></div>\EndKnitrBlock{solution}
 
 <!--chapter:end:index.Rmd-->
 
