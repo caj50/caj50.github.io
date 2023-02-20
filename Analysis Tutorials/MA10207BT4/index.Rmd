@@ -9,6 +9,9 @@ classoption: a4paper
 fontsize: 10pt
 geometry: margin=2.5cm
 output:
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
     keep_tex: true
@@ -30,9 +33,6 @@ output:
     pandoc_args: --default-image-extension=svg
   clavertondown::html_clav:
     toc: true
-    pandoc_args: --default-image-extension=svg
-  clavertondown::epub_clav:
-    toc: false
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
@@ -119,6 +119,13 @@ Now, $$h(x_n) = x_n f(x_n) = x_n \to c \;\;\text{as}\;\; n \to \infty,$$ and $$h
 
 
 ```
+
+<details closed>
+<summary>**Extension!**</summary>
+```{example, label = "ex2"}
+We can even use this example to produce a function defined on $\mathbb{R}$ which is only continuous on $\mathbb{Z}$! Using the $h$ from Example \@ref(exm:ex1), we can define $k(x) = h(x)$ if $x \in (-1/2, 1/2]$, and otherwise set $k(x + 1) = k(x).$ This periodicity condition ensures that since $h$ is only continuous at $0$, $k$ must be continuous only at each integer value.
+```
+</details>
 
 ## Building Continuous Functions
 Another thing that the sequential characterisation of continuity gives you is an 'algebra of continuity'. In other words, continuous functions behave as you'd expect them to:

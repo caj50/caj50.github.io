@@ -16,14 +16,6 @@ output:
       download: [["Tutorial4.html", "HTML page"], ["Tutorial4.pdf","Standard print PDF"], ["Tutorial4Clear.pdf","Clear print PDF"], ["Tutorial4Large.pdf","Large print PDF"], ["Tutorial4.docx","Accessible Word document"], ["Tutorial4.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
-  clavertondown::html_clav:
-    toc: true
-    pandoc_args: --default-image-extension=svg
-  clavertondown::word_clav:
-    toc: true
-    number_sections: true
-    keep_md: true
-    pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
     keep_tex: true
@@ -31,6 +23,14 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
+  clavertondown::word_clav:
+    toc: true
+    number_sections: true
+    keep_md: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::html_clav:
+    toc: true
+    pandoc_args: --default-image-extension=svg
   clavertondown::epub_clav:
     toc: false
     pandoc_args: --default-image-extension=svg
@@ -99,6 +99,11 @@ To prove $h$ is discontinuous everywhere else, fix $c \in \mathbb{R}\setminus \l
 Now, $$h(x_n) = x_n f(x_n) = x_n \to c \;\;\text{as}\;\; n \to \infty,$$ and $$h(y_n) = y_n f(y_n) = 0 \to 0 \;\;\text{as}\;\; n \to \infty.$$ So, if $c$ is rational, we have shown that $h(y_n)\not\to h(c)$. If $c$ is irrational, we have shown that $h(x_n)\not\to h(c)$. Therefore, $h$ cannot be continuous at $c$ by Theorem \@ref(thm:thm1).
 
 </p></div>\EndKnitrBlock{solution}
+
+<details closed>
+<summary>**Extension!**</summary>
+\BeginKnitrBlock{example}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex2"><span class="exm:ex2" custom-style="NameStyle"><strong>(\#exm:ex2) </strong></span><div>We can even use this example to produce a function defined on $\mathbb{R}$ which is only continuous on $\mathbb{Z}$! Using the $h$ from Example \@ref(exm:ex1), we can define $k(x) = h(x)$ if $x \in (-1/2, 1/2]$, and otherwise set $k(x + 1) = k(x).$ This periodicity condition ensures that since $h$ is only continuous at $0$, $k$ must be continuous only at each integer value.</div></div>\EndKnitrBlock{example}
+</details>
 
 ## Building Continuous Functions
 Another thing that the sequential characterisation of continuity gives you is an 'algebra of continuity'. In other words, continuous functions behave as you'd expect them to:
