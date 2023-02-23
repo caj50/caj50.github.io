@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.1 Inverse Functions | Analysis 1B — Tutorial 5</title>
+  <meta name="description" content="1.1 Inverse Functions | Analysis 1B — Tutorial 5" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1.1 Inverse Functions | Analysis 1B — Tutorial 5" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1.1 Inverse Functions | Analysis 1B — Tutorial 5" />
+  
+  
+  
+
+<meta name="author" content="Christian Jones: University of Bath" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="lecture-recap.html"/>
+<link rel="next" href="weierstrass-extremal-theorem.html"/>
+
+<script src="libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.MessageHook("End Math", function (msg) {
+  var nodes = Array.from(msg[1].querySelectorAll('.MJX_Assistive_MathML [id]'));
+  while (nodes.length) {
+    nodes.shift().removeAttribute('id');
+  }
+}, 20);
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "fast-preview": {disabled: true},
+  explorer:{ subtitle: true },
+  MatchWebFonts: { 
+    matchFor: { "HTML-CSS": true, NativeMML: false, SVG: false },
+    fontCheckDelay: 2000,
+    fontCheckTimeout: 30 * 1000
+  },
+  "HTML-CSS": {
+    preferredFont: "STIX",
+    availableFonts: ["STIX","TeX"],
+    webFont: "STIX-Web",
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  SVG: {
+    font: "STIX-Web",
+    linebreaks: { automatic: false, width: "90\% container" }
+  },
+  menuSettings: { 
+    collapsible: false, 
+    autocollapse: false, 
+    explorer: false 
+  }
+});
+</script>
+
+
+
+
+<style type="text/css">
+  a {
+   color: blue;
+  }
+  .book .book-summary ul.summary li a, .book .book-summary ul.summary li.active>a, .book .book-body .page-wrapper .page-inner section.normal a {
+  color: blue;
+  }
+
+  [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+   .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #1c242b;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0f6f7;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  
+  [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #182518;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0fcea;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #182518;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0fcea;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  [custom-style=NameStyle]{
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  [custom-style=NameStyleItalics]{
+    font-style: italic;
+  }
+
+  
+  [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #251e18;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #fdf3e9;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #2b1c21;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #fdefef;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+  
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="lecture-recap.html"><a href="lecture-recap.html"><i class="fa fa-check"></i><b>1</b> Lecture Recap</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="inverse-functions.html"><a href="inverse-functions.html"><i class="fa fa-check"></i><b>1.1</b> Inverse Functions</a></li>
+<li class="chapter" data-level="1.2" data-path="weierstrass-extremal-theorem.html"><a href="weierstrass-extremal-theorem.html"><i class="fa fa-check"></i><b>1.2</b> Weierstrass Extremal Theorem</a></li>
+<li class="chapter" data-level="1.3" data-path="differentiation.html"><a href="differentiation.html"><i class="fa fa-check"></i><b>1.3</b> Differentiation</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="differentiation.html"><a href="differentiation.html#the-definition"><i class="fa fa-check"></i><b>1.3.1</b> The Definition</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="hints.html"><a href="hints.html"><i class="fa fa-check"></i><b>2</b> Hints</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis 1B — Tutorial 5</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="inverse-functions" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Inverse Functions</h2>
+A particularly useful class of functions we may be interested in are known as invertible. These functions <span class="math inline">\(f: A \to B\)</span> provide a way of moving between sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> (and back again) without losing any information about <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. Before we talk about them in more detail, it’s worth recalling some defintions:
+
+<div id="def:def1" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Injectivity, Surjectivity and Bijectivity) </strong></span>
+<div>
+<p>Let <span class="math inline">\(f: A \to B\)</span> be a function.</p>
+<ul>
+<li>If <span class="math inline">\(\forall x, y \in B\)</span> with <span class="math inline">\(x \neq y\)</span>, <span class="math inline">\(f(x) = f(y) \implies x = y\)</span>, then <span class="math inline">\(f\)</span> is said to be injective.</li>
+<li>If <span class="math inline">\(\forall y \in B\)</span>, <span class="math inline">\(\exists x \in A\)</span> such that <span class="math inline">\(f(x) = y\)</span>, then <span class="math inline">\(f\)</span> is surjective.</li>
+<li>If <span class="math inline">\(f\)</span> is both injective and surjective, then it is called bijective.</li>
+</ul>
+</div>
+</div>
+<p>In words, bijectivity means that for a function <span class="math inline">\(f:A \to B\)</span>, every element in the codomain <span class="math inline">\(B\)</span> is mapped to by a unique element in the domain <span class="math inline">\(A\)</span>. These bijective functions are said to be invertible, that is, there exists an inverse function <span class="math inline">\(f^{-1}: B \to A\)</span> such that <span class="math inline">\(f^{-1} \circ f\)</span> and <span class="math inline">\(f \circ f^{-1}\)</span> produce the identity maps on <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> respectively.</p>
+<p>Now that we have these definitions, we can say something useful about the continuity of inverse functions:</p>
+
+<div id="thm:thm1" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1.1:  </strong></span>
+<p>
+<p>Let <span class="math inline">\(I \subseteq \mathbb{R}\)</span> be a non-empty<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> interval, and let <span class="math inline">\(f: I \to \mathbb{R}\)</span> be continuous on <span class="math inline">\(I\)</span>. Assume that <span class="math inline">\(f\)</span> is strictly increasing<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> (or strictly decreasing) on <span class="math inline">\(I\)</span>. Then:</p>
+<ul>
+<li><span class="math inline">\(f(I)\)</span> is an interval,</li>
+<li><span class="math inline">\(f : I \to f(I) =: J\)</span> is bijective, and</li>
+<li><span class="math inline">\(f^{-1}: J \to I\)</span> is continuous on <span class="math inline">\(J\)</span>.</li>
+</ul>
+</p>
+</div>
+<p>For a specific example, consider the exponential function <span class="math inline">\(\exp:\mathbb{R} \to \mathbb{R}\)</span> defined by <span class="math display">\[f(x)  = \sum_{n = 0}^{\infty} \frac{x^n}{n!} = \mathrm{e}^x.\]</span> Since <span class="math inline">\(\mathbb{R}\)</span> is a non-empty interval, and in semester 1, we showed that <span class="math inline">\(\exp\)</span> was continuous and strictly increasing, this theorem applies. Semester 1 material also gave us that <span class="math inline">\(\exp(\mathbb{R}) = (0, \inf)\)</span>, so <span class="math inline">\(\exp: \mathbb{R} \to (0, \infty)\)</span> is a bijection. Hence, the final point in this theorem gives us that the inverse function <span class="math inline">\(\log: (0,\infty) \to \mathbb{R}\)</span> is continuous on <span class="math inline">\((0,\infty)\)</span>.</p>
+This example actually turns out to be really useful if we’re dealing with sequences, as we can now prove the following — hugely general — result:
+
+<div id="prp:prop1" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.2:  </strong></span>
+<p>
+Let <span class="math inline">\((a_n)_n\)</span> and <span class="math inline">\((b_n)\)</span> be real sequences such that <span class="math inline">\(\lim_{n\to\infty}a_n = a\)</span> and <span class="math inline">\(\lim_{n\to\infty}b_n = b\)</span>. If <span class="math inline">\(a&gt;0\)</span>, then <span class="math display">\[\lim_{n \to \infty} a_n^{b_n} = \left(\lim_{n\to\infty} a_n\right)^{\lim_{n\to\infty}b_n}.\]</span>
+</p>
+</div>
+
+<div class="bookdown-proof" custom-style="ProofStyle">
+<span class="proof" custom-style="NameStyleItalics">Proof. </span>
+<p>
+<p>Since <span class="math inline">\(\lim_{n \to \infty}a_n = a &gt; 0\)</span>, then <span class="math inline">\(\exists N\in\mathbb{N}\)</span> such that <span class="math inline">\(\forall n \geq N\)</span>, <span class="math display">\[\lvert a_n - a \rvert &lt; \frac{a}{2} \Longleftrightarrow \frac{a}{2} &lt; a_n &lt; \frac{3a}{2}.\]</span> In particular, <span class="math inline">\(a_n &gt; 0\)</span> for all <span class="math inline">\(n \geq N\)</span>.</p>
+Now, for <span class="math inline">\(n \geq N\)</span>,
+<span class="math display">\[\begin{align*}
+a_n^{b_n} &amp;= \exp\left(\log\left(a_n^{b_n}\right)\right)\;\;\text{(as $a_n &gt; 0$)},\\
+&amp;= \exp\left(b_n\log\left(a_n\right)\right)\;\;\text{(properties of $\log$)}.
+\end{align*}\]</span>
+So as <span class="math inline">\(n \to \infty\)</span> since both <span class="math inline">\(\exp\)</span> and <span class="math inline">\(\log\)</span> are continuous,
+<span class="math display">\[\begin{align*}
+a_n^{b_n} &amp;\to \exp\left(b\log(a)\right)\\
+&amp;= \exp\left(\log\left(a^b\right)\right),\\
+&amp;= a^b.
+\end{align*}\]</span>
+</p>
+<p>
+□
+</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>This is so we can talk about surjectivity.<a href="inverse-functions.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>In other words, for <span class="math inline">\(x &lt; y\)</span> in <span class="math inline">\(I\)</span>, <span class="math inline">\(f(x) &lt; f(y)\)</span>.<a href="inverse-functions.html#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="lecture-recap.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="weierstrass-extremal-theorem.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["Tutorial5.html", "HTML page"], ["Tutorial5.pdf", "Standard print PDF"], ["Tutorial5Clear.pdf", "Clear print PDF"], ["Tutorial5Large.pdf", "Large print PDF"], ["Tutorial5.docx", "Accessible Word document"], ["Tutorial5.epub", "Accessible EPub book"]],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
