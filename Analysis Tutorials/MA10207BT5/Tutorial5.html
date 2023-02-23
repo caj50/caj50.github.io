@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Analysis 1B — Tutorial 5" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Christian Jones: University of Bath" />
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.MessageHook("End Math", function (msg) {
+  var nodes = Array.from(msg[1].querySelectorAll('.MJX_Assistive_MathML [id]'));
+  while (nodes.length) {
+    nodes.shift().removeAttribute('id');
+  }
+}, 20);
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "fast-preview": {disabled: true},
+  explorer:{ subtitle: true },
+  MatchWebFonts: { 
+    matchFor: { "HTML-CSS": true, NativeMML: false, SVG: false },
+    fontCheckDelay: 2000,
+    fontCheckTimeout: 30 * 1000
+  },
+  "HTML-CSS": {
+    preferredFont: "STIX",
+    availableFonts: ["STIX","TeX"],
+    webFont: "STIX-Web",
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  SVG: {
+    font: "STIX-Web",
+    linebreaks: { automatic: false, width: "90\% container" }
+  },
+  menuSettings: { 
+    collapsible: false, 
+    autocollapse: false, 
+    explorer: false 
+  }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta name="description" content="Analysis 1B — Tutorial 5">
+
+<title>Analysis 1B — Tutorial 5</title>
+
+<script src="libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+</style>
+
+<style type="text/css">
+  a {
+   color: blue;
+  }
+
+  [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  [custom-style=NameStyle]{
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  [custom-style=NameStyleItalics]{
+    font-style: italic;
+  }
+
+  
+  [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+  
+  [data-custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  
+</style>
+
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<!--bookdown:title:start-->
+<div id="header">
+<h1 class="title">Analysis 1B — Tutorial 5</h1>
+<h4 class="author"><em>Christian Jones: University of Bath</em></h4>
+<h4 class="date"><em>March 2023</em></h4>
+</div>
+<!--bookdown:title:end-->
+
+<!--bookdown:toc:start-->
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#lecture-recap"><span class="toc-section-number">1</span> Lecture Recap</a>
+<ul>
+<li><a href="#inverse-functions"><span class="toc-section-number">1.1</span> Inverse Functions</a></li>
+<li><a href="#weierstrass-extremal-theorem"><span class="toc-section-number">1.2</span> Weierstrass Extremal Theorem</a></li>
+<li><a href="#differentiation"><span class="toc-section-number">1.3</span> Differentiation</a></li>
+</ul></li>
+<li><a href="#hints"><span class="toc-section-number">2</span> Hints</a></li>
+</ul>
+</div>
+<!--bookdown:toc:end-->
+
+<!--bookdown:body:start-->
+<!-- This is needed since I am working with svg files from mathcha.io. It converts the graphics files to something that can be used in the pdf files. Code taken from https://stackoverflow.com/questions/50165404/how-to-make-a-pdf-using-bookdown-including-svg-images/56044642#56044642 -->
+<div id="introduction" class="section level1 unnumbered">
+<h1>Introduction</h1>
+<p>Here is the material to accompany the 5th Analysis 1B Tutorial on the 6th March. Alternative formats can be downloaded by clicking the download icon at the top of the page. Please send any comments or corrections to <a href="mailto:caj50@bath.ac.uk">Christian Jones (caj50)</a>. To return to the homepage, click <a href="http://caj50.github.io/tutoring.html">here</a>.</p>
+<!--<details open>
+<summary>Want to ruin the surprise?</summary>
+<br>
+Well, you asked for it!
+</details>-->
+</div>
+<div id="lecture-recap" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Lecture Recap</h1>
+<p>After what was mainly revision last week, we’re moving onto some new stuff again! It turns out there’s still a bit we can say about continuity, especially on compact intervals. Finally, we’re going to look at differentiation, which gives us a way of describing how fast a function changes.</p>
+<div id="inverse-functions" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Inverse Functions</h2>
+A particularly useful class of functions we may be interested in are known as invertible. These functions <span class="math inline">\(f: A \to B\)</span> provide a way of moving between sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> (and back again) without losing any information about <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. Before we talk about them in more detail, it’s worth recalling some defintions:
+
+<div id="def:def1" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Injectivity, Surjectivity and Bijectivity) </strong></span>
+<div>
+<p>Let <span class="math inline">\(f: A \to B\)</span> be a function.</p>
+<ul>
+<li>If <span class="math inline">\(\forall x, y \in B\)</span> with <span class="math inline">\(x \neq y\)</span>, <span class="math inline">\(f(x) = f(y) \implies x = y\)</span>, then <span class="math inline">\(f\)</span> is said to be injective.</li>
+<li>If <span class="math inline">\(\forall y \in B\)</span>, <span class="math inline">\(\exists x \in A\)</span> such that <span class="math inline">\(f(x) = y\)</span>, then <span class="math inline">\(f\)</span> is surjective.</li>
+<li>If <span class="math inline">\(f\)</span> is both injective and surjective, then it is called bijective.</li>
+</ul>
+</div>
+</div>
+<p>In words, bijectivity means that for a function <span class="math inline">\(f:A \to B\)</span>, every element in the codomain <span class="math inline">\(B\)</span> is mapped to by a unique element in the domain <span class="math inline">\(A\)</span>. These bijective functions are said to be invertible, that is, there exists an inverse function <span class="math inline">\(f^{-1}: B \to A\)</span> such that <span class="math inline">\(f^{-1} \circ f\)</span> and <span class="math inline">\(f \circ f^{-1}\)</span> produce the identity maps on <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> respectively.</p>
+<p>Now that we have these definitions, we can say something useful about the continuity of inverse functions:</p>
+
+<div id="thm:thm1" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1.1:  </strong></span>
+<p>
+<p>Let <span class="math inline">\(I \subseteq \mathbb{R}\)</span> be a non-empty<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> interval, and let <span class="math inline">\(f: I \to \mathbb{R}\)</span> be continuous on <span class="math inline">\(I\)</span>. Assume that <span class="math inline">\(f\)</span> is strictly increasing<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> (or strictly decreasing) on <span class="math inline">\(I\)</span>. Then:</p>
+<ul>
+<li><span class="math inline">\(f(I)\)</span> is an interval,</li>
+<li><span class="math inline">\(f : I \to f(I) =: J\)</span> is bijective, and</li>
+<li><span class="math inline">\(f^{-1}: J \to I\)</span> is continuous on <span class="math inline">\(J\)</span>.</li>
+</ul>
+</p>
+</div>
+<p>A (hopefully familiar) example would be useful here:</p>
+
+<div id="exm:unnamed-chunk-2" class="bookdown-example" custom-style="ExampleStyle">
+<span class="exm:unnamed-chunk-2" custom-style="NameStyle"><strong>Example 1.1:  </strong></span>
+<div>
+<p>Consider the exponential function <span class="math inline">\(\exp:\mathbb{R} \to \mathbb{R}\)</span> defined by <span class="math display">\[f(x)  = \sum_{n = 0}^{\infty} \frac{x^n}{n!} = \mathrm{e}^x.\]</span> Firstly, note that <span class="math inline">\(\mathbb{R}\)</span> is a non-empty interval. Now, using some results from Semester 1, we know that</p>
+<ul>
+<li><span class="math inline">\(\exp\)</span> is continuous and strictly increasing on <span class="math inline">\(\mathbb{R}\)</span>, and</li>
+<li><span class="math inline">\(\exp(\mathbb{R}) = (0,\infty)\)</span>.</li>
+</ul>
+Therefore, <span class="math inline">\(\exp\)</span> satisfies the hypotheses of the above theorem, and so <span class="math inline">\(\exp: \mathbb{R} \to (0, \infty)\)</span> is a bijection, with continuous inverse. This inverse function is the well-known <em>natural logarithm</em> <span class="math inline">\(\log: (0,\infty) \to \mathbb{R},\)</span> where <span class="math inline">\(x = \log(y) \iff y = \exp(x).\)</span>
+</div>
+</div>
+This example actually turns out to be really useful if we’re dealing with sequences, as we can now prove the following — hugely general — result:
+
+<div id="prp:prop1" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.2:  </strong></span>
+<p>
+Let <span class="math inline">\((a_n)_n\)</span> and <span class="math inline">\((b_n)_n\)</span> be real sequences such that <span class="math inline">\(\lim_{n\to\infty}a_n = a\)</span> and <span class="math inline">\(\lim_{n\to\infty}b_n = b\)</span>. If <span class="math inline">\(a_n^{b_n} \in \mathbb{R}\;\; \forall n \in \mathbb{N}\)</span>, and <span class="math inline">\(a&gt;0\)</span>, then <span class="math display">\[\lim_{n \to \infty} a_n^{b_n} = \left(\lim_{n\to\infty} a_n\right)^{\lim_{n\to\infty}b_n}.\]</span>
+</p>
+</div>
+<details closed>
+<summary>
+<strong>Proof</strong>
+</summary>
+
+<div class="bookdown-proof" custom-style="ProofStyle">
+<span class="proof" custom-style="NameStyleItalics">Proof. </span>
+<p>
+<p>Since <span class="math inline">\(\lim_{n \to \infty}a_n = a &gt; 0\)</span>, then <span class="math inline">\(\exists N\in\mathbb{N}\)</span> such that <span class="math inline">\(\forall n \geq N\)</span>, <span class="math display">\[\lvert a_n - a \rvert &lt; \frac{a}{2} \Longleftrightarrow \frac{a}{2} &lt; a_n &lt; \frac{3a}{2}.\]</span> In particular, <span class="math inline">\(a_n &gt; 0\)</span> for all <span class="math inline">\(n \geq N\)</span>.</p>
+Now, for <span class="math inline">\(n \geq N\)</span>,
+<span class="math display">\[\begin{align*}
+a_n^{b_n} &amp;= \exp\left(\log\left(a_n^{b_n}\right)\right)\;\;\text{(as $a_n &gt; 0$)},\\
+&amp;= \exp\left(b_n\log\left(a_n\right)\right)\;\;\text{(properties of $\log$)}.
+\end{align*}\]</span>
+So as <span class="math inline">\(n \to \infty\)</span> since both <span class="math inline">\(\exp\)</span> and <span class="math inline">\(\log\)</span> are continuous,
+<span class="math display">\[\begin{align*}
+a_n^{b_n} &amp;\to \exp\left(b\log(a)\right)\\
+&amp;= \exp\left(\log\left(a^b\right)\right),\\
+&amp;= a^b.
+\end{align*}\]</span>
+</p>
+<p>
+□
+</p>
+</div>
+</details>
+</div>
+<div id="weierstrass-extremal-theorem" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Weierstrass Extremal Theorem</h2>
+<p>Much like the Intermediate Value Theorem, we can obtain some special continuity results when our functions are defined on compact (i.e. closed and bounded) intervals. This result is stated below:</p>
+
+<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm2">
+<span class="thm:thm2" custom-style="NameStyle"><strong>Theorem 1.3:  (Weierstrass Extremal Theorem (WET)) </strong></span>
+<p>
+<p>Let <span class="math inline">\(a,b \in \mathbb{R}\)</span> with <span class="math inline">\(a&lt;b\)</span>, and let<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> <span class="math inline">\(f \in C^{0}([a,b])\)</span>. Then:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(f\)</span> is bounded: <span class="math display">\[\exists M &gt; 0 \;\;\text{s.t.}\;\; \lvert f(x) \rvert \leq M\;\;\forall x \in [a,b].\]</span></li>
+<li><span class="math inline">\(f\)</span> attains its bounds: <span class="math display">\[\exists p,q \in [a,b] \;\; \text{s.t}\;\; \forall x \in [a,b], f(q) \leq f(x) \leq f(p).\]</span>
+</p>
+</div>
+This last point states that if <span class="math inline">\(f \in C^{0}([a,b])\)</span>, <span class="math display">\[\sup_{x \in [a,b]}f(x) = \max_{x\in[a,b]}f(x)\;\;\text{and}\;\;\inf_{x \in [a,b]}f(x) = \min_{x\in[a,b]}f(x).\]</span> So in fact, what this theorem tells us is that for a function defined on a compact interval, we have some control on its growth, and we know that the function has a maximum and minimum value! This can be seen pictorally in Figure <a href="#fig:wet">1.1</a>.</li>
+</ol>
+<div class="figure"><span id="fig:wet"></span>
+<img src="WET.svg" alt="A diagram showing how the Weierstrass Extremal Theorem applies to a continuous function on a compact interval"  />
+<p class="caption">
+Figure 1.1: This function <span class="math inline">\(f\)</span> is continuous on <span class="math inline">\([a,b]\)</span>, so by the Weierstrass Extremal Theorem, <span class="math inline">\(f\)</span> is bounded on <span class="math inline">\([a,b]\)</span>. Also, we see that there exist points <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> in the domain at which <span class="math inline">\(f\)</span> achieves its maximum and minimum values.
+</p>
+</div>
+</div>
+<div id="differentiation" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Differentiation</h2>
+<p>While functions are very good at describing physical quantities such as temperature, density or momentum we can usually gain more insight into these variables by studying how fast they change at a given position or time. Mathematically, we study rates of change using derivatives, which again relies on the ideas behind limits!</p>
+
+<div id="def:def2" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def2" custom-style="NameStyle"><strong>Definition 1.2:  (Derivative) </strong></span>
+<div>
+Let <span class="math inline">\(f: D \to \mathbb{R}\)</span>, where <span class="math inline">\(D \subseteq \mathbb{R}\)</span> is an open set, and let <span class="math inline">\(c \in D\)</span>. Then, if <span class="math inline">\(\exists L \in \mathbb{R}\)</span> such that <span class="math display">\[\lim_{h \to 0}\frac{f(c+h) - f(c)}{h} = L,\]</span> we say that <span class="math inline">\(f\)</span> is differentiable at <span class="math inline">\(c\)</span>, and call <span class="math inline">\(L\)</span> the derivative of <span class="math inline">\(f\)</span> at <span class="math inline">\(c\)</span>.
+</div>
+</div>
+<p>We can note a few things here:</p>
+<ul>
+<li>Firstly, if this <span class="math inline">\(L\)</span> exists, we write it as <span class="math inline">\(f&#39;(c)\)</span> to make it clear that its a derivative.</li>
+<li>We require <span class="math inline">\(D\)</span> to be open, so that we can actually take limits! If, for example, <span class="math inline">\(D = [-1,2]\)</span>, we could attempt to define the derivative at any point in the interior of <span class="math inline">\(D\)</span>, <span class="math inline">\(D^{\circ} = (-1,2)\)</span>, but we couldn’t define the derivative at <span class="math inline">\(x = -1\)</span> or <span class="math inline">\(x = 2\)</span>.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></li>
+<li>Substituting <span class="math inline">\(x = c+h\)</span> into the definition gives us that equivalently <span class="math inline">\(f\)</span> is differentiable at <span class="math inline">\(c\)</span> if there exists <span class="math inline">\(L\in\mathbb{R}\)</span> such that <span class="math display">\[\lim_{x \to c}\frac{f(x) - f(c)}{x - c} = L.\]</span></li>
+</ul>
+One quick result we obtain from this definition is the following:
+
+<div id="prp:prop2" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop2" custom-style="NameStyle"><strong>Proposition 1.4:  </strong></span>
+<p>
+If a function <span class="math inline">\(f:D \to \mathbb{R}\)</span> is differentiable at a point <span class="math inline">\(c\)</span>, then it is continuous at <span class="math inline">\(c\)</span>.
+</p>
+</div>
+<p>The contrapositive of this is very useful for ruling functions out: if a function is <strong>not</strong> continuous, it is not differentiable. As a final remark, or warning, <strong>continuity does not imply differentiability</strong>! To see this, think of either <span class="math inline">\(f(x) = \lvert x \rvert\)</span> at <span class="math inline">\(x = 0\)</span>, or look up the <a href="https://en.wikipedia.org/wiki/Weierstrass_function">Weierstrass function</a>.</p>
+</div>
+</div>
+<div id="hints" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Hints</h1>
+<p>As per usual, here’s where you’ll find the problem sheet hints!</p>
+<ol style="list-style-type: decimal">
+<li>This one is largely similar to the one that was covered in tutorials — you just need to be a bit more careful when verifying the hypothesis of the theorem involving inverse functions. When proving bijectivity, you can use results from tutorial question 1 to help too!</li>
+<li>There are couple of ways to do this, but in each, you need to calculate the limit of the difference quotient, i.e. <span class="math display">\[\lim_{x\to 0 }\frac{f(x) - f(0)}{x - 0}.\]</span> Try using sequences! (Or if you’ve seen it, try the function version of the pinching theorem).</li>
+<li>Have you learnt any good theorems involving maxima/minima of functions lately?</li>
+</ol>
+<!--chapter:end:index.Rmd-->
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>This is so we can talk about surjectivity.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>In other words, for all <span class="math inline">\(x,y \in I\)</span> with <span class="math inline">\(x &lt; y,\)</span> <span class="math inline">\(f(x) &lt; f(y)\)</span>.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Recall that <span class="math inline">\(C^{0}([a,b])\)</span> is the set of continuous functions mapping from the set <span class="math inline">\([a,b]\)</span>.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>There is nothing stopping us; however, defining <em>left</em> and <em>right derivatives</em> at these points, e.g. we could search for <span class="math display">\[\lim_{x \to -1^{+}}\frac{f(-1+h) - f(-1)}{h}\;\;\text{or}\;\;\lim_{x \to 2^{-}}\frac{f(2+h) - f(2)}{h}.\]</span><a href="#fnref4" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+<!--bookdown:body:end-->
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>

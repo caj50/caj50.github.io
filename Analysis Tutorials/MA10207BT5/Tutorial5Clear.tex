@@ -192,7 +192,7 @@ In words, bijectivity means that for a function \(f:A \to B\), every element in 
 Now that we have these definitions, we can say something useful about the continuity of inverse functions:
 
 \BeginKnitrBlock{theorem}
-{\label{thm:thm1} }Let \(I \subseteq \mathbb{R}\) be a non-empty\footnote{This is so we can talk about surjectivity.} interval, and let \(f: I \to \mathbb{R}\) be continuous on \(I\). Assume that \(f\) is strictly increasing\footnote{In other words, for \(x < y\) in \(I\), \(f(x) < f(y)\).} (or strictly decreasing) on \(I\). Then:
+{\label{thm:thm1} }Let \(I \subseteq \mathbb{R}\) be a non-empty\footnote{This is so we can talk about surjectivity.} interval, and let \(f: I \to \mathbb{R}\) be continuous on \(I\). Assume that \(f\) is strictly increasing\footnote{In other words, for all \(x,y \in I\) with \(x < y,\) \(f(x) < f(y)\).} (or strictly decreasing) on \(I\). Then:
 
 \begin{itemize}
 \tightlist
@@ -205,12 +205,28 @@ Now that we have these definitions, we can say something useful about the contin
 \end{itemize}
 \EndKnitrBlock{theorem}
 
-For a specific example, consider the exponential function \(\exp:\mathbb{R} \to \mathbb{R}\) defined by \[f(x)  = \sum_{n = 0}^{\infty} \frac{x^n}{n!} = \mathrm{e}^x.\] Since \(\mathbb{R}\) is a non-empty interval, and in semester 1, we showed that \(\exp\) was continuous and strictly increasing, this theorem applies. Semester 1 material also gave us that \(\exp(\mathbb{R}) = (0, \inf)\), so \(\exp: \mathbb{R} \to (0, \infty)\) is a bijection. Hence, the final point in this theorem gives us that the inverse function \(\log: (0,\infty) \to \mathbb{R}\) is continuous on \((0,\infty)\).
+A (hopefully familiar) example would be useful here:
+
+\BeginKnitrBlock{example}
+{\label{exm:unnamed-chunk-2} }Consider the exponential function \(\exp:\mathbb{R} \to \mathbb{R}\) defined by \[f(x)  = \sum_{n = 0}^{\infty} \frac{x^n}{n!} = \mathrm{e}^x.\] Firstly, note that \(\mathbb{R}\) is a non-empty interval. Now, using some results from Semester 1, we know that
+
+\begin{itemize}
+\tightlist
+\item
+  \(\exp\) is continuous and strictly increasing on \(\mathbb{R}\), and
+\item
+  \(\exp(\mathbb{R}) = (0,\infty)\).
+\end{itemize}
+
+Therefore, \(\exp\) satisfies the hypotheses of the above theorem, and so \(\exp: \mathbb{R} \to (0, \infty)\) is a bijection, with continuous inverse. This inverse function is the well-known \emph{natural logarithm} \(\log: (0,\infty) \to \mathbb{R},\) where \(x = \log(y) \iff y = \exp(x).\)
+\EndKnitrBlock{example}
 
 This example actually turns out to be really useful if we're dealing with sequences, as we can now prove the following --- hugely general --- result:
 \BeginKnitrBlock{proposition}
-{\label{prp:prop1} }Let \((a_n)_n\) and \((b_n)\) be real sequences such that \(\lim_{n\to\infty}a_n = a\) and \(\lim_{n\to\infty}b_n = b\). If \(a>0\), then \[\lim_{n \to \infty} a_n^{b_n} = \left(\lim_{n\to\infty} a_n\right)^{\lim_{n\to\infty}b_n}.\]
+{\label{prp:prop1} }Let \((a_n)_n\) and \((b_n)_n\) be real sequences such that \(\lim_{n\to\infty}a_n = a\) and \(\lim_{n\to\infty}b_n = b\). If \(a_n^{b_n} \in \mathbb{R}\;\; \forall n \in \mathbb{N}\), and \(a>0\), then \[\lim_{n \to \infty} a_n^{b_n} = \left(\lim_{n\to\infty} a_n\right)^{\lim_{n\to\infty}b_n}.\]
 \EndKnitrBlock{proposition}
+
+\textbf{Proof}
 
 \BeginKnitrBlock{proof}
 Since \(\lim_{n \to \infty}a_n = a > 0\), then \(\exists N\in\mathbb{N}\) such that \(\forall n \geq N\), \[\lvert a_n - a \rvert < \frac{a}{2} \Longleftrightarrow \frac{a}{2} < a_n < \frac{3a}{2}.\] In particular, \(a_n > 0\) for all \(n \geq N\).
@@ -234,7 +250,7 @@ a_n^{b_n} &\to \exp\left(b\log(a)\right)\\
 Much like the Intermediate Value Theorem, we can obtain some special continuity results when our functions are defined on compact (i.e.~closed and bounded) intervals. This result is stated below:
 
 \BeginKnitrBlock{theorem}[Weierstrass Extremal Theorem (WET)]
-{\label{thm:thm2} }Let \(a,b \in \mathbb{R}\) with \(a<b\), and let \(f \in C^{0}([a,b])\). Then:
+{\label{thm:thm2} }Let \(a,b \in \mathbb{R}\) with \(a<b\), and let\footnote{Recall that \(C^{0}([a,b])\) is the set of continuous functions mapping from the set \([a,b]\).} \(f \in C^{0}([a,b])\). Then:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -246,15 +262,16 @@ Much like the Intermediate Value Theorem, we can obtain some special continuity 
 \end{enumerate}
 \EndKnitrBlock{theorem}
 
-This last point states that if \(f \in C^{0}([a,b])\), \[\sup_{x \in [a,b]}f(x) = \max_{x\in[a,b]}f(x)\;\;\text{and}\;\;\inf_{x \in [a,b]}f(x) = \min_{x\in[a,b]}f(x).\] So in fact, what this theorem tells us is that for a function defined on a compact interval, we have some control on its growth, and we know that the function has a maximum and minimum value! This can be seen pictorally in Figure ??
+This last point states that if \(f \in C^{0}([a,b])\), \[\sup_{x \in [a,b]}f(x) = \max_{x\in[a,b]}f(x)\;\;\text{and}\;\;\inf_{x \in [a,b]}f(x) = \min_{x\in[a,b]}f(x).\] So in fact, what this theorem tells us is that for a function defined on a compact interval, we have some control on its growth, and we know that the function has a maximum and minimum value! This can be seen pictorally in Figure \ref{fig:wet}.
+
+\begin{figure}
+\includegraphics[width=\Width,height=\Height]{WET} \caption{This function $f$ is continuous on $[a,b]$, so by the Weierstrass Extremal Theorem, $f$ is bounded on $[a,b]$. Also, we see that there exist points $p$ and $q$ in the domain at which $f$ achieves its maximum and minimum values.}\label{fig:wet}
+\end{figure}
 
 \hypertarget{differentiation}{%
 \subsection{Differentiation}\label{differentiation}}
 
-While functions are very good at describing physical quantities such as temperature, density or momentum we can usually gain more insight into these variables by studying how fast they change at a given position or time. For example, Newton's 2nd Law states that the resultant force on an object is equal to the rate of change of momentum with respect to time. Mathematically, we study rates of change using derivatives, which again relies on the ideas behind limits!
-
-\hypertarget{the-definition}{%
-\subsubsection{The Definition}\label{the-definition}}
+While functions are very good at describing physical quantities such as temperature, density or momentum we can usually gain more insight into these variables by studying how fast they change at a given position or time. Mathematically, we study rates of change using derivatives, which again relies on the ideas behind limits!
 
 \BeginKnitrBlock{definition}[Derivative]
 {\label{def:def2} }Let \(f: D \to \mathbb{R}\), where \(D \subseteq \mathbb{R}\) is an open set, and let \(c \in D\). Then, if \(\exists L \in \mathbb{R}\) such that \[\lim_{h \to 0}\frac{f(c+h) - f(c)}{h} = L,\] we say that \(f\) is differentiable at \(c\), and call \(L\) the derivative of \(f\) at \(c\).
@@ -266,7 +283,7 @@ We can note a few things here:
 \item
   Firstly, if this \(L\) exists, we write it as \(f'(c)\) to make it clear that its a derivative.
 \item
-  We require \(D\) to be open, so that we can approach the point \(c\) from either direction. If, for example, \(D = [-1,2]\), we could attempt to define the derivative at any point in the interior of \(D\), \(D^{\circ} = (-1,2)\), but we couldn't define the derivative at \(x = -1\) or \(x = 2\).\footnote{There is nothing stopping us; however, defining \emph{left} and \emph{right derivatives} at these points, e.g.~we could search for \[\lim_{x \to -1^{+}}\frac{f(-1+h) - f(-1)}{h}\;\;\text{or}\;\;\lim_{x \to 2^{-}}\frac{f(2+h) - f(2)}{h}.\]}
+  We require \(D\) to be open, so that we can actually take limits! If, for example, \(D = [-1,2]\), we could attempt to define the derivative at any point in the interior of \(D\), \(D^{\circ} = (-1,2)\), but we couldn't define the derivative at \(x = -1\) or \(x = 2\).\footnote{There is nothing stopping us; however, defining \emph{left} and \emph{right derivatives} at these points, e.g.~we could search for \[\lim_{x \to -1^{+}}\frac{f(-1+h) - f(-1)}{h}\;\;\text{or}\;\;\lim_{x \to 2^{-}}\frac{f(2+h) - f(2)}{h}.\]}
 \item
   Substituting \(x = c+h\) into the definition gives us that equivalently \(f\) is differentiable at \(c\) if there exists \(L\in\mathbb{R}\) such that \[\lim_{x \to c}\frac{f(x) - f(c)}{x - c} = L.\]
 \end{itemize}
