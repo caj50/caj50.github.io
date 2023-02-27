@@ -225,7 +225,10 @@ img {
 <!--bookdown:toc:start-->
 <div id="TOC">
 <ul>
-<li><a href="#introduction">Introduction</a></li>
+<li><a href="#introduction">Introduction</a>
+<ul>
+<li><a href="#feedback">Feedback</a></li>
+</ul></li>
 <li><a href="#lecture-recap"><span class="toc-section-number">1</span> Lecture Recap</a>
 <ul>
 <li><a href="#sequential-continuity"><span class="toc-section-number">1.1</span> Sequential Continuity</a></li>
@@ -242,11 +245,17 @@ img {
 <div id="introduction" class="section level1 unnumbered">
 <h1>Introduction</h1>
 <p>Here is the material to accompany the 4th Analysis 1B Tutorial on the 27th February. Alternative formats can be downloaded by clicking the download icon at the top of the page. Please send any comments or corrections to <a href="mailto:caj50@bath.ac.uk">Christian Jones (caj50)</a>. To return to the homepage, click <a href="http://caj50.github.io/tutoring.html">here</a>.</p>
+<div id="feedback" class="section level3 unnumbered">
+<h3>Feedback</h3>
+<p>Since we’ve made it to Week 4 of the semester, it’s your chance to give me some feedback. The following link and QR code should (hopefully) take you to a form where you can leave some comments regarding the tutorials. When I receive the comments — usually in a couple of weeks’ time — they’ll be anonymised, so feel free to be honest (but constructive!)</p>
+<p><strong>Link</strong>: <a href="https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fforms.office.com%2Fe%2Fa6xz419k16&amp;data=05%7C01%7Ccaj50%40bath.ac.uk%7C24944b1496874b2fb12908db1739b7c5%7C377e3d224ea1422db0ad8fcc89406b9e%7C0%7C0%7C638129308876848739%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=hW8sWSSbvUvvxVPk%2BpL%2FiZFBO0FwnJKa5BezLFihKrM%3D&amp;reserved=0">Feedback Form</a></p>
+<p><img src="FeedbackQR.png" style="width:50.0%" /></p>
 <!--<details open>
 <summary>Want to ruin the surprise?</summary>
 <br>
 Well, you asked for it!
 </details>-->
+</div>
 </div>
 <div id="lecture-recap" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Lecture Recap</h1>
@@ -283,7 +292,7 @@ Let <span class="math inline">\(D \subseteq \mathbb{R}\)</span>, and <span class
 Figure 1.1: A diagram illustrating the definitions of continuity at a point <span class="math inline">\(c\)</span> (left), and sequential continuity at a point <span class="math inline">\(c\)</span> (right), for a function <span class="math inline">\(f\)</span>. It turns out that these definitions are completely equivalent!
 </p>
 </div>
-<p>Before we move on, Theorem <a href="#thm:thm1">1.1</a> also gives us a way of proving that a function is <em>not</em> continuous. We show this through an example, which extends Tutorial Question 2 on Problem Sheet 4.</p>
+<p>Before we move on, Theorem <a href="#thm:thm1">1.1</a> also gives us a way of proving that a function is <em>not</em> continuous. We show this through Tutorial Question 2 on Problem Sheet 4.</p>
 
 <div id="exm:ex1" class="bookdown-example" custom-style="ExampleStyle">
 <span class="exm:ex1" custom-style="NameStyle"><strong>Example 1.1:  </strong></span>
@@ -297,7 +306,7 @@ Let <span class="math inline">\(f:\mathbb{R} \to \mathbb{R}\)</span> be defined 
 <div class="bookdown-solution" custom-style="ProofStyle">
 <span class="solution" custom-style="NameStyleItalics">Solution. </span>
 <p>
-<p>Firstly, in tutorial question 2, you showed that <span class="math inline">\(f\)</span> is discontinuous at all points in <span class="math inline">\(\mathbb{R}\)</span>. But does this extend to <span class="math inline">\(h\)</span>? In fact, <span class="math inline">\(h\)</span> is continuous at exactly one point — zero.</p>
+<p>The main result of Tutorial Question 2 shows us that <span class="math inline">\(h\)</span> is continuous at exactly one point — zero.</p>
 <p>To prove <span class="math inline">\(h\)</span> is continuous at <span class="math inline">\(0\)</span>, fix <span class="math inline">\(\epsilon &gt; 0\)</span>, and suppose <span class="math inline">\(\lvert x \rvert &lt; \delta\)</span> for some <span class="math inline">\(\delta &gt; 0\)</span> to be chosen later. Then
 <span class="math display">\[\begin{align*}
 \lvert h(x) - h(0) \rvert = \lvert x f(x) \rvert \leq \lvert x \rvert &lt; \delta.
@@ -380,7 +389,7 @@ Figure 1.2: This function is continuous on <span class="math inline">\([a,b]\)</
 <p>As per usual, here’s where you’ll find the problem sheet hints!</p>
 <ol style="list-style-type: decimal">
 <li>These two examples are largely similar to the ones we did in tutorials (and I think there’s a couple of examples in the lecture notes). Just make sure to explain fully why the function is/isn’t continuous at a given point. And for once, there’s no <span class="math inline">\(\epsilon-\delta\)</span> argument in sight!</li>
-<li>There’s an example of how to solve this type of problem in the lecture notes. I’d also recommend looking at ‘Problem Sheet Week 10’ from last semester too, if you want another example along these lines. In regards to your solution, make it explicit that all hypotheses of the IVT are satisfied!</li>
+<li>For this question, I’d recommend looking at ‘Problem Sheet Week 10’ from last semester, if you want an example along these lines. In regards to your solution, make it explicit that all hypotheses of the IVT are satisfied!</li>
 <li>For the first part (i.e. proving the given result), use the sequential characterisation of limits and continuity. For the second part, try and find functions <span class="math inline">\(f,g: \mathbb{R} \to \mathbb{R}\)</span> which satisfy
 <span class="math display">\[\begin{align*}
 g(f(x)) = \begin{cases}

@@ -23,6 +23,9 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
   clavertondown::word_clav:
     toc: true
     number_sections: true
@@ -30,9 +33,6 @@ output:
     pandoc_args: --default-image-extension=svg
   clavertondown::html_clav:
     toc: true
-    pandoc_args: --default-image-extension=svg
-  clavertondown::epub_clav:
-    toc: false
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
@@ -46,6 +46,14 @@ header-includes:
 
 # Introduction {-}
 Here is the material to accompany the 4th Analysis 1B Tutorial on the 27th February. Alternative formats can be downloaded by clicking the download icon at the top of the page. Please send any comments or corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk). To return to the homepage, click [here](http://caj50.github.io/tutoring.html).
+
+### Feedback {-}
+Since we've made it to Week 4 of the semester, it's your chance to give me some feedback. The following link and QR code should (hopefully) take you to a form where you can leave some comments regarding the tutorials. When I receive the comments --- usually in a couple of weeks' time --- they'll be anonymised, so feel free to be honest (but constructive!)
+
+**Link**: [Feedback Form](https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fforms.office.com%2Fe%2Fa6xz419k16&data=05%7C01%7Ccaj50%40bath.ac.uk%7C24944b1496874b2fb12908db1739b7c5%7C377e3d224ea1422db0ad8fcc89406b9e%7C0%7C0%7C638129308876848739%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=hW8sWSSbvUvvxVPk%2BpL%2FiZFBO0FwnJKa5BezLFihKrM%3D&reserved=0)
+
+![](./FeedbackQR.png){width=50%}
+
 
 <!--<details open>
 <summary>Want to ruin the surprise?</summary>
@@ -72,13 +80,13 @@ So why is this theorem useful? Basically, it says that you can use all the theor
 <p class="caption">(\#fig:seqcnt)A diagram illustrating the definitions of continuity at a point $c$ (left), and sequential continuity at a point $c$ (right), for a function $f$. It turns out that these definitions are completely equivalent!</p>
 </div>
 
-Before we move on, Theorem \@ref(thm:thm1) also gives us a way of proving that a function is *not* continuous. We show this through an example, which extends Tutorial Question 2 on Problem Sheet 4.
+Before we move on, Theorem \@ref(thm:thm1) also gives us a way of proving that a function is *not* continuous. We show this through Tutorial Question 2 on Problem Sheet 4.
 
 \BeginKnitrBlock{example}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex1"><span class="exm:ex1" custom-style="NameStyle"><strong>(\#exm:ex1) </strong></span><div>Let $f:\mathbb{R} \to \mathbb{R}$ be defined by $$f(x) = \begin{cases}
 1 \;\;\text{if}\;\;x\in\mathbb{Q},\\
 0 \;\;\text{if}\;\;x\in\mathbb{R}\setminus\mathbb{Q}.\end{cases}$$ Further, define $h:\mathbb{R} \to \mathbb{R}$ by $h(x) = xf(x)$. Determine all points where $h$ is continuous.</div></div>\EndKnitrBlock{example}
 
-\BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyleItalics"><strong>Solution. </strong></span> <p>Firstly, in tutorial question 2, you showed that $f$ is discontinuous at all points in $\mathbb{R}$. But does this extend to $h$? In fact, $h$ is continuous at exactly one point --- zero.
+\BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyleItalics"><strong>Solution. </strong></span> <p>The main result of Tutorial Question 2 shows us that $h$ is continuous at exactly one point --- zero.
 
 To prove $h$ is continuous at $0$, fix $\epsilon > 0$, and suppose $\lvert x \rvert < \delta$ for some $\delta > 0$ to be chosen later. Then
 \begin{align*}
@@ -143,7 +151,7 @@ The IVT is very good for proving existence of square roots (and roots of any deg
 As per usual, here's where you'll find the problem sheet hints!
 
 1) These two examples are largely similar to the ones we did in tutorials (and I think there's a couple of examples in the lecture notes). Just make sure to explain fully why the function is/isn't continuous at a given point. And for once, there's no $\epsilon-\delta$ argument in sight!
-2)  There's an example of how to solve this type of problem in the lecture notes. I'd also recommend looking at 'Problem Sheet Week 10' from last semester too, if you want another example along these lines. In regards to your solution, make it explicit that all hypotheses of the IVT are satisfied!
+2)  For this question, I'd recommend looking at 'Problem Sheet Week 10' from last semester, if you want an example along these lines. In regards to your solution, make it explicit that all hypotheses of the IVT are satisfied!
 3) For the first part (i.e. proving the given result), use the sequential characterisation of limits and continuity. For the second part, try and find functions $f,g: \mathbb{R} \to \mathbb{R}$ which satisfy
 \begin{align*}
 g(f(x)) = \begin{cases}

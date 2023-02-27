@@ -14,13 +14,6 @@ output:
     number_sections: true
     keep_md: true
     pandoc_args: --default-image-extension=svg
-  clavertondown::pdf_clav:
-    latex_engine: pdflatex
-    keep_tex: true
-    fig_caption: true
-    toc: true
-    extra_dependencies: ["float"]
-    pandoc_args: --default-image-extension=pdf
   clavertondown::gitbook_clav:
     split_by: section
     keep_md: true
@@ -28,11 +21,18 @@ output:
       download: [["Tutorial4.html", "HTML page"], ["Tutorial4.pdf","Standard print PDF"], ["Tutorial4Clear.pdf","Clear print PDF"], ["Tutorial4Large.pdf","Large print PDF"], ["Tutorial4.docx","Accessible Word document"], ["Tutorial4.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
-  clavertondown::html_clav:
+  clavertondown::pdf_clav:
+    latex_engine: pdflatex
+    keep_tex: true
+    fig_caption: true
     toc: true
-    pandoc_args: --default-image-extension=svg
+    extra_dependencies: ["float"]
+    pandoc_args: --default-image-extension=pdf
   clavertondown::epub_clav:
     toc: false
+    pandoc_args: --default-image-extension=svg
+  clavertondown::html_clav:
+    toc: true
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
@@ -46,6 +46,8 @@ header-includes:
 
 # Introduction {-}
 Here is the material to accompany the 4th Analysis 1B Tutorial on the 27th February. Alternative formats can be downloaded by clicking the download icon at the top of the page. Please send any comments or corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk). To return to the homepage, click [here](http://caj50.github.io/tutoring.html).
+
+
 
 <!--<details open>
 <summary>Want to ruin the surprise?</summary>
@@ -69,13 +71,13 @@ So why is this theorem useful? Basically, it says that you can use all the theor
 
 ![Figure 1.1: A diagram illustrating the definitions of continuity at a point $c$ (left), and sequential continuity at a point $c$ (right), for a function $f$. It turns out that these definitions are completely equivalent!](Sequential Continuity.svg)
 
-Before we move on, Theorem <a href="#thm:thm1">1.1</a> also gives us a way of proving that a function is *not* continuous. We show this through an example, which extends Tutorial Question 2 on Problem Sheet 4.
+Before we move on, Theorem <a href="#thm:thm1">1.1</a> also gives us a way of proving that a function is *not* continuous. We show this through Tutorial Question 2 on Problem Sheet 4.
 
 \BeginKnitrBlock{example}<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex1"><span class="exm:ex1" custom-style="NameStyle"><strong><span id="exm:ex1"></span>Example 1.1  </strong></span><div>Let $f:\mathbb{R} \to \mathbb{R}$ be defined by $$f(x) = \begin{cases}
 1 \;\;\text{if}\;\;x\in\mathbb{Q},\\
 0 \;\;\text{if}\;\;x\in\mathbb{R}\setminus\mathbb{Q}.\end{cases}$$ Further, define $h:\mathbb{R} \to \mathbb{R}$ by $h(x) = xf(x)$. Determine all points where $h$ is continuous.</div></div>\EndKnitrBlock{example}
 
-\BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyle"><strong>Solution. </strong></span> <p>Firstly, in tutorial question 2, you showed that $f$ is discontinuous at all points in $\mathbb{R}$. But does this extend to $h$? In fact, $h$ is continuous at exactly one point --- zero.
+\BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyle"><strong>Solution. </strong></span> <p>The main result of Tutorial Question 2 shows us that $h$ is continuous at exactly one point --- zero.
 
 To prove $h$ is continuous at $0$, fix $\epsilon > 0$, and suppose $\lvert x \rvert < \delta$ for some $\delta > 0$ to be chosen later. Then
 $$\begin{align*}
@@ -137,7 +139,7 @@ The IVT is very good for proving existence of square roots (and roots of any deg
 As per usual, here's where you'll find the problem sheet hints!
 
 1) These two examples are largely similar to the ones we did in tutorials (and I think there's a couple of examples in the lecture notes). Just make sure to explain fully why the function is/isn't continuous at a given point. And for once, there's no $\epsilon-\delta$ argument in sight!
-2)  There's an example of how to solve this type of problem in the lecture notes. I'd also recommend looking at 'Problem Sheet Week 10' from last semester too, if you want another example along these lines. In regards to your solution, make it explicit that all hypotheses of the IVT are satisfied!
+2)  For this question, I'd recommend looking at 'Problem Sheet Week 10' from last semester, if you want an example along these lines. In regards to your solution, make it explicit that all hypotheses of the IVT are satisfied!
 3) For the first part (i.e. proving the given result), use the sequential characterisation of limits and continuity. For the second part, try and find functions $f,g: \mathbb{R} \to \mathbb{R}$ which satisfy
 $$\begin{align*}
 g(f(x)) = \begin{cases}
