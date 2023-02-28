@@ -16,6 +16,9 @@ output:
       download: [["Tutorial5.html", "HTML page"], ["Tutorial5.pdf","Standard print PDF"], ["Tutorial5Clear.pdf","Clear print PDF"], ["Tutorial5Large.pdf","Large print PDF"], ["Tutorial5.docx","Accessible Word document"], ["Tutorial5.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
+  clavertondown::html_clav:
+    toc: true
+    pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
     keep_tex: true
@@ -30,9 +33,6 @@ output:
     toc: true
     number_sections: true
     keep_md: true
-    pandoc_args: --default-image-extension=svg
-  clavertondown::html_clav:
-    toc: true
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
@@ -58,6 +58,7 @@ After what was mainly revision last week, we're moving onto some new stuff again
 
 ## Inverse Functions
 A particularly useful class of functions we may be interested in are known as invertible. These functions $f: A \to B$ provide a way of moving between sets $A$ and $B$ (and back again) without losing any information about $A$ and $B$. Before we talk about them in more detail, it's worth recalling some defintions:
+
 \BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def1"><span class="def:def1" custom-style="NameStyle"><strong>(\#def:def1)  (Injectivity, Surjectivity and Bijectivity) </strong></span><div>Let $f: A \to B$ be a function.
 
 *  If $\forall x, y \in B$ with $x \neq y$, $f(x) = f(y) \implies x = y$, then $f$ is said to be injective.
@@ -77,12 +78,14 @@ Now that we have these definitions, we can say something useful about the contin
 
 A (hopefully familiar) example would be useful here:
 
-\BeginKnitrBlock{example}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-example" custom-style="ExampleStyle" id="exm:unnamed-chunk-2"><span class="exm:unnamed-chunk-2" custom-style="NameStyle"><strong>(\#exm:unnamed-chunk-2) </strong></span><div>Consider the exponential function $\exp:\mathbb{R} \to \mathbb{R}$ defined by $$f(x)  = \sum_{n = 0}^{\infty} \frac{x^n}{n!} = \mathrm{e}^x.$$ Firstly, note that $\mathbb{R}$ is a non-empty interval. Now, using some results from Semester 1, we know that
+\BeginKnitrBlock{example}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-example" custom-style="ExampleStyle" id="exm:unnamed-chunk-2"><span class="exm:unnamed-chunk-2" custom-style="NameStyle"><strong>(\#exm:unnamed-chunk-2) </strong></span><div>Consider the exponential function $\exp:\mathbb{R} \to \mathbb{R}$ defined by $$\exp(x)  = \sum_{n = 0}^{\infty} \frac{x^n}{n!} = \mathrm{e}^x.$$ Firstly, note that $\mathbb{R}$ is a non-empty interval. Now, using some results from Semester 1, we know that
 
 * $\exp$ is continuous and strictly increasing on $\mathbb{R}$, and
 * $\exp(\mathbb{R}) = (0,\infty)$.
 
-Therefore, $\exp$ satisfies the hypotheses of the above theorem, and so $\exp: \mathbb{R} \to (0, \infty)$ is a bijection, with continuous inverse. This inverse function is the well-known *natural logarithm* $\log: (0,\infty) \to \mathbb{R},$ where $x = \log(y) \iff y = \exp(x).$</div></div>\EndKnitrBlock{example}
+Therefore, $\exp$ satisfies the hypotheses of the above theorem, and so $\exp: \mathbb{R} \to (0, \infty)$ is a bijection, with continuous inverse. This inverse function is the well-known *natural logarithm* $\log: (0,\infty) \to \mathbb{R},$ where $x = \log(y) \iff y = \exp(x).$
+
+   </div></div>\EndKnitrBlock{example}
 
 This example actually turns out to be really useful if we're dealing with sequences, as we can now prove the following --- hugely general --- result:
 \BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop1"><span class="prp:prop1" custom-style="NameStyle"><strong>(\#prp:prop1) </strong></span><p>Let $(a_n)_n$ and $(b_n)_n$ be real sequences such that $\lim_{n\to\infty}a_n = a$ and $\lim_{n\to\infty}b_n = b$. If $a_n^{b_n} \in \mathbb{R}\;\; \forall n \in \mathbb{N}$, and $a>0$, then $$\lim_{n \to \infty} a_n^{b_n} = \left(\lim_{n\to\infty} a_n\right)^{\lim_{n\to\infty}b_n}.$$</p></div>\EndKnitrBlock{proposition}
@@ -114,6 +117,7 @@ Much like the Intermediate Value Theorem, we can obtain some special continuity 
 \BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm2"><span class="thm:thm2" custom-style="NameStyle"><strong>(\#thm:thm2)  (Weierstrass Extremal Theorem (WET)) </strong></span><p>Let $a,b \in \mathbb{R}$ with $a<b$, and let[^3] $f \in C^{0}([a,b])$. Then:
   
   1. $f$ is bounded: $$\exists M > 0 \;\;\text{s.t.}\;\; \lvert f(x) \rvert \leq M\;\;\forall x \in [a,b].$$
+  
   2. $f$ attains its bounds: $$\exists p,q \in [a,b] \;\; \text{s.t}\;\; \forall x \in [a,b], f(q) \leq f(x) \leq f(p).$$
   </p></div>\EndKnitrBlock{theorem}
 This last point states that if $f \in C^{0}([a,b])$, $$\sup_{x \in [a,b]}f(x) = \max_{x\in[a,b]}f(x)\;\;\text{and}\;\;\inf_{x \in [a,b]}f(x) = \min_{x\in[a,b]}f(x).$$ So in fact, what this theorem tells us is that for a function defined on a compact interval, we have some control on its growth, and we know that the function has a maximum and minimum value! This can be seen pictorally in Figure \@ref(fig:wet).
@@ -139,7 +143,7 @@ One quick result we obtain from this definition is the following:
 \BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop2"><span class="prp:prop2" custom-style="NameStyle"><strong>(\#prp:prop2) </strong></span><p>If a function $f:D \to \mathbb{R}$ is differentiable at a point $c$, then it is continuous at $c$.</p></div>\EndKnitrBlock{proposition}
 The contrapositive of this is very useful for ruling functions out: if a function is **not** continuous, it is not differentiable. As a final remark, or warning, **continuity does not imply differentiability**! To see this, think of either $f(x) = \lvert x \rvert$ at $x = 0$, or look up the [Weierstrass function](https://en.wikipedia.org/wiki/Weierstrass_function). 
 
-[^4]: There is nothing stopping us; however, defining *left* and *right derivatives* at these points, e.g. we could search for $$\lim_{x \to -1^{+}}\frac{f(-1+h) - f(-1)}{h}\;\;\text{or}\;\;\lim_{x \to 2^{-}}\frac{f(2+h) - f(2)}{h}.$$
+[^4]: There is nothing stopping us; however, defining *left* and *right derivatives* at these points, i.e. we could search for $$\lim_{x \to -1^{+}}\frac{f(-1+h) - f(-1)}{h}\;\;\text{or}\;\;\lim_{x \to 2^{-}}\frac{f(2+h) - f(2)}{h}.$$
 
 # Hints
 As per usual, here's where you'll find the problem sheet hints!
