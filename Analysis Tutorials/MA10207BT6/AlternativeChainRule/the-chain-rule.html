@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>The Chain Rule | Alternative Chain Rule Proof</title>
+  <meta name="description" content="The Chain Rule | Alternative Chain Rule Proof" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="The Chain Rule | Alternative Chain Rule Proof" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The Chain Rule | Alternative Chain Rule Proof" />
+  
+  
+  
+
+<meta name="author" content="Christian Jones: University of Bath" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+
+
+<script src="libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.MessageHook("End Math", function (msg) {
+  var nodes = Array.from(msg[1].querySelectorAll('.MJX_Assistive_MathML [id]'));
+  while (nodes.length) {
+    nodes.shift().removeAttribute('id');
+  }
+}, 20);
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "fast-preview": {disabled: true},
+  explorer:{ subtitle: true },
+  MatchWebFonts: { 
+    matchFor: { "HTML-CSS": true, NativeMML: false, SVG: false },
+    fontCheckDelay: 2000,
+    fontCheckTimeout: 30 * 1000
+  },
+  "HTML-CSS": {
+    preferredFont: "STIX",
+    availableFonts: ["STIX","TeX"],
+    webFont: "STIX-Web",
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  SVG: {
+    font: "STIX-Web",
+    linebreaks: { automatic: false, width: "90\% container" }
+  },
+  menuSettings: { 
+    collapsible: false, 
+    autocollapse: false, 
+    explorer: false 
+  }
+});
+</script>
+
+
+
+
+<style type="text/css">
+  a {
+   color: blue;
+  }
+  .book .book-summary ul.summary li a, .book .book-summary ul.summary li.active>a, .book .book-body .page-wrapper .page-inner section.normal a {
+  color: blue;
+  }
+
+  [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+   .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #1c242b;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0f6f7;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  
+  [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #182518;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0fcea;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #182518;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0fcea;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  [custom-style=NameStyle]{
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  [custom-style=NameStyleItalics]{
+    font-style: italic;
+  }
+
+  
+  [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #251e18;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #fdf3e9;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #2b1c21;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #fdefef;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+  
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="the-chain-rule.html"><a href="the-chain-rule.html"><i class="fa fa-check"></i>The Chain Rule</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Alternative Chain Rule Proof</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="the-chain-rule" class="section level1 unnumbered">
+<h1>The Chain Rule</h1>
+
+<div id="thm:thm1" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1:  (Chain Rule) </strong></span>
+<p>
+Let <span class="math inline">\(g:(a,b) \to \mathbb{R}\)</span> and <span class="math inline">\(f:(A,B) \to \mathbb{R}\)</span> be such that <span class="math inline">\(g\left((a,b)\right) \subseteq (A,B).\)</span> Assume that <span class="math inline">\(g\)</span> is differentiable at <span class="math inline">\(c\)</span> and <span class="math inline">\(f\)</span> is differentiable at <span class="math inline">\(g(c)\)</span>. Then the composition <span class="math inline">\(f\circ g\)</span> is differentiable at <span class="math inline">\(c\)</span> with <span class="math display">\[\left(f\circ g\right)&#39;(c) = f&#39;\left(g(c)\right)g&#39;(c).\]</span>
+</p>
+</div>
+
+<div class="bookdown-proof" custom-style="ProofStyle">
+<span class="proof" custom-style="NameStyleItalics">Proof. </span>
+<p>
+<p>Firstly, note that using the definition of limit, we can recast this problem into the following form: given <span class="math inline">\(\epsilon &gt; 0\)</span>, we seek <span class="math inline">\(\delta &gt; 0\)</span> such that
+<span class="math display">\[\begin{align}
+\lvert x - c \rvert &lt; \delta \Rightarrow \left\lvert (f\circ g)(x) - \left[(f\circ g)(c) + f&#39;(g(c))g&#39;(c)(x-c)\right]\right\rvert\leq \epsilon\lvert x - c \rvert \tag{*}
+\end{align}\]</span></p>
+<p>Now, fix <span class="math inline">\(\epsilon &gt; 0\)</span>, and let <span class="math inline">\(\eta_1, \eta_2 &gt; 0\)</span> be determined later. As <span class="math inline">\(f\)</span> is differentiable at <span class="math inline">\(g(c)\)</span>, <span class="math inline">\(\exists \theta_1&gt;0\)</span> such that
+<span class="math display">\[\begin{align}
+\lvert y - g(c) \rvert &lt; \theta_1 \Rightarrow \left\lvert f(y) - \left[f(g(c)) + f&#39;(g(c))(y - g(c))\right]\right\rvert \leq \eta_1\lvert y - g(c)\rvert \tag{1}
+\end{align}\]</span></p>
+<p>Also, as <span class="math inline">\(g\)</span> is differentiable at <span class="math inline">\(c\)</span>, <span class="math inline">\(\exists \theta_2 &gt; 0\)</span> such that
+<span class="math display">\[\begin{align}
+\lvert x - c \rvert &lt; \theta_2 &amp;\Rightarrow \left\lvert g(x) - \left[g(c) + g&#39;(c)(x - c)\right]\right\rvert \leq \eta_2\lvert x - c\rvert, \tag{2}\\
+&amp;\Rightarrow \lvert g(x) - g(c) \rvert \leq \left(\eta_2 + \lvert g&#39;(c) \rvert\right)\lvert x - c \rvert. \tag{3}
+\end{align}\]</span></p>
+<p>So, if <span class="math inline">\(\lvert x - c \rvert &lt; \delta\)</span> for
+<span class="math display">\[\begin{align}
+\delta = \min\left\lbrace \theta_2, \frac{\theta_1}{\eta_2 + \lvert g&#39;(c)\rvert}\right\rbrace, \tag{4}
+\end{align}\]</span>
+then using (3), we find that</p>
+<p><span class="math display">\[\begin{align*}
+\lvert x - c \rvert &lt; \delta \Rightarrow \lvert g(x) - g(c) \rvert &lt; \left(\eta_2 + \lvert g&#39;(c) \rvert\right)\delta \leq \theta_1.
+\end{align*}\]</span></p>
+<p>Substituting <span class="math inline">\(y = g(x)\)</span> into (1) then gives for <span class="math inline">\(\lvert x - c \rvert &lt; \delta\)</span>,
+<span class="math display">\[\begin{align*}
+\left\lvert f(g(x)) - \left[f(g(c)) + f&#39;(g(c))(g(x) - g(c))\right]\right\rvert \leq \eta_1\lvert g(x) - g(c) \rvert
+\end{align*}\]</span></p>
+<p>Adding and subtracting <span class="math inline">\(f&#39;(g(c))g&#39;(c)(x-c)\)</span> yields
+<span class="math display">\[\begin{align*}
+\left\lvert f(g(x)) - \left[f(g(c))+f&#39;(g(c))g&#39;(c)(x-c)\right] - f&#39;(g(c))\left[g(x) - g(c) - g&#39;(c)(x-c)\right]\right\rvert \leq \eta_1\lvert g(x) - g(c) \rvert.
+\end{align*}\]</span></p>
+<p>Applying the reverse triangle inequality and rearranging,
+<span class="math display">\[\begin{align}
+\left\lvert f(g(x)) - \left[f(g(c))+f&#39;(g(c))g&#39;(c)(x-c)\right]\right\rvert &amp;\leq \left\lvert f&#39;(g(c)) \right\rvert \lvert g(x) - g(c) - g&#39;(c)(x-c)\rvert \nonumber \\
+&amp;\;\;+ \eta_1\lvert g(x) - g(c)\rvert, \nonumber \\
+&amp;\leq \eta_2\left\lvert f&#39;(g(c))\right\rvert\lvert x - c \rvert + \eta_1(\eta_2 + \lvert g&#39;(c)\rvert)\lvert x - c \rvert.\nonumber
+\end{align}\]</span></p>
+<p>So, if <span class="math display">\[\eta_2 = \frac{\epsilon}{2\left(\lvert f&#39;(g(c))\rvert + 1\right)}\;\;\;\text{and}\;\;\eta_1 = \frac{\epsilon}{2\left(\eta_2 + \lvert g&#39;(c) \rvert\right)},\]</span> then this final inequality implies that for <span class="math inline">\(\lvert x - c \rvert &lt; \delta\)</span>,
+<span class="math display">\[\begin{align*}
+\left\lvert (f\circ g)(x) - \left[(f\circ g)(c) + f&#39;(g(c))g&#39;(c)(x-c)\right]\right\rvert\leq \left(\frac{\epsilon}{2} + \frac{\epsilon}{2}\right)\lvert x - c \rvert = \epsilon\lvert x - c \rvert
+\end{align*}\]</span></p>
+<p>Hence, provided <span class="math inline">\(\theta_1\)</span> and <span class="math inline">\(\theta_2\)</span> are respectively defined for <span class="math inline">\(\eta_1\)</span> and <span class="math inline">\(\eta_2\)</span> by (1) and (2), and <span class="math inline">\(\delta\)</span> is defined by (4), we find that (*) is satisfied, and the result follows.</p>
+</p>
+<p>
+□
+</p>
+</div>
+<!--<details open>
+<summary>Want to ruin the surprise?</summary>
+<br>
+Well, you asked for it!
+</details>-->
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["AltChain.html", "HTML page"], ["AltChain.pdf", "Standard print PDF"], ["AltChainClear.pdf", "Clear print PDF"], ["AltChainLarge.pdf", "Large print PDF"], ["AltChain.docx", "Accessible Word document"], ["AltChain.epub", "Accessible EPub book"]],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

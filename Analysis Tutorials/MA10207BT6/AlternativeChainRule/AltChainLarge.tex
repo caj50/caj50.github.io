@@ -1,0 +1,227 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  17pt,
+  a4paper]{extarticle}
+\title{Alternative Chain Rule Proof}
+\author{Christian Jones: University of Bath}
+\date{March 2023}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Alternative Chain Rule Proof},
+  pdfauthor={Christian Jones: University of Bath},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\newcommand{\BOO}{BOO}
+\usepackage {hyperref}
+\hypersetup {colorlinks = true, linkcolor = blue, urlcolor = blue}
+\usepackage{float}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}\newtheorem{definition}{Definition}[section]
+\theoremstyle{plain}
+\newtheorem*{proposition*}{Proposition}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{Definitions*}{Definitions}\newtheorem{Definitions}[definition]{Definitions}
+\theoremstyle{plain}
+\newtheorem*{lemma*}{Lemma}\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{plain}
+\newtheorem*{corollary*}{Corollary}\newtheorem{corollary}{Corollary}[section]
+\theoremstyle{plain}
+\newtheorem*{conjecture*}{Conjecture}\newtheorem{conjecture}{Conjecture}[section]
+\theoremstyle{definition}
+\newtheorem*{example*}{Example}\newtheorem{example}{Example}[section]
+\theoremstyle{definition}
+\newtheorem*{exercise*}{Exercise}\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{Thought*}{Thought}\newtheorem{Thought}{Thought}[section]
+\theoremstyle{remark}
+\newtheorem*{remark*}{Remark}
+\newtheorem*{solution*}{Solution}
+\newtheorem*{Example*}{Example}
+\theoremstyle{remark}
+\newtheorem*{Proof*}{Proof}
+\newtheorem*{Examples*}{Examples}
+\let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
+
+
+%\usepackage[english,shorthands=off]{babel}
+\usepackage{etoolbox}
+\usepackage{spverbatim}
+\makeatletter
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\@ifpackageloaded{adjustbox}{}{\usepackage[Export]{adjustbox}}
+\makeatother
+\floatplacement{figure}{H}
+\newcommand{\scalefactor}{1.7}
+\adjustboxset*{min width=\scalefactor\width,max width=\linewidth}
+\renewcommand{\familydefault}{phv}
+\fontfamily{phv}\selectfont
+\renewcommand{\em}{\bf}\renewcommand{\textit}{\textbf}\renewcommand{\emph}{\textbf}\renewcommand{\it}{\bf}\renewcommand{\itshape}{\bf}
+\setlength{\parindent}{0.0pt}
+\setlength{\parskip}{1.0\baselineskip}
+\renewcommand{\baselinestretch}{1.5}\selectfont
+\setlength{\mathsurround}{0.2em}
+\setlength{\arraycolsep}{0.5cm}\renewcommand{\arraystretch}{1.5}
+\addtolength{\jot}{\baselineskip}
+\renewcommand{\;}{\,}
+\sloppy
+\allowdisplaybreaks
+\usepackage{amsthm}
+\newtheoremstyle{plain}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{definition}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{remark}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\csundef{Proof}
+\csundef{endProof}
+\newenvironment{Proof}
+  {\noindent{\bf Proof.}\hspace*{1em}}% Begin
+  {\qed\par}% End
+%% When redefining an environment it is vital that it has 
+%% the same number of arguments as the original
+\renewenvironment{proof}[1][\proofname]
+  {\trivlist\item\relax\noindent{\bf {#1}.}\hspace*{1em}}% Begin
+  {\qed\endtrivlist}% End
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\newpage
+\pagenumbering{arabic}
+
+\hypertarget{introduction}{%
+\section*{Introduction}\label{introduction}}
+\addcontentsline{toc}{section}{Introduction}
+
+Here is an alternative proof of the chain rule which uses the \(\epsilon\)-\(\delta\) definition of the limit. It's quite involved, but its a great example if you want more practice with these types of arguments. The typed version here is based off of one presented by Adrian Hill, who previously lectured this course.
+
+\hypertarget{the-chain-rule}{%
+\section*{The Chain Rule}\label{the-chain-rule}}
+\addcontentsline{toc}{section}{The Chain Rule}
+
+\BeginKnitrBlock{theorem}[Chain Rule]
+{\label{thm:thm1} }Let \(g:(a,b) \to \mathbb{R}\) and \(f:(A,B) \to \mathbb{R}\) be such that \(g\left((a,b)\right) \subseteq (A,B).\) Assume that \(g\) is differentiable at \(c\) and \(f\) is differentiable at \(g(c)\). Then the composition \(f\circ g\) is differentiable at \(c\) with \[\left(f\circ g\right)'(c) = f'\left(g(c)\right)g'(c).\]
+\EndKnitrBlock{theorem}
+
+\BeginKnitrBlock{proof}
+Firstly, note that using the definition of limit, we can recast this problem into the following form: given \(\epsilon > 0\), we seek \(\delta > 0\) such that
+\begin{align}
+\lvert x - c \rvert < \delta \Rightarrow \left\lvert (f\circ g)(x) - \left[(f\circ g)(c) + f'(g(c))g'(c)(x-c)\right]\right\rvert\leq \epsilon\lvert x - c \rvert \tag{*}
+\end{align}
+
+Now, fix \(\epsilon > 0\), and let \(\eta_1, \eta_2 > 0\) be determined later. As \(f\) is differentiable at \(g(c)\), \(\exists \theta_1>0\) such that
+\begin{align}
+\lvert y - g(c) \rvert < \theta_1 \Rightarrow \left\lvert f(y) - \left[f(g(c)) + f'(g(c))(y - g(c))\right]\right\rvert \leq \eta_1\lvert y - g(c)\rvert \tag{1}
+\end{align}
+
+Also, as \(g\) is differentiable at \(c\), \(\exists \theta_2 > 0\) such that
+\begin{align}
+\lvert x - c \rvert < \theta_2 &\Rightarrow \left\lvert g(x) - \left[g(c) + g'(c)(x - c)\right]\right\rvert \leq \eta_2\lvert x - c\rvert, \tag{2}\\
+&\Rightarrow \lvert g(x) - g(c) \rvert \leq \left(\eta_2 + \lvert g'(c) \rvert\right)\lvert x - c \rvert. \tag{3}
+\end{align}
+
+So, if \(\lvert x - c \rvert < \delta\) for
+\begin{align}
+\delta = \min\left\lbrace \theta_2, \frac{\theta_1}{\eta_2 + \lvert g'(c)\rvert}\right\rbrace, \tag{4}
+\end{align}
+then using (3), we find that
+
+\begin{align*}
+\lvert x - c \rvert < \delta \Rightarrow \lvert g(x) - g(c) \rvert < \left(\eta_2 + \lvert g'(c) \rvert\right)\delta \leq \theta_1.
+\end{align*}
+
+Substituting \(y = g(x)\) into (1) then gives for \(\lvert x - c \rvert < \delta\),
+\begin{align*}
+\left\lvert f(g(x)) - \left[f(g(c)) + f'(g(c))(g(x) - g(c))\right]\right\rvert \leq \eta_1\lvert g(x) - g(c) \rvert
+\end{align*}
+
+Adding and subtracting \(f'(g(c))g'(c)(x-c)\) yields
+\begin{align*}
+\left\lvert f(g(x)) - \left[f(g(c))+f'(g(c))g'(c)(x-c)\right] - f'(g(c))\left[g(x) - g(c) - g'(c)(x-c)\right]\right\rvert \leq \eta_1\lvert g(x) - g(c) \rvert.
+\end{align*}
+
+Applying the reverse triangle inequality and rearranging,
+\begin{align}
+\left\lvert f(g(x)) - \left[f(g(c))+f'(g(c))g'(c)(x-c)\right]\right\rvert &\leq \left\lvert f'(g(c)) \right\rvert \lvert g(x) - g(c) - g'(c)(x-c)\rvert \nonumber \\
+&\;\;+ \eta_1\lvert g(x) - g(c)\rvert, \nonumber \\
+&\leq \eta_2\left\lvert f'(g(c))\right\rvert\lvert x - c \rvert + \eta_1(\eta_2 + \lvert g'(c)\rvert)\lvert x - c \rvert.\nonumber
+\end{align}
+
+So, if \[\eta_2 = \frac{\epsilon}{2\left(\lvert f'(g(c))\rvert + 1\right)}\;\;\;\text{and}\;\;\eta_1 = \frac{\epsilon}{2\left(\eta_2 + \lvert g'(c) \rvert\right)},\] then this final inequality implies that for \(\lvert x - c \rvert < \delta\),
+\begin{align*}
+\left\lvert (f\circ g)(x) - \left[(f\circ g)(c) + f'(g(c))g'(c)(x-c)\right]\right\rvert\leq \left(\frac{\epsilon}{2} + \frac{\epsilon}{2}\right)\lvert x - c \rvert = \epsilon\lvert x - c \rvert
+\end{align*}
+
+Hence, provided \(\theta_1\) and \(\theta_2\) are respectively defined for \(\eta_1\) and \(\eta_2\) by (1) and (2), and \(\delta\) is defined by (4), we find that (*) is satisfied, and the result follows.
+\EndKnitrBlock{proof}
+
+\end{document}

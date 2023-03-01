@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Alternative Chain Rule Proof" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Christian Jones: University of Bath" />
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.MessageHook("End Math", function (msg) {
+  var nodes = Array.from(msg[1].querySelectorAll('.MJX_Assistive_MathML [id]'));
+  while (nodes.length) {
+    nodes.shift().removeAttribute('id');
+  }
+}, 20);
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "fast-preview": {disabled: true},
+  explorer:{ subtitle: true },
+  MatchWebFonts: { 
+    matchFor: { "HTML-CSS": true, NativeMML: false, SVG: false },
+    fontCheckDelay: 2000,
+    fontCheckTimeout: 30 * 1000
+  },
+  "HTML-CSS": {
+    preferredFont: "STIX",
+    availableFonts: ["STIX","TeX"],
+    webFont: "STIX-Web",
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  SVG: {
+    font: "STIX-Web",
+    linebreaks: { automatic: false, width: "90\% container" }
+  },
+  menuSettings: { 
+    collapsible: false, 
+    autocollapse: false, 
+    explorer: false 
+  }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta name="description" content="Alternative Chain Rule Proof">
+
+<title>Alternative Chain Rule Proof</title>
+
+<script src="libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+</style>
+
+<style type="text/css">
+  a {
+   color: blue;
+  }
+
+  [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  [custom-style=NameStyle]{
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  [custom-style=NameStyleItalics]{
+    font-style: italic;
+  }
+
+  
+  [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+  
+  [data-custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  
+</style>
+
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<!--bookdown:title:start-->
+<div id="header">
+<h1 class="title">Alternative Chain Rule Proof</h1>
+<h4 class="author"><em>Christian Jones: University of Bath</em></h4>
+<h4 class="date"><em>March 2023</em></h4>
+</div>
+<!--bookdown:title:end-->
+
+<!--bookdown:toc:start-->
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#the-chain-rule">The Chain Rule</a></li>
+</ul>
+</div>
+<!--bookdown:toc:end-->
+
+<!--bookdown:body:start-->
+<!-- This is needed since I am working with svg files from mathcha.io. It converts the graphics files to something that can be used in the pdf files. Code taken from https://stackoverflow.com/questions/50165404/how-to-make-a-pdf-using-bookdown-including-svg-images/56044642#56044642 -->
+<div id="introduction" class="section level1 unnumbered">
+<h1>Introduction</h1>
+<p>Here is an alternative proof of the chain rule which uses the <span class="math inline">\(\epsilon\)</span>-<span class="math inline">\(\delta\)</span> definition of the limit. It’s quite involved, but its a great example if you want more practice with these types of arguments. The typed version here is based off of one presented by Adrian Hill, who previously lectured this course.</p>
+</div>
+<div id="the-chain-rule" class="section level1 unnumbered">
+<h1>The Chain Rule</h1>
+
+<div id="thm:thm1" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1:  (Chain Rule) </strong></span>
+<p>
+Let <span class="math inline">\(g:(a,b) \to \mathbb{R}\)</span> and <span class="math inline">\(f:(A,B) \to \mathbb{R}\)</span> be such that <span class="math inline">\(g\left((a,b)\right) \subseteq (A,B).\)</span> Assume that <span class="math inline">\(g\)</span> is differentiable at <span class="math inline">\(c\)</span> and <span class="math inline">\(f\)</span> is differentiable at <span class="math inline">\(g(c)\)</span>. Then the composition <span class="math inline">\(f\circ g\)</span> is differentiable at <span class="math inline">\(c\)</span> with <span class="math display">\[\left(f\circ g\right)&#39;(c) = f&#39;\left(g(c)\right)g&#39;(c).\]</span>
+</p>
+</div>
+
+<div class="bookdown-proof" custom-style="ProofStyle">
+<span class="proof" custom-style="NameStyleItalics">Proof. </span>
+<p>
+<p>Firstly, note that using the definition of limit, we can recast this problem into the following form: given <span class="math inline">\(\epsilon &gt; 0\)</span>, we seek <span class="math inline">\(\delta &gt; 0\)</span> such that
+<span class="math display">\[\begin{align}
+\lvert x - c \rvert &lt; \delta \Rightarrow \left\lvert (f\circ g)(x) - \left[(f\circ g)(c) + f&#39;(g(c))g&#39;(c)(x-c)\right]\right\rvert\leq \epsilon\lvert x - c \rvert \tag{*}
+\end{align}\]</span></p>
+<p>Now, fix <span class="math inline">\(\epsilon &gt; 0\)</span>, and let <span class="math inline">\(\eta_1, \eta_2 &gt; 0\)</span> be determined later. As <span class="math inline">\(f\)</span> is differentiable at <span class="math inline">\(g(c)\)</span>, <span class="math inline">\(\exists \theta_1&gt;0\)</span> such that
+<span class="math display">\[\begin{align}
+\lvert y - g(c) \rvert &lt; \theta_1 \Rightarrow \left\lvert f(y) - \left[f(g(c)) + f&#39;(g(c))(y - g(c))\right]\right\rvert \leq \eta_1\lvert y - g(c)\rvert \tag{1}
+\end{align}\]</span></p>
+<p>Also, as <span class="math inline">\(g\)</span> is differentiable at <span class="math inline">\(c\)</span>, <span class="math inline">\(\exists \theta_2 &gt; 0\)</span> such that
+<span class="math display">\[\begin{align}
+\lvert x - c \rvert &lt; \theta_2 &amp;\Rightarrow \left\lvert g(x) - \left[g(c) + g&#39;(c)(x - c)\right]\right\rvert \leq \eta_2\lvert x - c\rvert, \tag{2}\\
+&amp;\Rightarrow \lvert g(x) - g(c) \rvert \leq \left(\eta_2 + \lvert g&#39;(c) \rvert\right)\lvert x - c \rvert. \tag{3}
+\end{align}\]</span></p>
+<p>So, if <span class="math inline">\(\lvert x - c \rvert &lt; \delta\)</span> for
+<span class="math display">\[\begin{align}
+\delta = \min\left\lbrace \theta_2, \frac{\theta_1}{\eta_2 + \lvert g&#39;(c)\rvert}\right\rbrace, \tag{4}
+\end{align}\]</span>
+then using (3), we find that</p>
+<p><span class="math display">\[\begin{align*}
+\lvert x - c \rvert &lt; \delta \Rightarrow \lvert g(x) - g(c) \rvert &lt; \left(\eta_2 + \lvert g&#39;(c) \rvert\right)\delta \leq \theta_1.
+\end{align*}\]</span></p>
+<p>Substituting <span class="math inline">\(y = g(x)\)</span> into (1) then gives for <span class="math inline">\(\lvert x - c \rvert &lt; \delta\)</span>,
+<span class="math display">\[\begin{align*}
+\left\lvert f(g(x)) - \left[f(g(c)) + f&#39;(g(c))(g(x) - g(c))\right]\right\rvert \leq \eta_1\lvert g(x) - g(c) \rvert
+\end{align*}\]</span></p>
+<p>Adding and subtracting <span class="math inline">\(f&#39;(g(c))g&#39;(c)(x-c)\)</span> yields
+<span class="math display">\[\begin{align*}
+\left\lvert f(g(x)) - \left[f(g(c))+f&#39;(g(c))g&#39;(c)(x-c)\right] - f&#39;(g(c))\left[g(x) - g(c) - g&#39;(c)(x-c)\right]\right\rvert \leq \eta_1\lvert g(x) - g(c) \rvert.
+\end{align*}\]</span></p>
+<p>Applying the reverse triangle inequality and rearranging,
+<span class="math display">\[\begin{align}
+\left\lvert f(g(x)) - \left[f(g(c))+f&#39;(g(c))g&#39;(c)(x-c)\right]\right\rvert &amp;\leq \left\lvert f&#39;(g(c)) \right\rvert \lvert g(x) - g(c) - g&#39;(c)(x-c)\rvert \nonumber \\
+&amp;\;\;+ \eta_1\lvert g(x) - g(c)\rvert, \nonumber \\
+&amp;\leq \eta_2\left\lvert f&#39;(g(c))\right\rvert\lvert x - c \rvert + \eta_1(\eta_2 + \lvert g&#39;(c)\rvert)\lvert x - c \rvert.\nonumber
+\end{align}\]</span></p>
+<p>So, if <span class="math display">\[\eta_2 = \frac{\epsilon}{2\left(\lvert f&#39;(g(c))\rvert + 1\right)}\;\;\;\text{and}\;\;\eta_1 = \frac{\epsilon}{2\left(\eta_2 + \lvert g&#39;(c) \rvert\right)},\]</span> then this final inequality implies that for <span class="math inline">\(\lvert x - c \rvert &lt; \delta\)</span>,
+<span class="math display">\[\begin{align*}
+\left\lvert (f\circ g)(x) - \left[(f\circ g)(c) + f&#39;(g(c))g&#39;(c)(x-c)\right]\right\rvert\leq \left(\frac{\epsilon}{2} + \frac{\epsilon}{2}\right)\lvert x - c \rvert = \epsilon\lvert x - c \rvert
+\end{align*}\]</span></p>
+<p>Hence, provided <span class="math inline">\(\theta_1\)</span> and <span class="math inline">\(\theta_2\)</span> are respectively defined for <span class="math inline">\(\eta_1\)</span> and <span class="math inline">\(\eta_2\)</span> by (1) and (2), and <span class="math inline">\(\delta\)</span> is defined by (4), we find that (*) is satisfied, and the result follows.</p>
+</p>
+<p>
+□
+</p>
+</div>
+<!--<details open>
+<summary>Want to ruin the surprise?</summary>
+<br>
+Well, you asked for it!
+</details>-->
+<!--chapter:end:index.Rmd-->
+</div>
+<!--bookdown:body:end-->
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>
