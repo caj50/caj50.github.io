@@ -293,7 +293,7 @@ MathJax.Hub.Config({
             <section class="normal" id="section-">
 <div id="inverse-functions" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Inverse Functions</h2>
-<p>A particularly useful class of functions we may be interested in are known as invertible. These functions <span class="math inline">\(f: A \to B\)</span> provide a way of moving between sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> (and back again) without losing any information about <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. Before we talk about them in more detail, it’s worth recalling some defintions:</p>
+<p>A particularly useful class of functions we may be interested in are known as invertible. These functions <span class="math inline">\(f: A \to B\)</span> provide a way of moving between sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> (and back again) without losing any information about <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. Before we talk about them in more detail, it’s worth recalling some definitions:</p>
 
 <div id="def:def1" class="bookdown-definition" custom-style="DefinitionStyle">
 <span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Injectivity, Surjectivity and Bijectivity) </strong></span>
@@ -314,16 +314,16 @@ MathJax.Hub.Config({
 <p>
 <p>Let <span class="math inline">\(I \subseteq \mathbb{R}\)</span> be a non-empty<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> interval, and let <span class="math inline">\(f: I \to \mathbb{R}\)</span> be continuous on <span class="math inline">\(I\)</span>. Assume that <span class="math inline">\(f\)</span> is strictly increasing<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> (or strictly decreasing) on <span class="math inline">\(I\)</span>. Then:</p>
 <ul>
-<li><span class="math inline">\(f(I)\)</span> is an interval,</li>
-<li><span class="math inline">\(f : I \to f(I) =: J\)</span> is bijective, and</li>
+<li><span class="math inline">\(J:=f(I)\)</span> is an interval,</li>
+<li><span class="math inline">\(f : I \to J\)</span> is bijective, and</li>
 <li><span class="math inline">\(f^{-1}: J \to I\)</span> is continuous on <span class="math inline">\(J\)</span>.</li>
 </ul>
 </p>
 </div>
 <p>A (hopefully familiar) example would be useful here:</p>
 
-<div id="exm:unnamed-chunk-2" class="bookdown-example" custom-style="ExampleStyle">
-<span class="exm:unnamed-chunk-2" custom-style="NameStyle"><strong>Example 1.1:  </strong></span>
+<div id="exm:ex1" class="bookdown-example" custom-style="ExampleStyle">
+<span class="exm:ex1" custom-style="NameStyle"><strong>Example 1.1:  </strong></span>
 <div>
 <p>Consider the exponential function <span class="math inline">\(\exp:\mathbb{R} \to \mathbb{R}\)</span> defined by <span class="math display">\[\exp(x)  = \sum_{n = 0}^{\infty} \frac{x^n}{n!} = \mathrm{e}^x.\]</span> Firstly, note that <span class="math inline">\(\mathbb{R}\)</span> is a non-empty interval. Now, using some results from Semester 1, we know that</p>
 <ul>
@@ -331,9 +331,12 @@ MathJax.Hub.Config({
 <li><span class="math inline">\(\exp(\mathbb{R}) = (0,\infty)\)</span>.</li>
 </ul>
 <p>Therefore, <span class="math inline">\(\exp\)</span> satisfies the hypotheses of the above theorem, and so <span class="math inline">\(\exp: \mathbb{R} \to (0, \infty)\)</span> is a bijection, with continuous inverse. This inverse function is the well-known <em>natural logarithm</em> <span class="math inline">\(\log: (0,\infty) \to \mathbb{R},\)</span> where <span class="math inline">\(x = \log(y) \iff y = \exp(x).\)</span></p>
+<p>We can quickly plot the graphs of <span class="math inline">\(y = \exp(x)\)</span> (in red), and <span class="math inline">\(y = \log(x)\)</span> (in blue) to visually see that Theorem <a href="inverse-functions.html#thm:thm1">1.1</a> works. Also note that to plot the graph of an inverse function, we only need to reflect the graph of the original function through the line <span class="math inline">\(y=x\)</span> (dashed green line).</p>
+<iframe src="https://www.desmos.com/calculator/wtqs9c3ibu?embed" width="400" height="400" style="border: 1px solid #ccc" frameborder="0">
+</iframe>
 </div>
 </div>
-This example actually turns out to be really useful if we’re dealing with sequences, as we can now prove the following — hugely general — result:
+This example actually turns out to be really useful if we’re dealing with sequences, as we can now calculate another large class of sequence limits:
 
 <div id="prp:prop1" class="bookdown-proposition" custom-style="TheoremStyle">
 <span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.2:  </strong></span>
@@ -355,7 +358,7 @@ Now, for <span class="math inline">\(n \geq N\)</span>,
 a_n^{b_n} &amp;= \exp\left(\log\left(a_n^{b_n}\right)\right)\;\;\text{(as $a_n &gt; 0$)},\\
 &amp;= \exp\left(b_n\log\left(a_n\right)\right)\;\;\text{(properties of $\log$)}.
 \end{align*}\]</span>
-So as <span class="math inline">\(n \to \infty\)</span> since both <span class="math inline">\(\exp\)</span> and <span class="math inline">\(\log\)</span> are continuous,
+So as <span class="math inline">\(n \to \infty\)</span>, we have that as both <span class="math inline">\(\exp\)</span> and <span class="math inline">\(\log\)</span> are continuous (Example <a href="inverse-functions.html#exm:ex1">1.1</a>),
 <span class="math display">\[\begin{align*}
 a_n^{b_n} &amp;\to \exp\left(b\log(a)\right)\\
 &amp;= \exp\left(\log\left(a^b\right)\right),\\

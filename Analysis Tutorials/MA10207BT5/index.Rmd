@@ -68,7 +68,7 @@ Well, you asked for it!
 After what was mainly revision last week, we're moving onto some new stuff again! It turns out there's still a bit we can say about continuity, especially on compact intervals. Finally, we're going to look at differentiation, which gives us a way of describing how fast a function changes.
 
 ## Inverse Functions
-A particularly useful class of functions we may be interested in are known as invertible. These functions $f: A \to B$ provide a way of moving between sets $A$ and $B$ (and back again) without losing any information about $A$ and $B$. Before we talk about them in more detail, it's worth recalling some defintions:
+A particularly useful class of functions we may be interested in are known as invertible. These functions $f: A \to B$ provide a way of moving between sets $A$ and $B$ (and back again) without losing any information about $A$ and $B$. Before we talk about them in more detail, it's worth recalling some definitions:
 
 ```{definition, label = "def1", name = "Injectivity, Surjectivity and Bijectivity"}
 Let $f: A \to B$ be a function.
@@ -101,10 +101,13 @@ Consider the exponential function $\exp:\mathbb{R} \to \mathbb{R}$ defined by $$
 
 Therefore, $\exp$ satisfies the hypotheses of the above theorem, and so $\exp: \mathbb{R} \to (0, \infty)$ is a bijection, with continuous inverse. This inverse function is the well-known *natural logarithm* $\log: (0,\infty) \to \mathbb{R},$ where $x = \log(y) \iff y = \exp(x).$
 
-   
+We can quickly plot the graphs of $y = \exp(x)$ (in red), and $y = \log(x)$ (in blue) to visually see that Theorem \@ref(thm:thm1) works. Also note that to plot the graph of an inverse function, we only need to reflect the graph of the original function through the line $y=x$ (dashed green line).
+
+<iframe src="https://www.desmos.com/calculator/wtqs9c3ibu?embed" width="400" height="400" style="border: 1px solid #ccc" frameborder=0></iframe>
+
 ```
 
-This example actually turns out to be really useful if we're dealing with sequences, as we now calculate another large class of sequence limits:
+This example actually turns out to be really useful if we're dealing with sequences, as we can now calculate another large class of sequence limits:
 ```{proposition, label= "prop1"}
 Let $(a_n)_n$ and $(b_n)_n$ be real sequences such that $\lim_{n\to\infty}a_n = a$ and $\lim_{n\to\infty}b_n = b$. If $a_n^{b_n} \in \mathbb{R}\;\; \forall n \in \mathbb{N}$, and $a>0$, then $$\lim_{n \to \infty} a_n^{b_n} = \left(\lim_{n\to\infty} a_n\right)^{\lim_{n\to\infty}b_n}.$$
 ```

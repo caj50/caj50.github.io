@@ -172,7 +172,8 @@ After what was mainly revision last week, we're moving onto some new stuff again
 \hypertarget{inverse-functions}{%
 \subsection{Inverse Functions}\label{inverse-functions}}
 
-A particularly useful class of functions we may be interested in are known as invertible. These functions \(f: A \to B\) provide a way of moving between sets \(A\) and \(B\) (and back again) without losing any information about \(A\) and \(B\). Before we talk about them in more detail, it's worth recalling some defintions:
+A particularly useful class of functions we may be interested in are known as invertible. These functions \(f: A \to B\) provide a way of moving between sets \(A\) and \(B\) (and back again) without losing any information about \(A\) and \(B\). Before we talk about them in more detail, it's worth recalling some definitions:
+
 \BeginKnitrBlock{definition}[Injectivity, Surjectivity and Bijectivity]
 {\label{def:def1} }Let \(f: A \to B\) be a function.
 
@@ -197,9 +198,9 @@ Now that we have these definitions, we can say something useful about the contin
 \begin{itemize}
 \tightlist
 \item
-  \(f(I)\) is an interval,
+  \(J:=f(I)\) is an interval,
 \item
-  \(f : I \to f(I) =: J\) is bijective, and
+  \(f : I \to J\) is bijective, and
 \item
   \(f^{-1}: J \to I\) is continuous on \(J\).
 \end{itemize}
@@ -208,7 +209,7 @@ Now that we have these definitions, we can say something useful about the contin
 A (hopefully familiar) example would be useful here:
 
 \BeginKnitrBlock{example}
-{\label{exm:unnamed-chunk-2} }Consider the exponential function \(\exp:\mathbb{R} \to \mathbb{R}\) defined by \[f(x)  = \sum_{n = 0}^{\infty} \frac{x^n}{n!} = \mathrm{e}^x.\] Firstly, note that \(\mathbb{R}\) is a non-empty interval. Now, using some results from Semester 1, we know that
+{\label{exm:ex1} }Consider the exponential function \(\exp:\mathbb{R} \to \mathbb{R}\) defined by \[\exp(x)  = \sum_{n = 0}^{\infty} \frac{x^n}{n!} = \mathrm{e}^x.\] Firstly, note that \(\mathbb{R}\) is a non-empty interval. Now, using some results from Semester 1, we know that
 
 \begin{itemize}
 \tightlist
@@ -219,9 +220,13 @@ A (hopefully familiar) example would be useful here:
 \end{itemize}
 
 Therefore, \(\exp\) satisfies the hypotheses of the above theorem, and so \(\exp: \mathbb{R} \to (0, \infty)\) is a bijection, with continuous inverse. This inverse function is the well-known \emph{natural logarithm} \(\log: (0,\infty) \to \mathbb{R},\) where \(x = \log(y) \iff y = \exp(x).\)
+
+We can quickly plot the graphs of \(y = \exp(x)\) (in red), and \(y = \log(x)\) (in blue) to visually see that Theorem \ref{thm:thm1} works. Also note that to plot the graph of an inverse function, we only need to reflect the graph of the original function through the line \(y=x\) (dashed green line).
+
+\includegraphics[width=0.3\textwidth,height=\textheight]{./explog.png}
 \EndKnitrBlock{example}
 
-This example actually turns out to be really useful if we're dealing with sequences, as we can now prove the following --- hugely general --- result:
+This example actually turns out to be really useful if we're dealing with sequences, as we can now calculate another large class of sequence limits:
 \BeginKnitrBlock{proposition}
 {\label{prp:prop1} }Let \((a_n)_n\) and \((b_n)_n\) be real sequences such that \(\lim_{n\to\infty}a_n = a\) and \(\lim_{n\to\infty}b_n = b\). If \(a_n^{b_n} \in \mathbb{R}\;\; \forall n \in \mathbb{N}\), and \(a>0\), then \[\lim_{n \to \infty} a_n^{b_n} = \left(\lim_{n\to\infty} a_n\right)^{\lim_{n\to\infty}b_n}.\]
 \EndKnitrBlock{proposition}
@@ -236,7 +241,7 @@ Now, for \(n \geq N\),
 a_n^{b_n} &= \exp\left(\log\left(a_n^{b_n}\right)\right)\;\;\text{(as $a_n > 0$)},\\
 &= \exp\left(b_n\log\left(a_n\right)\right)\;\;\text{(properties of $\log$)}.
 \end{align*}
-So as \(n \to \infty\) since both \(\exp\) and \(\log\) are continuous,
+So as \(n \to \infty\), we have that as both \(\exp\) and \(\log\) are continuous (Example \ref{exm:ex1}),
 \begin{align*}
 a_n^{b_n} &\to \exp\left(b\log(a)\right)\\
 &= \exp\left(\log\left(a^b\right)\right),\\
@@ -247,14 +252,13 @@ a_n^{b_n} &\to \exp\left(b\log(a)\right)\\
 \hypertarget{weierstrass-extremal-theorem}{%
 \subsection{Weierstrass Extremal Theorem}\label{weierstrass-extremal-theorem}}
 
-Much like the Intermediate Value Theorem, we can obtain some special continuity results when our functions are defined on compact (i.e.~closed and bounded) intervals. This result is stated below:
+Much like the Intermediate Value Theorem, we can obtain some special continuity results when our functions are defined on compact (i.e.~closed and bounded) intervals. One of the main results from this week is stated below:
 
 \BeginKnitrBlock{theorem}[Weierstrass Extremal Theorem (WET)]
 {\label{thm:thm2} }Let \(a,b \in \mathbb{R}\) with \(a<b\), and let\footnote{Recall that \(C^{0}([a,b])\) is the set of continuous functions mapping from the set \([a,b]\).} \(f \in C^{0}([a,b])\). Then:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   \(f\) is bounded: \[\exists M > 0 \;\;\text{s.t.}\;\; \lvert f(x) \rvert \leq M\;\;\forall x \in [a,b].\]
 \item
@@ -283,7 +287,7 @@ We can note a few things here:
 \item
   Firstly, if this \(L\) exists, we write it as \(f'(c)\) to make it clear that its a derivative.
 \item
-  We require \(D\) to be open, so that we can actually take limits! If, for example, \(D = [-1,2]\), we could attempt to define the derivative at any point in the interior of \(D\), \(D^{\circ} = (-1,2)\), but we couldn't define the derivative at \(x = -1\) or \(x = 2\).\footnote{There is nothing stopping us; however, defining \emph{left} and \emph{right derivatives} at these points, e.g.~we could search for \[\lim_{x \to -1^{+}}\frac{f(-1+h) - f(-1)}{h}\;\;\text{or}\;\;\lim_{x \to 2^{-}}\frac{f(2+h) - f(2)}{h}.\]}
+  We require \(D\) to be open, so that we can actually take limits! If, for example, \(D = [-1,2]\), we could attempt to define the derivative at any point in the interior of \(D\), \(D^{\circ} = (-1,2)\), but we couldn't define the derivative at \(x = -1\) or \(x = 2\).\footnote{There is nothing stopping us; however, trying to define \emph{left} and \emph{right derivatives} at these points, i.e.~we could search for \[\lim_{x \to -1^{+}}\frac{f(-1+h) - f(-1)}{h}\;\;\text{or}\;\;\lim_{x \to 2^{-}}\frac{f(2+h) - f(2)}{h}.\]}
 \item
   Substituting \(x = c+h\) into the definition gives us that equivalently \(f\) is differentiable at \(c\) if there exists \(L\in\mathbb{R}\) such that \[\lim_{x \to c}\frac{f(x) - f(c)}{x - c} = L.\]
 \end{itemize}
