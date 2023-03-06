@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="differentiation.html"/>
+<link rel="prev" href="weierstrass-extremal-theorem.html"/>
 
 
 <script src="libs/header-attrs-2.18/header-attrs.js"></script>
@@ -271,7 +271,6 @@ MathJax.Hub.Config({
 <ul>
 <li class="chapter" data-level="1.1" data-path="inverse-functions.html"><a href="inverse-functions.html"><i class="fa fa-check"></i><b>1.1</b> Inverse Functions</a></li>
 <li class="chapter" data-level="1.2" data-path="weierstrass-extremal-theorem.html"><a href="weierstrass-extremal-theorem.html"><i class="fa fa-check"></i><b>1.2</b> Weierstrass Extremal Theorem</a></li>
-<li class="chapter" data-level="1.3" data-path="differentiation.html"><a href="differentiation.html"><i class="fa fa-check"></i><b>1.3</b> Differentiation</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="hints.html"><a href="hints.html"><i class="fa fa-check"></i><b>2</b> Hints</a></li>
 </ul>
@@ -299,7 +298,7 @@ MathJax.Hub.Config({
 <li><ol style="list-style-type: lower-roman">
 <li>The question you’re trying to answer here is does <span class="math inline">\(\max_{[a,x]}f(x)\)</span> exist?</li>
 <li>For <span class="math inline">\(x \leq y\)</span>, <span class="math inline">\([a,x] \subseteq [a,y]\)</span>.</li>
-<li>This is a bit tricky<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>. Consider the case <span class="math inline">\(f(c) &lt; g(c)\)</span> first, and use inertia to show that <span class="math inline">\(\exists \delta &gt; 0\)</span> such that <span class="math inline">\(g(x) = g(c)\)</span> on some interval. For the case <span class="math inline">\(f(c) = g(c)\)</span>, recall that continuity of <span class="math inline">\(f\)</span> says that for any <span class="math inline">\(\epsilon &gt; 0\)</span>, there exists a <span class="math inline">\(\delta &gt; 0\)</span> such that <span class="math display">\[\lvert x - c \rvert &lt; \delta \implies -\frac{\epsilon}{2} &lt; f(x) - f(c) &lt; \frac{\epsilon}{2}.\]</span> Using each side of this inequality in turn, the definition of <span class="math inline">\(g\)</span>, and part ii), you need to show that for <span class="math inline">\(\lvert x - c \rvert &lt; \delta\)</span>, we have <span class="math display">\[g(x) - g(c) &gt; -\frac{\epsilon}{2}\;\;\;\text{and}\;\;\;g(x) \leq g(c) + \frac{\epsilon}{2}.\]</span> Combine these inequalities to then prove continuity of <span class="math inline">\(g\)</span>.</li>
+<li>This is a bit tricky<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>. Consider the case <span class="math inline">\(f(c) &lt; g(c)\)</span> first, and use inertia to show that <span class="math inline">\(\exists \delta &gt; 0\)</span> such that <span class="math inline">\(g(x) = g(c)\)</span> on some interval. For the case <span class="math inline">\(f(c) = g(c)\)</span>, recall that continuity of <span class="math inline">\(f\)</span> says that for any <span class="math inline">\(\epsilon &gt; 0\)</span>, there exists a <span class="math inline">\(\delta &gt; 0\)</span> such that <span class="math display">\[\lvert x - c \rvert &lt; \delta \implies -\frac{\epsilon}{2} &lt; f(x) - f(c) &lt; \frac{\epsilon}{2}.\]</span> Using each side of this inequality in turn, the definition of <span class="math inline">\(g\)</span>, and part ii), you need to show that for <span class="math inline">\(\lvert x - c \rvert &lt; \delta\)</span>, we have <span class="math display">\[g(x) - g(c) &gt; -\frac{\epsilon}{2}\;\;\;\text{and}\;\;\;g(x) \leq g(c) + \frac{\epsilon}{2}.\]</span> Combine these inequalities to then prove continuity of <span class="math inline">\(g\)</span>.</li>
 </ol></li>
 </ol>
 
@@ -313,11 +312,10 @@ MathJax.Hub.Config({
 
 
 
-
 <div class="footnotes">
 <hr />
-<ol start="5">
-<li id="fn5"><p>Alternatively, you could try and find left and right limits at the point <span class="math inline">\(c\)</span>, using (some variations of) a result from Problem Sheet 3. Note that this way involves three main cases: <span class="math inline">\(c = a\)</span>, <span class="math inline">\(c = b\)</span>, or <span class="math inline">\(c\)</span> is in <span class="math inline">\((a,b)\)</span>. (There’s also a fourth case when <span class="math inline">\(a = b\)</span> and <span class="math inline">\(f\)</span> is defined at a single point, but then <span class="math inline">\(g\)</span> is automatically continuous.)<a href="hints.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<ol start="4">
+<li id="fn4"><p>Alternatively, you could try and find left and right limits at the point <span class="math inline">\(c\)</span>, using (some variations of) a result from Problem Sheet 3. Note that this way involves three main cases: <span class="math inline">\(c = a\)</span>, <span class="math inline">\(c = b\)</span>, or <span class="math inline">\(c\)</span> is in <span class="math inline">\((a,b)\)</span>. (There’s also a fourth case when <span class="math inline">\(a = b\)</span> and <span class="math inline">\(f\)</span> is defined at a single point, but then <span class="math inline">\(g\)</span> is automatically continuous.)<a href="hints.html#fnref4" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -325,7 +323,7 @@ MathJax.Hub.Config({
           </div>
         </div>
       </div>
-<a href="differentiation.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="weierstrass-extremal-theorem.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>

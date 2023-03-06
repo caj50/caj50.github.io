@@ -230,7 +230,6 @@ img {
 <ul>
 <li><a href="#inverse-functions"><span class="toc-section-number">1.1</span> Inverse Functions</a></li>
 <li><a href="#weierstrass-extremal-theorem"><span class="toc-section-number">1.2</span> Weierstrass Extremal Theorem</a></li>
-<li><a href="#differentiation"><span class="toc-section-number">1.3</span> Differentiation</a></li>
 </ul></li>
 <li><a href="#hints"><span class="toc-section-number">2</span> Hints</a></li>
 </ul>
@@ -250,7 +249,7 @@ Well, you asked for it!
 </div>
 <div id="lecture-recap" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Lecture Recap</h1>
-<p>After what was mainly revision last week, we’re moving onto some new stuff again! It turns out there’s still a bit we can say about continuity, especially on compact intervals. Finally, we’re going to look at differentiation, which gives us a way of describing how fast a function changes.</p>
+<p>After what was mainly revision last week, we’re moving onto some new stuff again! It turns out there’s still a bit we can say about continuity, especially on compact intervals.</p>
 <div id="inverse-functions" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Inverse Functions</h2>
 <p>A particularly useful class of functions we may be interested in are known as invertible. These functions <span class="math inline">\(f: A \to B\)</span> provide a way of moving between sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> (and back again) without losing any information about <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. Before we talk about them in more detail, it’s worth recalling some definitions:</p>
@@ -353,32 +352,6 @@ Figure 1.1: This function <span class="math inline">\(f\)</span> is continuous o
 </p>
 </div>
 </div>
-<div id="differentiation" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Differentiation</h2>
-<p>While functions are very good at describing physical quantities such as temperature, density or momentum we can usually gain more insight into these variables by studying how fast they change at a given position or time. Mathematically, we study rates of change using derivatives, which again relies on the ideas behind limits!</p>
-
-<div id="def:def2" class="bookdown-definition" custom-style="DefinitionStyle">
-<span class="def:def2" custom-style="NameStyle"><strong>Definition 1.2:  (Derivative) </strong></span>
-<div>
-Let <span class="math inline">\(f: D \to \mathbb{R}\)</span>, where <span class="math inline">\(D \subseteq \mathbb{R}\)</span> is an open set, and let <span class="math inline">\(c \in D\)</span>. Then, if <span class="math inline">\(\exists L \in \mathbb{R}\)</span> such that <span class="math display">\[\lim_{h \to 0}\frac{f(c+h) - f(c)}{h} = L,\]</span> we say that <span class="math inline">\(f\)</span> is differentiable at <span class="math inline">\(c\)</span>, and call <span class="math inline">\(L\)</span> the derivative of <span class="math inline">\(f\)</span> at <span class="math inline">\(c\)</span>.
-</div>
-</div>
-<p>We can note a few things here:</p>
-<ul>
-<li>Firstly, if this <span class="math inline">\(L\)</span> exists, we write it as <span class="math inline">\(f&#39;(c)\)</span> to make it clear that its a derivative.</li>
-<li>We require <span class="math inline">\(D\)</span> to be open, so that we can actually take limits! If, for example, <span class="math inline">\(D = [-1,2]\)</span>, we could attempt to define the derivative at any point in the interior of <span class="math inline">\(D\)</span>, <span class="math inline">\(D^{\circ} = (-1,2)\)</span>, but we couldn’t define the derivative at <span class="math inline">\(x = -1\)</span> or <span class="math inline">\(x = 2\)</span>.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></li>
-<li>Substituting <span class="math inline">\(x = c+h\)</span> into the definition gives us an equivalent formulation: <span class="math inline">\(f\)</span> is differentiable at <span class="math inline">\(c\)</span> if there exists <span class="math inline">\(L\in\mathbb{R}\)</span> such that <span class="math display">\[\lim_{x \to c}\frac{f(x) - f(c)}{x - c} = L.\]</span></li>
-</ul>
-One quick result we obtain from this definition is the following:
-
-<div id="prp:prop2" class="bookdown-proposition" custom-style="TheoremStyle">
-<span class="prp:prop2" custom-style="NameStyle"><strong>Proposition 1.4:  </strong></span>
-<p>
-If a function <span class="math inline">\(f:D \to \mathbb{R}\)</span> is differentiable at a point <span class="math inline">\(c\)</span>, then it is continuous at <span class="math inline">\(c\)</span>.
-</p>
-</div>
-<p>The contrapositive of this is very useful for ruling functions out: if a function is <strong>not</strong> continuous, it is not differentiable. As a final remark, or warning, <strong>continuity does not imply differentiability</strong>! To see this, think of either <span class="math inline">\(f(x) = \lvert x \rvert\)</span> at <span class="math inline">\(x = 0\)</span>, or look up the <a href="https://en.wikipedia.org/wiki/Weierstrass_function">Weierstrass function</a>.</p>
-</div>
 </div>
 <div id="hints" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Hints</h1>
@@ -388,7 +361,7 @@ If a function <span class="math inline">\(f:D \to \mathbb{R}\)</span> is differe
 <li><ol style="list-style-type: lower-roman">
 <li>The question you’re trying to answer here is does <span class="math inline">\(\max_{[a,x]}f(x)\)</span> exist?</li>
 <li>For <span class="math inline">\(x \leq y\)</span>, <span class="math inline">\([a,x] \subseteq [a,y]\)</span>.</li>
-<li>This is a bit tricky<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>. Consider the case <span class="math inline">\(f(c) &lt; g(c)\)</span> first, and use inertia to show that <span class="math inline">\(\exists \delta &gt; 0\)</span> such that <span class="math inline">\(g(x) = g(c)\)</span> on some interval. For the case <span class="math inline">\(f(c) = g(c)\)</span>, recall that continuity of <span class="math inline">\(f\)</span> says that for any <span class="math inline">\(\epsilon &gt; 0\)</span>, there exists a <span class="math inline">\(\delta &gt; 0\)</span> such that <span class="math display">\[\lvert x - c \rvert &lt; \delta \implies -\frac{\epsilon}{2} &lt; f(x) - f(c) &lt; \frac{\epsilon}{2}.\]</span> Using each side of this inequality in turn, the definition of <span class="math inline">\(g\)</span>, and part ii), you need to show that for <span class="math inline">\(\lvert x - c \rvert &lt; \delta\)</span>, we have <span class="math display">\[g(x) - g(c) &gt; -\frac{\epsilon}{2}\;\;\;\text{and}\;\;\;g(x) \leq g(c) + \frac{\epsilon}{2}.\]</span> Combine these inequalities to then prove continuity of <span class="math inline">\(g\)</span>.</li>
+<li>This is a bit tricky<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>. Consider the case <span class="math inline">\(f(c) &lt; g(c)\)</span> first, and use inertia to show that <span class="math inline">\(\exists \delta &gt; 0\)</span> such that <span class="math inline">\(g(x) = g(c)\)</span> on some interval. For the case <span class="math inline">\(f(c) = g(c)\)</span>, recall that continuity of <span class="math inline">\(f\)</span> says that for any <span class="math inline">\(\epsilon &gt; 0\)</span>, there exists a <span class="math inline">\(\delta &gt; 0\)</span> such that <span class="math display">\[\lvert x - c \rvert &lt; \delta \implies -\frac{\epsilon}{2} &lt; f(x) - f(c) &lt; \frac{\epsilon}{2}.\]</span> Using each side of this inequality in turn, the definition of <span class="math inline">\(g\)</span>, and part ii), you need to show that for <span class="math inline">\(\lvert x - c \rvert &lt; \delta\)</span>, we have <span class="math display">\[g(x) - g(c) &gt; -\frac{\epsilon}{2}\;\;\;\text{and}\;\;\;g(x) \leq g(c) + \frac{\epsilon}{2}.\]</span> Combine these inequalities to then prove continuity of <span class="math inline">\(g\)</span>.</li>
 </ol></li>
 </ol>
 <!--chapter:end:index.Rmd-->
@@ -399,8 +372,7 @@ If a function <span class="math inline">\(f:D \to \mathbb{R}\)</span> is differe
 <li id="fn1"><p>This is so we can talk about surjectivity.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>In other words, for all <span class="math inline">\(x,y \in I\)</span> with <span class="math inline">\(x &lt; y,\)</span> <span class="math inline">\(f(x) &lt; f(y)\)</span>.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
 <li id="fn3"><p>Recall that <span class="math inline">\(C^{0}([a,b])\)</span> is the set of continuous functions mapping from the set <span class="math inline">\([a,b]\)</span>.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p>There is nothing stopping us; however, trying to define <em>left</em> and <em>right derivatives</em> at these points, i.e. we could search for <span class="math display">\[\lim_{x \to -1^{+}}\frac{f(-1+h) - f(-1)}{h}\;\;\text{or}\;\;\lim_{x \to 2^{-}}\frac{f(2+h) - f(2)}{h}.\]</span><a href="#fnref4" class="footnote-back">↩︎</a></p></li>
-<li id="fn5"><p>Alternatively, you could try and find left and right limits at the point <span class="math inline">\(c\)</span>, using (some variations of) a result from Problem Sheet 3. Note that this way involves three main cases: <span class="math inline">\(c = a\)</span>, <span class="math inline">\(c = b\)</span>, or <span class="math inline">\(c\)</span> is in <span class="math inline">\((a,b)\)</span>. (There’s also a fourth case when <span class="math inline">\(a = b\)</span> and <span class="math inline">\(f\)</span> is defined at a single point, but then <span class="math inline">\(g\)</span> is automatically continuous.)<a href="#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Alternatively, you could try and find left and right limits at the point <span class="math inline">\(c\)</span>, using (some variations of) a result from Problem Sheet 3. Note that this way involves three main cases: <span class="math inline">\(c = a\)</span>, <span class="math inline">\(c = b\)</span>, or <span class="math inline">\(c\)</span> is in <span class="math inline">\((a,b)\)</span>. (There’s also a fourth case when <span class="math inline">\(a = b\)</span> and <span class="math inline">\(f\)</span> is defined at a single point, but then <span class="math inline">\(g\)</span> is automatically continuous.)<a href="#fnref4" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 <!--bookdown:body:end-->

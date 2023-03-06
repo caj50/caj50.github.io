@@ -65,7 +65,7 @@ Well, you asked for it!
 </details>-->
 
 # Lecture Recap
-After what was mainly revision last week, we're moving onto some new stuff again! It turns out there's still a bit we can say about continuity, especially on compact intervals. Finally, we're going to look at differentiation, which gives us a way of describing how fast a function changes.
+After what was mainly revision last week, we're moving onto some new stuff again! It turns out there's still a bit we can say about continuity, especially on compact intervals.
 
 ## Inverse Functions
 A particularly useful class of functions we may be interested in are known as invertible. These functions $f: A \to B$ provide a way of moving between sets $A$ and $B$ (and back again) without losing any information about $A$ and $B$. Before we talk about them in more detail, it's worth recalling some definitions:
@@ -154,25 +154,6 @@ show_fig("WET")
 
 [^3]: Recall that $C^{0}([a,b])$ is the set of continuous functions mapping from the set $[a,b]$.
 
-## Differentiation
-While functions are very good at describing physical quantities such as temperature, density or momentum we can usually gain more insight into these variables by studying how fast they change at a given position or time. Mathematically, we study rates of change using derivatives, which again relies on the ideas behind limits!
-
-```{definition, label = "def2", name = "Derivative"}
-Let $f: D \to \mathbb{R}$, where $D \subseteq \mathbb{R}$ is an open set, and let $c \in D$. Then, if $\exists L \in \mathbb{R}$ such that $$\lim_{h \to 0}\frac{f(c+h) - f(c)}{h} = L,$$ we say that $f$ is differentiable at $c$, and call $L$ the derivative of $f$ at $c$.
-```
-We can note a few things here:
-
-*  Firstly, if this $L$ exists, we write it as $f'(c)$ to make it clear that its a derivative.
-*  We require $D$ to be open, so that we can actually take limits! If, for example, $D = [-1,2]$, we could attempt to define the derivative at any point in the interior of $D$, $D^{\circ} = (-1,2)$, but we couldn't define the derivative at $x = -1$ or $x = 2$.[^4]
-*  Substituting $x = c+h$ into the definition gives us an equivalent formulation: $f$ is differentiable at $c$ if there exists $L\in\mathbb{R}$ such that $$\lim_{x \to c}\frac{f(x) - f(c)}{x - c} = L.$$
-
-One quick result we obtain from this definition is the following:
-```{proposition, label = "prop2"}
-If a function $f:D \to \mathbb{R}$ is differentiable at a point $c$, then it is continuous at $c$.
-```
-The contrapositive of this is very useful for ruling functions out: if a function is **not** continuous, it is not differentiable. As a final remark, or warning, **continuity does not imply differentiability**! To see this, think of either $f(x) = \lvert x \rvert$ at $x = 0$, or look up the [Weierstrass function](https://en.wikipedia.org/wiki/Weierstrass_function). 
-
-[^4]: There is nothing stopping us; however, trying to define *left* and *right derivatives* at these points, i.e. we could search for $$\lim_{x \to -1^{+}}\frac{f(-1+h) - f(-1)}{h}\;\;\text{or}\;\;\lim_{x \to 2^{-}}\frac{f(2+h) - f(2)}{h}.$$
 
 # Hints
 As per usual, here's where you'll find the problem sheet hints!
