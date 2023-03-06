@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="rules-of-differentiation.html"/>
+<link rel="prev" href="diff.html"/>
 <link rel="next" href="hints.html"/>
 
 <script src="libs/header-attrs-2.18/header-attrs.js"></script>
@@ -269,9 +269,9 @@ MathJax.Hub.Config({
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="1" data-path="lecture-recap.html"><a href="lecture-recap.html"><i class="fa fa-check"></i><b>1</b> Lecture Recap</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="rules-of-differentiation.html"><a href="rules-of-differentiation.html"><i class="fa fa-check"></i><b>1.1</b> Rules of Differentiation</a>
+<li class="chapter" data-level="1.1" data-path="diff.html"><a href="diff.html"><i class="fa fa-check"></i><b>1.1</b> Rules of Differentiation</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="rules-of-differentiation.html"><a href="rules-of-differentiation.html#chain-rule"><i class="fa fa-check"></i><b>1.1.1</b> Chain Rule</a></li>
+<li class="chapter" data-level="1.1.1" data-path="diff.html"><a href="diff.html#chain-rule"><i class="fa fa-check"></i><b>1.1.1</b> Chain Rule</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="inverse-functions.html"><a href="inverse-functions.html"><i class="fa fa-check"></i><b>1.2</b> Inverse Functions</a></li>
 </ul></li>
@@ -295,15 +295,32 @@ MathJax.Hub.Config({
             <section class="normal" id="section-">
 <div id="inverse-functions" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Inverse Functions</h2>
-<p>Another thing we might want to know is whether we can differentiate the inverse of a differentiable function. For example, the exponential function <span class="math inline">\(\exp\)</span> and the trigonometric functions <span class="math inline">\(\sin, \cos\)</span> have nice series definitions, and this makes it fairly straightforward to calculate their derivatives. But what if we’re interested in their inverses (<span class="math inline">\(\log, \arcsin, \arccos\)</span>)? Luckily, we have a theorem which tells us what the values of their derivatives are!</p>
+<p>Another thing we might want to know is whether we can differentiate the inverse of a differentiable function. For example, the exponential function <span class="math inline">\(\exp\)</span> and the trigonometric functions <span class="math inline">\(\sin, \cos\)</span> have nice series definitions, and this makes it fairly straightforward to calculate their derivatives. But what if we’re interested in their inverses (<span class="math inline">\(\ln, \arcsin, \arccos\)</span>)? Luckily, we have a theorem which tells us what the values of their derivatives are!</p>
 
 <div id="thm:thm3" class="bookdown-theorem" custom-style="TheoremStyle">
-<span class="thm:thm3" custom-style="NameStyle"><strong>Theorem 1.3:  (Inverse Function Theorem) </strong></span>
+<span class="thm:thm3" custom-style="NameStyle"><strong>Theorem 1.4:  (Inverse Function Theorem) </strong></span>
 <p>
 Let <span class="math inline">\(f: (a,b) \to (A, B)\)</span> be bijective, and let <span class="math inline">\(c \in (a,b).\)</span> Assume that <span class="math inline">\(f\)</span> is differentiable at <span class="math inline">\(c\)</span>, <span class="math inline">\(f&#39;(c) \neq 0\)</span>, and <span class="math inline">\(f^{-1}\)</span> is continuous at <span class="math inline">\(f(c).\)</span> Then <span class="math inline">\(f^{-1}\)</span> is differentiable at <span class="math inline">\(y_0 = f(c)\)</span> and <span class="math display">\[\left(f^{-1}\right)&#39;(y_0) = \frac{1}{f&#39;\left(f^{-1}(y_0)\right)} = \frac{1}{f&#39;(c)}.\]</span>
 </p>
 </div>
-<p>This theorem will come in handy if you ever need to perform coordinate transforms, in particular when evaluating integrals by substitution. You may have also come across the multivariate version of this theorem in MA10230 (Multivariable Calculus and Differential Equations) when calculating the Jacobian for a transformation from Cartesian to polar coordinates (or vice versa).</p>
+
+<div id="exm:ex1" class="bookdown-example" custom-style="ExampleStyle">
+<span class="exm:ex1" custom-style="NameStyle"><strong>Example 1.1:  </strong></span>
+<div>
+<p>Returning to our exponential example from last week, we know that from lectures <span class="math inline">\(\exp: \mathbb{R} \to (0,\infty)\)</span> is differentiable for all <span class="math inline">\(c \in \mathbb{R}\)</span>, and since <span class="math inline">\(\exp&#39;(x) = \exp(x)\)</span>, <span class="math inline">\(\exp&#39;(c) \neq 0\)</span> for any <span class="math inline">\(c\)</span>. Last week, we showed that the inverse function <span class="math inline">\(\ln: (0,\infty) \to \mathbb{R}\)</span> is continuous at any <span class="math inline">\(\exp(c) \in (0,\infty)\)</span>, so by Theorem <a href="inverse-functions.html#thm:thm3">1.4</a>, <span class="math inline">\(\ln\)</span> is differentiable on <span class="math inline">\((0,\infty)\)</span>, with <span class="math display">\[\ln&#39;(y_0) = \frac{1}{\exp&#39;(\ln(y_0))} = \frac{1}{\exp(\ln(y_0))} = \frac{1}{y_0}.\]</span> Graphically, we can see the result of this theorem by comparing the gradient of the associated tangent lines:</p>
+ADD GRAPH
+</div>
+</div>
+We can use the results of Example <a href="inverse-functions.html#exm:ex1">1.1</a> and the rules of differentiation from Section <a href="diff.html#diff">1.1</a> to calculate the derivatives of some more complicated functions:
+
+<div id="exm:ex2" class="bookdown-example" custom-style="ExampleStyle">
+<span class="exm:ex2" custom-style="NameStyle"><strong>Example 1.2:  </strong></span>
+<div>
+<p>Consider the function <span class="math inline">\(h:(0,\infty) \to (0,\infty)\)</span> given by <span class="math inline">\(h(x) = x^x.\)</span> Since <span class="math display">\[h(x) = \exp(\ln(x^x)) = \exp(x\ln(x)),\]</span> we can rewrite <span class="math inline">\(h\)</span> as a composition of differentiable functions <span class="math inline">\(h = f \circ g\)</span>, where <span class="math inline">\(f:\mathbb{R} \to (0,\infty)\)</span> is defined by <span class="math inline">\(f(x) = \exp(x)\)</span>, and <span class="math inline">\(g: (0,\infty) \to \mathbb{R}\)</span> is defined by <span class="math inline">\(g(x) = x\ln(x).\)</span></p>
+<p>From lectures, we know that <span class="math inline">\(f\)</span> is differentiable on <span class="math inline">\(\mathbb{R}\)</span> with <span class="math inline">\(f&#39;(x) = \exp(x).\)</span> Furthermore, by Example <a href="inverse-functions.html#exm:ex1">1.1</a> and the product rule, we know that <span class="math inline">\(g\)</span> is differentiable on <span class="math inline">\((0,\infty)\)</span>, with <span class="math inline">\(g&#39;(x) = \ln(x) + 1.\)</span> Hence, by the chain rule, <span class="math inline">\(h\)</span> is differentiable on <span class="math inline">\((0,\infty)\)</span> with <span class="math display">\[h&#39;(x) = f&#39;(g(x))g&#39;(x) = \exp(x\ln(x))\left(\ln(x) + 1\right) = x^x\left(\ln(x) + 1\right)\]</span></p>
+</div>
+</div>
+<p>Theorem <a href="inverse-functions.html#thm:thm3">1.4</a> will come in handy if you ever need to perform coordinate transforms, in particular when evaluating integrals by substitution. You may have also come across the multivariate version of this theorem in MA10230 (Multivariable Calculus and Differential Equations) when calculating the Jacobian for a transformation from Cartesian to polar coordinates (or vice versa).</p>
 </div>
 <!-- </div> -->
             </section>
@@ -311,7 +328,7 @@ Let <span class="math inline">\(f: (a,b) \to (A, B)\)</span> be bijective, and l
           </div>
         </div>
       </div>
-<a href="rules-of-differentiation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="diff.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="hints.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

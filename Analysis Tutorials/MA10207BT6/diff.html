@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.1 Inverse Functions | Analysis 1B — Tutorial 5</title>
-  <meta name="description" content="1.1 Inverse Functions | Analysis 1B — Tutorial 5" />
+  <title>1.1 Rules of Differentiation | Analysis 1B — Tutorial 6</title>
+  <meta name="description" content="1.1 Rules of Differentiation | Analysis 1B — Tutorial 6" />
   <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.1 Inverse Functions | Analysis 1B — Tutorial 5" />
+  <meta property="og:title" content="1.1 Rules of Differentiation | Analysis 1B — Tutorial 6" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.1 Inverse Functions | Analysis 1B — Tutorial 5" />
+  <meta name="twitter:title" content="1.1 Rules of Differentiation | Analysis 1B — Tutorial 6" />
   
   
   
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="lecture-recap.html"/>
-<link rel="next" href="weierstrass-extremal-theorem.html"/>
+<link rel="next" href="inverse-functions.html"/>
 
 <script src="libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -269,9 +269,11 @@ MathJax.Hub.Config({
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="1" data-path="lecture-recap.html"><a href="lecture-recap.html"><i class="fa fa-check"></i><b>1</b> Lecture Recap</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="inverse-functions.html"><a href="inverse-functions.html"><i class="fa fa-check"></i><b>1.1</b> Inverse Functions</a></li>
-<li class="chapter" data-level="1.2" data-path="weierstrass-extremal-theorem.html"><a href="weierstrass-extremal-theorem.html"><i class="fa fa-check"></i><b>1.2</b> Weierstrass Extremal Theorem</a></li>
-<li class="chapter" data-level="1.3" data-path="differentiation.html"><a href="differentiation.html"><i class="fa fa-check"></i><b>1.3</b> Differentiation</a></li>
+<li class="chapter" data-level="1.1" data-path="diff.html"><a href="diff.html"><i class="fa fa-check"></i><b>1.1</b> Rules of Differentiation</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="diff.html"><a href="diff.html#chain-rule"><i class="fa fa-check"></i><b>1.1.1</b> Chain Rule</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="inverse-functions.html"><a href="inverse-functions.html"><i class="fa fa-check"></i><b>1.2</b> Inverse Functions</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="hints.html"><a href="hints.html"><i class="fa fa-check"></i><b>2</b> Hints</a></li>
 </ul>
@@ -283,7 +285,7 @@ MathJax.Hub.Config({
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis 1B — Tutorial 5</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis 1B — Tutorial 6</a>
           </h1>
         </div>
 
@@ -291,92 +293,54 @@ MathJax.Hub.Config({
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="inverse-functions" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Inverse Functions</h2>
-<p>A particularly useful class of functions we may be interested in are known as invertible. These functions <span class="math inline">\(f: A \to B\)</span> provide a way of moving between sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> (and back again) without losing any information about <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. Before we talk about them in more detail, it’s worth recalling some definitions:</p>
+<div id="diff" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Rules of Differentiation</h2>
+Recall the definition of a derivative from last week:
 
 <div id="def:def1" class="bookdown-definition" custom-style="DefinitionStyle">
-<span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Injectivity, Surjectivity and Bijectivity) </strong></span>
+<span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Derivative) </strong></span>
 <div>
-<p>Let <span class="math inline">\(f: A \to B\)</span> be a function.</p>
-<ul>
-<li>If <span class="math inline">\(\forall x, y \in B\)</span> with <span class="math inline">\(x \neq y\)</span>, <span class="math inline">\(f(x) = f(y) \implies x = y\)</span>, then <span class="math inline">\(f\)</span> is said to be injective.</li>
-<li>If <span class="math inline">\(\forall y \in B\)</span>, <span class="math inline">\(\exists x \in A\)</span> such that <span class="math inline">\(f(x) = y\)</span>, then <span class="math inline">\(f\)</span> is surjective.</li>
-<li>If <span class="math inline">\(f\)</span> is both injective and surjective, then it is called bijective.</li>
-</ul>
+Let <span class="math inline">\(f: D \to \mathbb{R}\)</span>, where <span class="math inline">\(D \subseteq \mathbb{R}\)</span> is an open set, and let <span class="math inline">\(c \in D\)</span>. Then, if <span class="math inline">\(\exists L \in \mathbb{R}\)</span> such that <span class="math display">\[\lim_{h \to 0}\frac{f(c+h) - f(c)}{h} = L\;\; \left(\text{or}\;\; \lim_{x\to c}\frac{f(x) - f(c)}{x - c} = L\right),\]</span> we say that <span class="math inline">\(f\)</span> is differentiable at <span class="math inline">\(c\)</span>, and define <span class="math inline">\(f&#39;(c):=L\)</span> to be the derivative of <span class="math inline">\(f\)</span> at <span class="math inline">\(c\)</span>.
 </div>
 </div>
-<p>In words, bijectivity means that for a function <span class="math inline">\(f:A \to B\)</span>, every element in the codomain <span class="math inline">\(B\)</span> is mapped to by a unique element in the domain <span class="math inline">\(A\)</span>. These bijective functions are said to be invertible, that is, there exists an inverse function <span class="math inline">\(f^{-1}: B \to A\)</span> such that <span class="math inline">\(f^{-1} \circ f\)</span> and <span class="math inline">\(f \circ f^{-1}\)</span> produce the identity maps on <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> respectively.</p>
-<p>Now that we have these definitions, we can say something about the continuity of inverse functions:</p>
+<p>Since everything inside the limit is just a function (of either <span class="math inline">\(h\)</span> or <span class="math inline">\(x\)</span>), we can apply the algebra of limits to deduce a few familiar rules of differentiation:</p>
 
-<div id="thm:thm1" class="bookdown-theorem" custom-style="TheoremStyle">
-<span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1.1:  </strong></span>
+<div id="thm:thm1a" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm1a" custom-style="NameStyle"><strong>Theorem 1.1:  (Algebra of Derivatives 1) </strong></span>
 <p>
-<p>Let <span class="math inline">\(I \subseteq \mathbb{R}\)</span> be a non-empty<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> interval, and let <span class="math inline">\(f: I \to \mathbb{R}\)</span> be continuous on <span class="math inline">\(I\)</span>. Assume that <span class="math inline">\(f\)</span> is strictly increasing<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> (or strictly decreasing) on <span class="math inline">\(I\)</span>. Then:</p>
-<ul>
-<li><span class="math inline">\(J:=f(I)\)</span> is an interval,</li>
-<li><span class="math inline">\(f : I \to J\)</span> is bijective, and</li>
-<li><span class="math inline">\(f^{-1}: J \to I\)</span> is continuous on <span class="math inline">\(J\)</span>.</li>
-</ul>
-</p>
-</div>
-<p>You’ve seen an example of this theorem in action in the lectures. This is repeated below, as we’re going to use it to prove a powerful result regarding sequences.</p>
-
-<div id="exm:ex1" class="bookdown-example" custom-style="ExampleStyle">
-<span class="exm:ex1" custom-style="NameStyle"><strong>Example 1.1:  </strong></span>
-<div>
-<p>Consider the exponential function <span class="math inline">\(\exp:\mathbb{R} \to \mathbb{R}\)</span> defined by <span class="math display">\[\exp(x)  = \sum_{n = 0}^{\infty} \frac{x^n}{n!} = \mathrm{e}^x.\]</span> Firstly, note that <span class="math inline">\(\mathbb{R}\)</span> is a non-empty interval. Now, using some results from Semester 1, we know that</p>
-<ul>
-<li><span class="math inline">\(\exp\)</span> is continuous and strictly increasing on <span class="math inline">\(\mathbb{R}\)</span>, and</li>
-<li><span class="math inline">\(\exp(\mathbb{R}) = (0,\infty)\)</span>.</li>
-</ul>
-<p>Therefore, <span class="math inline">\(\exp\)</span> satisfies the hypotheses of the above theorem, and so <span class="math inline">\(\exp: \mathbb{R} \to (0, \infty)\)</span> is a bijection, with continuous inverse. This inverse function is the well-known <em>natural logarithm</em> <span class="math inline">\(\ln: (0,\infty) \to \mathbb{R},\)</span> where <span class="math inline">\(x = \ln(y) \iff y = \exp(x).\)</span></p>
-<p>We can plot the graphs of <span class="math inline">\(y = \exp(x)\)</span> (in red), and <span class="math inline">\(y = \ln(x)\)</span> (in blue) to visually see that Theorem <a href="inverse-functions.html#thm:thm1">1.1</a> works. Also note that to plot the graph of an inverse function, we only need to reflect the graph of the original function through the line <span class="math inline">\(y=x\)</span> (dashed green line).</p>
-<iframe src="https://www.desmos.com/calculator/wtqs9c3ibu?embed" width="400" height="400" style="border: 1px solid #ccc" frameborder="0">
-</iframe>
-</div>
-</div>
-Now that we have this example, we can easily calculate another large class of sequence limits:
-
-<div id="prp:prop1" class="bookdown-proposition" custom-style="TheoremStyle">
-<span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.2:  </strong></span>
-<p>
-Let <span class="math inline">\((a_n)_n\)</span> and <span class="math inline">\((b_n)_n\)</span> be real sequences such that <span class="math inline">\(\lim_{n\to\infty}a_n = a\)</span> and <span class="math inline">\(\lim_{n\to\infty}b_n = b\)</span>. If <span class="math inline">\(a_n^{b_n} \in \mathbb{R}\;\; \forall n \in \mathbb{N}\)</span>, and <span class="math inline">\(a&gt;0\)</span>, then <span class="math display">\[\lim_{n \to \infty} a_n^{b_n} = \left(\lim_{n\to\infty} a_n\right)^{\lim_{n\to\infty}b_n}.\]</span>
-</p>
-</div>
-<details closed>
-<summary>
-<strong>Proof</strong>
-</summary>
-
-<div class="bookdown-proof" custom-style="ProofStyle">
-<span class="proof" custom-style="NameStyleItalics">Proof. </span>
-<p>
-<p>Since <span class="math inline">\(\lim_{n \to \infty}a_n = a &gt; 0\)</span>, then <span class="math inline">\(\exists N\in\mathbb{N}\)</span> such that <span class="math inline">\(\forall n \geq N\)</span>, <span class="math display">\[\lvert a_n - a \rvert &lt; \frac{a}{2} \Longleftrightarrow \frac{a}{2} &lt; a_n &lt; \frac{3a}{2}.\]</span> In particular, <span class="math inline">\(a_n &gt; 0\)</span> for all <span class="math inline">\(n \geq N\)</span>.</p>
-Now, for <span class="math inline">\(n \geq N\)</span>,
-<span class="math display">\[\begin{align*}
-a_n^{b_n} &amp;= \exp\left(\ln\left(a_n^{b_n}\right)\right)\;\;\text{(as $a_n &gt; 0$)},\\
-&amp;= \exp\left(b_n\ln\left(a_n\right)\right)\;\;\text{(properties of $\ln$)}.
-\end{align*}\]</span>
-So as <span class="math inline">\(n \to \infty\)</span>, we have that as both <span class="math inline">\(\exp\)</span> and <span class="math inline">\(\ln\)</span> are continuous (Example <a href="inverse-functions.html#exm:ex1">1.1</a>),
-<span class="math display">\[\begin{align*}
-a_n^{b_n} &amp;\to \exp\left(b\ln(a)\right)\\
-&amp;= \exp\left(\ln\left(a^b\right)\right),\\
-&amp;= a^b.
-\end{align*}\]</span>
-</p>
-<p>
-□
-</p>
-</div>
-</details>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>This is so we can talk about surjectivity.<a href="inverse-functions.html#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>In other words, for all <span class="math inline">\(x,y \in I\)</span> with <span class="math inline">\(x &lt; y,\)</span> <span class="math inline">\(f(x) &lt; f(y)\)</span>.<a href="inverse-functions.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<p>Let <span class="math inline">\(D\subseteq\mathbb{R}\)</span> be an open set, and let <span class="math inline">\(f,g:D \to \mathbb{R}\)</span> be differentiable at <span class="math inline">\(c\in D.\)</span> Then the following functions are differentiable at <span class="math inline">\(c\)</span>:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(f+g\)</span>, with <span class="math display">\[(f+g)&#39;(c) = f&#39;(c) + g&#39;(c),\]</span></li>
+<li><span class="math inline">\(Kf\)</span> for any <span class="math inline">\(K\in\mathbb{R}\)</span>, with <span class="math display">\[(Kf)&#39;(c) = Kf&#39;(c),\]</span></li>
 </ol>
+</p>
+</div>
+<p>Using these two rules we can show that the set of functions <span class="math inline">\(f:D\to\mathbb{R}\)</span> which are differentiable at <span class="math inline">\(c\)</span> form a vector space. In fact, since differentiability implies continuity, and the zero function <span class="math inline">\(0:D \to \mathbb{R}\)</span> given by <span class="math inline">\(0(x) = 0\)</span> is also differentiable at <span class="math inline">\(c\)</span>, this set forms a vector subspace of the set of functions <span class="math inline">\(f:D \to \mathbb{R}\)</span> which are continuous at <span class="math inline">\(c\)</span>.</p>
+<p>There are three further rules which make up the Algebra of Derivatives:</p>
+
+<div id="thm:thm1b" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm1b" custom-style="NameStyle"><strong>Theorem 1.2:  (Algebra of Derivatives 2) </strong></span>
+<p>
+<p>Let <span class="math inline">\(D\subseteq\mathbb{R}\)</span> be an open set, and let <span class="math inline">\(f,g:D \to \mathbb{R}\)</span> be differentiable at <span class="math inline">\(c\in D.\)</span> Then the following functions are differentiable at <span class="math inline">\(c\)</span>:</p>
+<ol start="3" style="list-style-type: decimal">
+<li>(Product rule) <span class="math inline">\(fg\)</span>, with <span class="math display">\[(fg)&#39;(c) = f&#39;(c)g(c) + f(c)g&#39;(c),\]</span></li>
+<li>For <span class="math inline">\(g(c)\neq0\)</span>, <span class="math inline">\(1/g\)</span>, with <span class="math display">\[\left(\frac{1}{g}\right)&#39;(c) = \frac{-g&#39;(c)}{g(c)^2}.\]</span></li>
+<li>(Quotient rule) For <span class="math inline">\(g(c)\neq0\)</span>, <span class="math inline">\(f/g\)</span> with <span class="math display">\[\left(\frac{f}{g}\right)&#39;(c) = \frac{f&#39;(c)g(c)-f(c)g&#39;(c)}{g(c)^2}.\]</span></li>
+</ol>
+</p>
+</div>
+<p>One thing to note here is that we can obtain the quotient rule by applying the product rule to the functions <span class="math inline">\(f\)</span> and <span class="math inline">\(1/g\)</span>, which saves you having to learn the proof!</p>
+<div id="chain-rule" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Chain Rule</h3>
+<p>The one thing we’ve said nothing about so far is whether a composition of functions is differentiable. This result is what is known as the (familiar) chain rule:</p>
+
+<div id="thm:thm2" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm2" custom-style="NameStyle"><strong>Theorem 1.3:  (Chain Rule) </strong></span>
+<p>
+Let <span class="math inline">\(g:(a,b) \to \mathbb{R}\)</span> and <span class="math inline">\(f:(A,B) \to \mathbb{R}\)</span> be such that <span class="math inline">\(g\left((a,b)\right) \subseteq (A,B).\)</span> Assume that <span class="math inline">\(g\)</span> is differentiable at <span class="math inline">\(c\)</span> and <span class="math inline">\(f\)</span> is differentiable at <span class="math inline">\(g(c)\)</span>. Then the composition <span class="math inline">\(f\circ g\)</span> is differentiable at <span class="math inline">\(c\)</span> with <span class="math display">\[\left(f\circ g\right)&#39;(c) = f&#39;\left(g(c)\right)g&#39;(c).\]</span>
+</p>
+</div>
+</div>
 </div>
             </section>
 
@@ -384,7 +348,7 @@ a_n^{b_n} &amp;\to \exp\left(b\ln(a)\right)\\
         </div>
       </div>
 <a href="lecture-recap.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="weierstrass-extremal-theorem.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="inverse-functions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -416,7 +380,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": [["Tutorial5.html", "HTML page"], ["Tutorial5.pdf", "Standard print PDF"], ["Tutorial5Clear.pdf", "Clear print PDF"], ["Tutorial5Large.pdf", "Large print PDF"], ["Tutorial5.docx", "Accessible Word document"], ["Tutorial5.epub", "Accessible EPub book"]],
+"download": [["Tutorial6.html", "HTML page"], ["Tutorial6.pdf", "Standard print PDF"], ["Tutorial6Clear.pdf", "Clear print PDF"], ["Tutorial6Large.pdf", "Large print PDF"], ["Tutorial6.docx", "Accessible Word document"], ["Tutorial6.epub", "Accessible EPub book"]],
 "search": {
 "engine": "fuse",
 "options": null

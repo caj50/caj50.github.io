@@ -16,9 +16,6 @@ output:
       download: [["Tutorial5.html", "HTML page"], ["Tutorial5.pdf","Standard print PDF"], ["Tutorial5Clear.pdf","Clear print PDF"], ["Tutorial5Large.pdf","Large print PDF"], ["Tutorial5.docx","Accessible Word document"], ["Tutorial5.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
-  clavertondown::html_clav:
-    toc: true
-    pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
     keep_tex: true
@@ -33,6 +30,9 @@ output:
     toc: true
     number_sections: true
     keep_md: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::html_clav:
+    toc: true
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
@@ -67,7 +67,7 @@ A particularly useful class of functions we may be interested in are known as in
 </div></div>\EndKnitrBlock{definition}
 In words, bijectivity means that for a function $f:A \to B$, every element in the codomain $B$ is mapped to by a unique element in the domain $A$. These bijective functions are said to be invertible, that is, there exists an inverse function $f^{-1}: B \to A$ such that $f^{-1} \circ f$ and $f \circ f^{-1}$ produce the identity maps on $A$ and $B$ respectively.
 
-Now that we have these definitions, we can say something useful about the continuity of inverse functions:
+Now that we have these definitions, we can say something about the continuity of inverse functions:
 
 \BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm1"><span class="thm:thm1" custom-style="NameStyle"><strong>(\#thm:thm1) </strong></span><p>Let $I \subseteq \mathbb{R}$ be a non-empty[^1] interval, and let $f: I \to \mathbb{R}$ be continuous on $I$. Assume that $f$ is strictly increasing[^2] (or strictly decreasing) on $I$. Then:
   
@@ -76,21 +76,21 @@ Now that we have these definitions, we can say something useful about the contin
 *  $f^{-1}: J \to I$ is continuous on $J$.
 </p></div>\EndKnitrBlock{theorem}
 
-A (hopefully familiar) example would be useful here:
+You've seen an example of this theorem in action in the lectures. This is repeated below, as we're going to use it to prove a powerful result regarding sequences.
 
 \BeginKnitrBlock{example}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex1"><span class="exm:ex1" custom-style="NameStyle"><strong>(\#exm:ex1) </strong></span><div>Consider the exponential function $\exp:\mathbb{R} \to \mathbb{R}$ defined by $$\exp(x)  = \sum_{n = 0}^{\infty} \frac{x^n}{n!} = \mathrm{e}^x.$$ Firstly, note that $\mathbb{R}$ is a non-empty interval. Now, using some results from Semester 1, we know that
 
 * $\exp$ is continuous and strictly increasing on $\mathbb{R}$, and
 * $\exp(\mathbb{R}) = (0,\infty)$.
 
-Therefore, $\exp$ satisfies the hypotheses of the above theorem, and so $\exp: \mathbb{R} \to (0, \infty)$ is a bijection, with continuous inverse. This inverse function is the well-known *natural logarithm* $\log: (0,\infty) \to \mathbb{R},$ where $x = \log(y) \iff y = \exp(x).$
+Therefore, $\exp$ satisfies the hypotheses of the above theorem, and so $\exp: \mathbb{R} \to (0, \infty)$ is a bijection, with continuous inverse. This inverse function is the well-known *natural logarithm* $\ln: (0,\infty) \to \mathbb{R},$ where $x = \ln(y) \iff y = \exp(x).$
 
-We can quickly plot the graphs of $y = \exp(x)$ (in red), and $y = \log(x)$ (in blue) to visually see that Theorem \@ref(thm:thm1) works. Also note that to plot the graph of an inverse function, we only need to reflect the graph of the original function through the line $y=x$ (dashed green line).
+We can plot the graphs of $y = \exp(x)$ (in red), and $y = \ln(x)$ (in blue) to visually see that Theorem \@ref(thm:thm1) works. Also note that to plot the graph of an inverse function, we only need to reflect the graph of the original function through the line $y=x$ (dashed green line).
 
 <iframe src="https://www.desmos.com/calculator/wtqs9c3ibu?embed" width="400" height="400" style="border: 1px solid #ccc" frameborder=0></iframe>
 </div></div>\EndKnitrBlock{example}
 
-This example actually turns out to be really useful if we're dealing with sequences, as we can now calculate another large class of sequence limits:
+Now that we have this example, we can easily calculate another large class of sequence limits:
 \BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop1"><span class="prp:prop1" custom-style="NameStyle"><strong>(\#prp:prop1) </strong></span><p>Let $(a_n)_n$ and $(b_n)_n$ be real sequences such that $\lim_{n\to\infty}a_n = a$ and $\lim_{n\to\infty}b_n = b$. If $a_n^{b_n} \in \mathbb{R}\;\; \forall n \in \mathbb{N}$, and $a>0$, then $$\lim_{n \to \infty} a_n^{b_n} = \left(\lim_{n\to\infty} a_n\right)^{\lim_{n\to\infty}b_n}.$$</p></div>\EndKnitrBlock{proposition}
 
 <details closed>
@@ -99,13 +99,13 @@ This example actually turns out to be really useful if we're dealing with sequen
 
 Now, for $n \geq N$,
 \begin{align*}
-a_n^{b_n} &= \exp\left(\log\left(a_n^{b_n}\right)\right)\;\;\text{(as $a_n > 0$)},\\
-&= \exp\left(b_n\log\left(a_n\right)\right)\;\;\text{(properties of $\log$)}.
+a_n^{b_n} &= \exp\left(\ln\left(a_n^{b_n}\right)\right)\;\;\text{(as $a_n > 0$)},\\
+&= \exp\left(b_n\ln\left(a_n\right)\right)\;\;\text{(properties of $\ln$)}.
 \end{align*}
-So as $n \to \infty$, we have that as both $\exp$ and $\log$ are continuous (Example \@ref(exm:ex1)),
+So as $n \to \infty$, we have that as both $\exp$ and $\ln$ are continuous (Example \@ref(exm:ex1)),
 \begin{align*}
-a_n^{b_n} &\to \exp\left(b\log(a)\right)\\
-&= \exp\left(\log\left(a^b\right)\right),\\
+a_n^{b_n} &\to \exp\left(b\ln(a)\right)\\
+&= \exp\left(\ln\left(a^b\right)\right),\\
 &= a^b.
 \end{align*}
 </p><p>&squ;</p></div>\EndKnitrBlock{proof}
@@ -140,7 +140,7 @@ We can note a few things here:
 
 *  Firstly, if this $L$ exists, we write it as $f'(c)$ to make it clear that its a derivative.
 *  We require $D$ to be open, so that we can actually take limits! If, for example, $D = [-1,2]$, we could attempt to define the derivative at any point in the interior of $D$, $D^{\circ} = (-1,2)$, but we couldn't define the derivative at $x = -1$ or $x = 2$.[^4]
-*  Substituting $x = c+h$ into the definition gives us that equivalently $f$ is differentiable at $c$ if there exists $L\in\mathbb{R}$ such that $$\lim_{x \to c}\frac{f(x) - f(c)}{x - c} = L.$$
+*  Substituting $x = c+h$ into the definition gives us an equivalent formulation: $f$ is differentiable at $c$ if there exists $L\in\mathbb{R}$ such that $$\lim_{x \to c}\frac{f(x) - f(c)}{x - c} = L.$$
 
 One quick result we obtain from this definition is the following:
 \BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop2"><span class="prp:prop2" custom-style="NameStyle"><strong>(\#prp:prop2) </strong></span><p>If a function $f:D \to \mathbb{R}$ is differentiable at a point $c$, then it is continuous at $c$.</p></div>\EndKnitrBlock{proposition}
@@ -152,9 +152,11 @@ The contrapositive of this is very useful for ruling functions out: if a functio
 As per usual, here's where you'll find the problem sheet hints!
 
 1) This one is largely similar to the one that was covered in tutorials — you just need to be a bit more careful when verifying the hypothesis of the theorem involving inverse functions. When proving bijectivity, you can use results from tutorial question 1 to help too!
-2)  There are couple of ways to do this, but in each, you need to calculate the limit of the difference quotient, i.e. $$\lim_{x\to 0 }\frac{f(x) - f(0)}{x - 0}.$$ Try using sequences! (Or if you’ve seen it, try the function version of the pinching theorem).
-3) Have you learnt any good theorems involving maxima/minima of functions lately?
+2)  i) The question you're trying to answer here is does $\max_{[a,x]}f(x)$ exist?
+    ii) For $x \leq y$, $[a,x] \subseteq [a,y]$.
+    iii) This is a bit tricky[^5]. Consider the case $f(c) < g(c)$ first, and use inertia to show that $\exists \delta > 0$ such that $g(x) = g(c)$ on some interval. For the case $f(c) = g(c)$, recall that continuity of $f$ says that for any $\epsilon > 0$, there exists a $\delta > 0$ such that $$\lvert x - c \rvert < \delta \implies -\frac{\epsilon}{2} < f(x) - f(c) < \frac{\epsilon}{2}.$$ Using each side of this inequality in turn, the definition of $g$, and part ii), you need to show that for $\lvert x - c \rvert < \delta$, we have $$g(x) - g(c) > -\frac{\epsilon}{2}\;\;\;\text{and}\;\;\;g(x) \leq g(c) + \frac{\epsilon}{2}.$$ Combine these inequalities to then prove continuity of $g$.
 
+[^5]: Alternatively, you could try and find left and right limits at the point $c$, using (some variations of) a result from Problem Sheet 3. Note that this way involves three main cases: $c = a$, $c = b$, or $c$ is in $(a,b)$. (There's also a fourth case when $a = b$ and $f$ is defined at a single point, but then $g$ is automatically continuous.)
  
 
 <!--chapter:end:index.Rmd-->

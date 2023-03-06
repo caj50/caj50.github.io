@@ -318,7 +318,7 @@ Let <span class="math inline">\(f: D \to \mathbb{R}\)</span>, where <span class=
 </ol>
 </p>
 </div>
-<p>One thing to note here is that we can obtain the quotient rule by applying the product rule to result four above, which saves you having to learn the proof!</p>
+<p>One thing to note here is that we can obtain the quotient rule by applying the product rule to point four above, which saves you having to learn the proof!</p>
 <details closed>
 <summary>
 <strong>Algebra Link</strong>
@@ -334,6 +334,13 @@ Using rules 1 and 2 above (and the definitions of function addition and scalar m
 <p>
 Let <span class="math inline">\(g:(a,b) \to \mathbb{R}\)</span> and <span class="math inline">\(f:(A,B) \to \mathbb{R}\)</span> be such that <span class="math inline">\(g\left((a,b)\right) \subseteq (A,B).\)</span> Assume that <span class="math inline">\(g\)</span> is differentiable at <span class="math inline">\(c\)</span> and <span class="math inline">\(f\)</span> is differentiable at <span class="math inline">\(g(c)\)</span>. Then the composition <span class="math inline">\(f\circ g\)</span> is differentiable at <span class="math inline">\(c\)</span> with <span class="math display">\[\left(f\circ g\right)&#39;(c) = f&#39;\left(g(c)\right)g&#39;(c).\]</span>
 </p>
+</div>
+
+<div id="exm:ex2" class="bookdown-example" custom-style="ExampleStyle">
+<span class="exm:ex2" custom-style="NameStyle"><strong>Example 1.1:  </strong></span>
+<div>
+Consider the function <span class="math inline">\(h:(0,\infty) \to (0,\infty)\)</span> given by <span class="math inline">\(h(x) = x^x.\)</span> Since <span class="math display">\[h(x) = \exp(\ln(x^x)) = \exp(x\ln(x)),\]</span> we can rewrite <span class="math inline">\(h\)</span> as a composition of differentiable functions <span class="math inline">\(h = f \circ g\)</span>, where ADD DOMAINS <span class="math inline">\(f(x) = \exp(x)\)</span>, and <span class="math inline">\(g(x) = x\ln(x).\)</span> Using <a href="inverse-functions.html#exm:ex1">1.2</a> and the product rule, we know that <span class="math inline">\(f\)</span> is differentiable on <span class="math inline">\(\mathbb{R}\)</span>, and <span class="math inline">\(g\)</span> is differentiable on <span class="math inline">\((0,\infty)\)</span>. Hence, by the chain rule, <span class="math inline">\(h\)</span> is differentiable on <span class="math inline">\((0,\infty)\)</span> with <span class="math display">\[h&#39;(c) = f&#39;(g(c))g&#39;(c) = \exp&#39;(c\ln(c))\left(\ln(c) + 1\right) = c^c\left(\ln(c) + 1\right)\]</span>
+</div>
 </div>
 </div>
 </div>
