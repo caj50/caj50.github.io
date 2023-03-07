@@ -167,18 +167,41 @@ Here is the material to accompany the 6th Analysis 1B Tutorial on the 13th March
 \hypertarget{lecture-recap}{%
 \section{Lecture Recap}\label{lecture-recap}}
 
-\hypertarget{rules-of-differentiation}{%
-\subsection{Rules of Differentiation}\label{rules-of-differentiation}}
+This week, we're starting to look at the derivative of a function. Along the way, we'll see some tricks for making differentiation easier, and we'll cover a way of finding the derivative of inverse functions.
 
-Recall the definition of a derivative from last week:
+\hypertarget{differentiation}{%
+\subsection{Differentiation}\label{differentiation}}
+
+While functions are very good at describing physical quantities such as temperature, density or momentum we can usually gain more insight into these variables by studying how fast they change at a given position or time. Mathematically, we study rates of change using derivatives, which again relies on the ideas behind limits!
+
 \BeginKnitrBlock{definition}[Derivative]
-{\label{def:def1} }Let \(f: D \to \mathbb{R}\), where \(D \subseteq \mathbb{R}\) is an open set, and let \(c \in D\). Then, if \(\exists L \in \mathbb{R}\) such that \[\lim_{h \to 0}\frac{f(c+h) - f(c)}{h} = L\;\; \left(\text{or}\;\; \lim_{x\to c}\frac{f(x) - f(c)}{x - c} = L\right),\] we say that \(f\) is differentiable at \(c\), and define \(f'(c):=L\) to be the derivative of \(f\) at \(c\).
+{\label{def:def1} }Let \(f: D \to \mathbb{R}\), where \(D \subseteq \mathbb{R}\) is an open set, and let \(c \in D\). Then, if \(\exists L \in \mathbb{R}\) such that \[\lim_{h \to 0}\frac{f(c+h) - f(c)}{h} = L,\] we say that \(f\) is differentiable at \(c\), and call \(L\) the derivative of \(f\) at \(c\).
 \EndKnitrBlock{definition}
+We can note a few things here:
 
-Since everything inside the limit is just a function (of either \(h\) or \(x\)), we can apply the algebra of limits to deduce a few familiar rules of differentiation:
+\begin{itemize}
+\tightlist
+\item
+  Firstly, if this \(L\) exists, we write it as \(f'(c)\) to make it clear that its a derivative.
+\item
+  We require \(D\) to be open, so that we can actually take limits! If, for example, \(D = [-1,2]\), we could attempt to define the derivative at any point in the interior of \(D\), \(D^{\circ} = (-1,2)\), but we couldn't define the derivative at \(x = -1\) or \(x = 2\).\footnote{There is nothing stopping us; however, trying to define \emph{left} and \emph{right derivatives} at these points, i.e.~we could search for \[\lim_{x \to -1^{+}}\frac{f(-1+h) - f(-1)}{h}\;\;\text{or}\;\;\lim_{x \to 2^{-}}\frac{f(2+h) - f(2)}{h}.\]}
+\item
+  Substituting \(x = c+h\) into the definition gives us an equivalent formulation: \(f\) is differentiable at \(c\) if there exists \(L\in\mathbb{R}\) such that \[\lim_{x \to c}\frac{f(x) - f(c)}{x - c} = L.\]
+\end{itemize}
 
-\BeginKnitrBlock{theorem}[Algebra of Derivatives]
-{\label{thm:thm1} }Let \(D\subseteq\mathbb{R}\) be an open set, and let \(f,g:D \to \mathbb{R}\) be differentiable at \(c\in D.\) Then the following functions are differentiable at \(c\):
+One quick result we obtain from this definition is the following:
+\BeginKnitrBlock{proposition}
+{\label{prp:prop1} }If a function \(f:D \to \mathbb{R}\) is differentiable at a point \(c\), then it is continuous at \(c\).
+\EndKnitrBlock{proposition}
+The contrapositive of this is very useful for ruling functions out: if a function is \textbf{not} continuous, it is not differentiable. As a further remark, or warning, \textbf{continuity does not imply differentiability}! To see this, think of either \(f(x) = \lvert x \rvert\) at \(x = 0\), or look up the \href{https://en.wikipedia.org/wiki/Weierstrass_function}{Weierstrass function}.
+
+\hypertarget{diff}{%
+\subsection{Rules of Differentiation}\label{diff}}
+
+Since everything inside the limit defining the derivative is just a function (of either \(h\) or \(x\)), we can apply the algebra of limits to deduce a few familiar rules of differentiation:
+
+\BeginKnitrBlock{theorem}[Algebra of Derivatives 1]
+{\label{thm:thm1a} }Let \(D\subseteq\mathbb{R}\) be an open set, and let \(f,g:D \to \mathbb{R}\) be differentiable at \(c\in D.\) Then the following functions are differentiable at \(c\):
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -187,6 +210,20 @@ Since everything inside the limit is just a function (of either \(h\) or \(x\)),
   \(f+g\), with \[(f+g)'(c) = f'(c) + g'(c),\]
 \item
   \(Kf\) for any \(K\in\mathbb{R}\), with \[(Kf)'(c) = Kf'(c),\]
+\end{enumerate}
+\EndKnitrBlock{theorem}
+
+Using these two rules we can show that the set of functions \(f:D\to\mathbb{R}\) which are differentiable at \(c\) form a vector space. In fact, since differentiability implies continuity, and the zero function \(0:D \to \mathbb{R}\) given by \(0(x) = 0\) is also differentiable at \(c\), this set forms a vector subspace of the set of functions \(f:D \to \mathbb{R}\) which are continuous at \(c\).
+
+There are three further rules which make up the Algebra of Derivatives:
+
+\BeginKnitrBlock{theorem}[Algebra of Derivatives 2]
+{\label{thm:thm1b} }Let \(D\subseteq\mathbb{R}\) be an open set, and let \(f,g:D \to \mathbb{R}\) be differentiable at \(c\in D.\) Then the following functions are differentiable at \(c\):
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
 \item
   (Product rule) \(fg\), with \[(fg)'(c) = f'(c)g(c) + f(c)g'(c),\]
 \item
@@ -196,11 +233,7 @@ Since everything inside the limit is just a function (of either \(h\) or \(x\)),
 \end{enumerate}
 \EndKnitrBlock{theorem}
 
-One thing to note here is that we can obtain the quotient rule by applying the product rule to point four above, which saves you having to learn the proof!
-
-Algebra Link
-
-Using rules 1 and 2 above (and the definitions of function addition and scalar multiplication), we can show that the set of functions \(f:D\to\mathbb{R}\) which are differentiable at \(c\) form a vector space. In fact, since differentiability implies continuity, and the zero function \(0:D \to \mathbb{R}\) given by \(0(x) = 0\) is also differentiable at \(c\), this set forms a vector subspace of the set of functions \(f:D \to \mathbb{R}\) which are continuous at \(c\).
+One thing to note here is that we can obtain the quotient rule by applying the product rule to the functions \(f\) and \(1/g\), which saves you having to learn the proof!
 
 \hypertarget{chain-rule}{%
 \subsubsection{Chain Rule}\label{chain-rule}}
@@ -221,7 +254,16 @@ Another thing we might want to know is whether we can differentiate the inverse 
 \EndKnitrBlock{theorem}
 
 \BeginKnitrBlock{example}
-{\label{exm:ex1} }Returning to our exponential example from last week, we know that from lectures \(\exp: \mathbb{R} \to (0,\infty)\) is differentiable for all \(c \in \mathbb{R}\), and since \(\exp'(x) = \exp(x)\), \(\exp'(c) \neq 0\) for any \(c\). Last week, we showed that the inverse function \(\ln: (0,\infty) \to \mathbb{R}\) is continuous at any \(\exp(c) \in (0,\infty)\), so by Theorem \ref{thm:thm3}, \(\log\) is differentiable on \((0,\infty)\), with \[\ln'(y_0) = \frac{1}{\exp'(\ln(y_0))} = \frac{1}{\exp(\ln(y_0))} = \frac{1}{y_0}.\] Graphically, we can see the result of this theorem by comparing the gradient of the associated tangent lines:
+{\label{exm:ex1} }Returning to our exponential example from last week, we know that from lectures \(\exp: \mathbb{R} \to (0,\infty)\) is differentiable for all \(c \in \mathbb{R}\), and since \(\exp'(x) = \exp(x)\), \(\exp'(c) \neq 0\) for any \(c\). Last week, we showed that the inverse function \(\ln: (0,\infty) \to \mathbb{R}\) is continuous at any \(\exp(c) \in (0,\infty)\), so by Theorem \ref{thm:thm3}, \(\ln\) is differentiable on \((0,\infty)\), with \[\ln'(y_0) = \frac{1}{\exp'(\ln(y_0))} = \frac{1}{\exp(\ln(y_0))} = \frac{1}{y_0}.\] Graphically, we can see the result of this theorem by comparing the gradient of the associated tangent lines of \(\exp\) and \(\ln\) at the points \((c,\exp(c))\) and \((\exp(c),c)\) respectively. In the graph below, we have taken \(c = 1\) for illustrative purposes.
+
+\includegraphics[width=0.3\textwidth,height=\textheight]{./explog2.png}
+\EndKnitrBlock{example}
+
+We can use the results of Example \ref{exm:ex1} and the rules of differentiation from Section \ref{diff} to calculate the derivatives of some more complicated functions:
+\BeginKnitrBlock{example}
+{\label{exm:ex2} }Consider the function \(h:(0,\infty) \to (0,\infty)\) given by \(h(x) = x^x.\) Since \[h(x) = \exp(\ln(x^x)) = \exp(x\ln(x)),\] we can rewrite \(h\) as a composition of differentiable functions \(h = f \circ g\), where \(f:\mathbb{R} \to (0,\infty)\) is defined by \(f(x) = \exp(x)\), and \(g: (0,\infty) \to \mathbb{R}\) is defined by \(g(x) = x\ln(x).\)
+
+From lectures, we know that \(f\) is differentiable on \(\mathbb{R}\) with \(f'(x) = \exp(x).\) Furthermore, by Example \ref{exm:ex1} and the product rule, we know that \(g\) is differentiable on \((0,\infty)\), with \(g'(x) = \ln(x) + 1.\) Hence, by the chain rule, \(h\) is differentiable on \((0,\infty)\) with \[h'(x) = f'(g(x))g'(x) = \exp(x\ln(x))\left(\ln(x) + 1\right) = x^x\left(\ln(x) + 1\right)\]
 \EndKnitrBlock{example}
 
 Theorem \ref{thm:thm3} will come in handy if you ever need to perform coordinate transforms, in particular when evaluating integrals by substitution. You may have also come across the multivariate version of this theorem in MA10230 (Multivariable Calculus and Differential Equations) when calculating the Jacobian for a transformation from Cartesian to polar coordinates (or vice versa).

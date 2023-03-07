@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Analysis 1B — Tutorial 6" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Christian Jones: University of Bath" />
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.MessageHook("End Math", function (msg) {
+  var nodes = Array.from(msg[1].querySelectorAll('.MJX_Assistive_MathML [id]'));
+  while (nodes.length) {
+    nodes.shift().removeAttribute('id');
+  }
+}, 20);
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "fast-preview": {disabled: true},
+  explorer:{ subtitle: true },
+  MatchWebFonts: { 
+    matchFor: { "HTML-CSS": true, NativeMML: false, SVG: false },
+    fontCheckDelay: 2000,
+    fontCheckTimeout: 30 * 1000
+  },
+  "HTML-CSS": {
+    preferredFont: "STIX",
+    availableFonts: ["STIX","TeX"],
+    webFont: "STIX-Web",
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  SVG: {
+    font: "STIX-Web",
+    linebreaks: { automatic: false, width: "90\% container" }
+  },
+  menuSettings: { 
+    collapsible: false, 
+    autocollapse: false, 
+    explorer: false 
+  }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta name="description" content="Analysis 1B — Tutorial 6">
+
+<title>Analysis 1B — Tutorial 6</title>
+
+<script src="libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+</style>
+
+<style type="text/css">
+  a {
+   color: blue;
+  }
+
+  [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  [custom-style=NameStyle]{
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  [custom-style=NameStyleItalics]{
+    font-style: italic;
+  }
+
+  
+  [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+  
+  [data-custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  
+</style>
+
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<!--bookdown:title:start-->
+<div id="header">
+<h1 class="title">Analysis 1B — Tutorial 6</h1>
+<h4 class="author"><em>Christian Jones: University of Bath</em></h4>
+<h4 class="date"><em>March 2023</em></h4>
+</div>
+<!--bookdown:title:end-->
+
+<!--bookdown:toc:start-->
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#lecture-recap"><span class="toc-section-number">1</span> Lecture Recap</a>
+<ul>
+<li><a href="#differentiation"><span class="toc-section-number">1.1</span> Differentiation</a></li>
+<li><a href="#diff"><span class="toc-section-number">1.2</span> Rules of Differentiation</a>
+<ul>
+<li><a href="#chain-rule"><span class="toc-section-number">1.2.1</span> Chain Rule</a></li>
+</ul></li>
+<li><a href="#inverse-functions"><span class="toc-section-number">1.3</span> Inverse Functions</a></li>
+</ul></li>
+<li><a href="#hints"><span class="toc-section-number">2</span> Hints</a></li>
+</ul>
+</div>
+<!--bookdown:toc:end-->
+
+<!--bookdown:body:start-->
+<!-- This is needed since I am working with svg files from mathcha.io. It converts the graphics files to something that can be used in the pdf files. Code taken from https://stackoverflow.com/questions/50165404/how-to-make-a-pdf-using-bookdown-including-svg-images/56044642#56044642 -->
+<div id="introduction" class="section level1 unnumbered">
+<h1>Introduction</h1>
+<p>Here is the material to accompany the 6th Analysis 1B Tutorial on the 13th March. Alternative formats can be downloaded by clicking the download icon at the top of the page. Please send any comments or corrections to <a href="mailto:caj50@bath.ac.uk">Christian Jones (caj50)</a>. To return to the homepage, click <a href="http://caj50.github.io/tutoring.html">here</a>.</p>
+<!--<details open>
+<summary>Want to ruin the surprise?</summary>
+<br>
+Well, you asked for it!
+</details>-->
+</div>
+<div id="lecture-recap" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Lecture Recap</h1>
+<p>This week, we’re starting to look at the derivative of a function. Along the way, we’ll see some tricks for making differentiation easier, and we’ll cover a way of finding the derivative of inverse functions.</p>
+<div id="differentiation" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Differentiation</h2>
+<p>While functions are very good at describing physical quantities such as temperature, density or momentum we can usually gain more insight into these variables by studying how fast they change at a given position or time. Mathematically, we study rates of change using derivatives, which again relies on the ideas behind limits!</p>
+
+<div id="def:def1" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Derivative) </strong></span>
+<div>
+Let <span class="math inline">\(f: D \to \mathbb{R}\)</span>, where <span class="math inline">\(D \subseteq \mathbb{R}\)</span> is an open set, and let <span class="math inline">\(c \in D\)</span>. Then, if <span class="math inline">\(\exists L \in \mathbb{R}\)</span> such that <span class="math display">\[\lim_{h \to 0}\frac{f(c+h) - f(c)}{h} = L,\]</span> we say that <span class="math inline">\(f\)</span> is differentiable at <span class="math inline">\(c\)</span>, and call <span class="math inline">\(L\)</span> the derivative of <span class="math inline">\(f\)</span> at <span class="math inline">\(c\)</span>.
+</div>
+</div>
+<p>We can note a few things here:</p>
+<ul>
+<li>Firstly, if this <span class="math inline">\(L\)</span> exists, we write it as <span class="math inline">\(f&#39;(c)\)</span> to make it clear that its a derivative.</li>
+<li>We require <span class="math inline">\(D\)</span> to be open, so that we can actually take limits! If, for example, <span class="math inline">\(D = [-1,2]\)</span>, we could attempt to define the derivative at any point in the interior of <span class="math inline">\(D\)</span>, <span class="math inline">\(D^{\circ} = (-1,2)\)</span>, but we couldn’t define the derivative at <span class="math inline">\(x = -1\)</span> or <span class="math inline">\(x = 2\)</span>.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></li>
+<li>Substituting <span class="math inline">\(x = c+h\)</span> into the definition gives us an equivalent formulation: <span class="math inline">\(f\)</span> is differentiable at <span class="math inline">\(c\)</span> if there exists <span class="math inline">\(L\in\mathbb{R}\)</span> such that <span class="math display">\[\lim_{x \to c}\frac{f(x) - f(c)}{x - c} = L.\]</span></li>
+</ul>
+One quick result we obtain from this definition is the following:
+
+<div id="prp:prop1" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.1:  </strong></span>
+<p>
+If a function <span class="math inline">\(f:D \to \mathbb{R}\)</span> is differentiable at a point <span class="math inline">\(c\)</span>, then it is continuous at <span class="math inline">\(c\)</span>.
+</p>
+</div>
+<p>The contrapositive of this is very useful for ruling functions out: if a function is <strong>not</strong> continuous, it is not differentiable. As a further remark, or warning, <strong>continuity does not imply differentiability</strong>! To see this, think of either <span class="math inline">\(f(x) = \lvert x \rvert\)</span> at <span class="math inline">\(x = 0\)</span>, or look up the <a href="https://en.wikipedia.org/wiki/Weierstrass_function">Weierstrass function</a>.</p>
+</div>
+<div id="diff" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Rules of Differentiation</h2>
+<p>Since everything inside the limit defining the derivative is just a function (of either <span class="math inline">\(h\)</span> or <span class="math inline">\(x\)</span>), we can apply the algebra of limits to deduce a few familiar rules of differentiation:</p>
+
+<div id="thm:thm1a" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm1a" custom-style="NameStyle"><strong>Theorem 1.2:  (Algebra of Derivatives 1) </strong></span>
+<p>
+<p>Let <span class="math inline">\(D\subseteq\mathbb{R}\)</span> be an open set, and let <span class="math inline">\(f,g:D \to \mathbb{R}\)</span> be differentiable at <span class="math inline">\(c\in D.\)</span> Then the following functions are differentiable at <span class="math inline">\(c\)</span>:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(f+g\)</span>, with <span class="math display">\[(f+g)&#39;(c) = f&#39;(c) + g&#39;(c),\]</span></li>
+<li><span class="math inline">\(Kf\)</span> for any <span class="math inline">\(K\in\mathbb{R}\)</span>, with <span class="math display">\[(Kf)&#39;(c) = Kf&#39;(c),\]</span></li>
+</ol>
+</p>
+</div>
+<p>Using these two rules we can show that the set of functions <span class="math inline">\(f:D\to\mathbb{R}\)</span> which are differentiable at <span class="math inline">\(c\)</span> form a vector space. In fact, since differentiability implies continuity, and the zero function <span class="math inline">\(0:D \to \mathbb{R}\)</span> given by <span class="math inline">\(0(x) = 0\)</span> is also differentiable at <span class="math inline">\(c\)</span>, this set forms a vector subspace of the set of functions <span class="math inline">\(f:D \to \mathbb{R}\)</span> which are continuous at <span class="math inline">\(c\)</span>.</p>
+<p>There are three further rules which make up the Algebra of Derivatives:</p>
+
+<div id="thm:thm1b" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm1b" custom-style="NameStyle"><strong>Theorem 1.3:  (Algebra of Derivatives 2) </strong></span>
+<p>
+<p>Let <span class="math inline">\(D\subseteq\mathbb{R}\)</span> be an open set, and let <span class="math inline">\(f,g:D \to \mathbb{R}\)</span> be differentiable at <span class="math inline">\(c\in D.\)</span> Then the following functions are differentiable at <span class="math inline">\(c\)</span>:</p>
+<ol start="3" style="list-style-type: decimal">
+<li>(Product rule) <span class="math inline">\(fg\)</span>, with <span class="math display">\[(fg)&#39;(c) = f&#39;(c)g(c) + f(c)g&#39;(c),\]</span></li>
+<li>For <span class="math inline">\(g(c)\neq0\)</span>, <span class="math inline">\(1/g\)</span>, with <span class="math display">\[\left(\frac{1}{g}\right)&#39;(c) = \frac{-g&#39;(c)}{g(c)^2}.\]</span></li>
+<li>(Quotient rule) For <span class="math inline">\(g(c)\neq0\)</span>, <span class="math inline">\(f/g\)</span> with <span class="math display">\[\left(\frac{f}{g}\right)&#39;(c) = \frac{f&#39;(c)g(c)-f(c)g&#39;(c)}{g(c)^2}.\]</span></li>
+</ol>
+</p>
+</div>
+<p>One thing to note here is that we can obtain the quotient rule by applying the product rule to the functions <span class="math inline">\(f\)</span> and <span class="math inline">\(1/g\)</span>, which saves you having to learn the proof!</p>
+<div id="chain-rule" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Chain Rule</h3>
+<p>The one thing we’ve said nothing about so far is whether a composition of functions is differentiable. This result is what is known as the (familiar) chain rule:</p>
+
+<div id="thm:thm2" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm2" custom-style="NameStyle"><strong>Theorem 1.4:  (Chain Rule) </strong></span>
+<p>
+Let <span class="math inline">\(g:(a,b) \to \mathbb{R}\)</span> and <span class="math inline">\(f:(A,B) \to \mathbb{R}\)</span> be such that <span class="math inline">\(g\left((a,b)\right) \subseteq (A,B).\)</span> Assume that <span class="math inline">\(g\)</span> is differentiable at <span class="math inline">\(c\)</span> and <span class="math inline">\(f\)</span> is differentiable at <span class="math inline">\(g(c)\)</span>. Then the composition <span class="math inline">\(f\circ g\)</span> is differentiable at <span class="math inline">\(c\)</span> with <span class="math display">\[\left(f\circ g\right)&#39;(c) = f&#39;\left(g(c)\right)g&#39;(c).\]</span>
+</p>
+</div>
+</div>
+</div>
+<div id="inverse-functions" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Inverse Functions</h2>
+<p>Another thing we might want to know is whether we can differentiate the inverse of a differentiable function. For example, the exponential function <span class="math inline">\(\exp\)</span> and the trigonometric functions <span class="math inline">\(\sin, \cos\)</span> have nice series definitions, and this makes it fairly straightforward to calculate their derivatives. But what if we’re interested in their inverses (<span class="math inline">\(\ln, \arcsin, \arccos\)</span>)? Luckily, we have a theorem which tells us what the values of their derivatives are!</p>
+
+<div id="thm:thm3" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm3" custom-style="NameStyle"><strong>Theorem 1.5:  (Inverse Function Theorem) </strong></span>
+<p>
+Let <span class="math inline">\(f: (a,b) \to (A, B)\)</span> be bijective, and let <span class="math inline">\(c \in (a,b).\)</span> Assume that <span class="math inline">\(f\)</span> is differentiable at <span class="math inline">\(c\)</span>, <span class="math inline">\(f&#39;(c) \neq 0\)</span>, and <span class="math inline">\(f^{-1}\)</span> is continuous at <span class="math inline">\(f(c).\)</span> Then <span class="math inline">\(f^{-1}\)</span> is differentiable at <span class="math inline">\(y_0 = f(c)\)</span> and <span class="math display">\[\left(f^{-1}\right)&#39;(y_0) = \frac{1}{f&#39;\left(f^{-1}(y_0)\right)} = \frac{1}{f&#39;(c)}.\]</span>
+</p>
+</div>
+
+<div id="exm:ex1" class="bookdown-example" custom-style="ExampleStyle">
+<span class="exm:ex1" custom-style="NameStyle"><strong>Example 1.1:  </strong></span>
+<div>
+<p>Returning to our exponential example from last week, we know that from lectures <span class="math inline">\(\exp: \mathbb{R} \to (0,\infty)\)</span> is differentiable for all <span class="math inline">\(c \in \mathbb{R}\)</span>, and since <span class="math inline">\(\exp&#39;(x) = \exp(x)\)</span>, <span class="math inline">\(\exp&#39;(c) \neq 0\)</span> for any <span class="math inline">\(c\)</span>. Last week, we showed that the inverse function <span class="math inline">\(\ln: (0,\infty) \to \mathbb{R}\)</span> is continuous at any <span class="math inline">\(\exp(c) \in (0,\infty)\)</span>, so by Theorem <a href="#thm:thm3">1.5</a>, <span class="math inline">\(\ln\)</span> is differentiable on <span class="math inline">\((0,\infty)\)</span>, with <span class="math display">\[\ln&#39;(y_0) = \frac{1}{\exp&#39;(\ln(y_0))} = \frac{1}{\exp(\ln(y_0))} = \frac{1}{y_0}.\]</span> Graphically, we can see the result of this theorem by comparing the gradient of the associated tangent lines of <span class="math inline">\(\exp\)</span> and <span class="math inline">\(\ln\)</span> at the points <span class="math inline">\((c,\exp(c))\)</span> and <span class="math inline">\((\exp(c),c)\)</span> respectively. In the graph below, we have taken <span class="math inline">\(c = 1\)</span> for illustrative purposes.</p>
+<iframe src="https://www.desmos.com/calculator/qlr78gavqx?embed" width="450" height="450" style="border: 1px solid #ccc" frameborder="0">
+</iframe>
+</div>
+</div>
+We can use the results of Example <a href="#exm:ex1">1.1</a> and the rules of differentiation from Section <a href="#diff">1.2</a> to calculate the derivatives of some more complicated functions:
+
+<div id="exm:ex2" class="bookdown-example" custom-style="ExampleStyle">
+<span class="exm:ex2" custom-style="NameStyle"><strong>Example 1.2:  </strong></span>
+<div>
+<p>Consider the function <span class="math inline">\(h:(0,\infty) \to (0,\infty)\)</span> given by <span class="math inline">\(h(x) = x^x.\)</span> Since <span class="math display">\[h(x) = \exp(\ln(x^x)) = \exp(x\ln(x)),\]</span> we can rewrite <span class="math inline">\(h\)</span> as a composition of differentiable functions <span class="math inline">\(h = f \circ g\)</span>, where <span class="math inline">\(f:\mathbb{R} \to (0,\infty)\)</span> is defined by <span class="math inline">\(f(x) = \exp(x)\)</span>, and <span class="math inline">\(g: (0,\infty) \to \mathbb{R}\)</span> is defined by <span class="math inline">\(g(x) = x\ln(x).\)</span></p>
+<p>From lectures, we know that <span class="math inline">\(f\)</span> is differentiable on <span class="math inline">\(\mathbb{R}\)</span> with <span class="math inline">\(f&#39;(x) = \exp(x).\)</span> Furthermore, by Example <a href="#exm:ex1">1.1</a> and the product rule, we know that <span class="math inline">\(g\)</span> is differentiable on <span class="math inline">\((0,\infty)\)</span>, with <span class="math inline">\(g&#39;(x) = \ln(x) + 1.\)</span> Hence, by the chain rule, <span class="math inline">\(h\)</span> is differentiable on <span class="math inline">\((0,\infty)\)</span> with <span class="math display">\[h&#39;(x) = f&#39;(g(x))g&#39;(x) = \exp(x\ln(x))\left(\ln(x) + 1\right) = x^x\left(\ln(x) + 1\right)\]</span></p>
+</div>
+</div>
+<p>Theorem <a href="#thm:thm3">1.5</a> will come in handy if you ever need to perform coordinate transforms, in particular when evaluating integrals by substitution. You may have also come across the multivariate version of this theorem in MA10230 (Multivariable Calculus and Differential Equations) when calculating the Jacobian for a transformation from Cartesian to polar coordinates (or vice versa).</p>
+</div>
+</div>
+<div id="hints" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Hints</h1>
+<p>As per usual, here’s where you’ll find the problem sheet hints!</p>
+<ol style="list-style-type: decimal">
+<li>We did some examples similar to this in the tutorial today. Specify the domain of each function, and use the results you’ve seen in the course to justify differentiability on each domain. In regards to computing the derivatives, I don’t think you’ll have too much trouble, but let me know if you run into problems.</li>
+<li>The following formula may come in handy:<span class="math display">\[\max(f(x),g(x)) = \frac{1}{2}\left(\lvert f(x) - g(x) \rvert + f(x) + g(x)\right).\]</span>
+For the function examples, try and find <span class="math inline">\(f,g\)</span> such that <span class="math display">\[\max(f(x),g(x)) = \lvert x \rvert.\]</span></li>
+<li>Using <span class="math inline">\(p(x) = (x-a)q(x)\)</span>, what does <span class="math inline">\(p&#39;(x)\)</span> give you?</li>
+</ol>
+<!--chapter:end:index.Rmd-->
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>There is nothing stopping us; however, trying to define <em>left</em> and <em>right derivatives</em> at these points, i.e. we could search for <span class="math display">\[\lim_{x \to -1^{+}}\frac{f(-1+h) - f(-1)}{h}\;\;\text{or}\;\;\lim_{x \to 2^{-}}\frac{f(2+h) - f(2)}{h}.\]</span><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+<!--bookdown:body:end-->
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>
