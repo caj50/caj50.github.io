@@ -9,10 +9,8 @@ classoption: a4paper
 fontsize: 10pt
 geometry: margin=2.5cm
 output:
-  clavertondown::word_clav:
+  clavertondown::html_clav:
     toc: true
-    number_sections: true
-    keep_md: true
     pandoc_args: --default-image-extension=svg
   clavertondown::gitbook_clav:
     split_by: section
@@ -20,9 +18,6 @@ output:
     config:
       download: [["Tutorial6.html", "HTML page"], ["Tutorial6.pdf","Standard print PDF"], ["Tutorial6Clear.pdf","Clear print PDF"], ["Tutorial6Large.pdf","Large print PDF"], ["Tutorial6.docx","Accessible Word document"], ["Tutorial6.epub","Accessible EPub book" ]]
       sharing: no
-    pandoc_args: --default-image-extension=svg
-  clavertondown::html_clav:
-    toc: true
     pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
@@ -33,6 +28,11 @@ output:
     pandoc_args: --default-image-extension=pdf
   clavertondown::epub_clav:
     toc: false
+    pandoc_args: --default-image-extension=svg
+  clavertondown::word_clav:
+    toc: true
+    number_sections: true
+    keep_md: true
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
@@ -133,7 +133,7 @@ Let $f: (a,b) \to (A, B)$ be bijective, and let $c \in (a,b).$ Assume that $f$ i
 ```{example, label="ex1"}
 Returning to our exponential example from last week, we know that from lectures $\exp: \mathbb{R} \to (0,\infty)$ is differentiable for all $c \in \mathbb{R}$, and since $\exp'(x) = \exp(x)$, $\exp'(c) \neq 0$ for any $c$. Last week, we showed that the inverse function $\ln: (0,\infty) \to \mathbb{R}$ is continuous at any $\exp(c) \in (0,\infty)$, so by Theorem \@ref(thm:thm3), $\ln$ is differentiable on $(0,\infty)$, with $$\ln'(y_0) = \frac{1}{\exp'(\ln(y_0))} = \frac{1}{\exp(\ln(y_0))} = \frac{1}{y_0}.$$ Graphically, we can see the result of this theorem by comparing the gradient of the associated tangent lines of $\exp$ and $\ln$ at the points $(c,\exp(c))$ and $(\exp(c),c)$ respectively. In the graph below, we have taken $c = 1$ for illustrative purposes.
 
-![](./explog2.png){width="30%"}
+<iframe src="https://www.desmos.com/calculator/qlr78gavqx?embed" width="450" height="450" style="border: 1px solid #ccc" frameborder=0></iframe>
 
 ```
 
