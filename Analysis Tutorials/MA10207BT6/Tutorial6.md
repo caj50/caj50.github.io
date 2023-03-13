@@ -14,6 +14,9 @@ output:
     number_sections: true
     keep_md: true
     pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
   clavertondown::gitbook_clav:
     split_by: section
     keep_md: true
@@ -31,9 +34,6 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
   - \usepackage {hyperref}
@@ -54,7 +54,7 @@ Well, you asked for it!
 </details>-->
 
 # Lecture Recap
-This week, we're starting to look at the derivative of a function. Along the way, we'll see some tricks for making differentiation easier, and we'll cover a way of finding the derivative of inverse functions.
+This week, we're starting to look at the derivative of a function. Along the way, we'll see some tricks for making differentiation easier too!
 
 ## Differentiation
 While functions are very good at describing physical quantities such as temperature, density or momentum we can usually gain more insight into these variables by studying how fast they change at a given position or time. Mathematically, we study rates of change using derivatives, which again relies on the ideas behind limits!
@@ -100,6 +100,7 @@ One thing to note here is that we can obtain the quotient rule by applying the p
 The one thing we've said nothing about so far is whether a composition of functions is differentiable. This result is what is known as the (familiar) chain rule:
 
 \BeginKnitrBlock{theorem}<div class="bookdown-theorem" custom-style="TheoremStyleUpright" id="thm:thm2"><span class="thm:thm2" custom-style="NameStyle"><strong><span id="thm:thm2"></span>Theorem 1.4   (Chain Rule) </strong></span><p>Let $g:(a,b) \to \mathbb{R}$ and $f:(A,B) \to \mathbb{R}$ be such that $g\left((a,b)\right) \subseteq (A,B).$ Assume that $g$ is differentiable at $c$ and $f$ is differentiable at $g(c)$. Then the composition $f\circ g$ is differentiable at $c$ with $$\left(f\circ g\right)'(c) = f'\left(g(c)\right)g'(c).$$</p></div>\EndKnitrBlock{theorem}
+
 
 # Hints
 As per usual, here's where you'll find the problem sheet hints!
