@@ -233,7 +233,6 @@ img {
 <ul>
 <li><a href="#chain-rule"><span class="toc-section-number">1.2.1</span> Chain Rule</a></li>
 </ul></li>
-<li><a href="#inverse-functions"><span class="toc-section-number">1.3</span> Inverse Functions</a></li>
 </ul></li>
 <li><a href="#hints"><span class="toc-section-number">2</span> Hints</a></li>
 </ul>
@@ -321,42 +320,12 @@ Let <span class="math inline">\(g:(a,b) \to \mathbb{R}\)</span> and <span class=
 </div>
 </div>
 </div>
-<div id="inverse-functions" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Inverse Functions</h2>
-<p>Another thing we might want to know is whether we can differentiate the inverse of a differentiable function. For example, the exponential function <span class="math inline">\(\exp\)</span> and the trigonometric functions <span class="math inline">\(\sin, \cos\)</span> have nice series definitions, and this makes it fairly straightforward to calculate their derivatives. But what if we’re interested in their inverses (<span class="math inline">\(\ln, \arcsin, \arccos\)</span>)? Luckily, we have a theorem which tells us what the values of their derivatives are!</p>
-
-<div id="thm:thm3" class="bookdown-theorem" custom-style="TheoremStyle">
-<span class="thm:thm3" custom-style="NameStyle"><strong>Theorem 1.5:  (Inverse Function Theorem) </strong></span>
-<p>
-Let <span class="math inline">\(f: (a,b) \to (A, B)\)</span> be bijective, and let <span class="math inline">\(c \in (a,b).\)</span> Assume that <span class="math inline">\(f\)</span> is differentiable at <span class="math inline">\(c\)</span>, <span class="math inline">\(f&#39;(c) \neq 0\)</span>, and <span class="math inline">\(f^{-1}\)</span> is continuous at <span class="math inline">\(f(c).\)</span> Then <span class="math inline">\(f^{-1}\)</span> is differentiable at <span class="math inline">\(y_0 = f(c)\)</span> and <span class="math display">\[\left(f^{-1}\right)&#39;(y_0) = \frac{1}{f&#39;\left(f^{-1}(y_0)\right)} = \frac{1}{f&#39;(c)}.\]</span>
-</p>
-</div>
-
-<div id="exm:ex1" class="bookdown-example" custom-style="ExampleStyle">
-<span class="exm:ex1" custom-style="NameStyle"><strong>Example 1.1:  </strong></span>
-<div>
-<p>Returning to our exponential example from last week, we know that from lectures <span class="math inline">\(\exp: \mathbb{R} \to (0,\infty)\)</span> is differentiable for all <span class="math inline">\(c \in \mathbb{R}\)</span>, and since <span class="math inline">\(\exp&#39;(x) = \exp(x)\)</span>, <span class="math inline">\(\exp&#39;(c) \neq 0\)</span> for any <span class="math inline">\(c\)</span>. Last week, we showed that the inverse function <span class="math inline">\(\ln: (0,\infty) \to \mathbb{R}\)</span> is continuous at any <span class="math inline">\(\exp(c) \in (0,\infty)\)</span>, so by Theorem <a href="#thm:thm3">1.5</a>, <span class="math inline">\(\ln\)</span> is differentiable on <span class="math inline">\((0,\infty)\)</span>, with <span class="math display">\[\ln&#39;(y_0) = \frac{1}{\exp&#39;(\ln(y_0))} = \frac{1}{\exp(\ln(y_0))} = \frac{1}{y_0}.\]</span> Graphically, we can see the result of this theorem by comparing the gradient of the associated tangent lines of <span class="math inline">\(\exp\)</span> and <span class="math inline">\(\ln\)</span> at the points <span class="math inline">\((c,\exp(c))\)</span> and <span class="math inline">\((\exp(c),c)\)</span> respectively. In the graph below, we have taken <span class="math inline">\(c = 1\)</span> for illustrative purposes.</p>
-<iframe src="https://www.desmos.com/calculator/qlr78gavqx?embed" width="450" height="450" style="border: 1px solid #ccc" frameborder="0">
-</iframe>
-</div>
-</div>
-We can use the results of Example <a href="#exm:ex1">1.1</a> and the rules of differentiation from Section <a href="#diff">1.2</a> to calculate the derivatives of some more complicated functions:
-
-<div id="exm:ex2" class="bookdown-example" custom-style="ExampleStyle">
-<span class="exm:ex2" custom-style="NameStyle"><strong>Example 1.2:  </strong></span>
-<div>
-<p>Consider the function <span class="math inline">\(h:(0,\infty) \to (0,\infty)\)</span> given by <span class="math inline">\(h(x) = x^x.\)</span> Since <span class="math display">\[h(x) = \exp(\ln(x^x)) = \exp(x\ln(x)),\]</span> we can rewrite <span class="math inline">\(h\)</span> as a composition of differentiable functions <span class="math inline">\(h = f \circ g\)</span>, where <span class="math inline">\(f:\mathbb{R} \to (0,\infty)\)</span> is defined by <span class="math inline">\(f(x) = \exp(x)\)</span>, and <span class="math inline">\(g: (0,\infty) \to \mathbb{R}\)</span> is defined by <span class="math inline">\(g(x) = x\ln(x).\)</span></p>
-<p>From lectures, we know that <span class="math inline">\(f\)</span> is differentiable on <span class="math inline">\(\mathbb{R}\)</span> with <span class="math inline">\(f&#39;(x) = \exp(x).\)</span> Furthermore, by Example <a href="#exm:ex1">1.1</a> and the product rule, we know that <span class="math inline">\(g\)</span> is differentiable on <span class="math inline">\((0,\infty)\)</span>, with <span class="math inline">\(g&#39;(x) = \ln(x) + 1.\)</span> Hence, by the chain rule, <span class="math inline">\(h\)</span> is differentiable on <span class="math inline">\((0,\infty)\)</span> with <span class="math display">\[h&#39;(x) = f&#39;(g(x))g&#39;(x) = \exp(x\ln(x))\left(\ln(x) + 1\right) = x^x\left(\ln(x) + 1\right)\]</span></p>
-</div>
-</div>
-<p>Theorem <a href="#thm:thm3">1.5</a> will come in handy if you ever need to perform coordinate transforms, in particular when evaluating integrals by substitution. You may have also come across the multivariate version of this theorem in MA10230 (Multivariable Calculus and Differential Equations) when calculating the Jacobian for a transformation from Cartesian to polar coordinates (or vice versa).</p>
-</div>
 </div>
 <div id="hints" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Hints</h1>
 <p>As per usual, here’s where you’ll find the problem sheet hints!</p>
 <ol style="list-style-type: decimal">
-<li>We did some examples similar to this in the tutorial today. Specify the domain of each function, and use the results you’ve seen in the course to justify differentiability on each domain. In regards to computing the derivatives, I don’t think you’ll have too much trouble, but let me know if you run into problems.</li>
+<li>There are a couple of ways to do this, but in each, you need to calculate the limit of the difference quotient when <span class="math inline">\(c=0\)</span>, i.e. <span class="math display">\[\lim_{x\to 0}\frac{f(x) - f(0)}{x - 0}.\]</span> Try using sequences for this one (or if you’ve seen it, the function version of the pinching theorem)</li>
 <li>The following formula may come in handy:<span class="math display">\[\max(f(x),g(x)) = \frac{1}{2}\left(\lvert f(x) - g(x) \rvert + f(x) + g(x)\right).\]</span>
 For the function examples, try and find <span class="math inline">\(f,g\)</span> such that <span class="math display">\[\max(f(x),g(x)) = \lvert x \rvert.\]</span></li>
 <li>Using <span class="math inline">\(p(x) = (x-a)q(x)\)</span>, what does <span class="math inline">\(p&#39;(x)\)</span> give you?</li>
