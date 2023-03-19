@@ -1,0 +1,251 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  10pt,
+  a4paper]{article}
+\title{Analysis 1B --- Tutorial 7}
+\author{Christian Jones: University of Bath}
+\date{March 2023}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Analysis 1B --- Tutorial 7},
+  pdfauthor={Christian Jones: University of Bath},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\newcommand{\BOO}{BOO}
+\usepackage {hyperref}
+\hypersetup {colorlinks = true, linkcolor = blue, urlcolor = blue}
+\usepackage{float}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}\newtheorem{definition}{Definition}[section]
+\theoremstyle{plain}
+\newtheorem*{proposition*}{Proposition}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{Definitions*}{Definitions}\newtheorem{Definitions}[definition]{Definitions}
+\theoremstyle{plain}
+\newtheorem*{lemma*}{Lemma}\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{plain}
+\newtheorem*{corollary*}{Corollary}\newtheorem{corollary}{Corollary}[section]
+\theoremstyle{plain}
+\newtheorem*{conjecture*}{Conjecture}\newtheorem{conjecture}{Conjecture}[section]
+\theoremstyle{definition}
+\newtheorem*{example*}{Example}\newtheorem{example}{Example}[section]
+\theoremstyle{definition}
+\newtheorem*{exercise*}{Exercise}\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{Thought*}{Thought}\newtheorem{Thought}{Thought}[section]
+\theoremstyle{remark}
+\newtheorem*{remark*}{Remark}
+\newtheorem*{solution*}{Solution}
+\newtheorem*{Example*}{Example}
+\theoremstyle{remark}
+\newtheorem*{Proof*}{Proof}
+\newtheorem*{Examples*}{Examples}
+\let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\newpage
+\pagenumbering{arabic}
+
+\hypertarget{introduction}{%
+\section*{Introduction}\label{introduction}}
+\addcontentsline{toc}{section}{Introduction}
+
+Here is the material to accompany the 7th Analysis 1B Tutorial on the 20th March. Alternative formats can be downloaded by clicking the download icon at the top of the page. Please send any comments or corrections to \href{mailto:caj50@bath.ac.uk}{Christian Jones (caj50)}. To return to the homepage, click \href{http://caj50.github.io/tutoring.html}{here}.
+
+\hypertarget{lecture-recap}{%
+\section{Lecture Recap}\label{lecture-recap}}
+
+This week, we look at more results regarding differentiation! These cover finding the derivative of an inverse function, and locating the extrema of a differentiable function. Finally, we'll reach one of the more important results in this course --- the mean value theorem.
+
+\hypertarget{inverse-functions}{%
+\subsection{Inverse Functions}\label{inverse-functions}}
+
+One thing we might want to know is whether we can differentiate the inverse of a differentiable function. For example, the exponential function, \(\exp\), and the trigonometric functions, \(\sin, \cos\), etc. have nice series definitions, and this makes it fairly straightforward to calculate their derivatives. But what if we're interested in their inverses (\(\ln, \arcsin, \arccos\))? Luckily, we have a theorem which tells us what the values of their derivatives are!
+
+\BeginKnitrBlock{theorem}[Inverse Function Theorem]
+{\label{thm:thm1} }Let \(f: (a,b) \to (A, B)\) be bijective, and let \(c \in (a,b).\) Assume that \(f\) is differentiable at \(c\), \(f'(c) \neq 0\), and \(f^{-1}\) is continuous at \(f(c).\) Then \(f^{-1}\) is differentiable at \(y_0 = f(c)\) and \[\left(f^{-1}\right)'(y_0) = \frac{1}{f'\left(f^{-1}(y_0)\right)} = \frac{1}{f'(c)}.\]
+\EndKnitrBlock{theorem}
+
+You've seen the below example in lectures, but its worth repeating here, as we're going to use it later:
+\BeginKnitrBlock{example}
+{\label{exm:ex1} }Returning to our exponential example from last week, we know that from lectures \(\exp: \mathbb{R} \to (0,\infty)\) is differentiable for all \(c \in \mathbb{R}\), and since \(\exp'(x) = \exp(x)\), \(\exp'(c) \neq 0\) for any \(c\). Last week, we showed that the inverse function \(\ln: (0,\infty) \to \mathbb{R}\) is continuous at any \(\exp(c) \in (0,\infty)\), so by Theorem \ref{thm:thm3}, \(\ln\) is differentiable on \((0,\infty)\), with \[\ln'(y_0) = \frac{1}{\exp'(\ln(y_0))} = \frac{1}{\exp(\ln(y_0))} = \frac{1}{y_0}.\] Graphically, we can see the result of this theorem by comparing the gradient of the associated tangent lines of \(\exp\) and \(\ln\) at the points \((c,\exp(c))\) and \((\exp(c),c)\) respectively. In the graph below, we have taken \(c = 1\) for illustrative purposes.
+
+\includegraphics[width=0.3\textwidth,height=\textheight]{./explog.png}
+\EndKnitrBlock{example}
+
+We can use the results of Example \ref{exm:ex1} and the rules of differentiation from last week to calculate the derivatives of some more complicated functions:
+\BeginKnitrBlock{example}
+{\label{exm:ex2} }Consider the function \(h:(0,\infty) \to (0,\infty)\) given by \(h(x) = x^x.\) Since \[h(x) = \exp(\ln(x^x)) = \exp(x\ln(x)),\] we can rewrite \(h\) as a composition of differentiable functions \(h = f \circ g\), where \(f:\mathbb{R} \to (0,\infty)\) is defined by \(f(x) = \exp(x)\), and \(g: (0,\infty) \to \mathbb{R}\) is defined by \(g(x) = x\ln(x).\)
+
+From lectures, we know that \(f\) is differentiable on \(\mathbb{R}\) with \(f'(x) = \exp(x).\) Furthermore, by Example \ref{exm:ex1} and the product rule, we know that \(g\) is differentiable on \((0,\infty)\), with \(g'(x) = \ln(x) + 1.\) Hence, by the chain rule, \(h\) is differentiable on \((0,\infty)\) with \[h'(x) = f'(g(x))g'(x) = \exp(x\ln(x))\left(\ln(x) + 1\right) = x^x\left(\ln(x) + 1\right)\]
+\EndKnitrBlock{example}
+
+Theorem \ref{thm:thm1} will come in handy if you ever need to perform coordinate transforms, in particular when evaluating integrals by substitution. You may have also come across the multivariate version of this theorem in MA10230 (Multivariable Calculus and Differential Equations) when calculating the Jacobian for a transformation from Cartesian to polar coordinates (or vice versa).
+
+\hypertarget{extrema}{%
+\subsection{Extrema}\label{extrema}}
+
+Recall the Weierstrass Extremal Theorem: If a function is continuous on a closed, bounded interval, then it attains a maximum and minimum value. However, note that this tells us nothing about how many times it reaches these values, and tells us nothing about where the max and min are attained. From a physics point of view, this is something we'd really like to know, as it would help us determine when a projectile reaches its maximum height, for example.
+
+However, to get started here, we need a slew of definitions.
+
+\BeginKnitrBlock{definition}[Absolute/Global Extrema]
+{\label{def:def1} }Let \(I\subseteq \mathbb{R}\) be an interval, \(p,q\in I\) and \(f:I\to\mathbb{R}\).
+
+\begin{itemize}
+\tightlist
+\item
+  The point \(p\) is an \emph{absolute} or \emph{global maximum point} of \(f\) in \(I\) if \[\forall x \in I,\;\;f(x) \leq f(p).\]
+\item
+  Similarly, \(q\) is an \emph{absolute} or \emph{global minimum point} of \(f\) in \(I\) if \[\forall x \in I,\;\;f(x) \geq f(q).\]
+\end{itemize}
+
+An \emph{extremum} of \(f\) is either a maximum point or a minimum point.
+\EndKnitrBlock{definition}
+
+We might also be interested in restricting our function to a smaller interval and seeing what the new maxima/minima are. This gives rise to the idea of \emph{local} extrema:
+
+\BeginKnitrBlock{definition}[Local Extrema]
+{\label{def:def2} }Let \(I\subseteq \mathbb{R}\) be an interval, \(p,q\in I\) and \(f:I\to\mathbb{R}\).
+
+\begin{itemize}
+\tightlist
+\item
+  The point \(p\) is a \emph{local maximum point} of \(f\) in \(I\) if \(\exists \delta_0 > 0\) such that \[\lvert x - p \rvert < \delta_0 \implies f(x) \leq f(p).\]
+\item
+  The point \(q\) is a \emph{local minimum point} of \(f\) in \(I\) if \(\exists \delta_0 > 0\) such that \[\lvert x - q \rvert < \delta_0 \implies f(x) \geq f(q).\]
+\end{itemize}
+
+A \emph{local extremum} of \(f\) is either a local maximum or local minimum point.
+\EndKnitrBlock{definition}
+
+One final concept we will need occurs when our function is differentiable, and is known as a critical point:
+
+\BeginKnitrBlock{definition}[Critical Point]
+{\label{def:def3} }Let \(I\subseteq \mathbb{R}\) be an interval, \(c\in I\) and \(f:I\to\mathbb{R}\). Then \(c\) is a \emph{critical} or \emph{turning point} of \(f\) if \(f\) is differentiable at \(c\) and \(f'(c) = 0.\)
+\EndKnitrBlock{definition}
+
+Hopefully this terminology isn't too confusing. As an example, we can sketch a graph (Figure \ref{fig:Extrema}), and identify the global and local extrema, together with the critical points:
+
+\begin{figure}
+\includegraphics{Extrema} \caption{A graph of a function $f:[a,b] \to \mathbb{R}$ with the global extrema (blue), local extrema (red), and critical points (black) identified. Note that these points lie in the domain of $f$, and that some points fit into more than one category.}\label{fig:Extrema}
+\end{figure}
+
+An important point we still need to make here is how we actually go about finding these extrema. What we find is that the \textbf{candidate extrema are critical points, and interval endpoints}! So all we have to do is locate these points, and evaluate our function there.
+
+\hypertarget{the-mean-value-theorem-mvt}{%
+\subsection{The Mean Value Theorem (MVT)}\label{the-mean-value-theorem-mvt}}
+
+In this section, we hit the third big theorem of the course: the Mean Value Theorem. It looks fairly innocuous, but it turns out we can do a lot with this (and its variants). For example, we can prove a powerful method for calculating limits (L'Hôpital's rule), we can use it to approximate functions (Taylor's theorem), and we can even use it to prove the fundamental theorem of calculus!\footnote{In fact, the MVT also explains why average speed cameras work. These cameras come in pairs on a road, and register when you pass each of them. If the distance between the cameras divided by the time taken to move between them is greater than the speed limit on the road, then the MVT says that at some point in the journey, you must have travelled faster than the speed limit, and you'll get fined. This analysis does rely on assuming your motion is differentiable, i.e.~you don't crash.}
+
+\BeginKnitrBlock{theorem}[Mean Value Theorem (MVT)]
+{\label{thm:thm2} }Let \(a<b\), and let \(f:[a,b] \to \mathbb{R}\) be continuous on \([a,b]\) and differentiable on \((a,b)\). Then, \(\exists c \in (a,b)\) such that \[f'(c) = \frac{f(b) - f(a)}{b - a}.\]
+\EndKnitrBlock{theorem}
+
+Note that this theorem guarantees the existence of \textbf{at least} one point \(c\) --- Figure \ref{fig:MVT} shows that there may be more than one! The proof of the MVT relies on what is known as \emph{Rolle's Theorem}, of which the statement can be given by setting \(f(a) = f(b)\) in Theorem \ref{thm:thm2}.
+
+\begin{figure}
+\includegraphics{MVT} \caption{An illustration of the Mean Value Theorem. Here, we see that there exists points $c_1$ and $c_2$ in $(a,b)$ such that the gradients of the tangents to $f$ at these points equal the gradient of the line joining the points $(a,f(a))$ and $(b,f(b))$}\label{fig:MVT}
+\end{figure}
+
+It's worth noting that there is a more general mean value theorem, which is yet another result named after Cauchy\footnote{Counting last semester, this brings us to the 5th result named after Cauchy!}:
+
+\BeginKnitrBlock{theorem}[Cauchy Mean Value Theorem (CMVT)]
+{\label{thm:thm3} }Let \(a<b\) and let \(f,g:[a,b] \to \mathbb{R}\) be continuous on \([a,b]\) and differentiable on \((a,b)\). Then, \(\exists c \in (a,b)\) such that \[(f(b) - f(a))g'(c) = (g(b)-g(a))f'(c).\]
+\EndKnitrBlock{theorem}
+This one is a bit harder to visualise conceptually, but we can do it! Suppose we parametrise a curve \(C\) as \(\mathbf{r}:[a,b] \to \mathbb{R}^2\) via \(\mathbf{r}(t) = (f(t),g(t))\) (so that \(x = f(t)\) and \(y = g(t)\)). Then the CMVT says that there must be a point \(c \in (a,b)\) where the gradient of the tangent to \((f(c),g(c))\) is the same as the gradient of the line joining the points \((f(a),g(a))\) and \((f(b), g(b))\). This is shown in Figure \ref{fig:CMVT}.
+
+\begin{figure}
+\includegraphics{CMVT} \caption{An illustration of the Cauchy Mean Value Theorem. Assuming that $g'(c)$ is non-zero, we see that there exists at least one point on this curve at which the tangent line has the same gradient as the line joining the start and end points of the curve.}\label{fig:CMVT}
+\end{figure}
+
+\hypertarget{hints}{%
+\section{Hints}\label{hints}}
+
+As per usual, here's where you'll find the problem sheet hints!
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  Remember that \(\lvert x - 1\rvert\) is not differentiable at \(x = 1\). So I would suggest splitting the domain up first to account for this. After doing this, there's an example in the lecture notes that may come in useful.
+\item
+  Try adapting the solutions to `Problem Sheet 6, Tutorial Q1'.
+\item
+  Some of the ideas used in `Problem Sheet 7, Tutorial Q1' will be helpful here. Just remember to make sure that the hypotheses are satisfied when applying the Mean Value Theorem!
+\end{enumerate}
+
+\end{document}
