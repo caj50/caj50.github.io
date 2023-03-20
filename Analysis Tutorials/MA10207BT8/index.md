@@ -57,27 +57,41 @@ Well, you asked for it!
 This week, we look at some of the consequences of the Mean Value Theorem! These include a method of calculating limits (L'Hôpital's Rule) and a method of approximating functions (Taylor's Theorem). Throughout all of this, we are going to need functions which are at least twice differentiable, and along the way, we will develop some conditions to classify extrema.
 
 ## L'Hôpital's Rule [^1]
-When calculating limits of one function divided by another, it is very tempting to apply the algebra of limits, and move on. However, if we look at $f(x)/g(x)$, and take $x \to c$, say, then a naïve application of the algebra of limits may result in an object of the form $$\frac{0}{0}, \; \text{or} \; \frac{\infty}{\infty}.$$ These are known as *indeterminate forms*, named as such because we can't assign a value to them. But in cases such as $$\lim_{x \to 3} \frac{x^2 - 9}{x - 3}$$, we know the limit exists ($=6$), despite the fact that blindly applying AoL gives us $0/0$. Luckily for us, there is a method which can help us find limits in the cases where an indeterminate form arises. This is known as L'Hôpital's rule:
+Suppose we want to calculate the limit $$\lim_{x \to 3} \frac{x^2 - 9}{x - 3} = L.$$ Using sequences, say, we can easily show that $L = 6$, but why don't we use the algebra of limits? After all, we formulated AoL to make our lives easier, and both $\lim_{x \to 3} x^2 - 9$ and $\lim_{x \to 3} x - 3$ exist. The issue is that if we naïvely apply AoL, we end up running into an *indeterminate form*. This is an object of the form $$\frac{0}{0}, \; \text{or} \; \frac{\infty}{\infty},$$ and is named as such because we cannot assign a value to it. For more complicated limits, we could really use a method which can help us find limits in the cases where an indeterminate form arises. Such a method exists, and is known as L'Hôpital's rule[^2]:
 
-\BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm1"><span class="thm:thm1" custom-style="NameStyle"><strong>(\#thm:thm1)  (L'Hôpital's Rule) </strong></span><p>Let $c \in \mathbb{R}$ and let $f,g: I \to \mathbb{R}$ be differentiable on an open interval $I$ containing $c$. Furthermore, suppose that:
+\BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm1"><span class="thm:thm1" custom-style="NameStyle"><strong>(\#thm:thm1)  (L'Hôpital's Rule) </strong></span><p>Let $c, L \in \mathbb{R}$, $\eta > 0$, $D = (c-\eta, c + \eta)\setminus\lbrace c \rbrace,$ and let $f,g: D \to \mathbb{R}$ be differentiable on $D$. Furthermore, suppose that:
   
   * $\lim_{x \to c} f(x) = 0  = \lim_{x \to c} g(x)$
   
-  * $g'(x) \neq  0 \;\; \forall x \in I\setminus\lbrace c \rbrace,$ and
+  * $g'(x) \neq  0 \;\; \forall x \in D,$ and
   
   * $\lim_{x \to c} \frac{f'(x)}{g'(x)}$ exists.
 
 Then $\lim_{x \to c} \frac{f(x)}{g(x)} = \lim_{x \to c} \frac{f'(x)}{g'(x)}.$
-  </p></div>\EndKnitrBlock{theorem}
+
+</p></div>\EndKnitrBlock{theorem}
 
 [^1]: Or if you prefer your 17th Century French, de L'Hospital's rule.
+[^2]: It's worth mentioning that there are many different statements of this rule. The one given here combines Theorem 2.32 from the lecture notes (which is L'Hôpital for right-handed limits) with a corresponding statement for left-handed limits.
+
+## Higher Order Derivatives
+
+\BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def1"><span class="def:def1" custom-style="NameStyle"><strong>(\#def:def1)  (Higher Order Derivatives) </strong></span><div>Let $a,b \in \mathbb{R}$ with $a < b$, and $f:(a,b) \to \mathbb{R}$. We say that $f$ is $n$-times differentiable at $c \in (a,b)$ if:
+  
+  * ($n=1$): $\lim_{x \to c}\frac{f(x) - f(c)}{x - c}$ exists.
+
+  * ($n>1$): There exists $\delta \in (0, b-a)$ such that $f$ is $n$-times differentiable on $(c - \delta, c + \delta)$ and the $(n-1)$-th derivative function of $f$, $f^{(n-1)}: (c - \delta, c + \delta) \to \mathbb{R}$ is differentiable at $c$.</div></div>\EndKnitrBlock{definition}
+In terms of notation, have that $$f^{(n)}(x) =  f^{\hspace{-0.2cm}\overbrace{\,'\cdots'\,}^{n\; \text{primes}}}\hspace{-0.25cm}(x).$$ The inclusion of brackets here is really important, as omitting them just gives us $f^n$, which is just the product of $f$ with itself $n$ times!
+
+As you've seen, polynomials, $\sin$, $\cos$ and $\exp$ are $n$-times differentiable on $\mathbb{R}$ for all $n \in \mathbb{N}$. These functions are known as smooth. As a result, the function $f:\mathbb{R} \to \mathbb{R}$ given by $$f(x) = \begin{cases} -&\frac{x^n}{n!} \;\; &&\text{if}\; x\leq 0,\\
+&\frac{x^n}{n!} \;\; &&\text{if}\; x > 0.\end{cases}$$ can be differentiated infinitely many times on $\mathbb{R}\setminus\lbrace 0 \rbrace$, but only $n$ times at $x = 0$.
 
 # Hints
 As per usual, here's where you'll find the problem sheet hints!
 
 1) Remember that $\lvert x - 1\rvert$ is not differentiable at $x = 1$. So I would suggest splitting the domain up first to account for this. After doing this, there's an example in the lecture notes that may come in useful.
 2) Try adapting the solutions to 'Problem Sheet 6, Tutorial Q1'.
-3) Some of the ideas used in `Problem Sheet 7, Tutorial Q1' will be helpful here. Just remember to make sure that the hypotheses are satisfied when applying the Mean Value Theorem!
+3) Some of the ideas used in 'Problem Sheet 7, Tutorial Q1' will be helpful here. Just remember to make sure that the hypotheses are satisfied when applying the Mean Value Theorem!
 
  
 

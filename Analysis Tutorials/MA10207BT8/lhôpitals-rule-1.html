@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="lecture-recap.html"/>
-<link rel="next" href="hints.html"/>
+<link rel="next" href="higher-order-derivatives.html"/>
 
 <script src="libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -270,6 +270,7 @@ MathJax.Hub.Config({
 <li class="chapter" data-level="1" data-path="lecture-recap.html"><a href="lecture-recap.html"><i class="fa fa-check"></i><b>1</b> Lecture Recap</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="lhôpitals-rule-1.html"><a href="lhôpitals-rule-1.html"><i class="fa fa-check"></i><b>1.1</b> L’Hôpital’s Rule </a></li>
+<li class="chapter" data-level="1.2" data-path="higher-order-derivatives.html"><a href="higher-order-derivatives.html"><i class="fa fa-check"></i><b>1.2</b> Higher Order Derivatives</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="hints.html"><a href="hints.html"><i class="fa fa-check"></i><b>2</b> Hints</a></li>
 </ul>
@@ -291,26 +292,26 @@ MathJax.Hub.Config({
             <section class="normal" id="section-">
 <div id="lhôpitals-rule-1" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> L’Hôpital’s Rule <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></h2>
-<p>When calculating limits of one function divided by another, it is very tempting to apply the algebra of limits, and move on. However, if we look at <span class="math inline">\(f(x)/g(x)\)</span>, and take <span class="math inline">\(x \to c\)</span>, say, then a naïve application of the algebra of limits may result in an object of the form <span class="math display">\[\frac{0}{0}, \; \text{or} \; \frac{\infty}{\infty}.\]</span> These are known as <em>indeterminate forms</em>, named as such because we can’t assign a value to them. But in cases such as <span class="math display">\[\lim_{x \to 3} \frac{x^2 - 9}{x - 3}\]</span>, we know the limit exists (<span class="math inline">\(=6\)</span>), despite the fact that blindly applying AoL gives us <span class="math inline">\(0/0\)</span>. Luckily for us, there is a method which can help us find limits in the cases where an indeterminate form arises. This is known as L’Hôpital’s rule:</p>
+<p>Suppose we want to calculate the limit <span class="math display">\[\lim_{x \to 3} \frac{x^2 - 9}{x - 3} = L.\]</span> Using sequences, say, we can easily show that <span class="math inline">\(L = 6\)</span>, but why don’t we use the algebra of limits? After all, we formulated AoL to make our lives easier, and both <span class="math inline">\(\lim_{x \to 3} x^2 - 9\)</span> and <span class="math inline">\(\lim_{x \to 3} x - 3\)</span> exist. The issue is that if we naïvely apply AoL, we end up running into an <em>indeterminate form</em>. This is an object of the form <span class="math display">\[\frac{0}{0}, \; \text{or} \; \frac{\infty}{\infty},\]</span> and is named as such because we cannot assign a value to it. For more complicated limits, we could really use a method which can help us find limits in the cases where an indeterminate form arises. Such a method exists, and is known as L’Hôpital’s rule<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>:</p>
 
 <div id="thm:thm1" class="bookdown-theorem" custom-style="TheoremStyle">
 <span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1.1:  (L’Hôpital’s Rule) </strong></span>
 <p>
-<p>Let <span class="math inline">\(c \in \mathbb{R}\)</span> and let <span class="math inline">\(f,g: I \to \mathbb{R}\)</span> be differentiable on an open interval <span class="math inline">\(I\)</span> containing <span class="math inline">\(c\)</span>. Furthermore, suppose that:</p>
+<p>Let <span class="math inline">\(c, L \in \mathbb{R}\)</span>, <span class="math inline">\(\eta &gt; 0\)</span>, <span class="math inline">\(D = (c-\eta, c + \eta)\setminus\lbrace c \rbrace,\)</span> and let <span class="math inline">\(f,g: D \to \mathbb{R}\)</span> be differentiable on <span class="math inline">\(D\)</span>. Furthermore, suppose that:</p>
 <ul>
 <li><p><span class="math inline">\(\lim_{x \to c} f(x) = 0 = \lim_{x \to c} g(x)\)</span></p></li>
-<li><p><span class="math inline">\(g&#39;(x) \neq 0 \;\; \forall x \in I\setminus\lbrace c \rbrace,\)</span> and</p></li>
+<li><p><span class="math inline">\(g&#39;(x) \neq 0 \;\; \forall x \in D,\)</span> and</p></li>
 <li><p><span class="math inline">\(\lim_{x \to c} \frac{f&#39;(x)}{g&#39;(x)}\)</span> exists.</p></li>
 </ul>
-Then <span class="math inline">\(\lim_{x \to c} \frac{f(x)}{g(x)} = \lim_{x \to c} \frac{f&#39;(x)}{g&#39;(x)}.\)</span>
+<p>Then <span class="math inline">\(\lim_{x \to c} \frac{f(x)}{g(x)} = \lim_{x \to c} \frac{f&#39;(x)}{g&#39;(x)}.\)</span></p>
 </p>
 </div>
 </div>
-<!-- </div> -->
 <div class="footnotes">
 <hr />
 <ol start="1">
 <li id="fn1"><p>Or if you prefer your 17th Century French, de L’Hospital’s rule.<a href="lhôpitals-rule-1.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>It’s worth mentioning that there are many different statements of this rule. The one given here combines Theorem 2.32 from the lecture notes (which is L’Hôpital for right-handed limits) with a corresponding statement for left-handed limits.<a href="lhôpitals-rule-1.html#fnref2" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -319,7 +320,7 @@ Then <span class="math inline">\(\lim_{x \to c} \frac{f(x)}{g(x)} = \lim_{x \to 
         </div>
       </div>
 <a href="lecture-recap.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="hints.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="higher-order-derivatives.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

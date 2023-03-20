@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1 Lecture Recap | Analysis 1B — Tutorial 8</title>
-  <meta name="description" content="1 Lecture Recap | Analysis 1B — Tutorial 8" />
+  <title>1.2 Higher Order Derivatives | Analysis 1B — Tutorial 8</title>
+  <meta name="description" content="1.2 Higher Order Derivatives | Analysis 1B — Tutorial 8" />
   <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1 Lecture Recap | Analysis 1B — Tutorial 8" />
+  <meta property="og:title" content="1.2 Higher Order Derivatives | Analysis 1B — Tutorial 8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1 Lecture Recap | Analysis 1B — Tutorial 8" />
+  <meta name="twitter:title" content="1.2 Higher Order Derivatives | Analysis 1B — Tutorial 8" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="lhôpitals-rule-1.html"/>
+<link rel="prev" href="lhôpitals-rule-1.html"/>
+<link rel="next" href="hints.html"/>
 
 <script src="libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -290,17 +290,31 @@ MathJax.Hub.Config({
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="lecture-recap" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Lecture Recap</h1>
-<p>This week, we look at some of the consequences of the Mean Value Theorem! These include a method of calculating limits (L’Hôpital’s Rule) and a method of approximating functions (Taylor’s Theorem). Throughout all of this, we are going to need functions which are at least twice differentiable, and along the way, we will develop some conditions to classify extrema.</p>
+<div id="higher-order-derivatives" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Higher Order Derivatives</h2>
+
+<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def1">
+<span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Higher Order Derivatives) </strong></span>
+<div>
+<p>Let <span class="math inline">\(a,b \in \mathbb{R}\)</span> with <span class="math inline">\(a &lt; b\)</span>, and <span class="math inline">\(f:(a,b) \to \mathbb{R}\)</span>. We say that <span class="math inline">\(f\)</span> is <span class="math inline">\(n\)</span>-times differentiable at <span class="math inline">\(c \in (a,b)\)</span> if:</p>
+<ul>
+<li><p>(<span class="math inline">\(n=1\)</span>): <span class="math inline">\(\lim_{x \to c}\frac{f(x) - f(c)}{x - c}\)</span> exists.</p></li>
+<li><p>(<span class="math inline">\(n&gt;1\)</span>): There exists <span class="math inline">\(\delta \in (0, b-a)\)</span> such that <span class="math inline">\(f\)</span> is <span class="math inline">\(n\)</span>-times differentiable on <span class="math inline">\((c - \delta, c + \delta)\)</span> and the <span class="math inline">\((n-1)\)</span>-th derivative function of <span class="math inline">\(f\)</span>, <span class="math inline">\(f^{(n-1)}: (c - \delta, c + \delta) \to \mathbb{R}\)</span> is differentiable at <span class="math inline">\(c\)</span>.</p>
 </div>
+</div>
+<p>In terms of notation, have that <span class="math display">\[f^{(n)}(x) =  f^{\hspace{-0.2cm}\overbrace{\,&#39;\cdots&#39;\,}^{n\; \text{primes}}}\hspace{-0.25cm}(x).\]</span> The inclusion of brackets here is really important, as omitting them just gives us <span class="math inline">\(f^n\)</span>, which is just the product of <span class="math inline">\(f\)</span> with itself <span class="math inline">\(n\)</span> times!</p></li>
+</ul>
+<p>As you’ve seen, polynomials, <span class="math inline">\(\sin\)</span>, <span class="math inline">\(\cos\)</span> and <span class="math inline">\(\exp\)</span> are <span class="math inline">\(n\)</span>-times differentiable on <span class="math inline">\(\mathbb{R}\)</span> for all <span class="math inline">\(n \in \mathbb{N}\)</span>. These functions are known as smooth. As a result, the function <span class="math inline">\(f:\mathbb{R} \to \mathbb{R}\)</span> given by <span class="math display">\[f(x) = \begin{cases} -&amp;\frac{x^n}{n!} \;\; &amp;&amp;\text{if}\; x\leq 0,\\
+&amp;\frac{x^n}{n!} \;\; &amp;&amp;\text{if}\; x &gt; 0.\end{cases}\]</span> can be differentiated infinitely many times on <span class="math inline">\(\mathbb{R}\setminus\lbrace 0 \rbrace\)</span>, but only <span class="math inline">\(n\)</span> times at <span class="math inline">\(x = 0\)</span>.</p>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="lhôpitals-rule-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="lhôpitals-rule-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="hints.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
