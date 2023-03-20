@@ -96,10 +96,55 @@ Let $a,b \in \mathbb{R}$ with $a < b$, and $f:(a,b) \to \mathbb{R}$. We say that
 
   * ($n>1$): There exists $\delta \in (0, b-a)$ such that $f$ is $n$-times differentiable on $(c - \delta, c + \delta)$ and the $(n-1)$-th derivative function of $f$, $f^{(n-1)}: (c - \delta, c + \delta) \to \mathbb{R}$ is differentiable at $c$.
 ```
-In terms of notation, have that $$f^{(n)}(x) =  f^{\hspace{-0.2cm}\overbrace{\,'\cdots'\,}^{n\; \text{primes}}}\hspace{-0.25cm}(x).$$ The inclusion of brackets here is really important, as omitting them just gives us $f^n$, which is just the product of $f$ with itself $n$ times!
+In terms of notation, we have that $$f^{(n)}(x) =  f^{\hspace{-0.2cm}\overbrace{\,'\cdots'\,}^{n\; \text{primes}}}\hspace{-0.25cm}(x).$$ The inclusion of brackets here is really important, as omitting them just gives us $f^n$, which is just the product of $f$ with itself $n$ times!
 
-As you've seen, polynomials, $\sin$, $\cos$ and $\exp$ are $n$-times differentiable on $\mathbb{R}$ for all $n \in \mathbb{N}$. These functions are known as smooth. As a result, the function $f:\mathbb{R} \to \mathbb{R}$ given by $$f(x) = \begin{cases} -&\frac{x^n}{n!} \;\; &&\text{if}\; x\leq 0,\\
-&\frac{x^n}{n!} \;\; &&\text{if}\; x > 0.\end{cases}$$ can be differentiated infinitely many times on $\mathbb{R}\setminus\lbrace 0 \rbrace$, but only $n$ times at $x = 0$.
+As you've seen, polynomials, $\sin$, $\cos$ and $\exp$ are $n$-times differentiable on $\mathbb{R}$ for all $n \in \mathbb{N}$. These functions are known as smooth. As a result, the function $f:\mathbb{R} \to \mathbb{R}$ given by $$f(x) = \begin{cases} -&\frac{x^{n+1}}{(n+1)!} \;\; &&\text{if}\; x\leq 0,\\
+&\frac{x^{n+1}}{(n+1)!} \;\; &&\text{if}\; x > 0.\end{cases}$$ can be differentiated infinitely many times on $\mathbb{R}\setminus\lbrace 0 \rbrace$, but only $n$ times at $x = 0$.
+
+### Conditions for Extrema
+Second order derivatives in particular can be quite useful when looking at the extrema of functions. Given a set of candidate extrema (critical points and interval endpoints), we can use the second derivatives to establish some selection criteria to determine whether they are local max or local min points. 
+
+Here, we present the results for local max points of a function $f$ only, as corresponding results for local min points can be deduced by considering $-f$.
+
+```{theorem, label="thm2", name = "Necessary Conditions for Local Maxima"}
+Let $a,b \in \mathbb{R}$ with $a<b$. Also, let $p \in (a,b)$, and let $f: (a,b) \to \mathbb{R}$ be differentiable on $(a,b)$ and twice differentiable at $p$. If $p$ is a local max point of $f$, then $f'(p) = 0$, and $f''(p) \leq 0$. 
+
+```
+One thing to note here is that this theorem allows you to discount points from being local maxima --- you cannot use it to say that a point is a local maximum point! To do that, you need the converse of this theorem to hold true, and by considering the function $f:(-1,1) \to \mathbb{R}$, $f(x) = x^3$ at $p=0$, we see that the converse does not hold. 
+
+However, all hope is not lost! A partial converse does hold, which we can use to determine whether a point is a local maximum:
+
+```{theorem, label="thm3", name = "Sufficient Conditions for Local Maxima"}
+Let $a,b \in \mathbb{R}$ with $a<b$. Also, let $p \in (a,b)$, and let $f: (a,b) \to \mathbb{R}$ be differentiable on $(a,b)$ and twice differentiable at $p$. If $f'(p) = 0$, and $f''(p) < 0$, then $p$ is a local max point of $f$. 
+
+```
+
+## Taylor's Theorem
+This next theorem is quite possibly the most useful[^3] theorem that you'll learn in this course. Simply put, it gives you a way of approximating a complicated function by a polynomial. In maths terms, we have the following:
+
+```{theorem, label="thm4", name = "Taylor's Theorem"}
+Let $n \in \mathbb{N}$ and $x_0,x \in \mathbb{R}.$ Let $I \subseteq \mathbb{R}$ be an open interval containing $[x_0,x].$ Let $f:I\to\mathbb{R}$ be $(n+1)$-times differentiable on $I$. Then, $\exists c \in (x_0,x)$ such that $$f(x) = \sum_{k = 0}^{n} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + R_n,$$ where $$R_n = \frac{f^{(n+1)}(c)}{(n+1)!}(x - x_0)^{n+1}.$$
+
+```
+Here, $R_n$ is a remainder term, and the form above is known as the *Lagrange form* of the remainder[^4]. As an example, we ca plot successive Taylor approximations to $\sin$, as is seen in Figure \@ref(fig:sinapx). What we find is that even small term Taylor approximations can be quite accurate!
+
+```{r,sinapx,fig.show='hold',fig.cap="Taylor approximations to $\\sin(x)$ at $x=0$ of degree 1 (red), 3 (orange), 5 (yellow), 7 (green), 9 (blue), 11 (purple) and 13 (pink). Taken from [Wikipedia](By IkamusumeFan - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=27865201).", fig.alt="A diagram illustrating Taylor's Theorem", out.width = "50%", echo=F}
+show_fig("sinapx")
+```
+
+So, why is this theorem so useful? Firstly, it allows computers to work with complicated, non-linear functions such as $\exp$ and $\sin$, without losing too much by way of accuracy. Secondly, Taylor's theorem allows us to actually do some analysis on physical systems.
+
+```{r,bob,fig.show='hold',fig.cap="A pendulum consisting of a string of length $\\ell$ with a mass $m$ attached to one end. The pendulum is allowed to perform planar oscillations under the influence of gravity $g$, which causes the angle to the vertical, $\\theta$, to change with time.", fig.alt="The setup for a simple pendulum.", echo=F}
+show_fig("bob")
+```
+
+If you've seen it in MA10236, the equation of motion for a pendulum bob of mass $m$ connected to a string of length $\ell$ (Figure \@ref(fig:bob)) is given by $$\theta'' + \frac{g}{\ell}\sin(\theta) = 0.$$ This is a non-linear differential equation, which we need to solve numerically. However, if we make a 'small angle' approximation, then by Taylor's theorem, $\sin(\theta) \approx \theta$, and the equation becomes $$\ddot{\theta} + \frac{g}{\ell}\theta= 0,$$ which becomes analytically tractable!
+
+Finally, we can also use the expansion in Taylor's Theorem to define differentiation in more than one dimension! If you're interested in how this is done, take MA20218 next year!
+ 
+[^3]: In a practical sense, anyway.
+[^4]: There is another form, which you may not be surprised to learn is named after Cauchy.
+
 
 # Hints
 As per usual, here's where you'll find the problem sheet hints!

@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="lhôpitals-rule-1.html"/>
-<link rel="next" href="hints.html"/>
+<link rel="next" href="taylors-theorem.html"/>
 
 <script src="libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -270,7 +270,11 @@ MathJax.Hub.Config({
 <li class="chapter" data-level="1" data-path="lecture-recap.html"><a href="lecture-recap.html"><i class="fa fa-check"></i><b>1</b> Lecture Recap</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="lhôpitals-rule-1.html"><a href="lhôpitals-rule-1.html"><i class="fa fa-check"></i><b>1.1</b> L’Hôpital’s Rule </a></li>
-<li class="chapter" data-level="1.2" data-path="higher-order-derivatives.html"><a href="higher-order-derivatives.html"><i class="fa fa-check"></i><b>1.2</b> Higher Order Derivatives</a></li>
+<li class="chapter" data-level="1.2" data-path="higher-order-derivatives.html"><a href="higher-order-derivatives.html"><i class="fa fa-check"></i><b>1.2</b> Higher Order Derivatives</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="higher-order-derivatives.html"><a href="higher-order-derivatives.html#conditions-for-extrema"><i class="fa fa-check"></i><b>1.2.1</b> Conditions for Extrema</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="taylors-theorem.html"><a href="taylors-theorem.html"><i class="fa fa-check"></i><b>1.3</b> Taylor’s Theorem</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="hints.html"><a href="hints.html"><i class="fa fa-check"></i><b>2</b> Hints</a></li>
 </ul>
@@ -302,19 +306,39 @@ MathJax.Hub.Config({
 <li><p>(<span class="math inline">\(n&gt;1\)</span>): There exists <span class="math inline">\(\delta \in (0, b-a)\)</span> such that <span class="math inline">\(f\)</span> is <span class="math inline">\(n\)</span>-times differentiable on <span class="math inline">\((c - \delta, c + \delta)\)</span> and the <span class="math inline">\((n-1)\)</span>-th derivative function of <span class="math inline">\(f\)</span>, <span class="math inline">\(f^{(n-1)}: (c - \delta, c + \delta) \to \mathbb{R}\)</span> is differentiable at <span class="math inline">\(c\)</span>.</p>
 </div>
 </div>
-<p>In terms of notation, have that <span class="math display">\[f^{(n)}(x) =  f^{\hspace{-0.2cm}\overbrace{\,&#39;\cdots&#39;\,}^{n\; \text{primes}}}\hspace{-0.25cm}(x).\]</span> The inclusion of brackets here is really important, as omitting them just gives us <span class="math inline">\(f^n\)</span>, which is just the product of <span class="math inline">\(f\)</span> with itself <span class="math inline">\(n\)</span> times!</p></li>
+<p>In terms of notation, we have that <span class="math display">\[f^{(n)}(x) =  f^{\hspace{-0.2cm}\overbrace{\,&#39;\cdots&#39;\,}^{n\; \text{primes}}}\hspace{-0.25cm}(x).\]</span> The inclusion of brackets here is really important, as omitting them just gives us <span class="math inline">\(f^n\)</span>, which is just the product of <span class="math inline">\(f\)</span> with itself <span class="math inline">\(n\)</span> times!</p></li>
 </ul>
-<p>As you’ve seen, polynomials, <span class="math inline">\(\sin\)</span>, <span class="math inline">\(\cos\)</span> and <span class="math inline">\(\exp\)</span> are <span class="math inline">\(n\)</span>-times differentiable on <span class="math inline">\(\mathbb{R}\)</span> for all <span class="math inline">\(n \in \mathbb{N}\)</span>. These functions are known as smooth. As a result, the function <span class="math inline">\(f:\mathbb{R} \to \mathbb{R}\)</span> given by <span class="math display">\[f(x) = \begin{cases} -&amp;\frac{x^n}{n!} \;\; &amp;&amp;\text{if}\; x\leq 0,\\
-&amp;\frac{x^n}{n!} \;\; &amp;&amp;\text{if}\; x &gt; 0.\end{cases}\]</span> can be differentiated infinitely many times on <span class="math inline">\(\mathbb{R}\setminus\lbrace 0 \rbrace\)</span>, but only <span class="math inline">\(n\)</span> times at <span class="math inline">\(x = 0\)</span>.</p>
+<p>As you’ve seen, polynomials, <span class="math inline">\(\sin\)</span>, <span class="math inline">\(\cos\)</span> and <span class="math inline">\(\exp\)</span> are <span class="math inline">\(n\)</span>-times differentiable on <span class="math inline">\(\mathbb{R}\)</span> for all <span class="math inline">\(n \in \mathbb{N}\)</span>. These functions are known as smooth. As a result, the function <span class="math inline">\(f:\mathbb{R} \to \mathbb{R}\)</span> given by <span class="math display">\[f(x) = \begin{cases} -&amp;\frac{x^{n+1}}{(n+1)!} \;\; &amp;&amp;\text{if}\; x\leq 0,\\
+&amp;\frac{x^{n+1}}{(n+1)!} \;\; &amp;&amp;\text{if}\; x &gt; 0.\end{cases}\]</span> can be differentiated infinitely many times on <span class="math inline">\(\mathbb{R}\setminus\lbrace 0 \rbrace\)</span>, but only <span class="math inline">\(n\)</span> times at <span class="math inline">\(x = 0\)</span>.</p>
+<div id="conditions-for-extrema" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Conditions for Extrema</h3>
+<p>Second order derivatives in particular can be quite useful when looking at the extrema of functions. Given a set of candidate extrema (critical points and interval endpoints), we can use the second derivatives to establish some selection criteria to determine whether they are local max or local min points.</p>
+<p>Here, we present the results for local max points of a function <span class="math inline">\(f\)</span> only, as corresponding results for local min points can be deduced by considering <span class="math inline">\(-f\)</span>.</p>
+
+<div id="thm:thm2" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm2" custom-style="NameStyle"><strong>Theorem 1.2:  (Necessary Conditions for Local Maxima) </strong></span>
+<p>
+Let <span class="math inline">\(a,b \in \mathbb{R}\)</span> with <span class="math inline">\(a&lt;b\)</span>. Also, let <span class="math inline">\(p \in (a,b)\)</span>, and let <span class="math inline">\(f: (a,b) \to \mathbb{R}\)</span> be differentiable on <span class="math inline">\((a,b)\)</span> and twice differentiable at <span class="math inline">\(p\)</span>. If <span class="math inline">\(p\)</span> is a local max point of <span class="math inline">\(f\)</span>, then <span class="math inline">\(f&#39;(p) = 0\)</span>, and <span class="math inline">\(f&#39;&#39;(p) \leq 0\)</span>.
+</p>
 </div>
-<!-- </div> -->
+<p>One thing to note here is that this theorem allows you to discount points from being local maxima — you cannot use it to say that a point is a local maximum point! To do that, you need the converse of this theorem to hold true, and by considering the function <span class="math inline">\(f:(-1,1) \to \mathbb{R}\)</span>, <span class="math inline">\(f(x) = x^3\)</span> at <span class="math inline">\(p=0\)</span>, we see that the converse does not hold.</p>
+<p>However, all hope is not lost! A partial converse does hold, which we can use to determine whether a point is a local maximum:</p>
+
+<div id="thm:thm3" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm3" custom-style="NameStyle"><strong>Theorem 1.3:  (Sufficient Conditions for Local Maxima) </strong></span>
+<p>
+Let <span class="math inline">\(a,b \in \mathbb{R}\)</span> with <span class="math inline">\(a&lt;b\)</span>. Also, let <span class="math inline">\(p \in (a,b)\)</span>, and let <span class="math inline">\(f: (a,b) \to \mathbb{R}\)</span> be differentiable on <span class="math inline">\((a,b)\)</span> and twice differentiable at <span class="math inline">\(p\)</span>. If <span class="math inline">\(f&#39;(p) = 0\)</span>, and <span class="math inline">\(f&#39;&#39;(p) &lt; 0\)</span>, then <span class="math inline">\(p\)</span> is a local max point of <span class="math inline">\(f\)</span>.
+</p>
+</div>
+</div>
+</div>
             </section>
 
           </div>
         </div>
       </div>
 <a href="lhôpitals-rule-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="hints.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="taylors-theorem.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
