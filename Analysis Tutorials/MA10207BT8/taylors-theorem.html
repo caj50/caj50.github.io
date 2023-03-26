@@ -304,22 +304,24 @@ MathJax.Hub.Config({
 Let <span class="math inline">\(n \in \mathbb{N}\)</span> and <span class="math inline">\(x_0,x \in \mathbb{R}.\)</span> Let <span class="math inline">\(I \subseteq \mathbb{R}\)</span> be an open interval containing <span class="math inline">\([x_0,x].\)</span> Let <span class="math inline">\(f:I\to\mathbb{R}\)</span> be <span class="math inline">\((n+1)\)</span>-times differentiable on <span class="math inline">\(I\)</span>. Then, <span class="math inline">\(\exists c \in (x_0,x)\)</span> such that <span class="math display">\[f(x) = \sum_{k = 0}^{n} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + R_n,\]</span> where <span class="math display">\[R_n = \frac{f^{(n+1)}(c)}{(n+1)!}(x - x_0)^{n+1}.\]</span>
 </p>
 </div>
-<p>Here, <span class="math inline">\(R_n\)</span> is a remainder term, and the form above is known as the <em>Lagrange form</em> of the remainder<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>. As an example, we ca plot successive Taylor approximations to <span class="math inline">\(\sin\)</span>, as is seen in Figure <a href="taylors-theorem.html#fig:sinapx">1.1</a>. What we find is that even small term Taylor approximations can be quite accurate!</p>
-<div class="figure"><span id="fig:sinapx"></span>
-<img src="Sinapx.svg" alt="A diagram illustrating Taylor's Theorem" width="50%" />
+<p>Here, <span class="math inline">\(R_n\)</span> is a remainder term, and the form above is known as the <em>Lagrange form</em> of the remainder<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>. As an example, we can plot successive Taylor approximations to <span class="math inline">\(\sin\)</span>, as is seen in Figure <a href="taylors-theorem.html#fig:sinapx">1.1</a> (Taken from <a href="By%20IkamusumeFan%20-%20Own%20work,%20CC%20BY-SA%203.0,%20https://commons.wikimedia.org/w/index.php?curid=27865201">Wikipedia</a>). What we find is that even small term Taylor approximations can be quite accurate!</p>
+<div class="figure" style="text-align: center"><span id="fig:sinapx"></span>
+<img src="sinapx.svg" alt="A diagram illustrating Taylor's Theorem" width="50%" />
 <p class="caption">
-Figure 1.1: Taylor approximations to <span class="math inline">\(\sin(x)\)</span> at <span class="math inline">\(x=0\)</span> of degree 1 (red), 3 (orange), 5 (yellow), 7 (green), 9 (blue), 11 (purple) and 13 (pink). Taken from <a href="By%20IkamusumeFan%20-%20Own%20work,%20CC%20BY-SA%203.0,%20https://commons.wikimedia.org/w/index.php?curid=27865201">Wikipedia</a>.
+Figure 1.1: Taylor approximations to <span class="math inline">\(\sin(x)\)</span> at <span class="math inline">\(x=0\)</span> of degree 1 (red), 3 (orange), 5 (yellow), 7 (green), 9 (blue), 11 (purple) and 13 (pink).
 </p>
 </div>
-<p>So, why is this theorem so useful? Firstly, it allows computers to work with complicated, non-linear functions such as <span class="math inline">\(\exp\)</span> and <span class="math inline">\(\sin\)</span>, without losing too much by way of accuracy. Secondly, Taylor’s theorem allows us to actually do some analysis on physical systems.</p>
-<div class="figure"><span id="fig:bob"></span>
-<img src="bob.svg" alt="The setup for a simple pendulum."  />
-<p class="caption">
-Figure 1.2: A pendulum consisting of a string of length <span class="math inline">\(\ell\)</span> with a mass <span class="math inline">\(m\)</span> attached to one end. The pendulum is allowed to perform planar oscillations under the influence of gravity <span class="math inline">\(g\)</span>, which causes the angle to the vertical, <span class="math inline">\(\theta\)</span>, to change with time.
-</p>
+<p>So, why is this theorem so useful? Firstly, it allows computers to work with complicated, non-linear functions such as <span class="math inline">\(\exp\)</span> and <span class="math inline">\(\sin\)</span> without losing too much by way of accuracy. Secondly, Taylor’s theorem allows us to actually do some analysis on physical systems.</p>
+
+<div id="exm:ex1" class="bookdown-example" custom-style="ExampleStyle">
+<span class="exm:ex1" custom-style="NameStyle"><strong>Example 1.1:  </strong></span>
+<div>
+<p>Consider a pendulum consisting of a mass <span class="math inline">\(m\)</span> connected to a string (under tension) of length <span class="math inline">\(\ell\)</span>.</p>
+<p><img src="bob.svg" /></p>
+If you’ve seen it in MA10236 (Vectors, Vector Calculus and Mechanics), the equation of motion for this system is given by <span class="math display">\[\theta&#39;&#39; + \frac{g}{\ell}\sin(\theta) = 0.\]</span> This is a non-linear differential equation, which we need to solve numerically. However, if we make a ‘small angle’ approximation, then by Taylor’s theorem, <span class="math inline">\(\sin(\theta) \approx \theta\)</span>, and the equation becomes <span class="math display">\[\theta&#39;&#39; + \frac{g}{\ell}\theta= 0.\]</span> This is analytically tractable, and — subject to suitable initial conditions — we can write down a solution!
 </div>
-<p>If you’ve seen it in MA10236, the equation of motion for a pendulum bob of mass <span class="math inline">\(m\)</span> connected to a string of length <span class="math inline">\(\ell\)</span> (Figure <a href="taylors-theorem.html#fig:bob">1.2</a>) is given by <span class="math display">\[\theta&#39;&#39; + \frac{g}{\ell}\sin(\theta) = 0.\]</span> This is a non-linear differential equation, which we need to solve numerically. However, if we make a ‘small angle’ approximation, then by Taylor’s theorem, <span class="math inline">\(\sin(\theta) \approx \theta\)</span>, and the equation becomes <span class="math display">\[\ddot{\theta} + \frac{g}{\ell}\theta= 0,\]</span> which becomes analytically tractable!</p>
-<p>Finally, we can also use the expansion in Taylor’s Theorem to define differentiation in more than one dimension! If you’re interested in how this is done, take MA20218 next year!</p>
+</div>
+<p>Finally, we can also use the expansion in Taylor’s Theorem to define differentiation in more than one dimension! If you’re interested in how this is done, take <a href="https://people.bath.ac.uk/mo221/MA20219/notes.bho/lecturenotes.pdf">MA20219</a> (Analysis 2B) next year!<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
 </div>
 <!-- </div> -->
 <div class="footnotes">
@@ -327,6 +329,7 @@ Figure 1.2: A pendulum consisting of a string of length <span class="math inline
 <ol start="3">
 <li id="fn3"><p>In a practical sense, anyway.<a href="taylors-theorem.html#fnref3" class="footnote-back">↩︎</a></p></li>
 <li id="fn4"><p>There is another form, which you may not be surprised to learn is named after Cauchy.<a href="taylors-theorem.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>The link here will take you to some lecture notes; see Chapter 1 for details.<a href="taylors-theorem.html#fnref5" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
