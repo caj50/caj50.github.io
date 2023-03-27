@@ -16,16 +16,6 @@ output:
       download: [["Tutorial8.html", "HTML page"], ["Tutorial8.pdf","Standard print PDF"], ["Tutorial8Clear.pdf","Clear print PDF"], ["Tutorial8Large.pdf","Large print PDF"], ["Tutorial8.docx","Accessible Word document"], ["Tutorial8.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
-  clavertondown::pdf_clav:
-    latex_engine: pdflatex
-    keep_tex: true
-    fig_caption: true
-    toc: true
-    extra_dependencies: ["float"]
-    pandoc_args: --default-image-extension=pdf
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
   clavertondown::word_clav:
     toc: true
     number_sections: true
@@ -34,6 +24,16 @@ output:
   clavertondown::html_clav:
     toc: true
     pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
+  clavertondown::pdf_clav:
+    latex_engine: pdflatex
+    keep_tex: true
+    fig_caption: true
+    toc: true
+    extra_dependencies: ["float"]
+    pandoc_args: --default-image-extension=pdf
 header-includes:
   - \newcommand{\BOO}{BOO}
   - \usepackage {hyperref}
@@ -80,7 +80,7 @@ Then $\lim_{x \to c} \frac{f(x)}{g(x)} = \lim_{x \to c} \frac{f'(x)}{g'(x)}.$
   
   * $n=1$: $\lim_{x \to c}\frac{f(x) - f(c)}{x - c}$ exists.
 
-  * $n>1$: There exists $\delta \in (0, b-a)$ such that $f$ is $n$-times differentiable on $(c - \delta, c + \delta)$ and the $(n-1)$-th derivative function of $f$, $f^{(n-1)}: (c - \delta, c + \delta) \to \mathbb{R}$ is differentiable at $c$.
+  * $n>1$: There exists $\delta \in (0, b-a)$ such that $f$ is $(n-1)$-times differentiable on $(c - \delta, c + \delta)$ and the $(n-1)$-th derivative function of $f$, $f^{(n-1)}: (c - \delta, c + \delta) \to \mathbb{R}$ is differentiable at $c$.
 </div></div>\EndKnitrBlock{definition}
 In terms of notation, we have that $$f^{(n)}(x) = \left(f^{(n-1)}\right)'(x) =  f^{\hspace{-0.2cm}\overbrace{\,'\cdots'\,}^{n\; \text{primes}}}\hspace{-0.25cm}(x).$$ The inclusion of brackets here to specify a derivative is really important, as omitting them just gives us $f^n$, which is the product of $f$ with itself $n$ times!
 
