@@ -64,17 +64,24 @@ But how do we find this area mathematically? The idea is to look at the domain o
 
 In all of what follows, we are going to need a bounded function $f : [a,b] \to \mathbb{R}$. This is so its supremum and infimum exist.
 
+### Subdivisions and Riemann Sums
+
 \BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def1"><span class="def:def1" custom-style="NameStyle"><strong>(\#def:def1)  (Subdivision) </strong></span><div>A *subdivision* (or partition or dissection) of $[a,b]$ is a finite set $P = \lbrace x_0, x_1, \ldots, x_n \rbrace$ with $$a = x_0 < x_1 < \ldots < x_n = b.$$
 </div></div>\EndKnitrBlock{definition}
 
-Now that we have our subdivision of the domain, we need to define our under- and overestimates of the area below $f$.
+Now that we have our subdivision of the domain, we need to define our under- and overestimates of the area below $f$. These are defined mathematically below, but can be seen geometrically in Figure \@ref(fig:Riemann).
 
 \BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def2"><span class="def:def2" custom-style="NameStyle"><strong>(\#def:def2)  (Lower Riemann Sum) </strong></span><div>The *lower Riemann sum* of $f$ on a subdivision $P$ is $$L(f,P) = \sum_{i=1}^{n} m_i (x_i - x_{i-1}),$$ where $$m_i = \inf_{[x_{i-1},x_i]}f(x) := \inf\lbrace f(x) \lvert x \in [x_{i-1},x_i]\rbrace.$$</div></div>\EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def3"><span class="def:def3" custom-style="NameStyle"><strong>(\#def:def3)  (Upper Riemann Sum) </strong></span><div>The *upper Riemann sum* of $f$ on a subdivision $P$ is $$U(f,P) = \sum_{i=1}^{n} M_i (x_i - x_{i-1}),$$ where $$M_i = \sup_{[x_{i-1},x_i]}f(x) := \sup\lbrace f(x) \lvert x \in [x_{i-1},x_i]\rbrace.$$</div></div>\EndKnitrBlock{definition}
 
-Figure \@ref(fig:Riemann) shows the difference between the lower and upper Riemann sums for a subdivision $P$ of $[a,b]$.
 
+<div class="figure" style="text-align: center">
+<img src="riemannsums.svg" alt="A diagram illustrating Taylor's Theorem"  />
+<p class="caption">(\#fig:Riemann)The upper and lower Riemann sums for a function $f:[a,b] \to \mathbb{R}$ defined on a subdivision $P = \lbrace x_0,x_1,x_2,x_3 \rbrace$ of $[a,b]$. The lower Riemann sum is the total area of the green rectangles, and the upper Riemann sum is the total area of the green and orange rectangles.</p>
+</div>
+
+### Refinements
 At this stage, given a bounded function $f:[a,b] \to \mathbb{R}$, we have a way of subdividing the domain and a way of estimating the area under $f$. We'd now like to consider what happens to the estimates as we make our subdivision finer. This leads on to the idea of a refinement:
 
 \BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def4"><span class="def:def4" custom-style="NameStyle"><strong>(\#def:def4)  (Refinement) </strong></span><div>Let $P = \lbrace x_0, x_1, \ldots, x_n \rbrace$ and $Q = \lbrace y_0, y_1, \ldots, y_m \rbrace$ be subdivisions of $[a,b].$ Then $Q$ is a *refinement* of $P$ if $P\subseteq Q$.</div></div>\EndKnitrBlock{definition}

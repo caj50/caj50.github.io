@@ -75,12 +75,14 @@ But how do we find this area mathematically? The idea is to look at the domain o
 
 In all of what follows, we are going to need a bounded function $f : [a,b] \to \mathbb{R}$. This is so its supremum and infimum exist.
 
+### Subdivisions and Riemann Sums
+
 ```{definition, label = "def1", name = "Subdivision"}
 A *subdivision* (or partition or dissection) of $[a,b]$ is a finite set $P = \lbrace x_0, x_1, \ldots, x_n \rbrace$ with $$a = x_0 < x_1 < \ldots < x_n = b.$$
 
 ```
 
-Now that we have our subdivision of the domain, we need to define our under- and overestimates of the area below $f$.
+Now that we have our subdivision of the domain, we need to define our under- and overestimates of the area below $f$. These are defined mathematically below, but can be seen geometrically in Figure \@ref(fig:Riemann).
 
 ```{definition, label = "def2", name = "Lower Riemann Sum"}
 The *lower Riemann sum* of $f$ on a subdivision $P$ is $$L(f,P) = \sum_{i=1}^{n} m_i (x_i - x_{i-1}),$$ where $$m_i = \inf_{[x_{i-1},x_i]}f(x) := \inf\lbrace f(x) \lvert x \in [x_{i-1},x_i]\rbrace.$$
@@ -90,8 +92,12 @@ The *lower Riemann sum* of $f$ on a subdivision $P$ is $$L(f,P) = \sum_{i=1}^{n}
 The *upper Riemann sum* of $f$ on a subdivision $P$ is $$U(f,P) = \sum_{i=1}^{n} M_i (x_i - x_{i-1}),$$ where $$M_i = \sup_{[x_{i-1},x_i]}f(x) := \sup\lbrace f(x) \lvert x \in [x_{i-1},x_i]\rbrace.$$
 ```
 
-Figure \@ref(fig:Riemann) shows the difference between the lower and upper Riemann sums for a subdivision $P$ of $[a,b]$.
 
+```{r,Riemann,fig.show='hold',fig.cap="The upper and lower Riemann sums for a function $f:[a,b] \\to \\mathbb{R}$ defined on a subdivision $P = \\lbrace x_0,x_1,x_2,x_3 \\rbrace$ of $[a,b]$. The lower Riemann sum is the total area of the green rectangles, and the upper Riemann sum is the total area of the green and orange rectangles.", fig.alt="A diagram illustrating Taylor's Theorem", fig.align="center", echo=F}
+show_fig("riemannsums")
+```
+
+### Refinements
 At this stage, given a bounded function $f:[a,b] \to \mathbb{R}$, we have a way of subdividing the domain and a way of estimating the area under $f$. We'd now like to consider what happens to the estimates as we make our subdivision finer. This leads on to the idea of a refinement:
 
 ```{definition, label = "def4", name = "Refinement"}

@@ -269,7 +269,11 @@ MathJax.Hub.Config({
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="1" data-path="lecture-recap.html"><a href="lecture-recap.html"><i class="fa fa-check"></i><b>1</b> Lecture Recap</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="fundamentals-of-integration.html"><a href="fundamentals-of-integration.html"><i class="fa fa-check"></i><b>1.1</b> Fundamentals of Integration</a></li>
+<li class="chapter" data-level="1.1" data-path="fundamentals-of-integration.html"><a href="fundamentals-of-integration.html"><i class="fa fa-check"></i><b>1.1</b> Fundamentals of Integration</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="fundamentals-of-integration.html"><a href="fundamentals-of-integration.html#subdivisions-and-riemann-sums"><i class="fa fa-check"></i><b>1.1.1</b> Subdivisions and Riemann Sums</a></li>
+<li class="chapter" data-level="1.1.2" data-path="fundamentals-of-integration.html"><a href="fundamentals-of-integration.html#refinements"><i class="fa fa-check"></i><b>1.1.2</b> Refinements</a></li>
+</ul></li>
 <li class="chapter" data-level="1.2" data-path="useful-results-for-subdivisions.html"><a href="useful-results-for-subdivisions.html"><i class="fa fa-check"></i><b>1.2</b> Useful Results for Subdivisions</a></li>
 <li class="chapter" data-level="1.3" data-path="the-definition.html"><a href="the-definition.html"><i class="fa fa-check"></i><b>1.3</b> The Definition!</a></li>
 </ul></li>
@@ -296,6 +300,8 @@ MathJax.Hub.Config({
 <p>Just as we used derivatives to find how fast a function is changing at a given point, we may also be interested in how much area lies between a function and its domain. For example, if we extend an elastic spring by a distance <span class="math inline">\(x\)</span>, and consider the corresponding force to do so, <span class="math inline">\(F(x)\)</span>, then the area under a graph of <span class="math inline">\(F(x)\)</span> tells us how much (elastic) energy is stored in the spring.</p>
 <p>But how do we find this area mathematically? The idea is to look at the domain of the function, split it up, and over/underestimate the area using rectangles. The hope is then that as the division of the domain becomes finer and finer, the estimates converge to the true area under the graph of our function.</p>
 <p>In all of what follows, we are going to need a bounded function <span class="math inline">\(f : [a,b] \to \mathbb{R}\)</span>. This is so its supremum and infimum exist.</p>
+<div id="subdivisions-and-riemann-sums" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Subdivisions and Riemann Sums</h3>
 
 <div id="def:def1" class="bookdown-definition" custom-style="DefinitionStyle">
 <span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Subdivision) </strong></span>
@@ -303,7 +309,7 @@ MathJax.Hub.Config({
 <p>A <em>subdivision</em> (or partition or dissection) of <span class="math inline">\([a,b]\)</span> is a finite set <span class="math inline">\(P = \lbrace x_0, x_1, \ldots, x_n \rbrace\)</span> with <span class="math display">\[a = x_0 &lt; x_1 &lt; \ldots &lt; x_n = b.\]</span></p>
 </div>
 </div>
-<p>Now that we have our subdivision of the domain, we need to define our under- and overestimates of the area below <span class="math inline">\(f\)</span>.</p>
+<p>Now that we have our subdivision of the domain, we need to define our under- and overestimates of the area below <span class="math inline">\(f\)</span>. These are defined mathematically below, but can be seen geometrically in Figure <a href="fundamentals-of-integration.html#fig:Riemann">1.1</a>.</p>
 
 <div id="def:def2" class="bookdown-definition" custom-style="DefinitionStyle">
 <span class="def:def2" custom-style="NameStyle"><strong>Definition 1.2:  (Lower Riemann Sum) </strong></span>
@@ -318,7 +324,15 @@ The <em>lower Riemann sum</em> of <span class="math inline">\(f\)</span> on a su
 The <em>upper Riemann sum</em> of <span class="math inline">\(f\)</span> on a subdivision <span class="math inline">\(P\)</span> is <span class="math display">\[U(f,P) = \sum_{i=1}^{n} M_i (x_i - x_{i-1}),\]</span> where <span class="math display">\[M_i = \sup_{[x_{i-1},x_i]}f(x) := \sup\lbrace f(x) \lvert x \in [x_{i-1},x_i]\rbrace.\]</span>
 </div>
 </div>
-<p>Figure <a href="#fig:Riemann"><strong>??</strong></a> shows the difference between the lower and upper Riemann sums for a subdivision <span class="math inline">\(P\)</span> of <span class="math inline">\([a,b]\)</span>.</p>
+<div class="figure" style="text-align: center"><span id="fig:Riemann"></span>
+<img src="riemannsums.svg" alt="A diagram illustrating Taylor's Theorem"  />
+<p class="caption">
+Figure 1.1: The upper and lower Riemann sums for a function <span class="math inline">\(f:[a,b] \to \mathbb{R}\)</span> defined on a subdivision <span class="math inline">\(P = \lbrace x_0,x_1,x_2,x_3 \rbrace\)</span> of <span class="math inline">\([a,b]\)</span>. The lower Riemann sum is the total area of the green rectangles, and the upper Riemann sum is the total area of the green and orange rectangles.
+</p>
+</div>
+</div>
+<div id="refinements" class="section level3" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Refinements</h3>
 <p>At this stage, given a bounded function <span class="math inline">\(f:[a,b] \to \mathbb{R}\)</span>, we have a way of subdividing the domain and a way of estimating the area under <span class="math inline">\(f\)</span>. We’d now like to consider what happens to the estimates as we make our subdivision finer. This leads on to the idea of a refinement:</p>
 
 <div id="def:def4" class="bookdown-definition" custom-style="DefinitionStyle">
@@ -328,6 +342,7 @@ Let <span class="math inline">\(P = \lbrace x_0, x_1, \ldots, x_n \rbrace\)</spa
 </div>
 </div>
 <p>Note that under this definition, <span class="math inline">\(P\)</span> is a refinement of itself!</p>
+</div>
 </div>
             </section>
 
