@@ -93,7 +93,7 @@ The *upper Riemann sum* of $f$ on a subdivision $P$ is $$U(f,P) = \sum_{i=1}^{n}
 ```
 
 
-```{r,Riemann,fig.show='hold',fig.cap="The upper and lower Riemann sums for a function $f:[a,b] \\to \\mathbb{R}$ defined on a subdivision $P = \\lbrace x_0,x_1,x_2,x_3 \\rbrace$ of $[a,b]$. The lower Riemann sum is the total area of the green rectangles, and the upper Riemann sum is the total area of the green and orange rectangles.", fig.alt="A diagram illustrating Taylor's Theorem", fig.align="center", echo=F}
+```{r,Riemann,fig.show='hold',fig.cap="The upper and lower Riemann sums for a function $f:[a,b] \\to \\mathbb{R}$ defined on a subdivision $P = \\lbrace x_0,x_1,x_2,x_3 \\rbrace$ of $[a,b]$. The lower Riemann sum is the total area of the blue rectangles, and the upper Riemann sum is the total area of the blue and orange rectangles.", fig.alt="A diagram illustrating Taylor's Theorem", fig.align="center", echo=F}
 show_fig("riemannsums")
 ```
 
@@ -114,6 +114,16 @@ Let $f:[a,b] \to \mathbb{R}$ be bounded, and let $P$ be a subdivision of $[a,b].
   * $L(f,P) \leq U(f,P)$
   * If $Q$ is a refinement of $P$, $$L(f,P) \leq L(f,Q)\;\; \text{and} \;\; U(f,Q) \leq U(f,P).$$
   * If $R$ is **any** other subdivision, $$L(f,P) \leq U(f,R).$$ (This says that every lower Riemann sum is smaller than every upper Riemann sum.)
+
+```
+The proofs of these results rely on some properties of suprema and infima, which are useful to know in any case!
+
+```{proposition, label = "prop2"}
+
+Let $S \subseteq T \subseteq \mathbb{R}$. Then 
+  
+  1. $\inf(S) \leq \sup(S).$
+  2. $\inf(S) \geq \inf(T)$ and $\sup(S) \leq \sup(T).$
 
 ```
 

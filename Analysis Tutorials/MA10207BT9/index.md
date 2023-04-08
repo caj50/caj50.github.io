@@ -78,7 +78,7 @@ Now that we have our subdivision of the domain, we need to define our under- and
 
 <div class="figure" style="text-align: center">
 <img src="riemannsums.svg" alt="A diagram illustrating Taylor's Theorem"  />
-<p class="caption">(\#fig:Riemann)The upper and lower Riemann sums for a function $f:[a,b] \to \mathbb{R}$ defined on a subdivision $P = \lbrace x_0,x_1,x_2,x_3 \rbrace$ of $[a,b]$. The lower Riemann sum is the total area of the green rectangles, and the upper Riemann sum is the total area of the green and orange rectangles.</p>
+<p class="caption">(\#fig:Riemann)The upper and lower Riemann sums for a function $f:[a,b] \to \mathbb{R}$ defined on a subdivision $P = \lbrace x_0,x_1,x_2,x_3 \rbrace$ of $[a,b]$. The lower Riemann sum is the total area of the blue rectangles, and the upper Riemann sum is the total area of the blue and orange rectangles.</p>
 </div>
 
 ### Refinements
@@ -95,6 +95,14 @@ If we refine our subdivisions, what happens to the corresponding lower and upper
   * $L(f,P) \leq U(f,P)$
   * If $Q$ is a refinement of $P$, $$L(f,P) \leq L(f,Q)\;\; \text{and} \;\; U(f,Q) \leq U(f,P).$$
   * If $R$ is **any** other subdivision, $$L(f,P) \leq U(f,R).$$ (This says that every lower Riemann sum is smaller than every upper Riemann sum.)
+</p></div>\EndKnitrBlock{proposition}
+The proofs of these results rely on some properties of suprema and infima, which are useful to know in any case!
+
+\BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop2"><span class="prp:prop2" custom-style="NameStyle"><strong>(\#prp:prop2) </strong></span><p>
+Let $S \subseteq T \subseteq \mathbb{R}$. Then 
+  
+  1. $\inf(S) \leq \sup(S).$
+  2. $\inf(S) \geq \inf(T)$ and $\sup(S) \leq \sup(T).$
 </p></div>\EndKnitrBlock{proposition}
 
 ## The Definition!
