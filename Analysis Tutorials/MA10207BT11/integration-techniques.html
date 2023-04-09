@@ -299,16 +299,16 @@ MathJax.Hub.Config({
 <h2><span class="header-section-number">1.3</span> Integration Techniques</h2>
 <p>To finish the lecture recap, it would be handy to have some theorems which back up some standard integration techniques. Turns out that we do! The first of these (in a fashion) ‘undoes’ the differential product rule.</p>
 
-<div id="thm:thm4" class="bookdown-theorem" custom-style="TheoremStyle">
-<span class="thm:thm4" custom-style="NameStyle"><strong>Theorem 1.6:  (Integration By Parts) </strong></span>
+<div id="thm:thm5" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm5" custom-style="NameStyle"><strong>Theorem 1.7:  (Integration By Parts) </strong></span>
 <p>
 Let <span class="math inline">\(f,g:[a,b] \to \mathbb{R}\)</span> be continuous. Suppose that <span class="math inline">\(F,G:[a,b] \to \mathbb{R}\)</span> are continuous on <span class="math inline">\([a,b]\)</span> and differentiable on <span class="math inline">\((a,b)\)</span> with <span class="math inline">\(F&#39;(x) = f(x)\)</span> and <span class="math inline">\(G&#39;(x) = g(x)\;\; \forall x \in (a,b).\)</span> Then <span class="math display">\[\int_a^b fG = F(b)G(b) - F(a)G(a) - \int_a^b Fg.\]</span>
 </p>
 </div>
 <p>And finally, the second of these can be seen as a way of ‘undoing’ the differential chain rule.</p>
 
-<div id="thm:thm5" class="bookdown-theorem" custom-style="TheoremStyle">
-<span class="thm:thm5" custom-style="NameStyle"><strong>Theorem 1.7:  (Integration By Substitution) </strong></span>
+<div id="thm:thm6" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm6" custom-style="NameStyle"><strong>Theorem 1.8:  (Integration By Substitution) </strong></span>
 <p>
 Let <span class="math inline">\(I \subseteq \mathbb{R}\)</span> be a closed interval and let <span class="math inline">\(f:I \to \mathbb{R}\)</span> be continuous on <span class="math inline">\(I\)</span>. Also, let <span class="math inline">\(J \subseteq \mathbb{R}\)</span> be an open interval, and let <span class="math inline">\(u: J \to I\)</span> be continuously differentiable<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>. Then, for <span class="math inline">\(a,b \in J\)</span>, <span class="math display">\[\int_a^b (f \circ u) u&#39; = \int_{u(a)}^{u(b)} f.\]</span>
 </p>

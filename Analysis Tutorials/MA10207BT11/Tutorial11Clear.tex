@@ -210,9 +210,9 @@ To prove the above two theorems, we need to know a bit about how the bounds of a
 \item
   \(\inf_{I}(f + g) \geq \inf_{I}f + \inf_{I}g\),
 \item
-  If \(\lambda \geq 0\): \(\sup_{I}(\lambda f) = \lambda\sup_{I}f, \;\; \inf_{I}(\lambda f) = \lambda\inf_{I}f\),
+  If \(\lambda \geq 0\): \[\sup_{I}(\lambda f) = \lambda\sup_{I}f, \;\; \inf_{I}(\lambda f) = \lambda\inf_{I}f,\]
 \item
-  If \(\lambda < 0\): \(\sup_{I}(\lambda f) = \lambda\inf_{I}f, \;\; \inf_{I}(\lambda f) = \lambda\sup_{I}f\),
+  If \(\lambda < 0\): \[\sup_{I}(\lambda f) = \lambda\inf_{I}f, \;\; \inf_{I}(\lambda f) = \lambda\sup_{I}f,\]
 \end{itemize}
 \EndKnitrBlock{proposition}
 
@@ -243,11 +243,10 @@ It's worth mentioning here that point 4 above is actually an analogue of the tri
 \hypertarget{the-fundamental-theorems-of-calculus}{%
 \subsection{The Fundamental Theorem(s) of Calculus}\label{the-fundamental-theorems-of-calculus}}
 
-We've finally made it to the biggest theorem of the course, and one which ties in everything done in the last 11 weeks!
+We've finally made it to the biggest theorems of the course, and this ties in everything done in the last 11 weeks! Despite usually being called \emph{the} fundamental theorem of calculus (FTC), it actually encompasses two statements, which is why we state them separately below:
 
-\BeginKnitrBlock{theorem}[Fundamental Theorems of Calculus]
-{\label{thm:thm3} }
-1) Let \(a<b\) and \(I \subseteq \mathbb{R}\) be an open interval containing \([a,b]\). Let \(F:I \to \mathbb{R}\) be differentiable on \(I\), and let \(f:[a,b] \to \mathbb{R}\) be such that
+\BeginKnitrBlock{theorem}[Fundamental Theorem of Calculus I]
+{\label{thm:thm3} }Let \(a<b\) and \(I \subseteq \mathbb{R}\) be an open interval containing \([a,b]\). Let \(F:I \to \mathbb{R}\) be differentiable on \(I\), and let \(f:[a,b] \to \mathbb{R}\) be such that
 
 \begin{itemize}
 \tightlist
@@ -258,14 +257,10 @@ We've finally made it to the biggest theorem of the course, and one which ties i
 \end{itemize}
 
 Then \[\int_a^b f  = F(b) - F(a).\]
+\EndKnitrBlock{theorem}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi})}
-\setcounter{enumi}{1}
-\tightlist
-\item
-  Let \(f:[a,b] \to \mathbb{R}\) be integrable, and define \(F;[a,b] \to \mathbb{R}\) via \[F(x) = \int_a^x f.\] Then
-\end{enumerate}
+\BeginKnitrBlock{theorem}[Fundamental Theorem of Calculus II]
+{\label{thm:thm4} }Let \(f:[a,b] \to \mathbb{R}\) be integrable, and define \(F;[a,b] \to \mathbb{R}\) via \[F(x) = \int_a^x f.\] Then
 
 \begin{itemize}
 \tightlist
@@ -278,7 +273,7 @@ Then \[\int_a^b f  = F(b) - F(a).\]
 
 So, why all the hype for these theorems? The first theorem makes finding integrals much easier, as derivatives are (generally) nicer to deal with than Riemann sums! The second theorem here gives you \emph{existence} of a primitive for \(f\), which you can apply the first theorem to!
 
-As a warning, if in FTC 2 \(f\) is \textbf{not} continuous at \(c \in (a,b)\), \(F\) may still be differentiable at \(c\)! See Problem Sheet 11, Tutorial Question 1 for more details.
+As a warning, if in Theorem \ref{thm:thm4} \(f\) is \textbf{not} continuous at \(c \in (a,b)\), \(F\) may still be differentiable at \(c\)! See Problem Sheet 11, Tutorial Question 1 for more details.
 
 \hypertarget{integration-techniques}{%
 \subsection{Integration Techniques}\label{integration-techniques}}
@@ -286,13 +281,13 @@ As a warning, if in FTC 2 \(f\) is \textbf{not} continuous at \(c \in (a,b)\), \
 To finish the lecture recap, it would be handy to have some theorems which back up some standard integration techniques. Turns out that we do! The first of these (in a fashion) `undoes' the differential product rule.
 
 \BeginKnitrBlock{theorem}[Integration By Parts]
-{\label{thm:thm4} }Let \(f,g:[a,b] \to \mathbb{R}\) be continuous. Suppose that \(F,G:[a,b] \to \mathbb{R}\) are continuous on \([a,b]\) and differentiable on \((a,b)\) with \(F'(x) = f(x)\) and \(G'(x) = g(x)\;\; \forall x \in (a,b).\) Then \[\int_a^b fG = F(b)G(b) - F(a)G(a) - \int_a^b Fg.\]
+{\label{thm:thm5} }Let \(f,g:[a,b] \to \mathbb{R}\) be continuous. Suppose that \(F,G:[a,b] \to \mathbb{R}\) are continuous on \([a,b]\) and differentiable on \((a,b)\) with \(F'(x) = f(x)\) and \(G'(x) = g(x)\;\; \forall x \in (a,b).\) Then \[\int_a^b fG = F(b)G(b) - F(a)G(a) - \int_a^b Fg.\]
 \EndKnitrBlock{theorem}
 
 And finally, the second of these can be seen as a way of `undoing' the differential chain rule.
 
 \BeginKnitrBlock{theorem}[Integration By Substitution]
-{\label{thm:thm5} }Let \(I \subseteq \mathbb{R}\) be a closed interval and let \(f:I \to \mathbb{R}\) be continuous on \(I\). Also, let \(J \subseteq \mathbb{R}\) be an open interval, and let \(u: J \to I\) be continuously differentiable\footnote{This means that \(u\) is differentiable on \(J\), and that the derivative \(u'\) is continuous on \(J\). For interest, the set of all continuously differentiable functions from a set \(J\) is denoted by \(C^{1}(J)\).}. Then, for \(a,b \in J\), \[\int_a^b (f \circ u) u' = \int_{u(a)}^{u(b)} f.\]
+{\label{thm:thm6} }Let \(I \subseteq \mathbb{R}\) be a closed interval and let \(f:I \to \mathbb{R}\) be continuous on \(I\). Also, let \(J \subseteq \mathbb{R}\) be an open interval, and let \(u: J \to I\) be continuously differentiable\footnote{This means that \(u\) is differentiable on \(J\), and that the derivative \(u'\) is continuous on \(J\). For interest, the set of all continuously differentiable functions from a set \(J\) is denoted by \(C^{1}(J)\).}. Then, for \(a,b \in J\), \[\int_a^b (f \circ u) u' = \int_{u(a)}^{u(b)} f.\]
 \EndKnitrBlock{theorem}
 
 \hypertarget{hints}{%

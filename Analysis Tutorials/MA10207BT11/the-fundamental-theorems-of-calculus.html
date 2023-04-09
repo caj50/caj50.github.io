@@ -297,29 +297,32 @@ MathJax.Hub.Config({
             <section class="normal" id="section-">
 <div id="the-fundamental-theorems-of-calculus" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> The Fundamental Theorem(s) of Calculus</h2>
-<p>We’ve finally made it to the biggest theorem(s) of the course, and this ties in everything done in the last 11 weeks!</p>
+<p>We’ve finally made it to the biggest theorems of the course, and this ties in everything done in the last 11 weeks! Despite usually being called <em>the</em> fundamental theorem of calculus (FTC), it actually encompasses two statements, which is why we state them separately below:</p>
 
-<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm3">
-<span class="thm:thm3" custom-style="NameStyle"><strong>Theorem 1.5:  (Fundamental Theorems of Calculus) </strong></span>
+<div id="thm:thm3" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm3" custom-style="NameStyle"><strong>Theorem 1.5:  (Fundamental Theorem of Calculus I) </strong></span>
 <p>
-<p>These are:</p>
-<ol style="list-style-type: decimal">
-<li><p>Let <span class="math inline">\(a&lt;b\)</span> and <span class="math inline">\(I \subseteq \mathbb{R}\)</span> be an open interval containing <span class="math inline">\([a,b]\)</span>. Let <span class="math inline">\(F:I \to \mathbb{R}\)</span> be differentiable on <span class="math inline">\(I\)</span>, and let <span class="math inline">\(f:[a,b] \to \mathbb{R}\)</span> be such that</p>
+<p>Let <span class="math inline">\(a&lt;b\)</span> and <span class="math inline">\(I \subseteq \mathbb{R}\)</span> be an open interval containing <span class="math inline">\([a,b]\)</span>. Let <span class="math inline">\(F:I \to \mathbb{R}\)</span> be differentiable on <span class="math inline">\(I\)</span>, and let <span class="math inline">\(f:[a,b] \to \mathbb{R}\)</span> be such that</p>
 <ul>
 <li><span class="math inline">\(f(x) = F&#39;(x) \;\; \forall x \in [a,b]\)</span>,<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></li>
 <li><span class="math inline">\(f\)</span> is integrable on <span class="math inline">\([a,b]\)</span>.</li>
 </ul>
-<p>Then <span class="math display">\[\int_a^b f  = F(b) - F(a).\]</span></p></li>
-<li><p>Let <span class="math inline">\(f:[a,b] \to \mathbb{R}\)</span> be integrable, and define <span class="math inline">\(F;[a,b] \to \mathbb{R}\)</span> via <span class="math display">\[F(x) = \int_a^x f.\]</span> Then</p></li>
-</ol>
-<ul>
-<li><p><span class="math inline">\(F\)</span> is continuous on <span class="math inline">\([a,b],\)</span> and</p></li>
-<li><p>If <span class="math inline">\(f\)</span> is continuous at <span class="math inline">\(c \in (a,b)\)</span>, then <span class="math inline">\(F\)</span> is differentiable at <span class="math inline">\(c \in (a,b)\)</span> with <span class="math inline">\(F&#39;(c) = f(c).\)</span></p>
+Then <span class="math display">\[\int_a^b f  = F(b) - F(a).\]</span>
 </p>
 </div>
-<p>So, why all the hype for these theorems? The first theorem makes finding integrals much easier, as derivatives are (generally) nicer to deal with than Riemann sums! The second theorem here gives you <em>existence</em> of a primitive for <span class="math inline">\(f\)</span>, which you can apply the first theorem to!</p></li>
+
+<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm4">
+<span class="thm:thm4" custom-style="NameStyle"><strong>Theorem 1.6:  (Fundamental Theorem of Calculus II) </strong></span>
+<p>
+<p>Let <span class="math inline">\(f:[a,b] \to \mathbb{R}\)</span> be integrable, and define <span class="math inline">\(F;[a,b] \to \mathbb{R}\)</span> via <span class="math display">\[F(x) = \int_a^x f.\]</span> Then</p>
+<ul>
+<li><span class="math inline">\(F\)</span> is continuous on <span class="math inline">\([a,b],\)</span> and</li>
+<li>If <span class="math inline">\(f\)</span> is continuous at <span class="math inline">\(c \in (a,b)\)</span>, then <span class="math inline">\(F\)</span> is differentiable at <span class="math inline">\(c \in (a,b)\)</span> with <span class="math inline">\(F&#39;(c) = f(c).\)</span>
+</p>
+</div></li>
 </ul>
-<p>As a warning, if in FTC 2 <span class="math inline">\(f\)</span> is <strong>not</strong> continuous at <span class="math inline">\(c \in (a,b)\)</span>, <span class="math inline">\(F\)</span> may still be differentiable at <span class="math inline">\(c\)</span>! See Problem Sheet 11, Tutorial Question 1 for more details.</p>
+<p>So, why all the hype for these theorems? The first theorem makes finding integrals much easier, as derivatives are (generally) nicer to deal with than Riemann sums! The second theorem here gives you <em>existence</em> of a primitive for <span class="math inline">\(f\)</span>, which you can apply the first theorem to!</p>
+<p>As a warning, if in Theorem <a href="the-fundamental-theorems-of-calculus.html#thm:thm4">1.6</a> <span class="math inline">\(f\)</span> is <strong>not</strong> continuous at <span class="math inline">\(c \in (a,b)\)</span>, <span class="math inline">\(F\)</span> may still be differentiable at <span class="math inline">\(c\)</span>! See Problem Sheet 11, Tutorial Question 1 for more details.</p>
 </div>
 <div class="footnotes">
 <hr />

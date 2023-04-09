@@ -1,0 +1,232 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  17pt,
+  a4paper]{extarticle}
+\title{Analysis 1B --- Integral Test}
+\author{Christian Jones: University of Bath}
+\date{May 2023}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Analysis 1B --- Integral Test},
+  pdfauthor={Christian Jones: University of Bath},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\newcommand{\BOO}{BOO}
+\usepackage {hyperref}
+\hypersetup {colorlinks = true, linkcolor = blue, urlcolor = blue}
+\usepackage{float}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}\newtheorem{definition}{Definition}[section]
+\theoremstyle{plain}
+\newtheorem*{proposition*}{Proposition}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{Definitions*}{Definitions}\newtheorem{Definitions}[definition]{Definitions}
+\theoremstyle{plain}
+\newtheorem*{lemma*}{Lemma}\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{plain}
+\newtheorem*{corollary*}{Corollary}\newtheorem{corollary}{Corollary}[section]
+\theoremstyle{plain}
+\newtheorem*{conjecture*}{Conjecture}\newtheorem{conjecture}{Conjecture}[section]
+\theoremstyle{definition}
+\newtheorem*{example*}{Example}\newtheorem{example}{Example}[section]
+\theoremstyle{definition}
+\newtheorem*{exercise*}{Exercise}\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{Non-theorem*}{Non-theorem}\newtheorem{Non-theorem}{Non-theorem}[section]
+\newtheorem*{Question*}{Question}\newtheorem{Question}{Question}[section]
+\newtheorem*{Thought*}{Thought}\newtheorem{Thought}{Thought}[section]
+\theoremstyle{remark}
+\newtheorem*{remark*}{Remark}
+\newtheorem*{solution*}{Solution}
+\newtheorem*{Example*}{Example}
+\theoremstyle{remark}
+\newtheorem*{Proof*}{Proof}
+\newtheorem*{Examples*}{Examples}
+\let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
+
+
+%\usepackage[english,shorthands=off]{babel}
+\usepackage{etoolbox}
+\usepackage{spverbatim}
+\makeatletter
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\@ifpackageloaded{adjustbox}{}{\usepackage[Export]{adjustbox}}
+\makeatother
+\floatplacement{figure}{H}
+\newcommand{\scalefactor}{1.7}
+\adjustboxset*{min width=\scalefactor\width,max width=\linewidth}
+\renewcommand{\familydefault}{phv}
+\fontfamily{phv}\selectfont
+\renewcommand{\em}{\bf}\renewcommand{\textit}{\textbf}\renewcommand{\emph}{\textbf}\renewcommand{\it}{\bf}\renewcommand{\itshape}{\bf}
+\setlength{\parindent}{0.0pt}
+\setlength{\parskip}{1.0\baselineskip}
+\renewcommand{\baselinestretch}{1.5}\selectfont
+\setlength{\mathsurround}{0.2em}
+\setlength{\arraycolsep}{0.5cm}\renewcommand{\arraystretch}{1.5}
+\addtolength{\jot}{\baselineskip}
+\renewcommand{\;}{\,}
+\sloppy
+\allowdisplaybreaks
+\usepackage{amsthm}
+\newtheoremstyle{plain}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{definition}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{remark}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\csundef{Proof}
+\csundef{endProof}
+\newenvironment{Proof}
+  {\noindent{\bf Proof.}\hspace*{1em}}% Begin
+  {\qed\par}% End
+%% When redefining an environment it is vital that it has 
+%% the same number of arguments as the original
+\renewenvironment{proof}[1][\proofname]
+  {\trivlist\item\relax\noindent{\bf {#1}.}\hspace*{1em}}% Begin
+  {\qed\endtrivlist}% End
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\newpage
+\pagenumbering{arabic}
+
+\hypertarget{introduction}{%
+\section*{Introduction}\label{introduction}}
+\addcontentsline{toc}{section}{Introduction}
+
+We've reached the end of the course! However, despite their prominance in Analysis 1A, we didn't really say much about infinite series. So, to finish off this semester, I wanted to give you a test for series convergence which we can develop using the theory of integration. This is non-examinable, but the method might come in useful for future courses! Furthermore, the examples here may serve as good practice for unseen exam questions.
+
+As usual, alternative formats can be downloaded by clicking the download icon at the top of the page. Please send any comments or corrections to \href{mailto:caj50@bath.ac.uk}{Christian Jones (caj50)}. To return to the homepage, click \href{http://caj50.github.io/tutoring.html}{here}.
+
+\hypertarget{the-test}{%
+\section{The Test}\label{the-test}}
+
+\BeginKnitrBlock{theorem}[Integral Test for Series]
+{\label{thm:thm1} }Suppose \((a_n)_{n\in\mathbb{N}}\) is a real sequence. Suppose also that a function \(f\) is positive and decreasing on \([1,\infty)\) and that \(f(n) = a_n\) for all \(n \in \mathbb{N}\). Then, the series \(\sum_{n=1}^{\infty} a_n\) converges if and only if the limit \[\int_1^{\infty} f := \lim_{A \to \infty}\int_1^A f\] exists.
+\EndKnitrBlock{theorem}
+
+\BeginKnitrBlock{proof}
+Note that the existence of \(\lim_{A \to \infty} \int_1^A f\) is equivalent (by linearity of integration) to the convergence of the series \[\sum_{n=1}^{\infty} \int_{n}^{n+1} f = \int_1^2 f + \int_2^3 f + \int_3^4 f + \ldots.\] Now, since \(f\) is decreasing, for each \(n \in \mathbb{N}\), we can use the subdivision \(P_n = \lbrace n, n+1 \rbrace\) of the intervals \([n, n+1]\) to find
+\begin{align}
+f(n+1) \leq \int_n^{n+1} f \leq f(n) \tag{*}
+\end{align}
+
+Applying the comparison test to the left hand side of (*) shows that if \(\sum_{n=1}^{\infty}\int_n^{n+1} f\) exists, then \(\sum_{n=1}^{\infty} a_{n+1}\) (and hence \(\sum_{n=1}^{\infty}a_n\)) also exists. This proves that \[\lim_{A \to \infty} \int_1^A f\;\;\text{exists} \Longrightarrow \sum_{n=1}^{\infty} a_n\;\;\text{converges.}\]
+
+Finally, applying the comparison test to the right hand side of (*) shows that if \(\sum_{n=1}^{\infty} a_{n}\) exists then \(\sum_{n=1}^{\infty}\int_n^{n+1} f\) also exists. This proves the remaining statement, i.e.~\[\sum_{n=1}^{\infty} a_n\;\;\text{converges} \Longrightarrow  \lim_{A \to \infty} \int_1^A f\;\;\text{exists.}\]
+\EndKnitrBlock{proof}
+
+Note that we can replace \(1\) with any \(N \in \mathbb{N}\) in this theorem (such as in the lower series/integral limit), and the resulting modified version of the test still works.
+
+\hypertarget{example}{%
+\section{Example}\label{example}}
+
+Providing a result without any practical uses is a bit pointless. So here's an example of this theorem in action! The question(s) here are taken from the textbook \emph{`Calculus'} by Michael Spivak.
+
+\BeginKnitrBlock{Question*}
+{}a) Show that \(\int_1^{\infty} \mathrm{e}^y/y^y\;dy\) exists, by considering the series \(\sum_{n=1}^{\infty} (\mathrm{e}/n)^n.\)
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\item
+  Show that \[\sum_{n=2}^{\infty}\frac{1}{(\ln(n))^{\ln(n)}}\] converges, by using the integral test. \emph{Hint: use an appropriate substitution and part (a)}.
+\item
+  Show that \[\sum_{n=2}^{\infty}\frac{1}{(\ln(n))^{\ln(\ln(n))}}\] diverges, by using the integral test. \emph{Hint: Use the same substitution as in part (b), and show directly that the resulting integral diverges.}
+\end{enumerate}
+\EndKnitrBlock{Question*}
+
+\hypertarget{solutions}{%
+\subsection{Solutions}\label{solutions}}
+
+\BeginKnitrBlock{solution*}[Part a]
+Firstly, setting \(a_n = (\mathrm{e}/n)^n\), we have \[\left\lvert \frac{a_{n+1}}{a_n}\right\rvert = \frac{\mathrm{e}^{n+1}n^n}{(n+1)^{n+1}\mathrm{e}^n} = \mathrm{e}\cdot\frac{1}{n+1}\cdot\left(1 - \frac{1}{n+1}\right).\] Taking \(n \to \infty\), the algebra of limits gives that as \(n\to\infty\) \[\left\lvert \frac{a_{n+1}}{a_n}\right\rvert \to 0,\] so by d'Alembert's ratio test, the series \(\sum_{n=1}^{\infty} (\mathrm{e}/n)^n\) is convergent.
+
+Now, define \(f:[1,\infty) \to \mathbb{R}\) by \(f(y) = \mathrm{e}^y/y^y.\) Note that \(f\) is strictly decreasing on \([1,\infty)\) and for each \(n\in\mathbb{N}\), \(f(n) = a_n = (\mathrm{e}/n)^n\). Hence, by the integral test, the integral \(\int_1^{\infty} \mathrm{e}^y/y^y\;dy\) exists, as required.
+\EndKnitrBlock{solution*}
+
+\BeginKnitrBlock{solution*}[Part b]
+Consider the function \(f:[2,\infty) \to \mathbb{R}\) given by \[f(x) = \frac{1}{(\ln(x))^{\ln(x)}}.\] Setting \(y = \ln(x)\), we find that \[\int_2^{\infty} f(x) \; dx = \lim_{A \to \infty}\int_{\mathrm{e}^2}^{\mathrm{e}^A} \frac{1}{y^y}\mathrm{e}^y\;dy,\] which exists by part a). Now, for all \(n \geq 2\), we have that \(f(n) = \frac{1}{(\ln(n))^{\ln(n)}}\). Also, by the chain rule, we find that on \((2,\infty)\), \[f'(x) = -\frac{\ln(\ln(x))+1}{x\ln(x)^{\ln(x)}},\] which is always negative, so \(f\) is decreasing on \([2,\infty).\) Hence, by the integral test, we find that the series \[\sum_{n=2}^{\infty}\frac{1}{(\ln(n))^{\ln(n)}}\] converges.
+\EndKnitrBlock{solution*}
+
+\BeginKnitrBlock{solution*}[Part c]
+Consider the function \(f:[2,\infty) \to \mathbb{R}\) given by \[f(x) = \frac{1}{(\ln(x))^{\ln(\ln(x))}}.\] By differentiating, we can show that \(f\) is strictly decreasing on \([2,\infty)\), so we can apply the integral test to this function.
+
+Now, setting \(y = \ln(x)\) we have that (if it exists), \[\int_{2}^{\infty} f(x)\;dx = \lim_{A \to \infty} \int_{\mathrm{e}^2}^{\mathrm{e}^A}\frac{1}{y^{\ln(y)}}\mathrm{e}^y\;dy.\] By rules of exponentials, we can rewrite the integrand as \[\frac{\mathrm{e}^y}{y^{\ln(y)}} = \mathrm{e}^{y\left(1 - \frac{\ln^2(y)}{y}\right)}.\]
+
+Writing \(y = \mathrm{e}^z\), we know that (by e.g.~the growth factor test) \[\lim_{y \to \infty}\frac{\ln^2(y)}{y} = \lim_{z \to \infty}\frac{z^2}{\mathrm{e}^z} = 0.\] So by the definition of convergence at \(\infty\) (see Problem Sheet 3), we know that \(\exists M \in [\mathrm{e}^2,\infty)\) such that for all \(y > M\), \[\left\lvert \mathrm{e}^{- \frac{\ln^2(y)}{y}} - 1 \right\rvert < \frac{1}{2}.\]
+
+Rearranging and multiplying by \(\mathrm{e}\), we find \(\forall y > M,\) \[\frac{\mathrm{e}}{2} < \mathrm{e}^{1 - \frac{\ln^2(y)}{y}} < \frac{3\mathrm{e}}{2},\] from which raising everything to the power of \(y\) yields \[\left(\frac{\mathrm{e}}{2}\right)^y < \mathrm{e}^{y\left(1 - \frac{\ln^2(y)}{y}\right)} < \left(\frac{3\mathrm{e}}{2}\right)^y.\] Finally, by properties of the integral, we have that \(\forall y > M,\) and large enough \(A\), \[\int_{M}^{\mathrm{e}^A}\frac{\mathrm{e}^y}{y^{\ln(y)}}\;dy > \int_M^{\mathrm{e}^A}\left(\frac{\mathrm{e}}{2}\right)^y\;dy.\] Using the fundamental theorem of calculus, we can evaluate the right hand integral to obtain \[\int_{M}^{\mathrm{e}^A}\frac{\mathrm{e}^y}{y^{\ln(y)}}\;dy > \frac{1}{1 - \ln(2)}\left[\left(\frac{\mathrm{e}}{2}\right)^{\mathrm{e}^A} - \left(\frac{\mathrm{e}}{2}\right)^{M} \right].\] This right hand side of this inequality diverges as \(A \to \infty\), and since \(\int_{\mathrm{e}^2}^M \frac{\mathrm{e}^y}{y^{\ln(y)}}\;dy\) is finite, the original improper integral \(\int_{2}^{\infty} f(x)\;dx\) also diverges. Hence, by the integral test, the series \[\sum_{n=2}^{\infty}\frac{1}{(\ln(n))^{\ln(\ln(n))}}\] diverges.
+\EndKnitrBlock{solution*}
+
+\end{document}

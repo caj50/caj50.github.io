@@ -1,0 +1,106 @@
+---
+title: "Analysis 1B — Integral Test"
+author: 'Christian Jones: University of Bath'
+date: 'May 2023'
+site: bookdown::bookdown_site
+language: en
+documentclass: article
+classoption: a4paper
+fontsize: 10pt
+geometry: margin=2.5cm
+output:
+  clavertondown::gitbook_clav:
+    split_by: section
+    keep_md: true
+    config:
+      download: [["IntegralTest.html", "HTML page"], ["IntegralTest.pdf","Standard print PDF"], ["IntegralTestClear.pdf","Clear print PDF"], ["IntegralTestLarge.pdf","Large print PDF"], ["IntegralTest.docx","Accessible Word document"], ["IntegralTest.epub","Accessible EPub book" ]]
+      sharing: no
+    pandoc_args: --default-image-extension=svg
+  clavertondown::word_clav:
+    toc: true
+    number_sections: true
+    keep_md: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::html_clav:
+    toc: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
+  clavertondown::pdf_clav:
+    latex_engine: pdflatex
+    keep_tex: true
+    fig_caption: true
+    toc: true
+    extra_dependencies: ["float"]
+    pandoc_args: --default-image-extension=pdf
+header-includes:
+  - \newcommand{\BOO}{BOO}
+  - \usepackage {hyperref}
+  - \hypersetup {colorlinks = true, linkcolor = blue, urlcolor = blue}
+---
+<!-- This is needed since I am working with svg files from mathcha.io. It converts the graphics files to something that can be used in the pdf files. Code taken from https://stackoverflow.com/questions/50165404/how-to-make-a-pdf-using-bookdown-including-svg-images/56044642#56044642 -->
+
+\newpage
+\pagenumbering{arabic}
+
+# Introduction {-}
+We've reached the end of the course! However, despite their prominance in Analysis 1A, we didn't really say much about infinite series. So, to finish off this semester, I wanted to give you a test for series convergence which we can develop using the theory of integration. This is non-examinable, but the method might come in useful for future courses! Furthermore, the examples here may serve as good practice for unseen exam questions.  
+
+As usual, alternative formats can be downloaded by clicking the download icon at the top of the page. Please send any comments or corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk). To return to the homepage, click [here](http://caj50.github.io/tutoring.html).
+
+<!--<details open>
+<summary>Want to ruin the surprise?</summary>
+<br>
+Well, you asked for it!
+</details>-->
+
+# The Test
+
+\BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm1"><span class="thm:thm1" custom-style="NameStyle"><strong>(\#thm:thm1)  (Integral Test for Series) </strong></span><p>Suppose $(a_n)_{n\in\mathbb{N}}$ is a real sequence. Suppose also that a function $f$ is positive and decreasing on $[1,\infty)$ and that $f(n) = a_n$ for all $n \in \mathbb{N}$. Then, the series $\sum_{n=1}^{\infty} a_n$ converges if and only if the limit $$\int_1^{\infty} f := \lim_{A \to \infty}\int_1^A f$$ exists.
+</p></div>\EndKnitrBlock{theorem}
+
+\BeginKnitrBlock{proof}<div class="bookdown-proof" custom-style="ProofStyle"><span class="proof" custom-style="NameStyleItalics"><strong>Proof. </strong></span> <p>Note that the existence of $\lim_{A \to \infty} \int_1^A f$ is equivalent (by linearity of integration) to the convergence of the series $$\sum_{n=1}^{\infty} \int_{n}^{n+1} f = \int_1^2 f + \int_2^3 f + \int_3^4 f + \ldots.$$ Now, since $f$ is decreasing, for each $n \in \mathbb{N}$, we can use the subdivision $P_n = \lbrace n, n+1 \rbrace$ of the intervals $[n, n+1]$ to find
+\begin{align}
+f(n+1) \leq \int_n^{n+1} f \leq f(n) \tag{*}
+\end{align}
+
+Applying the comparison test to the left hand side of (*) shows that if $\sum_{n=1}^{\infty}\int_n^{n+1} f$ exists, then $\sum_{n=1}^{\infty} a_{n+1}$ (and hence $\sum_{n=1}^{\infty}a_n$) also exists. This proves that $$\lim_{A \to \infty} \int_1^A f\;\;\text{exists} \Longrightarrow \sum_{n=1}^{\infty} a_n\;\;\text{converges.}$$
+  
+Finally, applying the comparison test to the right hand side of (*) shows that if $\sum_{n=1}^{\infty} a_{n}$ exists then $\sum_{n=1}^{\infty}\int_n^{n+1} f$ also exists. This proves the remaining statement, i.e.  $$\sum_{n=1}^{\infty} a_n\;\;\text{converges} \Longrightarrow  \lim_{A \to \infty} \int_1^A f\;\;\text{exists.}$$
+  </p><p>&squ;</p></div>\EndKnitrBlock{proof}
+
+Note that we can replace $1$ with any $N \in \mathbb{N}$ in this theorem (such as in the lower series/integral limit), and the resulting modified version of the test still works.
+
+# Example
+Providing a result without any practical uses is a bit pointless. So here's an example of this theorem in action! The question(s) here are taken from the textbook *'Calculus'* by Michael Spivak.
+
+\BeginKnitrBlock{Question}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="Question" custom-style="TheoremStyle" id="Question:unnamed-chunk-3"><span class="Question" custom-style="NameStyle"><strong> Question: </strong></span><p>a) Show that $\int_1^{\infty} \mathrm{e}^y/y^y\;dy$ exists, by considering the series $\sum_{n=1}^{\infty} (\mathrm{e}/n)^n.$
+  
+b) Show that $$\sum_{n=2}^{\infty}\frac{1}{(\ln(n))^{\ln(n)}}$$ converges, by using the integral test. *Hint: use an appropriate substitution and part (a)*.
+
+c) Show that $$\sum_{n=2}^{\infty}\frac{1}{(\ln(n))^{\ln(\ln(n))}}$$ diverges, by using the integral test. *Hint: Use the same substitution as in part (b), and show directly that the resulting integral diverges.*
+  </p></div>\EndKnitrBlock{Question}
+
+## Solutions
+
+\BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyleItalics"><strong>Solution (Part a). </strong></span> <p>Firstly, setting $a_n = (\mathrm{e}/n)^n$, we have $$\left\lvert \frac{a_{n+1}}{a_n}\right\rvert = \frac{\mathrm{e}^{n+1}n^n}{(n+1)^{n+1}\mathrm{e}^n} = \mathrm{e}\cdot\frac{1}{n+1}\cdot\left(1 - \frac{1}{n+1}\right).$$ Taking $n \to \infty$, the algebra of limits gives that as $n\to\infty$ $$\left\lvert \frac{a_{n+1}}{a_n}\right\rvert \to 0,$$ so by d'Alembert's ratio test, the series $\sum_{n=1}^{\infty} (\mathrm{e}/n)^n$ is convergent. 
+
+Now, define $f:[1,\infty) \to \mathbb{R}$ by $f(y) = \mathrm{e}^y/y^y.$ Note that $f$ is strictly decreasing on $[1,\infty)$ and for each $n\in\mathbb{N}$, $f(n) = a_n = (\mathrm{e}/n)^n$. Hence, by the integral test, the integral $\int_1^{\infty} \mathrm{e}^y/y^y\;dy$ exists, as required.
+</p></div>\EndKnitrBlock{solution}
+
+\BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyleItalics"><strong>Solution (Part b). </strong></span> <p>Consider the function $f:[2,\infty) \to \mathbb{R}$ given by $$f(x) = \frac{1}{(\ln(x))^{\ln(x)}}.$$ Setting $y = \ln(x)$, we find that $$\int_2^{\infty} f(x) \; dx = \lim_{A \to \infty}\int_{\mathrm{e}^2}^{\mathrm{e}^A} \frac{1}{y^y}\mathrm{e}^y\;dy,$$ which exists by part a). Now, for all $n \geq 2$, we have that $f(n) = \frac{1}{(\ln(n))^{\ln(n)}}$. Also, by the chain rule, we find that on $(2,\infty)$, $$f'(x) = -\frac{\ln(\ln(x))+1}{x\ln(x)^{\ln(x)}},$$ which is always negative, so $f$ is decreasing on $[2,\infty).$ Hence, by the integral test, we find that the series $$\sum_{n=2}^{\infty}\frac{1}{(\ln(n))^{\ln(n)}}$$ converges. 
+</p></div>\EndKnitrBlock{solution}
+
+\BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyleItalics"><strong>Solution (Part c). </strong></span> <p>Consider the function $f:[2,\infty) \to \mathbb{R}$ given by $$f(x) = \frac{1}{(\ln(x))^{\ln(\ln(x))}}.$$ By differentiating, we can show that $f$ is strictly decreasing on $[2,\infty)$, so we can apply the integral test to this function.
+
+Now, setting $y = \ln(x)$ we have that (if it exists), $$\int_{2}^{\infty} f(x)\;dx = \lim_{A \to \infty} \int_{\mathrm{e}^2}^{\mathrm{e}^A}\frac{1}{y^{\ln(y)}}\mathrm{e}^y\;dy.$$ By rules of exponentials, we can rewrite the integrand as $$\frac{\mathrm{e}^y}{y^{\ln(y)}} = \mathrm{e}^{y\left(1 - \frac{\ln^2(y)}{y}\right)}.$$
+  
+Writing $y = \mathrm{e}^z$, we know that (by e.g. the growth factor test) $$\lim_{y \to \infty}\frac{\ln^2(y)}{y} = \lim_{z \to \infty}\frac{z^2}{\mathrm{e}^z} = 0.$$ So by the definition of convergence at $\infty$ (see Problem Sheet 3), we know that $\exists M \in [\mathrm{e}^2,\infty)$ such that for all $y > M$, $$\left\lvert \mathrm{e}^{- \frac{\ln^2(y)}{y}} - 1 \right\rvert < \frac{1}{2}.$$
+  
+Rearranging and multiplying by $\mathrm{e}$, we find $\forall y > M,$ $$\frac{\mathrm{e}}{2} < \mathrm{e}^{1 - \frac{\ln^2(y)}{y}} < \frac{3\mathrm{e}}{2},$$ from which raising everything to the power of $y$ yields $$\left(\frac{\mathrm{e}}{2}\right)^y < \mathrm{e}^{y\left(1 - \frac{\ln^2(y)}{y}\right)} < \left(\frac{3\mathrm{e}}{2}\right)^y.$$ Finally, by properties of the integral, we have that $\forall y > M,$ and large enough $A$, $$\int_{M}^{\mathrm{e}^A}\frac{\mathrm{e}^y}{y^{\ln(y)}}\;dy > \int_M^{\mathrm{e}^A}\left(\frac{\mathrm{e}}{2}\right)^y\;dy.$$ Using the fundamental theorem of calculus, we can evaluate the right hand integral to obtain $$\int_{M}^{\mathrm{e}^A}\frac{\mathrm{e}^y}{y^{\ln(y)}}\;dy > \frac{1}{1 - \ln(2)}\left[\left(\frac{\mathrm{e}}{2}\right)^{\mathrm{e}^A} - \left(\frac{\mathrm{e}}{2}\right)^{M} \right].$$ This right hand side of this inequality diverges as $A \to \infty$, and since $\int_{\mathrm{e}^2}^M \frac{\mathrm{e}^y}{y^{\ln(y)}}\;dy$ is finite, the original improper integral $\int_{2}^{\infty} f(x)\;dx$ also diverges. Hence, by the integral test, the series $$\sum_{n=2}^{\infty}\frac{1}{(\ln(n))^{\ln(\ln(n))}}$$ diverges.
+  
+</p></div>\EndKnitrBlock{solution}
+
+<!--chapter:end:index.Rmd-->
+

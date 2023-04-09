@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2.1 Solutions | Analysis 1B — Integral Test</title>
+  <meta name="description" content="2.1 Solutions | Analysis 1B — Integral Test" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2.1 Solutions | Analysis 1B — Integral Test" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2.1 Solutions | Analysis 1B — Integral Test" />
+  
+  
+  
+
+<meta name="author" content="Christian Jones: University of Bath" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="example.html"/>
+
+
+<script src="libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.MessageHook("End Math", function (msg) {
+  var nodes = Array.from(msg[1].querySelectorAll('.MJX_Assistive_MathML [id]'));
+  while (nodes.length) {
+    nodes.shift().removeAttribute('id');
+  }
+}, 20);
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "fast-preview": {disabled: true},
+  explorer:{ subtitle: true },
+  MatchWebFonts: { 
+    matchFor: { "HTML-CSS": true, NativeMML: false, SVG: false },
+    fontCheckDelay: 2000,
+    fontCheckTimeout: 30 * 1000
+  },
+  "HTML-CSS": {
+    preferredFont: "STIX",
+    availableFonts: ["STIX","TeX"],
+    webFont: "STIX-Web",
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  SVG: {
+    font: "STIX-Web",
+    linebreaks: { automatic: false, width: "90\% container" }
+  },
+  menuSettings: { 
+    collapsible: false, 
+    autocollapse: false, 
+    explorer: false 
+  }
+});
+</script>
+
+
+
+
+<style type="text/css">
+  a {
+   color: blue;
+  }
+  .book .book-summary ul.summary li a, .book .book-summary ul.summary li.active>a, .book .book-body .page-wrapper .page-inner section.normal a {
+  color: blue;
+  }
+
+  [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+   .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #1c242b;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0f6f7;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  
+  [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #182518;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0fcea;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #182518;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0fcea;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  [custom-style=NameStyle]{
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  [custom-style=NameStyleItalics]{
+    font-style: italic;
+  }
+
+  
+  [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #251e18;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #fdf3e9;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #2b1c21;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #fdefef;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+  
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="the-test.html"><a href="the-test.html"><i class="fa fa-check"></i><b>1</b> The Test</a></li>
+<li class="chapter" data-level="2" data-path="example.html"><a href="example.html"><i class="fa fa-check"></i><b>2</b> Example</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="solutions.html"><a href="solutions.html"><i class="fa fa-check"></i><b>2.1</b> Solutions</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis 1B — Integral Test</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="solutions" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Solutions</h2>
+
+<div class="bookdown-solution" custom-style="ProofStyle">
+<span class="solution" custom-style="NameStyleItalics">Solution (Part a). </span>
+<p>
+<p>Firstly, setting <span class="math inline">\(a_n = (\mathrm{e}/n)^n\)</span>, we have <span class="math display">\[\left\lvert \frac{a_{n+1}}{a_n}\right\rvert = \frac{\mathrm{e}^{n+1}n^n}{(n+1)^{n+1}\mathrm{e}^n} = \mathrm{e}\cdot\frac{1}{n+1}\cdot\left(1 - \frac{1}{n+1}\right).\]</span> Taking <span class="math inline">\(n \to \infty\)</span>, the algebra of limits gives that as <span class="math inline">\(n\to\infty\)</span> <span class="math display">\[\left\lvert \frac{a_{n+1}}{a_n}\right\rvert \to 0,\]</span> so by d’Alembert’s ratio test, the series <span class="math inline">\(\sum_{n=1}^{\infty} (\mathrm{e}/n)^n\)</span> is convergent.</p>
+Now, define <span class="math inline">\(f:[1,\infty) \to \mathbb{R}\)</span> by <span class="math inline">\(f(y) = \mathrm{e}^y/y^y.\)</span> Note that <span class="math inline">\(f\)</span> is strictly decreasing on <span class="math inline">\([1,\infty)\)</span> and for each <span class="math inline">\(n\in\mathbb{N}\)</span>, <span class="math inline">\(f(n) = a_n = (\mathrm{e}/n)^n\)</span>. Hence, by the integral test, the integral <span class="math inline">\(\int_1^{\infty} \mathrm{e}^y/y^y\;dy\)</span> exists, as required.
+</p>
+</div>
+
+<div class="bookdown-solution" custom-style="ProofStyle">
+<span class="solution" custom-style="NameStyleItalics">Solution (Part b). </span>
+<p>
+Consider the function <span class="math inline">\(f:[2,\infty) \to \mathbb{R}\)</span> given by <span class="math display">\[f(x) = \frac{1}{(\ln(x))^{\ln(x)}}.\]</span> Setting <span class="math inline">\(y = \ln(x)\)</span>, we find that <span class="math display">\[\int_2^{\infty} f(x) \; dx = \lim_{A \to \infty}\int_{\mathrm{e}^2}^{\mathrm{e}^A} \frac{1}{y^y}\mathrm{e}^y\;dy,\]</span> which exists by part a). Now, for all <span class="math inline">\(n \geq 2\)</span>, we have that <span class="math inline">\(f(n) = \frac{1}{(\ln(n))^{\ln(n)}}\)</span>. Also, by the chain rule, we find that on <span class="math inline">\((2,\infty)\)</span>, <span class="math display">\[f&#39;(x) = -\frac{\ln(\ln(x))+1}{x\ln(x)^{\ln(x)}},\]</span> which is always negative, so <span class="math inline">\(f\)</span> is decreasing on <span class="math inline">\([2,\infty).\)</span> Hence, by the integral test, we find that the series <span class="math display">\[\sum_{n=2}^{\infty}\frac{1}{(\ln(n))^{\ln(n)}}\]</span> converges.
+</p>
+</div>
+
+<div class="bookdown-solution" custom-style="ProofStyle">
+<span class="solution" custom-style="NameStyleItalics">Solution (Part c). </span>
+<p>
+<p>Consider the function <span class="math inline">\(f:[2,\infty) \to \mathbb{R}\)</span> given by <span class="math display">\[f(x) = \frac{1}{(\ln(x))^{\ln(\ln(x))}}.\]</span> By differentiating, we can show that <span class="math inline">\(f\)</span> is strictly decreasing on <span class="math inline">\([2,\infty)\)</span>, so we can apply the integral test to this function.</p>
+<p>Now, setting <span class="math inline">\(y = \ln(x)\)</span> we have that (if it exists), <span class="math display">\[\int_{2}^{\infty} f(x)\;dx = \lim_{A \to \infty} \int_{\mathrm{e}^2}^{\mathrm{e}^A}\frac{1}{y^{\ln(y)}}\mathrm{e}^y\;dy.\]</span> By rules of exponentials, we can rewrite the integrand as <span class="math display">\[\frac{\mathrm{e}^y}{y^{\ln(y)}} = \mathrm{e}^{y\left(1 - \frac{\ln^2(y)}{y}\right)}.\]</span></p>
+<p>Writing <span class="math inline">\(y = \mathrm{e}^z\)</span>, we know that (by e.g. the growth factor test) <span class="math display">\[\lim_{y \to \infty}\frac{\ln^2(y)}{y} = \lim_{z \to \infty}\frac{z^2}{\mathrm{e}^z} = 0.\]</span> So by the definition of convergence at <span class="math inline">\(\infty\)</span> (see Problem Sheet 3), we know that <span class="math inline">\(\exists M \in [\mathrm{e}^2,\infty)\)</span> such that for all <span class="math inline">\(y &gt; M\)</span>, <span class="math display">\[\left\lvert \mathrm{e}^{- \frac{\ln^2(y)}{y}} - 1 \right\rvert &lt; \frac{1}{2}.\]</span></p>
+<p>Rearranging and multiplying by <span class="math inline">\(\mathrm{e}\)</span>, we find <span class="math inline">\(\forall y &gt; M,\)</span> <span class="math display">\[\frac{\mathrm{e}}{2} &lt; \mathrm{e}^{1 - \frac{\ln^2(y)}{y}} &lt; \frac{3\mathrm{e}}{2},\]</span> from which raising everything to the power of <span class="math inline">\(y\)</span> yields <span class="math display">\[\left(\frac{\mathrm{e}}{2}\right)^y &lt; \mathrm{e}^{y\left(1 - \frac{\ln^2(y)}{y}\right)} &lt; \left(\frac{3\mathrm{e}}{2}\right)^y.\]</span> Finally, by properties of the integral, we have that <span class="math inline">\(\forall y &gt; M,\)</span> and large enough <span class="math inline">\(A\)</span>, <span class="math display">\[\int_{M}^{\mathrm{e}^A}\frac{\mathrm{e}^y}{y^{\ln(y)}}\;dy &gt; \int_M^{\mathrm{e}^A}\left(\frac{\mathrm{e}}{2}\right)^y\;dy.\]</span> Using the fundamental theorem of calculus, we can evaluate the right hand integral to obtain <span class="math display">\[\int_{M}^{\mathrm{e}^A}\frac{\mathrm{e}^y}{y^{\ln(y)}}\;dy &gt; \frac{1}{1 - \ln(2)}\left[\left(\frac{\mathrm{e}}{2}\right)^{\mathrm{e}^A} - \left(\frac{\mathrm{e}}{2}\right)^{M} \right].\]</span> This right hand side of this inequality diverges as <span class="math inline">\(A \to \infty\)</span>, and since <span class="math inline">\(\int_{\mathrm{e}^2}^M \frac{\mathrm{e}^y}{y^{\ln(y)}}\;dy\)</span> is finite, the original improper integral <span class="math inline">\(\int_{2}^{\infty} f(x)\;dx\)</span> also diverges. Hence, by the integral test, the series <span class="math display">\[\sum_{n=2}^{\infty}\frac{1}{(\ln(n))^{\ln(\ln(n))}}\]</span> diverges.</p>
+</p>
+</div>
+
+</div>
+<!-- </div> -->
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="example.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["IntegralTest.html", "HTML page"], ["IntegralTest.pdf", "Standard print PDF"], ["IntegralTestClear.pdf", "Clear print PDF"], ["IntegralTestLarge.pdf", "Large print PDF"], ["IntegralTest.docx", "Accessible Word document"], ["IntegralTest.epub", "Accessible EPub book"]],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

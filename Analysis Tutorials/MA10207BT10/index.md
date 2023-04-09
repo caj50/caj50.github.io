@@ -136,12 +136,17 @@ However, all hope is not lost. In fact, using the Mean Value Theorem, we can rec
 \BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop3"><span class="prp:prop3" custom-style="NameStyle"><strong>(\#prp:prop3) </strong></span><p>Let $f:[a,b] \to \mathbb{R}$ be continuous on $[a,b]$ and differentiable on $(a,b).$ If $f$ is differentiable on $(a,b)$ with bounded derivative, i.e. $\exists L > 0$ such that $\lvert f'(x) \rvert < L \;\;\forall x \in (a,b)$, then $f$ is uniformly continuous.
 </p></div>\EndKnitrBlock{proposition}
 
+
 # Hints
 As per usual, here's where you'll find the problem sheet hints!
 
-1) Have a look back at the example we did in tutorials — this one is pretty similar! Calculate both the lower and upper Riemann sums, and make sure to justify the main steps of your argument. Another thing, feel free to quote the values of $$\sum_{i=1}^{n} i^{k}, \quad k=0,1,2,\ldots$$ as 'standard results', although being able to prove them is good practice too!
-2) First of all, this is an 'if and only if', so there are two things to prove! The '$\Leftarrow$' direction should be fairly straightforward. For the '$\Rightarrow$' direction, what do you get from considering $U(f,P) - L(f,P)$?
-3) Try the function $$h:[0,1] \to \mathbb{R}, \quad h(x) = xf(x),$$ where $f$ is as given in the question. Make sure to prove continuity at zero first. To prove that $h$ is not integrable, show that the lower and upper Riemann integrals cannot be the same. For any subdivision $P$, finding $L(h,P)$ should be OK. For $U(h,P)$, try and compare it to an upper Riemann sum of a function that you know the integral of.
+1) The ideas in this one are pretty similar to 'Tutorial Question 1'. Here's a potential route through this question:
+    a) Since $f$ and $g$ are integrable, they are bounded. So, there exists a common $M>0$ such that $\lvert f(x) \rvert \leq M$ and $\lvert g(x) \rvert \leq M$ for all $x \in [a,b]$. Why does this mean that $f\cdot g$ is bounded?
+    b) Let $P = \{x_0, \ldots x_n\}$ be a subdivision of $[a,b]$. For any interval $I_i = [x_{i-1},x_{i}]$, use techniques/results from `Tutorial Question 1' to show that $$\sup_{I_i}(f\cdot g) - \inf_{I_i}(f\cdot g) \leq M(\sup_{I_i}f - \inf_{I_i}f) + M(\sup_{I_i}g - \inf_{I_i}g).$$
+    c) Using the above result, find a corresponding inequality relating lower and upper Riemann sums.
+    d) Fix $\epsilon >0$, and apply the Cauchy criterion to $f$ and $g$ separately (obtaining subdivisions $P_1$ and $P_2$ respectively). Using these, find a common subdivision for which $f$ and $g$ satisfy the Cauchy criterion, and show that with this subdivision, $f\cdot g$ also satisfies the Cauchy criterion.
+
+2) Firstly, why is $f$ uniformly continuous on $[0,1]$? Next, use the definitions for uniform continuity of $f$ on $[0,1]$ and $g$ on $[1,\infty)$ to find a candidate $\delta$ for uniform continuity of $h$ on $[0,\infty)$. Finally, with this $\delta$, show that $h$ satisfies the definition of uniform continuity (you'll need three cases for the values of $x,y$ in the definition). 
  
 
 <!--chapter:end:index.Rmd-->
