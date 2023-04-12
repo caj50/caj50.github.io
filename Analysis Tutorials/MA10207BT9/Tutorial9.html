@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Analysis 1B — Tutorial 9" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Christian Jones: University of Bath" />
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.MessageHook("End Math", function (msg) {
+  var nodes = Array.from(msg[1].querySelectorAll('.MJX_Assistive_MathML [id]'));
+  while (nodes.length) {
+    nodes.shift().removeAttribute('id');
+  }
+}, 20);
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "fast-preview": {disabled: true},
+  explorer:{ subtitle: true },
+  MatchWebFonts: { 
+    matchFor: { "HTML-CSS": true, NativeMML: false, SVG: false },
+    fontCheckDelay: 2000,
+    fontCheckTimeout: 30 * 1000
+  },
+  "HTML-CSS": {
+    preferredFont: "STIX",
+    availableFonts: ["STIX","TeX"],
+    webFont: "STIX-Web",
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  SVG: {
+    font: "STIX-Web",
+    linebreaks: { automatic: false, width: "90\% container" }
+  },
+  menuSettings: { 
+    collapsible: false, 
+    autocollapse: false, 
+    explorer: false 
+  }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta name="description" content="Analysis 1B — Tutorial 9">
+
+<title>Analysis 1B — Tutorial 9</title>
+
+<script src="libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+</style>
+
+<style type="text/css">
+  a {
+   color: blue;
+  }
+
+  [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  [custom-style=NameStyle]{
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  [custom-style=NameStyleItalics]{
+    font-style: italic;
+  }
+
+  
+  [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+  
+  [data-custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  
+</style>
+
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<!--bookdown:title:start-->
+<div id="header">
+<h1 class="title">Analysis 1B — Tutorial 9</h1>
+<h4 class="author"><em>Christian Jones: University of Bath</em></h4>
+<h4 class="date"><em>April 2023</em></h4>
+</div>
+<!--bookdown:title:end-->
+
+<!--bookdown:toc:start-->
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#lecture-recap"><span class="toc-section-number">1</span> Lecture Recap</a>
+<ul>
+<li><a href="#fundamentals-of-integration"><span class="toc-section-number">1.1</span> Fundamentals of Integration</a>
+<ul>
+<li><a href="#subdivisions-and-riemann-sums"><span class="toc-section-number">1.1.1</span> Subdivisions and Riemann Sums</a></li>
+<li><a href="#refinements"><span class="toc-section-number">1.1.2</span> Refinements</a></li>
+</ul></li>
+<li><a href="#useful-results-for-subdivisions"><span class="toc-section-number">1.2</span> Useful Results for Subdivisions</a></li>
+<li><a href="#the-definition"><span class="toc-section-number">1.3</span> The Definition!</a></li>
+</ul></li>
+<li><a href="#hints"><span class="toc-section-number">2</span> Hints</a></li>
+</ul>
+</div>
+<!--bookdown:toc:end-->
+
+<!--bookdown:body:start-->
+<!-- This is needed since I am working with svg files from mathcha.io. It converts the graphics files to something that can be used in the pdf files. Code taken from https://stackoverflow.com/questions/50165404/how-to-make-a-pdf-using-bookdown-including-svg-images/56044642#56044642 -->
+<div id="introduction" class="section level1 unnumbered">
+<h1>Introduction</h1>
+<p>Here is the material to accompany the 9th Analysis 1B Tutorial on the 17th April. Alternative formats can be downloaded by clicking the download icon at the top of the page. Please send any comments or corrections to <a href="mailto:caj50@bath.ac.uk">Christian Jones (caj50)</a>. To return to the homepage, click <a href="http://caj50.github.io/tutoring.html">here</a>.</p>
+<!--<details open>
+<summary>Want to ruin the surprise?</summary>
+<br>
+Well, you asked for it!
+</details>-->
+</div>
+<div id="lecture-recap" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Lecture Recap</h1>
+<p>This week, we begin the final section of this course, and it’s all about integration! Unfortunately, in order to actually define what the (Riemann) integral of a function is, we’re going to need a whole lot of definitions…</p>
+<div id="fundamentals-of-integration" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Fundamentals of Integration</h2>
+<p>Just as we used derivatives to find how fast a function is changing at a given point, we may also be interested in how much area lies between a function and its domain. For example, if we extend an elastic spring by a distance <span class="math inline">\(x\)</span>, and consider the corresponding force to do so, <span class="math inline">\(F(x)\)</span>, then the area under a graph of <span class="math inline">\(F(x)\)</span> tells us how much (elastic) energy is stored in the spring.</p>
+<p>But how do we find this area mathematically? The idea is to look at the domain of the function, split it up, and over/underestimate the area using rectangles. The hope is then that as the division of the domain becomes finer and finer, the estimates converge to the true area under the graph of our function.</p>
+<p>In all of what follows, we are going to need a bounded function <span class="math inline">\(f : [a,b] \to \mathbb{R}\)</span>. This is so its supremum and infimum exist.</p>
+<div id="subdivisions-and-riemann-sums" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Subdivisions and Riemann Sums</h3>
+
+<div id="def:def1" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Subdivision) </strong></span>
+<div>
+<p>A <em>subdivision</em> (or partition or dissection) of <span class="math inline">\([a,b]\)</span> is a finite set <span class="math inline">\(P = \lbrace x_0, x_1, \ldots, x_n \rbrace\)</span> with <span class="math display">\[a = x_0 &lt; x_1 &lt; \ldots &lt; x_n = b.\]</span></p>
+</div>
+</div>
+<p>Now that we have our subdivision of the domain, we need to define our under- and overestimates of the area below <span class="math inline">\(f\)</span>. These are defined mathematically below, but can be seen geometrically in Figure <a href="#fig:Riemann">1.1</a>.</p>
+
+<div id="def:def2" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def2" custom-style="NameStyle"><strong>Definition 1.2:  (Lower Riemann Sum) </strong></span>
+<div>
+The <em>lower Riemann sum</em> of <span class="math inline">\(f\)</span> on a subdivision <span class="math inline">\(P\)</span> is <span class="math display">\[L(f,P) = \sum_{i=1}^{n} m_i (x_i - x_{i-1}),\]</span> where <span class="math display">\[m_i = \inf_{[x_{i-1},x_i]}f(x) := \inf\lbrace f(x) \lvert x \in [x_{i-1},x_i]\rbrace.\]</span>
+</div>
+</div>
+
+<div id="def:def3" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def3" custom-style="NameStyle"><strong>Definition 1.3:  (Upper Riemann Sum) </strong></span>
+<div>
+The <em>upper Riemann sum</em> of <span class="math inline">\(f\)</span> on a subdivision <span class="math inline">\(P\)</span> is <span class="math display">\[U(f,P) = \sum_{i=1}^{n} M_i (x_i - x_{i-1}),\]</span> where <span class="math display">\[M_i = \sup_{[x_{i-1},x_i]}f(x) := \sup\lbrace f(x) \lvert x \in [x_{i-1},x_i]\rbrace.\]</span>
+</div>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:Riemann"></span>
+<img src="riemannsums.svg" alt="A diagram illustrating Taylor's Theorem"  />
+<p class="caption">
+Figure 1.1: The upper and lower Riemann sums for a function <span class="math inline">\(f:[a,b] \to \mathbb{R}\)</span> defined on a subdivision <span class="math inline">\(P = \lbrace x_0,x_1,x_2,x_3 \rbrace\)</span> of <span class="math inline">\([a,b]\)</span>. The lower Riemann sum is the total area of the blue rectangles, and the upper Riemann sum is the total area of the blue and orange rectangles.
+</p>
+</div>
+</div>
+<div id="refinements" class="section level3" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Refinements</h3>
+<p>At this stage, given a bounded function <span class="math inline">\(f:[a,b] \to \mathbb{R}\)</span>, we have a way of subdividing the domain and a way of estimating the area under <span class="math inline">\(f\)</span>. We’d now like to consider what happens to the estimates as we make our subdivision finer. This leads on to the idea of a refinement:</p>
+
+<div id="def:def4" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def4" custom-style="NameStyle"><strong>Definition 1.4:  (Refinement) </strong></span>
+<div>
+Let <span class="math inline">\(P = \lbrace x_0, x_1, \ldots, x_n \rbrace\)</span> and <span class="math inline">\(Q = \lbrace y_0, y_1, \ldots, y_m \rbrace\)</span> be subdivisions of <span class="math inline">\([a,b].\)</span> Then <span class="math inline">\(Q\)</span> is a <em>refinement</em> of <span class="math inline">\(P\)</span> if <span class="math inline">\(P\subseteq Q\)</span>.
+</div>
+</div>
+<p>Note that under this definition, <span class="math inline">\(P\)</span> is a refinement of itself!</p>
+</div>
+</div>
+<div id="useful-results-for-subdivisions" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Useful Results for Subdivisions</h2>
+<p>If we refine our subdivisions, what happens to the corresponding lower and upper Riemann sums? Luckily we have a set of results that tell us!</p>
+
+<div id="prp:prop1" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.1:  </strong></span>
+<p>
+<p>Let <span class="math inline">\(f:[a,b] \to \mathbb{R}\)</span> be bounded, and let <span class="math inline">\(P\)</span> be a subdivision of <span class="math inline">\([a,b].\)</span> Then:</p>
+<ul>
+<li><span class="math inline">\(L(f,P) \leq U(f,P)\)</span></li>
+<li>If <span class="math inline">\(Q\)</span> is a refinement of <span class="math inline">\(P\)</span>, <span class="math display">\[L(f,P) \leq L(f,Q)\;\; \text{and} \;\; U(f,Q) \leq U(f,P).\]</span></li>
+<li>If <span class="math inline">\(R\)</span> is <strong>any</strong> other subdivision, <span class="math display">\[L(f,P) \leq U(f,R).\]</span> (This says that every lower Riemann sum is smaller than every upper Riemann sum.)</li>
+</ul>
+</p>
+</div>
+<p>The proofs of these results rely on some properties of suprema and infima, which are useful to know in any case!</p>
+
+<div id="prp:prop2" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop2" custom-style="NameStyle"><strong>Proposition 1.2:  </strong></span>
+<p>
+<p>Let <span class="math inline">\(S \subseteq T \subseteq \mathbb{R}\)</span>. Then</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\inf(S) \leq \sup(S).\)</span></li>
+<li><span class="math inline">\(\inf(S) \geq \inf(T)\)</span> and <span class="math inline">\(\sup(S) \leq \sup(T).\)</span></li>
+</ol>
+</p>
+</div>
+</div>
+<div id="the-definition" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> The Definition!</h2>
+<p>We’re almost ready to define the (Riemann) integral! For our bounded function <span class="math inline">\(f:[a,b]\to\mathbb{R}\)</span>, the set of all lower sums is bounded above, and the set of all upper sums is bounded below. Therefore, we can talk about their supremum and infimum respectively. These have special names, and are correspondingly known as <em>lower and upper Riemann integrals</em>.</p>
+
+<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def5">
+<span class="def:def5" custom-style="NameStyle"><strong>Definition 1.5:  (Lower and Upper Riemann Integrals) </strong></span>
+<div>
+<p>Let <span class="math inline">\(f:[a,b] \to \mathbb{R}\)</span> be bounded. Then:</p>
+<ul>
+<li>The <em>lower Riemann integral</em> is <span class="math display">\[\underline{\int_a^b} f := \sup\left\lbrace L(f,P) \bigg\lvert\; \text{$P$ is a subdivision of $[a.b]$}\right\rbrace.\]</span></li>
+<li>The <em>upper Riemann integral</em> is <span class="math display">\[\overline{\int_a^b} f := \inf\left\lbrace U(f,P) \bigg\lvert\; \text{$P$ is a subdivision of $[a.b]$}\right\rbrace.\]</span>
+</div>
+</div></li>
+</ul>
+<p>And now, after much ado, we can finally say what it means for a function to be Riemann integrable!</p>
+
+<div id="def:def6" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def6" custom-style="NameStyle"><strong>Definition 1.6:  (Riemann Integral) </strong></span>
+<div>
+Let <span class="math inline">\(f:[a,b] \to \mathbb{R}\)</span> be bounded. Then <span class="math inline">\(f\)</span> is <em>Riemann integrable</em> if <span class="math display">\[\underline{\int_a^b} f = \overline{\int_a^b} f.\]</span> If this happens, then the (Riemann) integral of <span class="math inline">\(f\)</span> is defined to be the common value, and given the notation <span class="math inline">\(\int_{a}^b f.\)</span>
+</div>
+</div>
+</div>
+</div>
+<div id="hints" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Hints</h1>
+<p>As per usual, here’s where you’ll find the problem sheet hints!</p>
+<ol style="list-style-type: decimal">
+<li>Have a look back at the example we did in tutorials — this one is pretty similar! Calculate both the lower and upper Riemann sums, and make sure to justify the main steps of your argument. Another thing, feel free to quote the values of <span class="math display">\[\sum_{i=1}^{n} i^{k}, \quad k=0,1,2,\ldots\]</span> as ‘standard results’, although being able to prove them is good practice too!</li>
+<li>First of all, this is an ‘if and only if’, so there are two things to prove! The ‘<span class="math inline">\(\Leftarrow\)</span>’ direction should be fairly straightforward. For the ‘<span class="math inline">\(\Rightarrow\)</span>’ direction, what do you get from considering <span class="math inline">\(U(f,P) - L(f,P)\)</span>?</li>
+<li>Try the function <span class="math display">\[h:[0,1] \to \mathbb{R}, \quad h(x) = xf(x),\]</span> where <span class="math inline">\(f\)</span> is as given in the question. Make sure to prove continuity at zero first. To prove that <span class="math inline">\(h\)</span> is not integrable, show that the lower and upper Riemann integrals cannot be the same. For any subdivision <span class="math inline">\(P\)</span>, finding <span class="math inline">\(L(h,P)\)</span> should be OK. For <span class="math inline">\(U(h,P)\)</span>, try and compare it to an upper Riemann sum of a function that you know the integral of.</li>
+</ol>
+<!--chapter:end:index.Rmd-->
+</div>
+<!--bookdown:body:end-->
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>

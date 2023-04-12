@@ -16,12 +16,6 @@ output:
       download: [["MA10207Paper2020.html", "HTML page"], ["MA10207Paper2020.pdf","Standard print PDF"], ["MA10207Paper2020Clear.pdf","Clear print PDF"], ["MA10207Paper2020Large.pdf","Large print PDF"], ["MA10207Paper2020.docx","Accessible Word document"], ["MA10207Paper2020.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
-  clavertondown::html_clav:
-    toc: true
-    pandoc_args: --default-image-extension=svg
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
   clavertondown::word_clav:
     toc: true
     number_sections: true
@@ -34,6 +28,12 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
+  clavertondown::html_clav:
+    toc: true
+    pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
   - \usepackage {hyperref}
@@ -77,7 +77,8 @@ a)  Let $(a_n)_{n\in\mathbb{N}}$ be a real sequence. If $\sup_{n\in\mathbb{N}}\l
 b)  Suppose that $(a_n)_{n\in\mathbb{N}}$ and $(s_n)_{n\in\mathbb{N}}$ are two real sequences such that $$s_n = \sum_{n=1}^{\infty} (-1)^ka_k$$ for all $n\in\mathbb{N}$. If $a_{n+1} \leq a_n$ for all $n \in \mathbb{N}$ and $a_n \to 0$ as $n \to \infty$, then $(s_n)_{n \in \mathbb{N}}$ converges.
 c)  $\forall x \in \mathbb{R}\;\exists k \in \mathbb{N}: \; k > x.$
 d)  Let $(x_n)_{n\in\mathbb{N}}$ and $(y_n)_{n\in\mathbb{N}}$ be two sequences such that $$\forall n \in \mathbb{N}: x_n \leq x_{n+1} \leq y_{n+1} \leq y_n.$$ Then, there exists $a \in \mathbb{R}$ such that $$\forall n \in \mathbb{N}: \; x_n \leq a \leq y_n.$$
-e)  Suppose that $a \in [-1\,\infty)$ and $k \in \mathbb{N}_0$. Then $$1 + ka \leq (1+a)^k.$$
+e)  Suppose that $a \in [-1,\infty)$ and $k \in \mathbb{N}_0$. Then $$1 + ka \leq (1+a)^k.$$
+  
   </p></div>\EndKnitrBlock{Question}
 
 \BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyleItalics"><strong>Solution. </strong></span> <p>

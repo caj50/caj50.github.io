@@ -91,30 +91,43 @@ Recall the definition of (standard) continuity:
 
 \BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def3"><span class="def:def3" custom-style="NameStyle"><strong>(\#def:def3)  (Continuity) </strong></span><div>Let $D \subseteq \mathbb{R}$, and $f: D \to \mathbb{R}$. Then $f$ is continuous on $D$ if $$\forall c \in D\;\;\forall \epsilon > 0\;\;\exists \delta = \delta(\epsilon,c) > 0\;\;\text{s.t.}\;\;\forall x \in D,\;\; \lvert x - c \rvert < \delta \Rightarrow \lvert f(x) - f(c) \rvert < \epsilon.$$</div></div>\EndKnitrBlock{definition}
 
-In this definition, the 'distance' $\delta$ away from $c$ you can be for $f(x)$ to stay within $\epsilon$ of $f(c)$ depends on both the choice of $\epsilon$, and where you are in the domain $D$, i.e. your choice of $c$. If instead, your choice of $\delta$ remains the same no matter where you are in $D$, then $f$ is said to be **uniformly continuous**.
+In this definition, the 'distance' $\delta$ away from $c$ you can be for $f(x)$ to stay within $\epsilon$ of $f(c)$ depends on both the choice of $\epsilon$, and where you are in the domain $D$, i.e. your choice of $c$. If instead, your choice of $\delta$ remains the same no matter where you are in $D$, then $f$ is said to be **uniformly continuous**. An example of this definition is seen in Figure \@ref(fig:unicont).[^3]
 
 \BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def4"><span class="def:def4" custom-style="NameStyle"><strong>(\#def:def4)  (Uniform Continuity) </strong></span><div>Let $D \subseteq \mathbb{R}$, and $f: D \to \mathbb{R}$. Then $f$ is uniformly continuous on $D$ if $$\forall \epsilon > 0\;\;\exists \delta = \delta(\epsilon) > 0\;\;\text{s.t.}\;\;\forall x,y \in D,\;\; \lvert x - y \rvert < \delta \Rightarrow \lvert f(x) - f(y) \rvert < \epsilon.$$</div></div>\EndKnitrBlock{definition}
 
-**ADD DIAGRAM/GIF FROM WIKIPEDIA HERE (BECAUSE ITS GOOD)**
+<div class="figure" style="text-align: center">
+<img src="UniCont.svg" alt="A diagram illustrating uniform continuity." width="50%" />
+<p class="caption">(\#fig:unicont)An example of a uniformly continuous function. Here, for every $\epsilon > 0$, there exists a $\delta > 0$ such that we can translate a rectangle of width $2\delta$ and height $2\epsilon$ along the function without penetrating the top or bottom edges of the rectangle</p>
+</div>
 
-From this, we see by fixing $y$ in the definition of uniform continuity, we deduce that if a function is uniformly continuous, it is automatically continuous! In fact, in a particular case, the reverse also holds true:
+Furthermore, from Definition \@ref(def:def4), we see by fixing $y$, we deduce that if a function is uniformly continuous, it is automatically continuous! In fact, when the function domain is compact (i.e. think $[a,b]$), the reverse also holds true:
 
 \BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop2"><span class="prp:prop2" custom-style="NameStyle"><strong>(\#prp:prop2) </strong></span><p>Let $f:[a,b] \to \mathbb{R}$. Then $f$ is continuous if and only if it is uniformly continuous.</p></div>\EndKnitrBlock{proposition}
 
 ### Other forms of Continuity
 Whilst less relevant to this course, there are versions of continuity which are stronger still! The first we will mention here is known as Hölder continuity.
 
-\BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def5"><span class="def:def5" custom-style="NameStyle"><strong>(\#def:def5)  (Hölder Continuity) </strong></span><div>Let $f:[a,b] \to \mathbb{R}$. Then $f$ is said to be $\alpha$-Hölder continuous if $$\sup_{x,y \in [a,b], x \neq y} \frac{\lvert f(x) - f(y) \rvert}{\lvert x - y \rvert^{\alpha}} < \infty.$$ The set of all $\alpha$-Hölder continuous functions from $[a,b]$ is denoted by $C^{0,\alpha}\left([a,b]\right).$
+\BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def5"><span class="def:def5" custom-style="NameStyle"><strong>(\#def:def5)  (Hölder Continuity) </strong></span><div>Let $f:D \to \mathbb{R}$, and $\alpha>0$. Then $f$ is said to be $\alpha$-Hölder continuous if $\exists L > 0$ such that $\forall x,y \in D$: $$\lvert f(x) - f(y) \rvert < L \lvert x - y \rvert^{\alpha}.$$ The set of all $\alpha$-Hölder continuous functions from $D$ is denoted by $C^{0,\alpha}\left(D\right).$
   </div></div>\EndKnitrBlock{definition}
 
-Ok, this definition looks quite scary, so a visual is probably quite welcome here. See Figure ?? for details.
+Ok, this definition looks a little complicated, so a visual such as Figure \@ref(fig:Holder) is probably quite welcome here for some geometric intuition.
 
-You've already shown in a previous problem sheet that if $\alpha > 1$, then the only $\alpha$-Hölder continuous functions are constant. Another important class of Hölder continuous functions occurs when $\alpha = 1.$ This is a case you're also likely to have come across in the problem sheets:
+<div class="figure" style="text-align: center">
+<img src="Holder.svg" alt="A diagram illustrating Hölder continuity."  />
+<p class="caption">(\#fig:Holder)An example of a Hölder continuous function. In this case, there exists constants $L$ and $\alpha$ such that we can translate a double parabola along the function in a way that the function remains within the shaded areas.</p>
+</div>
 
-\BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def6"><span class="def:def6" custom-style="NameStyle"><strong>(\#def:def6)  (Lipschitz Continuity) </strong></span><div>Let $f:[a,b] \to \mathbb{R}$. Then $f$ is said to be Lipschitz continuous if $\exists L>0$ such that $\forall x,y \in [a,b]$: $$\lvert f(x) - f(y) \rvert < L \lvert x - y \rvert.$$
+You've already shown in a previous problem sheet that if $D$ is an interval, and $\alpha > 1$, then the only $\alpha$-Hölder continuous functions are constant. Another important class of Hölder continuous functions occurs when $\alpha = 1.$ This is a case you're also likely to have come across in the problem sheets:
+
+\BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def6"><span class="def:def6" custom-style="NameStyle"><strong>(\#def:def6)  (Lipschitz Continuity) </strong></span><div>Let $f:D \to \mathbb{R}$. Then $f$ is said to be Lipschitz continuous if $\exists L>0$ such that $\forall x,y \in D$: $$\lvert f(x) - f(y) \rvert < L \lvert x - y \rvert.$$
   </div></div>\EndKnitrBlock{definition}
 
-Again, this is something we can visualise (see Figure ??). Quite handily, if we introduce $\delta = \epsilon/L$, we see that a Lipschitz continuous function satisfies the definition of uniform continuity, and so is also continuous!
+Again, this is something we can visualise (see Figure \@ref(fig:Lipschitz)). Quite handily, if we introduce $\delta = \epsilon/L$, we see that a Lipschitz continuous function satisfies the definition of uniform continuity, and so is also continuous!
+
+<div class="figure" style="text-align: center">
+<img src="Lipschitz.svg" alt="A diagram illustrating Lipschitz continuity."  />
+<p class="caption">(\#fig:Lipschitz)An example of a Hölder continuous function. In this case, we can translate a double cone along the function, so that the function remains in the shaded area. </p>
+</div>
 
 ### Continuity and Differentiability
 You may remember that if a function $f:I \to \mathbb{R}$ is differentiable on an open interval $I \subseteq \mathbb{R}$, then it is continuous on $I$. However, we cannot strengthen this result in the way you might expect. Namely, it is **not** true that differentiability implies either Lipschitz or uniform continuity. 
@@ -128,7 +141,7 @@ Try $\epsilon_0 = 1.$ Then
 \lvert f(x) - f(y) \rvert \geq 1 &\Leftrightarrow \lvert x + y \rvert \geq \frac{1}{\delta}.
 \end{align*}
 
-Looking only at positive values of $x,y$ (which we can do since we are searching for $x$ and $y$ in this problem), our two constraints suggest we try $x = \frac{1}{2\delta}$ and $y = x + \frac{\delta}{2}.$ Then $$\lvert x - y \rvert = \frac{\delta}{2} < \delta, \;\; \text{and} \;\; \lvert x + y \rvert = \frac{1}{\delta} + \frac{\delta}{2} \geq \frac{1}{\delta}.$$ This shows that $f$ is not uniformly continuous (and is; therefore, also not Lipschitz continuous)
+Looking only at positive values of $x,y$ (which we can do since we are searching for $x$ and $y$ in this problem), our two constraints $$\lvert x - y \rvert < \delta \;\; \text{and} \;\; \lvert x + y \rvert \geq \frac{1}{\delta}$$ suggest we try $x = \frac{1}{2\delta}$ and $y = x + \frac{\delta}{2}.$ Then $$\lvert x - y \rvert = \frac{\delta}{2} < \delta, \;\; \text{and} \;\; \lvert x + y \rvert = \frac{1}{\delta} + \frac{\delta}{2} \geq \frac{1}{\delta}.$$ So, we have found an $\epsilon_0>0$ such that for any positive $\delta$, we have found $x,y$ with $\lvert x - y \rvert < \delta$, and $\lvert f(x) - f(y) \rvert \geq \epsilon_0.$ This shows that $f$ is not uniformly continuous (and is; therefore, also not Lipschitz continuous)
 </div></div>\EndKnitrBlock{example}
 
 However, all hope is not lost. In fact, using the Mean Value Theorem, we can recover a result linking differentiability and continuity!
@@ -136,6 +149,7 @@ However, all hope is not lost. In fact, using the Mean Value Theorem, we can rec
 \BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop3"><span class="prp:prop3" custom-style="NameStyle"><strong>(\#prp:prop3) </strong></span><p>Let $f:[a,b] \to \mathbb{R}$ be continuous on $[a,b]$ and differentiable on $(a,b).$ If $f$ is differentiable on $(a,b)$ with bounded derivative, i.e. $\exists L > 0$ such that $\lvert f'(x) \rvert < L \;\;\forall x \in (a,b)$, then $f$ is uniformly continuous.
 </p></div>\EndKnitrBlock{proposition}
 
+[^3]: Diagram taken from the [Wikipedia](https://en.wikipedia.org/wiki/Uniform_continuity) page on uniform continuity. The page is really good for extra information too.
 
 # Hints
 As per usual, here's where you'll find the problem sheet hints!

@@ -106,7 +106,7 @@ Let $S \subseteq T \subseteq \mathbb{R}$. Then
 </p></div>\EndKnitrBlock{proposition}
 
 ## The Definition!
-We're almost ready to define the (Riemann) integral! Since the set of all lower sums is bounded above, and the set of all upper sums is bounded below, we can talk about their supremum and infimum respectively. These have special names, and are correspondingly known as *lower and upper Riemann integrals*.
+We're almost ready to define the (Riemann) integral! For our bounded function $f:[a,b]\to\mathbb{R}$, the set of all lower sums is bounded above, and the set of all upper sums is bounded below. Therefore, we can talk about their supremum and infimum respectively. These have special names, and are correspondingly known as *lower and upper Riemann integrals*.
 
 \BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def5"><span class="def:def5" custom-style="NameStyle"><strong>(\#def:def5)  (Lower and Upper Riemann Integrals) </strong></span><div>Let $f:[a,b] \to \mathbb{R}$ be bounded. Then:
   

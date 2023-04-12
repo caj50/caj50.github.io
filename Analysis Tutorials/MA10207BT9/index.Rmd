@@ -9,22 +9,15 @@ classoption: a4paper
 fontsize: 10pt
 geometry: margin=2.5cm
 output:
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
   clavertondown::gitbook_clav:
     split_by: section
     keep_md: true
     config:
       download: [["Tutorial9.html", "HTML page"], ["Tutorial9.pdf","Standard print PDF"], ["Tutorial9Clear.pdf","Clear print PDF"], ["Tutorial9Large.pdf","Large print PDF"], ["Tutorial9.docx","Accessible Word document"], ["Tutorial9.epub","Accessible EPub book" ]]
       sharing: no
-    pandoc_args: --default-image-extension=svg
-  clavertondown::pdf_clav:
-    latex_engine: pdflatex
-    keep_tex: true
-    fig_caption: true
-    toc: true
-    extra_dependencies: ["float"]
-    pandoc_args: --default-image-extension=pdf
-  clavertondown::epub_clav:
-    toc: false
     pandoc_args: --default-image-extension=svg
   clavertondown::word_clav:
     toc: true
@@ -34,6 +27,13 @@ output:
   clavertondown::html_clav:
     toc: true
     pandoc_args: --default-image-extension=svg
+  clavertondown::pdf_clav:
+    latex_engine: pdflatex
+    keep_tex: true
+    fig_caption: true
+    toc: true
+    extra_dependencies: ["float"]
+    pandoc_args: --default-image-extension=pdf
 header-includes:
   - \newcommand{\BOO}{BOO}
   - \usepackage {hyperref}
@@ -128,7 +128,7 @@ Let $S \subseteq T \subseteq \mathbb{R}$. Then
 ```
 
 ## The Definition!
-We're almost ready to define the (Riemann) integral! Since the set of all lower sums is bounded above, and the set of all upper sums is bounded below, we can talk about their supremum and infimum respectively. These have special names, and are correspondingly known as *lower and upper Riemann integrals*.
+We're almost ready to define the (Riemann) integral! For our bounded function $f:[a,b]\to\mathbb{R}$, the set of all lower sums is bounded above, and the set of all upper sums is bounded below. Therefore, we can talk about their supremum and infimum respectively. These have special names, and are correspondingly known as *lower and upper Riemann integrals*.
 
 ```{definition, label = "def5", name = "Lower and Upper Riemann Integrals"}
 Let $f:[a,b] \to \mathbb{R}$ be bounded. Then:
