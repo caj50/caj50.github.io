@@ -96,7 +96,7 @@ If we refine our subdivisions, what happens to the corresponding lower and upper
 The proofs of these results rely on some properties of suprema and infima, which are useful to know in any case!
 
 \BeginKnitrBlock{proposition}<div class="bookdown-proposition" custom-style="TheoremStyleUpright" id="prp:prop2"><span class="prp:prop2" custom-style="NameStyle"><strong><span id="prp:prop2"></span>Proposition 1.2  </strong></span><p>
-Let $S \subseteq T \subseteq \mathbb{R}$. Then 
+Let $\emptyset \neq S \subseteq T \subseteq \mathbb{R}$. Then 
   
   1. $\inf(S) \leq \sup(S).$
   2. $\inf(S) \geq \inf(T)$ and $\sup(S) \leq \sup(T).$
