@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Analysis 1B — Further Integral Examples" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Christian Jones: University of Bath" />
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.MessageHook("End Math", function (msg) {
+  var nodes = Array.from(msg[1].querySelectorAll('.MJX_Assistive_MathML [id]'));
+  while (nodes.length) {
+    nodes.shift().removeAttribute('id');
+  }
+}, 20);
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "fast-preview": {disabled: true},
+  explorer:{ subtitle: true },
+  MatchWebFonts: { 
+    matchFor: { "HTML-CSS": true, NativeMML: false, SVG: false },
+    fontCheckDelay: 2000,
+    fontCheckTimeout: 30 * 1000
+  },
+  "HTML-CSS": {
+    preferredFont: "STIX",
+    availableFonts: ["STIX","TeX"],
+    webFont: "STIX-Web",
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  SVG: {
+    font: "STIX-Web",
+    linebreaks: { automatic: false, width: "90\% container" }
+  },
+  menuSettings: { 
+    collapsible: false, 
+    autocollapse: false, 
+    explorer: false 
+  }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta name="description" content="Analysis 1B — Further Integral Examples">
+
+<title>Analysis 1B — Further Integral Examples</title>
+
+<script src="libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+</style>
+
+<style type="text/css">
+  a {
+   color: blue;
+  }
+
+  [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  [custom-style=NameStyle]{
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  [custom-style=NameStyleItalics]{
+    font-style: italic;
+  }
+
+  
+  [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+  
+  [data-custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  
+</style>
+
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<!--bookdown:title:start-->
+<div id="header">
+<h1 class="title">Analysis 1B — Further Integral Examples</h1>
+<h4 class="author"><em>Christian Jones: University of Bath</em></h4>
+<h4 class="date"><em>May 2023</em></h4>
+</div>
+<!--bookdown:title:end-->
+
+<!--bookdown:toc:start-->
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#example-1"><span class="toc-section-number">1</span> Example 1</a></li>
+<li><a href="#example-2"><span class="toc-section-number">2</span> Example 2</a></li>
+<li><a href="#example-3"><span class="toc-section-number">3</span> Example 3</a></li>
+</ul>
+</div>
+<!--bookdown:toc:end-->
+
+<!--bookdown:body:start-->
+<!-- This is needed since I am working with svg files from mathcha.io. It converts the graphics files to something that can be used in the pdf files. Code taken from https://stackoverflow.com/questions/50165404/how-to-make-a-pdf-using-bookdown-including-svg-images/56044642#56044642 -->
+<div id="introduction" class="section level1 unnumbered">
+<h1>Introduction</h1>
+<p>Hi everyone! Since Problem Sheet 11 is being covered in Revision Week, I thought it might be more useful for you to have a few extra questions (and solutions) related to those on the sheet. As usual, alternative formats can be downloaded by clicking the download icon at the top of the page. Please send any comments or corrections to <a href="mailto:caj50@bath.ac.uk">Christian Jones (caj50)</a>. To return to the homepage, click <a href="http://caj50.github.io/tutoring.html">here</a>.</p>
+<!--<details open>
+<summary>Want to ruin the surprise?</summary>
+<br>
+Well, you asked for it!
+</details>-->
+</div>
+<div id="example-1" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Example 1</h1>
+
+<div id="exm:ex1" class="bookdown-example" custom-style="ExampleStyle">
+<span class="exm:ex1" custom-style="NameStyle"><strong>Example 1.1:  </strong></span>
+<div>
+<p>Let <span class="math inline">\(f:[-1,1] \to \mathbb{R}\)</span> be defined by
+<span class="math display">\[\begin{align*}
+    f(x) = \begin{cases}
+    0 &amp;\quad \text{if} \quad -1\leq x &lt;0,\\
+    1 &amp;\quad \text{if} \quad\quad\; 0\leq x \leq1.
+    \end{cases}
+\end{align*}\]</span>
+Using the Cauchy criterion, prove that <span class="math inline">\(f\)</span> is integrable.</p>
+</div>
+</div>
+
+<div class="bookdown-solution" custom-style="ProofStyle">
+<span class="solution" custom-style="NameStyleItalics">Solution. </span>
+<p>
+<p>If you weren’t asked to use the Cauchy criterion, the easy way of doing this is by using the theorem that says that a monotone function is integrable. Here’s how you would do it via the Cauchy criterion:</p>
+<p>For some <span class="math inline">\(\delta \in (0,1]\)</span>, consider the subdivision <span class="math display">\[P_{\delta} = \lbrace -1, -\delta,\delta,1\rbrace = \lbrace x_0,x_1,x_2,x_3\rbrace.\]</span> Then,
+<span class="math display">\[\begin{align*}
+    L(f,P_{\delta}) &amp;= \sum_{i=1}^3 \inf_{[x_{i-1},x_{i}]} f(x) \cdot (x_{i} - x_{i-1}),\\
+    &amp;=0(-\delta - -1) + 0(\delta - - \delta) + 1(1-\delta),\\
+    &amp;= 1 - \delta.
+\end{align*}\]</span>
+Also,
+<span class="math display">\[\begin{align*}
+    U(f,P_{\delta}) &amp;= \sum_{i=1}^3 \sup_{[x_{i-1},x_{i}]} f(x) \cdot (x_{i} - x_{i-1}),\\
+    &amp;= 0(-\delta - - 1) + 1(\delta - - \delta) + 1(1-\delta),\\
+    &amp;= 1 + \delta.
+\end{align*}\]</span>
+Hence,
+<span class="math display">\[\begin{align*}
+U(f,P_{\delta}) - L(f,P_{\delta}) = 1 + \delta - (1 - \delta) = 2\delta.
+\end{align*}\]</span>
+Now, fix <span class="math inline">\(\epsilon &gt;0\)</span>. We have that <span class="math inline">\(2\delta &lt; \epsilon\)</span> when <span class="math inline">\(\delta &lt; \epsilon/2\)</span>. So, taking <span class="math inline">\(\delta = \epsilon/4\)</span>, for example, we find that <span class="math display">\[P_{\delta} = \left\lbrace -1, -\frac{\epsilon}{4}, \frac{\epsilon}{4},1\right\rbrace\]</span> is such that <span class="math inline">\(U(f,P_{\delta}) - L(f, P_{\delta}) &lt;\epsilon\)</span>. Therefore, by the Cauchy criterion, <span class="math inline">\(f\)</span> is integrable.</p>
+</p>
+</div>
+<p><em>This idea of `cutting out the discontinuity’ by introducing a <span class="math inline">\(\delta\)</span> comes in really handy in a few areas of maths. It’s also really handy for dealing with improper integrals, for example <span class="math display">\[\int_0^1 \frac{1}{\sqrt{x}}\, dx\]</span></em></p>
+</div>
+<div id="example-2" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Example 2</h1>
+
+<div id="exm:ex2" class="bookdown-example" custom-style="ExampleStyle">
+<span class="exm:ex2" custom-style="NameStyle"><strong>Example 2.1:  </strong></span>
+<div>
+Consider <span class="math inline">\(f:[1,4] \to \mathbb{R}\)</span> given by <span class="math inline">\(f(x) = \frac{1}{2\sqrt{x}}\)</span>. Find <span class="math inline">\(\int_1^4 f\)</span> by using the Fundamental Theorem of Calculus.
+</div>
+</div>
+
+<div class="bookdown-solution" custom-style="ProofStyle">
+<span class="solution" custom-style="NameStyleItalics">Solution. </span>
+<p>
+<p>Let <span class="math inline">\(F:(0,5) \to \mathbb{R}\)</span> be defined by <span class="math inline">\(F(x) = \sqrt{x}\)</span>. We know that <span class="math inline">\(F\)</span> is differentiable on <span class="math inline">\((0,5)\)</span>, and <span class="math inline">\(\forall x \in [1,4]\)</span>: <span class="math display">\[F&#39;(x) = \frac{1}{2\sqrt{x}} = f(x).\]</span> Hence, <span class="math inline">\(F\)</span> is a primitive for <span class="math inline">\(f\)</span>. Moreover, <span class="math inline">\(f\)</span> is continuous on <span class="math inline">\([1,4]\)</span>, so it is integrable. Hence, by the FTC:
+<span class="math display">\[\begin{align*}
+    \int_1^4 f = F(4) - F(1) = \sqrt{4} - \sqrt{1} = 1.
+\end{align*}\]</span></p>
+</p>
+</div>
+</div>
+<div id="example-3" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Example 3</h1>
+
+<div id="exm:ex3" class="bookdown-example" custom-style="ExampleStyle">
+<span class="exm:ex3" custom-style="NameStyle"><strong>Example 3.1:  </strong></span>
+<div>
+Let <span class="math inline">\(f:[0,\pi/2] \to \mathbb{R}\)</span> be defined by <span class="math inline">\(f(t) = \mathrm{e}^{-t^2}\)</span>, and let <span class="math inline">\(b:(0,\pi/2) \to (0,\pi/2)\)</span> be defined by <span class="math inline">\(b(x) = x\sin(x)\)</span>. Find <span class="math display">\[\frac{d}{dx}\int_0^{b(x)} f(t)\, dt.\]</span>
+</div>
+</div>
+
+<div class="bookdown-solution" custom-style="ProofStyle">
+<span class="solution" custom-style="NameStyleItalics">Solution. </span>
+<p>
+<p>First, let <span class="math display">\[G(b) = \int_0^b f(t)\, dt,\]</span> where <span class="math inline">\(b = b(x) = x\sin(x)\)</span>. By the second Fundamental Theorem of Calculus, as <span class="math inline">\(f\)</span> is continuous on <span class="math inline">\([0,\pi/2]\)</span>, then <span class="math inline">\(G\)</span> is a primitive for <span class="math inline">\(f\)</span> in terms of <span class="math inline">\(b\)</span>, with <span class="math display">\[f(b(x)) = \frac{dG}{db}(b(x)) \quad \forall x \in (0,\pi/2).\]</span> Hence, by the chain rule:
+<span class="math display">\[\begin{align*}
+    \frac{d}{dx}\int_0^{b(x)} f(t)\, dt &amp;= \frac{dG}{db}\bigg\rvert_{b = b(x)}\frac{db}{dx},\\
+    &amp;= f(b(x))b&#39;(x) \quad \text{(by second FTC)},\\
+    &amp;= \exp\left(-x^2\sin^2(x)\right)(x\sin(x))&#39;.
+\end{align*}\]</span>
+Finally, by the product rule, we obtain for any <span class="math inline">\(x \in (0,\pi/2)\)</span>
+<span class="math display">\[\begin{align*}
+    \frac{d}{dx}\int_0^{b(x)} f(t)\, dt = \left(\sin(x) + x\cos(x)\right)\exp\left(-x^2\sin^2(x)\right).
+\end{align*}\]</span></p>
+</p>
+</div>
+<!--chapter:end:index.Rmd-->
+</div>
+<!--bookdown:body:end-->
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>

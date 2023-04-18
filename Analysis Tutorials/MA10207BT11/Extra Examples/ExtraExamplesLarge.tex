@@ -1,0 +1,241 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  17pt,
+  a4paper]{extarticle}
+\title{Analysis 1B --- Further Integral Examples}
+\author{Christian Jones: University of Bath}
+\date{May 2023}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Analysis 1B --- Further Integral Examples},
+  pdfauthor={Christian Jones: University of Bath},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\newcommand{\BOO}{BOO}
+\usepackage {hyperref}
+\hypersetup {colorlinks = true, linkcolor = blue, urlcolor = blue}
+\usepackage{float}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}\newtheorem{definition}{Definition}[section]
+\theoremstyle{plain}
+\newtheorem*{proposition*}{Proposition}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{Definitions*}{Definitions}\newtheorem{Definitions}[definition]{Definitions}
+\theoremstyle{plain}
+\newtheorem*{lemma*}{Lemma}\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{plain}
+\newtheorem*{corollary*}{Corollary}\newtheorem{corollary}{Corollary}[section]
+\theoremstyle{plain}
+\newtheorem*{conjecture*}{Conjecture}\newtheorem{conjecture}{Conjecture}[section]
+\theoremstyle{definition}
+\newtheorem*{example*}{Example}\newtheorem{example}{Example}[section]
+\theoremstyle{definition}
+\newtheorem*{exercise*}{Exercise}\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{Non-theorem*}{Non-theorem}\newtheorem{Non-theorem}{Non-theorem}[section]
+\newtheorem*{Question*}{Question}\newtheorem{Question}{Question}[section]
+\newtheorem*{Thought*}{Thought}\newtheorem{Thought}{Thought}[section]
+\theoremstyle{remark}
+\newtheorem*{remark*}{Remark}
+\newtheorem*{solution*}{Solution}
+\newtheorem*{Example*}{Example}
+\theoremstyle{remark}
+\newtheorem*{Proof*}{Proof}
+\newtheorem*{Examples*}{Examples}
+\let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
+
+
+%\usepackage[english,shorthands=off]{babel}
+\usepackage{etoolbox}
+\usepackage{spverbatim}
+\makeatletter
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\@ifpackageloaded{adjustbox}{}{\usepackage[Export]{adjustbox}}
+\makeatother
+\floatplacement{figure}{H}
+\newcommand{\scalefactor}{1.7}
+\adjustboxset*{min width=\scalefactor\width,max width=\linewidth}
+\renewcommand{\familydefault}{phv}
+\fontfamily{phv}\selectfont
+\renewcommand{\em}{\bf}\renewcommand{\textit}{\textbf}\renewcommand{\emph}{\textbf}\renewcommand{\it}{\bf}\renewcommand{\itshape}{\bf}
+\setlength{\parindent}{0.0pt}
+\setlength{\parskip}{1.0\baselineskip}
+\renewcommand{\baselinestretch}{1.5}\selectfont
+\setlength{\mathsurround}{0.2em}
+\setlength{\arraycolsep}{0.5cm}\renewcommand{\arraystretch}{1.5}
+\addtolength{\jot}{\baselineskip}
+\renewcommand{\;}{\,}
+\sloppy
+\allowdisplaybreaks
+\usepackage{amsthm}
+\newtheoremstyle{plain}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{definition}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\newtheoremstyle{remark}{20pt}{3pt}{}{}{\bfseries}{.\newline\nobreak}{1.0em\nobreak}{}
+\csundef{Proof}
+\csundef{endProof}
+\newenvironment{Proof}
+  {\noindent{\bf Proof.}\hspace*{1em}}% Begin
+  {\qed\par}% End
+%% When redefining an environment it is vital that it has 
+%% the same number of arguments as the original
+\renewenvironment{proof}[1][\proofname]
+  {\trivlist\item\relax\noindent{\bf {#1}.}\hspace*{1em}}% Begin
+  {\qed\endtrivlist}% End
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\newpage
+\pagenumbering{arabic}
+
+\hypertarget{introduction}{%
+\section*{Introduction}\label{introduction}}
+\addcontentsline{toc}{section}{Introduction}
+
+Hi everyone! Since Problem Sheet 11 is being covered in Revision Week, I thought it might be more useful for you to have a few extra questions (and solutions) related to those on the sheet. As usual, alternative formats can be downloaded by clicking the download icon at the top of the page. Please send any comments or corrections to \href{mailto:caj50@bath.ac.uk}{Christian Jones (caj50)}. To return to the homepage, click \href{http://caj50.github.io/tutoring.html}{here}.
+
+\hypertarget{example-1}{%
+\section{Example 1}\label{example-1}}
+
+\BeginKnitrBlock{example}
+{\label{exm:ex1} }Let \(f:[-1,1] \to \mathbb{R}\) be defined by
+\begin{align*}
+    f(x) = \begin{cases}
+    0 &\quad \text{if} \quad -1\leq x <0,\\
+    1 &\quad \text{if} \quad\quad\; 0\leq x \leq1.
+    \end{cases}
+\end{align*}
+Using the Cauchy criterion, prove that \(f\) is integrable.
+\EndKnitrBlock{example}
+
+\BeginKnitrBlock{solution*}
+If you weren't asked to use the Cauchy criterion, the easy way of doing this is by using the theorem that says that a monotone function is integrable. Here's how you would do it via the Cauchy criterion:
+
+For some \(\delta \in (0,1]\), consider the subdivision \[P_{\delta} = \lbrace -1, -\delta,\delta,1\rbrace = \lbrace x_0,x_1,x_2,x_3\rbrace.\] Then,
+\begin{align*}
+    L(f,P_{\delta}) &= \sum_{i=1}^3 \inf_{[x_{i-1},x_{i}]} f(x) \cdot (x_{i} - x_{i-1}),\\
+    &=0(-\delta - -1) + 0(\delta - - \delta) + 1(1-\delta),\\
+    &= 1 - \delta.
+\end{align*}
+Also,
+\begin{align*}
+    U(f,P_{\delta}) &= \sum_{i=1}^3 \sup_{[x_{i-1},x_{i}]} f(x) \cdot (x_{i} - x_{i-1}),\\
+    &= 0(-\delta - - 1) + 1(\delta - - \delta) + 1(1-\delta),\\
+    &= 1 + \delta.
+\end{align*}
+Hence,
+\begin{align*}
+U(f,P_{\delta}) - L(f,P_{\delta}) = 1 + \delta - (1 - \delta) = 2\delta.
+\end{align*}
+Now, fix \(\epsilon >0\). We have that \(2\delta < \epsilon\) when \(\delta < \epsilon/2\). So, taking \(\delta = \epsilon/4\), for example, we find that \[P_{\delta} = \left\lbrace -1, -\frac{\epsilon}{4}, \frac{\epsilon}{4},1\right\rbrace\] is such that \(U(f,P_{\delta}) - L(f, P_{\delta}) <\epsilon\). Therefore, by the Cauchy criterion, \(f\) is integrable.
+\EndKnitrBlock{solution*}
+
+\emph{This idea of `cutting out the discontinuity' by introducing a \(\delta\) comes in really handy in a few areas of maths. It's also really handy for dealing with improper integrals, for example \[\int_0^1 \frac{1}{\sqrt{x}}\, dx\]}
+
+\hypertarget{example-2}{%
+\section{Example 2}\label{example-2}}
+
+\BeginKnitrBlock{example}
+{\label{exm:ex2} }Consider \(f:[1,4] \to \mathbb{R}\) given by \(f(x) = \frac{1}{2\sqrt{x}}\). Find \(\int_1^4 f\) by using the Fundamental Theorem of Calculus.
+\EndKnitrBlock{example}
+
+\BeginKnitrBlock{solution*}
+Let \(F:(0,5) \to \mathbb{R}\) be defined by \(F(x) = \sqrt{x}\). We know that \(F\) is differentiable on \((0,5)\), and \(\forall x \in [1,4]\): \[F'(x) = \frac{1}{2\sqrt{x}} = f(x).\] Hence, \(F\) is a primitive for \(f\). Moreover, \(f\) is continuous on \([1,4]\), so it is integrable. Hence, by the FTC:
+\begin{align*}
+    \int_1^4 f = F(4) - F(1) = \sqrt{4} - \sqrt{1} = 1.
+\end{align*}
+\EndKnitrBlock{solution*}
+
+\hypertarget{example-3}{%
+\section{Example 3}\label{example-3}}
+
+\BeginKnitrBlock{example}
+{\label{exm:ex3} }Let \(f:[0,\pi/2] \to \mathbb{R}\) be defined by \(f(t) = \mathrm{e}^{-t^2}\), and let \(b:(0,\pi/2) \to (0,\pi/2)\) be defined by \(b(x) = x\sin(x)\). Find \[\frac{d}{dx}\int_0^{b(x)} f(t)\, dt.\]
+\EndKnitrBlock{example}
+
+\BeginKnitrBlock{solution*}
+First, let \[G(b) = \int_0^b f(t)\, dt,\] where \(b = b(x) = x\sin(x)\). By the second Fundamental Theorem of Calculus, as \(f\) is continuous on \([0,\pi/2]\), then \(G\) is a primitive for \(f\) in terms of \(b\), with \[f(b(x)) = \frac{dG}{db}(b(x)) \quad \forall x \in (0,\pi/2).\] Hence, by the chain rule:
+\begin{align*}
+    \frac{d}{dx}\int_0^{b(x)} f(t)\, dt &= \frac{dG}{db}\bigg\rvert_{b = b(x)}\frac{db}{dx},\\
+    &= f(b(x))b'(x) \quad \text{(by second FTC)},\\
+    &= \exp\left(-x^2\sin^2(x)\right)(x\sin(x))'.
+\end{align*}
+Finally, by the product rule, we obtain for any \(x \in (0,\pi/2)\)
+\begin{align*}
+    \frac{d}{dx}\int_0^{b(x)} f(t)\, dt = \left(\sin(x) + x\cos(x)\right)\exp\left(-x^2\sin^2(x)\right).
+\end{align*}
+\EndKnitrBlock{solution*}
+
+\end{document}

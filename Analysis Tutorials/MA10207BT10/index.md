@@ -16,6 +16,9 @@ output:
       download: [["Tutorial10.html", "HTML page"], ["Tutorial10.pdf","Standard print PDF"], ["Tutorial10Clear.pdf","Clear print PDF"], ["Tutorial10Large.pdf","Large print PDF"], ["Tutorial10.docx","Accessible Word document"], ["Tutorial10.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
+  clavertondown::html_clav:
+    toc: true
+    pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
     keep_tex: true
@@ -30,9 +33,6 @@ output:
     toc: true
     number_sections: true
     keep_md: true
-    pandoc_args: --default-image-extension=svg
-  clavertondown::html_clav:
-    toc: true
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
@@ -104,6 +104,26 @@ Furthermore, from Definition \@ref(def:def4), we see by fixing $y$, we deduce th
 
 \BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop2"><span class="prp:prop2" custom-style="NameStyle"><strong>(\#prp:prop2) </strong></span><p>Let $f:[a,b] \to \mathbb{R}$. Then $f$ is continuous if and only if it is uniformly continuous.</p></div>\EndKnitrBlock{proposition}
 
+### Uniform Continuity and Differentiability
+You may remember that if a function $f:I \to \mathbb{R}$ is differentiable on an open interval $I \subseteq \mathbb{R}$, then it is continuous on $I$. However, we cannot strengthen this result in the way you might expect. Namely, it is **not** true that differentiability implies uniform continuity. 
+
+\BeginKnitrBlock{example}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex1"><span class="exm:ex1" custom-style="NameStyle"><strong>(\#exm:ex1) </strong></span><div>To see why, consider $f:\mathbb{R} \to \mathbb{R}$ given by $f(x) = x^2$. We know that the derivative function is $f':\mathbb{R} \to \mathbb{R}$ given by $f'(x) = 2x.$ However, f is not uniformly continuous on $\mathbb{R}$.
+
+To prove this, we consider the negation of the definition, i.e. we seek $\epsilon_0 >0$ such that for all $\delta > 0$, there exists $x,y \in \mathbb{R}$ such that $\lvert x - y \rvert < \delta$, and $\lvert f(x) - f(y) \rvert \geq \epsilon_0.$
+  
+Try $\epsilon_0 = 1.$ Then
+\begin{align*}
+\lvert f(x) - f(y) \rvert \geq 1 &\Leftrightarrow \lvert x + y \rvert \geq \frac{1}{\delta}.
+\end{align*}
+
+Looking only at positive values of $x,y$ (which we can do since we are searching for $x$ and $y$ in this problem), our two constraints $$\lvert x - y \rvert < \delta \;\; \text{and} \;\; \lvert x + y \rvert \geq \frac{1}{\delta}$$ suggest we try $x = \frac{1}{2\delta}$ and $y = x + \frac{\delta}{2}.$ Then $$\lvert x - y \rvert = \frac{\delta}{2} < \delta, \;\; \text{and} \;\; \lvert x + y \rvert = \frac{1}{\delta} + \frac{\delta}{2} \geq \frac{1}{\delta}.$$ So, we have found an $\epsilon_0>0$ such that for any positive $\delta$, we have found $x,y$ with $\lvert x - y \rvert < \delta$, and $\lvert f(x) - f(y) \rvert \geq \epsilon_0.$ This shows that $f$ is not uniformly continuous.
+</div></div>\EndKnitrBlock{example}
+
+However, all hope is not lost. In fact, using the Mean Value Theorem, we can recover a result linking differentiability and continuity!
+
+\BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop3"><span class="prp:prop3" custom-style="NameStyle"><strong>(\#prp:prop3) </strong></span><p>Let $f:[a,b] \to \mathbb{R}$ be continuous on $[a,b]$ and differentiable on $(a,b).$ If $f$ is differentiable on $(a,b)$ with bounded derivative, i.e. $\exists L > 0$ such that $\lvert f'(x) \rvert < L \;\;\forall x \in (a,b)$, then $f$ is uniformly continuous.
+</p></div>\EndKnitrBlock{proposition}
+
 ### Other forms of Continuity
 Whilst less relevant to this course, there are versions of continuity which are stronger still! The first we will mention here is known as Hölder continuity.
 
@@ -126,28 +146,9 @@ Again, this is something we can visualise (see Figure \@ref(fig:Lipschitz)). Qui
 
 <div class="figure" style="text-align: center">
 <img src="Lipschitz.svg" alt="A diagram illustrating Lipschitz continuity."  />
-<p class="caption">(\#fig:Lipschitz)An example of a Hölder continuous function. In this case, we can translate a double cone along the function, so that the function remains in the shaded area. </p>
+<p class="caption">(\#fig:Lipschitz)An example of a Lipschitz continuous function. In this case, we can translate a double cone along the function, so that the function remains in the shaded area. </p>
 </div>
 
-### Continuity and Differentiability
-You may remember that if a function $f:I \to \mathbb{R}$ is differentiable on an open interval $I \subseteq \mathbb{R}$, then it is continuous on $I$. However, we cannot strengthen this result in the way you might expect. Namely, it is **not** true that differentiability implies either Lipschitz or uniform continuity. 
-
-\BeginKnitrBlock{example}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex1"><span class="exm:ex1" custom-style="NameStyle"><strong>(\#exm:ex1) </strong></span><div>To see why, consider $f:\mathbb{R} \to \mathbb{R}$ given by $f(x) = x^2$. We know that the derivative function is $f':\mathbb{R} \to \mathbb{R}$ given by $f'(x) = 2x.$ However, f is not uniformly continuous on $\mathbb{R}$.
-
-To prove this, we consider the negation of the definition, i.e. we seek $\epsilon_0 >0$ such that for all $\delta > 0$, there exists $x,y \in \mathbb{R}$ such that $\lvert x - y \rvert < \delta$, and $\lvert f(x) - f(y) \rvert \geq \epsilon_0.$
-  
-Try $\epsilon_0 = 1.$ Then
-\begin{align*}
-\lvert f(x) - f(y) \rvert \geq 1 &\Leftrightarrow \lvert x + y \rvert \geq \frac{1}{\delta}.
-\end{align*}
-
-Looking only at positive values of $x,y$ (which we can do since we are searching for $x$ and $y$ in this problem), our two constraints $$\lvert x - y \rvert < \delta \;\; \text{and} \;\; \lvert x + y \rvert \geq \frac{1}{\delta}$$ suggest we try $x = \frac{1}{2\delta}$ and $y = x + \frac{\delta}{2}.$ Then $$\lvert x - y \rvert = \frac{\delta}{2} < \delta, \;\; \text{and} \;\; \lvert x + y \rvert = \frac{1}{\delta} + \frac{\delta}{2} \geq \frac{1}{\delta}.$$ So, we have found an $\epsilon_0>0$ such that for any positive $\delta$, we have found $x,y$ with $\lvert x - y \rvert < \delta$, and $\lvert f(x) - f(y) \rvert \geq \epsilon_0.$ This shows that $f$ is not uniformly continuous (and is; therefore, also not Lipschitz continuous)
-</div></div>\EndKnitrBlock{example}
-
-However, all hope is not lost. In fact, using the Mean Value Theorem, we can recover a result linking differentiability and continuity!
-
-\BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop3"><span class="prp:prop3" custom-style="NameStyle"><strong>(\#prp:prop3) </strong></span><p>Let $f:[a,b] \to \mathbb{R}$ be continuous on $[a,b]$ and differentiable on $(a,b).$ If $f$ is differentiable on $(a,b)$ with bounded derivative, i.e. $\exists L > 0$ such that $\lvert f'(x) \rvert < L \;\;\forall x \in (a,b)$, then $f$ is uniformly continuous.
-</p></div>\EndKnitrBlock{proposition}
 
 [^3]: Diagram taken from the [Wikipedia](https://en.wikipedia.org/wiki/Uniform_continuity) page on uniform continuity. The page is really good for extra information too.
 

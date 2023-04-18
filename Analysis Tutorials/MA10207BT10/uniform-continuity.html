@@ -272,8 +272,8 @@ MathJax.Hub.Config({
 <li class="chapter" data-level="1.1" data-path="the-cauchy-criterion-for-integrability.html"><a href="the-cauchy-criterion-for-integrability.html"><i class="fa fa-check"></i><b>1.1</b> The Cauchy Criterion for Integrability</a></li>
 <li class="chapter" data-level="1.2" data-path="uniform-continuity.html"><a href="uniform-continuity.html"><i class="fa fa-check"></i><b>1.2</b> Uniform Continuity</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="uniform-continuity.html"><a href="uniform-continuity.html#other-forms-of-continuity"><i class="fa fa-check"></i><b>1.2.1</b> Other forms of Continuity</a></li>
-<li class="chapter" data-level="1.2.2" data-path="uniform-continuity.html"><a href="uniform-continuity.html#continuity-and-differentiability"><i class="fa fa-check"></i><b>1.2.2</b> Continuity and Differentiability</a></li>
+<li class="chapter" data-level="1.2.1" data-path="uniform-continuity.html"><a href="uniform-continuity.html#uniform-continuity-and-differentiability"><i class="fa fa-check"></i><b>1.2.1</b> Uniform Continuity and Differentiability</a></li>
+<li class="chapter" data-level="1.2.2" data-path="uniform-continuity.html"><a href="uniform-continuity.html#other-forms-of-continuity"><i class="fa fa-check"></i><b>1.2.2</b> Other forms of Continuity</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="hints.html"><a href="hints.html"><i class="fa fa-check"></i><b>2</b> Hints</a></li>
@@ -326,8 +326,33 @@ Figure 1.1: An example of a uniformly continuous function. Here, for every <span
 Let <span class="math inline">\(f:[a,b] \to \mathbb{R}\)</span>. Then <span class="math inline">\(f\)</span> is continuous if and only if it is uniformly continuous.
 </p>
 </div>
-<div id="other-forms-of-continuity" class="section level3" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> Other forms of Continuity</h3>
+<div id="uniform-continuity-and-differentiability" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Uniform Continuity and Differentiability</h3>
+<p>You may remember that if a function <span class="math inline">\(f:I \to \mathbb{R}\)</span> is differentiable on an open interval <span class="math inline">\(I \subseteq \mathbb{R}\)</span>, then it is continuous on <span class="math inline">\(I\)</span>. However, we cannot strengthen this result in the way you might expect. Namely, it is <strong>not</strong> true that differentiability implies uniform continuity.</p>
+
+<div id="exm:ex1" class="bookdown-example" custom-style="ExampleStyle">
+<span class="exm:ex1" custom-style="NameStyle"><strong>Example 1.1:  </strong></span>
+<div>
+<p>To see why, consider <span class="math inline">\(f:\mathbb{R} \to \mathbb{R}\)</span> given by <span class="math inline">\(f(x) = x^2\)</span>. We know that the derivative function is <span class="math inline">\(f&#39;:\mathbb{R} \to \mathbb{R}\)</span> given by <span class="math inline">\(f&#39;(x) = 2x.\)</span> However, f is not uniformly continuous on <span class="math inline">\(\mathbb{R}\)</span>.</p>
+<p>To prove this, we consider the negation of the definition, i.e. we seek <span class="math inline">\(\epsilon_0 &gt;0\)</span> such that for all <span class="math inline">\(\delta &gt; 0\)</span>, there exists <span class="math inline">\(x,y \in \mathbb{R}\)</span> such that <span class="math inline">\(\lvert x - y \rvert &lt; \delta\)</span>, and <span class="math inline">\(\lvert f(x) - f(y) \rvert \geq \epsilon_0.\)</span></p>
+<p>Try <span class="math inline">\(\epsilon_0 = 1.\)</span> Then
+<span class="math display">\[\begin{align*}
+\lvert f(x) - f(y) \rvert \geq 1 &amp;\Leftrightarrow \lvert x + y \rvert \geq \frac{1}{\delta}.
+\end{align*}\]</span></p>
+<p>Looking only at positive values of <span class="math inline">\(x,y\)</span> (which we can do since we are searching for <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in this problem), our two constraints <span class="math display">\[\lvert x - y \rvert &lt; \delta \;\; \text{and} \;\; \lvert x + y \rvert \geq \frac{1}{\delta}\]</span> suggest we try <span class="math inline">\(x = \frac{1}{2\delta}\)</span> and <span class="math inline">\(y = x + \frac{\delta}{2}.\)</span> Then <span class="math display">\[\lvert x - y \rvert = \frac{\delta}{2} &lt; \delta, \;\; \text{and} \;\; \lvert x + y \rvert = \frac{1}{\delta} + \frac{\delta}{2} \geq \frac{1}{\delta}.\]</span> So, we have found an <span class="math inline">\(\epsilon_0&gt;0\)</span> such that for any positive <span class="math inline">\(\delta\)</span>, we have found <span class="math inline">\(x,y\)</span> with <span class="math inline">\(\lvert x - y \rvert &lt; \delta\)</span>, and <span class="math inline">\(\lvert f(x) - f(y) \rvert \geq \epsilon_0.\)</span> This shows that <span class="math inline">\(f\)</span> is not uniformly continuous.</p>
+</div>
+</div>
+<p>However, all hope is not lost. In fact, using the Mean Value Theorem, we can recover a result linking differentiability and continuity!</p>
+
+<div id="prp:prop3" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop3" custom-style="NameStyle"><strong>Proposition 1.4:  </strong></span>
+<p>
+Let <span class="math inline">\(f:[a,b] \to \mathbb{R}\)</span> be continuous on <span class="math inline">\([a,b]\)</span> and differentiable on <span class="math inline">\((a,b).\)</span> If <span class="math inline">\(f\)</span> is differentiable on <span class="math inline">\((a,b)\)</span> with bounded derivative, i.e. <span class="math inline">\(\exists L &gt; 0\)</span> such that <span class="math inline">\(\lvert f&#39;(x) \rvert &lt; L \;\;\forall x \in (a,b)\)</span>, then <span class="math inline">\(f\)</span> is uniformly continuous.
+</p>
+</div>
+</div>
+<div id="other-forms-of-continuity" class="section level3" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Other forms of Continuity</h3>
 <p>Whilst less relevant to this course, there are versions of continuity which are stronger still! The first we will mention here is known as Hölder continuity.</p>
 
 <div id="def:def5" class="bookdown-definition" custom-style="DefinitionStyle">
@@ -355,32 +380,7 @@ Let <span class="math inline">\(f:D \to \mathbb{R}\)</span>. Then <span class="m
 <div class="figure" style="text-align: center"><span id="fig:Lipschitz"></span>
 <img src="Lipschitz.svg" alt="A diagram illustrating Lipschitz continuity."  />
 <p class="caption">
-Figure 1.3: An example of a Hölder continuous function. In this case, we can translate a double cone along the function, so that the function remains in the shaded area.
-</p>
-</div>
-</div>
-<div id="continuity-and-differentiability" class="section level3" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> Continuity and Differentiability</h3>
-<p>You may remember that if a function <span class="math inline">\(f:I \to \mathbb{R}\)</span> is differentiable on an open interval <span class="math inline">\(I \subseteq \mathbb{R}\)</span>, then it is continuous on <span class="math inline">\(I\)</span>. However, we cannot strengthen this result in the way you might expect. Namely, it is <strong>not</strong> true that differentiability implies either Lipschitz or uniform continuity.</p>
-
-<div id="exm:ex1" class="bookdown-example" custom-style="ExampleStyle">
-<span class="exm:ex1" custom-style="NameStyle"><strong>Example 1.1:  </strong></span>
-<div>
-<p>To see why, consider <span class="math inline">\(f:\mathbb{R} \to \mathbb{R}\)</span> given by <span class="math inline">\(f(x) = x^2\)</span>. We know that the derivative function is <span class="math inline">\(f&#39;:\mathbb{R} \to \mathbb{R}\)</span> given by <span class="math inline">\(f&#39;(x) = 2x.\)</span> However, f is not uniformly continuous on <span class="math inline">\(\mathbb{R}\)</span>.</p>
-<p>To prove this, we consider the negation of the definition, i.e. we seek <span class="math inline">\(\epsilon_0 &gt;0\)</span> such that for all <span class="math inline">\(\delta &gt; 0\)</span>, there exists <span class="math inline">\(x,y \in \mathbb{R}\)</span> such that <span class="math inline">\(\lvert x - y \rvert &lt; \delta\)</span>, and <span class="math inline">\(\lvert f(x) - f(y) \rvert \geq \epsilon_0.\)</span></p>
-<p>Try <span class="math inline">\(\epsilon_0 = 1.\)</span> Then
-<span class="math display">\[\begin{align*}
-\lvert f(x) - f(y) \rvert \geq 1 &amp;\Leftrightarrow \lvert x + y \rvert \geq \frac{1}{\delta}.
-\end{align*}\]</span></p>
-<p>Looking only at positive values of <span class="math inline">\(x,y\)</span> (which we can do since we are searching for <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in this problem), our two constraints <span class="math display">\[\lvert x - y \rvert &lt; \delta \;\; \text{and} \;\; \lvert x + y \rvert \geq \frac{1}{\delta}\]</span> suggest we try <span class="math inline">\(x = \frac{1}{2\delta}\)</span> and <span class="math inline">\(y = x + \frac{\delta}{2}.\)</span> Then <span class="math display">\[\lvert x - y \rvert = \frac{\delta}{2} &lt; \delta, \;\; \text{and} \;\; \lvert x + y \rvert = \frac{1}{\delta} + \frac{\delta}{2} \geq \frac{1}{\delta}.\]</span> So, we have found an <span class="math inline">\(\epsilon_0&gt;0\)</span> such that for any positive <span class="math inline">\(\delta\)</span>, we have found <span class="math inline">\(x,y\)</span> with <span class="math inline">\(\lvert x - y \rvert &lt; \delta\)</span>, and <span class="math inline">\(\lvert f(x) - f(y) \rvert \geq \epsilon_0.\)</span> This shows that <span class="math inline">\(f\)</span> is not uniformly continuous (and is; therefore, also not Lipschitz continuous)</p>
-</div>
-</div>
-<p>However, all hope is not lost. In fact, using the Mean Value Theorem, we can recover a result linking differentiability and continuity!</p>
-
-<div id="prp:prop3" class="bookdown-proposition" custom-style="TheoremStyle">
-<span class="prp:prop3" custom-style="NameStyle"><strong>Proposition 1.4:  </strong></span>
-<p>
-Let <span class="math inline">\(f:[a,b] \to \mathbb{R}\)</span> be continuous on <span class="math inline">\([a,b]\)</span> and differentiable on <span class="math inline">\((a,b).\)</span> If <span class="math inline">\(f\)</span> is differentiable on <span class="math inline">\((a,b)\)</span> with bounded derivative, i.e. <span class="math inline">\(\exists L &gt; 0\)</span> such that <span class="math inline">\(\lvert f&#39;(x) \rvert &lt; L \;\;\forall x \in (a,b)\)</span>, then <span class="math inline">\(f\)</span> is uniformly continuous.
+Figure 1.3: An example of a Lipschitz continuous function. In this case, we can translate a double cone along the function, so that the function remains in the shaded area.
 </p>
 </div>
 </div>
