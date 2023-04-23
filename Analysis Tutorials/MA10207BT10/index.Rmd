@@ -21,6 +21,9 @@ output:
       download: [["Tutorial10.html", "HTML page"], ["Tutorial10.pdf","Standard print PDF"], ["Tutorial10Clear.pdf","Clear print PDF"], ["Tutorial10Large.pdf","Large print PDF"], ["Tutorial10.docx","Accessible Word document"], ["Tutorial10.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
   clavertondown::html_clav:
     toc: true
     pandoc_args: --default-image-extension=svg
@@ -31,9 +34,6 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
   - \usepackage {hyperref}
@@ -91,7 +91,7 @@ To actually find these values, we need to consider **every** possible subdivisio
 Let $f:[a,b] \to \mathbb{R}$ be a bounded function. Then $f$ is Riemann integrable if and only if for all $\epsilon > 0$, there exists a subdivision $P$ of $[a,b]$ such that $U(f,P) - L(f,P) < \epsilon.$
 ```
 
-So, why is this formulation useful? Due to Archimedes principle, we now only have to consider regularly spaced subdivisions $P_n$ of $[a,b]$ to determine integrability! In particular, these subdivisions are given by $$P_n = \lbrace x_0, \ldots, x_n\rbrace, \quad x_i = a + \frac{i(b-a)}{n}.$$ This criterion also gives us the following theorem:
+So, why is this formulation useful? Due to Archimedes' principle, we now only have to consider regularly spaced subdivisions $P_n$ of $[a,b]$ to determine integrability! In particular, these subdivisions are given by $$P_n = \lbrace x_0, \ldots, x_n\rbrace, \quad x_i = a + \frac{i(b-a)}{n}.$$ This criterion also gives us the following theorem:
 
 ```{theorem, label = "thm1"}
 Let $f:[a,b] \to \mathbb{R}$. Then
@@ -112,7 +112,7 @@ Recall the definition of (standard) continuity:
 Let $D \subseteq \mathbb{R}$, and $f: D \to \mathbb{R}$. Then $f$ is continuous on $D$ if $$\forall c \in D\;\;\forall \epsilon > 0\;\;\exists \delta = \delta(\epsilon,c) > 0\;\;\text{s.t.}\;\;\forall x \in D,\;\; \lvert x - c \rvert < \delta \Rightarrow \lvert f(x) - f(c) \rvert < \epsilon.$$
 ```
 
-In this definition, the 'distance' $\delta$ away from $c$ you can be for $f(x)$ to stay within $\epsilon$ of $f(c)$ depends on both the choice of $\epsilon$, and where you are in the domain $D$, i.e. your choice of $c$. If instead, your choice of $\delta$ remains the same no matter where you are in $D$, then $f$ is said to be **uniformly continuous**. An example of this definition is seen in Figure \@ref(fig:unicont).[^3]
+In this definition, the 'distance' $\delta$ away from $c$ which ensures $f(x)$ remains within a distance $\epsilon$ of $f(c)$ depends on two things: the choice of $\epsilon$, and where you are in the domain $D$, i.e. your choice of $c$. If instead, your choice of $\delta$ remains the same no matter where you are in $D$, then $f$ is said to be **uniformly continuous**. An example of this definition is seen in Figure \@ref(fig:unicont).[^3]
 
 ```{definition, label = "def4", name = "Uniform Continuity"}
 Let $D \subseteq \mathbb{R}$, and $f: D \to \mathbb{R}$. Then $f$ is uniformly continuous on $D$ if $$\forall \epsilon > 0\;\;\exists \delta = \delta(\epsilon) > 0\;\;\text{s.t.}\;\;\forall x,y \in D,\;\; \lvert x - y \rvert < \delta \Rightarrow \lvert f(x) - f(y) \rvert < \epsilon.$$
@@ -122,7 +122,7 @@ Let $D \subseteq \mathbb{R}$, and $f: D \to \mathbb{R}$. Then $f$ is uniformly c
 show_fig("UniCont")
 ```
 
-Furthermore, from Definition \@ref(def:def4), we see by fixing $y$, we deduce that if a function is uniformly continuous, it is automatically continuous! In fact, when the function domain is compact (i.e. think $[a,b]$), the reverse also holds true:
+Furthermore, from Definition \@ref(def:def4), we see by fixing the value of $y$, we deduce that uniform continuity implies standard continuity! In fact, when the function domain is compact (i.e. think $[a,b]$), the reverse also holds true:
 
 ```{proposition, label = "prop2"}
 Let $f:[a,b] \to \mathbb{R}$. Then $f$ is continuous if and only if it is uniformly continuous.
@@ -145,7 +145,7 @@ Looking only at positive values of $x,y$ (which we can do since we are searching
 
 ```
 
-However, all hope is not lost. In fact, using the Mean Value Theorem, we can recover a result linking differentiability and continuity!
+However, all hope is not lost. In fact, using the Mean Value Theorem, we can recover a result linking differentiability and uniform continuity!
 
 ```{proposition, label = "prop3"}
 Let $f:[a,b] \to \mathbb{R}$ be continuous on $[a,b]$ and differentiable on $(a,b).$ If $f$ is differentiable on $(a,b)$ with bounded derivative, i.e. $\exists L > 0$ such that $\lvert f'(x) \rvert < L \;\;\forall x \in (a,b)$, then $f$ is uniformly continuous.
@@ -162,7 +162,7 @@ Let $f:D \to \mathbb{R}$, and $\alpha>0$. Then $f$ is said to be $\alpha$-Hölde
 
 Ok, this definition looks a little complicated, so a visual such as Figure \@ref(fig:Holder) is probably quite welcome here for some geometric intuition.
 
-```{r,Holder,fig.show='hold',fig.cap="An example of a Hölder continuous function. In this case, there exists constants $L$ and $\\alpha$ such that we can translate a double parabola along the function in a way that the function remains within the shaded areas.", fig.alt="A diagram illustrating Hölder continuity.", fig.align="center", echo=F}
+```{r,Holder,fig.show='hold',fig.cap="An example of a Hölder continuous function. In this case, there exists constants $L$ and $\\alpha$ such that we can translate a double parabola along the function so that the function remains within the shaded areas.", fig.alt="A diagram illustrating Hölder continuity.", fig.align="center", echo=F}
 show_fig("Holder")
 ```
 

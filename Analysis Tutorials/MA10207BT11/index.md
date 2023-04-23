@@ -54,14 +54,19 @@ Well, you asked for it!
 </details>-->
 
 # Lecture Recap
-There's no tutorial this week due to the May Day bank holiday. However, there's still a bit of the course to summarise (including the fundamental theorem of calculus). So here, you'll find some material that would have been covered had you had to put up with me for another week.
+There's no tutorial this week due to the May Day bank holiday. However, there's still a bit of the course to summarise (including the fundamental theorem of calculus). So here, you'll find some material that would have been covered if everything was running as normal.
 
 ## Some Integral Theorems
 We begin with two theorems, which basically say that integrals behave as you'd expect them to.
 
 \BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm1"><span class="thm:thm1" custom-style="NameStyle"><strong>(\#thm:thm1)  (Additivity of the Integral) </strong></span><p>Let $a<b$ and let $f:[a,b] \to \mathbb{R}$ be bounded. For any $c \in (a,b)$, $f$ is integrable on $[a,b]$ if and only if $f$ is integrable on $[a,c]$ and $[c,b].$ In this case $$\int_a^b f = \int_a^c f + \int_c^b f.$$
-  
-  **ADD DIAGRAM IN HERE**</p></div>\EndKnitrBlock{theorem}
+</p></div>\EndKnitrBlock{theorem}
+We can see this theorem in action below in Figure \@ref(fig:additivity).
+
+<div class="figure" style="text-align: center">
+<img src="Additivity.svg" alt="A diagram illustrating the additivity of an integral."  />
+<p class="caption">(\#fig:additivity)The integral being additive means that to integrate a function $f$ on a domain $[a,b]$, we can just sum up the integrals of $f$ on some smaller domains. This is especially useful for functions defined piecewise.</p>
+</div>
 
 \BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm2"><span class="thm:thm2" custom-style="NameStyle"><strong>(\#thm:thm2)  (Linearity of the Integral) </strong></span><p>Let $a<b$, $\lambda \in \mathbb{R}$ and let $f,g:[a,b] \to \mathbb{R}$ be integrable. Then
 
@@ -73,10 +78,9 @@ Now is the time to bring some algebra into the mix. Since the zero function $0:[
 ### Useful Results about $\sup$ and $\inf$.
 To prove the above two theorems, we need to know a bit about how the bounds of a sum of two bounded functions behave. The following results tell us exactly what we want!
 
-\BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop1"><span class="prp:prop1" custom-style="NameStyle"><strong>(\#prp:prop1) </strong></span><p>For $I \subseteq \mathbb{R}$ non-empty, $\lambda \in \mathbb{R}$ and $f,g:I \to \mathbb{R}$ bounded:
+\BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop1"><span class="prp:prop1" custom-style="NameStyle"><strong>(\#prp:prop1) </strong></span><p>For $I \subseteq \mathbb{R}$ non-empty, $\lambda \in \mathbb{R}$ and $f,g:I \to \mathbb{R}$ bounded. Then:
   
-  * $\sup_{I}(f + g) \leq \sup_{I}f + \sup_{I}g$,
-  * $\inf_{I}(f + g) \geq \inf_{I}f + \inf_{I}g$,
+  * $f+g$ is bounded, with $$\sup_{I}(f + g) \leq \sup_{I}f + \sup_{I}g, \quad \inf_{I}(f + g) \geq \inf_{I}f + \inf_{I}g$$
   * If $\lambda \geq 0$: $$\sup_{I}(\lambda f) = \lambda\sup_{I}f, \;\; \inf_{I}(\lambda f) = \lambda\inf_{I}f,$$
   * If $\lambda < 0$: $$\sup_{I}(\lambda f) = \lambda\inf_{I}f, \;\; \inf_{I}(\lambda f) = \lambda\sup_{I}f,$$
 </p></div>\EndKnitrBlock{proposition}
@@ -108,9 +112,10 @@ Then $$\int_a^b f  = F(b) - F(a).$$
 
   * $F$ is continuous on $[a,b],$ and
   * If $f$ is continuous at $c \in (a,b)$, then $F$ is differentiable at $c \in (a,b)$ with $F'(c) = f(c).$
+   
    </p></div>\EndKnitrBlock{theorem}
 
-So, why all the hype for these theorems? The first theorem makes finding integrals much easier, as derivatives are (generally) nicer to deal with than Riemann sums! The second theorem here gives you *existence* of a primitive for $f$, which you can apply the first theorem to!
+So, why should we like these theorems so much? The first theorem makes finding integrals much easier, as derivatives are (generally) nicer to deal with than Riemann sums! The second theorem here gives you *existence* of a primitive for $f$, which you can apply the first theorem to!
 
 As a warning, if in Theorem \@ref(thm:thm4) $f$ is **not** continuous at $c \in (a,b)$, $F$ may still be differentiable at $c$! See Problem Sheet 11, Tutorial Question 1 for more details.
 

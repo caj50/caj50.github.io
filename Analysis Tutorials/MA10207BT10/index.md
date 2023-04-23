@@ -16,6 +16,9 @@ output:
       download: [["Tutorial10.html", "HTML page"], ["Tutorial10.pdf","Standard print PDF"], ["Tutorial10Clear.pdf","Clear print PDF"], ["Tutorial10Large.pdf","Large print PDF"], ["Tutorial10.docx","Accessible Word document"], ["Tutorial10.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
   clavertondown::html_clav:
     toc: true
     pandoc_args: --default-image-extension=svg
@@ -26,9 +29,6 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
   clavertondown::word_clav:
     toc: true
     number_sections: true
@@ -74,7 +74,7 @@ To actually find these values, we need to consider **every** possible subdivisio
 
 \BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop1"><span class="prp:prop1" custom-style="NameStyle"><strong>(\#prp:prop1)  (Cauchy Criterion for Integrability) </strong></span><p>Let $f:[a,b] \to \mathbb{R}$ be a bounded function. Then $f$ is Riemann integrable if and only if for all $\epsilon > 0$, there exists a subdivision $P$ of $[a,b]$ such that $U(f,P) - L(f,P) < \epsilon.$</p></div>\EndKnitrBlock{proposition}
 
-So, why is this formulation useful? Due to Archimedes principle, we now only have to consider regularly spaced subdivisions $P_n$ of $[a,b]$ to determine integrability! In particular, these subdivisions are given by $$P_n = \lbrace x_0, \ldots, x_n\rbrace, \quad x_i = a + \frac{i(b-a)}{n}.$$ This criterion also gives us the following theorem:
+So, why is this formulation useful? Due to Archimedes' principle, we now only have to consider regularly spaced subdivisions $P_n$ of $[a,b]$ to determine integrability! In particular, these subdivisions are given by $$P_n = \lbrace x_0, \ldots, x_n\rbrace, \quad x_i = a + \frac{i(b-a)}{n}.$$ This criterion also gives us the following theorem:
 
 \BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm1"><span class="thm:thm1" custom-style="NameStyle"><strong>(\#thm:thm1) </strong></span><p>Let $f:[a,b] \to \mathbb{R}$. Then
 
@@ -91,7 +91,7 @@ Recall the definition of (standard) continuity:
 
 \BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def3"><span class="def:def3" custom-style="NameStyle"><strong>(\#def:def3)  (Continuity) </strong></span><div>Let $D \subseteq \mathbb{R}$, and $f: D \to \mathbb{R}$. Then $f$ is continuous on $D$ if $$\forall c \in D\;\;\forall \epsilon > 0\;\;\exists \delta = \delta(\epsilon,c) > 0\;\;\text{s.t.}\;\;\forall x \in D,\;\; \lvert x - c \rvert < \delta \Rightarrow \lvert f(x) - f(c) \rvert < \epsilon.$$</div></div>\EndKnitrBlock{definition}
 
-In this definition, the 'distance' $\delta$ away from $c$ you can be for $f(x)$ to stay within $\epsilon$ of $f(c)$ depends on both the choice of $\epsilon$, and where you are in the domain $D$, i.e. your choice of $c$. If instead, your choice of $\delta$ remains the same no matter where you are in $D$, then $f$ is said to be **uniformly continuous**. An example of this definition is seen in Figure \@ref(fig:unicont).[^3]
+In this definition, the 'distance' $\delta$ away from $c$ which ensures $f(x)$ remains within a distance $\epsilon$ of $f(c)$ depends on two things: the choice of $\epsilon$, and where you are in the domain $D$, i.e. your choice of $c$. If instead, your choice of $\delta$ remains the same no matter where you are in $D$, then $f$ is said to be **uniformly continuous**. An example of this definition is seen in Figure \@ref(fig:unicont).[^3]
 
 \BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def4"><span class="def:def4" custom-style="NameStyle"><strong>(\#def:def4)  (Uniform Continuity) </strong></span><div>Let $D \subseteq \mathbb{R}$, and $f: D \to \mathbb{R}$. Then $f$ is uniformly continuous on $D$ if $$\forall \epsilon > 0\;\;\exists \delta = \delta(\epsilon) > 0\;\;\text{s.t.}\;\;\forall x,y \in D,\;\; \lvert x - y \rvert < \delta \Rightarrow \lvert f(x) - f(y) \rvert < \epsilon.$$</div></div>\EndKnitrBlock{definition}
 
@@ -100,7 +100,7 @@ In this definition, the 'distance' $\delta$ away from $c$ you can be for $f(x)$ 
 <p class="caption">(\#fig:unicont)An example of a uniformly continuous function. Here, for every $\epsilon > 0$, there exists a $\delta > 0$ such that we can translate a rectangle of width $2\delta$ and height $2\epsilon$ along the function without penetrating the top or bottom edges of the rectangle</p>
 </div>
 
-Furthermore, from Definition \@ref(def:def4), we see by fixing $y$, we deduce that if a function is uniformly continuous, it is automatically continuous! In fact, when the function domain is compact (i.e. think $[a,b]$), the reverse also holds true:
+Furthermore, from Definition \@ref(def:def4), we see by fixing the value of $y$, we deduce that uniform continuity implies standard continuity! In fact, when the function domain is compact (i.e. think $[a,b]$), the reverse also holds true:
 
 \BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop2"><span class="prp:prop2" custom-style="NameStyle"><strong>(\#prp:prop2) </strong></span><p>Let $f:[a,b] \to \mathbb{R}$. Then $f$ is continuous if and only if it is uniformly continuous.</p></div>\EndKnitrBlock{proposition}
 
@@ -119,7 +119,7 @@ Try $\epsilon_0 = 1.$ Then
 Looking only at positive values of $x,y$ (which we can do since we are searching for $x$ and $y$ in this problem), our two constraints $$\lvert x - y \rvert < \delta \;\; \text{and} \;\; \lvert x + y \rvert \geq \frac{1}{\delta}$$ suggest we try $x = \frac{1}{2\delta}$ and $y = x + \frac{\delta}{2}.$ Then $$\lvert x - y \rvert = \frac{\delta}{2} < \delta, \;\; \text{and} \;\; \lvert x + y \rvert = \frac{1}{\delta} + \frac{\delta}{2} \geq \frac{1}{\delta}.$$ So, we have found an $\epsilon_0>0$ such that for any positive $\delta$, we have found $x,y$ with $\lvert x - y \rvert < \delta$, and $\lvert f(x) - f(y) \rvert \geq \epsilon_0.$ This shows that $f$ is not uniformly continuous.
 </div></div>\EndKnitrBlock{example}
 
-However, all hope is not lost. In fact, using the Mean Value Theorem, we can recover a result linking differentiability and continuity!
+However, all hope is not lost. In fact, using the Mean Value Theorem, we can recover a result linking differentiability and uniform continuity!
 
 \BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop3"><span class="prp:prop3" custom-style="NameStyle"><strong>(\#prp:prop3) </strong></span><p>Let $f:[a,b] \to \mathbb{R}$ be continuous on $[a,b]$ and differentiable on $(a,b).$ If $f$ is differentiable on $(a,b)$ with bounded derivative, i.e. $\exists L > 0$ such that $\lvert f'(x) \rvert < L \;\;\forall x \in (a,b)$, then $f$ is uniformly continuous.
 </p></div>\EndKnitrBlock{proposition}
@@ -134,7 +134,7 @@ Ok, this definition looks a little complicated, so a visual such as Figure \@ref
 
 <div class="figure" style="text-align: center">
 <img src="Holder.svg" alt="A diagram illustrating Hölder continuity."  />
-<p class="caption">(\#fig:Holder)An example of a Hölder continuous function. In this case, there exists constants $L$ and $\alpha$ such that we can translate a double parabola along the function in a way that the function remains within the shaded areas.</p>
+<p class="caption">(\#fig:Holder)An example of a Hölder continuous function. In this case, there exists constants $L$ and $\alpha$ such that we can translate a double parabola along the function so that the function remains within the shaded areas.</p>
 </div>
 
 You've already shown in a previous problem sheet that if $D$ is an interval, and $\alpha > 1$, then the only $\alpha$-Hölder continuous functions are constant. Another important class of Hölder continuous functions occurs when $\alpha = 1.$ This is a case you're also likely to have come across in the problem sheets:

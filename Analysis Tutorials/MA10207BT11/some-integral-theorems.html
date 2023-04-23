@@ -302,8 +302,14 @@ MathJax.Hub.Config({
 <div id="thm:thm1" class="bookdown-theorem" custom-style="TheoremStyle">
 <span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1.1:  (Additivity of the Integral) </strong></span>
 <p>
-<p>Let <span class="math inline">\(a&lt;b\)</span> and let <span class="math inline">\(f:[a,b] \to \mathbb{R}\)</span> be bounded. For any <span class="math inline">\(c \in (a,b)\)</span>, <span class="math inline">\(f\)</span> is integrable on <span class="math inline">\([a,b]\)</span> if and only if <span class="math inline">\(f\)</span> is integrable on <span class="math inline">\([a,c]\)</span> and <span class="math inline">\([c,b].\)</span> In this case <span class="math display">\[\int_a^b f = \int_a^c f + \int_c^b f.\]</span></p>
-<strong>ADD DIAGRAM IN HERE</strong>
+Let <span class="math inline">\(a&lt;b\)</span> and let <span class="math inline">\(f:[a,b] \to \mathbb{R}\)</span> be bounded. For any <span class="math inline">\(c \in (a,b)\)</span>, <span class="math inline">\(f\)</span> is integrable on <span class="math inline">\([a,b]\)</span> if and only if <span class="math inline">\(f\)</span> is integrable on <span class="math inline">\([a,c]\)</span> and <span class="math inline">\([c,b].\)</span> In this case <span class="math display">\[\int_a^b f = \int_a^c f + \int_c^b f.\]</span>
+</p>
+</div>
+<p>We can see this theorem in action below in Figure <a href="some-integral-theorems.html#fig:additivity">1.1</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:additivity"></span>
+<img src="Additivity.svg" alt="A diagram illustrating the additivity of an integral."  />
+<p class="caption">
+Figure 1.1: The integral being additive means that to integrate a function <span class="math inline">\(f\)</span> on a domain <span class="math inline">\([a,b]\)</span>, we can just sum up the integrals of <span class="math inline">\(f\)</span> on some smaller domains. This is especially useful for functions defined piecewise.
 </p>
 </div>
 
@@ -325,10 +331,9 @@ MathJax.Hub.Config({
 <div id="prp:prop1" class="bookdown-proposition" custom-style="TheoremStyle">
 <span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.3:  </strong></span>
 <p>
-<p>For <span class="math inline">\(I \subseteq \mathbb{R}\)</span> non-empty, <span class="math inline">\(\lambda \in \mathbb{R}\)</span> and <span class="math inline">\(f,g:I \to \mathbb{R}\)</span> bounded:</p>
+<p>For <span class="math inline">\(I \subseteq \mathbb{R}\)</span> non-empty, <span class="math inline">\(\lambda \in \mathbb{R}\)</span> and <span class="math inline">\(f,g:I \to \mathbb{R}\)</span> bounded. Then:</p>
 <ul>
-<li><span class="math inline">\(\sup_{I}(f + g) \leq \sup_{I}f + \sup_{I}g\)</span>,</li>
-<li><span class="math inline">\(\inf_{I}(f + g) \geq \inf_{I}f + \inf_{I}g\)</span>,</li>
+<li><span class="math inline">\(f+g\)</span> is bounded, with <span class="math display">\[\sup_{I}(f + g) \leq \sup_{I}f + \sup_{I}g, \quad \inf_{I}(f + g) \geq \inf_{I}f + \inf_{I}g\]</span></li>
 <li>If <span class="math inline">\(\lambda \geq 0\)</span>: <span class="math display">\[\sup_{I}(\lambda f) = \lambda\sup_{I}f, \;\; \inf_{I}(\lambda f) = \lambda\inf_{I}f,\]</span></li>
 <li>If <span class="math inline">\(\lambda &lt; 0\)</span>: <span class="math display">\[\sup_{I}(\lambda f) = \lambda\inf_{I}f, \;\; \inf_{I}(\lambda f) = \lambda\sup_{I}f,\]</span></li>
 </ul>
