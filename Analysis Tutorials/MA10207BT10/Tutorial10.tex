@@ -217,10 +217,10 @@ To prove this, we consider the negation of the definition, i.e.~we seek \(\epsil
 
 Try \(\epsilon_0 = 1.\) Then
 \begin{align*}
-\lvert f(x) - f(y) \rvert \geq 1 &\Leftrightarrow \lvert x + y \rvert \geq \frac{1}{\delta}.
+\lvert f(x) - f(y) \rvert \geq 1 &\Leftrightarrow \lvert x - y \rvert \lvert x + y \rvert \geq 1.
 \end{align*}
 
-Looking only at positive values of \(x,y\) (which we can do since we are searching for \(x\) and \(y\) in this problem), our two constraints \[\lvert x - y \rvert < \delta \;\; \text{and} \;\; \lvert x + y \rvert \geq \frac{1}{\delta}\] suggest we try \(x = \frac{1}{2\delta}\) and \(y = x + \frac{\delta}{2}.\) Then \[\lvert x - y \rvert = \frac{\delta}{2} < \delta, \;\; \text{and} \;\; \lvert x + y \rvert = \frac{1}{\delta} + \frac{\delta}{2} \geq \frac{1}{\delta}.\] So, we have found an \(\epsilon_0>0\) such that for any positive \(\delta\), we have found \(x,y\) with \(\lvert x - y \rvert < \delta\), and \(\lvert f(x) - f(y) \rvert \geq \epsilon_0.\) This shows that \(f\) is not uniformly continuous.
+Looking only at non-negative values of \(x,y\) (which we can do since we are searching for \(x\) and \(y\) in this problem), our constraint \(\lvert x - y \rvert < \delta\) suggests we try setting \(y = x + \frac{\delta}{2}.\) In this case \[\lvert f(x) - f(y) \rvert \geq 1 \Leftrightarrow \frac{\delta}{2}\left(2x + \frac{\delta}{2}\right) \geq 1,\] from which we obtain the requirements \[x \geq 0 \quad \text{and} \quad x \geq \frac{1}{\delta} - \frac{\delta}{4}.\] Hence, taking \[x = \max\left\lbrace 0 , \frac{1}{\delta} - \frac{\delta}{4}\right\rbrace \quad \text{and} \quad y = x + \frac{\delta}{2},\] yields \[\lvert x - y \rvert < \delta \quad \text{and} \quad \lvert f(x) - f(y) \rvert \geq 1.\] So, we have found an \(\epsilon_0>0\) such that for any positive \(\delta\), we have found \(x,y\) with \(\lvert x - y \rvert < \delta\), and \(\lvert f(x) - f(y) \rvert \geq \epsilon_0.\) This shows that \(f\) is not uniformly continuous.
 \EndKnitrBlock{example}
 
 However, all hope is not lost. In fact, using the Mean Value Theorem, we can recover a result linking differentiability and uniform continuity!

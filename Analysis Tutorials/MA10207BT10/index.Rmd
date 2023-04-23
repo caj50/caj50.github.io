@@ -9,6 +9,19 @@ classoption: a4paper
 fontsize: 10pt
 geometry: margin=2.5cm
 output:
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
+  clavertondown::pdf_clav:
+    latex_engine: pdflatex
+    keep_tex: true
+    fig_caption: true
+    toc: true
+    extra_dependencies: ["float"]
+    pandoc_args: --default-image-extension=pdf
+  clavertondown::html_clav:
+    toc: true
+    pandoc_args: --default-image-extension=svg
   clavertondown::word_clav:
     toc: true
     number_sections: true
@@ -21,19 +34,6 @@ output:
       download: [["Tutorial10.html", "HTML page"], ["Tutorial10.pdf","Standard print PDF"], ["Tutorial10Clear.pdf","Clear print PDF"], ["Tutorial10Large.pdf","Large print PDF"], ["Tutorial10.docx","Accessible Word document"], ["Tutorial10.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
-  clavertondown::html_clav:
-    toc: true
-    pandoc_args: --default-image-extension=svg
-  clavertondown::pdf_clav:
-    latex_engine: pdflatex
-    keep_tex: true
-    fig_caption: true
-    toc: true
-    extra_dependencies: ["float"]
-    pandoc_args: --default-image-extension=pdf
 header-includes:
   - \newcommand{\BOO}{BOO}
   - \usepackage {hyperref}
@@ -138,10 +138,10 @@ To prove this, we consider the negation of the definition, i.e. we seek $\epsilo
   
 Try $\epsilon_0 = 1.$ Then
 \begin{align*}
-\lvert f(x) - f(y) \rvert \geq 1 &\Leftrightarrow \lvert x + y \rvert \geq \frac{1}{\delta}.
+\lvert f(x) - f(y) \rvert \geq 1 &\Leftrightarrow \lvert x - y \rvert \lvert x + y \rvert \geq 1.
 \end{align*}
 
-Looking only at positive values of $x,y$ (which we can do since we are searching for $x$ and $y$ in this problem), our two constraints $$\lvert x - y \rvert < \delta \;\; \text{and} \;\; \lvert x + y \rvert \geq \frac{1}{\delta}$$ suggest we try $x = \frac{1}{2\delta}$ and $y = x + \frac{\delta}{2}.$ Then $$\lvert x - y \rvert = \frac{\delta}{2} < \delta, \;\; \text{and} \;\; \lvert x + y \rvert = \frac{1}{\delta} + \frac{\delta}{2} \geq \frac{1}{\delta}.$$ So, we have found an $\epsilon_0>0$ such that for any positive $\delta$, we have found $x,y$ with $\lvert x - y \rvert < \delta$, and $\lvert f(x) - f(y) \rvert \geq \epsilon_0.$ This shows that $f$ is not uniformly continuous.
+Looking only at non-negative values of $x,y$ (which we can do since we are searching for $x$ and $y$ in this problem), our constraint $\lvert x - y \rvert < \delta$ suggests we try setting $y = x + \frac{\delta}{2}.$ In this case $$\lvert f(x) - f(y) \rvert \geq 1 \Leftrightarrow \frac{\delta}{2}\left(2x + \frac{\delta}{2}\right) \geq 1,$$ from which we obtain the requirements $$x \geq 0 \quad \text{and} \quad x \geq \frac{1}{\delta} - \frac{\delta}{4}.$$ Hence, taking $$x = \max\left\lbrace 0 , \frac{1}{\delta} - \frac{\delta}{4}\right\rbrace \quad \text{and} \quad y = x + \frac{\delta}{2},$$ yields $$\lvert x - y \rvert < \delta \quad \text{and} \quad \lvert f(x) - f(y) \rvert \geq 1.$$ So, we have found an $\epsilon_0>0$ such that for any positive $\delta$, we have found $x,y$ with $\lvert x - y \rvert < \delta$, and $\lvert f(x) - f(y) \rvert \geq \epsilon_0.$ This shows that $f$ is not uniformly continuous.
 
 ```
 
