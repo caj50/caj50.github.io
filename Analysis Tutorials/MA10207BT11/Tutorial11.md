@@ -24,9 +24,6 @@ output:
   clavertondown::html_clav:
     toc: true
     pandoc_args: --default-image-extension=svg
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
     keep_tex: true
@@ -34,6 +31,9 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
   - \usepackage {hyperref}
@@ -130,19 +130,6 @@ And finally, the second of these can be seen as a way of 'undoing' the different
       </p></div>\EndKnitrBlock{theorem}
 
 [^2]: This means that $u$ is differentiable on $J$, and that the derivative $u'$ is continuous on $J$. For interest, the set of all continuously differentiable functions from a set $J$ is denoted by $C^{1}(J)$.
-
-# Hints
-Whilst there's not an official hand in this week, you may still find this section useful. So, here's the hints for the extra questions on Problem Sheet 11.
-
-1) Write $g = f + h$, where
-    \begin{align*}
-        h(x) = \begin{cases} f(c) - g(c) &\quad x = c,\\
-        0 &\quad x\neq c,
-        \end{cases}
-    \end{align*}
-    From this point, the methods used in one of the tutorial questions from Problem Sheet 9 will come in handy!
-2) Write the integral in the form of something you can apply the Fundamental Theorem of Calculus to. Make sure to verify the hypotheses!
-3) See Q2) above.
  
 
 <!--chapter:end:index.Rmd-->
