@@ -9,8 +9,15 @@ classoption: a4paper
 fontsize: 10pt
 geometry: margin=2.5cm
 output:
-  clavertondown::html_clav:
-    toc: true
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
+  clavertondown::gitbook_clav:
+    split_by: section
+    keep_md: true
+    config:
+      download: [["ExtraExamples.html", "HTML page"], ["ExtraExamples.pdf","Standard print PDF"], ["ExtraExamplesClear.pdf","Clear print PDF"], ["ExtraExamplesLarge.pdf","Large print PDF"], ["ExtraExamples.docx","Accessible Word document"], ["ExtraExamples.epub","Accessible EPub book" ]]
+      sharing: no
     pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
@@ -19,20 +26,13 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
-  clavertondown::gitbook_clav:
-    split_by: section
-    keep_md: true
-    config:
-      download: [["ExtraExamples.html", "HTML page"], ["ExtraExamples.pdf","Standard print PDF"], ["ExtraExamplesClear.pdf","Clear print PDF"], ["ExtraExamplesLarge.pdf","Large print PDF"], ["ExtraExamples.docx","Accessible Word document"], ["ExtraExamples.epub","Accessible EPub book" ]]
-      sharing: no
+  clavertondown::html_clav:
+    toc: true
     pandoc_args: --default-image-extension=svg
   clavertondown::word_clav:
     toc: true
     number_sections: true
     keep_md: true
-    pandoc_args: --default-image-extension=svg
-  clavertondown::epub_clav:
-    toc: false
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}

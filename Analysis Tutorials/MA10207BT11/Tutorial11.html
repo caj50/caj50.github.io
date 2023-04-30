@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Analysis 1B — Week 11" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Christian Jones: University of Bath" />
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.MessageHook("End Math", function (msg) {
+  var nodes = Array.from(msg[1].querySelectorAll('.MJX_Assistive_MathML [id]'));
+  while (nodes.length) {
+    nodes.shift().removeAttribute('id');
+  }
+}, 20);
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "fast-preview": {disabled: true},
+  explorer:{ subtitle: true },
+  MatchWebFonts: { 
+    matchFor: { "HTML-CSS": true, NativeMML: false, SVG: false },
+    fontCheckDelay: 2000,
+    fontCheckTimeout: 30 * 1000
+  },
+  "HTML-CSS": {
+    preferredFont: "STIX",
+    availableFonts: ["STIX","TeX"],
+    webFont: "STIX-Web",
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  SVG: {
+    font: "STIX-Web",
+    linebreaks: { automatic: false, width: "90\% container" }
+  },
+  menuSettings: { 
+    collapsible: false, 
+    autocollapse: false, 
+    explorer: false 
+  }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta name="description" content="Analysis 1B — Week 11">
+
+<title>Analysis 1B — Week 11</title>
+
+<script src="libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+</style>
+
+<style type="text/css">
+  a {
+   color: blue;
+  }
+
+  [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  [custom-style=NameStyle]{
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  [custom-style=NameStyleItalics]{
+    font-style: italic;
+  }
+
+  
+  [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+  
+  [data-custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [data-custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  
+</style>
+
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<!--bookdown:title:start-->
+<div id="header">
+<h1 class="title">Analysis 1B — Week 11</h1>
+<h4 class="author"><em>Christian Jones: University of Bath</em></h4>
+<h4 class="date"><em>May 2023</em></h4>
+</div>
+<!--bookdown:title:end-->
+
+<!--bookdown:toc:start-->
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#lecture-recap"><span class="toc-section-number">1</span> Lecture Recap</a>
+<ul>
+<li><a href="#some-integral-theorems"><span class="toc-section-number">1.1</span> Some Integral Theorems</a>
+<ul>
+<li><a href="#useful-results-about-sup-and-inf."><span class="toc-section-number">1.1.1</span> Useful Results about <span class="math inline">\(\sup\)</span> and <span class="math inline">\(\inf\)</span>.</a></li>
+<li><a href="#some-other-useful-facts"><span class="toc-section-number">1.1.2</span> Some Other Useful Facts</a></li>
+</ul></li>
+<li><a href="#the-fundamental-theorems-of-calculus"><span class="toc-section-number">1.2</span> The Fundamental Theorem(s) of Calculus</a></li>
+<li><a href="#integration-techniques"><span class="toc-section-number">1.3</span> Integration Techniques</a></li>
+</ul></li>
+<li><a href="#hints"><span class="toc-section-number">2</span> Hints</a></li>
+</ul>
+</div>
+<!--bookdown:toc:end-->
+
+<!--bookdown:body:start-->
+<!-- This is needed since I am working with svg files from mathcha.io. It converts the graphics files to something that can be used in the pdf files. Code taken from https://stackoverflow.com/questions/50165404/how-to-make-a-pdf-using-bookdown-including-svg-images/56044642#56044642 -->
+<div id="introduction" class="section level1 unnumbered">
+<h1>Introduction</h1>
+<p>Here is the material to accompany Week 11 of the Analysis 1B course. Alternative formats can be downloaded by clicking the download icon at the top of the page. Please send any comments or corrections to <a href="mailto:caj50@bath.ac.uk">Christian Jones (caj50)</a>. To return to the homepage, click <a href="http://caj50.github.io/tutoring.html">here</a>.</p>
+<!--<details open>
+<summary>Want to ruin the surprise?</summary>
+<br>
+Well, you asked for it!
+</details>-->
+</div>
+<div id="lecture-recap" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Lecture Recap</h1>
+<p>There’s no tutorial this week due to the May Day bank holiday. However, there’s still a bit of the course to summarise (including the fundamental theorem of calculus). So here, you’ll find some material that would have been covered if everything was running as normal.</p>
+<div id="some-integral-theorems" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Some Integral Theorems</h2>
+<p>We begin with two theorems, which basically say that integrals behave as you’d expect them to.</p>
+
+<div id="thm:thm1" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1.1:  (Additivity of the Integral) </strong></span>
+<p>
+Let <span class="math inline">\(a&lt;b\)</span> and let <span class="math inline">\(f:[a,b] \to \mathbb{R}\)</span> be bounded. For any <span class="math inline">\(c \in (a,b)\)</span>, <span class="math inline">\(f\)</span> is integrable on <span class="math inline">\([a,b]\)</span> if and only if <span class="math inline">\(f\)</span> is integrable on <span class="math inline">\([a,c]\)</span> and <span class="math inline">\([c,b].\)</span> In this case <span class="math display">\[\int_a^b f = \int_a^c f + \int_c^b f.\]</span>
+</p>
+</div>
+<p>We can see this theorem in action below in Figure <a href="#fig:additivity">1.1</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:additivity"></span>
+<img src="Additivity.svg" alt="A diagram illustrating the additivity of an integral."  />
+<p class="caption">
+Figure 1.1: The integral being additive means that to integrate a function <span class="math inline">\(f\)</span> on a domain <span class="math inline">\([a,b]\)</span>, we can just sum up the integrals of <span class="math inline">\(f\)</span> on some smaller domains. This is especially useful for functions defined piecewise.
+</p>
+</div>
+
+<div id="thm:thm2" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm2" custom-style="NameStyle"><strong>Theorem 1.2:  (Linearity of the Integral) </strong></span>
+<p>
+<p>Let <span class="math inline">\(a&lt;b\)</span>, <span class="math inline">\(\lambda \in \mathbb{R}\)</span> and let <span class="math inline">\(f,g:[a,b] \to \mathbb{R}\)</span> be integrable. Then</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(f+g\)</span> is integrable, with <span class="math display">\[\int_a^b f+g = \int_a^b f + \int_a^b g,\]</span></li>
+<li><span class="math inline">\(\lambda f\)</span> is integrable, with <span class="math display">\[\int_a^b \lambda f = \lambda \int_a^b f.\]</span></li>
+</ol>
+</p>
+</div>
+<p>Now is the time to bring some algebra into the mix. Since the zero function <span class="math inline">\(0:[a,b] \to \mathbb{R}\)</span> given by <span class="math inline">\(0(x) = 0\)</span> is integrable, this means that the set of integrable functions on <span class="math inline">\([a,b]\)</span> is a vector subspace of the set of bounded functions on <span class="math inline">\([a,b]\)</span>.</p>
+<div id="useful-results-about-sup-and-inf." class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Useful Results about <span class="math inline">\(\sup\)</span> and <span class="math inline">\(\inf\)</span>.</h3>
+<p>To prove the above two theorems, we need to know a bit about how the bounds of a sum of two bounded functions behave. The following results tell us exactly what we want!</p>
+
+<div id="prp:prop1" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.3:  </strong></span>
+<p>
+<p>For <span class="math inline">\(I \subseteq \mathbb{R}\)</span> non-empty, <span class="math inline">\(\lambda \in \mathbb{R}\)</span> and <span class="math inline">\(f,g:I \to \mathbb{R}\)</span> bounded. Then:</p>
+<ul>
+<li><span class="math inline">\(f+g\)</span> is bounded, with <span class="math display">\[\sup_{I}(f + g) \leq \sup_{I}f + \sup_{I}g, \quad \inf_{I}(f + g) \geq \inf_{I}f + \inf_{I}g\]</span></li>
+<li>If <span class="math inline">\(\lambda \geq 0\)</span>: <span class="math display">\[\sup_{I}(\lambda f) = \lambda\sup_{I}f, \;\; \inf_{I}(\lambda f) = \lambda\inf_{I}f,\]</span></li>
+<li>If <span class="math inline">\(\lambda &lt; 0\)</span>: <span class="math display">\[\sup_{I}(\lambda f) = \lambda\inf_{I}f, \;\; \inf_{I}(\lambda f) = \lambda\sup_{I}f,\]</span></li>
+</ul>
+</p>
+</div>
+</div>
+<div id="some-other-useful-facts" class="section level3" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Some Other Useful Facts</h3>
+<p>Using everything we’ve learned so far, we can state a few more facts about integrals!</p>
+
+<div id="prp:prop2" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop2" custom-style="NameStyle"><strong>Proposition 1.4:  </strong></span>
+<p>
+<p>If <span class="math inline">\(a&lt;b\)</span> and <span class="math inline">\(f,g:[a,b] \to \mathbb{R}\)</span> are integrable, then:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\int_a^a f = 0\)</span> (This is by definition!)</li>
+<li><span class="math inline">\(\int_b^a f := -\int_a^b f\)</span> (This is also by definition!)</li>
+<li>The function <span class="math inline">\(f \cdot g\)</span> is integrable (recall <span class="math inline">\((f\cdot g)(x) = f(x)g(x)\)</span>)</li>
+<li><span class="math inline">\(\lvert f \rvert\)</span> is integrable, with <span class="math display">\[\left\lvert\int_a^b f \right\rvert \leq \int_a^b \lvert f \rvert.\]</span></li>
+</ol>
+</p>
+</div>
+<p>It’s worth mentioning here that point 4 above is actually an analogue of the triangle inequality for integrals!</p>
+</div>
+</div>
+<div id="the-fundamental-theorems-of-calculus" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> The Fundamental Theorem(s) of Calculus</h2>
+<p>We’ve finally made it to the biggest theorems of the course, and this ties in everything done in the last 11 weeks! Despite usually being called <em>the</em> fundamental theorem of calculus (FTC), it actually encompasses two statements, which is why we state them separately below:</p>
+
+<div id="thm:thm3" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm3" custom-style="NameStyle"><strong>Theorem 1.5:  (Fundamental Theorem of Calculus I) </strong></span>
+<p>
+<p>Let <span class="math inline">\(a&lt;b\)</span> and <span class="math inline">\(I \subseteq \mathbb{R}\)</span> be an open interval containing <span class="math inline">\([a,b]\)</span>. Let <span class="math inline">\(F:I \to \mathbb{R}\)</span> be differentiable on <span class="math inline">\(I\)</span>, and let <span class="math inline">\(f:[a,b] \to \mathbb{R}\)</span> be such that</p>
+<ul>
+<li><span class="math inline">\(f(x) = F&#39;(x) \;\; \forall x \in [a,b]\)</span>,<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></li>
+<li><span class="math inline">\(f\)</span> is integrable on <span class="math inline">\([a,b]\)</span>.</li>
+</ul>
+Then <span class="math display">\[\int_a^b f  = F(b) - F(a).\]</span>
+</p>
+</div>
+
+<div id="thm:thm4" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm4" custom-style="NameStyle"><strong>Theorem 1.6:  (Fundamental Theorem of Calculus II) </strong></span>
+<p>
+<p>Let <span class="math inline">\(f:[a,b] \to \mathbb{R}\)</span> be integrable, and define <span class="math inline">\(F;[a,b] \to \mathbb{R}\)</span> via <span class="math display">\[F(x) = \int_a^x f.\]</span> Then</p>
+<ul>
+<li><span class="math inline">\(F\)</span> is continuous on <span class="math inline">\([a,b],\)</span> and</li>
+<li>If <span class="math inline">\(f\)</span> is continuous at <span class="math inline">\(c \in (a,b)\)</span>, then <span class="math inline">\(F\)</span> is differentiable at <span class="math inline">\(c \in (a,b)\)</span> with <span class="math inline">\(F&#39;(c) = f(c).\)</span></li>
+</ul>
+</p>
+</div>
+<p>So, why should we like these theorems so much? The first theorem makes finding integrals much easier, as derivatives are (generally) nicer to deal with than Riemann sums! The second theorem here gives you <em>existence</em> of a primitive for <span class="math inline">\(f\)</span>, which you can apply the first theorem to!</p>
+<p>As a warning, if in Theorem <a href="#thm:thm4">1.6</a> <span class="math inline">\(f\)</span> is <strong>not</strong> continuous at <span class="math inline">\(c \in (a,b)\)</span>, <span class="math inline">\(F\)</span> may still be differentiable at <span class="math inline">\(c\)</span>! See Problem Sheet 11, Tutorial Question 1 for more details.</p>
+</div>
+<div id="integration-techniques" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Integration Techniques</h2>
+<p>To finish the lecture recap, it would be handy to have some theorems which back up some standard integration techniques. Turns out that we do! The first of these (in a fashion) ‘undoes’ the differential product rule.</p>
+
+<div id="thm:thm5" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm5" custom-style="NameStyle"><strong>Theorem 1.7:  (Integration By Parts) </strong></span>
+<p>
+Let <span class="math inline">\(f,g:[a,b] \to \mathbb{R}\)</span> be continuous. Suppose that <span class="math inline">\(F,G:[a,b] \to \mathbb{R}\)</span> are continuous on <span class="math inline">\([a,b]\)</span> and differentiable on <span class="math inline">\((a,b)\)</span> with <span class="math inline">\(F&#39;(x) = f(x)\)</span> and <span class="math inline">\(G&#39;(x) = g(x)\;\; \forall x \in (a,b).\)</span> Then <span class="math display">\[\int_a^b fG = F(b)G(b) - F(a)G(a) - \int_a^b Fg.\]</span>
+</p>
+</div>
+<p>And finally, the second of these can be seen as a way of ‘undoing’ the differential chain rule.</p>
+
+<div id="thm:thm6" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm6" custom-style="NameStyle"><strong>Theorem 1.8:  (Integration By Substitution) </strong></span>
+<p>
+Let <span class="math inline">\(I \subseteq \mathbb{R}\)</span> be a closed interval and let <span class="math inline">\(f:I \to \mathbb{R}\)</span> be continuous on <span class="math inline">\(I\)</span>. Also, let <span class="math inline">\(J \subseteq \mathbb{R}\)</span> be an open interval, and let <span class="math inline">\(u: J \to I\)</span> be continuously differentiable<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>. Then, for <span class="math inline">\(a,b \in J\)</span>, <span class="math display">\[\int_a^b (f \circ u) u&#39; = \int_{u(a)}^{u(b)} f.\]</span>
+</p>
+</div>
+</div>
+</div>
+<div id="hints" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Hints</h1>
+<p>Whilst there’s not an official hand in this week, you may still find this section useful. So, here’s the hints for the extra questions on Problem Sheet 11.</p>
+<ol style="list-style-type: decimal">
+<li>Write <span class="math inline">\(g = f + h\)</span>, where
+<span class="math display">\[\begin{align*}
+     h(x) = \begin{cases} f(c) - g(c) &amp;\quad x = c,\\
+     0 &amp;\quad x\neq c,
+     \end{cases}
+ \end{align*}\]</span>
+From this point, the methods used in one of the tutorial questions from Problem Sheet 9 will come in handy!</li>
+<li>Write the integral in the form of something you can apply the Fundamental Theorem of Calculus to. Make sure to verify the hypotheses!</li>
+<li>See Q2) above.</li>
+</ol>
+<!--chapter:end:index.Rmd-->
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>This is the definition of <span class="math inline">\(F\)</span> being a <em>primitive</em> for <span class="math inline">\(f\)</span>.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>This means that <span class="math inline">\(u\)</span> is differentiable on <span class="math inline">\(J\)</span>, and that the derivative <span class="math inline">\(u&#39;\)</span> is continuous on <span class="math inline">\(J\)</span>. For interest, the set of all continuously differentiable functions from a set <span class="math inline">\(J\)</span> is denoted by <span class="math inline">\(C^{1}(J)\)</span>.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+<!--bookdown:body:end-->
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>

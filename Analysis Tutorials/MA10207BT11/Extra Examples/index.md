@@ -16,17 +16,6 @@ output:
       download: [["ExtraExamples.html", "HTML page"], ["ExtraExamples.pdf","Standard print PDF"], ["ExtraExamplesClear.pdf","Clear print PDF"], ["ExtraExamplesLarge.pdf","Large print PDF"], ["ExtraExamples.docx","Accessible Word document"], ["ExtraExamples.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
-  clavertondown::word_clav:
-    toc: true
-    number_sections: true
-    keep_md: true
-    pandoc_args: --default-image-extension=svg
-  clavertondown::html_clav:
-    toc: true
-    pandoc_args: --default-image-extension=svg
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
     keep_tex: true
@@ -34,6 +23,17 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
+  clavertondown::html_clav:
+    toc: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::word_clav:
+    toc: true
+    number_sections: true
+    keep_md: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
   - \usepackage {hyperref}

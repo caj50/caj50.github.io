@@ -100,6 +100,8 @@
 \newtheorem*{example*}{Example}\newtheorem{example}{Example}[section]
 \theoremstyle{definition}
 \newtheorem*{exercise*}{Exercise}\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{Non-theorem*}{Non-theorem}\newtheorem{Non-theorem}{Non-theorem}[section]
+\newtheorem*{Question*}{Question}\newtheorem{Question}{Question}[section]
 \newtheorem*{Thought*}{Thought}\newtheorem{Thought}{Thought}[section]
 \theoremstyle{remark}
 \newtheorem*{remark*}{Remark}
@@ -128,7 +130,7 @@ Here is the material to accompany Week 11 of the Analysis 1B course. Alternative
 \hypertarget{lecture-recap}{%
 \section{Lecture Recap}\label{lecture-recap}}
 
-There's no tutorial this week due to the May Day bank holiday. However, there's still a bit of the course to summarise (including the fundamental theorem of calculus). So here, you'll find some material that would have been covered had you had to put up with me for another week.
+There's no tutorial this week due to the May Day bank holiday. However, there's still a bit of the course to summarise (including the fundamental theorem of calculus). So here, you'll find some material that would have been covered if everything was running as normal.
 
 \hypertarget{some-integral-theorems}{%
 \subsection{Some Integral Theorems}\label{some-integral-theorems}}
@@ -137,9 +139,18 @@ We begin with two theorems, which basically say that integrals behave as you'd e
 
 \BeginKnitrBlock{theorem}[Additivity of the Integral]
 {\label{thm:thm1} }Let \(a<b\) and let \(f:[a,b] \to \mathbb{R}\) be bounded. For any \(c \in (a,b)\), \(f\) is integrable on \([a,b]\) if and only if \(f\) is integrable on \([a,c]\) and \([c,b].\) In this case \[\int_a^b f = \int_a^c f + \int_c^b f.\]
-
-\textbf{ADD DIAGRAM IN HERE}
 \EndKnitrBlock{theorem}
+
+We can see this theorem in action below in Figure \ref{fig:additivity}.
+
+\begin{figure}
+
+{\centering \includegraphics{Additivity} 
+
+}
+
+\caption{The integral being additive means that to integrate a function $f$ on a domain $[a,b]$, we can just sum up the integrals of $f$ on some smaller domains. This is especially useful for functions defined piecewise.}\label{fig:additivity}
+\end{figure}
 
 \BeginKnitrBlock{theorem}[Linearity of the Integral]
 {\label{thm:thm2} }Let \(a<b\), \(\lambda \in \mathbb{R}\) and let \(f,g:[a,b] \to \mathbb{R}\) be integrable. Then
@@ -162,14 +173,12 @@ Now is the time to bring some algebra into the mix. Since the zero function \(0:
 To prove the above two theorems, we need to know a bit about how the bounds of a sum of two bounded functions behave. The following results tell us exactly what we want!
 
 \BeginKnitrBlock{proposition}
-{\label{prp:prop1} }For \(I \subseteq \mathbb{R}\) non-empty, \(\lambda \in \mathbb{R}\) and \(f,g:I \to \mathbb{R}\) bounded:
+{\label{prp:prop1} }For \(I \subseteq \mathbb{R}\) non-empty, \(\lambda \in \mathbb{R}\) and \(f,g:I \to \mathbb{R}\) bounded. Then:
 
 \begin{itemize}
 \tightlist
 \item
-  \(\sup_{I}(f + g) \leq \sup_{I}f + \sup_{I}g\),
-\item
-  \(\inf_{I}(f + g) \geq \inf_{I}f + \inf_{I}g\),
+  \(f+g\) is bounded, with \[\sup_{I}(f + g) \leq \sup_{I}f + \sup_{I}g, \quad \inf_{I}(f + g) \geq \inf_{I}f + \inf_{I}g\]
 \item
   If \(\lambda \geq 0\): \[\sup_{I}(\lambda f) = \lambda\sup_{I}f, \;\; \inf_{I}(\lambda f) = \lambda\inf_{I}f,\]
 \item
@@ -232,7 +241,7 @@ Then \[\int_a^b f  = F(b) - F(a).\]
 \end{itemize}
 \EndKnitrBlock{theorem}
 
-So, why all the hype for these theorems? The first theorem makes finding integrals much easier, as derivatives are (generally) nicer to deal with than Riemann sums! The second theorem here gives you \emph{existence} of a primitive for \(f\), which you can apply the first theorem to!
+So, why should we like these theorems so much? The first theorem makes finding integrals much easier, as derivatives are (generally) nicer to deal with than Riemann sums! The second theorem here gives you \emph{existence} of a primitive for \(f\), which you can apply the first theorem to!
 
 As a warning, if in Theorem \ref{thm:thm4} \(f\) is \textbf{not} continuous at \(c \in (a,b)\), \(F\) may still be differentiable at \(c\)! See Problem Sheet 11, Tutorial Question 1 for more details.
 
@@ -254,17 +263,23 @@ And finally, the second of these can be seen as a way of `undoing' the different
 \hypertarget{hints}{%
 \section{Hints}\label{hints}}
 
-As per usual, here's where you'll find the problem sheet hints!
+Whilst there's not an official hand in this week, you may still find this section useful. So, here's the hints for the extra questions on Problem Sheet 11.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
 \tightlist
 \item
-  Have a look back at the example we did in tutorials --- this one is pretty similar! Calculate both the lower and upper Riemann sums, and make sure to justify the main steps of your argument. Another thing, feel free to quote the values of \[\sum_{i=1}^{n} i^{k}, \quad k=0,1,2,\ldots\] as `standard results', although being able to prove them is good practice too!
+  Write \(g = f + h\), where
+  \begin{align*}
+       h(x) = \begin{cases} f(c) - g(c) &\quad x = c,\\
+       0 &\quad x\neq c,
+       \end{cases}
+   \end{align*}
+  From this point, the methods used in one of the tutorial questions from Problem Sheet 9 will come in handy!
 \item
-  First of all, this is an `if and only if', so there are two things to prove! The `\(\Leftarrow\)' direction should be fairly straightforward. For the `\(\Rightarrow\)' direction, what do you get from considering \(U(f,P) - L(f,P)\)?
+  Write the integral in the form of something you can apply the Fundamental Theorem of Calculus to. Make sure to verify the hypotheses!
 \item
-  Try the function \[h:[0,1] \to \mathbb{R}, \quad h(x) = xf(x),\] where \(f\) is as given in the question. Make sure to prove continuity at zero first. To prove that \(h\) is not integrable, show that the lower and upper Riemann integrals cannot be the same. For any subdivision \(P\), finding \(L(h,P)\) should be OK. For \(U(h,P)\), try and compare it to an upper Riemann sum of a function that you know the integral of.
+  See Q2) above.
 \end{enumerate}
 
 \end{document}
