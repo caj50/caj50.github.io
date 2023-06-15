@@ -1,0 +1,24 @@
+book_filename: "MA10207Paper2020"
+output_dir: "./"
+new_theorems:
+  Non-theorem: Non
+  Question: Que
+  Thought: Tho
+  Definitions: Def
+  Example: ---
+  Proof: ---
+  Examples: ---
+number_by:
+  prp: thm
+  Def: def
+style_with:
+  plain: ["Definitions", "definition"]
+  definition: []
+  remark: ["Proof"]
+  colouroff: ["Examples"]
+  italicsoff: FALSE
+classify_as:
+  TheoremStyle: []
+  DefinitionStyle: []
+  ExampleStyle: ["Thought", "Non-theorem", "Question"]
+  ProofStyle: []

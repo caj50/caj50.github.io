@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Question 4 | Analysis 1B — Supplementary Paper 2020</title>
+  <meta name="description" content="Question 4 | Analysis 1B — Supplementary Paper 2020" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Question 4 | Analysis 1B — Supplementary Paper 2020" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Question 4 | Analysis 1B — Supplementary Paper 2020" />
+  
+  
+  
+
+<meta name="author" content="Christian Jones: University of Bath" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="question-3.html"/>
+
+
+<script src="libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.MessageHook("End Math", function (msg) {
+  var nodes = Array.from(msg[1].querySelectorAll('.MJX_Assistive_MathML [id]'));
+  while (nodes.length) {
+    nodes.shift().removeAttribute('id');
+  }
+}, 20);
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "fast-preview": {disabled: true},
+  explorer:{ subtitle: true },
+  MatchWebFonts: { 
+    matchFor: { "HTML-CSS": true, NativeMML: false, SVG: false },
+    fontCheckDelay: 2000,
+    fontCheckTimeout: 30 * 1000
+  },
+  "HTML-CSS": {
+    preferredFont: "STIX",
+    availableFonts: ["STIX","TeX"],
+    webFont: "STIX-Web",
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  SVG: {
+    font: "STIX-Web",
+    linebreaks: { automatic: false, width: "90\% container" }
+  },
+  menuSettings: { 
+    collapsible: false, 
+    autocollapse: false, 
+    explorer: false 
+  }
+});
+</script>
+
+
+
+
+<style type="text/css">
+  a {
+   color: blue;
+  }
+  .book .book-summary ul.summary li a, .book .book-summary ul.summary li.active>a, .book .book-body .page-wrapper .page-inner section.normal a {
+  color: blue;
+  }
+
+  [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+   .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #1c242b;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0f6f7;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  
+  [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #182518;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0fcea;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #182518;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0fcea;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  [custom-style=NameStyle]{
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  [custom-style=NameStyleItalics]{
+    font-style: italic;
+  }
+
+  
+  [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #251e18;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #fdf3e9;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #2b1c21;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #fdefef;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+  
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="question-1.html"><a href="question-1.html"><i class="fa fa-check"></i>Question 1</a></li>
+<li class="chapter" data-level="" data-path="question-2.html"><a href="question-2.html"><i class="fa fa-check"></i>Question 2</a></li>
+<li class="chapter" data-level="" data-path="question-3.html"><a href="question-3.html"><i class="fa fa-check"></i>Question 3</a></li>
+<li class="chapter" data-level="" data-path="question-4.html"><a href="question-4.html"><i class="fa fa-check"></i>Question 4</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis 1B — Supplementary Paper 2020</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="question-4" class="section level1 unnumbered">
+<h1>Question 4</h1>
+
+<div id="Que:unnamed-chunk-8" class="Question" custom-style="ExampleStyle">
+<span class="Question" custom-style="NameStyle"><strong> Question: </strong></span>
+<p>
+<ol style="list-style-type: lower-alpha">
+<li>Give an example of a function <span class="math inline">\(f:\mathbb{R} \to \mathbb{R}\)</span> which is differentiable on <span class="math inline">\(\mathbb{R}\)</span>, twice differentiable on <span class="math inline">\(\mathbb{R}\setminus\lbrace 0 \rbrace\)</span> and not twice differentiable at <span class="math inline">\(0\)</span>.</li>
+<li>What theorem from the lectures is natural to use to answer the following question?
+<em>Find a polynomial p(x) with rational coefficients such that <span class="math display">\[\lvert \sin(x) - p(x)\rvert \leq 10^{-6}\;\;\forall x \; \text{in}\;[0,1].\]</span></em> Explain your reasoning.</li>
+<li>There exists a twice differentiable function <span class="math inline">\(f:\mathbb{R} \to \mathbb{R}\)</span> such that <span class="math display">\[f(x) + \mathrm{e}^{f(x)} = \cos\left(\frac{x}{3}\right) + \frac{x}{3\sqrt{2}}.\]</span>
+Find all critical points of <span class="math inline">\(f\)</span> and determine whether they are local maxima, local minima or none of these.</li>
+</ol>
+</p>
+</div>
+
+<div class="bookdown-solution" custom-style="ProofStyle">
+<span class="solution" custom-style="NameStyleItalics">Solution. </span>
+<p>
+<ol style="list-style-type: lower-alpha">
+<li>Consider <span class="math inline">\(f:\mathbb{R} \to \mathbb{R}\)</span> given by <span class="math display">\[f(x) = \frac{x\lvert x \rvert}{2} = \begin{cases}
+-\frac{x^2}{2} \quad \text{if $x &lt; 0$},\\
+\;\;\;\frac{x^2}{2} \quad \text{if $x \geq 0$}.\end{cases}\]</span> Since <span class="math inline">\(f\)</span> is defined piecewise by polynomials, we know <span class="math inline">\(f\)</span> is differentiable on <span class="math inline">\(\mathbb{R}\setminus\lbrace 0 \rbrace\)</span> with <span class="math display">\[f&#39;(x) =\begin{cases}
+-x \quad \text{if $x &lt; 0$},\\
+\;\;\;x \quad \text{if $x &gt; 0$}.\end{cases}\]</span> Also, we have that as <span class="math inline">\(x \to 0\)</span>: <span class="math display">\[\left\lvert\frac{f(x) - f(0)}{x - 0} \right\rvert = \lvert x \rvert \to 0,\]</span> which implies that <span class="math inline">\(f&#39;(0)\)</span> exists and is equal to <span class="math inline">\(0\)</span>. Therefore <span class="math inline">\(f\)</span> is once differentiable on <span class="math inline">\(\mathbb{R}\)</span> with <span class="math display">\[f&#39;(x) = \lvert x \rvert.\]</span> From lectures, we know that <span class="math inline">\(f&#39;\)</span> is differentiable only on <span class="math inline">\(\mathbb{R}\setminus\lbrace 0 \rbrace\)</span>, which means that <span class="math inline">\(f\)</span> is twice differentiable on <span class="math inline">\(\mathbb{R}\setminus\lbrace 0 \rbrace\)</span> and not twice differentiable at <span class="math inline">\(0\)</span>, as required.</li>
+<li>It is natural to use Taylor’s theorem. ADD JUSTIFICATION</li>
+<li>By the chain rule, as <span class="math inline">\(f\)</span>, <span class="math inline">\(\exp\)</span> and <span class="math inline">\(\cos\)</span> are twice differentiable, each term in the equation is twice differentiable. In particular, differentiating once, we find that <span class="math display">\[f&#39;(x) + f&#39;(x)\mathrm{e}^{f(x)} = -\frac{1}{3}\sin\left(\frac{x}{3}\right) + \frac{1}{3\sqrt{2}}.\]</span> At critical points, <span class="math inline">\(f&#39;(x) = 0\)</span>, so critical points satisfy
+<span class="math display">\[\begin{align*}
+&amp;\quad 0 = -\frac{1}{3}\sin\left(\frac{x}{3}\right) + \frac{1}{3\sqrt{2}},\\
+&amp;\Leftrightarrow \sin\left(\frac{x}{3}\right) = \frac{1}{\sqrt{2}},\\
+&amp;\Leftrightarrow \frac{x}{3} = \frac{\pi}{4} + 2k\pi, \;\; \text{or} \;\; \frac{x}{3} = \frac{3\pi}{4} + 2k\pi,\;\;\text{for $k \in \mathbb{Z}$},\\
+&amp;\Leftrightarrow x = \frac{3\pi}{4} + 6k\pi\;\; \text{or} \;\; x = \frac{9\pi}{4} + 6k\pi,\;\;\text{for $k \in \mathbb{Z}$},\\
+\end{align*}\]</span>
+These are the required critical points. Now, differentiating our equation again yields
+<span class="math display">\[\begin{align*}
+f&#39;&#39;(x) + f&#39;&#39;(x)\mathrm{e}^{f(x)} + f&#39;(x)^2\mathrm{e}^{f(x)} = -\frac{1}{9}\cos\left(\frac{x}{3}\right).
+\end{align*}\]</span>
+Evaluating at <span class="math inline">\(x = \frac{3\pi}{4} + 6k\pi\)</span>, we find that
+<span class="math display">\[\begin{align*}
+&amp;\quad f&#39;&#39;(x)\left(1 + \mathrm{e}^{f(x)}\right) = -\frac{1}{9}\cos\left(\frac{\pi}{4}+2k\pi\right),\\
+&amp;\Leftrightarrow f&#39;&#39;(x)\left(1 + \mathrm{e}^{f(x)}\right) = -\frac{1}{9\sqrt{2}},\\
+&amp;\Rightarrow f&#39;&#39;(x) &lt; 0.
+\end{align*}\]</span>
+This means that the critical points <span class="math inline">\(x = \frac{3\pi}{4} + 6k\pi\)</span> with <span class="math inline">\(k \in \mathbb{Z}\)</span> correspond to local maxima. Evaluating at <span class="math inline">\(x = \frac{9\pi}{4} + 6k\pi\)</span>, we find that
+<span class="math display">\[\begin{align*}
+&amp;\quad f&#39;&#39;(x)\left(1 + \mathrm{e}^{f(x)}\right) = -\frac{1}{9}\cos\left(\frac{3\pi}{4}+2k\pi\right),\\
+&amp;\Leftrightarrow f&#39;&#39;(x)\left(1 + \mathrm{e}^{f(x)}\right) = \frac{1}{9\sqrt{2}},\\
+&amp;\Rightarrow f&#39;&#39;(x) &gt; 0.
+\end{align*}\]</span>
+This means that the critical points <span class="math inline">\(x = \frac{9\pi}{4} + 6k\pi\)</span> with <span class="math inline">\(k \in \mathbb{Z}\)</span> correspond to local minima.</li>
+</ol>
+</p>
+</div>
+
+</div>
+
+
+
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="question-3.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["MA10207Paper2020.html", "HTML page"], ["MA10207Paper2020.pdf", "Standard print PDF"], ["MA10207Paper2020Clear.pdf", "Clear print PDF"], ["MA10207Paper2020Large.pdf", "Large print PDF"], ["MA10207Paper2020.docx", "Accessible Word document"], ["MA10207Paper2020.epub", "Accessible EPub book"]],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

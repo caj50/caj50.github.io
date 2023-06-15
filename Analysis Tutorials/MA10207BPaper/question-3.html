@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Question 3 | Analysis 1B — Supplementary Paper 2020</title>
+  <meta name="description" content="Question 3 | Analysis 1B — Supplementary Paper 2020" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Question 3 | Analysis 1B — Supplementary Paper 2020" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Question 3 | Analysis 1B — Supplementary Paper 2020" />
+  
+  
+  
+
+<meta name="author" content="Christian Jones: University of Bath" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="question-2.html"/>
+<link rel="next" href="question-4.html"/>
+
+<script src="libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.MessageHook("End Math", function (msg) {
+  var nodes = Array.from(msg[1].querySelectorAll('.MJX_Assistive_MathML [id]'));
+  while (nodes.length) {
+    nodes.shift().removeAttribute('id');
+  }
+}, 20);
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "fast-preview": {disabled: true},
+  explorer:{ subtitle: true },
+  MatchWebFonts: { 
+    matchFor: { "HTML-CSS": true, NativeMML: false, SVG: false },
+    fontCheckDelay: 2000,
+    fontCheckTimeout: 30 * 1000
+  },
+  "HTML-CSS": {
+    preferredFont: "STIX",
+    availableFonts: ["STIX","TeX"],
+    webFont: "STIX-Web",
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90\% container" }
+  },
+  SVG: {
+    font: "STIX-Web",
+    linebreaks: { automatic: false, width: "90\% container" }
+  },
+  menuSettings: { 
+    collapsible: false, 
+    autocollapse: false, 
+    explorer: false 
+  }
+});
+</script>
+
+
+
+
+<style type="text/css">
+  a {
+   color: blue;
+  }
+  .book .book-summary ul.summary li a, .book .book-summary ul.summary li.active>a, .book .book-body .page-wrapper .page-inner section.normal a {
+  color: blue;
+  }
+
+  [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: AliceBlue;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+   .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #1c242b;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=DefinitionStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0f6f7;
+    border-left-style: solid;
+    border-color: CadetBlue;
+    padding-left: 0.5em;
+  }
+
+  
+  [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #182518;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0fcea;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+
+  [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: honeydew;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #182518;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=TheoremStyleUpright] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #f0fcea;
+    border-left-style: solid;
+    border-color: darkseagreen;
+    padding-left: 0.5em;
+    font-style: normal;
+  }
+
+  [custom-style=NameStyle]{
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  [custom-style=NameStyleItalics]{
+    font-style: italic;
+  }
+
+  
+  [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: seashell;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #251e18;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=ProofStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #fdf3e9;
+    border-left-style: solid;
+    border-color: darkkhaki;
+    padding-left: 0.5em;
+  }
+
+  [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: lavenderblush;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #2b1c21;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+
+  .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal [custom-style=ExampleStyle] {
+    margin-bottom: 1.5em;
+    margin-top:1.5em;
+    background-color: #fdefef;
+    border-left-style: solid;
+    border-color: mediumorchid;
+    padding-left: 0.5em;
+  }
+  
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="question-1.html"><a href="question-1.html"><i class="fa fa-check"></i>Question 1</a></li>
+<li class="chapter" data-level="" data-path="question-2.html"><a href="question-2.html"><i class="fa fa-check"></i>Question 2</a></li>
+<li class="chapter" data-level="" data-path="question-3.html"><a href="question-3.html"><i class="fa fa-check"></i>Question 3</a></li>
+<li class="chapter" data-level="" data-path="question-4.html"><a href="question-4.html"><i class="fa fa-check"></i>Question 4</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis 1B — Supplementary Paper 2020</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="question-3" class="section level1 unnumbered">
+<h1>Question 3</h1>
+
+<div id="Que:unnamed-chunk-6" class="Question" custom-style="ExampleStyle">
+<span class="Question" custom-style="NameStyle"><strong> Question: </strong></span>
+<p>
+<ol style="list-style-type: lower-alpha">
+<li>Let <span class="math inline">\(f: \mathbb{R} \to \mathbb{R}\)</span> be defined by <span class="math display">\[f(x) = \begin{cases} 0 \;\; \text{if $x \leq 0$},\\
+x \;\; \text{if $x &gt; 0$}.\end{cases}\]</span> Find all points where <span class="math inline">\(f\)</span> is differentiable.</li>
+<li>Give an example of a continuous function <span class="math inline">\(f:\mathbb{R} \to \mathbb{R}\)</span> which is differentiable in <span class="math inline">\(\mathbb{R}\setminus\lbrace 0,1\rbrace\)</span> and not differentiable at <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>.</li>
+<li>Let <span class="math inline">\(f: \mathbb{R} \to \mathbb{R}\)</span> be defined by <span class="math display">\[f(x) = (x^3 - 9x^2 + 29x - 35)\mathrm{e}^x.\]</span> On what intervals is the function <span class="math inline">\(f\)</span> increasing? [<em>Hint: <span class="math inline">\(x=1\)</span> is a critical point of <span class="math inline">\(f\)</span>.</em>]</li>
+<li>Let <span class="math inline">\(f:[0,1] \to \mathbb{R}\)</span> be continuous and differentiable in <span class="math inline">\((0,1).\)</span> Assume that <span class="math inline">\(f(0) = 0\)</span> and that <span class="math inline">\(f&#39;\)</span> is increasing in <span class="math inline">\((0,1).\)</span> Prove that <span class="math inline">\(g:(0,1) \to \mathbb{R}\)</span> defined by <span class="math inline">\(g(x) = \frac{f(x)}{x}\)</span> is increasing in <span class="math inline">\((0,1).\)</span> [<em>Hint: Use the Mean Value Theorem.</em>]</li>
+</ol>
+</p>
+</div>
+
+<div class="bookdown-solution" custom-style="ProofStyle">
+<span class="solution" custom-style="NameStyleItalics">Solution. </span>
+<p>
+<ol style="list-style-type: lower-alpha">
+<li>Firstly, as polynomials are differentiable, we know that <span class="math inline">\(f\)</span> is differentiable on <span class="math inline">\(\mathbb{R}\setminus\lbrace 0 \rbrace,\)</span> with <span class="math display">\[f&#39;(x) = \begin{cases} 0 \;\; \text{if $x &lt; 0$},\\
+1 \;\; \text{if $x &gt; 0$}.\end{cases}\]</span> However, <span class="math inline">\(f\)</span> is not differentiable at <span class="math inline">\(0.\)</span> To see this, first consider for <span class="math inline">\(x&gt;0.\)</span> <span class="math display">\[\frac{f(x) - f(0)}{x - 0} = \frac{x}{x} = 1 \to 1 \;\;\text{as $x \to 0^{+}$}.\]</span> However, for <span class="math inline">\(x &lt; 0\)</span>, <span class="math display">\[\frac{f(x) - f(0)}{x - 0} = 0 \to 0 \;\;\text{as $x \to 0^{-}$}.\]</span> Hence, as <span class="math display">\[\lim_{x\to 0^{-}}\frac{f(x) - f(0)}{x - 0} \neq \lim_{x\to 0^{+}}\frac{f(x) - f(0)}{x - 0},\]</span> <span class="math inline">\(f\)</span> is not differentiable at <span class="math inline">\(0.\)</span> So <span class="math inline">\(f\)</span> is differentiable only on <span class="math inline">\(\mathbb{R}\setminus\lbrace 0 \rbrace.\)</span></li>
+<li>Consider <span class="math inline">\(f:\mathbb{R} \to \mathbb{R}\)</span> given by <span class="math display">\[f(x) = \lvert x \rvert + \lvert x - 1 \rvert = \begin{cases} 1 - 2x \;\; \text{if $x \leq 0$},\\
+1\;\;\quad\quad\; \text{if $0 &lt; x \leq 1$},\\
+2x - 1\;\; \text{if $x &gt; 1$}.\end{cases}\]</span> Since <span class="math inline">\(f\)</span> is a composition of continuous functions on <span class="math inline">\(\mathbb{R}\)</span>, it is continuous on <span class="math inline">\(\mathbb{R}.\)</span> It is also differentiable on <span class="math inline">\(\mathbb{R}\setminus\lbrace 0,1\rbrace\)</span>, with <span class="math display">\[f&#39;(x) = \begin{cases} - 2 \;\; \text{if $x &lt; 0$},\\
+0\;\;\; \text{if $0 &lt; x &lt; 1$},\\
+2 \;\;\;\; \text{if $x &gt; 1$}.\end{cases}\]</span> However, at <span class="math inline">\(x=0\)</span> (similarly for <span class="math inline">\(x=1\)</span>), we find that <span class="math display">\[\lim_{x \to 0^{-}}\frac{f(x) - f(0)}{x - 0} = -2 \neq 0 = \lim_{x \to 0^{+}}\frac{f(x) - f(0)}{x - 0},\]</span> so <span class="math inline">\(f\)</span> is not differentiable at <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>.</li>
+<li>As <span class="math inline">\(f\)</span> is a product of a polynomial and the exponential function, it is differentiable on <span class="math inline">\(\mathbb{R}\)</span> by the product rule, with derivative function <span class="math display">\[f(x) = (3x^2-18x+29)\mathrm{e}^x + (x^3 - 9x^2 +29x -35)\mathrm{e}^x = (x^3 - 6x^2 + 11x -6)\mathrm{e}^x.\]</span> Using the hint (and that the exponential is positive for all <span class="math inline">\(x\)</span>), we can factorise this as
+<span class="math display">\[\begin{align*}
+f&#39;(x) = (x-1)(x^2-5x-6)\mathrm{e}^x = (x-1)(x-2)(x-3)\mathrm{e}^x.
+\end{align*}\]</span>
+Now, note that <span class="math inline">\(f&#39;(x) &gt; 0\)</span> when either <span class="math inline">\(1 &lt; x &lt; 2\)</span> or <span class="math inline">\(x &gt; 3\)</span>. By a theorem from lectures, this says that <span class="math inline">\(f\)</span> is increasing on the intervals <span class="math inline">\([1,2]\)</span> and <span class="math inline">\([3,\infty).\)</span></li>
+<li>Fix <span class="math inline">\(x,y\)</span> in <span class="math inline">\((0,1)\)</span>, and suppose WLOG that <span class="math inline">\(x &lt; y\)</span>. By the algebra of continuity and the quotient rule, <span class="math inline">\(g\)</span> is continuous on <span class="math inline">\([x,y]\)</span> and differentiable on <span class="math inline">\((x,y).\)</span> Hence, by the Mean Value Theorem, <span class="math inline">\(\exists \chi \in (x,y)\)</span> such that <span class="math display">\[\frac{g(y) - g(x)}{y - x} = g&#39;(\chi).\]</span> Now, <span class="math display">\[g&#39;(\chi) = \frac{f&#39;(\chi)}{\chi} - \frac{f(\chi)}{\chi^2},\]</span> so to prove <span class="math inline">\(g(y) \geq g(x),\)</span> we need the following implication to hold:
+<span class="math display">\[\begin{align*}
+g&#39;(\chi) \geq 0 &amp;\Leftrightarrow \frac{f&#39;(\chi)}{\chi} - \frac{f(\chi)}{\chi^2} \geq 0,\\
+&amp;\Leftrightarrow f&#39;(\chi) \geq \frac{f(\chi)}{\chi}.
+\end{align*}\]</span>
+Now, applying the MVT to <span class="math inline">\(f\)</span> on the interval <span class="math inline">\([0,\chi]\)</span>, we find that there exists <span class="math inline">\(c \in (0,\chi)\)</span> such that <span class="math display">\[\frac{f(\chi)}{\chi} = \frac{f(\chi) - f(0)}{x - 0} = f&#39;(c).\]</span> Since <span class="math inline">\(f&#39;\)</span> is increasing on <span class="math inline">\((0,1)\)</span>, <span class="math display">\[\frac{f(\chi)}{\chi} = f&#39;(c) \leq f&#39;(\chi),\]</span> which proves that <span class="math inline">\(g(y) \geq g(x).\)</span> Since <span class="math inline">\(x,y\)</span> were arbitrary, <span class="math inline">\(g\)</span> is increasing on <span class="math inline">\((0,1),\)</span> as required.</li>
+</ol>
+</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="question-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="question-4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["MA10207Paper2020.html", "HTML page"], ["MA10207Paper2020.pdf", "Standard print PDF"], ["MA10207Paper2020Clear.pdf", "Clear print PDF"], ["MA10207Paper2020Large.pdf", "Large print PDF"], ["MA10207Paper2020.docx", "Accessible Word document"], ["MA10207Paper2020.epub", "Accessible EPub book"]],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
