@@ -16,6 +16,9 @@ output:
       download: [["Tutorial1.html", "HTML page"], ["Tutorial1.pdf","Standard print PDF"], ["Tutorial1Clear.pdf","Clear print PDF"], ["Tutorial1Large.pdf","Large print PDF"], ["Tutorial1.docx","Accessible Word document"], ["Tutorial1.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
     keep_tex: true
@@ -30,9 +33,6 @@ output:
     toc: true
     number_sections: true
     keep_md: true
-    pandoc_args: --default-image-extension=svg
-  clavertondown::epub_clav:
-    toc: false
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
@@ -130,7 +130,7 @@ The first of these says that $S$ has no largest element, and is a perfectly vali
 # Hints
 Each week, I'll send out a list of hints for the homework questions. Try and have a go without them, but if you need them, you'll usually find them in a document like this one. Anyway, without further ado...
 
-* [H1.] You've got a few examples of truth tables from lectures, and we just about managed to do tutorial question 1a) in the physical tutorial, so look back over these. Also, recall what it means for two statements to be equivalent.
+* [H1.] You've got a few examples of truth tables from lectures, and we managed to do tutorial question 1a) in the physical tutorial, so look back over these. Also, recall what it means for two statements to be equivalent.
 * [H2.] Recall the definition of a tautology. If you're content writing truth tables out, then this question is similar to H1. Alternatively, you could try applying the different laws from Section 1.2 to simplify the statement.
 * [H3.] This is similar to the previous two questions.
 * [H4.] We did an example in tutorials similar to this one — try some values from the sets $A$ and $B$! For the negation, just take it one step at a time, and apply the rules you've learnt this week.
