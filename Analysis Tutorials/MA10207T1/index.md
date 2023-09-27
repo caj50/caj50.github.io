@@ -1,7 +1,7 @@
 ---
 title: "Analysis 1A — Tutorial 1"
 author: 'Christian Jones: University of Bath'
-date: 'October 2022'
+date: 'October 2023'
 site: bookdown::bookdown_site
 language: en
 documentclass: article
@@ -23,13 +23,13 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
+  clavertondown::html_clav:
+    toc: true
+    pandoc_args: --default-image-extension=svg
   clavertondown::word_clav:
     toc: true
     number_sections: true
     keep_md: true
-    pandoc_args: --default-image-extension=svg
-  clavertondown::html_clav:
-    toc: true
     pandoc_args: --default-image-extension=svg
   clavertondown::epub_clav:
     toc: false
@@ -45,7 +45,7 @@ header-includes:
 \pagenumbering{arabic}
 
 # Introduction {-}
-Here is the material to accompany the 1st Analysis Tutorial on the 10th October. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk). To return to the homepage, click [here](http://caj50.github.io/tutoring.html).
+Here is the material to accompany the Analysis tutorial in Week 1. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk). To return to the homepage, click [here](http://caj50.github.io/tutoring.html).
 
 # Lecture Recap
 
@@ -87,7 +87,7 @@ In regards to statements, there are two more types which we can discuss. Firstly
 
 [^1]: You can use any capital letter you want; I can only presume we start at $P$ because of the word 'proposition'.
 [^2]: In case it comes up in anything you read, we can also say that $P$ is *sufficient* for $Q$ and also that $Q$ is necessary for $P$.
-[^3]: *If you're reading the PDF version of this, ignore this footnote.* Ideally, you'd separate the simple statements from the compound ones by use of a double vertical line. However, due to Markdown's apparent lack of syntax for adding a double line, you'll just have to imagine one there.
+[^3]: *If you're reading the PDF version of this, ignore this footnote.* Ideally, you'd separate the simple statements ($P$ and $Q$) from the compound ones by use of a double vertical line. However, due to Markdown's apparent lack of syntax for adding a double line, you'll just have to imagine one there.
 
 ## Some Useful Laws
 In the previous section, we combined statements via logical operations. There is nothing stopping us combining these new statements too! We just need to know how to do it systematically. This relies on *distributive laws* and *De Morgan's laws*. Here, $P,Q,R$ are statements.
@@ -134,6 +134,8 @@ Each week, I'll send out a list of hints for the homework questions. Try and hav
 * [H2.] Recall the definition of a tautology. If you're content writing truth tables out, then this question is similar to H1. Alternatively, you could try applying the different laws from Section 1.2 to simplify the statement.
 * [H3.] This is similar to the previous two questions.
 * [H4.] We did an example in tutorials similar to this one — try some values from the sets $A$ and $B$! For the negation, just take it one step at a time, and apply the rules you've learnt this week.
+* [H5.] Try rewriting $P*Q$ in terms of the logical operators you've seen so far.
+* [H6.] This is very similar to the second part of Homework Question 4, except the negations are a bit more tricky. Before proceeding, make sure you're happy as to how to negate implications! 
 
 <!--chapter:end:index.Rmd-->
 
