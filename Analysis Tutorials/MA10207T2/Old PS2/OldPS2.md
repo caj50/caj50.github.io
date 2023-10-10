@@ -1,7 +1,7 @@
 ---
 title: "Analysis 1A — Supremum Example"
 author: 'Christian Jones: University of Bath'
-date: 'October 2022'
+date: 'October 2023'
 site: bookdown::bookdown_site
 language: en
 documentclass: article
@@ -14,6 +14,9 @@ output:
     number_sections: true
     keep_md: true
     pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
     keep_tex: true
@@ -21,9 +24,6 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
   clavertondown::html_clav:
     toc: true
     pandoc_args: --default-image-extension=svg
@@ -46,12 +46,12 @@ header-includes:
 
 # Question {-}
 Here is an example of finding the supremum of a set taken from an old problem sheet, together with three possible methods to find it.
-\BeginKnitrBlock{example}<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex1"><span class="exm:ex1" custom-style="NameStyle"><strong><span id="exm:ex1"></span>Example 1  </strong></span><div>Let $$B = \left\lbrace \frac{2n-1}{n+1} \lvert n \in \mathbb{N}\right\rbrace.$$ Show that $B$ is bounded above and find $\sup(B).$</div></div>\EndKnitrBlock{example}
+\BeginKnitrBlock{example}<div class="bookdown-example" custom-style="ExampleStyle" id="exm:unnamed-chunk-2"><span class="exm:unnamed-chunk-2" custom-style="NameStyle"><strong><span id="exm:unnamed-chunk-2"></span>Example 1  </strong></span><div>Let $$B = \left\lbrace \frac{2n-1}{n+1} \lvert n \in \mathbb{N}\right\rbrace.$$ Show that $B$ is bounded above and find $\sup(B).$</div></div>\EndKnitrBlock{example}
 
 ## Method 1 --- Contradiction {-}
 \BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyle"><strong>Solution. </strong></span> <p>First, note for $n\in\mathbb{N}$: $$\frac{2n-1}{n+1} = \frac{2n+2-3}{n+1} = 2 - \frac{3}{n+1} < 2.$$ Hence $B$ is bounded above by $2$. Therefore, by the completeness axiom, as $B \neq \emptyset,$ $\sup(B)$ exists and $\sup(B) \leq 2.$
 
-Next, suppose for contradiction that $\sup(B) < 2$. Now, for any $x < 2,$ $$2 - \frac{3}{n+1} > x \Leftrightarrow n+1 > \frac{3}{2-x} \Leftrightarrow n > \frac{3}{2-x} - 1.$$ Taking $x = \sup(B)$ and applying Archimedes\' Postulate, $\exists N \in \mathbb{N}$ such that
+Next, suppose for contradiction that $\sup(B) < 2$. Now, for any $x < 2,$ $$2 - \frac{3}{n+1} > x \Leftrightarrow n+1 > \frac{3}{2-x} \Leftrightarrow n > \frac{3}{2-x} - 1.$$ Taking $x = \sup(B)$ and applying Archimedes Postulate, $\exists N \in \mathbb{N}$ such that
 $$\begin{align*}
 N &> \frac{3}{2-\sup(B)} - 1,\\
 \Leftrightarrow 2 - \frac{3}{N+1} &> \sup(B),
@@ -69,11 +69,11 @@ $$\begin{align*}
 \Leftrightarrow n\epsilon &> 3 - \epsilon,\\
 \Leftrightarrow n &> \frac{3-\epsilon}{\epsilon}.
 \end{align*}$$
-Now, by Archimedes\' Postulate, $\exists N \in \mathbb{N}$ such that $N > \frac{3-\epsilon}{\epsilon}$, from which $$2 - \frac{3}{N+1} > 2- \epsilon.$$ At this stage, take $b = 2 - \frac{3}{N+1} \in B$. Since $\epsilon > 0$ was arbitrary, we have that $\forall \epsilon > 0, \exists b \in B$ such that $b > 2-\epsilon.$ So, by the alternative characterisation of suprema (Theorem 2.1), $\sup(B) = 2.$</p></div>\EndKnitrBlock{solution}
+Now, by Archimedes Postulate, $\exists N \in \mathbb{N}$ such that $N > \frac{3-\epsilon}{\epsilon}$, from which $$2 - \frac{3}{N+1} > 2- \epsilon.$$ At this stage, take $b = 2 - \frac{3}{N+1} \in B$. Since $\epsilon > 0$ was arbitrary, we have that $\forall \epsilon > 0, \exists b \in B$ such that $b > 2-\epsilon.$ So, by the alternative characterisation of suprema (Theorem 3.2), $\sup(B) = 2.$</p></div>\EndKnitrBlock{solution}
 
 ## Method 3 --- Limits {-}
 Note that this doesn't work in general, but it might be quicker when you can use it. It relies on the following theorem (which we'll eventually cover):
-\BeginKnitrBlock{theorem}<div class="bookdown-theorem" custom-style="TheoremStyleUpright" id="thm:thm1"><span class="thm:thm1" custom-style="NameStyle"><strong><span id="thm:thm1"></span>Theorem 1  </strong></span><p>A bounded, increasing sequence $(b_n)_{n \in \mathbb{N}}$ is convergent, and its limit is given by $$\lim_{n \to \infty} b_n = \sup\lbrace b_n \,\lvert\, n \in \mathbb{N} \rbrace.$$</p></div>\EndKnitrBlock{theorem}
+\BeginKnitrBlock{theorem}<div class="bookdown-theorem" custom-style="TheoremStyleUpright" id="thm:unnamed-chunk-5"><span class="thm:unnamed-chunk-5" custom-style="NameStyle"><strong><span id="thm:unnamed-chunk-5"></span>Theorem 1  </strong></span><p>A bounded, increasing sequence $(b_n)_{n \in \mathbb{N}}$ is convergent, and its limit is given by $$\lim_{n \to \infty} b_n = \sup\lbrace b_n \,\lvert\, n \in \mathbb{N} \rbrace.$$</p></div>\EndKnitrBlock{theorem}
 
 \BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyle"><strong>Solution. </strong></span> <p>Define $b_n = \frac{2n - 1}{n+1}$ for $n \in \mathbb{N}$.
 

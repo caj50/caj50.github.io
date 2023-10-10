@@ -1,7 +1,7 @@
 ---
 title: "Analysis 1A — Supremum Example"
 author: 'Christian Jones: University of Bath'
-date: 'October 2022'
+date: 'October 2023'
 site: bookdown::bookdown_site
 language: en
 documentclass: article
@@ -16,6 +16,9 @@ output:
       download: [["OldPS2.html", "HTML page"], ["OldPS2.pdf","Standard print PDF"], ["OldPS2Clear.pdf","Clear print PDF"], ["OldPS2Large.pdf","Large print PDF"], ["OldPS2.docx","Accessible Word document"], ["OldPS2.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
   clavertondown::html_clav:
     toc: true
     pandoc_args: --default-image-extension=svg
@@ -23,9 +26,6 @@ output:
     toc: true
     number_sections: true
     keep_md: true
-    pandoc_args: --default-image-extension=svg
-  clavertondown::epub_clav:
-    toc: false
     pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
@@ -69,7 +69,7 @@ We claim that $\sup(B) = 2.$ Fix $\epsilon > 0.$ Then, for $n \in \mathbb{N}:$
 \Leftrightarrow n\epsilon &> 3 - \epsilon,\\
 \Leftrightarrow n &> \frac{3-\epsilon}{\epsilon}.
 \end{align*}
-Now, by Archimedes Postulate, $\exists N \in \mathbb{N}$ such that $N > \frac{3-\epsilon}{\epsilon}$, from which $$2 - \frac{3}{N+1} > 2- \epsilon.$$ At this stage, take $b = 2 - \frac{3}{N+1} \in B$. Since $\epsilon > 0$ was arbitrary, we have that $\forall \epsilon > 0, \exists b \in B$ such that $b > 2-\epsilon.$ So, by the alternative characterisation of suprema (Theorem 2.1), $\sup(B) = 2.$</p></div>\EndKnitrBlock{solution}
+Now, by Archimedes Postulate, $\exists N \in \mathbb{N}$ such that $N > \frac{3-\epsilon}{\epsilon}$, from which $$2 - \frac{3}{N+1} > 2- \epsilon.$$ At this stage, take $b = 2 - \frac{3}{N+1} \in B$. Since $\epsilon > 0$ was arbitrary, we have that $\forall \epsilon > 0, \exists b \in B$ such that $b > 2-\epsilon.$ So, by the alternative characterisation of suprema (Theorem 3.2), $\sup(B) = 2.$</p></div>\EndKnitrBlock{solution}
 
 ## Method 3 --- Limits {-}
 Note that this doesn't work in general, but it might be quicker when you can use it. It relies on the following theorem (which we'll eventually cover):

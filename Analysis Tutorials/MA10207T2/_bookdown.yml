@@ -3,6 +3,7 @@ output_dir: "./"
 new_theorems:
   Non-theorem: Non
   Order Axioms: OA
+  Completeness Axiom: CA
   Thought: Tho
   Definitions: Def
   Example: ---

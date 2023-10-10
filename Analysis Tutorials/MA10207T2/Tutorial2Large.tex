@@ -7,7 +7,7 @@
   a4paper]{extarticle}
 \title{Analysis 1A --- Tutorial 2}
 \author{Christian Jones: University of Bath}
-\date{October 2022}
+\date{October 2023}
 
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
@@ -102,6 +102,7 @@
 \newtheorem*{exercise*}{Exercise}\newtheorem{exercise}{Exercise}[section]
 \newtheorem*{Non-theorem*}{Non-theorem}\newtheorem{Non-theorem}{Non-theorem}[section]
 \newtheorem*{Order Axioms*}{Order Axioms}\newtheorem{Order Axioms}{Order Axioms}[section]
+\newtheorem*{Completeness Axiom*}{Completeness Axiom}\newtheorem{Completeness Axiom}{Completeness Axiom}[section]
 \newtheorem*{Thought*}{Thought}\newtheorem{Thought}{Thought}[section]
 \theoremstyle{remark}
 \newtheorem*{remark*}{Remark}
@@ -164,7 +165,7 @@
 \section*{Introduction}\label{introduction}}
 \addcontentsline{toc}{section}{Introduction}
 
-Here is the material to accompany the 2nd Analysis Tutorial on the 17th October. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to \href{mailto:caj50@bath.ac.uk}{Christian Jones (caj50)}.
+Here is the material to accompany the 2nd Analysis Tutorial in Week 2. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to \href{mailto:caj50@bath.ac.uk}{Christian Jones (caj50)}. To return to the homepage, click \href{http://caj50.github.io/tutoring.html}{here}.
 
 \hypertarget{lecture-recap}{%
 \section{Lecture Recap}\label{lecture-recap}}
@@ -193,7 +194,7 @@ If these two steps are satisfied, then \(\Lambda = \mathbb{N}\), and \(P(n)\) ho
 \hypertarget{field-axioms}{%
 \subsubsection{Field Axioms}\label{field-axioms}}
 
-As you might know from experience, natural numbers won't get us very far in maths. So instead, we turn to studying the real numbers (\(\mathbb{R}\)). But before we do, we need to know how these numbers behave under certain operations. This is where the \emph{field axioms} come in. There's a long list of them in Section 2.1 of the lecture notes , so they're not repeated here in full. However, we can summarise\footnote{Once you've learned some group theory, we can obscure everything behind more definitions. The first two bullet points can be stated as: \((\mathbb{R},+)\) and \((\mathbb{R}\setminus\lbrace0\rbrace, \cdot)\) are abelian groups. The third bullet point remains the same.} them as follows:
+As you might know from experience, natural numbers won't get us very far in maths. So instead, we turn to studying the real numbers (\(\mathbb{R}\)). But before we do, we need to know how these numbers behave under certain operations. This is where the \emph{field axioms} come in. There's a long list of them in Section 3.1 of the lecture notes , so they're not repeated here in full. However, we can summarise\footnote{Once you've learned some group theory, we can obscure everything behind more definitions. The first two bullet points can be stated as: \((\mathbb{R},+)\) and \((\mathbb{R}\setminus\lbrace0\rbrace, \cdot)\) are abelian groups. The third bullet point remains the same.} them as follows:
 
 \begin{itemize}
 \tightlist
@@ -262,7 +263,11 @@ For example, if we consider the set \(S = (-1,2] = \lbrace x \lvert -1<x\leq2\rb
 \hypertarget{the-completeness-axiom}{%
 \subsubsection{The Completeness Axiom}\label{the-completeness-axiom}}
 
-Finally, we are ready to state the required \(15^{th}\) axiom! As the title suggests, this is known as the \emph{Completeness Axiom}. It says that every non-empty set \(S\) in \(\mathbb{R}\) that is bounded above has a supremum\footnote{In the lecture notes, it also states that `Every non-empty set of real numbers that is bounded below has an infimum.' But you can deduce this from the supremum result by considering the set \(-S:=\lbrace -x \lvert x \in S\rbrace.\)}.
+Finally, we are ready to state the required \(15^{th}\) axiom! As the title suggests, this is known as the \emph{Completeness Axiom}.
+
+\BeginKnitrBlock{Completeness Axiom*}
+{}Every non-empty set \(S\) in \(\mathbb{R}\) that is bounded above has a supremum\footnote{In the lecture notes, it also states that `Every non-empty set of real numbers that is bounded below has an infimum.' But you can deduce this from the supremum result by considering the set \(-S:=\lbrace -x \lvert x \in S\rbrace.\)}.
+\EndKnitrBlock{Completeness Axiom*}
 
 Loosely, this axiom ensures that there are no `gaps' in the real number line. For some more (precise) information, see \href{https://en.wikipedia.org/wiki/Completeness_of_the_real_numbers}{this link.}
 
@@ -287,11 +292,13 @@ As per last week, here's the hints section of this document.
 \item
   {[}H2.{]} Try and get the problems into the form of one of the order axioms. Make sure to state each axiom you use, when you use it!
 \item
-  {[}H3.{]} This is a similar procedure to tutorial question 3. Splitting the fraction up will help!
+  {[}H3.{]} The induction should be straightforward. To find the formula you need to prove, have you seen a way of rewriting \(\begin{pmatrix}  n\\  10  \end{pmatrix}\) recently? (Have a look at the proof of the binomial theorem).
 \item
-  {[}H4.{]} The induction should be straightforward. To find the formula you need to prove, have you seen a way of rewriting \(\begin{pmatrix}  n\\  10  \end{pmatrix}\) recently? (Have a look at the proof of the binomial theorem).
+  {[}H4.{]} In both cases, your contradiction will come from the fact that one number is found to be strictly less than itself.
 \item
   {[}H5.{]} Think back to the definitions, and use them to construct your proof of this result.
+\item
+  {[}H6.{]} The method here is very similar to that used in proving the infimum result from Tutorial Question 5.
 \end{itemize}
 
 \end{document}
