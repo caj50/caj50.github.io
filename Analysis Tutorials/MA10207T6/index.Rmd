@@ -121,7 +121,7 @@ This example shows why the Completeness Axiom is so important! Assuming this axi
 As per usual, here's where you'll find the problem sheet hints!
 
 * [H1.] Think about all the tests for convergence that you've seen so far! A reminder for d) — the growth factor test won't work on a ratio of polynomials.
-* [H2.] Firstly, this is an \emph{if and only if} statement. So you have to prove two things:
+* [H2.] Firstly, this is an **if and only if** statement. So you have to prove two things:
      * $(a_n)$ convergent $\implies$ $(a_{2k})_k, (a_{2k-1})_k$ and $(a_{3k})_k$ are convergent.
      * $(a_{2k})_k, (a_{2k-1})_k$ and $(a_{3k})_k$ are convergent $\implies$ $(a_n)$ convergent.
      
