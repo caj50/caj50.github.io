@@ -1,7 +1,7 @@
 ---
 title: "Analysis 1A — Tutorial 3"
 author: 'Christian Jones: University of Bath'
-date: 'October 2022'
+date: 'October 2023'
 site: bookdown::bookdown_site
 language: en
 documentclass: article
@@ -19,6 +19,14 @@ output:
   clavertondown::epub_clav:
     toc: false
     pandoc_args: --default-image-extension=svg
+  clavertondown::html_clav:
+    toc: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::word_clav:
+    toc: true
+    number_sections: true
+    keep_md: true
+    pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
     keep_tex: true
@@ -26,14 +34,6 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
-  clavertondown::word_clav:
-    toc: true
-    number_sections: true
-    keep_md: true
-    pandoc_args: --default-image-extension=svg
-  clavertondown::html_clav:
-    toc: true
-    pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
   - \usepackage {hyperref}
@@ -45,9 +45,9 @@ header-includes:
 \pagenumbering{arabic}
 
 # Introduction {-}
-Here is a version of Tutorial Question 3 off of Problem Sheet 3 with an alternative solution for part c). Parts a) and b) are included for completeness.
+Here is a version of Tutorial Question 4 off of Problem Sheet 3 with an alternative solution for part c). Parts a) and b) are included for completeness.
 
-\BeginKnitrBlock{example}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex1"><span class="exm:ex1" custom-style="NameStyle"><strong>(\#exm:ex1)  (PS3 Question 3) </strong></span><div>a)  Show that $$ 2xy \leq x^2 + y^2, \;\; \forall x,y \in \mathbb{R},$$ and that equality holds only if $x = y$.
+\BeginKnitrBlock{example}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex1"><span class="exm:ex1" custom-style="NameStyle"><strong>(\#exm:ex1)  (PS3 Question 4) </strong></span><div>a)  Show that $$ 2xy \leq x^2 + y^2, \;\; \forall x,y \in \mathbb{R},$$ and that equality holds only if $x = y$.
 b)  Show that $$\sqrt{\frac{x}{2}} + \sqrt{\frac{y}{2}} \leq \sqrt{x + y} \leq \sqrt{x} + \sqrt{y}, \;\; \forall x,y > 0.$$
 c)  Prove that $$\lvert \sqrt{1 + x^2} - \sqrt{1 + y^2} \rvert \leq \lvert x - y \rvert \;\; \forall x,y \in \mathbb{R}.$$</div></div>\EndKnitrBlock{example}
 
@@ -87,7 +87,7 @@ Therefore,
 as required!</p></div>\EndKnitrBlock{solution}
 You might have a few questions about this:
 
-**Q1)**  Why is 3c) done in this way?
+**Q1)**  Why is 4c) done in this way?
 
 A1)  It's an alternative way to the one in the model solutions, but I think it's good because it uses some techniques that are useful for the sequences part of the course (e.g. the triangle inequality and step (\*)).
 

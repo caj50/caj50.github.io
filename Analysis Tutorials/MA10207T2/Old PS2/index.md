@@ -16,12 +16,6 @@ output:
       download: [["OldPS2.html", "HTML page"], ["OldPS2.pdf","Standard print PDF"], ["OldPS2Clear.pdf","Clear print PDF"], ["OldPS2Large.pdf","Large print PDF"], ["OldPS2.docx","Accessible Word document"], ["OldPS2.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
-  clavertondown::html_clav:
-    toc: true
-    pandoc_args: --default-image-extension=svg
   clavertondown::word_clav:
     toc: true
     number_sections: true
@@ -34,6 +28,12 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
+  clavertondown::html_clav:
+    toc: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
   - \usepackage {hyperref}
@@ -91,7 +91,9 @@ b_{n+1} - b_{n} &= 2 - \frac{3}{n+2} - \left(2 - \frac{3}{n+1}\right),\\
 &\geq 0.
 \end{align*}
 So $(b_n)$ is increasing. Hence, by the above theorem, $(b_n)$ converges, and by the *Algebra of Limits*, $$\sup(B) = \lim_{n \to \infty} b_n = \lim_{n \to \infty} \left(2 - \frac{\frac{3}{n}}{1 + \frac{1}{n}}\right) = 2,$$
-as expected!</p></div>\EndKnitrBlock{solution}
+as expected!
+  
+  </p></div>\EndKnitrBlock{solution}
 
 <!--chapter:end:index.Rmd-->
 

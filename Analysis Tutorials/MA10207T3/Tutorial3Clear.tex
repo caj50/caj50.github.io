@@ -7,7 +7,7 @@
   a4paper]{extarticle}
 \title{Analysis 1A --- Tutorial 3}
 \author{Christian Jones: University of Bath}
-\date{October 2022}
+\date{October 2023}
 
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
@@ -101,6 +101,7 @@
 \theoremstyle{definition}
 \newtheorem*{exercise*}{Exercise}\newtheorem{exercise}{Exercise}[section]
 \newtheorem*{Non-theorem*}{Non-theorem}\newtheorem{Non-theorem}{Non-theorem}[section]
+\newtheorem*{Completeness Axiom*}{Completeness Axiom}\newtheorem{Completeness Axiom}{Completeness Axiom}[section]
 \newtheorem*{Thought*}{Thought}\newtheorem{Thought}{Thought}[section]
 \theoremstyle{remark}
 \newtheorem*{remark*}{Remark}
@@ -163,7 +164,7 @@
 \section*{Introduction}\label{introduction}}
 \addcontentsline{toc}{section}{Introduction}
 
-Here is the material to accompany the 3rd Analysis Tutorial on the 24th October. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to \href{mailto:caj50@bath.ac.uk}{Christian Jones (caj50)}. To return to the homepage, click \href{http://caj50.github.io/tutoring.html}{here}.
+Here is the material to accompany the Analysis Tutorial in Week 3. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to \href{mailto:caj50@bath.ac.uk}{Christian Jones (caj50)}. To return to the homepage, click \href{http://caj50.github.io/tutoring.html}{here}.
 
 \hypertarget{lecture-recap}{%
 \section{Lecture Recap}\label{lecture-recap}}
@@ -179,14 +180,23 @@ There's still a little bit of material to cover regarding the supremum and infim
 \BeginKnitrBlock{definition}[Infimum]
 {\label{def:def2} }Let \(S \in \mathbb{R}\). A number \(t \in \mathbb{R}\) is said to be the infimum of \(S\) if it is a lower bound for \(S\), and for any other lower bound \(m\), \(t\geq m\). Here, we write \(t = \inf(S)\).
 \EndKnitrBlock{definition}
-It also turns out that there's an alternative characterisation of suprema and infima which turns out to be very useful, especially if the members of a set aren't indexed by natural numbers.
+There's also two results from last week's notes that you didn't reach in lectures either, so we (re)state these below too.
+\BeginKnitrBlock{Completeness Axiom*}
+{}Every non-empty set \(S\) in \(\mathbb{R}\) that is bounded above has a supremum.
+\EndKnitrBlock{Completeness Axiom*}
+
+\BeginKnitrBlock{proposition}[Archimedian Postulate]
+{\label{prp:prop1} }We have that \(\forall x \in \mathbb{R}, \exists N \in \mathbb{N}\) such that \(N > x.\) In other words, the set of natural numbers \(\mathbb{N}\) is unbounded above.
+\EndKnitrBlock{proposition}
+
+It also turns out that there's an alternative characterisation of suprema and infima which can be very useful, especially if the members of a set aren't indexed by natural numbers.
 
 \BeginKnitrBlock{proposition}
-{\label{prp:prop1} }Let \(S\subseteq\mathbb{R}\). Then a number \(T\in\mathbb{R}\) is the supremum of \(S\), denoted \(\sup(S)\) if: \[\forall \epsilon > 0, \exists s \in S\; \text{such that} \; s > T - \epsilon.\]
+{\label{prp:prop2} }Let \(S\subseteq\mathbb{R}\). Then a number \(T\in\mathbb{R}\) is the supremum of \(S\), denoted \(\sup(S)\) if: \[\forall \epsilon > 0, \exists s \in S\; \text{such that} \; s > T - \epsilon.\]
 \EndKnitrBlock{proposition}
 
 \BeginKnitrBlock{proposition}
-{\label{prp:prop2} }Let \(S\subseteq\mathbb{R}\). Then a number \(t\in\mathbb{R}\) is the infimum of \(S\), denoted \(\inf(S)\) if: \[\forall \epsilon > 0, \exists s \in S\; \text{such that} \; s < t + \epsilon.\]
+{\label{prp:prop3} }Let \(S\subseteq\mathbb{R}\). Then a number \(t\in\mathbb{R}\) is the infimum of \(S\), denoted \(\inf(S)\) if: \[\forall \epsilon > 0, \exists s \in S\; \text{such that} \; s < t + \epsilon.\]
 \EndKnitrBlock{proposition}
 As an example, take the set \(S = (-1,2] = \lbrace x \, \lvert\, -1 < x \leq 2\rbrace\), and fix some \(\epsilon > 0\). Then, if we take \(s_1 = 2 - \epsilon/2\) and \(s_2 = -1 + \epsilon/2\), we see that
 
@@ -219,7 +229,7 @@ Most of the inequalities in this course will be based on the absolute value, whi
 
 The absolute value has the following properties:
 \BeginKnitrBlock{proposition}
-{\label{prp:prop3} }For \(x,y \in \mathbb{R}\):
+{\label{prp:prop4} }For \(x,y \in \mathbb{R}\):
 \begin{gather*}
    x \leq \lvert x \rvert,\quad -x \leq \lvert x \rvert,\quad \lvert -x \rvert = \lvert x \rvert\quad \text{and}\quad \lvert x y \rvert = \lvert x \rvert \lvert y \rvert.
 \end{gather*}
@@ -238,11 +248,11 @@ Now we come on to what I consider to be the most important thing in this course.
 \end{itemize}
 \EndKnitrBlock{theorem}
 
-The first of these is known as the \textbf{Triangle Inequality}, and the second is the \textbf{Reverse Triangle Inequality}. Why do I think this is so important? This will come up in almost any course you take at university that uses analysis! If you're studying vector calculus, fluid mechanics, statistics, probability, or anything that's not abstract algebra, there's guaranteed to be a proof or technique which involves an inequality of this form! So if you only learn one result from Analysis 1, make it this one.
+The first of these is known as the \textbf{Triangle Inequality}, and the second is the \textbf{Reverse Triangle Inequality}. Why do I think this is so important? This will come up in almost any course you take at university that uses analysis! If you're studying vector calculus, fluid mechanics, statistics, probability, or anything that's not abstract algebra, there's guaranteed to be a proof or technique which involves an inequality of this form! So if you only learn one result from Analysis 1A, make it this one.
 
 Finally, there's one more inequality to mention --- the binomial inequality.
 \BeginKnitrBlock{proposition}[Binomial Inequality]
-{\label{prp:prop4} }We have \(\forall n \in \mathbb{N}_0\) (i.e.~all the natural numbers with \(0\)), and \(\forall x \geq -1\), \[(1 + x)^n \geq 1 + nx.\]
+{\label{prp:prop5} }We have \(\forall n \in \mathbb{N}_0\) (i.e.~all the natural numbers with \(0\)), and \(\forall x \geq -1\), \[(1 + x)^n \geq 1 + nx.\]
 \EndKnitrBlock{proposition}
 
 \hypertarget{hints}{%
@@ -250,16 +260,27 @@ Finally, there's one more inequality to mention --- the binomial inequality.
 
 As per usual, here's where you'll find the problem sheet hints!
 
-\begin{itemize}
-\tightlist
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
 \item
-  {[}H1.{]} Take cases on \(x\).
+  The techniques involved in this one are similar to those used in Tutorial Question 1 (and there were some questions on this last week too!)
 \item
-  {[}H2.{]} You should only need the definitions given in lectures to solve this question. Make sure to write things logically!
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii})}
+  \tightlist
+  \item
+    Firstly, note that this is an \textbf{if and only if} statement, so there are two things to prove! You can get most of the way between both statements by completing the square on the polynomial. For the ``\(\Rightarrow\)'' direction, remember square numbers are non-negative. For the ``\(\Leftarrow\)'' direction, make a specific choice of \(x\).
+  \item
+    Follow the hint here, and be careful when collecting terms together.
+  \end{enumerate}
 \item
-  {[}H3.{]} Without loss of generality (WLOG), consider \(x \geq y\) (otherwise you can just swap them), and consider \(\lvert \sqrt{x} - \sqrt{y} \rvert^2\). On expanding, try and find a bound for the `middle' term.
+  Take cases on \(x\).
 \item
-  {[}H4.{]} Solve the modulus equation, and then use your solutions to formulate simultaneous equations for \(c\) and \(r\).
-\end{itemize}
+  Without loss of generality (WLOG), consider \(x \geq y\) (otherwise you can just swap them), and consider \(\lvert \sqrt{x} - \sqrt{y} \rvert^2\). On expanding, try and find a bound for the `middle' term.
+\item
+  Solve the modulus equation, and then use your solutions to formulate simultaneous equations for \(c\) and \(r\).
+\item
+  You should only need the definitions given in lectures to solve this question. Make sure to write things logically!
+\end{enumerate}
 
 \end{document}

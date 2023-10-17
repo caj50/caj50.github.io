@@ -1,7 +1,7 @@
 ---
 title: "Analysis 1A — Tutorial 3"
 author: 'Christian Jones: University of Bath'
-date: 'October 2022'
+date: 'October 2023'
 site: bookdown::bookdown_site
 language: en
 documentclass: article
@@ -14,9 +14,6 @@ output:
     number_sections: true
     keep_md: true
     pandoc_args: --default-image-extension=svg
-  clavertondown::html_clav:
-    toc: true
-    pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
     keep_tex: true
@@ -24,15 +21,18 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
   clavertondown::gitbook_clav:
     split_by: section
     keep_md: true
     config:
       download: [["Tutorial3.html", "HTML page"], ["Tutorial3.pdf","Standard print PDF"], ["Tutorial3Clear.pdf","Clear print PDF"], ["Tutorial3Large.pdf","Large print PDF"], ["Tutorial3.docx","Accessible Word document"], ["Tutorial3.epub","Accessible EPub book" ]]
       sharing: no
+    pandoc_args: --default-image-extension=svg
+  clavertondown::html_clav:
+    toc: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
@@ -45,7 +45,7 @@ header-includes:
 \pagenumbering{arabic}
 
 # Introduction {-}
-Here is the material to accompany the 3rd Analysis Tutorial on the 24th October. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk). To return to the homepage, click [here](http://caj50.github.io/tutoring.html).
+Here is the material to accompany the Analysis Tutorial in Week 3. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk). To return to the homepage, click [here](http://caj50.github.io/tutoring.html).
 
 # Lecture Recap
 
@@ -54,11 +54,16 @@ There's still a little bit of material to cover regarding the supremum and infim
 \BeginKnitrBlock{definition}<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def1"><span class="def:def1" custom-style="NameStyle"><strong><span id="def:def1"></span>Definition 1.1   (Supremum) </strong></span><div>Let $S \in \mathbb{R}$. A number $T \in \mathbb{R}$ is said to be the supremum of $S$ if it is an upper bound for $S$, and for any other upper bound $M$, $T \leq M$. Here, we write $T = \sup(S)$.</div></div>\EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def2"><span class="def:def2" custom-style="NameStyle"><strong><span id="def:def2"></span>Definition 1.2   (Infimum) </strong></span><div>Let $S \in \mathbb{R}$. A number $t \in \mathbb{R}$ is said to be the infimum of $S$ if it is a lower bound for $S$, and for any other lower bound $m$, $t\geq m$. Here, we write $t = \inf(S)$.</div></div>\EndKnitrBlock{definition}
-It also turns out that there's an alternative characterisation of suprema and infima which turns out to be very useful, especially if the members of a set aren't indexed by natural numbers.
+There's also two results from last week's notes that you didn't reach in lectures either, so we (re)state these below too.
+\BeginKnitrBlock{Completeness Axiom}<div class="Completeness Axiom" custom-style="TheoremStyleUpright" id="CA:unnamed-chunk-2"><span class="Completeness Axiom" custom-style="NameStyle"><strong> Completeness Axiom: </strong></span><p>Every non-empty set $S$ in $\mathbb{R}$ that is bounded above has a supremum.</p></div>\EndKnitrBlock{Completeness Axiom}
 
-\BeginKnitrBlock{proposition}<div class="bookdown-proposition" custom-style="TheoremStyleUpright" id="prp:prop1"><span class="prp:prop1" custom-style="NameStyle"><strong><span id="prp:prop1"></span>Proposition 1.1  </strong></span><p>Let $S\subseteq\mathbb{R}$. Then a number $T\in\mathbb{R}$ is the supremum of $S$, denoted $\sup(S)$ if: $$\forall \epsilon > 0, \exists s \in S\; \text{such that} \; s > T - \epsilon.$$</p></div>\EndKnitrBlock{proposition}
+\BeginKnitrBlock{proposition}<div class="bookdown-proposition" custom-style="TheoremStyleUpright" id="prp:prop1"><span class="prp:prop1" custom-style="NameStyle"><strong><span id="prp:prop1"></span>Proposition 1.1   (Archimedian Postulate) </strong></span><p>We have that $\forall x \in \mathbb{R}, \exists N \in \mathbb{N}$ such that $N > x.$ In other words, the set of natural numbers $\mathbb{N}$ is unbounded above.</p></div>\EndKnitrBlock{proposition}
 
-\BeginKnitrBlock{proposition}<div class="bookdown-proposition" custom-style="TheoremStyleUpright" id="prp:prop2"><span class="prp:prop2" custom-style="NameStyle"><strong><span id="prp:prop2"></span>Proposition 1.2  </strong></span><p>Let $S\subseteq\mathbb{R}$. Then a number $t\in\mathbb{R}$ is the infimum of $S$, denoted $\inf(S)$ if: $$\forall \epsilon > 0, \exists s \in S\; \text{such that} \; s < t + \epsilon.$$</p></div>\EndKnitrBlock{proposition}
+It also turns out that there's an alternative characterisation of suprema and infima which can be very useful, especially if the members of a set aren't indexed by natural numbers.
+
+\BeginKnitrBlock{proposition}<div class="bookdown-proposition" custom-style="TheoremStyleUpright" id="prp:prop2"><span class="prp:prop2" custom-style="NameStyle"><strong><span id="prp:prop2"></span>Proposition 1.2  </strong></span><p>Let $S\subseteq\mathbb{R}$. Then a number $T\in\mathbb{R}$ is the supremum of $S$, denoted $\sup(S)$ if: $$\forall \epsilon > 0, \exists s \in S\; \text{such that} \; s > T - \epsilon.$$</p></div>\EndKnitrBlock{proposition}
+
+\BeginKnitrBlock{proposition}<div class="bookdown-proposition" custom-style="TheoremStyleUpright" id="prp:prop3"><span class="prp:prop3" custom-style="NameStyle"><strong><span id="prp:prop3"></span>Proposition 1.3  </strong></span><p>Let $S\subseteq\mathbb{R}$. Then a number $t\in\mathbb{R}$ is the infimum of $S$, denoted $\inf(S)$ if: $$\forall \epsilon > 0, \exists s \in S\; \text{such that} \; s < t + \epsilon.$$</p></div>\EndKnitrBlock{proposition}
 As an example, take the set $S = (-1,2] = \lbrace x \, \lvert\, -1 < x \leq 2\rbrace$, and fix some $\epsilon > 0$. Then, if we take $s_1 = 2 - \epsilon/2$ and $s_2 = -1 + \epsilon/2$, we see that
 
 * $s_1$ and $s_2$ are in the set $S$,
@@ -79,29 +84,33 @@ Most of the inequalities in this course will be based on the absolute value, whi
 \end{align*}</div></div>\EndKnitrBlock{definition}
 
 The absolute value has the following properties:
-\BeginKnitrBlock{proposition}<div class="bookdown-proposition" custom-style="TheoremStyleUpright" id="prp:prop3"><span class="prp:prop3" custom-style="NameStyle"><strong><span id="prp:prop3"></span>Proposition 1.3  </strong></span><p>For $x,y \in \mathbb{R}$:
+\BeginKnitrBlock{proposition}<div class="bookdown-proposition" custom-style="TheoremStyleUpright" id="prp:prop4"><span class="prp:prop4" custom-style="NameStyle"><strong><span id="prp:prop4"></span>Proposition 1.4  </strong></span><p>For $x,y \in \mathbb{R}$:
 $$\begin{gather*}
    x \leq \lvert x \rvert,\quad -x \leq \lvert x \rvert,\quad \lvert -x \rvert = \lvert x \rvert\quad \text{and}\quad \lvert x y \rvert = \lvert x \rvert \lvert y \rvert.
 \end{gather*}</p></div>\EndKnitrBlock{proposition}
 Now we come on to what I consider to be the most important thing in this course.
 
-\BeginKnitrBlock{theorem}<div class="bookdown-theorem" custom-style="TheoremStyleUpright" id="thm:thm4"><span class="thm:thm4" custom-style="NameStyle"><strong><span id="thm:thm4"></span>Theorem 1.4   (Triangle Inequalities) </strong></span><p>For $x,y\in\mathbb{R}$:
+\BeginKnitrBlock{theorem}<div class="bookdown-theorem" custom-style="TheoremStyleUpright" id="thm:thm4"><span class="thm:thm4" custom-style="NameStyle"><strong><span id="thm:thm4"></span>Theorem 1.5   (Triangle Inequalities) </strong></span><p>For $x,y\in\mathbb{R}$:
   
   * $\lvert x + y \rvert \leq \lvert x \rvert + \lvert y \rvert$, and
   * $\left\lvert \lvert x \rvert - \lvert y \rvert \right\rvert \leq \lvert x - y \rvert.$
   </p></div>\EndKnitrBlock{theorem}
-The first of these is known as the **Triangle Inequality**, and the second is the **Reverse Triangle Inequality**. Why do I think this is so important? This will come up in almost any course you take at university that uses analysis! If you're studying vector calculus, fluid mechanics, statistics, probability, or anything that's not abstract algebra, there's guaranteed to be a proof or technique which involves an inequality of this form! So if you only learn one result from Analysis 1, make it this one.
+The first of these is known as the **Triangle Inequality**, and the second is the **Reverse Triangle Inequality**. Why do I think this is so important? This will come up in almost any course you take at university that uses analysis! If you're studying vector calculus, fluid mechanics, statistics, probability, or anything that's not abstract algebra, there's guaranteed to be a proof or technique which involves an inequality of this form! So if you only learn one result from Analysis 1A, make it this one.
 
 Finally, there's one more inequality to mention — the binomial inequality.
-\BeginKnitrBlock{proposition}<div class="bookdown-proposition" custom-style="TheoremStyleUpright" id="prp:prop4"><span class="prp:prop4" custom-style="NameStyle"><strong><span id="prp:prop4"></span>Proposition 1.5   (Binomial Inequality) </strong></span><p>We have $\forall n \in \mathbb{N}_0$ (i.e. all the natural numbers with $0$), and $\forall x \geq -1$, $$(1 + x)^n \geq 1 + nx.$$</p></div>\EndKnitrBlock{proposition}
+\BeginKnitrBlock{proposition}<div class="bookdown-proposition" custom-style="TheoremStyleUpright" id="prp:prop5"><span class="prp:prop5" custom-style="NameStyle"><strong><span id="prp:prop5"></span>Proposition 1.6   (Binomial Inequality) </strong></span><p>We have $\forall n \in \mathbb{N}_0$ (i.e. all the natural numbers with $0$), and $\forall x \geq -1$, $$(1 + x)^n \geq 1 + nx.$$</p></div>\EndKnitrBlock{proposition}
 
 # Hints
 As per usual, here's where you'll find the problem sheet hints!
 
-* [H1.] Take cases on $x$.
-* [H2.] You should only need the definitions given in lectures to solve this question. Make sure to write things logically! 
-* [H3.] Without loss of generality (WLOG), consider $x \geq y$ (otherwise you can just swap them), and consider $\lvert \sqrt{x} - \sqrt{y} \rvert^2$. On expanding, try and find a bound for the `middle' term.
-* [H4.] Solve the modulus equation, and then use your solutions to formulate simultaneous equations for $c$ and $r$.
+1. The techniques involved in this one are similar to those used in Tutorial Question 1 (and there were some questions on this last week too!)
+2.
+    i) Firstly, note that this is an **if and only if** statement, so there are two things to prove! You can get most of the way between both statements by completing the square on the polynomial. For the "$\Rightarrow$" direction, remember square numbers are non-negative. For the "$\Leftarrow$" direction, make a specific choice of $x$.
+    ii) Follow the hint here, and be careful when collecting terms together.
+3. Take cases on $x$.
+4. Without loss of generality (WLOG), consider $x \geq y$ (otherwise you can just swap them), and consider $\lvert \sqrt{x} - \sqrt{y} \rvert^2$. On expanding, try and find a bound for the 'middle' term.
+5. Solve the modulus equation, and then use your solutions to formulate simultaneous equations for $c$ and $r$.
+6. You should only need the definitions given in lectures to solve this question. Make sure to write things logically!
 
 <!--chapter:end:index.Rmd-->
 

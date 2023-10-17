@@ -1,7 +1,7 @@
 ---
 title: "Analysis 1A — Tutorial 3"
 author: 'Christian Jones: University of Bath'
-date: 'October 2022'
+date: 'October 2023'
 site: bookdown::bookdown_site
 language: en
 documentclass: article
@@ -9,23 +9,13 @@ classoption: a4paper
 fontsize: 10pt
 geometry: margin=2.5cm
 output:
-  clavertondown::pdf_clav:
-    latex_engine: pdflatex
-    keep_tex: true
-    fig_caption: true
-    toc: true
-    extra_dependencies: ["float"]
-    pandoc_args: --default-image-extension=pdf
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
-  clavertondown::html_clav:
-    toc: true
-    pandoc_args: --default-image-extension=svg
   clavertondown::word_clav:
     toc: true
     number_sections: true
     keep_md: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::html_clav:
+    toc: true
     pandoc_args: --default-image-extension=svg
   clavertondown::gitbook_clav:
     split_by: section
@@ -34,6 +24,16 @@ output:
       download: [["AltPS3.html", "HTML page"], ["AltPS3.pdf","Standard print PDF"], ["AltPS3Clear.pdf","Clear print PDF"], ["AltPS3Large.pdf","Large print PDF"], ["AltPS3.docx","Accessible Word document"], ["AltPS3.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
+  clavertondown::pdf_clav:
+    latex_engine: pdflatex
+    keep_tex: true
+    fig_caption: true
+    toc: true
+    extra_dependencies: ["float"]
+    pandoc_args: --default-image-extension=pdf
 header-includes:
   - \newcommand{\BOO}{BOO}
   - \usepackage {hyperref}
@@ -56,9 +56,9 @@ show_fig <- function(f)
 \pagenumbering{arabic}
 
 # Introduction {-}
-Here is a version of Tutorial Question 3 off of Problem Sheet 3 with an alternative solution for part c). Parts a) and b) are included for completeness.
+Here is a version of Tutorial Question 4 off of Problem Sheet 3 with an alternative solution for part c). Parts a) and b) are included for completeness.
 
-```{example, label = "ex1", name = "PS3 Question 3"}
+```{example, label = "ex1", name = "PS3 Question 4"}
 a)  Show that $$ 2xy \leq x^2 + y^2, \;\; \forall x,y \in \mathbb{R},$$ and that equality holds only if $x = y$.
 b)  Show that $$\sqrt{\frac{x}{2}} + \sqrt{\frac{y}{2}} \leq \sqrt{x + y} \leq \sqrt{x} + \sqrt{y}, \;\; \forall x,y > 0.$$
 c)  Prove that $$\lvert \sqrt{1 + x^2} - \sqrt{1 + y^2} \rvert \leq \lvert x - y \rvert \;\; \forall x,y \in \mathbb{R}.$$
@@ -106,7 +106,7 @@ as required!
 ```
 You might have a few questions about this:
 
-**Q1)**  Why is 3c) done in this way?
+**Q1)**  Why is 4c) done in this way?
 
 A1)  It's an alternative way to the one in the model solutions, but I think it's good because it uses some techniques that are useful for the sequences part of the course (e.g. the triangle inequality and step (\*)).
 

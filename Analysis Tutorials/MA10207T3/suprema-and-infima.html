@@ -307,17 +307,32 @@ Let <span class="math inline">\(S \in \mathbb{R}\)</span>. A number <span class=
 Let <span class="math inline">\(S \in \mathbb{R}\)</span>. A number <span class="math inline">\(t \in \mathbb{R}\)</span> is said to be the infimum of <span class="math inline">\(S\)</span> if it is a lower bound for <span class="math inline">\(S\)</span>, and for any other lower bound <span class="math inline">\(m\)</span>, <span class="math inline">\(t\geq m\)</span>. Here, we write <span class="math inline">\(t = \inf(S)\)</span>.
 </div>
 </div>
-<p>It also turns out that there’s an alternative characterisation of suprema and infima which turns out to be very useful, especially if the members of a set aren’t indexed by natural numbers.</p>
+There’s also two results from last week’s notes that you didn’t reach in lectures either, so we (re)state these below too.
+
+<div id="CA:unnamed-chunk-2" class="Completeness Axiom" custom-style="TheoremStyle">
+<span class="Completeness Axiom" custom-style="NameStyle"><strong> Completeness Axiom: </strong></span>
+<p>
+Every non-empty set <span class="math inline">\(S\)</span> in <span class="math inline">\(\mathbb{R}\)</span> that is bounded above has a supremum.
+</p>
+</div>
 
 <div id="prp:prop1" class="bookdown-proposition" custom-style="TheoremStyle">
-<span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.1:  </strong></span>
+<span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.1:  (Archimedian Postulate) </strong></span>
+<p>
+We have that <span class="math inline">\(\forall x \in \mathbb{R}, \exists N \in \mathbb{N}\)</span> such that <span class="math inline">\(N &gt; x.\)</span> In other words, the set of natural numbers <span class="math inline">\(\mathbb{N}\)</span> is unbounded above.
+</p>
+</div>
+<p>It also turns out that there’s an alternative characterisation of suprema and infima which can be very useful, especially if the members of a set aren’t indexed by natural numbers.</p>
+
+<div id="prp:prop2" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop2" custom-style="NameStyle"><strong>Proposition 1.2:  </strong></span>
 <p>
 Let <span class="math inline">\(S\subseteq\mathbb{R}\)</span>. Then a number <span class="math inline">\(T\in\mathbb{R}\)</span> is the supremum of <span class="math inline">\(S\)</span>, denoted <span class="math inline">\(\sup(S)\)</span> if: <span class="math display">\[\forall \epsilon &gt; 0, \exists s \in S\; \text{such that} \; s &gt; T - \epsilon.\]</span>
 </p>
 </div>
 
-<div id="prp:prop2" class="bookdown-proposition" custom-style="TheoremStyle">
-<span class="prp:prop2" custom-style="NameStyle"><strong>Proposition 1.2:  </strong></span>
+<div id="prp:prop3" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop3" custom-style="NameStyle"><strong>Proposition 1.3:  </strong></span>
 <p>
 Let <span class="math inline">\(S\subseteq\mathbb{R}\)</span>. Then a number <span class="math inline">\(t\in\mathbb{R}\)</span> is the infimum of <span class="math inline">\(S\)</span>, denoted <span class="math inline">\(\inf(S)\)</span> if: <span class="math display">\[\forall \epsilon &gt; 0, \exists s \in S\; \text{such that} \; s &lt; t + \epsilon.\]</span>
 </p>

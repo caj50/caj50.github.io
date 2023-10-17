@@ -9,8 +9,12 @@ classoption: a4paper
 fontsize: 10pt
 geometry: margin=2.5cm
 output:
-  clavertondown::epub_clav:
-    toc: false
+  clavertondown::gitbook_clav:
+    split_by: section
+    keep_md: true
+    config:
+      download: [["OldPS2.html", "HTML page"], ["OldPS2.pdf","Standard print PDF"], ["OldPS2Clear.pdf","Clear print PDF"], ["OldPS2Large.pdf","Large print PDF"], ["OldPS2.docx","Accessible Word document"], ["OldPS2.epub","Accessible EPub book" ]]
+      sharing: no
     pandoc_args: --default-image-extension=svg
   clavertondown::word_clav:
     toc: true
@@ -27,12 +31,8 @@ output:
   clavertondown::html_clav:
     toc: true
     pandoc_args: --default-image-extension=svg
-  clavertondown::gitbook_clav:
-    split_by: section
-    keep_md: true
-    config:
-      download: [["OldPS2.html", "HTML page"], ["OldPS2.pdf","Standard print PDF"], ["OldPS2Clear.pdf","Clear print PDF"], ["OldPS2Large.pdf","Large print PDF"], ["OldPS2.docx","Accessible Word document"], ["OldPS2.epub","Accessible EPub book" ]]
-      sharing: no
+  clavertondown::epub_clav:
+    toc: false
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
@@ -112,4 +112,6 @@ b_{n+1} - b_{n} &= 2 - \frac{3}{n+2} - \left(2 - \frac{3}{n+1}\right),\\
 \end{align*}
 So $(b_n)$ is increasing. Hence, by the above theorem, $(b_n)$ converges, and by the *Algebra of Limits*, $$\sup(B) = \lim_{n \to \infty} b_n = \lim_{n \to \infty} \left(2 - \frac{\frac{3}{n}}{1 + \frac{1}{n}}\right) = 2,$$
 as expected!
+  
+  
 ```

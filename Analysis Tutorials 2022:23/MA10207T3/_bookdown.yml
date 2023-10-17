@@ -2,7 +2,6 @@ book_filename: "Tutorial3"
 output_dir: "./"
 new_theorems:
   Non-theorem: Non
-  Completeness Axiom: CA
   Thought: Tho
   Definitions: Def
   Example: ---
