@@ -16,9 +16,6 @@ output:
       download: [["Tutorial3.html", "HTML page"], ["Tutorial3.pdf","Standard print PDF"], ["Tutorial3Clear.pdf","Clear print PDF"], ["Tutorial3Large.pdf","Large print PDF"], ["Tutorial3.docx","Accessible Word document"], ["Tutorial3.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
-  clavertondown::html_clav:
-    toc: true
-    pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
     keep_tex: true
@@ -26,13 +23,16 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
   clavertondown::word_clav:
     toc: true
     number_sections: true
     keep_md: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::html_clav:
+    toc: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
@@ -50,27 +50,15 @@ Here is the material to accompany the Analysis Tutorial in Week 3. Alternative f
 # Lecture Recap
 
 ## Suprema and Infima
-There's still a little bit of material to cover regarding the supremum and infimum of a set. To begin, we re-cover the definitions from last week.
+There's still a bit of material to cover regarding the supremum and infimum of a set. To begin, we re-cover the definitions from last week.
 \BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def1"><span class="def:def1" custom-style="NameStyle"><strong>(\#def:def1)  (Supremum) </strong></span><div>Let $S \in \mathbb{R}$. A number $T \in \mathbb{R}$ is said to be the supremum of $S$ if it is an upper bound for $S$, and for any other upper bound $M$, $T \leq M$. Here, we write $T = \sup(S)$.</div></div>\EndKnitrBlock{definition}
 
 \BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def2"><span class="def:def2" custom-style="NameStyle"><strong>(\#def:def2)  (Infimum) </strong></span><div>Let $S \in \mathbb{R}$. A number $t \in \mathbb{R}$ is said to be the infimum of $S$ if it is a lower bound for $S$, and for any other lower bound $m$, $t\geq m$. Here, we write $t = \inf(S)$.</div></div>\EndKnitrBlock{definition}
 There's also two results from last week's notes that you didn't reach in lectures either, so we (re)state these below too.
 \BeginKnitrBlock{Completeness Axiom}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="Completeness Axiom" custom-style="TheoremStyle" id="Completeness Axiom:unnamed-chunk-2"><span class="Completeness Axiom" custom-style="NameStyle"><strong> Completeness Axiom: </strong></span><p>Every non-empty set $S$ in $\mathbb{R}$ that is bounded above has a supremum.</p></div>\EndKnitrBlock{Completeness Axiom}
-
+ 
 \BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop1"><span class="prp:prop1" custom-style="NameStyle"><strong>(\#prp:prop1)  (Archimedian Postulate) </strong></span><p>We have that $\forall x \in \mathbb{R}, \exists N \in \mathbb{N}$ such that $N > x.$ In other words, the set of natural numbers $\mathbb{N}$ is unbounded above.</p></div>\EndKnitrBlock{proposition}
-
-It also turns out that there's an alternative characterisation of suprema and infima which can be very useful, especially if the members of a set aren't indexed by natural numbers.
-
-\BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop2"><span class="prp:prop2" custom-style="NameStyle"><strong>(\#prp:prop2) </strong></span><p>Let $S\subseteq\mathbb{R}$. Then a number $T\in\mathbb{R}$ is the supremum of $S$, denoted $\sup(S)$ if: $$\forall \epsilon > 0, \exists s \in S\; \text{such that} \; s > T - \epsilon.$$</p></div>\EndKnitrBlock{proposition}
-
-\BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop3"><span class="prp:prop3" custom-style="NameStyle"><strong>(\#prp:prop3) </strong></span><p>Let $S\subseteq\mathbb{R}$. Then a number $t\in\mathbb{R}$ is the infimum of $S$, denoted $\inf(S)$ if: $$\forall \epsilon > 0, \exists s \in S\; \text{such that} \; s < t + \epsilon.$$</p></div>\EndKnitrBlock{proposition}
-As an example, take the set $S = (-1,2] = \lbrace x \, \lvert\, -1 < x \leq 2\rbrace$, and fix some $\epsilon > 0$. Then, if we take $s_1 = 2 - \epsilon/2$ and $s_2 = -1 + \epsilon/2$, we see that
-
-* $s_1$ and $s_2$ are in the set $S$,
-* $s_1 > 2 - \epsilon$, and
-* $s_2 < -1 + \epsilon$.
-
-Hence, as $\epsilon$ was arbitrary, the alternative characterisation of suprema and infima says that $\sup(S) = 2$ and $\inf(S) = -1$.
+As mentioned in last week's notes, the completeness axiom assumes that there are no 'gaps' in the real number line (and allows us to solve equations such as $x^2-2=0$, for example.) It's also worth mentioning how useful Archimedes' Postulate is --- this is usually the result you will contradict when showing a set is not bounded.
 
 ## Inequalities
 Inequalities come up everywhere in maths! For example, they can be used in statistics for estimation (Markov/Chebyshev inequalities), they can be used as constraints in optimisation problems (see Section 3.1 of [this Wikipedia link.](https://en.wikipedia.org/wiki/Linear_programming)), and quite famously appear in Quantum Mechanics. In this latter case, we have the [Heisenberg Uncertainty Principle](http://hyperphysics.phy-astr.gsu.edu/hbase/uncer.html), and this inequality states that you can't simultaneously know the position and momentum of a quantum particle, such as an electron.

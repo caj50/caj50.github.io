@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 Hints | Analysis 1A — Tutorial 4</title>
-  <meta name="description" content="2 Hints | Analysis 1A — Tutorial 4" />
+  <title>1.1 Suprema and Infima | Analysis 1A — Tutorial 4</title>
+  <meta name="description" content="1.1 Suprema and Infima | Analysis 1A — Tutorial 4" />
   <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 Hints | Analysis 1A — Tutorial 4" />
+  <meta property="og:title" content="1.1 Suprema and Infima | Analysis 1A — Tutorial 4" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 Hints | Analysis 1A — Tutorial 4" />
+  <meta name="twitter:title" content="1.1 Suprema and Infima | Analysis 1A — Tutorial 4" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="metric-spaces-non-examinable.html"/>
-
+<link rel="prev" href="lecture-recap.html"/>
+<link rel="next" href="complex-numbers.html"/>
 
 <script src="libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -298,38 +298,38 @@ MathJax.Hub.Config({
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="hints" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Hints</h1>
-<p>As per usual, here’s where you’ll find the problem sheet hints!</p>
-<ol style="list-style-type: decimal">
-<li>Use the definition! Try and follow a similar format to what we did in tutorials. Make sure to write things logically, and ensure that you’ve satisfied each part of the definition.</li>
-<li>Again, this is an exercise in using the definition of convergence.</li>
-<li>Without loss of generality, assume that <span class="math inline">\(\lvert z_1 \rvert \geq \lvert z_2 \rvert.\)</span> The advice here is that if you ever get stuck in Analysis, either add <span class="math inline">\(0\)</span>, or multiply by <span class="math inline">\(1\)</span> in a clever way. Try and do one of these tricks to allow you to apply the triangle inequality.</li>
-<li><ol style="list-style-type: lower-alpha">
-<li>This is an <em>if and only if</em> statement, so there are two things to prove! Try and manipulate the definition of convergence for one side of the <span class="math inline">\(\Leftrightarrow\)</span> statement to resemble the other.</li>
-<li>Recall what it means for a complex number to be in modulus-argument form.</li>
-<li>Definition again, and follow the hint on the sheet.</li>
-<li>I’ll leave this to you! Think simple!</li>
-</ol></li>
-<li>For a) and b), De Moivre’s Theorem will come in handy! For c), when bounding, remember that if you make a denominator smaller, the whole fraction will get bigger.</li>
-</ol>
+<div id="suprema-and-infima" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Suprema and Infima</h2>
+<p>Hopefully by now you’re getting more familiar with the ideas of set bounds, especially the idea of suprema/infima! It also turns out that there’s an alternative characterisation of suprema and infima which can be very useful, especially if the members of a set aren’t indexed by natural numbers. Technically, this is something that came up in last week’s lectures, but is more relevant to this week’s problem sheet (see Tutorial Question 1).</p>
 
+<div id="prp:prop1" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.1:  </strong></span>
+<p>
+Let <span class="math inline">\(S\subseteq\mathbb{R}\)</span>. Then a number <span class="math inline">\(T\in\mathbb{R}\)</span> is the supremum of <span class="math inline">\(S\)</span>, denoted <span class="math inline">\(\sup(S)\)</span> if: <span class="math display">\[\forall \epsilon &gt; 0, \exists s \in S\; \text{such that} \; s &gt; T - \epsilon.\]</span>
+</p>
 </div>
 
-
-
-
-
-
-
-
+<div id="prp:prop2" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop2" custom-style="NameStyle"><strong>Proposition 1.2:  </strong></span>
+<p>
+Let <span class="math inline">\(S\subseteq\mathbb{R}\)</span>. Then a number <span class="math inline">\(t\in\mathbb{R}\)</span> is the infimum of <span class="math inline">\(S\)</span>, denoted <span class="math inline">\(\inf(S)\)</span> if: <span class="math display">\[\forall \epsilon &gt; 0, \exists s \in S\; \text{such that} \; s &lt; t + \epsilon.\]</span>
+</p>
+</div>
+<p>As an example, take the set <span class="math inline">\(S = (-1,2] = \lbrace x \, \lvert\, -1 &lt; x \leq 2\rbrace\)</span>, and fix some <span class="math inline">\(\epsilon &gt; 0\)</span>. Then, if we take <span class="math inline">\(s_1 = 2 - \epsilon/2\)</span> and <span class="math inline">\(s_2 = -1 + \epsilon/2\)</span>, we see that</p>
+<ul>
+<li><span class="math inline">\(s_1\)</span> and <span class="math inline">\(s_2\)</span> are in the set <span class="math inline">\(S\)</span>,</li>
+<li><span class="math inline">\(s_1 &gt; 2 - \epsilon\)</span>, and</li>
+<li><span class="math inline">\(s_2 &lt; -1 + \epsilon\)</span>.</li>
+</ul>
+<p>Hence, as <span class="math inline">\(\epsilon\)</span> was arbitrary, the alternative characterisation of suprema and infima says that <span class="math inline">\(\sup(S) = 2\)</span> and <span class="math inline">\(\inf(S) = -1\)</span>.</p>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="metric-spaces-non-examinable.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="lecture-recap.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="complex-numbers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

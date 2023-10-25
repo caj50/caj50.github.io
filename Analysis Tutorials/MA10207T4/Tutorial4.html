@@ -218,7 +218,7 @@ img {
 <div id="header">
 <h1 class="title">Analysis 1A — Tutorial 4</h1>
 <h4 class="author"><em>Christian Jones: University of Bath</em></h4>
-<h4 class="date"><em>October 2022</em></h4>
+<h4 class="date"><em>October 2023</em></h4>
 </div>
 <!--bookdown:title:end-->
 
@@ -228,12 +228,15 @@ img {
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#lecture-recap"><span class="toc-section-number">1</span> Lecture Recap</a>
 <ul>
-<li><a href="#sequences-and-convergence"><span class="toc-section-number">1.1</span> Sequences and Convergence</a>
+<li><a href="#suprema-and-infima"><span class="toc-section-number">1.1</span> Suprema and Infima</a></li>
+<li><a href="#complex-numbers"><span class="toc-section-number">1.2</span> Complex Numbers</a></li>
+<li><a href="#sequences-and-convergence"><span class="toc-section-number">1.3</span> Sequences and Convergence</a>
 <ul>
-<li><a href="#useful-sequences"><span class="toc-section-number">1.1.1</span> Useful Sequences</a></li>
-<li><a href="#two-useful-theorems"><span class="toc-section-number">1.1.2</span> Two Useful Theorems</a></li>
-<li><a href="#bounded-sequences"><span class="toc-section-number">1.1.3</span> Bounded Sequences</a></li>
-<li><a href="#algebra-of-limits"><span class="toc-section-number">1.1.4</span> Algebra of Limits</a></li>
+<li><a href="#useful-sequences"><span class="toc-section-number">1.3.1</span> Useful Sequences</a></li>
+</ul></li>
+<li><a href="#metric-spaces-non-examinable"><span class="toc-section-number">1.4</span> Metric Spaces (Non-examinable)</a>
+<ul>
+<li><a href="#convergence"><span class="toc-section-number">1.4.1</span> Convergence</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#hints"><span class="toc-section-number">2</span> Hints</a></li>
@@ -245,29 +248,84 @@ img {
 <!-- This is needed since I am working with svg files from mathcha.io. It converts the graphics files to something that can be used in the pdf files. Code taken from https://stackoverflow.com/questions/50165404/how-to-make-a-pdf-using-bookdown-including-svg-images/56044642#56044642 -->
 <div id="introduction" class="section level1 unnumbered">
 <h1>Introduction</h1>
-<p>Here is the material to accompany the 4th Analysis Tutorial on the 31st October. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to <a href="mailto:caj50@bath.ac.uk">Christian Jones (caj50)</a>. To return to the homepage, click <a href="http://caj50.github.io/tutoring.html">here</a>.</p>
+<p>Here is the material to accompany the Analysis Tutorial in Week 4. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to <a href="mailto:caj50@bath.ac.uk">Christian Jones (caj50)</a>. To return to the homepage, click <a href="http://caj50.github.io/tutoring.html">here</a>.</p>
 </div>
 <div id="lecture-recap" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Lecture Recap</h1>
-<div id="sequences-and-convergence" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Sequences and Convergence</h2>
-Firstly, to discuss anything this week, we need to introduce the idea of a sequence.
+<div id="suprema-and-infima" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Suprema and Infima</h2>
+<p>Hopefully by now you’re getting more familiar with the ideas of set bounds, especially the idea of suprema/infima! It also turns out that there’s an alternative characterisation of suprema and infima which can be very useful, especially if the members of a set aren’t indexed by natural numbers. Technically, this is something that came up in last week’s lectures, but is more relevant to this week’s problem sheet (see Tutorial Question 1).</p>
+
+<div id="prp:prop1" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.1:  </strong></span>
+<p>
+Let <span class="math inline">\(S\subseteq\mathbb{R}\)</span>. Then a number <span class="math inline">\(T\in\mathbb{R}\)</span> is the supremum of <span class="math inline">\(S\)</span>, denoted <span class="math inline">\(\sup(S)\)</span> if: <span class="math display">\[\forall \epsilon &gt; 0, \exists s \in S\; \text{such that} \; s &gt; T - \epsilon.\]</span>
+</p>
+</div>
+
+<div id="prp:prop2" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop2" custom-style="NameStyle"><strong>Proposition 1.2:  </strong></span>
+<p>
+Let <span class="math inline">\(S\subseteq\mathbb{R}\)</span>. Then a number <span class="math inline">\(t\in\mathbb{R}\)</span> is the infimum of <span class="math inline">\(S\)</span>, denoted <span class="math inline">\(\inf(S)\)</span> if: <span class="math display">\[\forall \epsilon &gt; 0, \exists s \in S\; \text{such that} \; s &lt; t + \epsilon.\]</span>
+</p>
+</div>
+<p>As an example, take the set <span class="math inline">\(S = (-1,2] = \lbrace x \, \lvert\, -1 &lt; x \leq 2\rbrace\)</span>, and fix some <span class="math inline">\(\epsilon &gt; 0\)</span>. Then, if we take <span class="math inline">\(s_1 = 2 - \epsilon/2\)</span> and <span class="math inline">\(s_2 = -1 + \epsilon/2\)</span>, we see that</p>
+<ul>
+<li><span class="math inline">\(s_1\)</span> and <span class="math inline">\(s_2\)</span> are in the set <span class="math inline">\(S\)</span>,</li>
+<li><span class="math inline">\(s_1 &gt; 2 - \epsilon\)</span>, and</li>
+<li><span class="math inline">\(s_2 &lt; -1 + \epsilon\)</span>.</li>
+</ul>
+<p>Hence, as <span class="math inline">\(\epsilon\)</span> was arbitrary, the alternative characterisation of suprema and infima says that <span class="math inline">\(\sup(S) = 2\)</span> and <span class="math inline">\(\inf(S) = -1\)</span>.</p>
+</div>
+<div id="complex-numbers" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Complex Numbers</h2>
+<p>Up until this point, we have only looked at numbers which are subsets of the real numbers (<span class="math inline">\(\mathbb{R}\)</span>) However, to steal an archetypal example, how do we solve an equation like <span class="math inline">\(x^2 + 1 = 0\)</span>? We can’t do this in the reals, so we ‘invent’ a solution by defining <span class="math inline">\(i:=\sqrt{-1}.\)</span> This gives us a new set of numbers, namely <span class="math display">\[\mathbb{C}:= \lbrace a + ib \;\lvert\; a,b\in\mathbb{R}\rbrace,\]</span> and call members of this set <strong>complex numbers</strong>. There is a ton of theory on these numbers, which is left for the lecture notes.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> Instead, we just repeat a list of important definitions, and one important result.</p>
+
+<div id="def:def0" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def0" custom-style="NameStyle"><strong>Definition 1.1:  (Complex Numbers) </strong></span>
+<div>
+<p>Given a complex number <span class="math inline">\(z = a + ib,\)</span> we define the following quantities:</p>
+<ol style="list-style-type: lower-roman">
+<li>The real part of <span class="math inline">\(z\)</span> is <span class="math inline">\(\mathcal{R}(z) := a.\)</span></li>
+<li>The imaginary part of <span class="math inline">\(z\)</span> is <span class="math inline">\(\mathcal{I}(z) := b.\)</span></li>
+<li>The complex conjugate of <span class="math inline">\(z\)</span> is <span class="math inline">\(\bar{z}:= a - ib.\)</span></li>
+<li>The modulus of <span class="math inline">\(z\)</span> is defined to be <span class="math inline">\(\lvert z \rvert := \sqrt{a^2 + b^2}.\)</span></li>
+</ol>
+</div>
+</div>
+<p>Just like the absolute value on the real numbers, the modulus defines a <em>distance</em> on the complex numbers.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> In particular for complex numbers <span class="math inline">\(z_1\)</span> and <span class="math inline">\(z_2\)</span>, the quantity <span class="math inline">\(\lvert z_1 - z_2 \rvert\)</span> tells us how ‘far apart’ the two numbers are. Plotting these numbers on an Argand diagram, we see that <span class="math inline">\(\lvert z_1 - z_2 \rvert\)</span> gives us the distance of the straight line joining <span class="math inline">\(z_1\)</span> and <span class="math inline">\(z_2.\)</span></p>
+<p>Since the modulus defines a distance on <span class="math inline">\(\mathbb{C},\)</span> it had better obey the triangle inequality. Luckily for us, it does!</p>
+
+<div id="prp:prop3" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop3" custom-style="NameStyle"><strong>Proposition 1.3:  (Triangle Inequality) </strong></span>
+<p>
+For <span class="math inline">\(z_1,z_2 \in \mathbb{C}\)</span>,
+<span class="math display">\[\begin{align*}
+\lvert z_1 + z_2 \rvert \leq \lvert z_1 \rvert + \lvert z_2 \rvert.
+\end{align*}\]</span>
+</p>
+</div>
+</div>
+<div id="sequences-and-convergence" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Sequences and Convergence</h2>
+We’re finally onto the first main topic of this course! To discuss anything from this point, we need to introduce the idea of a sequence.
 
 <div id="def:def1" class="bookdown-definition" custom-style="DefinitionStyle">
-<span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Sequence) </strong></span>
+<span class="def:def1" custom-style="NameStyle"><strong>Definition 1.2:  (Sequence) </strong></span>
 <div>
-A sequence of real numbers is a function
+A sequence of real/complex numbers is a function
 <span class="math display">\[\begin{align*}
-    a:\; &amp;\mathbb{N} \longrightarrow \mathbb{R},\\
-    &amp;n \longmapsto a_n.
+    a:\; &amp;\mathbb{N} \longrightarrow X,\\
+    &amp;n \longmapsto a_n,
 \end{align*}\]</span>
+where <span class="math inline">\(X\)</span> is either <span class="math inline">\(\mathbb{R}\)</span> or <span class="math inline">\(\mathbb{C}\)</span> respectively.
 </div>
 </div>
 <p>Since this notation can get kind of annoying, we instead denote a sequence by <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span>. If it’s clear from the context what set we’re indexing over, we can even just simply write a sequence as <span class="math inline">\((a_n)_n\)</span>.</p>
 <p>Now, this gives us an infinitely long list of real numbers, and sometimes its interesting to look at the ‘long-term’ behaviour of these lists. This gives rise to the idea of convergence.</p>
 
 <div id="def:def2" class="bookdown-definition" custom-style="DefinitionStyle">
-<span class="def:def2" custom-style="NameStyle"><strong>Definition 1.2:  (Sequence Convergence) </strong></span>
+<span class="def:def2" custom-style="NameStyle"><strong>Definition 1.3:  (Sequence Convergence) </strong></span>
 <div>
 A sequence <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> converges to a real number <span class="math inline">\(L\)</span> as <span class="math inline">\(n \longrightarrow \infty\)</span>, written as either <span class="math inline">\(a_n \longrightarrow L\)</span>, or <span class="math inline">\(\lim_{n \to \infty}a_n = L\)</span> if <span class="math display">\[\forall \epsilon &gt; 0, \; \exists N = N(\epsilon) \in \mathbb{N}, \; \text{such that} \; \forall n \geq N, \; \lvert a_n - L \rvert &lt; \epsilon.\]</span>
 </div>
@@ -277,88 +335,81 @@ A sequence <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> converges
 <span class="math display">\[\begin{align*}
     \exists\; \epsilon_0 &gt; 0, \; \text{such that} \; \forall N \in \mathbb{N}, \exists n \geq N \; \text{such that} \; \lvert a_n - L \rvert \geq \epsilon_0.
 \end{align*}\]</span></p>
-<div id="useful-sequences" class="section level3" number="1.1.1">
-<h3><span class="header-section-number">1.1.1</span> Useful Sequences</h3>
-<p>Some (straightforward) results from using the definition include</p>
+<p>We can say the exact same things for the convergence of complex sequences without much effort too. We just need to remember to change the distance from the absolute value to the modulus!</p>
+<div id="useful-sequences" class="section level3" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> Useful Sequences</h3>
+<p>Since there’s no point in having a definition without using it, it’s a great idea to obtain some (straightforward) results:</p>
 <ul>
 <li>As <span class="math inline">\(n \longrightarrow \infty\)</span>: <span class="math display">\[\frac{1}{n} \longrightarrow 0.\]</span></li>
 <li>For a real number <span class="math inline">\(c\)</span>: as <span class="math inline">\(n \longrightarrow \infty\)</span>, <span class="math display">\[c \longrightarrow c.\]</span></li>
 <li>For <span class="math inline">\(q \in \mathbb{R}\)</span> with <span class="math inline">\(\lvert q \rvert &lt; 1\)</span>: as <span class="math inline">\(n \longrightarrow \infty\)</span> <span class="math display">\[q^n \longrightarrow 0.\]</span></li>
 </ul>
 </div>
-<div id="two-useful-theorems" class="section level3" number="1.1.2">
-<h3><span class="header-section-number">1.1.2</span> Two Useful Theorems</h3>
-
-<div id="thm:thm1" class="bookdown-theorem" custom-style="TheoremStyle">
-<span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1.1:  (Preservation of Non-Strict Inequalities) </strong></span>
-<p>
-Let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> and <span class="math inline">\((b_n)_{n\in\mathbb{N}}\)</span> be sequences and let <span class="math inline">\(L,M \in \mathbb{R}\)</span> be such that <span class="math inline">\(a_n \to L\)</span> and <span class="math inline">\(b_n \to L\)</span> as <span class="math inline">\(n \to \infty\)</span>. If <span class="math inline">\(a_n \leq b_n \; \forall n \in \mathbb{N}\)</span>, then <span class="math inline">\(L \leq M\)</span>.
-</p>
 </div>
-There are two good uses for this theorem. The first says that non-negative sequences should have non-negative limits (which is something you might expect). Before we state the second, we mention one more thing, which is <strong>not true</strong>:
+<div id="metric-spaces-non-examinable" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Metric Spaces (Non-examinable)</h2>
+<p>Have you noticed that both the absolute value on the real numbers and the modulus on the complex numbers behave suspiciously alike? They even have the same notation! This is because they’re both examples of <em>metrics</em> on a set:</p>
 
-<div id="Non:unnamed-chunk-2" class="Non-theorem" custom-style="ExampleStyle">
-<span class="Non-theorem" custom-style="NameStyle"><strong> Non-theorem: </strong></span>
-<p>
-Let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> and <span class="math inline">\((b_n)_{n\in\mathbb{N}}\)</span> be sequences and let <span class="math inline">\(L,M \in \mathbb{R}\)</span> be such that <span class="math inline">\(a_n \to L\)</span> and <span class="math inline">\(b_n \to L\)</span> as <span class="math inline">\(n \to \infty\)</span>. If <span class="math inline">\(a_n &lt; b_n \; \forall n \in \mathbb{N}\)</span>, then <span class="math inline">\(L &lt; M\)</span>.
-</p>
-</div>
-<p>To see why this is false, consider the sequences defined by <span class="math inline">\(a_n = 1 - \frac{1}{n}\)</span> and <span class="math inline">\(b_n = 1\)</span>. We note that each <span class="math inline">\(a_n\)</span> is strictly less than each corresponding <span class="math inline">\(b_n\)</span>, but we find that <span class="math display">\[\lim_{n \to \infty} a_n = 1 = \lim_{n \to \infty} b_n.\]</span></p>
-The second reason why Theorem <a href="#thm:thm1">1.1</a> is so important, is that it gives us this second theorem<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>:
-
-<div id="thm:thm2" class="bookdown-theorem" custom-style="TheoremStyle">
-<span class="thm:thm2" custom-style="NameStyle"><strong>Theorem 1.2:  (Uniqueness of Limits) </strong></span>
-<p>
-If <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is convergent with <span class="math inline">\(a_n \to L\)</span> and <span class="math inline">\(a_n \to M\)</span> as <span class="math inline">\(n \to \infty\)</span>, then <span class="math inline">\(L = M\)</span>.
-</p>
-</div>
-</div>
-<div id="bounded-sequences" class="section level3" number="1.1.3">
-<h3><span class="header-section-number">1.1.3</span> Bounded Sequences</h3>
-<p>Much like we have done with sets, we can formulate a definition which allows us to `trap’ sequences.</p>
-
-<div id="def:def3" class="bookdown-definition" custom-style="DefinitionStyle">
-<span class="def:def3" custom-style="NameStyle"><strong>Definition 1.3:  (Bounded Sequence) </strong></span>
+<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def3">
+<span class="def:def3" custom-style="NameStyle"><strong>Definition 1.4:  (Metric Space) </strong></span>
 <div>
-A sequence <span class="math inline">\((a_n)\)</span> is bounded if there exists <span class="math inline">\(M \in \mathbb{R}\)</span> such that <span class="math inline">\(\lvert a_n \rvert \leq M\)</span>.
+<p>A metric space <span class="math inline">\((X,d)\)</span> consists of a set <span class="math inline">\(X\)</span> together with a function <span class="math inline">\(d: X\times X \to \mathbb{R}\)</span> satisfying <span class="math inline">\(\forall x,y,z \in X:\)</span></p>
+<ol style="list-style-type: lower-roman">
+<li>Non-negativity: <span class="math inline">\(d(x,y) \geq 0,\)</span></li>
+<li><span class="math inline">\(d(x,y) = 0 \; \Leftrightarrow x = y,\)</span></li>
+<li>Symmetry: <span class="math inline">\(d(x,y) = d(y,x),\)</span></li>
+<li>Triangle Inequality: <span class="math inline">\(d(x,z) \leq d(x,y) + d(y,z).\)</span>
 </div>
-</div>
-<p>If you prefer to think diagramatically, this says we can trap the sequence within a strip of width <span class="math inline">\(2M\)</span> around <span class="math inline">\(0\)</span>. More importantly, this leads to the idea that <em>all convergent sequences are bounded</em>. Note that this is equivalent to saying that if a sequence is not bounded, then it is not convergent.</p>
-</div>
-<div id="algebra-of-limits" class="section level3" number="1.1.4">
-<h3><span class="header-section-number">1.1.4</span> Algebra of Limits</h3>
-<p>Using the definition to prove all limits would be an incredibly boring way to go through this course. Luckily, there are a few general results we can prove which make our lives so much easier. This is known as the <em>algebra of limits</em> (AoL).</p>
-
-<div id="thm:thm4" class="bookdown-theorem" custom-style="TheoremStyle">
-<span class="thm:thm4" custom-style="NameStyle"><strong>Theorem 1.3:  (Algebra of Limits) </strong></span>
-<p>
-<p>Let <span class="math inline">\(A,B,c \in \mathbb{R}\)</span> and let <span class="math inline">\((a_n)\)</span> and <span class="math inline">\((b_n)\)</span> be sequences with <span class="math inline">\(a_n \to A\)</span> and <span class="math inline">\(b_n \to B\)</span> as <span class="math inline">\(n \to \infty\)</span>. Then:</p>
-<ol style="list-style-type: decimal">
-<li><span class="math inline">\(\lim_{n \to \infty} (a_n + b_n) = A + B\)</span>,</li>
-<li><span class="math inline">\(\lim_{n \to \infty} (ca_n) = cA\)</span>,</li>
-<li><span class="math inline">\(\lim_{n \to \infty} (a_n b_n) = AB\)</span>,</li>
-<li>If <span class="math inline">\(b_n \neq 0 \; \forall n \in \mathbb{N}\)</span> and <span class="math inline">\(B \neq 0\)</span>, <span class="math inline">\(\lim_{n \to \infty} \frac{a_n}{b_n} = \frac{A}{B}\)</span>.</li>
+</div></li>
 </ol>
-</p>
+<p>As we’ve seen, <span class="math inline">\((\mathbb{R}, \lvert \cdot \rvert)\)</span> and <span class="math inline">\((\mathbb{C}, \lvert \cdot \rvert)\)</span> both define metric spaces. The existence of this definition suggests that we can define the distance between two members of a set in different ways! For example, thinking about the complex numbers <span class="math inline">\(X = \mathbb{C},\)</span> with complex numbers <span class="math inline">\(z_1 = a_1 + ib_1\)</span> and <span class="math inline">\(z_2 = a_2 + ib_2,\)</span> we could instead look at:</p>
+<ul>
+<li>The discrete metric <span class="math display">\[d(z_1,z_2) = \begin{cases} 1 \quad \text{if $z_1=z_2$},\\
+0 \quad \text{otherwise}\end{cases}\]</span></li>
+<li>The <span class="math inline">\(p\)</span>-norm: <span class="math display">\[d(z_1,z_2) = \left(\lvert a_1-a_2\rvert^p + \lvert b_1-b_2\rvert ^p\right)^{1/p},\;\; 1\leq p &lt; \infty.\]</span></li>
+<li>The <span class="math inline">\(\infty\)</span>-norm: <span class="math display">\[d(z_1,z_2) = \max\left\lbrace \lvert a_1 - a_2 \rvert, \lvert b_1 - b_2 \rvert\right\rbrace.\]</span></li>
+</ul>
+<p>These last two are called norms because they satisfy some additional properties, but don’t worry about these until next year! It’s an interesting thing to look at what the unit circle looks like under the <span class="math inline">\(1\)</span>-norm (blue), <span class="math inline">\(2\)</span>-norm (red) and <span class="math inline">\(\infty\)</span>-norm (green). The complex numbers used here are <span class="math inline">\(z_1 = x + iy\)</span> and <span class="math inline">\(z_2\)</span>=0:</p>
+<!--<iframe src="https://www.desmos.com/calculator/vy8zsbn3kr?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>-->
+<p><img src="unitcircle.png" /></p>
+<p>We can even look at defining distances on other sets. For example, consider the set <span class="math inline">\(X = C^{0}([a,b])\)</span>, which is the set of all continuous functions <span class="math inline">\(f:[a,b] \to \mathbb{R}.\)</span><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> One way we can define the distance between two functions <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> is to consider evaluating them at all members of the domain, and finding what the maximum deviation between the two are. This gives rise to a metric <span class="math inline">\(d:X\times X \to \mathbb{R},\)</span> namely <span class="math display">\[d(f,g) := \max_{x \in [a,b]} \lvert f(x) - g(x) \rvert.\]</span> Have a go at proving that this is a metric!</p>
+<div id="convergence" class="section level3" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> Convergence</h3>
+<p>In a similar way, have you noticed that the definitions of convergence for a real/complex sequence are pretty much identical? Again, this is because we can generalise the definition of convergence to metric spaces!</p>
+
+<div id="def:def4" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def4" custom-style="NameStyle"><strong>Definition 1.5:  (Convergence) </strong></span>
+<div>
+Let <span class="math inline">\((X,d)\)</span> be a metric space, let <span class="math inline">\(a \in X\)</span> and let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> be a sequence in <span class="math inline">\(X\)</span>. Then <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> converges to <span class="math inline">\(a\)</span> if <span class="math display">\[\forall \epsilon &gt; 0, \; \exists N = N(\epsilon) \in \mathbb{N}, \; \text{such that} \; \forall n \geq N, \; d(a_n,a) &lt; \epsilon.\]</span>
 </div>
+</div>
+<p>This is a huge generalisation of Definition <a href="#def:def2">1.3</a>, and you’ll meet it properly in Analysis 2A next year!</p>
 </div>
 </div>
 </div>
 <div id="hints" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Hints</h1>
 <p>As per usual, here’s where you’ll find the problem sheet hints!</p>
-<ul>
-<li>[H1.] Use the definition! Try and follow a similar format to what we did in tutorials. Make sure to write things logically, and ensure that you’ve satisfied each part of the definition.</li>
-<li>[H2i).] The hint on the sheet will certainly help (can you see the difference of two squares trick here?) The definition is probably the best way to go here. Remember that making a positive denominator smaller will also make the fraction bigger too!</li>
-<li>[H2ii).] Feel free to use AoL here, but make sure to justify why you can use it!</li>
-<li>[H3.] This one is a bit tricky. Firstly, what do you get if you factorise <span class="math inline">\(x^3 - y^3\)</span>? Next, you’ll want to use the fact that <span class="math inline">\(\lim_{n \to \infty} a_n = 1\)</span> twice — once to introduce an <span class="math inline">\(\epsilon\)</span> into the problem, and again to find a point in the sequence after which all of the <span class="math inline">\(a_n\)</span> are positive. Combining all this information should help you prove the required result.</li>
-</ul>
+<ol style="list-style-type: decimal">
+<li>Use the definition! Try and follow a similar format to what we did in tutorials. Make sure to write things logically, and ensure that you’ve satisfied each part of the definition.</li>
+<li>Again, this is an exercise in using the definition of convergence.</li>
+<li>Without loss of generality, assume that <span class="math inline">\(\lvert z_1 \rvert \geq \lvert z_2 \rvert.\)</span> The advice here is that if you ever get stuck in Analysis, either add <span class="math inline">\(0\)</span>, or multiply by <span class="math inline">\(1\)</span> in a clever way. Try and do one of these tricks to allow you to apply the triangle inequality.</li>
+<li><ol style="list-style-type: lower-alpha">
+<li>This is an <em>if and only if</em> statement, so there are two things to prove! Try and manipulate the definition of convergence for one side of the <span class="math inline">\(\Leftrightarrow\)</span> statement to resemble the other.</li>
+<li>Recall what it means for a complex number to be in modulus-argument form.</li>
+<li>Definition again, and follow the hint on the sheet.</li>
+<li>I’ll leave this to you! Think simple!</li>
+</ol></li>
+<li>For a) and b), De Moivre’s Theorem will come in handy! For c), when bounding, remember that if you make a denominator smaller, the whole fraction will get bigger.</li>
+</ol>
 <!--chapter:end:index.Rmd-->
 </div>
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>Feel free to ignore this footnote, but there are areas of maths where limits are not unique. This is usually in the realm of topology, which you can take in Year 3 <a href="https://www.bath.ac.uk/catalogues/2022-2023/ma/MA30055.html">(MA30055)</a>. Luckily for us, everything behaves nicely, and our limits are unique.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>We could even spend the entire semester studying complex analysis instead of real analysis, but that adds a whole other layer of — for want of a better word — complexity. Having two dimensions to deal with instead of one causes a whole raft of issues!<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>The more technical term is that the modulus defines a <em>metric</em> on <span class="math inline">\(\mathbb{C}.\)</span> You’ll see more of this next year, but if you’re interested, see the section on metrics in this document!<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>For the time being, think of these functions as ones that you can draw without lifting your pen off the page.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 <!--bookdown:body:end-->

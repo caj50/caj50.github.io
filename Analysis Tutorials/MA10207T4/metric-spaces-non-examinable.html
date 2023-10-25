@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 Hints | Analysis 1A — Tutorial 4</title>
-  <meta name="description" content="2 Hints | Analysis 1A — Tutorial 4" />
+  <title>1.4 Metric Spaces (Non-examinable) | Analysis 1A — Tutorial 4</title>
+  <meta name="description" content="1.4 Metric Spaces (Non-examinable) | Analysis 1A — Tutorial 4" />
   <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 Hints | Analysis 1A — Tutorial 4" />
+  <meta property="og:title" content="1.4 Metric Spaces (Non-examinable) | Analysis 1A — Tutorial 4" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 Hints | Analysis 1A — Tutorial 4" />
+  <meta name="twitter:title" content="1.4 Metric Spaces (Non-examinable) | Analysis 1A — Tutorial 4" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="metric-spaces-non-examinable.html"/>
-
+<link rel="prev" href="sequences-and-convergence.html"/>
+<link rel="next" href="hints.html"/>
 
 <script src="libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -298,38 +298,60 @@ MathJax.Hub.Config({
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="hints" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Hints</h1>
-<p>As per usual, here’s where you’ll find the problem sheet hints!</p>
-<ol style="list-style-type: decimal">
-<li>Use the definition! Try and follow a similar format to what we did in tutorials. Make sure to write things logically, and ensure that you’ve satisfied each part of the definition.</li>
-<li>Again, this is an exercise in using the definition of convergence.</li>
-<li>Without loss of generality, assume that <span class="math inline">\(\lvert z_1 \rvert \geq \lvert z_2 \rvert.\)</span> The advice here is that if you ever get stuck in Analysis, either add <span class="math inline">\(0\)</span>, or multiply by <span class="math inline">\(1\)</span> in a clever way. Try and do one of these tricks to allow you to apply the triangle inequality.</li>
-<li><ol style="list-style-type: lower-alpha">
-<li>This is an <em>if and only if</em> statement, so there are two things to prove! Try and manipulate the definition of convergence for one side of the <span class="math inline">\(\Leftrightarrow\)</span> statement to resemble the other.</li>
-<li>Recall what it means for a complex number to be in modulus-argument form.</li>
-<li>Definition again, and follow the hint on the sheet.</li>
-<li>I’ll leave this to you! Think simple!</li>
-</ol></li>
-<li>For a) and b), De Moivre’s Theorem will come in handy! For c), when bounding, remember that if you make a denominator smaller, the whole fraction will get bigger.</li>
-</ol>
+<div id="metric-spaces-non-examinable" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Metric Spaces (Non-examinable)</h2>
+<p>Have you noticed that both the absolute value on the real numbers and the modulus on the complex numbers behave suspiciously alike? They even have the same notation! This is because they’re both examples of <em>metrics</em> on a set:</p>
 
+<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def3">
+<span class="def:def3" custom-style="NameStyle"><strong>Definition 1.4:  (Metric Space) </strong></span>
+<div>
+<p>A metric space <span class="math inline">\((X,d)\)</span> consists of a set <span class="math inline">\(X\)</span> together with a function <span class="math inline">\(d: X\times X \to \mathbb{R}\)</span> satisfying <span class="math inline">\(\forall x,y,z \in X:\)</span></p>
+<ol style="list-style-type: lower-roman">
+<li>Non-negativity: <span class="math inline">\(d(x,y) \geq 0,\)</span></li>
+<li><span class="math inline">\(d(x,y) = 0 \; \Leftrightarrow x = y,\)</span></li>
+<li>Symmetry: <span class="math inline">\(d(x,y) = d(y,x),\)</span></li>
+<li>Triangle Inequality: <span class="math inline">\(d(x,z) \leq d(x,y) + d(y,z).\)</span>
 </div>
+</div></li>
+</ol>
+<p>As we’ve seen, <span class="math inline">\((\mathbb{R}, \lvert \cdot \rvert)\)</span> and <span class="math inline">\((\mathbb{C}, \lvert \cdot \rvert)\)</span> both define metric spaces. The existence of this definition suggests that we can define the distance between two members of a set in different ways! For example, thinking about the complex numbers <span class="math inline">\(X = \mathbb{C},\)</span> with complex numbers <span class="math inline">\(z_1 = a_1 + ib_1\)</span> and <span class="math inline">\(z_2 = a_2 + ib_2,\)</span> we could instead look at:</p>
+<ul>
+<li>The discrete metric <span class="math display">\[d(z_1,z_2) = \begin{cases} 1 \quad \text{if $z_1=z_2$},\\
+0 \quad \text{otherwise}\end{cases}\]</span></li>
+<li>The <span class="math inline">\(p\)</span>-norm: <span class="math display">\[d(z_1,z_2) = \left(\lvert a_1-a_2\rvert^p + \lvert b_1-b_2\rvert ^p\right)^{1/p},\;\; 1\leq p &lt; \infty.\]</span></li>
+<li>The <span class="math inline">\(\infty\)</span>-norm: <span class="math display">\[d(z_1,z_2) = \max\left\lbrace \lvert a_1 - a_2 \rvert, \lvert b_1 - b_2 \rvert\right\rbrace.\]</span></li>
+</ul>
+<p>These last two are called norms because they satisfy some additional properties, but don’t worry about these until next year! It’s an interesting thing to look at what the unit circle looks like under the <span class="math inline">\(1\)</span>-norm (blue), <span class="math inline">\(2\)</span>-norm (red) and <span class="math inline">\(\infty\)</span>-norm (green). The complex numbers used here are <span class="math inline">\(z_1 = x + iy\)</span> and <span class="math inline">\(z_2\)</span>=0:</p>
+<iframe src="https://www.desmos.com/calculator/vy8zsbn3kr?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder="0">
+</iframe>
+<p>We can even look at defining distances on other sets. For example, consider the set <span class="math inline">\(X = C^{0}([a,b])\)</span>, which is the set of all continuous functions <span class="math inline">\(f:[a,b] \to \mathbb{R}.\)</span><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> One way we can define the distance between two functions <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> is to consider evaluating them at all members of the domain, and finding what the maximum deviation between the two are. This gives rise to a metric <span class="math inline">\(d:X\times X \to \mathbb{R},\)</span> namely <span class="math display">\[d(f,g) := \max_{x \in [a,b]} \lvert f(x) - g(x) \rvert.\]</span> Have a go at proving that this is a metric!</p>
+<div id="convergence" class="section level3" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> Convergence</h3>
+<p>In a similar way, have you noticed that the definitions of convergence for a real/complex sequence are pretty much identical? Again, this is because we can generalise the definition of convergence to metric spaces!</p>
 
-
-
-
-
-
-
-
+<div id="def:def4" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def4" custom-style="NameStyle"><strong>Definition 1.5:  (Convergence) </strong></span>
+<div>
+Let <span class="math inline">\((X,d)\)</span> be a metric space, let <span class="math inline">\(a \in X\)</span> and let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> be a sequence in <span class="math inline">\(X\)</span>. Then <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> converges to <span class="math inline">\(a\)</span> if <span class="math display">\[\forall \epsilon &gt; 0, \; \exists N = N(\epsilon) \in \mathbb{N}, \; \text{such that} \; \forall n \geq N, \; d(a_n,a) &lt; \epsilon.\]</span>
+</div>
+</div>
+<p>This is a huge generalisation of Definition <a href="sequences-and-convergence.html#def:def2">1.3</a>, and you’ll meet it properly in Analysis 2A next year!</p>
+</div>
+</div>
+<!-- </div> -->
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p>For the time being, think of these functions as ones that you can draw without lifting your pen off the page.<a href="metric-spaces-non-examinable.html#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="metric-spaces-non-examinable.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="sequences-and-convergence.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="hints.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

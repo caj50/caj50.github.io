@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 Hints | Analysis 1A — Tutorial 4</title>
-  <meta name="description" content="2 Hints | Analysis 1A — Tutorial 4" />
+  <title>1.2 Complex Numbers | Analysis 1A — Tutorial 4</title>
+  <meta name="description" content="1.2 Complex Numbers | Analysis 1A — Tutorial 4" />
   <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 Hints | Analysis 1A — Tutorial 4" />
+  <meta property="og:title" content="1.2 Complex Numbers | Analysis 1A — Tutorial 4" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 Hints | Analysis 1A — Tutorial 4" />
+  <meta name="twitter:title" content="1.2 Complex Numbers | Analysis 1A — Tutorial 4" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="metric-spaces-non-examinable.html"/>
-
+<link rel="prev" href="suprema-and-infima.html"/>
+<link rel="next" href="sequences-and-convergence.html"/>
 
 <script src="libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -298,38 +298,49 @@ MathJax.Hub.Config({
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="hints" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Hints</h1>
-<p>As per usual, here’s where you’ll find the problem sheet hints!</p>
-<ol style="list-style-type: decimal">
-<li>Use the definition! Try and follow a similar format to what we did in tutorials. Make sure to write things logically, and ensure that you’ve satisfied each part of the definition.</li>
-<li>Again, this is an exercise in using the definition of convergence.</li>
-<li>Without loss of generality, assume that <span class="math inline">\(\lvert z_1 \rvert \geq \lvert z_2 \rvert.\)</span> The advice here is that if you ever get stuck in Analysis, either add <span class="math inline">\(0\)</span>, or multiply by <span class="math inline">\(1\)</span> in a clever way. Try and do one of these tricks to allow you to apply the triangle inequality.</li>
-<li><ol style="list-style-type: lower-alpha">
-<li>This is an <em>if and only if</em> statement, so there are two things to prove! Try and manipulate the definition of convergence for one side of the <span class="math inline">\(\Leftrightarrow\)</span> statement to resemble the other.</li>
-<li>Recall what it means for a complex number to be in modulus-argument form.</li>
-<li>Definition again, and follow the hint on the sheet.</li>
-<li>I’ll leave this to you! Think simple!</li>
-</ol></li>
-<li>For a) and b), De Moivre’s Theorem will come in handy! For c), when bounding, remember that if you make a denominator smaller, the whole fraction will get bigger.</li>
+<div id="complex-numbers" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Complex Numbers</h2>
+<p>Up until this point, we have only looked at numbers which are subsets of the real numbers (<span class="math inline">\(\mathbb{R}\)</span>) However, to steal an archetypal example, how do we solve an equation like <span class="math inline">\(x^2 + 1 = 0\)</span>? We can’t do this in the reals, so we ‘invent’ a solution by defining <span class="math inline">\(i:=\sqrt{-1}.\)</span> This gives us a new set of numbers, namely <span class="math display">\[\mathbb{C}:= \lbrace a + ib \;\lvert\; a,b\in\mathbb{R}\rbrace,\]</span> and call members of this set <strong>complex numbers</strong>. There is a ton of theory on these numbers, which is left for the lecture notes.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> Instead, we just repeat a list of important definitions, and one important result.</p>
+
+<div id="def:def0" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def0" custom-style="NameStyle"><strong>Definition 1.1:  (Complex Numbers) </strong></span>
+<div>
+<p>Given a complex number <span class="math inline">\(z = a + ib,\)</span> we define the following quantities:</p>
+<ol style="list-style-type: lower-roman">
+<li>The real part of <span class="math inline">\(z\)</span> is <span class="math inline">\(\mathcal{R}(z) := a.\)</span></li>
+<li>The imaginary part of <span class="math inline">\(z\)</span> is <span class="math inline">\(\mathcal{I}(z) := b.\)</span></li>
+<li>The complex conjugate of <span class="math inline">\(z\)</span> is <span class="math inline">\(\bar{z}:= a - ib.\)</span></li>
+<li>The modulus of <span class="math inline">\(z\)</span> is defined to be <span class="math inline">\(\lvert z \rvert := \sqrt{a^2 + b^2}.\)</span></li>
 </ol>
-
 </div>
+</div>
+<p>Just like the absolute value on the real numbers, the modulus defines a <em>distance</em> on the complex numbers.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> In particular for complex numbers <span class="math inline">\(z_1\)</span> and <span class="math inline">\(z_2\)</span>, the quantity <span class="math inline">\(\lvert z_1 - z_2 \rvert\)</span> tells us how ‘far apart’ the two numbers are. Plotting these numbers on an Argand diagram, we see that <span class="math inline">\(\lvert z_1 - z_2 \rvert\)</span> gives us the distance of the straight line joining <span class="math inline">\(z_1\)</span> and <span class="math inline">\(z_2.\)</span></p>
+<p>Since the modulus defines a distance on <span class="math inline">\(\mathbb{C},\)</span> it had better obey the triangle inequality. Luckily for us, it does!</p>
 
-
-
-
-
-
-
-
+<div id="prp:prop3" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop3" custom-style="NameStyle"><strong>Proposition 1.3:  (Triangle Inequality) </strong></span>
+<p>
+For <span class="math inline">\(z_1,z_2 \in \mathbb{C}\)</span>,
+<span class="math display">\[\begin{align*}
+\lvert z_1 + z_2 \rvert \leq \lvert z_1 \rvert + \lvert z_2 \rvert.
+\end{align*}\]</span>
+</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>We could even spend the entire semester studying complex analysis instead of real analysis, but that adds a whole other layer of — for want of a better word — complexity. Having two dimensions to deal with instead of one causes a whole raft of issues!<a href="complex-numbers.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>The more technical term is that the modulus defines a <em>metric</em> on <span class="math inline">\(\mathbb{C}.\)</span> You’ll see more of this next year, but if you’re interested, see the section on metrics in this document!<a href="complex-numbers.html#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="metric-spaces-non-examinable.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="suprema-and-infima.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sequences-and-convergence.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
