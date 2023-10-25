@@ -364,14 +364,15 @@ A sequence <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> converges
 </ol>
 <p>As we’ve seen, <span class="math inline">\((\mathbb{R}, \lvert \cdot \rvert)\)</span> and <span class="math inline">\((\mathbb{C}, \lvert \cdot \rvert)\)</span> both define metric spaces. The existence of this definition suggests that we can define the distance between two members of a set in different ways! For example, thinking about the complex numbers <span class="math inline">\(X = \mathbb{C},\)</span> with complex numbers <span class="math inline">\(z_1 = a_1 + ib_1\)</span> and <span class="math inline">\(z_2 = a_2 + ib_2,\)</span> we could instead look at:</p>
 <ul>
-<li>The discrete metric <span class="math display">\[d(z_1,z_2) = \begin{cases} 1 \quad \text{if $z_1=z_2$},\\
-0 \quad \text{otherwise}\end{cases}\]</span></li>
+<li>The discrete metric <span class="math display">\[d(z_1,z_2) = \begin{cases} 0 \quad \text{if $z_1=z_2$},\\
+1 \quad \text{otherwise}\end{cases}\]</span></li>
 <li>The <span class="math inline">\(p\)</span>-norm: <span class="math display">\[d(z_1,z_2) = \left(\lvert a_1-a_2\rvert^p + \lvert b_1-b_2\rvert ^p\right)^{1/p},\;\; 1\leq p &lt; \infty.\]</span></li>
 <li>The <span class="math inline">\(\infty\)</span>-norm: <span class="math display">\[d(z_1,z_2) = \max\left\lbrace \lvert a_1 - a_2 \rvert, \lvert b_1 - b_2 \rvert\right\rbrace.\]</span></li>
 </ul>
 <p>These last two are called norms because they satisfy some additional properties, but don’t worry about these until next year! It’s an interesting thing to look at what the unit circle looks like under the <span class="math inline">\(1\)</span>-norm (blue), <span class="math inline">\(2\)</span>-norm (red) and <span class="math inline">\(\infty\)</span>-norm (green). The complex numbers used here are <span class="math inline">\(z_1 = x + iy\)</span> and <span class="math inline">\(z_2\)</span>=0:</p>
-<!--<iframe src="https://www.desmos.com/calculator/vy8zsbn3kr?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>-->
-<p><img src="unitcircle.png" /></p>
+<iframe src="https://www.desmos.com/calculator/vy8zsbn3kr?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder="0">
+</iframe>
+<!--![](unitcircle.png){width=50%}-->
 <p>We can even look at defining distances on other sets. For example, consider the set <span class="math inline">\(X = C^{0}([a,b])\)</span>, which is the set of all continuous functions <span class="math inline">\(f:[a,b] \to \mathbb{R}.\)</span><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> One way we can define the distance between two functions <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> is to consider evaluating them at all members of the domain, and finding what the maximum deviation between the two are. This gives rise to a metric <span class="math inline">\(d:X\times X \to \mathbb{R},\)</span> namely <span class="math display">\[d(f,g) := \max_{x \in [a,b]} \lvert f(x) - g(x) \rvert.\]</span> Have a go at proving that this is a metric!</p>
 <div id="convergence" class="section level3" number="1.4.1">
 <h3><span class="header-section-number">1.4.1</span> Convergence</h3>

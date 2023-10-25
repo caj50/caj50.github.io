@@ -16,9 +16,6 @@ output:
       download: [["Tutorial4.html", "HTML page"], ["Tutorial4.pdf","Standard print PDF"], ["Tutorial4Clear.pdf","Clear print PDF"], ["Tutorial4Large.pdf","Large print PDF"], ["Tutorial4.docx","Accessible Word document"], ["Tutorial4.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
   clavertondown::word_clav:
     toc: true
     number_sections: true
@@ -26,6 +23,9 @@ output:
     pandoc_args: --default-image-extension=svg
   clavertondown::html_clav:
     toc: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
     pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
@@ -128,14 +128,15 @@ iv) Triangle Inequality: $d(x,z) \leq d(x,y) + d(y,z).$
 
 As we've seen, $(\mathbb{R}, \lvert \cdot \rvert)$ and $(\mathbb{C}, \lvert \cdot \rvert)$ both define metric spaces. The existence of this definition suggests that we can define the distance between two members of a set in different ways! For example, thinking about the complex numbers $X = \mathbb{C},$ with complex numbers $z_1 = a_1 + ib_1$ and $z_2 = a_2 + ib_2,$ we could instead look at:
 
-*  The discrete metric $$d(z_1,z_2) = \begin{cases} 1 \quad \text{if $z_1=z_2$},\\
-0 \quad \text{otherwise}\end{cases}$$
+*  The discrete metric $$d(z_1,z_2) = \begin{cases} 0 \quad \text{if $z_1=z_2$},\\
+1 \quad \text{otherwise}\end{cases}$$
 *  The $p$-norm: $$d(z_1,z_2) = \left(\lvert a_1-a_2\rvert^p + \lvert b_1-b_2\rvert ^p\right)^{1/p},\;\; 1\leq p < \infty.$$
 *  The $\infty$-norm: $$d(z_1,z_2) = \max\left\lbrace \lvert a_1 - a_2 \rvert, \lvert b_1 - b_2 \rvert\right\rbrace.$$
 
 These last two are called norms because they satisfy some additional properties, but don't worry about these until next year! It's an interesting thing to look at what the unit circle looks like under the $1$-norm (blue), $2$-norm (red) and $\infty$-norm (green). The complex numbers used here are $z_1 = x + iy$ and $z_2$=0:
 
 <iframe src="https://www.desmos.com/calculator/vy8zsbn3kr?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+<!--![](unitcircle.png){width=50%}-->
 
 We can even look at defining distances on other sets. For example, consider the set $X =  C^{0}([a,b])$, which is the set of all continuous functions $f:[a,b] \to \mathbb{R}.$[^3] One way we can define the distance between two functions $f$ and $g$ is to consider evaluating them at all members of the domain, and finding what the maximum deviation between the two are. This gives rise to a metric $d:X\times X \to \mathbb{R},$ namely $$d(f,g) := \max_{x \in [a,b]} \lvert f(x) - g(x) \rvert.$$ Have a go at proving that this is a metric!
 
