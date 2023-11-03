@@ -1,7 +1,6 @@
 book_filename: "Tutorial5"
 output_dir: "./"
 new_theorems:
-  Non-theorem: Non
   Thought: Tho
   Definitions: Def
   Example: ---
@@ -19,5 +18,5 @@ style_with:
 classify_as:
   TheoremStyle: []
   DefinitionStyle: []
-  ExampleStyle: ["Thought", "Non-theorem"]
+  ExampleStyle: ["Thought"]
   ProofStyle: []

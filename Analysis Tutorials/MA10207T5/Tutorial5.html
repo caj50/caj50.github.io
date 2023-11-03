@@ -218,7 +218,7 @@ img {
 <div id="header">
 <h1 class="title">Analysis 1A — Tutorial 5</h1>
 <h4 class="author"><em>Christian Jones: University of Bath</em></h4>
-<h4 class="date"><em>November 2022</em></h4>
+<h4 class="date"><em>November 2023</em></h4>
 </div>
 <!--bookdown:title:end-->
 
@@ -226,14 +226,16 @@ img {
 <div id="TOC">
 <ul>
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#infinite-limits"><span class="toc-section-number">1</span> Infinite Limits</a></li>
-<li><a href="#lecture-recap"><span class="toc-section-number">2</span> Lecture Recap</a>
+<li><a href="#lecture-recap"><span class="toc-section-number">1</span> Lecture Recap</a>
 <ul>
-<li><a href="#monotonic-subsequences"><span class="toc-section-number">2.1</span> Monotonic Subsequences</a></li>
-<li><a href="#the-sandwichpinchingsqueeze-theorem2"><span class="toc-section-number">2.2</span> The Sandwich/Pinching/Squeeze Theorem</a></li>
-<li><a href="#more-on-infinite-limits"><span class="toc-section-number">2.3</span> More on Infinite Limits</a></li>
+<li><a href="#sequences"><span class="toc-section-number">1.1</span> Sequences</a>
+<ul>
+<li><a href="#two-useful-theorems"><span class="toc-section-number">1.1.1</span> Two Useful Theorems</a></li>
+<li><a href="#bounded-sequences"><span class="toc-section-number">1.1.2</span> Bounded Sequences</a></li>
+<li><a href="#algebra-of-limits"><span class="toc-section-number">1.1.3</span> Algebra of Limits</a></li>
 </ul></li>
-<li><a href="#hints"><span class="toc-section-number">3</span> Hints</a></li>
+</ul></li>
+<li><a href="#hints"><span class="toc-section-number">2</span> Hints</a></li>
 </ul>
 </div>
 <!--bookdown:toc:end-->
@@ -242,141 +244,106 @@ img {
 <!-- This is needed since I am working with svg files from mathcha.io. It converts the graphics files to something that can be used in the pdf files. Code taken from https://stackoverflow.com/questions/50165404/how-to-make-a-pdf-using-bookdown-including-svg-images/56044642#56044642 -->
 <div id="introduction" class="section level1 unnumbered">
 <h1>Introduction</h1>
-<p>Here is the material to accompany the 5th Analysis Tutorial on the 7th November. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to <a href="mailto:caj50@bath.ac.uk">Christian Jones (caj50)</a>. To return to the homepage, click <a href="http://caj50.github.io/tutoring.html">here</a>.</p>
+<p>Here is the material to accompany the Analysis Tutorial in Week 5. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to <a href="mailto:caj50@bath.ac.uk">Christian Jones (caj50)</a>. To return to the homepage, click <a href="http://caj50.github.io/tutoring.html">here</a>.</p>
 </div>
-<div id="infinite-limits" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Infinite Limits</h1>
-<p>Before we cover any material from this week, its worth discussing the use of <span class="math inline">\(\infty\)</span> as a limit, especially when applying the Algebra of Limits. The main thing to note is that expressions such as <span class="math inline">\(\infty - \infty\)</span> and <span class="math inline">\(\frac{\infty}{\infty}\)</span> don’t really make a lot of sense, for example:</p>
-
-<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex1">
-<span class="exm:ex1" custom-style="NameStyle"><strong>Example 1.1:  </strong></span>
-<div>
-<p>Give examples of sequences <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> and <span class="math inline">\((b_n)_{n\in\mathbb{N}}\)</span>, both diverging to <span class="math inline">\(\infty\)</span> for which:</p>
-<ol style="list-style-type: decimal">
-<li><span class="math inline">\((a_n - b_n)_{n\in\mathbb{N}}\)</span> diverges to <span class="math inline">\(\infty\)</span>,</li>
-<li><span class="math inline">\((a_n - b_n)_{n\in\mathbb{N}}\)</span> diverges to <span class="math inline">\(-\infty\)</span>, and</li>
-<li><span class="math inline">\((a_n - b_n)_{n\in\mathbb{N}}\)</span> converges to <span class="math inline">\(0\)</span>.
-</div>
-</div></li>
-</ol>
-
-<div class="bookdown-solution" custom-style="ProofStyle">
-<span class="solution" custom-style="NameStyleItalics">Solution. </span>
-<p>
-<p>The idea here is to look for fairly simple sequences. With that in mind:</p>
-<ol style="list-style-type: decimal">
-<li>If we take <span class="math inline">\(a_n = 2n\)</span> and <span class="math inline">\(b_n = n\)</span>, we see that <span class="math inline">\(a_n - b_n = n\)</span>, and <span class="math inline">\((n)_{n\in\mathbb{N}}\)</span> diverges to <span class="math inline">\(\infty\)</span>. But if we tried to apply the algebra of limits to this result, it would suggest that <span class="math inline">\(\infty - \infty = \infty\)</span>.</li>
-<li>If we take <span class="math inline">\(a_n = n\)</span> and <span class="math inline">\(b_n = 2n\)</span>, we see that <span class="math inline">\(a_n - b_n = -n\)</span>, and <span class="math inline">\((-n)_{n\in\mathbb{N}}\)</span> diverges to <span class="math inline">\(\infty\)</span>. But, again, if we tried to apply AoL to this result, it would suggest that <span class="math inline">\(\infty - \infty = -\infty\)</span>. Immediately this conflicts with the answer to part 1)!</li>
-<li>Finally, if we take <span class="math inline">\(a_n = b_n = n\)</span>, we see that <span class="math inline">\(a_n - b_n = 0\)</span>, and <span class="math inline">\((0)_{n \in \mathbb{N}}\)</span> is a convergent sequence — it converges to <span class="math inline">\(0\)</span>. Attempting to apply AoL to this result suggests that <span class="math inline">\(\infty - \infty = 0\)</span>.</li>
-</ol>
-</p>
-</div>
-<p>What parts 1), 2) and 3) demonstrate is that you can’t consistently define <span class="math inline">\(\infty - \infty\)</span>. (Note: if you take the same sequences from 1), 2) and 3) and divide them, you can see why <span class="math inline">\(\frac{\infty}{\infty}\)</span> isn’t consistently define-able either).</p>
-</div>
-<div id="lecture-recap" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Lecture Recap</h1>
-<div id="monotonic-subsequences" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Monotonic Subsequences</h2>
-In reverse order to how it was discussed in tutorials, we begin with some special types of sequences. First, we need to define what these sequences are. This definition might look long, but it’s really just five concepts grouped together.
+<div id="lecture-recap" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Lecture Recap</h1>
+<div id="sequences" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Sequences</h2>
+<div id="two-useful-theorems" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Two Useful Theorems</h3>
+<p>Last week, we were introduced to the idea of sequences and what it means for a sequence to <em>converge</em>. The definition of this is repeated below.</p>
 
 <div id="def:def1" class="bookdown-definition" custom-style="DefinitionStyle">
-<span class="def:def1" custom-style="NameStyle"><strong>Definition 2.1:  (Monotonic Sequences) </strong></span>
+<span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Sequence Convergence) </strong></span>
 <div>
-<p>Let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> be a real sequence. Then if <span class="math inline">\(\forall n \in \mathbb{N}\)</span>:</p>
-<ul>
-<li><span class="math inline">\(a_{n+1} \geq a_n,\;\)</span> <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is increasing,</li>
-<li><span class="math inline">\(a_{n+1} &gt; a_n,\;\)</span> <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is strictly increasing,</li>
-<li><span class="math inline">\(a_{n+1} \leq a_n,\;\)</span> <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is decreasing,</li>
-<li><span class="math inline">\(a_{n+1} &lt; a_n,\;\)</span> <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is strictly decreasing.</li>
-</ul>
-If the sequence has any one of these properties, it is called monotone, or a monotonic sequence.
+A sequence <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> converges to a real number <span class="math inline">\(L\)</span> as <span class="math inline">\(n \longrightarrow \infty\)</span>, written as either <span class="math inline">\(a_n \longrightarrow L\)</span>, or <span class="math inline">\(\lim_{n \to \infty}a_n = L\)</span> if <span class="math display">\[\forall \epsilon &gt; 0, \; \exists N = N(\epsilon) \in \mathbb{N}, \; \text{such that} \; \forall n \geq N, \; \lvert a_n - L \rvert &lt; \epsilon.\]</span>
 </div>
 </div>
-<p>For a given sequence <span class="math inline">\((a_n)\)</span>, the two main ways of checking monotonicity are by considering <span class="math inline">\(a_{n+1} - a_n\)</span> and/or <span class="math inline">\(\frac{a_{n+1}}{a_n}\)</span>, and comparing these objects to <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> respectively. The second of these methods is especially useful when you’re dealing with powers of <span class="math inline">\(n\)</span>, such as for the sequence <span class="math inline">\((b_n)\)</span> in Exercise Sheet 5, Question 2.</p>
-A useful theorem for these sequences is the following<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>:
+<p>Using this definition, we can establish two theorems which will really help us when looking for further results about sequences.</p>
 
 <div id="thm:thm1" class="bookdown-theorem" custom-style="TheoremStyle">
-<span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 2.1:  </strong></span>
+<span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1.1:  (Preservation of Non-Strict Inequalities) </strong></span>
 <p>
-Let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> be a bounded, monotone sequence. Then <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is convergent.
+Let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> and <span class="math inline">\((b_n)_{n\in\mathbb{N}}\)</span> be sequences and let <span class="math inline">\(L,M \in \mathbb{R}\)</span> be such that <span class="math inline">\(a_n \to L\)</span> and <span class="math inline">\(b_n \to L\)</span> as <span class="math inline">\(n \to \infty\)</span>. If <span class="math inline">\(a_n \leq b_n \; \forall n \in \mathbb{N}\)</span>, then <span class="math inline">\(L \leq M\)</span>.
 </p>
 </div>
-<p>In fact, if a sequence <span class="math inline">\((a_n)_{n \in \mathbb{N}}\)</span> is increasing, then it converges to the supremum of the set of <span class="math inline">\(a_n\)</span> values, and if it is decreasing, then it converges to the infimum of the set of <span class="math inline">\(a_n\)</span> values.</p>
+There are two good uses for this theorem. The first says that non-negative sequences should have non-negative limits (which is something you might expect). Before we state the second, we mention one more thing, which is <strong>not true</strong>:
+
+<div id="Non:unnamed-chunk-2" class="Non-theorem" custom-style="ExampleStyle">
+<span class="Non-theorem" custom-style="NameStyle"><strong> Non-theorem: </strong></span>
+<p>
+Let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> and <span class="math inline">\((b_n)_{n\in\mathbb{N}}\)</span> be sequences and let <span class="math inline">\(L,M \in \mathbb{R}\)</span> be such that <span class="math inline">\(a_n \to L\)</span> and <span class="math inline">\(b_n \to L\)</span> as <span class="math inline">\(n \to \infty\)</span>. If <span class="math inline">\(a_n &lt; b_n \; \forall n \in \mathbb{N}\)</span>, then <span class="math inline">\(L &lt; M\)</span>.
+</p>
 </div>
-<div id="the-sandwichpinchingsqueeze-theorem2" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> The Sandwich/Pinching/Squeeze Theorem<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></h2>
-<p>This is a way of finding the limit of a sequence if you can find two other sequences to `trap’ it with. It’s quite a good method for rational functions and proving statements about <span class="math inline">\(n\)</span>-th roots.</p>
+<p>To see why this is false, consider the sequences defined by <span class="math inline">\(a_n = 1 - \frac{1}{n}\)</span> and <span class="math inline">\(b_n = 1\)</span>. We note that each <span class="math inline">\(a_n\)</span> is strictly less than each corresponding <span class="math inline">\(b_n\)</span>, but we find that <span class="math display">\[\lim_{n \to \infty} a_n = 1 = \lim_{n \to \infty} b_n.\]</span></p>
+The second reason why Theorem <a href="#thm:thm1">1.1</a> is so important, is that it gives us this second theorem<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>:
 
 <div id="thm:thm2" class="bookdown-theorem" custom-style="TheoremStyle">
-<span class="thm:thm2" custom-style="NameStyle"><strong>Theorem 2.2:  (Sandwich Theorem) </strong></span>
+<span class="thm:thm2" custom-style="NameStyle"><strong>Theorem 1.2:  (Uniqueness of Limits) </strong></span>
 <p>
-Suppose that <span class="math inline">\((a_n)_{n\in\mathbb{N}}\, , \, (b_n)_{n\in\mathbb{N}}\, , \, (c_n)_{n\in\mathbb{N}}\)</span> are real sequences. If <span class="math inline">\(a_n \leq b_n \leq c_n \quad \forall n \in \mathbb{N}\)</span>, and <span class="math inline">\(\exists L \in \mathbb{R}\)</span> such that
-<span class="math display">\[\begin{align*}
-    \lim_{n \to \infty} a_n = L = \lim_{n \to \infty} c_n,
-\end{align*}\]</span>
-then <span class="math inline">\(\lim_{n \to \infty}b_n = L\)</span>.
+If <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is convergent with <span class="math inline">\(a_n \to L\)</span> and <span class="math inline">\(a_n \to M\)</span> as <span class="math inline">\(n \to \infty\)</span>, then <span class="math inline">\(L = M\)</span>.
 </p>
 </div>
-There’s also a slight modification to this theorem, called the ‘Bitten Sandwich Theorem’.
-
-<div id="thm:thm3" class="bookdown-theorem" custom-style="TheoremStyle">
-<span class="thm:thm3" custom-style="NameStyle"><strong>Theorem 2.3:  (Bitten Sandwich Theorem) </strong></span>
-<p>
-Suppose that <span class="math inline">\((a_n)_{n\in\mathbb{N}}\, , \, (b_n)_{n\in\mathbb{N}}\, , \, (c_n)_{n\in\mathbb{N}}\)</span> are real sequences. If <span class="math inline">\(\exists N \in \mathbb{N}\)</span> such that <span class="math inline">\(a_n \leq b_n \leq c_n \; \forall n \geq N\)</span>, and <span class="math inline">\(\exists L \in \mathbb{R}\)</span> such that
-<span class="math display">\[\begin{align*}
-    \lim_{n \to \infty} a_n = L = \lim_{n \to \infty} c_n,
-\end{align*}\]</span>
-then <span class="math inline">\(\lim_{n \to \infty}b_n = L\)</span>.
-</p>
 </div>
-<p>This just says that as long as after some <span class="math inline">\(N \in \mathbb{N}\)</span>, <span class="math inline">\((b_n)_n\)</span> is trapped between sequences <span class="math inline">\((a_n)_n\)</span> and <span class="math inline">\((c_n)_n\)</span> that share a common limit, then all three sequences will share that common limit.</p>
-<p>It is worth noting that adaptations of theorems in this way exist all across analysis. This is because when studying convergence, we don’t really care about what is happening at the start of the sequence. We only care about the “long term” behaviour.</p>
-</div>
-<div id="more-on-infinite-limits" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> More on Infinite Limits</h2>
-<p>We can also make the idea of a sequence getting increasingly more positive (or more negative) more precise via the idea of divergence to <span class="math inline">\(\pm\infty\)</span>. We present the definition for ‘positive’ <span class="math inline">\(\infty\)</span> here.</p>
+<div id="bounded-sequences" class="section level3" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Bounded Sequences</h3>
+<p>Much like we have done with sets, we can formulate a definition which allows us to ‘trap’ sequences.</p>
 
 <div id="def:def2" class="bookdown-definition" custom-style="DefinitionStyle">
-<span class="def:def2" custom-style="NameStyle"><strong>Definition 2.2:  (Divergence to Infinity) </strong></span>
+<span class="def:def2" custom-style="NameStyle"><strong>Definition 1.2:  (Bounded Sequence) </strong></span>
 <div>
-A real sequence <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> diverges to <span class="math inline">\(\infty\)</span> if <span class="math display">\[\forall M \in \mathbb{R}, \; \exists N \in \mathbb{N} \; \text{such that}\; \forall n \geq N, \; a_n &gt; M.\]</span>
+A sequence <span class="math inline">\((a_n)\)</span> is bounded if there exists <span class="math inline">\(M \in \mathbb{R}\)</span> such that <span class="math inline">\(\lvert a_n \rvert \leq M\)</span>.
 </div>
 </div>
-<p>There is also a corresponding version of the ‘algebra of limits’ for divergence to <span class="math inline">\(\pm\infty\)</span> (see <a href="#thm:thm4">2.4</a>). This version has been stolen and adapted from an old set of lecture notes (ones from 2016 to be precise!), so some of these results may not appear in the current lecture notes. Consequently, you won’t have seen the proofs for these results, so you can’t use them in Tutorial Question 4, Exercise Sheet Five.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<p>If you prefer to think diagramatically, this says we can trap the sequence within a strip of width <span class="math inline">\(2M\)</span> centred round <span class="math inline">\(0\)</span>. More importantly, this leads to the idea that <em>all convergent sequences are bounded</em>. Note that this is equivalent to saying that if a sequence is not bounded, then it is not convergent.</p>
+</div>
+<div id="algebra-of-limits" class="section level3" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> Algebra of Limits</h3>
+<p>Using the definition to prove all limits would be an incredibly boring way to go through this course. Luckily, there are a few general results we can prove which make our lives so much easier. This is known as the <em>algebra of limits</em> (AoL).</p>
 
 <div id="thm:thm4" class="bookdown-theorem" custom-style="TheoremStyle">
-<span class="thm:thm4" custom-style="NameStyle"><strong>Theorem 2.4:  (Algebra of Infinite Limits) </strong></span>
+<span class="thm:thm4" custom-style="NameStyle"><strong>Theorem 1.3:  (Algebra of Limits) </strong></span>
 <p>
-<p>Let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> and <span class="math inline">\((b_n)_{n\in\mathbb{N}}\)</span> be real sequences.</p>
+<p>Let <span class="math inline">\(A,B,c \in \mathbb{R}\)</span> and let <span class="math inline">\((a_n)\)</span> and <span class="math inline">\((b_n)\)</span> be sequences with <span class="math inline">\(a_n \to A\)</span> and <span class="math inline">\(b_n \to B\)</span> as <span class="math inline">\(n \to \infty\)</span>. Then:</p>
 <ol style="list-style-type: decimal">
-<li>If <span class="math inline">\(a_n \to \infty\)</span> and <span class="math inline">\(y_n \to \infty\)</span> as <span class="math inline">\(n \to \infty\)</span>, then <span class="math inline">\(a_n + b_n \to \infty\)</span> as <span class="math inline">\(n\to\infty\)</span>.</li>
-<li>If <span class="math inline">\(a_n \to \infty\)</span> and <span class="math inline">\(c &gt; 0\)</span>, then <span class="math inline">\(ca_n \to \infty\)</span> as <span class="math inline">\(n \to \infty\)</span>.</li>
-<li>If <span class="math inline">\(a_n \to \infty\)</span> and <span class="math inline">\(y_n \to \infty\)</span> as <span class="math inline">\(n \to \infty\)</span>, then <span class="math inline">\(a_nb_n \to \infty\)</span> as <span class="math inline">\(n\to\infty\)</span>.</li>
-<li>We have <span class="math inline">\(a_n \to \infty\)</span> as <span class="math inline">\(n \to \infty\)</span> if and only if <span class="math inline">\(-a_n \to -\infty\)</span> as <span class="math inline">\(n \to \infty\)</span>.</li>
-<li>For <span class="math inline">\(a_n \neq 0\; \forall n \in \mathbb{N}\)</span>, if <span class="math inline">\(a_n \to \infty\)</span> as <span class="math inline">\(n \to \infty\)</span>, then <span class="math inline">\(\frac{1}{a_n} \to 0\)</span> as <span class="math inline">\(n \to \infty\)</span>.</li>
-<li>If If <span class="math inline">\(a_n \to 0\)</span> as <span class="math inline">\(n\to\infty\)</span> and <span class="math inline">\(a_n &gt; 0\; \forall n \in \mathbb{N}\)</span>, then <span class="math inline">\(\frac{1}{a_n} \to \infty\)</span> as <span class="math inline">\(n \to \infty\)</span>.</li>
+<li><span class="math inline">\(\lim_{n \to \infty} (a_n + b_n) = A + B\)</span>,</li>
+<li><span class="math inline">\(\lim_{n \to \infty} (ca_n) = cA\)</span>,</li>
+<li><span class="math inline">\(\lim_{n \to \infty} (a_n b_n) = AB\)</span>,</li>
+<li>If <span class="math inline">\(b_n \neq 0 \; \forall n \in \mathbb{N}\)</span> and <span class="math inline">\(B \neq 0\)</span>, <span class="math inline">\(\lim_{n \to \infty} \frac{a_n}{b_n} = \frac{A}{B}\)</span>.</li>
 </ol>
 </p>
 </div>
 </div>
 </div>
-<div id="hints" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Hints</h1>
+</div>
+<div id="hints" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Hints</h1>
 <p>As per usual, here’s where you’ll find the problem sheet hints!</p>
-<ul>
-<li>[H1.] Try applying one of the tests for monotonicity. For the limit, if you need to use any theorems anywhere, state them!</li>
-<li>[H2.] If <span class="math inline">\(a_n \neq 0 \, \; \forall n \in \mathbb{N}\)</span>, then this would just be an application of the algebra of (infinite) limits! Since you don’t know if this is the case, you’ll need to use the definition again for this question. You’ll end up with an inequality of the form <span class="math inline">\(a_n^2 &gt; g(\epsilon)\)</span>, where <span class="math inline">\(g\)</span> is a rational function of <span class="math inline">\(\epsilon\)</span>, at some point in your solution. Take cases on the sign of the numerator of <span class="math inline">\(g(\epsilon)\)</span> to find the required <span class="math inline">\(N\)</span> in the definition of limit.</li>
-<li>[H3.] This is similar to the supremum question we did in tutorials. If you need a refresher on the argument involved, look in the solutions to Exercise Sheet 4. Try adapting this for infima!</li>
-<li>[H4.] This is similar to tutorial question 3 off Exercise Sheet 5. Try a few terms of the sequence to get a feel for what’s happening first. Note that you’re not explicitly told to find the limit, but it’s really worth doing if you can!</li>
-</ul>
+<ol style="list-style-type: decimal">
+<li><ol style="list-style-type: lower-roman">
+<li>At this stage of the course, you’ll have to use the definition of convergence. Apply this, and follow the hint on the sheet.</li>
+<li>This one you can apply AoL! However, you should explain why you can use AoL, namely: which convergence results from lectures are you applying?</li>
+</ol></li>
+<li>Again, this is one you have to use the definition on (for the time being, at least). Remember, if you make the denominator of a fraction smaller, you’ll make the overall fraction bigger.</li>
+<li>For the first bit, you can use AoL! For the second, you’ll have to use the definition, making a <strong>specific</strong> choice of <span class="math inline">\(\epsilon.\)</span></li>
+<li>This is very similar to the first question from tutorials, so here’s a few (vague-ish) hints:
+<ol style="list-style-type: lower-roman">
+<li>Try and find expressions to simplify the sums.</li>
+<li>Again, you’ll want to find an explicit expression for the sum of square numbers.</li>
+<li>Firstly, what do you get if you factorise <span class="math inline">\(a^3 - b^3\)</span>? The result of Tutorial Question 2 will also be useful here.</li>
+<li>Evaluate <span class="math inline">\(\cos(2n\pi).\)</span></li>
+<li>Simplify the expression first.</li>
+<li>You’ll have to use the definition again here.</li>
+</ol></li>
+<li>This is another definition question. Use the knowledge that <span class="math inline">\((a_n)\)</span> converges (i.e. what does this mean explicitly?) to conclude something about the convergence of <span class="math inline">\((b_n)\)</span>.</li>
+</ol>
 <!--chapter:end:index.Rmd-->
 </div>
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>If you’re interested, this statement is completely equivalent to the completeness axiom from Section 2 of the lecture notes. In fact, back in the prehistoric times of 2016 — when I took the course — this result was stated as the completeness axiom.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>Other names for this theorem must surely exist. If you find one out in the wild, tell me, and I’ll add it to the name of this section.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>This question asks you to prove parts of this theorem, so using the theorem to prove the theorem is purely circular reasoning, and should absolutely be avoided.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>Feel free to ignore this footnote, but there are areas of maths where limits are not unique. This is usually in the realm of topology, which you can take in Year 3 <a href="https://www.bath.ac.uk/catalogues/2023-2024/ma/MA30055.html">(MA30055)</a>. Luckily for us, everything behaves nicely, and our limits are unique.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 <!--bookdown:body:end-->

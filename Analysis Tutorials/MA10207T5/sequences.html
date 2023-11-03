@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1 Infinite Limits | Analysis 1A — Tutorial 5</title>
-  <meta name="description" content="1 Infinite Limits | Analysis 1A — Tutorial 5" />
+  <title>1.1 Sequences | Analysis 1A — Tutorial 5</title>
+  <meta name="description" content="1.1 Sequences | Analysis 1A — Tutorial 5" />
   <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1 Infinite Limits | Analysis 1A — Tutorial 5" />
+  <meta property="og:title" content="1.1 Sequences | Analysis 1A — Tutorial 5" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1 Infinite Limits | Analysis 1A — Tutorial 5" />
+  <meta name="twitter:title" content="1.1 Sequences | Analysis 1A — Tutorial 5" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="lecture-recap.html"/>
+<link rel="prev" href="lecture-recap.html"/>
+<link rel="next" href="hints.html"/>
 
 <script src="libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -267,14 +267,16 @@ MathJax.Hub.Config({
 
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="1" data-path="infinite-limits.html"><a href="infinite-limits.html"><i class="fa fa-check"></i><b>1</b> Infinite Limits</a></li>
-<li class="chapter" data-level="2" data-path="lecture-recap.html"><a href="lecture-recap.html"><i class="fa fa-check"></i><b>2</b> Lecture Recap</a>
+<li class="chapter" data-level="1" data-path="lecture-recap.html"><a href="lecture-recap.html"><i class="fa fa-check"></i><b>1</b> Lecture Recap</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="monotonic-subsequences.html"><a href="monotonic-subsequences.html"><i class="fa fa-check"></i><b>2.1</b> Monotonic Subsequences</a></li>
-<li class="chapter" data-level="2.2" data-path="the-sandwichpinchingsqueeze-theorem2.html"><a href="the-sandwichpinchingsqueeze-theorem2.html"><i class="fa fa-check"></i><b>2.2</b> The Sandwich/Pinching/Squeeze Theorem</a></li>
-<li class="chapter" data-level="2.3" data-path="more-on-infinite-limits.html"><a href="more-on-infinite-limits.html"><i class="fa fa-check"></i><b>2.3</b> More on Infinite Limits</a></li>
+<li class="chapter" data-level="1.1" data-path="sequences.html"><a href="sequences.html"><i class="fa fa-check"></i><b>1.1</b> Sequences</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="sequences.html"><a href="sequences.html#two-useful-theorems"><i class="fa fa-check"></i><b>1.1.1</b> Two Useful Theorems</a></li>
+<li class="chapter" data-level="1.1.2" data-path="sequences.html"><a href="sequences.html#bounded-sequences"><i class="fa fa-check"></i><b>1.1.2</b> Bounded Sequences</a></li>
+<li class="chapter" data-level="1.1.3" data-path="sequences.html"><a href="sequences.html#algebra-of-limits"><i class="fa fa-check"></i><b>1.1.3</b> Algebra of Limits</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="hints.html"><a href="hints.html"><i class="fa fa-check"></i><b>3</b> Hints</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="hints.html"><a href="hints.html"><i class="fa fa-check"></i><b>2</b> Hints</a></li>
 </ul>
 
       </nav>
@@ -292,42 +294,88 @@ MathJax.Hub.Config({
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="infinite-limits" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Infinite Limits</h1>
-<p>Before we cover any material from this week, its worth discussing the use of <span class="math inline">\(\infty\)</span> as a limit, especially when applying the Algebra of Limits. The main thing to note is that expressions such as <span class="math inline">\(\infty - \infty\)</span> and <span class="math inline">\(\frac{\infty}{\infty}\)</span> don’t really make a lot of sense, for example:</p>
+<div id="sequences" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Sequences</h2>
+<div id="two-useful-theorems" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Two Useful Theorems</h3>
+<p>Last week, we were introduced to the idea of sequences and what it means for a sequence to <em>converge</em>. The definition of this is repeated below.</p>
 
-<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex1">
-<span class="exm:ex1" custom-style="NameStyle"><strong>Example 1.1:  </strong></span>
+<div id="def:def1" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Sequence Convergence) </strong></span>
 <div>
-<p>Give examples of sequences <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> and <span class="math inline">\((b_n)_{n\in\mathbb{N}}\)</span>, both diverging to <span class="math inline">\(\infty\)</span> for which:</p>
-<ol style="list-style-type: decimal">
-<li><span class="math inline">\((a_n - b_n)_{n\in\mathbb{N}}\)</span> diverges to <span class="math inline">\(\infty\)</span>,</li>
-<li><span class="math inline">\((a_n - b_n)_{n\in\mathbb{N}}\)</span> diverges to <span class="math inline">\(-\infty\)</span>, and</li>
-<li><span class="math inline">\((a_n - b_n)_{n\in\mathbb{N}}\)</span> converges to <span class="math inline">\(0\)</span>.
+A sequence <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> converges to a real number <span class="math inline">\(L\)</span> as <span class="math inline">\(n \longrightarrow \infty\)</span>, written as either <span class="math inline">\(a_n \longrightarrow L\)</span>, or <span class="math inline">\(\lim_{n \to \infty}a_n = L\)</span> if <span class="math display">\[\forall \epsilon &gt; 0, \; \exists N = N(\epsilon) \in \mathbb{N}, \; \text{such that} \; \forall n \geq N, \; \lvert a_n - L \rvert &lt; \epsilon.\]</span>
 </div>
-</div></li>
-</ol>
+</div>
+<p>Using this definition, we can establish two theorems which will really help us when looking for further results about sequences.</p>
 
-<div class="bookdown-solution" custom-style="ProofStyle">
-<span class="solution" custom-style="NameStyleItalics">Solution. </span>
+<div id="thm:thm1" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1.1:  (Preservation of Non-Strict Inequalities) </strong></span>
 <p>
-<p>The idea here is to look for fairly simple sequences. With that in mind:</p>
+Let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> and <span class="math inline">\((b_n)_{n\in\mathbb{N}}\)</span> be sequences and let <span class="math inline">\(L,M \in \mathbb{R}\)</span> be such that <span class="math inline">\(a_n \to L\)</span> and <span class="math inline">\(b_n \to L\)</span> as <span class="math inline">\(n \to \infty\)</span>. If <span class="math inline">\(a_n \leq b_n \; \forall n \in \mathbb{N}\)</span>, then <span class="math inline">\(L \leq M\)</span>.
+</p>
+</div>
+There are two good uses for this theorem. The first says that non-negative sequences should have non-negative limits (which is something you might expect). Before we state the second, we mention one more thing, which is <strong>not true</strong>:
+
+<div id="Non:unnamed-chunk-2" class="Non-theorem" custom-style="ExampleStyle">
+<span class="Non-theorem" custom-style="NameStyle"><strong> Non-theorem: </strong></span>
+<p>
+Let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> and <span class="math inline">\((b_n)_{n\in\mathbb{N}}\)</span> be sequences and let <span class="math inline">\(L,M \in \mathbb{R}\)</span> be such that <span class="math inline">\(a_n \to L\)</span> and <span class="math inline">\(b_n \to L\)</span> as <span class="math inline">\(n \to \infty\)</span>. If <span class="math inline">\(a_n &lt; b_n \; \forall n \in \mathbb{N}\)</span>, then <span class="math inline">\(L &lt; M\)</span>.
+</p>
+</div>
+<p>To see why this is false, consider the sequences defined by <span class="math inline">\(a_n = 1 - \frac{1}{n}\)</span> and <span class="math inline">\(b_n = 1\)</span>. We note that each <span class="math inline">\(a_n\)</span> is strictly less than each corresponding <span class="math inline">\(b_n\)</span>, but we find that <span class="math display">\[\lim_{n \to \infty} a_n = 1 = \lim_{n \to \infty} b_n.\]</span></p>
+The second reason why Theorem <a href="sequences.html#thm:thm1">1.1</a> is so important, is that it gives us this second theorem<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>:
+
+<div id="thm:thm2" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm2" custom-style="NameStyle"><strong>Theorem 1.2:  (Uniqueness of Limits) </strong></span>
+<p>
+If <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is convergent with <span class="math inline">\(a_n \to L\)</span> and <span class="math inline">\(a_n \to M\)</span> as <span class="math inline">\(n \to \infty\)</span>, then <span class="math inline">\(L = M\)</span>.
+</p>
+</div>
+</div>
+<div id="bounded-sequences" class="section level3" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Bounded Sequences</h3>
+<p>Much like we have done with sets, we can formulate a definition which allows us to ‘trap’ sequences.</p>
+
+<div id="def:def2" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def2" custom-style="NameStyle"><strong>Definition 1.2:  (Bounded Sequence) </strong></span>
+<div>
+A sequence <span class="math inline">\((a_n)\)</span> is bounded if there exists <span class="math inline">\(M \in \mathbb{R}\)</span> such that <span class="math inline">\(\lvert a_n \rvert \leq M\)</span>.
+</div>
+</div>
+<p>If you prefer to think diagramatically, this says we can trap the sequence within a strip of width <span class="math inline">\(2M\)</span> centred round <span class="math inline">\(0\)</span>. More importantly, this leads to the idea that <em>all convergent sequences are bounded</em>. Note that this is equivalent to saying that if a sequence is not bounded, then it is not convergent.</p>
+</div>
+<div id="algebra-of-limits" class="section level3" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> Algebra of Limits</h3>
+<p>Using the definition to prove all limits would be an incredibly boring way to go through this course. Luckily, there are a few general results we can prove which make our lives so much easier. This is known as the <em>algebra of limits</em> (AoL).</p>
+
+<div id="thm:thm4" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm4" custom-style="NameStyle"><strong>Theorem 1.3:  (Algebra of Limits) </strong></span>
+<p>
+<p>Let <span class="math inline">\(A,B,c \in \mathbb{R}\)</span> and let <span class="math inline">\((a_n)\)</span> and <span class="math inline">\((b_n)\)</span> be sequences with <span class="math inline">\(a_n \to A\)</span> and <span class="math inline">\(b_n \to B\)</span> as <span class="math inline">\(n \to \infty\)</span>. Then:</p>
 <ol style="list-style-type: decimal">
-<li>If we take <span class="math inline">\(a_n = 2n\)</span> and <span class="math inline">\(b_n = n\)</span>, we see that <span class="math inline">\(a_n - b_n = n\)</span>, and <span class="math inline">\((n)_{n\in\mathbb{N}}\)</span> diverges to <span class="math inline">\(\infty\)</span>. But if we tried to apply the algebra of limits to this result, it would suggest that <span class="math inline">\(\infty - \infty = \infty\)</span>.</li>
-<li>If we take <span class="math inline">\(a_n = n\)</span> and <span class="math inline">\(b_n = 2n\)</span>, we see that <span class="math inline">\(a_n - b_n = -n\)</span>, and <span class="math inline">\((-n)_{n\in\mathbb{N}}\)</span> diverges to <span class="math inline">\(\infty\)</span>. But, again, if we tried to apply AoL to this result, it would suggest that <span class="math inline">\(\infty - \infty = -\infty\)</span>. Immediately this conflicts with the answer to part 1)!</li>
-<li>Finally, if we take <span class="math inline">\(a_n = b_n = n\)</span>, we see that <span class="math inline">\(a_n - b_n = 0\)</span>, and <span class="math inline">\((0)_{n \in \mathbb{N}}\)</span> is a convergent sequence — it converges to <span class="math inline">\(0\)</span>. Attempting to apply AoL to this result suggests that <span class="math inline">\(\infty - \infty = 0\)</span>.</li>
+<li><span class="math inline">\(\lim_{n \to \infty} (a_n + b_n) = A + B\)</span>,</li>
+<li><span class="math inline">\(\lim_{n \to \infty} (ca_n) = cA\)</span>,</li>
+<li><span class="math inline">\(\lim_{n \to \infty} (a_n b_n) = AB\)</span>,</li>
+<li>If <span class="math inline">\(b_n \neq 0 \; \forall n \in \mathbb{N}\)</span> and <span class="math inline">\(B \neq 0\)</span>, <span class="math inline">\(\lim_{n \to \infty} \frac{a_n}{b_n} = \frac{A}{B}\)</span>.</li>
 </ol>
 </p>
 </div>
-<p>What parts 1), 2) and 3) demonstrate is that you can’t consistently define <span class="math inline">\(\infty - \infty\)</span>. (Note: if you take the same sequences from 1), 2) and 3) and divide them, you can see why <span class="math inline">\(\frac{\infty}{\infty}\)</span> isn’t consistently define-able either).</p>
+</div>
+</div>
+<!-- </div> -->
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Feel free to ignore this footnote, but there are areas of maths where limits are not unique. This is usually in the realm of topology, which you can take in Year 3 <a href="https://www.bath.ac.uk/catalogues/2023-2024/ma/MA30055.html">(MA30055)</a>. Luckily for us, everything behaves nicely, and our limits are unique.<a href="sequences.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="lecture-recap.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="lecture-recap.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="hints.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
