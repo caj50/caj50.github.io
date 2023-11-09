@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 Hints | Analysis 1A — Tutorial 6</title>
-  <meta name="description" content="2 Hints | Analysis 1A — Tutorial 6" />
+  <title>3 Hints | Analysis 1A — Tutorial 6</title>
+  <meta name="description" content="3 Hints | Analysis 1A — Tutorial 6" />
   <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 Hints | Analysis 1A — Tutorial 6" />
+  <meta property="og:title" content="3 Hints | Analysis 1A — Tutorial 6" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 Hints | Analysis 1A — Tutorial 6" />
+  <meta name="twitter:title" content="3 Hints | Analysis 1A — Tutorial 6" />
   
   
   
@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="cauchy-sequences.html"/>
+<link rel="prev" href="more-on-infinite-limits.html"/>
 
 
 <script src="libs/header-attrs-2.18/header-attrs.js"></script>
@@ -267,13 +267,14 @@ MathJax.Hub.Config({
 
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="1" data-path="lecture-recap.html"><a href="lecture-recap.html"><i class="fa fa-check"></i><b>1</b> Lecture Recap</a>
+<li class="chapter" data-level="1" data-path="infinite-limits.html"><a href="infinite-limits.html"><i class="fa fa-check"></i><b>1</b> Infinite Limits</a></li>
+<li class="chapter" data-level="2" data-path="lecture-recap.html"><a href="lecture-recap.html"><i class="fa fa-check"></i><b>2</b> Lecture Recap</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="tests-for-convergence.html"><a href="tests-for-convergence.html"><i class="fa fa-check"></i><b>1.1</b> Tests for Convergence</a></li>
-<li class="chapter" data-level="1.2" data-path="subsequences.html"><a href="subsequences.html"><i class="fa fa-check"></i><b>1.2</b> Subsequences</a></li>
-<li class="chapter" data-level="1.3" data-path="cauchy-sequences.html"><a href="cauchy-sequences.html"><i class="fa fa-check"></i><b>1.3</b> Cauchy Sequences</a></li>
+<li class="chapter" data-level="2.1" data-path="monotonic-subsequences.html"><a href="monotonic-subsequences.html"><i class="fa fa-check"></i><b>2.1</b> Monotonic Subsequences</a></li>
+<li class="chapter" data-level="2.2" data-path="the-sandwichpinchingsqueeze-theorem2.html"><a href="the-sandwichpinchingsqueeze-theorem2.html"><i class="fa fa-check"></i><b>2.2</b> The Sandwich/Pinching/Squeeze Theorem</a></li>
+<li class="chapter" data-level="2.3" data-path="more-on-infinite-limits.html"><a href="more-on-infinite-limits.html"><i class="fa fa-check"></i><b>2.3</b> More on Infinite Limits</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="hints.html"><a href="hints.html"><i class="fa fa-check"></i><b>2</b> Hints</a></li>
+<li class="chapter" data-level="3" data-path="hints.html"><a href="hints.html"><i class="fa fa-check"></i><b>3</b> Hints</a></li>
 </ul>
 
       </nav>
@@ -291,20 +292,21 @@ MathJax.Hub.Config({
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="hints" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Hints</h1>
+<div id="hints" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Hints</h1>
 <p>As per usual, here’s where you’ll find the problem sheet hints!</p>
-<ul>
-<li>[H1.] Think about all the tests for convergence that you’ve seen so far! A reminder for d) — the growth factor test won’t work on a ratio of polynomials.</li>
-<li>[H2.] Firstly, this is an  statement. So you have to prove two things:
-<ul>
-<li><span class="math inline">\((a_n)\)</span> convergent <span class="math inline">\(\implies\)</span> <span class="math inline">\((a_{2k})_k, (a_{2k-1})_k\)</span> and <span class="math inline">\((a_{3k})_k\)</span> are convergent.</li>
-<li><span class="math inline">\((a_{2k})_k, (a_{2k-1})_k\)</span> and <span class="math inline">\((a_{3k})_k\)</span> are convergent <span class="math inline">\(\implies\)</span> <span class="math inline">\((a_n)\)</span> convergent.</li>
-</ul>
-For the second implication, try and find common subsequences of the three given subsequences to show that <span class="math inline">\((a_{2k})_k, (a_{2k-1})_k\)</span> and <span class="math inline">\((a_{3k})_k\)</span> all have the same limit. One of the tutorial questions from Problem Sheet 6 might come in handy at this point…</li>
-<li>[H3a).] Can you think of any inequalities relating <span class="math inline">\(k\)</span> and <span class="math inline">\(n_k\)</span>, where <span class="math inline">\(k \in \mathbb{N}\)</span>? Also, this question asks about monotone sequences, so you’ll have to prove that this result holds for both increasing and decreasing sequences.</li>
-<li>[H3b).] Again, two things to prove here (due to the if and only if). Make sure you understand the definitions involved — it’ll make it easier to construct the proofs.</li>
-</ul>
+<ol style="list-style-type: decimal">
+<li>Try applying one of the tests for monotonicity. For the limit, if you need to use any theorems anywhere, state them!</li>
+<li>See the hint for question 1 above.</li>
+<li>Use the definitions of monotone increasing and unbounded together to deduce the sequence satisfies the definition of <span class="math inline">\(a_n \to \infty\)</span>.</li>
+<li>If <span class="math inline">\(a_n \neq 0 \, \; \forall n \in \mathbb{N}\)</span>, then this would just be an application of the algebra of (infinite) limits! Since you don’t know if this is the case, you’ll need to use the definition again for this question. You’ll end up with an inequality of the form <span class="math inline">\(a_n^2 &gt; g(\epsilon)\)</span>, where <span class="math inline">\(g\)</span> is a rational function of <span class="math inline">\(\epsilon\)</span>, at some point in your solution. Take cases on the sign of the numerator of <span class="math inline">\(g(\epsilon)\)</span> to find the required <span class="math inline">\(N\)</span> in the definition of limit.</li>
+<li>This is similar to Tutorial Question 3 off Exercise Sheet 6. Try a few terms of the sequence to get a feel for what’s happening first. Note that you’re not explicitly told to find the limit, but it’s really worth doing if you can!</li>
+<li><ol style="list-style-type: lower-alpha">
+<li>Try applying one of the tests for monotonicity.</li>
+<li>In the inductive step, you’ll encounter two fractions. Get them over a common denominator, and then ‘kill off’ some terms in the numerator (briefly justifying why you can do this). Also, make sure to format your induction proof logically!</li>
+<li>Seen any good theorems about bounded monotonic sequences lately?<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></li>
+</ol></li>
+</ol>
 
 </div>
 
@@ -313,12 +315,21 @@ For the second implication, try and find common subsequences of the three given 
 
 
 
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="4">
+<li id="fn4"><p>As on the sheet, the limit of the sequence <span class="math inline">\((a_n)\)</span> in this question is <span class="math inline">\(\pi^2/6.\)</span> To establish this, we have to study Fourier series. It turns out that for <span class="math inline">\(f:[-\pi,\pi]\to\mathbb{R}\)</span> given by <span class="math inline">\(f(x) = x^2,\)</span> we can write <span class="math inline">\(f\)</span> as a sum of cosines, namely <span class="math display">\[f(x) = \frac{\pi^2}{3} + 4\sum_{n=1}^{\infty}\frac{(-1)^n}{n^2}\cos(nx).\]</span> Evaluating this series at <span class="math inline">\(x=\pi\)</span> (and assuming the infinite series behaves nicely), we find that <span class="math display">\[\pi^2 = \frac{\pi^2}{3} + 4\sum_{n=1}^{\infty}\frac{(-1)^n}{n^2}\cdot(-1)^n,\]</span> from which <span class="math display">\[\sum_{n=1}^{\infty}\frac{1}{n^2} = \lim_{n\to \infty}a_n = \frac{\pi^2}{6}.\]</span> For more information, take <em>Vector Calculus and Partial Differential Equations</em> (MA20223) in Year 2!<a href="hints.html#fnref4" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="cauchy-sequences.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="more-on-infinite-limits.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>

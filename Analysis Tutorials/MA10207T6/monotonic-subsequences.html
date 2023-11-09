@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.1 Tests for Convergence | Analysis 1A — Tutorial 6</title>
-  <meta name="description" content="1.1 Tests for Convergence | Analysis 1A — Tutorial 6" />
+  <title>2.1 Monotonic Subsequences | Analysis 1A — Tutorial 6</title>
+  <meta name="description" content="2.1 Monotonic Subsequences | Analysis 1A — Tutorial 6" />
   <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.1 Tests for Convergence | Analysis 1A — Tutorial 6" />
+  <meta property="og:title" content="2.1 Monotonic Subsequences | Analysis 1A — Tutorial 6" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.1 Tests for Convergence | Analysis 1A — Tutorial 6" />
+  <meta name="twitter:title" content="2.1 Monotonic Subsequences | Analysis 1A — Tutorial 6" />
   
   
   
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="lecture-recap.html"/>
-<link rel="next" href="subsequences.html"/>
+<link rel="next" href="the-sandwichpinchingsqueeze-theorem2.html"/>
 
 <script src="libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -267,13 +267,14 @@ MathJax.Hub.Config({
 
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="1" data-path="lecture-recap.html"><a href="lecture-recap.html"><i class="fa fa-check"></i><b>1</b> Lecture Recap</a>
+<li class="chapter" data-level="1" data-path="infinite-limits.html"><a href="infinite-limits.html"><i class="fa fa-check"></i><b>1</b> Infinite Limits</a></li>
+<li class="chapter" data-level="2" data-path="lecture-recap.html"><a href="lecture-recap.html"><i class="fa fa-check"></i><b>2</b> Lecture Recap</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="tests-for-convergence.html"><a href="tests-for-convergence.html"><i class="fa fa-check"></i><b>1.1</b> Tests for Convergence</a></li>
-<li class="chapter" data-level="1.2" data-path="subsequences.html"><a href="subsequences.html"><i class="fa fa-check"></i><b>1.2</b> Subsequences</a></li>
-<li class="chapter" data-level="1.3" data-path="cauchy-sequences.html"><a href="cauchy-sequences.html"><i class="fa fa-check"></i><b>1.3</b> Cauchy Sequences</a></li>
+<li class="chapter" data-level="2.1" data-path="monotonic-subsequences.html"><a href="monotonic-subsequences.html"><i class="fa fa-check"></i><b>2.1</b> Monotonic Subsequences</a></li>
+<li class="chapter" data-level="2.2" data-path="the-sandwichpinchingsqueeze-theorem2.html"><a href="the-sandwichpinchingsqueeze-theorem2.html"><i class="fa fa-check"></i><b>2.2</b> The Sandwich/Pinching/Squeeze Theorem</a></li>
+<li class="chapter" data-level="2.3" data-path="more-on-infinite-limits.html"><a href="more-on-infinite-limits.html"><i class="fa fa-check"></i><b>2.3</b> More on Infinite Limits</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="hints.html"><a href="hints.html"><i class="fa fa-check"></i><b>2</b> Hints</a></li>
+<li class="chapter" data-level="3" data-path="hints.html"><a href="hints.html"><i class="fa fa-check"></i><b>3</b> Hints</a></li>
 </ul>
 
       </nav>
@@ -291,22 +292,39 @@ MathJax.Hub.Config({
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="tests-for-convergence" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Tests for Convergence</h2>
-<p>As you’ve seen, using the definition to prove that sequences converge can get quite tedious! Hence, it’s useful to have some ‘quick’ tests to determine whether sequences converge. This is where the <em>Growth Factor Test</em> (or <em>ratio test</em>) comes in.</p>
+<div id="monotonic-subsequences" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Monotonic Subsequences</h2>
+In reverse order to how it was discussed in tutorials, we begin with some special types of sequences. First, we need to define what these sequences are. This definition might look long, but it’s really just five concepts grouped together.
+
+<div id="def:def1" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def1" custom-style="NameStyle"><strong>Definition 2.1:  (Monotonic Sequences) </strong></span>
+<div>
+<p>Let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> be a real sequence. Then if <span class="math inline">\(\forall n \in \mathbb{N}\)</span>:</p>
+<ul>
+<li><span class="math inline">\(a_{n+1} \geq a_n,\;\)</span> <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is increasing,</li>
+<li><span class="math inline">\(a_{n+1} &gt; a_n,\;\)</span> <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is strictly increasing,</li>
+<li><span class="math inline">\(a_{n+1} \leq a_n,\;\)</span> <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is decreasing,</li>
+<li><span class="math inline">\(a_{n+1} &lt; a_n,\;\)</span> <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is strictly decreasing.</li>
+</ul>
+If the sequence has any one of these properties, it is called monotone, or a monotonic sequence.
+</div>
+</div>
+<p>For a given sequence <span class="math inline">\((a_n)\)</span>, the two main ways of checking monotonicity are by considering <span class="math inline">\(a_{n+1} - a_n\)</span> and/or <span class="math inline">\(\frac{a_{n+1}}{a_n}\)</span>, and comparing these objects to <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> respectively. The second of these methods is especially useful when you’re dealing with powers of <span class="math inline">\(n\)</span>, such as for the sequence <span class="math inline">\((b_n)\)</span> in Exercise Sheet 6, Homework Question 2.</p>
+A useful theorem for these sequences is the following<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>:
 
 <div id="thm:thm1" class="bookdown-theorem" custom-style="TheoremStyle">
-<span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1.1:  (Growth Factor Test) </strong></span>
+<span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 2.1:  </strong></span>
 <p>
-<p>Let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> be a real sequence with <span class="math inline">\(a_n&gt;0 \; \forall n\in\mathbb{N}\)</span>, and with <span class="math display">\[\lim_{n\to\infty} \frac{a_{n+1}}{a_n} = r.\]</span> Then:</p>
-<ul>
-<li>If <span class="math inline">\(r &lt; 1\)</span>, <span class="math inline">\(a_n \to 0\)</span> as <span class="math inline">\(n \to \infty\)</span>.</li>
-<li>If <span class="math inline">\(r &gt; 1\)</span>, <span class="math inline">\(a_n \to \infty\)</span> as <span class="math inline">\(n \to \infty\)</span>.</li>
-<li>If <span class="math inline">\(r = 1\)</span>, the test is inconclusive.</li>
-</ul>
+Let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> be a bounded, monotone sequence. Then <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is convergent.
 </p>
 </div>
-<p>To see why the test fails for <span class="math inline">\(r = 1\)</span>, consider the sequences <span class="math inline">\((a_n)\)</span> and <span class="math inline">\((b_n)\)</span> where <span class="math inline">\(a_n = n\)</span> and <span class="math inline">\(b_n = 1/n\)</span>. Something to note here is that if the terms of a sequence are defined by a ratio of polynomials, then the growth factor test will be inconclusive (Can you see/prove why?).</p>
+<p>In fact, if a sequence <span class="math inline">\((a_n)_{n \in \mathbb{N}}\)</span> is increasing, then it converges to the supremum of the set of <span class="math inline">\(a_n\)</span> values, and if it is decreasing, then it converges to the infimum of the set of <span class="math inline">\(a_n\)</span> values.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>If you’re interested, this statement is completely equivalent to the completeness axiom from Section 2 of the lecture notes. In fact, back in the prehistoric times of 2016 — when I took the course — this result was stated as the completeness axiom.<a href="monotonic-subsequences.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 
@@ -314,7 +332,7 @@ MathJax.Hub.Config({
         </div>
       </div>
 <a href="lecture-recap.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="subsequences.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="the-sandwichpinchingsqueeze-theorem2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
