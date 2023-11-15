@@ -9,15 +9,15 @@ classoption: a4paper
 fontsize: 10pt
 geometry: margin=2.5cm
 output:
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
   clavertondown::gitbook_clav:
     split_by: section
     keep_md: true
     config:
       download: [["Tutorial7.html", "HTML page"], ["Tutorial7.pdf","Standard print PDF"], ["Tutorial7Clear.pdf","Clear print PDF"], ["Tutorial7Large.pdf","Large print PDF"], ["Tutorial7.docx","Accessible Word document"], ["Tutorial7.epub","Accessible EPub book" ]]
       sharing: no
+    pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
     pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
@@ -111,6 +111,7 @@ As per usual, here's where you'll find the problem sheet hints!
 1.  Think about all the tests for convergence that you've seen so far! A reminder for d) — the growth factor test won't work on a ratio of polynomials.
 2.  See the hint for question 1 (and the one on the sheet!) Another reminder --- if you use a test or a theorem anywhere, state it!
 3.  Firstly, this is an **if and only if** statement. So you have to prove two things:
+
      * $(a_n)$ convergent $\implies$ $(a_{2k})_k, (a_{2k-1})_k$ and $(a_{3k})_k$ are convergent.
      * $(a_{2k})_k, (a_{2k-1})_k$ and $(a_{3k})_k$ are convergent $\implies$ $(a_n)$ convergent.
      
@@ -119,3 +120,5 @@ As per usual, here's where you'll find the problem sheet hints!
      b)  Again, two things to prove here (due to the if and only if). Make sure you understand the definitions involved — it'll make it easier to construct the proofs.
 5.  Start by unpacking the definitions in the question, and try to make one look like the other.
 6.  This follows a similar procedure to a proof involving the definition of convergence. Fix $\epsilon > 0$ and show that for $n\geq m$ we can bound $\lvert a_n - a_m \rvert$ above by $1/2^{m-1}$. Then, note (or prove by induction) that $m \leq 2^m$ to find a upper bound which is easier to deal with, and use this to find the $N \in \mathbb{N}$ in the Cauchy sequence definition. You'll also find useful the triangle inequality and geometric series formulae here, but make sure to state when you use them!
+
+
