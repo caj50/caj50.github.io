@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Analysis 1A — Tutorial 7</title>
-  <meta name="description" content="Analysis 1A — Tutorial 7" />
+  <title>1.2 Subsequences | Analysis 1A — Tutorial 7</title>
+  <meta name="description" content="1.2 Subsequences | Analysis 1A — Tutorial 7" />
   <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Analysis 1A — Tutorial 7" />
+  <meta property="og:title" content="1.2 Subsequences | Analysis 1A — Tutorial 7" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Analysis 1A — Tutorial 7" />
+  <meta name="twitter:title" content="1.2 Subsequences | Analysis 1A — Tutorial 7" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="lecture-recap.html"/>
+<link rel="prev" href="tests-for-convergence.html"/>
+<link rel="next" href="cauchy-sequences.html"/>
 
 <script src="libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -291,22 +291,47 @@ MathJax.Hub.Config({
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title"><span style="font-size:150%; margin-bottom:0">Analysis 1A — Tutorial 7</span></h1>
-<p class="author" style="font-size:120%; margin-bottom:0"><em>Christian Jones: University of Bath</em></p>
-<p class="date" style="font-size:120%; margin-bottom:0"><em>November 2023</em></p>
+<div id="subsequences" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Subsequences</h2>
+<p>If we have a sequence <span class="math inline">\((a_n)_{n}\)</span>, we can just as easily make a new sequence by selecting members of <span class="math inline">\((a_n)_{n}\)</span>. These will turn out to be useful when trying to prove results about functions in a few weeks.</p>
+
+<div id="def:def1" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Subsequence) </strong></span>
+<div>
+Let <span class="math inline">\((a_n)_{n \in \mathbb{N}}\)</span> be a real sequence, and let <span class="math inline">\((n_k)_{k\in\mathbb{N}}\)</span> be a strictly increasing sequence. Then <span class="math inline">\((a_{n_k})_{k\in\mathbb{N}}\)</span> is called a subsequence of <span class="math inline">\((a_n)\)</span>.
 </div>
-<div id="introduction" class="section level1 unnumbered">
-<h1>Introduction</h1>
-<p>Here is the material to accompany the Analysis Tutorial in Week 7. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to <a href="mailto:caj50@bath.ac.uk">Christian Jones (caj50)</a>. To return to the homepage, click <a href="http://caj50.github.io/tutoring.html">here</a>.</p>
+</div>
+<p>As a (slightly boring) example, suppose that the terms of a sequence <span class="math inline">\((a_n)_n\)</span> are given by <span class="math inline">\(a_n = n\)</span>. Then, possible choices for the sequence <span class="math inline">\((n_k)_k\)</span> are</p>
+<ul>
+<li><span class="math inline">\(n_k = 2k\)</span>. This choice gives us the subsequence of <span class="math inline">\((a_n)_n\)</span> containing all the even numbers.</li>
+<li><span class="math inline">\(n_k = k^{\text{th}}\, \text{prime}\)</span>. This choice gives us the subsequence of <span class="math inline">\((a_n)_n\)</span> consisting of all prime numbers. Note that we may not know each possible <span class="math inline">\(n_k\)</span>, but <span class="math inline">\((n_k)_k\)</span> is still a strictly increasing sequence.</li>
+</ul>
+<p>Moreover, since <span class="math inline">\((n_k)_{k\in\mathbb{N}}\)</span> is a strictly increasing sequence, we must have that <span class="math inline">\(n_k \geq k\)</span>. This is because for each <span class="math inline">\(k \in \mathbb{N}\)</span>, the first possible choice we could make for <span class="math inline">\(a_{n_k}\)</span> in our subsequence is simply <span class="math inline">\(a_k\)</span>.</p>
+We also have a few useful results regarding subsequences:
+
+<div id="prp:prop1" class="bookdown-proposition" custom-style="TheoremStyle">
+<span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.2:  </strong></span>
+<p>
+If a real sequence <span class="math inline">\((a_n)_n\)</span> converges to a limit <span class="math inline">\(L\)</span>, then all subsequences <span class="math inline">\((a_{n_k})_k\)</span> of <span class="math inline">\((a_n)_n\)</span> also converge to <span class="math inline">\(L\)</span>.
+</p>
+</div>
+<p>The contrapositive of this result is very good for proving that sequences do not converge, i.e. if you can find two subsequences converging to different limits, then the original sequence does not converge. We also have the following result linking bounded sequences and subsequences.</p>
+
+<div id="thm:thm2" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm2" custom-style="NameStyle"><strong>Theorem 1.3:  (Bolzano-Weierstrass) </strong></span>
+<p>
+Every bounded real sequence has a convergent subsequence.
+</p>
+</div>
+<p>Following the explanation <a href="https://math.libretexts.org/Bookshelves/Analysis/Book%3A_Real_Analysis_(Boman_and_Rogers)/07%3A_Intermediate_and_Extreme_Values/7.03%3A_The_Bolzano-Weierstrass_Theorem">here</a>, this theorem says that no matter how ‘random’ a sequence might be, as long as its bounded then some part of it must converge. This theorem may seem innocuous for now, but you’ll see it appear in later courses to prove some key results in analysis.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="lecture-recap.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="tests-for-convergence.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="cauchy-sequences.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

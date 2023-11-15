@@ -1,7 +1,7 @@
 ---
 title: "Analysis 1A — Tutorial 7"
 author: 'Christian Jones: University of Bath'
-date: 'November 2022'
+date: 'November 2023'
 site: bookdown::bookdown_site
 language: en
 documentclass: article
@@ -16,12 +16,6 @@ output:
       download: [["Tutorial7.html", "HTML page"], ["Tutorial7.pdf","Standard print PDF"], ["Tutorial7Clear.pdf","Clear print PDF"], ["Tutorial7Large.pdf","Large print PDF"], ["Tutorial7.docx","Accessible Word document"], ["Tutorial7.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
-  clavertondown::html_clav:
-    toc: true
-    pandoc_args: --default-image-extension=svg
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
     keep_tex: true
@@ -29,10 +23,16 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
+  clavertondown::html_clav:
+    toc: true
+    pandoc_args: --default-image-extension=svg
   clavertondown::word_clav:
     toc: true
     number_sections: true
     keep_md: true
+    pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
     pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
@@ -44,66 +44,69 @@ header-includes:
 \pagenumbering{arabic}
 
 # Introduction {-}
-Here is the material to accompany the 7th Analysis Tutorial on the 21th November. As usual, send comments and corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk). To return to the homepage, click [here](http://caj50.github.io/tutoring.html).
+Here is the material to accompany the Analysis Tutorial in Week 7. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk). To return to the homepage, click [here](http://caj50.github.io/tutoring.html).
 
 # Lecture Recap
 
-## Limit Superior and Limit Inferior
-It is not always the case that the limit of a sequence exists — take $(a_n)_{n\in\mathbb{N}}$ defined by $a_n = (-1)^n$, for example. But if a sequence $(a_n)_{n\in\mathbb{N}}$ is bounded, there are two objects that always exist. These are the *limit superior* and *limit inferior* of a sequence. To start define these, we first let $(a_n)$ be a real sequence, and for each $k \in \mathbb{N}$, define $$A_k = \lbrace a_n \,\lvert\, n \geq k\rbrace = \lbrace a_k,\,a_{k+1}\,\ldots\rbrace$$
+## Tests for Convergence
+As you've seen, using the definition to prove that sequences converge can get quite tedious! Hence, it's useful to have some 'quick' tests to determine whether sequences converge. This is where the *Growth Factor Test* (or *ratio test*) comes in.
 
-We also use some different notation to describe the supremum and infimum of the sets $A_k$, namely [^1] $$\sup A_k := \sup_{n\geq k}a_n \quad ; \quad \inf A_k := \inf_{n \geq k}a_n.$$ One thing we can say about these quantities is that since $A_{k+1} \subseteq A_k$, we know that $(\sup A_k)_{k\in\mathbb{N}}$ is a decreasing sequence, and $(\inf A_k)_{k\in\mathbb{N}}$ is an increasing sequence. Now that we've produced two new sequences, the natural thing to do is analyse their convergence. It turns out that if $(a_n)_{n\in\mathbb{N}}$ is bounded, both $(\sup A_k)_{k\in\mathbb{N}}$ and $(\inf A_k)_{k\in\mathbb{N}}$ converge! We define their respective limits to be [^2] $$\limsup_{n \to \infty} a_n := \lim_{k\to\infty}\sup_{n\geq k}a_n \;\, \text{and} \;\, \liminf_{n \to \infty} a_n := \lim_{k\to\infty}\inf_{n\geq k}a_n.$$ The first of these is the *limit superior* and the second is the *limit inferior*. These can be thought of as `eventual' bounds on a sequence, as seen in Figure \@ref(fig:limsup) (Taken from [Wikipedia](https://en.wikipedia.org/wiki/Limit_inferior_and_limit_superior)).
+\BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm1"><span class="thm:thm1" custom-style="NameStyle"><strong>(\#thm:thm1)  (Growth Factor Test) </strong></span><p>Let $(a_n)_{n\in\mathbb{N}}$ be a real sequence with $a_n>0 \; \forall n\in\mathbb{N}$, and with $$\lim_{n\to\infty} \frac{a_{n+1}}{a_n} = r.$$ Then:
+  
+* If $r < 1$, $a_n \to 0$ as $n \to \infty$.
+* If $r > 1$, $a_n \to \infty$ as $n \to \infty$.
+* If $r = 1$, the test is inconclusive.
+</p></div>\EndKnitrBlock{theorem}
 
+To see why the test fails for $r = 1$, consider the sequences $(a_n)$ and $(b_n)$ where $a_n = n$ and $b_n = 1/n$. Something to note here is that if the terms of a sequence are defined by a ratio of polynomials, then the growth factor test will be inconclusive (Can you see/prove why?).
 
+## Subsequences
+If we have a sequence $(a_n)_{n}$, we can just as easily make a new sequence by selecting members of $(a_n)_{n}$. These will turn out to be useful when trying to prove results about functions in a few weeks.
 
-![(\#fig:limsup) Limsup and liminf for a sequence.](Lim_sup_example_5.png "Limit inferior and superior for a sequence."){width="50%"}
+\BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def1"><span class="def:def1" custom-style="NameStyle"><strong>(\#def:def1)  (Subsequence) </strong></span><div>Let $(a_n)_{n \in \mathbb{N}}$ be a real sequence, and let $(n_k)_{k\in\mathbb{N}}$ be a strictly increasing sequence. Then $(a_{n_k})_{k\in\mathbb{N}}$ is called a subsequence of $(a_n)$.</div></div>\EndKnitrBlock{definition}
+As a (slightly boring) example, suppose that the terms of a sequence $(a_n)_n$ are given by $a_n = n$. Then, possible choices for the sequence $(n_k)_k$ are
 
+* $n_k = 2k$. This choice gives us the subsequence of $(a_n)_n$ containing all the even numbers.
+* $n_k = k^{\text{th}}\, \text{prime}$. This choice gives us the subsequence of $(a_n)_n$ consisting of all prime numbers. Note that we may not know each possible $n_k$, but $(n_k)_k$ is still a strictly increasing sequence.
 
-There is also another way of interpreting the limits superior and inferior. For a sequence $(a_n)_{n\in\mathbb{N}}$, we can also think of $\limsup_{n\to\infty} a_n$ and $\liminf_{n \to \infty}a_n$ as being the largest and smallest possible limits of any subsequence of $(a_n)_{n\in\mathbb{N}}$. We can use this to characterise convergent sequences!
+Moreover, since $(n_k)_{k\in\mathbb{N}}$ is a strictly increasing sequence, we must have that $n_k \geq k$. This is because for each $k \in \mathbb{N}$, the first possible choice we could make for $a_{n_k}$ in our subsequence is simply $a_k$.
 
-\BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm1"><span class="thm:thm1" custom-style="NameStyle"><strong>(\#thm:thm1) </strong></span><p>A sequence $(a_n)_{n\in\mathbb{N}}$ is convergent if and only if $$\limsup_{n \to \infty} a_n = \liminf_{n \to \infty} a_n.$$</p></div>\EndKnitrBlock{theorem}
-To end this section, we state two more results. They're not mentioned in the lecture notes, but they can be incredibly useful when performing calculations[^3].
+We also have a few useful results regarding subsequences:
+\BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop1"><span class="prp:prop1" custom-style="NameStyle"><strong>(\#prp:prop1) </strong></span><p>If a real sequence $(a_n)_n$ converges to a limit $L$, then all subsequences $(a_{n_k})_k$ of $(a_n)_n$ also converge to $L$.</p></div>\EndKnitrBlock{proposition}
+The contrapositive of this result is very good for proving that sequences do not converge, i.e. if you can find two subsequences converging to different limits, then the original sequence does not converge. We also have the following result linking bounded sequences and subsequences.
 
-\BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm2"><span class="thm:thm2" custom-style="NameStyle"><strong>(\#thm:thm2) </strong></span><p>Let $(a_n)_{n\in\mathbb{N}}$ and $(b_n)_{n\in\mathbb{N}}$ be real sequences. Then: $$\limsup_{n\to\infty}(a_n + b_n) \leq \limsup_{n\to\infty}a_n +\limsup_{n\to\infty}b_n,$$ and $$\liminf_{n\to\infty}(a_n + b_n) \geq \liminf_{n\to\infty}a_n +\liminf_{n\to\infty}b_n.$$</p></div>\EndKnitrBlock{theorem}
+\BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm2"><span class="thm:thm2" custom-style="NameStyle"><strong>(\#thm:thm2)  (Bolzano-Weierstrass) </strong></span><p>Every bounded real sequence has a convergent subsequence.</p></div>\EndKnitrBlock{theorem}
+Following the explanation [here](https://math.libretexts.org/Bookshelves/Analysis/Book%3A_Real_Analysis_(Boman_and_Rogers)/07%3A_Intermediate_and_Extreme_Values/7.03%3A_The_Bolzano-Weierstrass_Theorem), this theorem says that no matter how 'random' a sequence might be, as long as its bounded then some part of it must converge. This theorem may seem innocuous for now, but you'll see it appear in later courses to prove some key results in analysis.
 
-[^1]:The notation here follows that used in the lecture notes rather than that used in lectures, as this is more common usage. Also, for convenience, if the set $A_k$ is not bounded above/below, we set the supremum/infimum to be $\infty$/$-\infty$.
+## Cauchy Sequences
+To conclude the lecture recap, we discuss another type of sequence known as a *Cauchy sequence*[^1].
 
-[^2]:Again, if $(\sup A_k)_{k\in\mathbb{N}}$ diverges to $\infty$, $\limsup_{n \to \infty} a_n$ is defined to be $\infty$, and if $(\inf A_k)_{k\in\mathbb{N}}$ diverges to $-\infty$, $\liminf_{n \to \infty} a_n$ is defined to be $-\infty$.
+\BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def2"><span class="def:def2" custom-style="NameStyle"><strong>(\#def:def2)  (Cauchy Sequence) </strong></span><div>A real sequence $(a_n)_n$ is called a Cauchy sequence if $$\forall \epsilon >0, \exists N \in \mathbb{N} \; \text{such that} \; \forall n,m \geq N, \; \lvert a_n - a_m\rvert < \epsilon.$$</div></div>\EndKnitrBlock{definition}
+The idea here is that however close you want members of the sequence to get, say a distance $\epsilon$, there will always be a point in the sequence after which any two members of the sequence are within a distance $\epsilon$ of each other. 
 
-[^3]:Since these results are not in the lecture notes, it's *highly* recommended that you try and prove them yourself. Try using similar techniques to Tutorial Question 2 on Problem Sheet 7 and Homework Question 2 on Problem Sheet 3.
+You've already met some Cauchy sequences. For example, all convergent sequences are Cauchy sequences. You might also be tempted to think that the converse holds, that all Cauchy sequences are convergent. Working in the real numbers, you would be right.
 
-## Series
-It might look like we're done with sequences, but in the grand scheme of things, we're only really getting started. Since with each sequence $(a_n)_{n\in\mathbb{N}}$, we have an infinite list of real numbers, we might consider trying to manipulate them in some way. One way we can do this is by adding them together, which leads to the notion of a *series*.
+\BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm3"><span class="thm:thm3" custom-style="NameStyle"><strong>(\#thm:thm3) </strong></span><p>Any real sequence $(a_n)_n$ is convergent if and only if it is a Cauchy sequence.</p></div>\EndKnitrBlock{theorem}
+So, if these things are the same in $\mathbb{R}$, why do we make the distinction? Suppose we were only working in $\mathbb{Q}$, and we were given the sequence $1,1.4,1.41,1.414,1.4142,\ldots$. In $\mathbb{R}$, this converges to $\sqrt{2}$, so by our theorem above, this sequence is a Cauchy sequence in $\mathbb{R}$. As each member of the sequence is rational, we then know that the sequence is a Cauchy sequence in $\mathbb{Q}$. But since $\sqrt{2} \not\in \mathbb{Q}$, it is not a convergent sequence in $\mathbb{Q}$!
 
-\BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def1"><span class="def:def1" custom-style="NameStyle"><strong>(\#def:def1)  (Series) </strong></span><div>Let $(a_n)_{n \in \mathbb{N}}$ be a real sequence. Then $$\sum_{n = 1}^{\infty} a_n$$ is called a series for $(a_n)_{n\in\mathbb{N}}$.</div></div>\EndKnitrBlock{definition}
+This example shows why the Completeness Axiom is so important! Assuming this axiom allows us to take limits in $\mathbb{R}$, and its why we're studying real analysis this semester (and not rational analysis!)
 
-Much like with sequences, we have an analogous version of convergence for a series:
-\BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def2"><span class="def:def2" custom-style="NameStyle"><strong>(\#def:def2)  (Series Convergence and Partial Sums) </strong></span><div>Let $(a_n)_{n \in \mathbb{N}}$ be a real sequence. Then $\sum_{n = 1}^{\infty} a_n$ converges if and only if the sequence $(S_N)_{N \in \mathbb{N}}$ converges, where $$S_N:= \sum_{n = 1}^{N} a_n$$ is the $N$\textsuperscript{th} partial sum. If $S_N \to \ell$ as $N \to \infty$, we define $$\ell = \sum_{n = 1}^{\infty}a_n.$$</div></div>\EndKnitrBlock{definition}
-If $(S_N)_{N\in\mathbb{N}}$ diverges to $\pm\infty$, we say that the corresponding series $$\sum_{n=1}^{\infty} a_n = \pm\infty.$$ Finally, if $(S_N)_{N\in\mathbb{N}}$ doesn't converge to a limit, we say that the series diverges without limit.
-
-### Algebra of Series
-By applying the algebra of limits to the sequences of partial sums, we can deduce some handy results.
-
-\BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm3"><span class="thm:thm3" custom-style="NameStyle"><strong>(\#thm:thm3)  (Algebra of Series) </strong></span><p>Let $\sum_{n=1}^{\infty} a_n$ and $\sum_{n=1}^{\infty} b_n$ be convergent series, and let $\alpha,\beta \in \mathbb{R}$. Then $$\sum_{n = 1}^{\infty} (\alpha a_n + \beta b_n) = \alpha\sum_{n=1}^{\infty} a_n + \beta\sum_{n=1}^{\infty} b_n.$$</p></div>\EndKnitrBlock{theorem}
-
-### Some Other Useful Results
-Firstly, we can relate the size of the terms of a series to the overall sum.
-
-\BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop1"><span class="prp:prop1" custom-style="NameStyle"><strong>(\#prp:prop1) </strong></span><p>Let $\sum_{n=1}^{\infty} a_n$ and $\sum_{n=1}^{\infty} b_n$ be real series. If $a_n \leq b_n \, \forall n\in\mathbb{N}$, then $$\sum_{n=1}^{\infty} a_n \leq \sum_{n=1}^{\infty} b_n.$$</p></div>\EndKnitrBlock{proposition}
-
-Secondly, we have a *necessary* condition for convergence of a series.
-
-\BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop2"><span class="prp:prop2" custom-style="NameStyle"><strong>(\#prp:prop2) </strong></span><p>Let $\sum_{n=1}^{\infty} a_n$ be a convergent series. Then $a_n \to 0$ as $n \to \infty$.</p></div>\EndKnitrBlock{proposition}
-Note that the converse of this theorem *does not* hold (think of the sum $\sum_{n=1}^{\infty} \frac{1}{n}$). However, the contrapositive is very good at showing that a series does not converge!
-
-\BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop3"><span class="prp:prop3" custom-style="NameStyle"><strong>(\#prp:prop3) </strong></span><p>Let $\sum_{n=1}^{\infty} a_n$ be a series. If $a_n \not\to 0$ as $n \to \infty$, then $\sum_{n=1}^{\infty} a_n$ does not converge.</p></div>\EndKnitrBlock{proposition}
+[^1]:This is one of (way too) many things in analysis named after Cauchy. If you take Analysis 2B next year, you'll find that most of complex analysis — analysis in $\mathbb{C}$ instead of $\mathbb{R}$ — is due to Cauchy.
 
 # Hints
 As per usual, here's where you'll find the problem sheet hints!
 
-* [H1.] Try using a similar argument to the one used in tutorial question 1 (i.e. use the fact that the sequence can be split into odd and even cases to your advantage)
-* [H2.] For this question, think about what it means for a series to be convergent. You'll also want to split the terms of the series up in some way. (Think of tutorial question 3a.) 
-* [H3.] For the first part, think induction. The only other thing I'll say is to make sure you state all the main results you use!
-
+1.  Think about all the tests for convergence that you've seen so far! A reminder for d) — the growth factor test won't work on a ratio of polynomials.
+2.  See the hint for question 1 (and the one on the sheet!) Another reminder --- if you use a test or a theorem anywhere, state it!
+3.  Firstly, this is an **if and only if** statement. So you have to prove two things:
+     * $(a_n)$ convergent $\implies$ $(a_{2k})_k, (a_{2k-1})_k$ and $(a_{3k})_k$ are convergent.
+     * $(a_{2k})_k, (a_{2k-1})_k$ and $(a_{3k})_k$ are convergent $\implies$ $(a_n)$ convergent.
+     
+    For the second implication, try and find common subsequences of the three given subsequences to show that $(a_{2k})_k, (a_{2k-1})_k$ and $(a_{3k})_k$ all have the same limit. One of the tutorial questions from Problem Sheet 7 might come in handy at this point.
+4.   a)  Can you think of any inequalities relating $k$ and $n_k$, where $k \in \mathbb{N}$? Also, this question asks about monotone sequences, so you'll have to prove that this result holds for both increasing and decreasing sequences.
+     b)  Again, two things to prove here (due to the if and only if). Make sure you understand the definitions involved — it'll make it easier to construct the proofs.
+5.  Start by unpacking the definitions in the question, and try to make one look like the other.
+6.  This follows a similar procedure to a proof involving the definition of convergence. Fix $\epsilon > 0$ and show that for $n\geq m$ we can bound $\lvert a_n - a_m \rvert$ above by $1/2^{m-1}$. Then, note (or prove by induction) that $m \leq 2^m$ to find a upper bound which is easier to deal with, and use this to find the $N \in \mathbb{N}$ in the Cauchy sequence definition. You'll also find useful the triangle inequality and geometric series formulae here, but make sure to state when you use them!
 
 <!--chapter:end:index.Rmd-->
 

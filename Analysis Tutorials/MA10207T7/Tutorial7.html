@@ -218,7 +218,7 @@ img {
 <div id="header">
 <h1 class="title">Analysis 1A — Tutorial 7</h1>
 <h4 class="author"><em>Christian Jones: University of Bath</em></h4>
-<h4 class="date"><em>November 2022</em></h4>
+<h4 class="date"><em>November 2023</em></h4>
 </div>
 <!--bookdown:title:end-->
 
@@ -228,12 +228,9 @@ img {
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#lecture-recap"><span class="toc-section-number">1</span> Lecture Recap</a>
 <ul>
-<li><a href="#limit-superior-and-limit-inferior"><span class="toc-section-number">1.1</span> Limit Superior and Limit Inferior</a></li>
-<li><a href="#series"><span class="toc-section-number">1.2</span> Series</a>
-<ul>
-<li><a href="#algebra-of-series"><span class="toc-section-number">1.2.1</span> Algebra of Series</a></li>
-<li><a href="#some-other-useful-results"><span class="toc-section-number">1.2.2</span> Some Other Useful Results</a></li>
-</ul></li>
+<li><a href="#tests-for-convergence"><span class="toc-section-number">1.1</span> Tests for Convergence</a></li>
+<li><a href="#subsequences"><span class="toc-section-number">1.2</span> Subsequences</a></li>
+<li><a href="#cauchy-sequences"><span class="toc-section-number">1.3</span> Cauchy Sequences</a></li>
 </ul></li>
 <li><a href="#hints"><span class="toc-section-number">2</span> Hints</a></li>
 </ul>
@@ -243,110 +240,109 @@ img {
 <!--bookdown:body:start-->
 <div id="introduction" class="section level1 unnumbered">
 <h1>Introduction</h1>
-<p>Here is the material to accompany the 7th Analysis Tutorial on the 21th November. As usual, send comments and corrections to <a href="mailto:caj50@bath.ac.uk">Christian Jones (caj50)</a>. To return to the homepage, click <a href="http://caj50.github.io/tutoring.html">here</a>.</p>
+<p>Here is the material to accompany the Analysis Tutorial in Week 7. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to <a href="mailto:caj50@bath.ac.uk">Christian Jones (caj50)</a>. To return to the homepage, click <a href="http://caj50.github.io/tutoring.html">here</a>.</p>
 </div>
 <div id="lecture-recap" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Lecture Recap</h1>
-<div id="limit-superior-and-limit-inferior" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Limit Superior and Limit Inferior</h2>
-<p>It is not always the case that the limit of a sequence exists — take <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> defined by <span class="math inline">\(a_n = (-1)^n\)</span>, for example. But if a sequence <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is bounded, there are two objects that always exist. These are the <em>limit superior</em> and <em>limit inferior</em> of a sequence. To start define these, we first let <span class="math inline">\((a_n)\)</span> be a real sequence, and for each <span class="math inline">\(k \in \mathbb{N}\)</span>, define <span class="math display">\[A_k = \lbrace a_n \,\lvert\, n \geq k\rbrace = \lbrace a_k,\,a_{k+1}\,\ldots\rbrace\]</span></p>
-<p>We also use some different notation to describe the supremum and infimum of the sets <span class="math inline">\(A_k\)</span>, namely <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> <span class="math display">\[\sup A_k := \sup_{n\geq k}a_n \quad ; \quad \inf A_k := \inf_{n \geq k}a_n.\]</span> One thing we can say about these quantities is that since <span class="math inline">\(A_{k+1} \subseteq A_k\)</span>, we know that <span class="math inline">\((\sup A_k)_{k\in\mathbb{N}}\)</span> is a decreasing sequence, and <span class="math inline">\((\inf A_k)_{k\in\mathbb{N}}\)</span> is an increasing sequence. Now that we’ve produced two new sequences, the natural thing to do is analyse their convergence. It turns out that if <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is bounded, both <span class="math inline">\((\sup A_k)_{k\in\mathbb{N}}\)</span> and <span class="math inline">\((\inf A_k)_{k\in\mathbb{N}}\)</span> converge! We define their respective limits to be <a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> <span class="math display">\[\limsup_{n \to \infty} a_n := \lim_{k\to\infty}\sup_{n\geq k}a_n \;\, \text{and} \;\, \liminf_{n \to \infty} a_n := \lim_{k\to\infty}\inf_{n\geq k}a_n.\]</span> The first of these is the <em>limit superior</em> and the second is the <em>limit inferior</em>. These can be thought of as `eventual’ bounds on a sequence, as seen in Figure <a href="#fig:limsup">1.1</a> (Taken from <a href="https://en.wikipedia.org/wiki/Limit_inferior_and_limit_superior">Wikipedia</a>).</p>
-<div class="figure"><span id="fig:limsup"></span>
-<img src="Lim_sup_example_5.png" title="Limit inferior and superior for a sequence." style="width:50.0%" alt="" />
-<p class="caption">Figure 1.1:  Limsup and liminf for a sequence.</p>
-</div>
-<p>There is also another way of interpreting the limits superior and inferior. For a sequence <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span>, we can also think of <span class="math inline">\(\limsup_{n\to\infty} a_n\)</span> and <span class="math inline">\(\liminf_{n \to \infty}a_n\)</span> as being the largest and smallest possible limits of any subsequence of <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span>. We can use this to characterise convergent sequences!</p>
+<div id="tests-for-convergence" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Tests for Convergence</h2>
+<p>As you’ve seen, using the definition to prove that sequences converge can get quite tedious! Hence, it’s useful to have some ‘quick’ tests to determine whether sequences converge. This is where the <em>Growth Factor Test</em> (or <em>ratio test</em>) comes in.</p>
 
 <div id="thm:thm1" class="bookdown-theorem" custom-style="TheoremStyle">
-<span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1.1:  </strong></span>
+<span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1.1:  (Growth Factor Test) </strong></span>
 <p>
-A sequence <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is convergent if and only if <span class="math display">\[\limsup_{n \to \infty} a_n = \liminf_{n \to \infty} a_n.\]</span>
+<p>Let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> be a real sequence with <span class="math inline">\(a_n&gt;0 \; \forall n\in\mathbb{N}\)</span>, and with <span class="math display">\[\lim_{n\to\infty} \frac{a_{n+1}}{a_n} = r.\]</span> Then:</p>
+<ul>
+<li>If <span class="math inline">\(r &lt; 1\)</span>, <span class="math inline">\(a_n \to 0\)</span> as <span class="math inline">\(n \to \infty\)</span>.</li>
+<li>If <span class="math inline">\(r &gt; 1\)</span>, <span class="math inline">\(a_n \to \infty\)</span> as <span class="math inline">\(n \to \infty\)</span>.</li>
+<li>If <span class="math inline">\(r = 1\)</span>, the test is inconclusive.</li>
+</ul>
 </p>
 </div>
-<p>To end this section, we state two more results. They’re not mentioned in the lecture notes, but they can be incredibly useful when performing calculations<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>
-
-<div id="thm:thm2" class="bookdown-theorem" custom-style="TheoremStyle">
-<span class="thm:thm2" custom-style="NameStyle"><strong>Theorem 1.2:  </strong></span>
-<p>
-Let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> and <span class="math inline">\((b_n)_{n\in\mathbb{N}}\)</span> be real sequences. Then: <span class="math display">\[\limsup_{n\to\infty}(a_n + b_n) \leq \limsup_{n\to\infty}a_n +\limsup_{n\to\infty}b_n,\]</span> and <span class="math display">\[\liminf_{n\to\infty}(a_n + b_n) \geq \liminf_{n\to\infty}a_n +\liminf_{n\to\infty}b_n.\]</span>
-</p>
+<p>To see why the test fails for <span class="math inline">\(r = 1\)</span>, consider the sequences <span class="math inline">\((a_n)\)</span> and <span class="math inline">\((b_n)\)</span> where <span class="math inline">\(a_n = n\)</span> and <span class="math inline">\(b_n = 1/n\)</span>. Something to note here is that if the terms of a sequence are defined by a ratio of polynomials, then the growth factor test will be inconclusive (Can you see/prove why?).</p>
 </div>
-</div>
-<div id="series" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Series</h2>
-<p>It might look like we’re done with sequences, but in the grand scheme of things, we’re only really getting started. Since with each sequence <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span>, we have an infinite list of real numbers, we might consider trying to manipulate them in some way. One way we can do this is by adding them together, which leads to the notion of a <em>series</em>.</p>
+<div id="subsequences" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Subsequences</h2>
+<p>If we have a sequence <span class="math inline">\((a_n)_{n}\)</span>, we can just as easily make a new sequence by selecting members of <span class="math inline">\((a_n)_{n}\)</span>. These will turn out to be useful when trying to prove results about functions in a few weeks.</p>
 
 <div id="def:def1" class="bookdown-definition" custom-style="DefinitionStyle">
-<span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Series) </strong></span>
+<span class="def:def1" custom-style="NameStyle"><strong>Definition 1.1:  (Subsequence) </strong></span>
 <div>
-Let <span class="math inline">\((a_n)_{n \in \mathbb{N}}\)</span> be a real sequence. Then <span class="math display">\[\sum_{n = 1}^{\infty} a_n\]</span> is called a series for <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span>.
+Let <span class="math inline">\((a_n)_{n \in \mathbb{N}}\)</span> be a real sequence, and let <span class="math inline">\((n_k)_{k\in\mathbb{N}}\)</span> be a strictly increasing sequence. Then <span class="math inline">\((a_{n_k})_{k\in\mathbb{N}}\)</span> is called a subsequence of <span class="math inline">\((a_n)\)</span>.
 </div>
 </div>
-Much like with sequences, we have an analogous version of convergence for a series:
-
-<div id="def:def2" class="bookdown-definition" custom-style="DefinitionStyle">
-<span class="def:def2" custom-style="NameStyle"><strong>Definition 1.2:  (Series Convergence and Partial Sums) </strong></span>
-<div>
-Let <span class="math inline">\((a_n)_{n \in \mathbb{N}}\)</span> be a real sequence. Then <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> converges if and only if the sequence <span class="math inline">\((S_N)_{N \in \mathbb{N}}\)</span> converges, where <span class="math display">\[S_N:= \sum_{n = 1}^{N} a_n\]</span> is the <span class="math inline">\(N\)</span> partial sum. If <span class="math inline">\(S_N \to \ell\)</span> as <span class="math inline">\(N \to \infty\)</span>, we define <span class="math display">\[\ell = \sum_{n = 1}^{\infty}a_n.\]</span>
-</div>
-</div>
-<p>If <span class="math inline">\((S_N)_{N\in\mathbb{N}}\)</span> diverges to <span class="math inline">\(\pm\infty\)</span>, we say that the corresponding series <span class="math display">\[\sum_{n=1}^{\infty} a_n = \pm\infty.\]</span> Finally, if <span class="math inline">\((S_N)_{N\in\mathbb{N}}\)</span> doesn’t converge to a limit, we say that the series diverges without limit.</p>
-<div id="algebra-of-series" class="section level3" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> Algebra of Series</h3>
-<p>By applying the algebra of limits to the sequences of partial sums, we can deduce some handy results.</p>
-
-<div id="thm:thm3" class="bookdown-theorem" custom-style="TheoremStyle">
-<span class="thm:thm3" custom-style="NameStyle"><strong>Theorem 1.3:  (Algebra of Series) </strong></span>
-<p>
-Let <span class="math inline">\(\sum_{n=1}^{\infty} a_n\)</span> and <span class="math inline">\(\sum_{n=1}^{\infty} b_n\)</span> be convergent series, and let <span class="math inline">\(\alpha,\beta \in \mathbb{R}\)</span>. Then <span class="math display">\[\sum_{n = 1}^{\infty} (\alpha a_n + \beta b_n) = \alpha\sum_{n=1}^{\infty} a_n + \beta\sum_{n=1}^{\infty} b_n.\]</span>
-</p>
-</div>
-</div>
-<div id="some-other-useful-results" class="section level3" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> Some Other Useful Results</h3>
-<p>Firstly, we can relate the size of the terms of a series to the overall sum.</p>
+<p>As a (slightly boring) example, suppose that the terms of a sequence <span class="math inline">\((a_n)_n\)</span> are given by <span class="math inline">\(a_n = n\)</span>. Then, possible choices for the sequence <span class="math inline">\((n_k)_k\)</span> are</p>
+<ul>
+<li><span class="math inline">\(n_k = 2k\)</span>. This choice gives us the subsequence of <span class="math inline">\((a_n)_n\)</span> containing all the even numbers.</li>
+<li><span class="math inline">\(n_k = k^{\text{th}}\, \text{prime}\)</span>. This choice gives us the subsequence of <span class="math inline">\((a_n)_n\)</span> consisting of all prime numbers. Note that we may not know each possible <span class="math inline">\(n_k\)</span>, but <span class="math inline">\((n_k)_k\)</span> is still a strictly increasing sequence.</li>
+</ul>
+<p>Moreover, since <span class="math inline">\((n_k)_{k\in\mathbb{N}}\)</span> is a strictly increasing sequence, we must have that <span class="math inline">\(n_k \geq k\)</span>. This is because for each <span class="math inline">\(k \in \mathbb{N}\)</span>, the first possible choice we could make for <span class="math inline">\(a_{n_k}\)</span> in our subsequence is simply <span class="math inline">\(a_k\)</span>.</p>
+We also have a few useful results regarding subsequences:
 
 <div id="prp:prop1" class="bookdown-proposition" custom-style="TheoremStyle">
-<span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.4:  </strong></span>
+<span class="prp:prop1" custom-style="NameStyle"><strong>Proposition 1.2:  </strong></span>
 <p>
-Let <span class="math inline">\(\sum_{n=1}^{\infty} a_n\)</span> and <span class="math inline">\(\sum_{n=1}^{\infty} b_n\)</span> be real series. If <span class="math inline">\(a_n \leq b_n \, \forall n\in\mathbb{N}\)</span>, then <span class="math display">\[\sum_{n=1}^{\infty} a_n \leq \sum_{n=1}^{\infty} b_n.\]</span>
+If a real sequence <span class="math inline">\((a_n)_n\)</span> converges to a limit <span class="math inline">\(L\)</span>, then all subsequences <span class="math inline">\((a_{n_k})_k\)</span> of <span class="math inline">\((a_n)_n\)</span> also converge to <span class="math inline">\(L\)</span>.
 </p>
 </div>
-<p>Secondly, we have a <em>necessary</em> condition for convergence of a series.</p>
+<p>The contrapositive of this result is very good for proving that sequences do not converge, i.e. if you can find two subsequences converging to different limits, then the original sequence does not converge. We also have the following result linking bounded sequences and subsequences.</p>
 
-<div id="prp:prop2" class="bookdown-proposition" custom-style="TheoremStyle">
-<span class="prp:prop2" custom-style="NameStyle"><strong>Proposition 1.5:  </strong></span>
+<div id="thm:thm2" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm2" custom-style="NameStyle"><strong>Theorem 1.3:  (Bolzano-Weierstrass) </strong></span>
 <p>
-Let <span class="math inline">\(\sum_{n=1}^{\infty} a_n\)</span> be a convergent series. Then <span class="math inline">\(a_n \to 0\)</span> as <span class="math inline">\(n \to \infty\)</span>.
+Every bounded real sequence has a convergent subsequence.
 </p>
 </div>
-<p>Note that the converse of this theorem <em>does not</em> hold (think of the sum <span class="math inline">\(\sum_{n=1}^{\infty} \frac{1}{n}\)</span>). However, the contrapositive is very good at showing that a series does not converge!</p>
+<p>Following the explanation <a href="https://math.libretexts.org/Bookshelves/Analysis/Book%3A_Real_Analysis_(Boman_and_Rogers)/07%3A_Intermediate_and_Extreme_Values/7.03%3A_The_Bolzano-Weierstrass_Theorem">here</a>, this theorem says that no matter how ‘random’ a sequence might be, as long as its bounded then some part of it must converge. This theorem may seem innocuous for now, but you’ll see it appear in later courses to prove some key results in analysis.</p>
+</div>
+<div id="cauchy-sequences" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Cauchy Sequences</h2>
+<p>To conclude the lecture recap, we discuss another type of sequence known as a <em>Cauchy sequence</em><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
 
-<div id="prp:prop3" class="bookdown-proposition" custom-style="TheoremStyle">
-<span class="prp:prop3" custom-style="NameStyle"><strong>Proposition 1.6:  </strong></span>
+<div id="def:def2" class="bookdown-definition" custom-style="DefinitionStyle">
+<span class="def:def2" custom-style="NameStyle"><strong>Definition 1.2:  (Cauchy Sequence) </strong></span>
+<div>
+A real sequence <span class="math inline">\((a_n)_n\)</span> is called a Cauchy sequence if <span class="math display">\[\forall \epsilon &gt;0, \exists N \in \mathbb{N} \; \text{such that} \; \forall n,m \geq N, \; \lvert a_n - a_m\rvert &lt; \epsilon.\]</span>
+</div>
+</div>
+<p>The idea here is that however close you want members of the sequence to get, say a distance <span class="math inline">\(\epsilon\)</span>, there will always be a point in the sequence after which any two members of the sequence are within a distance <span class="math inline">\(\epsilon\)</span> of each other.</p>
+<p>You’ve already met some Cauchy sequences. For example, all convergent sequences are Cauchy sequences. You might also be tempted to think that the converse holds, that all Cauchy sequences are convergent. Working in the real numbers, you would be right.</p>
+
+<div id="thm:thm3" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm3" custom-style="NameStyle"><strong>Theorem 1.4:  </strong></span>
 <p>
-Let <span class="math inline">\(\sum_{n=1}^{\infty} a_n\)</span> be a series. If <span class="math inline">\(a_n \not\to 0\)</span> as <span class="math inline">\(n \to \infty\)</span>, then <span class="math inline">\(\sum_{n=1}^{\infty} a_n\)</span> does not converge.
+Any real sequence <span class="math inline">\((a_n)_n\)</span> is convergent if and only if it is a Cauchy sequence.
 </p>
 </div>
-</div>
+<p>So, if these things are the same in <span class="math inline">\(\mathbb{R}\)</span>, why do we make the distinction? Suppose we were only working in <span class="math inline">\(\mathbb{Q}\)</span>, and we were given the sequence <span class="math inline">\(1,1.4,1.41,1.414,1.4142,\ldots\)</span>. In <span class="math inline">\(\mathbb{R}\)</span>, this converges to <span class="math inline">\(\sqrt{2}\)</span>, so by our theorem above, this sequence is a Cauchy sequence in <span class="math inline">\(\mathbb{R}\)</span>. As each member of the sequence is rational, we then know that the sequence is a Cauchy sequence in <span class="math inline">\(\mathbb{Q}\)</span>. But since <span class="math inline">\(\sqrt{2} \not\in \mathbb{Q}\)</span>, it is not a convergent sequence in <span class="math inline">\(\mathbb{Q}\)</span>!</p>
+<p>This example shows why the Completeness Axiom is so important! Assuming this axiom allows us to take limits in <span class="math inline">\(\mathbb{R}\)</span>, and its why we’re studying real analysis this semester (and not rational analysis!)</p>
 </div>
 </div>
 <div id="hints" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Hints</h1>
 <p>As per usual, here’s where you’ll find the problem sheet hints!</p>
+<ol style="list-style-type: decimal">
+<li>Think about all the tests for convergence that you’ve seen so far! A reminder for d) — the growth factor test won’t work on a ratio of polynomials.</li>
+<li>See the hint for question 1 (and the one on the sheet!) Another reminder — if you use a test or a theorem anywhere, state it!</li>
+<li>Firstly, this is an <strong>if and only if</strong> statement. So you have to prove two things:
 <ul>
-<li>[H1.] Try using a similar argument to the one used in tutorial question 1 (i.e. use the fact that the sequence can be split into odd and even cases to your advantage)</li>
-<li>[H2.] For this question, think about what it means for a series to be convergent. You’ll also want to split the terms of the series up in some way. (Think of tutorial question 3a.)</li>
-<li>[H3.] For the first part, think induction. The only other thing I’ll say is to make sure you state all the main results you use!</li>
+<li><span class="math inline">\((a_n)\)</span> convergent <span class="math inline">\(\implies\)</span> <span class="math inline">\((a_{2k})_k, (a_{2k-1})_k\)</span> and <span class="math inline">\((a_{3k})_k\)</span> are convergent.</li>
+<li><span class="math inline">\((a_{2k})_k, (a_{2k-1})_k\)</span> and <span class="math inline">\((a_{3k})_k\)</span> are convergent <span class="math inline">\(\implies\)</span> <span class="math inline">\((a_n)\)</span> convergent.</li>
 </ul>
+For the second implication, try and find common subsequences of the three given subsequences to show that <span class="math inline">\((a_{2k})_k, (a_{2k-1})_k\)</span> and <span class="math inline">\((a_{3k})_k\)</span> all have the same limit. One of the tutorial questions from Problem Sheet 7 might come in handy at this point.</li>
+<li><ol style="list-style-type: lower-alpha">
+<li>Can you think of any inequalities relating <span class="math inline">\(k\)</span> and <span class="math inline">\(n_k\)</span>, where <span class="math inline">\(k \in \mathbb{N}\)</span>? Also, this question asks about monotone sequences, so you’ll have to prove that this result holds for both increasing and decreasing sequences.</li>
+<li>Again, two things to prove here (due to the if and only if). Make sure you understand the definitions involved — it’ll make it easier to construct the proofs.</li>
+</ol></li>
+<li>Start by unpacking the definitions in the question, and try to make one look like the other.</li>
+<li>This follows a similar procedure to a proof involving the definition of convergence. Fix <span class="math inline">\(\epsilon &gt; 0\)</span> and show that for <span class="math inline">\(n\geq m\)</span> we can bound <span class="math inline">\(\lvert a_n - a_m \rvert\)</span> above by <span class="math inline">\(1/2^{m-1}\)</span>. Then, note (or prove by induction) that <span class="math inline">\(m \leq 2^m\)</span> to find a upper bound which is easier to deal with, and use this to find the <span class="math inline">\(N \in \mathbb{N}\)</span> in the Cauchy sequence definition. You’ll also find useful the triangle inequality and geometric series formulae here, but make sure to state when you use them!</li>
+</ol>
 <!--chapter:end:index.Rmd-->
 </div>
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>The notation here follows that used in the lecture notes rather than that used in lectures, as this is more common usage. Also, for convenience, if the set <span class="math inline">\(A_k\)</span> is not bounded above/below, we set the supremum/infimum to be <span class="math inline">\(\infty\)</span>/<span class="math inline">\(-\infty\)</span>.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>Again, if <span class="math inline">\((\sup A_k)_{k\in\mathbb{N}}\)</span> diverges to <span class="math inline">\(\infty\)</span>, <span class="math inline">\(\limsup_{n \to \infty} a_n\)</span> is defined to be <span class="math inline">\(\infty\)</span>, and if <span class="math inline">\((\inf A_k)_{k\in\mathbb{N}}\)</span> diverges to <span class="math inline">\(-\infty\)</span>, <span class="math inline">\(\liminf_{n \to \infty} a_n\)</span> is defined to be <span class="math inline">\(-\infty\)</span>.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>Since these results are not in the lecture notes, it’s <em>highly</em> recommended that you try and prove them yourself. Try using similar techniques to Tutorial Question 2 on Problem Sheet 7 and Homework Question 2 on Problem Sheet 3.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>This is one of (way too) many things in analysis named after Cauchy. If you take Analysis 2B next year, you’ll find that most of complex analysis — analysis in <span class="math inline">\(\mathbb{C}\)</span> instead of <span class="math inline">\(\mathbb{R}\)</span> — is due to Cauchy.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 <!--bookdown:body:end-->

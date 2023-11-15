@@ -7,7 +7,7 @@
   a4paper]{extarticle}
 \title{Analysis 1A --- Tutorial 7}
 \author{Christian Jones: University of Bath}
-\date{November 2022}
+\date{November 2023}
 
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
@@ -85,23 +85,29 @@
 \usepackage{amsthm}
 \theoremstyle{plain}
 \newtheorem*{theorem*}{Theorem}\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}\newtheorem{definition}{Definition}[section]
+\theoremstyle{plain}
+\newtheorem*{proposition*}{Proposition}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{Definitions*}{Definitions}\newtheorem{Definitions}[definition]{Definitions}
 \theoremstyle{plain}
 \newtheorem*{lemma*}{Lemma}\newtheorem{lemma}{Lemma}[section]
 \theoremstyle{plain}
 \newtheorem*{corollary*}{Corollary}\newtheorem{corollary}{Corollary}[section]
 \theoremstyle{plain}
-\newtheorem*{proposition*}{Proposition}\newtheorem{proposition}{Proposition}[section]
-\theoremstyle{plain}
 \newtheorem*{conjecture*}{Conjecture}\newtheorem{conjecture}{Conjecture}[section]
-\theoremstyle{definition}
-\newtheorem*{definition*}{Definition}\newtheorem{definition}{Definition}[section]
 \theoremstyle{definition}
 \newtheorem*{example*}{Example}\newtheorem{example}{Example}[section]
 \theoremstyle{definition}
 \newtheorem*{exercise*}{Exercise}\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{Thought*}{Thought}\newtheorem{Thought}{Thought}[section]
 \theoremstyle{remark}
 \newtheorem*{remark*}{Remark}
 \newtheorem*{solution*}{Solution}
+\newtheorem*{Example*}{Example}
+\theoremstyle{remark}
+\newtheorem*{Proof*}{Proof}
+\newtheorem*{Examples*}{Examples}
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 
 
@@ -156,92 +162,118 @@
 \section*{Introduction}\label{introduction}}
 \addcontentsline{toc}{section}{Introduction}
 
-Here is the material to accompany the 7th Analysis Tutorial on the 21th November. As usual, send comments and corrections to \href{mailto:caj50@bath.ac.uk}{Christian Jones (caj50)}
+Here is the material to accompany the Analysis Tutorial in Week 7. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to \href{mailto:caj50@bath.ac.uk}{Christian Jones (caj50)}. To return to the homepage, click \href{http://caj50.github.io/tutoring.html}{here}.
 
 \hypertarget{lecture-recap}{%
 \section{Lecture Recap}\label{lecture-recap}}
 
-\hypertarget{limit-superior-and-limit-inferior}{%
-\subsection{Limit Superior and Limit Inferior}\label{limit-superior-and-limit-inferior}}
+\hypertarget{tests-for-convergence}{%
+\subsection{Tests for Convergence}\label{tests-for-convergence}}
 
-It is not always the case that the limit of a sequence exists --- take \((a_n)_{n\in\mathbb{N}}\) defined by \(a_n = (-1)^n\), for example. But if a sequence \((a_n)_{n\in\mathbb{N}}\) is bounded, there are two objects that always exist. These are the \emph{limit superior} and \emph{limit inferior} of a sequence. To start define these, we first let \((a_n)\) be a real sequence, and for each \(k \in \mathbb{N}\), define \[A_k = \lbrace a_n \,\lvert\, n \geq k\rbrace = \lbrace a_k,\,a_{k+1}\,\ldots\rbrace\]
+As you've seen, using the definition to prove that sequences converge can get quite tedious! Hence, it's useful to have some `quick' tests to determine whether sequences converge. This is where the \emph{Growth Factor Test} (or \emph{ratio test}) comes in.
 
-We also use some different notation to describe the supremum and infimum of the sets \(A_k\), namely \footnote{The notation here follows that used in the lecture notes rather than that used in lectures, as this is more common usage. Also, for convenience, if the set \(A_k\) is not bounded above/below, we set the supremum/infimum to be \(\infty\)/\(-\infty\).} \[\sup A_k := \sup_{n\geq k}a_n \quad ; \quad \inf A_k := \inf_{n \geq k}a_n.\] One thing we can say about these quantities is that since \(A_{k+1} \subseteq A_k\), we know that \((\sup A_k)_{k\in\mathbb{N}}\) is a decreasing sequence, and \((\inf A_k)_{k\in\mathbb{N}}\) is an increasing sequence. Now that we've produced two new sequences, the natural thing to do is analyse their convergence. It turns out that if \((a_n)_{n\in\mathbb{N}}\) is bounded, both \((\sup A_k)_{k\in\mathbb{N}}\) and \((\inf A_k)_{k\in\mathbb{N}}\) converge! We define their respective limits to be \footnote{Again, if \((\sup A_k)_{k\in\mathbb{N}}\) diverges to \(\infty\), \(\limsup_{n \to \infty} a_n\) is defined to be \(\infty\), and if \((\inf A_k)_{k\in\mathbb{N}}\) diverges to \(-\infty\), \(\liminf_{n \to \infty} a_n\) is defined to be \(-\infty\).} \[\limsup_{n \to \infty} a_n := \lim_{k\to\infty}\sup_{n\geq k}a_n \;\, \text{and} \;\, \liminf_{n \to \infty} a_n := \lim_{k\to\infty}\inf_{n\geq k}a_n.\] The first of these is the \emph{limit superior} and the second is the \emph{limit inferior}. These can be thought of as `eventual' bounds on a sequence, as seen in Figure \ref{fig:limsup} (Taken from \href{https://en.wikipedia.org/wiki/Limit_inferior_and_limit_superior}{Wikipedia}).
+\BeginKnitrBlock{theorem}[Growth Factor Test]
+{\label{thm:thm1} }Let \((a_n)_{n\in\mathbb{N}}\) be a real sequence with \(a_n>0 \; \forall n\in\mathbb{N}\), and with \[\lim_{n\to\infty} \frac{a_{n+1}}{a_n} = r.\] Then:
 
-\begin{figure}
-\centering
-\includegraphics[width=0.5\textwidth,height=\textheight]{Lim_sup_example_5.png}
-\caption{\label{fig:limsup} Limsup and liminf for a sequence.}
-\end{figure}
+\begin{itemize}
+\tightlist
+\item
+  If \(r < 1\), \(a_n \to 0\) as \(n \to \infty\).
+\item
+  If \(r > 1\), \(a_n \to \infty\) as \(n \to \infty\).
+\item
+  If \(r = 1\), the test is inconclusive.
+\end{itemize}
+\EndKnitrBlock{theorem}
 
-There is also another way of interpreting the limits superior and inferior. For a sequence \((a_n)_{n\in\mathbb{N}}\), we can also think of \(\limsup_{n\to\infty} a_n\) and \(\liminf_{n \to \infty}a_n\) as being the largest and smallest possible limits of any subsequence of \((a_n)_{n\in\mathbb{N}}\). We can use this to characterise convergent sequences!
+To see why the test fails for \(r = 1\), consider the sequences \((a_n)\) and \((b_n)\) where \(a_n = n\) and \(b_n = 1/n\). Something to note here is that if the terms of a sequence are defined by a ratio of polynomials, then the growth factor test will be inconclusive (Can you see/prove why?).
+
+\hypertarget{subsequences}{%
+\subsection{Subsequences}\label{subsequences}}
+
+If we have a sequence \((a_n)_{n}\), we can just as easily make a new sequence by selecting members of \((a_n)_{n}\). These will turn out to be useful when trying to prove results about functions in a few weeks.
+
+\BeginKnitrBlock{definition}[Subsequence]
+{\label{def:def1} }Let \((a_n)_{n \in \mathbb{N}}\) be a real sequence, and let \((n_k)_{k\in\mathbb{N}}\) be a strictly increasing sequence. Then \((a_{n_k})_{k\in\mathbb{N}}\) is called a subsequence of \((a_n)\).
+\EndKnitrBlock{definition}
+As a (slightly boring) example, suppose that the terms of a sequence \((a_n)_n\) are given by \(a_n = n\). Then, possible choices for the sequence \((n_k)_k\) are
+
+\begin{itemize}
+\tightlist
+\item
+  \(n_k = 2k\). This choice gives us the subsequence of \((a_n)_n\) containing all the even numbers.
+\item
+  \(n_k = k^{\text{th}}\, \text{prime}\). This choice gives us the subsequence of \((a_n)_n\) consisting of all prime numbers. Note that we may not know each possible \(n_k\), but \((n_k)_k\) is still a strictly increasing sequence.
+\end{itemize}
+
+Moreover, since \((n_k)_{k\in\mathbb{N}}\) is a strictly increasing sequence, we must have that \(n_k \geq k\). This is because for each \(k \in \mathbb{N}\), the first possible choice we could make for \(a_{n_k}\) in our subsequence is simply \(a_k\).
+
+We also have a few useful results regarding subsequences:
+\BeginKnitrBlock{proposition}
+{\label{prp:prop1} }If a real sequence \((a_n)_n\) converges to a limit \(L\), then all subsequences \((a_{n_k})_k\) of \((a_n)_n\) also converge to \(L\).
+\EndKnitrBlock{proposition}
+The contrapositive of this result is very good for proving that sequences do not converge, i.e.~if you can find two subsequences converging to different limits, then the original sequence does not converge. We also have the following result linking bounded sequences and subsequences.
+
+\BeginKnitrBlock{theorem}[Bolzano-Weierstrass]
+{\label{thm:thm2} }Every bounded real sequence has a convergent subsequence.
+\EndKnitrBlock{theorem}
+Following the explanation \href{https://math.libretexts.org/Bookshelves/Analysis/Book\%3A_Real_Analysis_(Boman_and_Rogers)/07\%3A_Intermediate_and_Extreme_Values/7.03\%3A_The_Bolzano-Weierstrass_Theorem}{here}, this theorem says that no matter how `random' a sequence might be, as long as its bounded then some part of it must converge. This theorem may seem innocuous for now, but you'll see it appear in later courses to prove some key results in analysis.
+
+\hypertarget{cauchy-sequences}{%
+\subsection{Cauchy Sequences}\label{cauchy-sequences}}
+
+To conclude the lecture recap, we discuss another type of sequence known as a \emph{Cauchy sequence}\footnote{This is one of (way too) many things in analysis named after Cauchy. If you take Analysis 2B next year, you'll find that most of complex analysis --- analysis in \(\mathbb{C}\) instead of \(\mathbb{R}\) --- is due to Cauchy.}.
+
+\BeginKnitrBlock{definition}[Cauchy Sequence]
+{\label{def:def2} }A real sequence \((a_n)_n\) is called a Cauchy sequence if \[\forall \epsilon >0, \exists N \in \mathbb{N} \; \text{such that} \; \forall n,m \geq N, \; \lvert a_n - a_m\rvert < \epsilon.\]
+\EndKnitrBlock{definition}
+The idea here is that however close you want members of the sequence to get, say a distance \(\epsilon\), there will always be a point in the sequence after which any two members of the sequence are within a distance \(\epsilon\) of each other.
+
+You've already met some Cauchy sequences. For example, all convergent sequences are Cauchy sequences. You might also be tempted to think that the converse holds, that all Cauchy sequences are convergent. Working in the real numbers, you would be right.
 
 \BeginKnitrBlock{theorem}
-{\label{thm:thm1} }A sequence \((a_n)_{n\in\mathbb{N}}\) is convergent if and only if \[\limsup_{n \to \infty} a_n = \liminf_{n \to \infty} a_n.\]
+{\label{thm:thm3} }Any real sequence \((a_n)_n\) is convergent if and only if it is a Cauchy sequence.
 \EndKnitrBlock{theorem}
-To end this section, we state two more results. They're not mentioned in the lecture notes, but they can be incredibly useful when performing calculations\footnote{Since these results are not in the lecture notes, it's \emph{highly} recommended that you try and prove them yourself. Try using similar techniques to Tutorial Question 2 on Problem Sheet 7 and Homework Question 2 on Problem Sheet 3.}.
+So, if these things are the same in \(\mathbb{R}\), why do we make the distinction? Suppose we were only working in \(\mathbb{Q}\), and we were given the sequence \(1,1.4,1.41,1.414,1.4142,\ldots\). In \(\mathbb{R}\), this converges to \(\sqrt{2}\), so by our theorem above, this sequence is a Cauchy sequence in \(\mathbb{R}\). As each member of the sequence is rational, we then know that the sequence is a Cauchy sequence in \(\mathbb{Q}\). But since \(\sqrt{2} \not\in \mathbb{Q}\), it is not a convergent sequence in \(\mathbb{Q}\)!
 
-\BeginKnitrBlock{theorem}
-{\label{thm:thm2} }Let \((a_n)_{n\in\mathbb{N}}\) and \((b_n)_{n\in\mathbb{N}}\) be real sequences. Then: \[\limsup_{n\to\infty}(a_n + b_n) \leq \limsup_{n\to\infty}a_n +\limsup_{n\to\infty}b_n,\] and \[\liminf_{n\to\infty}(a_n + b_n) \geq \liminf_{n\to\infty}a_n +\liminf_{n\to\infty}b_n.\]
-\EndKnitrBlock{theorem}
-
-\hypertarget{series}{%
-\subsection{Series}\label{series}}
-
-It might look like we're done with sequences, but in the grand scheme of things, we're only really getting started. Since with each sequence \((a_n)_{n\in\mathbb{N}}\), we have an infinite list of real numbers, we might consider trying to manipulate them in some way. One way we can do this is by adding them together, which leads to the notion of a \emph{series}.
-
-\BeginKnitrBlock{definition}[Series]
-{\label{def:def1} }Let \((a_n)_{n \in \mathbb{N}}\) be a real sequence. Then \[\sum_{n = 1}^{\infty} a_n\] is called a series for \((a_n)_{n\in\mathbb{N}}\).
-\EndKnitrBlock{definition}
-
-Much like with sequences, we have an analogous version of convergence for a series:
-\BeginKnitrBlock{definition}[Series Convergence and Partial Sums]
-{\label{def:def2} }Let \((a_n)_{n \in \mathbb{N}}\) be a real sequence. Then \(\sum_{n = 1}^{\infty} a_n\) converges if and only if the sequence \((S_N)_{N \in \mathbb{N}}\) converges, where \[S_N:= \sum_{n = 1}^{N} a_n\] is the \(N\)\textsuperscript{th} partial sum. If \(S_N \to \ell\) as \(N \to \infty\), we define \[\ell = \sum_{n = 1}^{\infty}a_n.\]
-\EndKnitrBlock{definition}
-If \((S_N)_{N\in\mathbb{N}}\) diverges to \(\pm\infty\), we say that the corresponding series \[\sum_{n=1}^{\infty} a_n = \pm\infty.\] Finally, if \((S_N)_{N\in\mathbb{N}}\) doesn't converge to a limit, we say that the series diverges without limit.
-
-\hypertarget{algebra-of-series}{%
-\subsubsection{Algebra of Series}\label{algebra-of-series}}
-
-By applying the algebra of limits to the sequences of partial sums, we can deduce some handy results.
-
-\BeginKnitrBlock{theorem}[Algebra of Series]
-{\label{thm:thm3} }Let \(\sum_{n=1}^{\infty} a_n\) and \(\sum_{n=1}^{\infty} b_n\) be convergent series, and let \(\alpha,\beta \in \mathbb{R}\). Then \[\sum_{n = 1}^{\infty} (\alpha a_n + \beta b_n) = \alpha\sum_{n=1}^{\infty} a_n + \beta\sum_{n=1}^{\infty} b_n.\]
-\EndKnitrBlock{theorem}
-
-\hypertarget{some-other-useful-results}{%
-\subsubsection{Some Other Useful Results}\label{some-other-useful-results}}
-
-Firstly, we can relate the size of the terms of a series to the overall sum.
-
-\BeginKnitrBlock{proposition}
-{\label{prp:prop1} }Let \(\sum_{n=1}^{\infty} a_n\) and \(\sum_{n=1}^{\infty} b_n\) be real series. If \(a_n \leq b_n \, \forall n\in\mathbb{N}\), then \[\sum_{n=1}^{\infty} a_n \leq \sum_{n=1}^{\infty} b_n.\]
-\EndKnitrBlock{proposition}
-
-Secondly, we have a \emph{necessary} condition for convergence of a series.
-
-\BeginKnitrBlock{proposition}
-{\label{prp:prop2} }Let \(\sum_{n=1}^{\infty} a_n\) be a convergent series. Then \(a_n \to 0\) as \(n \to \infty\).
-\EndKnitrBlock{proposition}
-Note that the converse of this theorem \emph{does not} hold (think of the sum \(\sum_{n=1}^{\infty} \frac{1}{n}\)). However, the contrapositive is very good at showing that a series does not converge!
-
-\BeginKnitrBlock{proposition}
-{\label{prp:prop3} }Let \(\sum_{n=1}^{\infty} a_n\) be a series. If \(a_n \not\to 0\) as \(n \to \infty\), then \(\sum_{n=1}^{\infty} a_n\) does not converge.
-\EndKnitrBlock{proposition}
+This example shows why the Completeness Axiom is so important! Assuming this axiom allows us to take limits in \(\mathbb{R}\), and its why we're studying real analysis this semester (and not rational analysis!)
 
 \hypertarget{hints}{%
 \section{Hints}\label{hints}}
 
 As per usual, here's where you'll find the problem sheet hints!
 
-\begin{itemize}
-\tightlist
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
 \item
-  {[}H1.{]} Try using a similar argument to the one used in tutorial question 1 (i.e.~use the fact that the sequence can be split into odd and even cases to your advantage)
+  Think about all the tests for convergence that you've seen so far! A reminder for d) --- the growth factor test won't work on a ratio of polynomials.
 \item
-  {[}H2.{]} For this question, think about what it means for a series to be convergent. You'll also want to split the terms of the series up in some way. (Think of tutorial question 3a.)
+  See the hint for question 1 (and the one on the sheet!) Another reminder --- if you use a test or a theorem anywhere, state it!
 \item
-  {[}H3.{]} For the first part, think induction. The only other thing I'll say is to make sure you state all the main results you use!
-\end{itemize}
+  Firstly, this is an \textbf{if and only if} statement. So you have to prove two things:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \((a_n)\) convergent \(\implies\) \((a_{2k})_k, (a_{2k-1})_k\) and \((a_{3k})_k\) are convergent.
+  \item
+    \((a_{2k})_k, (a_{2k-1})_k\) and \((a_{3k})_k\) are convergent \(\implies\) \((a_n)\) convergent.
+  \end{itemize}
+
+  For the second implication, try and find common subsequences of the three given subsequences to show that \((a_{2k})_k, (a_{2k-1})_k\) and \((a_{3k})_k\) all have the same limit. One of the tutorial questions from Problem Sheet 7 might come in handy at this point.
+\item
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii})}
+  \tightlist
+  \item
+    Can you think of any inequalities relating \(k\) and \(n_k\), where \(k \in \mathbb{N}\)? Also, this question asks about monotone sequences, so you'll have to prove that this result holds for both increasing and decreasing sequences.
+  \item
+    Again, two things to prove here (due to the if and only if). Make sure you understand the definitions involved --- it'll make it easier to construct the proofs.
+  \end{enumerate}
+\item
+  Start by unpacking the definitions in the question, and try to make one look like the other.
+\item
+  This follows a similar procedure to a proof involving the definition of convergence. Fix \(\epsilon > 0\) and show that for \(n\geq m\) we can bound \(\lvert a_n - a_m \rvert\) above by \(1/2^{m-1}\). Then, note (or prove by induction) that \(m \leq 2^m\) to find a upper bound which is easier to deal with, and use this to find the \(N \in \mathbb{N}\) in the Cauchy sequence definition. You'll also find useful the triangle inequality and geometric series formulae here, but make sure to state when you use them!
+\end{enumerate}
 
 \end{document}
