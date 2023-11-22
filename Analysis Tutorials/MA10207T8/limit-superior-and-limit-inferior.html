@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Analysis 1A — Tutorial 8</title>
-  <meta name="description" content="Analysis 1A — Tutorial 8" />
+  <title>1.1 Limit Superior and Limit Inferior | Analysis 1A — Tutorial 8</title>
+  <meta name="description" content="1.1 Limit Superior and Limit Inferior | Analysis 1A — Tutorial 8" />
   <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Analysis 1A — Tutorial 8" />
+  <meta property="og:title" content="1.1 Limit Superior and Limit Inferior | Analysis 1A — Tutorial 8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Analysis 1A — Tutorial 8" />
+  <meta name="twitter:title" content="1.1 Limit Superior and Limit Inferior | Analysis 1A — Tutorial 8" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="lecture-recap.html"/>
+<link rel="prev" href="lecture-recap.html"/>
+<link rel="next" href="series.html"/>
 
 <script src="libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -294,22 +294,46 @@ MathJax.Hub.Config({
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title"><span style="font-size:150%; margin-bottom:0">Analysis 1A — Tutorial 8</span></h1>
-<p class="author" style="font-size:120%; margin-bottom:0"><em>Christian Jones: University of Bath</em></p>
-<p class="date" style="font-size:120%; margin-bottom:0"><em>November 2023</em></p>
+<div id="limit-superior-and-limit-inferior" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Limit Superior and Limit Inferior</h2>
+<p>It is not always the case that the limit of a sequence exists — take <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> defined by <span class="math inline">\(a_n = (-1)^n\)</span>, for example. But if a sequence <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is bounded, there are two objects that always exist. These are the <em>limit superior</em> and <em>limit inferior</em> of a sequence. To start define these, we first let <span class="math inline">\((a_n)\)</span> be a real sequence, and for each <span class="math inline">\(k \in \mathbb{N}\)</span>, define <span class="math display">\[A_k = \lbrace a_n \,\lvert\, n \geq k\rbrace = \lbrace a_k,\,a_{k+1}\,\ldots\rbrace\]</span></p>
+<p>We also use some different notation to describe the supremum and infimum of the sets <span class="math inline">\(A_k\)</span>, namely <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> <span class="math display">\[\sup A_k := \sup_{n\geq k}a_n \quad ; \quad \inf A_k := \inf_{n \geq k}a_n.\]</span> One thing we can say about these quantities is that since <span class="math inline">\(A_{k+1} \subseteq A_k\)</span>, we know that <span class="math inline">\((\sup A_k)_{k\in\mathbb{N}}\)</span> is a decreasing sequence, and <span class="math inline">\((\inf A_k)_{k\in\mathbb{N}}\)</span> is an increasing sequence. Now that we’ve produced two new sequences, the natural thing to do is analyse their convergence. It turns out that if <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is bounded, both <span class="math inline">\((\sup A_k)_{k\in\mathbb{N}}\)</span> and <span class="math inline">\((\inf A_k)_{k\in\mathbb{N}}\)</span> converge! We define their respective limits to be <a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> <span class="math display">\[\limsup_{n \to \infty} a_n := \lim_{k\to\infty}\sup_{n\geq k}a_n \;\, \text{and} \;\, \liminf_{n \to \infty} a_n := \lim_{k\to\infty}\inf_{n\geq k}a_n.\]</span> The first of these is the <em>limit superior</em> and the second is the <em>limit inferior</em>. These can be thought of as `eventual’ bounds on a sequence, as seen in Figure <a href="limit-superior-and-limit-inferior.html#fig:limsup">1.1</a> (Taken from <a href="https://en.wikipedia.org/wiki/Limit_inferior_and_limit_superior">Wikipedia</a>).</p>
+<div class="figure"><span id="fig:limsup"></span>
+<img src="Lim_sup_example_5.png" title="Limit inferior and superior for a sequence." style="width:50.0%" alt="" />
+<p class="caption">Figure 1.1:  Limsup and liminf for a sequence.</p>
 </div>
-<div id="introduction" class="section level1 unnumbered">
-<h1>Introduction</h1>
-<p>Here is the material to accompany the analysis tutorial in Week 8. As usual, send comments and corrections to <a href="mailto:caj50@bath.ac.uk">Christian Jones (caj50)</a>. To return to the homepage, click <a href="http://caj50.github.io/tutoring.html">here</a>.</p>
+<p>There is also another way of interpreting the limits superior and inferior. For a sequence <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span>, we can also think of <span class="math inline">\(\limsup_{n\to\infty} a_n\)</span> and <span class="math inline">\(\liminf_{n \to \infty}a_n\)</span> as being the largest and smallest possible limits of any subsequence of <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span>. We can use this to characterise convergent sequences!</p>
+
+<div id="thm:thm1" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm1" custom-style="NameStyle"><strong>Theorem 1.1:  </strong></span>
+<p>
+A sequence <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> is convergent if and only if <span class="math display">\[\limsup_{n \to \infty} a_n = \liminf_{n \to \infty} a_n.\]</span>
+</p>
+</div>
+<p>To end this section, we state two more results. They’re not mentioned in the lecture notes, but they can be incredibly useful when performing calculations<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>
+
+<div id="thm:thm2" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm2" custom-style="NameStyle"><strong>Theorem 1.2:  </strong></span>
+<p>
+Let <span class="math inline">\((a_n)_{n\in\mathbb{N}}\)</span> and <span class="math inline">\((b_n)_{n\in\mathbb{N}}\)</span> be real sequences. Then: <span class="math display">\[\limsup_{n\to\infty}(a_n + b_n) \leq \limsup_{n\to\infty}a_n +\limsup_{n\to\infty}b_n,\]</span> and <span class="math display">\[\liminf_{n\to\infty}(a_n + b_n) \geq \liminf_{n\to\infty}a_n +\liminf_{n\to\infty}b_n.\]</span>
+</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>The notation here follows that used in the lecture notes rather than that used in lectures, as this is more common usage. Also, for convenience, if the set <span class="math inline">\(A_k\)</span> is not bounded above/below, we set the supremum/infimum to be <span class="math inline">\(\infty\)</span>/<span class="math inline">\(-\infty\)</span>.<a href="limit-superior-and-limit-inferior.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Again, if <span class="math inline">\((\sup A_k)_{k\in\mathbb{N}}\)</span> diverges to <span class="math inline">\(\infty\)</span>, <span class="math inline">\(\limsup_{n \to \infty} a_n\)</span> is defined to be <span class="math inline">\(\infty\)</span>, and if <span class="math inline">\((\inf A_k)_{k\in\mathbb{N}}\)</span> diverges to <span class="math inline">\(-\infty\)</span>, <span class="math inline">\(\liminf_{n \to \infty} a_n\)</span> is defined to be <span class="math inline">\(-\infty\)</span>.<a href="limit-superior-and-limit-inferior.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Since these results are not in the lecture notes, it’s <em>highly</em> recommended that you try and prove them yourself. Try using similar techniques to Tutorial Question 2 on Problem Sheet 7 and Homework Question 2 on Problem Sheet 3.<a href="limit-superior-and-limit-inferior.html#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="lecture-recap.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="lecture-recap.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="series.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

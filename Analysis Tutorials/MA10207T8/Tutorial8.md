@@ -9,6 +9,11 @@ classoption: a4paper
 fontsize: 10pt
 geometry: margin=2.5cm
 output:
+  clavertondown::word_clav:
+    toc: true
+    number_sections: true
+    keep_md: true
+    pandoc_args: --default-image-extension=svg
   clavertondown::gitbook_clav:
     split_by: section
     keep_md: true
@@ -29,11 +34,6 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
-  clavertondown::word_clav:
-    toc: true
-    number_sections: true
-    keep_md: true
-    pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
   - \usepackage {hyperref}
@@ -51,19 +51,19 @@ Here is the material to accompany the analysis tutorial in Week 8. As usual, sen
 ## Limit Superior and Limit Inferior
 It is not always the case that the limit of a sequence exists — take $(a_n)_{n\in\mathbb{N}}$ defined by $a_n = (-1)^n$, for example. But if a sequence $(a_n)_{n\in\mathbb{N}}$ is bounded, there are two objects that always exist. These are the *limit superior* and *limit inferior* of a sequence. To start define these, we first let $(a_n)$ be a real sequence, and for each $k \in \mathbb{N}$, define $$A_k = \lbrace a_n \,\lvert\, n \geq k\rbrace = \lbrace a_k,\,a_{k+1}\,\ldots\rbrace$$
 
-We also use some different notation to describe the supremum and infimum of the sets $A_k$, namely [^1] $$\sup A_k := \sup_{n\geq k}a_n \quad ; \quad \inf A_k := \inf_{n \geq k}a_n.$$ One thing we can say about these quantities is that since $A_{k+1} \subseteq A_k$, we know that $(\sup A_k)_{k\in\mathbb{N}}$ is a decreasing sequence, and $(\inf A_k)_{k\in\mathbb{N}}$ is an increasing sequence. Now that we've produced two new sequences, the natural thing to do is analyse their convergence. It turns out that if $(a_n)_{n\in\mathbb{N}}$ is bounded, both $(\sup A_k)_{k\in\mathbb{N}}$ and $(\inf A_k)_{k\in\mathbb{N}}$ converge! We define their respective limits to be [^2] $$\limsup_{n \to \infty} a_n := \lim_{k\to\infty}\sup_{n\geq k}a_n \;\, \text{and} \;\, \liminf_{n \to \infty} a_n := \lim_{k\to\infty}\inf_{n\geq k}a_n.$$ The first of these is the *limit superior* and the second is the *limit inferior*. These can be thought of as `eventual' bounds on a sequence, as seen in Figure \@ref(fig:limsup) (Taken from [Wikipedia](https://en.wikipedia.org/wiki/Limit_inferior_and_limit_superior)).
+We also use some different notation to describe the supremum and infimum of the sets $A_k$, namely [^1] $$\sup A_k := \sup_{n\geq k}a_n \quad ; \quad \inf A_k := \inf_{n \geq k}a_n.$$ One thing we can say about these quantities is that since $A_{k+1} \subseteq A_k$, we know that $(\sup A_k)_{k\in\mathbb{N}}$ is a decreasing sequence, and $(\inf A_k)_{k\in\mathbb{N}}$ is an increasing sequence. Now that we've produced two new sequences, the natural thing to do is analyse their convergence. It turns out that if $(a_n)_{n\in\mathbb{N}}$ is bounded, both $(\sup A_k)_{k\in\mathbb{N}}$ and $(\inf A_k)_{k\in\mathbb{N}}$ converge! We define their respective limits to be [^2] $$\limsup_{n \to \infty} a_n := \lim_{k\to\infty}\sup_{n\geq k}a_n \;\, \text{and} \;\, \liminf_{n \to \infty} a_n := \lim_{k\to\infty}\inf_{n\geq k}a_n.$$ The first of these is the *limit superior* and the second is the *limit inferior*. These can be thought of as `eventual' bounds on a sequence, as seen in Figure <a href="#fig:limsup">1.1</a> (Taken from [Wikipedia](https://en.wikipedia.org/wiki/Limit_inferior_and_limit_superior)).
 
 
 
-![(\#fig:limsup) Limsup and liminf for a sequence.](Lim_sup_example_5.png "Limit inferior and superior for a sequence."){width="50%"}
+![Figure 1.1:  Limsup and liminf for a sequence.](Lim_sup_example_5.png "Limit inferior and superior for a sequence."){width="50%"}
 
 
 There is also another way of interpreting the limits superior and inferior. For a sequence $(a_n)_{n\in\mathbb{N}}$, we can also think of $\limsup_{n\to\infty} a_n$ and $\liminf_{n \to \infty}a_n$ as being the largest and smallest possible limits of any subsequence of $(a_n)_{n\in\mathbb{N}}$. We can use this to characterise convergent sequences!
 
-\BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm1"><span class="thm:thm1" custom-style="NameStyle"><strong>(\#thm:thm1) </strong></span><p>A sequence $(a_n)_{n\in\mathbb{N}}$ is convergent if and only if $$\limsup_{n \to \infty} a_n = \liminf_{n \to \infty} a_n.$$</p></div>\EndKnitrBlock{theorem}
+\BeginKnitrBlock{theorem}<div class="bookdown-theorem" custom-style="TheoremStyleUpright" id="thm:thm1"><span class="thm:thm1" custom-style="NameStyle"><strong><span id="thm:thm1"></span>Theorem 1.1  </strong></span><p>A sequence $(a_n)_{n\in\mathbb{N}}$ is convergent if and only if $$\limsup_{n \to \infty} a_n = \liminf_{n \to \infty} a_n.$$</p></div>\EndKnitrBlock{theorem}
 To end this section, we state two more results. They're not mentioned in the lecture notes, but they can be incredibly useful when performing calculations[^3].
 
-\BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm2"><span class="thm:thm2" custom-style="NameStyle"><strong>(\#thm:thm2) </strong></span><p>Let $(a_n)_{n\in\mathbb{N}}$ and $(b_n)_{n\in\mathbb{N}}$ be real sequences. Then: $$\limsup_{n\to\infty}(a_n + b_n) \leq \limsup_{n\to\infty}a_n +\limsup_{n\to\infty}b_n,$$ and $$\liminf_{n\to\infty}(a_n + b_n) \geq \liminf_{n\to\infty}a_n +\liminf_{n\to\infty}b_n.$$</p></div>\EndKnitrBlock{theorem}
+\BeginKnitrBlock{theorem}<div class="bookdown-theorem" custom-style="TheoremStyleUpright" id="thm:thm2"><span class="thm:thm2" custom-style="NameStyle"><strong><span id="thm:thm2"></span>Theorem 1.2  </strong></span><p>Let $(a_n)_{n\in\mathbb{N}}$ and $(b_n)_{n\in\mathbb{N}}$ be real sequences. Then: $$\limsup_{n\to\infty}(a_n + b_n) \leq \limsup_{n\to\infty}a_n +\limsup_{n\to\infty}b_n,$$ and $$\liminf_{n\to\infty}(a_n + b_n) \geq \liminf_{n\to\infty}a_n +\liminf_{n\to\infty}b_n.$$</p></div>\EndKnitrBlock{theorem}
 
 [^1]:The notation here follows that used in the lecture notes rather than that used in lectures, as this is more common usage. Also, for convenience, if the set $A_k$ is not bounded above/below, we set the supremum/infimum to be $\infty$/$-\infty$.
 
@@ -74,28 +74,28 @@ To end this section, we state two more results. They're not mentioned in the lec
 ## Series
 It might look like we're done with sequences, but in the grand scheme of things, we're only really getting started. Since with each sequence $(a_n)_{n\in\mathbb{N}}$, we have an infinite list of real numbers, we might consider trying to manipulate them in some way. One way we can do this is by adding them together, which leads to the notion of a *series*.
 
-\BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def1"><span class="def:def1" custom-style="NameStyle"><strong>(\#def:def1)  (Series) </strong></span><div>Let $(a_n)_{n \in \mathbb{N}}$ be a real sequence. Then $$\sum_{n = 1}^{\infty} a_n$$ is called a series for $(a_n)_{n\in\mathbb{N}}$.</div></div>\EndKnitrBlock{definition}
+\BeginKnitrBlock{definition}<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def1"><span class="def:def1" custom-style="NameStyle"><strong><span id="def:def1"></span>Definition 1.1   (Series) </strong></span><div>Let $(a_n)_{n \in \mathbb{N}}$ be a real sequence. Then $$\sum_{n = 1}^{\infty} a_n$$ is called a series for $(a_n)_{n\in\mathbb{N}}$.</div></div>\EndKnitrBlock{definition}
 
 Much like with sequences, we have an analogous version of convergence for a series:
-\BeginKnitrBlock{definition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def2"><span class="def:def2" custom-style="NameStyle"><strong>(\#def:def2)  (Series Convergence and Partial Sums) </strong></span><div>Let $(a_n)_{n \in \mathbb{N}}$ be a real sequence. Then $\sum_{n = 1}^{\infty} a_n$ converges if and only if the sequence $(S_N)_{N \in \mathbb{N}}$ converges, where $$S_N:= \sum_{n = 1}^{N} a_n$$ is the $N$\textsuperscript{th} partial sum. If $S_N \to \ell$ as $N \to \infty$, we define $$\ell = \sum_{n = 1}^{\infty}a_n.$$</div></div>\EndKnitrBlock{definition}
+\BeginKnitrBlock{definition}<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def2"><span class="def:def2" custom-style="NameStyle"><strong><span id="def:def2"></span>Definition 1.2   (Series Convergence and Partial Sums) </strong></span><div>Let $(a_n)_{n \in \mathbb{N}}$ be a real sequence. Then $\sum_{n = 1}^{\infty} a_n$ converges if and only if the sequence $(S_N)_{N \in \mathbb{N}}$ converges, where $$S_N:= \sum_{n = 1}^{N} a_n$$ is the $N$\textsuperscript{th} partial sum. If $S_N \to \ell$ as $N \to \infty$, we define $$\ell = \sum_{n = 1}^{\infty}a_n.$$</div></div>\EndKnitrBlock{definition}
 If $(S_N)_{N\in\mathbb{N}}$ diverges to $\pm\infty$, we say that the corresponding series $$\sum_{n=1}^{\infty} a_n = \pm\infty.$$ Finally, if $(S_N)_{N\in\mathbb{N}}$ doesn't converge to a limit, we say that the series diverges without limit.
 
 ### Algebra of Series
 By applying the algebra of limits to the sequences of partial sums, we can deduce some handy results.
 
-\BeginKnitrBlock{theorem}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-theorem" custom-style="TheoremStyle" id="thm:thm3"><span class="thm:thm3" custom-style="NameStyle"><strong>(\#thm:thm3)  (Algebra of Series) </strong></span><p>Let $\sum_{n=1}^{\infty} a_n$ and $\sum_{n=1}^{\infty} b_n$ be convergent series, and let $\alpha,\beta \in \mathbb{R}$. Then $$\sum_{n = 1}^{\infty} (\alpha a_n + \beta b_n) = \alpha\sum_{n=1}^{\infty} a_n + \beta\sum_{n=1}^{\infty} b_n.$$</p></div>\EndKnitrBlock{theorem}
+\BeginKnitrBlock{theorem}<div class="bookdown-theorem" custom-style="TheoremStyleUpright" id="thm:thm3"><span class="thm:thm3" custom-style="NameStyle"><strong><span id="thm:thm3"></span>Theorem 1.3   (Algebra of Series) </strong></span><p>Let $\sum_{n=1}^{\infty} a_n$ and $\sum_{n=1}^{\infty} b_n$ be convergent series, and let $\alpha,\beta \in \mathbb{R}$. Then $$\sum_{n = 1}^{\infty} (\alpha a_n + \beta b_n) = \alpha\sum_{n=1}^{\infty} a_n + \beta\sum_{n=1}^{\infty} b_n.$$</p></div>\EndKnitrBlock{theorem}
 
 ### Some Other Useful Results
 Firstly, we can relate the size of the terms of a series to the overall sum.
 
-\BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop1"><span class="prp:prop1" custom-style="NameStyle"><strong>(\#prp:prop1) </strong></span><p>Let $\sum_{n=1}^{\infty} a_n$ and $\sum_{n=1}^{\infty} b_n$ be real series. If $a_n \leq b_n \, \forall n\in\mathbb{N}$, then $$\sum_{n=1}^{\infty} a_n \leq \sum_{n=1}^{\infty} b_n.$$</p></div>\EndKnitrBlock{proposition}
+\BeginKnitrBlock{proposition}<div class="bookdown-proposition" custom-style="TheoremStyleUpright" id="prp:prop1"><span class="prp:prop1" custom-style="NameStyle"><strong><span id="prp:prop1"></span>Proposition 1.4  </strong></span><p>Let $\sum_{n=1}^{\infty} a_n$ and $\sum_{n=1}^{\infty} b_n$ be real series. If $a_n \leq b_n \, \forall n\in\mathbb{N}$, then $$\sum_{n=1}^{\infty} a_n \leq \sum_{n=1}^{\infty} b_n.$$</p></div>\EndKnitrBlock{proposition}
 
 Secondly, we have a *necessary* condition for convergence of a series.
 
-\BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop2"><span class="prp:prop2" custom-style="NameStyle"><strong>(\#prp:prop2) </strong></span><p>Let $\sum_{n=1}^{\infty} a_n$ be a convergent series. Then $a_n \to 0$ as $n \to \infty$.</p></div>\EndKnitrBlock{proposition}
+\BeginKnitrBlock{proposition}<div class="bookdown-proposition" custom-style="TheoremStyleUpright" id="prp:prop2"><span class="prp:prop2" custom-style="NameStyle"><strong><span id="prp:prop2"></span>Proposition 1.5  </strong></span><p>Let $\sum_{n=1}^{\infty} a_n$ be a convergent series. Then $a_n \to 0$ as $n \to \infty$.</p></div>\EndKnitrBlock{proposition}
 Note that the converse of this theorem *does not* hold (think of the sum $\sum_{n=1}^{\infty} \frac{1}{n}$). However, the contrapositive is very good at showing that a series does not converge!
 
-\BeginKnitrBlock{proposition}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="bookdown-proposition" custom-style="TheoremStyle" id="prp:prop3"><span class="prp:prop3" custom-style="NameStyle"><strong>(\#prp:prop3) </strong></span><p>Let $\sum_{n=1}^{\infty} a_n$ be a series. If $a_n \not\to 0$ as $n \to \infty$, then $\sum_{n=1}^{\infty} a_n$ does not converge.</p></div>\EndKnitrBlock{proposition}
+\BeginKnitrBlock{proposition}<div class="bookdown-proposition" custom-style="TheoremStyleUpright" id="prp:prop3"><span class="prp:prop3" custom-style="NameStyle"><strong><span id="prp:prop3"></span>Proposition 1.6  </strong></span><p>Let $\sum_{n=1}^{\infty} a_n$ be a series. If $a_n \not\to 0$ as $n \to \infty$, then $\sum_{n=1}^{\infty} a_n$ does not converge.</p></div>\EndKnitrBlock{proposition}
 
 # Hints
 As per usual, here's where you'll find the problem sheet hints!
