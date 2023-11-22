@@ -16,6 +16,11 @@ output:
       download: [["Tutorial8.html", "HTML page"], ["Tutorial8.pdf","Standard print PDF"], ["Tutorial8Clear.pdf","Clear print PDF"], ["Tutorial8Large.pdf","Large print PDF"], ["Tutorial8.docx","Accessible Word document"], ["Tutorial8.epub","Accessible EPub book" ]]
       sharing: no
     pandoc_args: --default-image-extension=svg
+  clavertondown::word_clav:
+    toc: true
+    number_sections: true
+    keep_md: true
+    pandoc_args: --default-image-extension=svg
   clavertondown::html_clav:
     toc: true
     pandoc_args: --default-image-extension=svg
@@ -29,11 +34,6 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
-  clavertondown::word_clav:
-    toc: true
-    number_sections: true
-    keep_md: true
-    pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
   - \usepackage {hyperref}
@@ -69,7 +69,7 @@ To end this section, we state two more results. They're not mentioned in the lec
 
 [^2]:Again, if $(\sup A_k)_{k\in\mathbb{N}}$ diverges to $\infty$, $\limsup_{n \to \infty} a_n$ is defined to be $\infty$, and if $(\inf A_k)_{k\in\mathbb{N}}$ diverges to $-\infty$, $\liminf_{n \to \infty} a_n$ is defined to be $-\infty$.
 
-[^3]:Since these results are not in the lecture notes, it's *highly* recommended that you try and prove them yourself. Try using similar techniques to Tutorial Question 2 on Problem Sheet 7 and Homework Question 2 on Problem Sheet 3.
+[^3]:Since these results are not in the lecture notes, it's *highly* recommended that you try and prove them yourself. Try using similar techniques to Tutorial Question 2 on Problem Sheet 7 and Homework Question 6 on Problem Sheet 3.
 
 ## Series
 It might look like we're done with sequences, but in the grand scheme of things, we're only really getting started. Since with each sequence $(a_n)_{n\in\mathbb{N}}$, we have an infinite list of real numbers, we might consider trying to manipulate them in some way. One way we can do this is by adding them together, which leads to the notion of a *series*.
