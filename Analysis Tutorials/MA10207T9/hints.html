@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="power-series.html"/>
+<link rel="prev" href="tests-for-convergence.html"/>
 
 
 <script src="libs/header-attrs-2.18/header-attrs.js"></script>
@@ -269,14 +269,14 @@ MathJax.Hub.Config({
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="1" data-path="lecture-recap.html"><a href="lecture-recap.html"><i class="fa fa-check"></i><b>1</b> Lecture Recap</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="two-more-series-results.html"><a href="two-more-series-results.html"><i class="fa fa-check"></i><b>1.1</b> Two More Series Results</a>
+<li class="chapter" data-level="1.1" data-path="series-convergence.html"><a href="series-convergence.html"><i class="fa fa-check"></i><b>1.1</b> Series Convergence</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="two-more-series-results.html"><a href="two-more-series-results.html#leibniz-alternating-series-test"><i class="fa fa-check"></i><b>1.1.1</b> Leibniz Alternating Series Test</a></li>
-<li class="chapter" data-level="1.1.2" data-path="two-more-series-results.html"><a href="two-more-series-results.html#multiplying-series"><i class="fa fa-check"></i><b>1.1.2</b> Multiplying Series</a></li>
+<li class="chapter" data-level="1.1.1" data-path="series-convergence.html"><a href="series-convergence.html#series-rearrangement"><i class="fa fa-check"></i><b>1.1.1</b> Series Rearrangement</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="power-series.html"><a href="power-series.html"><i class="fa fa-check"></i><b>1.2</b> Power Series</a>
+<li class="chapter" data-level="1.2" data-path="tests-for-convergence.html"><a href="tests-for-convergence.html"><i class="fa fa-check"></i><b>1.2</b> Tests for Convergence</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="power-series.html"><a href="power-series.html#how-do-we-find-r"><i class="fa fa-check"></i><b>1.2.1</b> How do we find <span class="math inline">\(R\)</span>?</a></li>
+<li class="chapter" data-level="1.2.1" data-path="tests-for-convergence.html"><a href="tests-for-convergence.html#comparison-test"><i class="fa fa-check"></i><b>1.2.1</b> Comparison Test</a></li>
+<li class="chapter" data-level="1.2.2" data-path="tests-for-convergence.html"><a href="tests-for-convergence.html#dalemberts-ratio-test"><i class="fa fa-check"></i><b>1.2.2</b> D’Alembert’s Ratio Test</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="hints.html"><a href="hints.html"><i class="fa fa-check"></i><b>2</b> Hints</a></li>
@@ -300,18 +300,21 @@ MathJax.Hub.Config({
 <div id="hints" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Hints</h1>
 <p>As per usual, here’s where you’ll find the problem sheet hints!</p>
-<ul>
-<li>[H1.] In this one, remember what we did in tutorials. One uses Leibniz, one can be done with Leibniz (but its quicker not to), and one diverges. Make sure you check the hypotheses of any test you use!</li>
-<li>[H2.] The radius of convergence, <span class="math inline">\(R\)</span>, should be alright — have a look at the theory in lectures/tutorials. For the interval of convergence, remember that if <span class="math inline">\(R \neq \infty\)</span>, you need to test for convergence at <span class="math inline">\(\pm R\)</span>. However…
-<ul>
-<li>[H2a).] For this one, you might want to make a variable substitution first.</li>
-</ul></li>
-<li>[H3.] To begin here, you’ve seen a similar trick for the square roots in previous problem sheets (e.g. Sheet 4/Sheet 8). Think about your tests for convergence again on this one!</li>
-</ul>
+<ol style="list-style-type: decimal">
+<li>Think about all the methods you know for proving whether a series converges. Some of the methods from the tutorial may come in handy…</li>
+<li>Pretty much the same as homework question 1. However, for part…
+<ol start="2" style="list-style-type: lower-alpha">
+<li>I’ve got a few pointers for this one. Make sure you know how the binomial coefficient is defined. Also, try to avoid expanding any unnecessary brackets — if you’re writing <span class="math inline">\(n^3, n^4\)</span> etc. in your solutions, you’re putting in more effort than needed!</li>
+</ol></li>
+<li>This one is only slightly more involved. Know your definitions, and again, think of possible convergence tests to apply.</li>
+<li><ol style="list-style-type: lower-roman">
+<li>For this part, use the convergence definition with a specific <span class="math inline">\(\epsilon\)</span> alongside the pinching theorem.</li>
+<li>Use part i) — for reference, this is a special case of what is known as the <strong>root test</strong> for series.</li>
+</ol></li>
+<li>This is similar to Tutorial Question 4.</li>
+</ol>
 
 </div>
-
-
 
 
 
@@ -323,7 +326,7 @@ MathJax.Hub.Config({
           </div>
         </div>
       </div>
-<a href="power-series.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tests-for-convergence.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>

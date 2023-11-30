@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1 Lecture Recap | Analysis 1A — Tutorial 9</title>
-  <meta name="description" content="1 Lecture Recap | Analysis 1A — Tutorial 9" />
+  <title>1.2 Tests for Convergence | Analysis 1A — Tutorial 9</title>
+  <meta name="description" content="1.2 Tests for Convergence | Analysis 1A — Tutorial 9" />
   <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1 Lecture Recap | Analysis 1A — Tutorial 9" />
+  <meta property="og:title" content="1.2 Tests for Convergence | Analysis 1A — Tutorial 9" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1 Lecture Recap | Analysis 1A — Tutorial 9" />
+  <meta name="twitter:title" content="1.2 Tests for Convergence | Analysis 1A — Tutorial 9" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="series-convergence.html"/>
+<link rel="prev" href="series-convergence.html"/>
+<link rel="next" href="hints.html"/>
 
 <script src="libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -297,16 +297,56 @@ MathJax.Hub.Config({
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="lecture-recap" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Lecture Recap</h1>
+<div id="tests-for-convergence" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Tests for Convergence</h2>
+<p>Now that we have the idea of absolute convergence, we can state some convergence tests applicable to series.</p>
+<div id="comparison-test" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Comparison Test</h3>
+<p>The first of these tests involves comparing the sizes of two series, and is aptly known as the comparison test.</p>
+
+<div id="thm:thm3" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm3" custom-style="NameStyle"><strong>Theorem 1.4:  (Comparison Test) </strong></span>
+<p>
+Let <span class="math inline">\((a_n)_n\)</span> and <span class="math inline">\((b_n)_n\)</span> be real sequences, and suppose that there exists a <span class="math inline">\(M \in \mathbb{N}\)</span> such that <span class="math inline">\(\lvert a_n \rvert \leq b_n \;\forall n \geq M.\)</span>
+Then, if <span class="math inline">\(\sum_{n = 1}^{\infty} b_n\)</span> is convergent, <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> is convergent.
+</p>
 </div>
+<p>Naturally, using this, we can also build a test for divergence to <span class="math inline">\(\infty\)</span> out of the comparison test too.</p>
+
+<div id="cor:corol1" class="bookdown-corollary" custom-style="TheoremStyle">
+<span class="cor:corol1" custom-style="NameStyle"><strong>Corollary 1.1:  </strong></span>
+<p>
+Let <span class="math inline">\((a_n)_n\)</span> and <span class="math inline">\((b_n)_n\)</span> be real sequences. If there exists a <span class="math inline">\(M \in \mathbb{N}\)</span> such that <span class="math inline">\(0 \leq a_n \leq b_n \; \forall n \geq M\)</span>, and <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> diverges, then <span class="math inline">\(\sum_{n = 1}^{\infty} b_n\)</span> diverges.
+</p>
+</div>
+<p>Here, we require the <span class="math inline">\(a_n\)</span> values to be non-negative to force any divergence of <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> to be to <span class="math inline">\(\infty\)</span>. If we allowed, say, <span class="math inline">\(a_n = (-1)^nn\)</span>, then <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> would diverge without limit, making this divergence test useless.</p>
+</div>
+<div id="dalemberts-ratio-test" class="section level3" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> D’Alembert’s Ratio Test</h3>
+<p>This one is quite similar to the growth factor test for sequences, except that due to the idea of absolute convergence (and Proposition <a href="series-convergence.html#prp:prop1">1.1</a>), the terms of the series only have to be non-zero:</p>
+
+<div id="thm:thm4" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm4" custom-style="NameStyle"><strong>Theorem 1.5:  (D’Alembert’s Ratio Test) </strong></span>
+<p>
+<p>Let <span class="math inline">\((a_n)_n\)</span> be a real sequence with <span class="math inline">\(a_n \neq 0 \; \forall n \in \mathbb{N}\)</span>. Suppose <span class="math display">\[\lim_{n\to\infty}\frac{\lvert a_{n+1}\rvert}{\lvert a_n\rvert} = r.\]</span> Then:</p>
+<ul>
+<li>If <span class="math inline">\(0 \leq r &lt; 1\)</span>, <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> converges.</li>
+<li>If <span class="math inline">\(r &gt; 1\)</span>, then <span class="math inline">\(\sum_{n = 1}^{\infty} a_n\)</span> diverges.</li>
+<li>If <span class="math inline">\(r = 1\)</span>, the test is inconclusive.</li>
+</ul>
+</p>
+</div>
+<p>To see why the test fails for <span class="math inline">\(r = 1\)</span>, consider the three series: <span class="math display">\[\sum_{n = 1}^{\infty} \frac{(-1)^{n+1}}{n^2}, \quad \sum_{n = 1}^{\infty} \frac{(-1)^{n+1}}{n} \;\; \text{and} \;\; \sum_{n = 1}^{\infty} (-1)^{n+1}.\]</span> The first is absolutely convergent, the second is conditionally convergent and the third diverges without any limit at all!</p>
+</div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="series-convergence.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="series-convergence.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="hints.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
