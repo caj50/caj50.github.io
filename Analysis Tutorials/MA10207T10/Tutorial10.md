@@ -1,7 +1,7 @@
 ---
 title: "Analysis 1A — Tutorial 10"
 author: 'Christian Jones: University of Bath'
-date: 'December 2022'
+date: 'December 2023'
 site: bookdown::bookdown_site
 language: en
 documentclass: article
@@ -14,18 +14,15 @@ output:
     number_sections: true
     keep_md: true
     pandoc_args: --default-image-extension=svg
+  clavertondown::html_clav:
+    toc: true
+    pandoc_args: --default-image-extension=svg
   clavertondown::gitbook_clav:
     split_by: section
     keep_md: true
     config:
-      download: [["Tutorial10.html", "HTML page"], ["Tutorial10.pdf","Standard print PDF"], ["Tutorial10Clear.pdf","Clear print PDF"], ["Tutorial10Large.pdf","Large print PDF"], ["Tutorial10.docx","Accessible Word document"], ["Tutorial10.epub","Accessible EPub book" ]]
+      download: [["Tutorial10.html", "HTML page"], ["Tutorial10.pdf","Standard print PDF"], ["Tutorial10Clear.pdf","Clear print PDF"], ["Tutorial19Large.pdf","Large print PDF"], ["Tutorial10.docx","Accessible Word document"], ["Tutorial10.epub","Accessible EPub book" ]]
       sharing: no
-    pandoc_args: --default-image-extension=svg
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
-  clavertondown::html_clav:
-    toc: true
     pandoc_args: --default-image-extension=svg
   clavertondown::pdf_clav:
     latex_engine: pdflatex
@@ -34,139 +31,62 @@ output:
     toc: true
     extra_dependencies: ["float"]
     pandoc_args: --default-image-extension=pdf
+  clavertondown::epub_clav:
+    toc: false
+    pandoc_args: --default-image-extension=svg
 header-includes:
   - \newcommand{\BOO}{BOO}
   - \usepackage {hyperref}
   - \hypersetup {colorlinks = true, linkcolor = blue, urlcolor = blue}
 ---
-<!-- This is needed since I am working with svg files from mathcha.io. It converts the graphics files to something that can be used in the pdf files. Code taken from https://stackoverflow.com/questions/50165404/how-to-make-a-pdf-using-bookdown-including-svg-images/56044642#56044642 -->
 
 \newpage
 \pagenumbering{arabic}
 
 # Introduction {-}
-Here is the material to accompany the 10th Analysis Tutorial on the 12th December. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk). To return to the homepage, click [here](caj50.github.io/tutoring.html).
+Here is the material to accompany the Analysis Tutorial in Week 10. Alternative formats can be downloaded by clicking the download icon at the top of the page. As usual, send comments and corrections to [Christian Jones (caj50)](mailto:caj50@bath.ac.uk). To return to the homepage, click [here](http://caj50.github.io/tutoring.html).
 
 # Lecture Recap
 
-## Nested Intervals Theorem
+## Two More Convergence Tests
+So far, we've seen two tests which allow us (under certain conditions) to determine whether a series is convergent or not. These were the comparison test and d'Alembert's ratio test. There's two more tests to cover here. The first is yet another thing named after Cauchy! The second concerns series which have *alternating terms*. This is due to Leibniz, who --- depending on your point of view --- is considered to be the inventor of calculus.
 
-### Intervals
-Over the last semester, we first studied sequences of numbers, and then we used that theory to study sequences of sums. Now it's time to focus on sequences of sets. In particular, we are going to look at sequences of *intervals*, which are defined as follows:
+### Cauchy Condensation Test
+This test is very good when the terms of a series involve logarithms, and can also be used to show that $$\sum_{n = 1}^{\infty} \frac{1}{n^{\alpha}} \;\;\text{converges} \Longleftrightarrow \alpha > 1.$$
 
-\BeginKnitrBlock{definition}<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def1"><span class="def:def1" custom-style="NameStyle"><strong><span id="def:def1"></span>Definition 1.1   (Interval) </strong></span><div>Let $S \subseteq \mathbb{R}$. Then $S$ is an interval if $\forall x,y \in S$ with $x \leq y$, and $\forall z \in \mathbb{R}$, $x < z < y$ implies that $z \in S$.</div></div>\EndKnitrBlock{definition}
-This definition looks pretty complicated, so we could do with some examples. Firstly, we could construct an interval by taking two real numbers $a$ and $b$ with $a \leq b$, and considering the sets $$S_1 = \lbrace s \in \mathbb{R}\; \lvert\; a \leq s \leq b \rbrace \quad \text{and} \quad S_2 = \lbrace s \in \mathbb{R}\; \lvert\; a < s < b \rbrace.$$ Similarly, since all quantities involved in the definition are real numbers, we also find that $S_3 = \mathbb{R}$ defines an interval. Quite bizarrely, we see via *vacuous reasoning*[^1] that $S_4 = \emptyset$ is also an interval! 
+\BeginKnitrBlock{theorem}<div class="bookdown-theorem" custom-style="TheoremStyleUpright" id="thm:thm1"><span class="thm:thm1" custom-style="NameStyle"><strong><span id="thm:thm1"></span>Theorem 1.1   (Cauchy) </strong></span><p>Assume $(a_n)_n$ satisfies $a_n \geq 0 \; \forall n \in \mathbb{N}$, and is a decreasing sequence. For $k \in \mathbb{N}$, define $b_k := 2^ka_{2^k}$. Then $$\sum_{n = 1}^{\infty} a_n \;\; \text{converges}\; \Longleftrightarrow\; \sum_{k = 1}^{\infty} b_k \;\; \text{converges}.$$</p></div>\EndKnitrBlock{theorem}
 
-Conversely, sets such as $S_5 = \lbrace 0 \rbrace \cup \lbrace 1 \rbrace$ and $$\mathbb{R}\setminus S_1 = \lbrace s \;\lvert\; s < a \;\; \text{or}\;\; s > b\;\rbrace$$ are not intervals.
+We conclude this (rather short) subsection with a [link](https://math.stackexchange.com/questions/2071016/does-sum-infty-3-fracn2lnlnnlnn-converge?rq=1) to an example of the Cauchy condensation test in practice. It's highly unlikely you'll ever get something like this in the exam, but the numbers involved are so ridiculous it's worth including here nonetheless!
 
-We also have some special notation for intervals, in which we use a square bracket if an endpoint is included in the interval, and a 'round' bracket if an endpoint is not. Hence, for our sets $S_1,S_2$ and $S_3$ above, we may write $$S_1 = [a,b], \quad S_2 = (a,b), \quad S_3 = (-\infty, \infty).$$ As $\pm\infty$ are not real numbers, they are never written next to a square bracket in interval notation (i.e. writing something like $(a,\infty]$ is forbidden!) 
+### Leibniz Alternating Series Test
+We've stated in tutorials that the series $$\sum_{i=1}^{\infty}\frac{(-1)^n}{n}$$ is conditionally convergent --- that is, that this sum converges, but $$\sum_{i=1}^{\infty}\left\lvert\frac{(-1)^n}{n}\right\rvert = \sum_{i=1}^{\infty}\frac{1}{n}$$ does not. But how do we prove this? The answer to this lies within the following convergence test:
 
-### The Theorem!
-It turns out that if we have a sequence of intervals $(I_n)_{n\in\mathbb{N}}$ which are nested --- so that $I_{n+1} \subseteq I_n$ for all $n\in\mathbb{N}$ --- we can construct some major theorems in analysis! To do so; however, requires the following result:
+\BeginKnitrBlock{theorem}<div class="bookdown-theorem" custom-style="TheoremStyleUpright" id="thm:thm2"><span class="thm:thm2" custom-style="NameStyle"><strong><span id="thm:thm2"></span>Theorem 1.2   (Leibniz Alternating Series Test) </strong></span><p>Suppose $(a_n)_{n\in\mathbb{N}}$ is a decreasing sequence tending to $0$ as $n \to \infty$. Then $$\sum_{n=1}^{\infty} (-1)^n a_n$$ is a convergent series. </p></div>\EndKnitrBlock{theorem}
+Moreover, since the sequence $(a_n)_n$ is decreasing towards $0$, we can say that the value of this sum lies in between $-a_1$ and $a_2 - a_1$.
 
-\BeginKnitrBlock{theorem}<div class="bookdown-theorem" custom-style="TheoremStyleUpright" id="thm:thm1"><span class="thm:thm1" custom-style="NameStyle"><strong><span id="thm:thm1"></span>Theorem 1.1   (Nested Intervals Theorem) </strong></span><p>Let $(a_n)_{n\in\mathbb{N}}$ and $(b_n)_{n\in\mathbb{N}}$ be real sequences with $a_n \leq b_n$ for all $n\in\mathbb{N}$. Suppose also that for all $n\in\mathbb{N},$ $[a_{n+1},b_{n+1}] \subseteq [a_{n},b_{n}]$. Then $$\bigcap_{n\in\mathbb{N}}[a_n,b_n] \neq \emptyset.$$ Moreover, $$b_n - a_n \to 0 \;\;\text{as $n \to \infty$} \Longrightarrow \exists!\; z \in \bigcap_{n\in\mathbb{N}}[a_n,b_n].$$</p></div>\EndKnitrBlock{theorem}
-In words, this theorem says that if we have a sequence of closed[^2], bounded, non-empty, nested intervals of decreasing length, then their intersection is non-empty. If the length of these intervals decreases to zero, then there is a unique[^3] element in this intersection. As you can see, there's a lot of hypotheses for this theorem; Homework Question 1 this week has you going through these hypotheses, and exploring what happens when you remove them.
+## Multiplying Series
+Recall the statement of the Algebra of Series:
+\BeginKnitrBlock{theorem}<div class="bookdown-theorem" custom-style="TheoremStyleUpright" id="thm:thm3"><span class="thm:thm3" custom-style="NameStyle"><strong><span id="thm:thm3"></span>Theorem 1.3   (Algebra of Series) </strong></span><p>Let $\sum_{n=1}^{\infty}a_n$ and $\sum_{n=1}^{\infty}b_n$ be convergent series, and let $\alpha, \beta \in \mathbb{R}$. Then $$\sum_{n=1}^{\infty}(\alpha a_n + \beta b_n) = \alpha\sum_{n=1}^{\infty}a_n + \beta\sum_{n=1}^{\infty}b_n.$$</p></div>\EndKnitrBlock{theorem}
+Now, compare this to the statement of the Algebra of Limits. Notice that we've suspiciously omitted any mention about multiplying infinite series together. This is because while for convergent sequences $(x_n)_n$ and $(y_n)_n$, $$\lim_{n\to\infty}(x_ny_n) = \lim_{n\to\infty}x_n \cdot \lim_{n\to\infty}y_n,$$ it does **not** follow that for convergent series $\sum_{n=1}^{\infty}a_n$ and $\sum_{n=1}^{\infty}b_n$, $$\sum_{n=1}^{\infty} a_nb_n = \left(\sum_{n=1}^{\infty}a_n\right)\left(\sum_{n=1}^{\infty}b_n\right).$$
 
-[^1]: Vacuous reasoning is best summed up with an example. Suppose you were looking into an empty room, and you said that "everybody in that room was staring at their mobile phone". As there were no people in the room to begin with, this ends up being a completely true statement.
+If you're not convinced, we can try this with $a_n = b_n =  \frac{(-1)^{n}}{\sqrt{n}}$. Using the Leibniz test, we can see that both $\sum_{n=1}^{\infty}a_n$ and $\sum_{n=1}^{\infty}b_n$ converge, but $$\sum_{n=1}^{\infty} a_nb_n = \sum_{n=1}^{\infty}\frac{1}{n} = \infty.$$ So, the next question we need to ask is whether a formula for multiplying convergent series exists, and if so, which series can we apply it to. This question was answered by Cauchy[^2], and is summarised in the below theorem:
 
-[^2]: You may not have seen the definitions of open and closed sets before, so these have been added to a section at the end of this document.
-
-[^3]: This is what the symbol $\exists!$ is referring to --- the exclamation point indicates the unique part of this statement. It is definitely *not* $\exists! = \exists(\exists-1)\ldots(2)(1).$
-
-## Real Functions {#sec1}
-
-### Sequential Continuity
-We've finally reached some of the main results in the course, and certainly ones that will carry you into semester two! Until now, you may have thought of a function being *continuous* if you can draw it without taking your pencil off the page, but we can formalise this idea in the below definition:
-
-\BeginKnitrBlock{definition}<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def2"><span class="def:def2" custom-style="NameStyle"><strong><span id="def:def2"></span>Definition 1.2   (Sequential Continuity) </strong></span><div>Let $I \subseteq \mathbb{R}$ and $x_0 \in I$. A function $f: I \to \mathbb{R}$ is sequentially continuous at $x_0$ if for all sequences $(x_n)_{n\in\mathbb{N}}$ in $I$ such that $x_n \to x_0$ as $n \to \infty$, we have that $f(x_n) \to f(x_0)$ as $n \to \infty$.</div></div>\EndKnitrBlock{definition}
-This definition looks pretty horrible, but it really amounts to saying that for all convergent sequences in the domain tending to $x_0$, $$\lim_{n\to\infty}f(x_n) = f\left(\lim_{n\to\infty}x_n\right).$$ The main point here is that you need to prove we can swap the limits **for all** sequences converging to $x_0.$ You can't just test it for a specific sequence. This is shown graphically in Figure <a href="#fig:seqcnt">1.1</a>.
-
-![Figure 1.1: A diagram showing the idea of sequential continuity. Note that as the values of $x_n$ get closer to the limiting value $x_0$, the corresponding values of $f(x_n)$ get closer to a limiting value $f(x_0)$. This property has to hold for all sequences in the domain converging to $x_0$.](Seqcnt.svg)
+\BeginKnitrBlock{theorem}<div class="bookdown-theorem" custom-style="TheoremStyleUpright" id="thm:thm4"><span class="thm:thm4" custom-style="NameStyle"><strong><span id="thm:thm4"></span>Theorem 1.4   (Cauchy Multiplication Theorem) </strong></span><p>Assume that the real series $\sum_{n=0}^{\infty}a_n$ and $\sum_{n=0}^{\infty}b_n$ converge absolutely, and for $n \in \mathbb{N}$, define $$c_n:=\sum_{j=0}^{n}a_j b_{n - j}.$$ Then $\sum_{n=0}^{\infty} c_n$ converges absolutely, and $$\sum_{n=0}^{\infty} c_n = \left(\sum_{n=0}^{\infty}a_n\right)\left(\sum_{n=0}^{\infty}b_n\right).$$</p></div>\EndKnitrBlock{theorem}
+Note that we index the sums starting at $n=0$ here. This is purely for convenience, and you could equally formulate this theorem for sums starting at $n=1$ (or any other value of $n$ for that matter). Furthermore, we require the condition that the two individual sums are *absolutely convergent*. As you've seen in lectures, the Cauchy Multiplication Theorem will fail if the series involved are only conditionally convergent.
 
 
-Now, having a definition is all well and good, but how do we use it?
-\BeginKnitrBlock{example}<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex1"><span class="exm:ex1" custom-style="NameStyle"><strong><span id="exm:ex1"></span>Example 1.1  </strong></span><div>Prove that the function $f: \mathbb{R} \to \mathbb{R}$ given by $$f(x) = x^{27} - 4x^6 + \frac{3}{x^2 +1}$$ is sequentially continuous on $\mathbb{R}$.</div></div>\EndKnitrBlock{example}
 
-\BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyle"><strong>Solution. </strong></span> <p>First fix $x_0 \in \mathbb{R}$, and take *any* sequence $(x_n)_{n\in\mathbb{N}}$ in $\mathbb{R}$ such that $x_n \to x_0$ as $n \to \infty$. Then by the Algebra of Limits
-$$\begin{align*}
-f(x_n) &= x_n^{27} - 4x_n^{6} + \frac{3}{x_n^2 +1}\\
-&\to x_0^{27} - 4x_0^6 + \frac{3}{x_0^2 + 1}\; \; \text{as $n \to \infty$}\\
-& = f(x_0).
-\end{align*}$$
-Hence, as the chosen convergent sequence was arbitrary, $f$ is sequentially continuous at $x_0$. Since $x_0$ was arbitrary, $f$ is sequentially continuous on $\mathbb{R}$.</p></div>\EndKnitrBlock{solution}
-
-It's also useful to know how to prove a function isn't sequentially continuous at a point. To this end, we conclude this section with a rather interesting example.
-\BeginKnitrBlock{example}<div class="bookdown-example" custom-style="ExampleStyle" id="exm:ex2"><span class="exm:ex2" custom-style="NameStyle"><strong><span id="exm:ex2"></span>Example 1.2  </strong></span><div>Prove that the function $g: \mathbb{R} \to \mathbb{R}$ given by $$g(x) = \begin{cases}
-0 \quad \text{if} \; x \in \mathbb{R}\setminus\mathbb{Q},\\
-1 \quad \text{if} \; x \in \mathbb{Q}.
-\end{cases}$$ is not sequentially continuous anywhere on $\mathbb{R}$.</div></div>\EndKnitrBlock{example}
-
-\BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyle"><strong>Solution. </strong></span> <p>Fix $x_0 \in \mathbb{R}$. Our aim is to find two sequences $(x_n)_{n\in\mathbb{N}}$ and $(y_n)_{n\in\mathbb{N}}$ converging to $x_0$, such that $\left(g(x_n)\right)_{n\in\mathbb{N}}$ and $\left(g(y_n)\right)_{n\in\mathbb{N}}$ approach different limits. Since both the rational and the irrational numbers are dense in the real numbers, we take $$(x_n)_{n\in\mathbb{N}}\;\; \text{in}\;\; \mathbb{R}\setminus\mathbb{Q} \;\; \text{such that} \;\; x_n \to x_0 \;\; \text{as}\;\; n \to \infty,$$ and $$(y_n)_{n\in\mathbb{N}}\;\; \text{in}\;\; \mathbb{Q} \;\; \text{such that} \;\; y_n \to x_0 \;\; \text{as}\;\; n \to \infty.$$ Now, note that as $n \to \infty,$  $$g(x_n) = 0 \to 0, \quad \text{and} \quad g(y_n) = 1 \to 1.$$ So, no matter the value of $g(x_0)$, we have found a sequence --- either $(x_n)_n$ or $(y_n)_n$ --- such that one of $\left(g(x_n)\right)_n$ or $\left(g(y_n)\right)_n$ does not tend to $g(x_0)$. Hence, $g$ is not sequentially continuous anywhere!</p></div>\EndKnitrBlock{solution}
-
-### Intermediate Value Theorem
-Here's the main reason why we needed the Nested Intervals Theorem!
-
-\BeginKnitrBlock{theorem}<div class="bookdown-theorem" custom-style="TheoremStyleUpright" id="thm:thm2"><span class="thm:thm2" custom-style="NameStyle"><strong><span id="thm:thm2"></span>Theorem 1.2   (Intermediate Value Theorem (IVT)) </strong></span><p>Suppose $a,b \in \mathbb{R}$ with $a < b$, and that $f:[a,b] \to \mathbb{R}$ is sequentially continuous. Then, if $y \in \mathbb{R}$ is such that either $f(a) \leq y \leq f(b)$, or $f(b) \leq y \leq f(a)$, then $\exists c \in [a,b]$ such that $f(c) = y$.</p></div>\EndKnitrBlock{theorem}
-Diagrammatically, we might be in a situation like in Figure <a href="#fig:ivt">1.2</a>. Note that there may be more than one $c$ that fulfills the conclusion of this theorem. Also, the theorem doesn't tell you what this $c$ is; it only says that a $c$ must exist.
-
-![Figure 1.2: This function is sequentially continuous on $[a,b]$, and for $y$ as in the diagram, $y$ lies between $f(a)$ and $f(b)$. Hence the IVT applies, and so there exists $c$ in the interval $[a,b]$ such that $f(c)=y$. In this scenario, $c$ can be any one of $c_1,c_2$ or $c_3$.](ivt.svg)
-
-The IVT is very good for proving existence of square roots (and roots of any degree!), proving that functions have zeros, and proving that at any given point in time, there exists two points on the equator with exactly the same temperature[^4].
-
-[^4]: On an idealised Earth, anyway.
+[^2]: If you're keeping track, this is the third time Cauchy has appeared in this course.
 
 # Hints
-As per usual, here’s where you’ll find the problem sheet hints! There's no official hand in this week, but I'll still mark anything handed in by Friday. The questions on this problem sheet are sort of split into two groups. The first two questions are all about theorem hypotheses (and are definitely worth thinking about!) In a way, the third question is about theorem hypotheses too. Question 4 is a more standard example, mainly to check you can perform power series calculations.
+As per usual, here’s where you’ll find the problem sheet hints!
 
-* [H1.] Primarily, the idea is to think of an interval that fits the given description, and explain why the conclusion of the theorem doesn't hold. A word of warning, the empty set $\emptyset$ is a closed set.
-* [H2.] Pretty much the same idea as H1. The examples required won't necessarily be complicated functions. My best advice is to just play around with this question.
-* [H3.] Check the hypotheses of the Intermediate Value Theorem are satisfied by the given function.
-* [H4.] Look back over the examples from last week, or the first tutorial question from this week.
+1.  In this one, remember what we did in tutorials. One uses Leibniz, one can be done with Leibniz (but its quicker not to), and one diverges. Make sure you check the hypotheses of any test you use!
+2.  a)  Work out an expression for $\frac{a_{n+1}}{a_n}$ (this will depend on whether $n$ is odd or even).
+    b) Check whether $(a_n)$ is an increasing or decreasing sequence first: this will help you calculate the $\limsup$.
+3.  To begin here, you've seen a similar trick for the square roots in previous problem sheets. Think about your tests for convergence again on this one!
+4.  Use the alternative characterisation of suprema (Theorem 3.2 in the lecture notes).
 
-# Sets
-This week, we've been exposed to a fair few definitions regarding sets, some of which come up a fair bit on the problem sheet. The precise definitions of open and closed sets are non-examinable, but you'll need to be aware of some examples for the exam.  
-
-## Dense Sets
-We begin with the concept of a *dense set*.
-\BeginKnitrBlock{definition}<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def3"><span class="def:def3" custom-style="NameStyle"><strong><span id="def:def3"></span>Definition 3.1   (Dense Set) </strong></span><div>Let $S \subseteq \mathbb{R}$. A subset $T$ of $S$ is dense in $S$ if $$\forall s \in S \;\;\text{and}\;\; \forall \epsilon > 0,\; \exists t \in T \;\; \text{such that}\;\; \lvert s - t \rvert < \epsilon.$$</div></div>\EndKnitrBlock{definition}
-Loosely, this says that we can approximate members of $S$ pretty well by using members of $T$ instead. For example, you've seen in lectures that the rational numbers $\mathbb{Q}$ are dense in the real numbers $\mathbb{R}$. Equally, we can use this to show that the irrational numbers $\mathbb{R}\setminus\mathbb{Q}$ are dense in $\mathbb{R}$ too! A useful proposition arising from this is the following:
-
-\BeginKnitrBlock{proposition}<div class="bookdown-proposition" custom-style="TheoremStyleUpright" id="prp:prop1"><span class="prp:prop1" custom-style="NameStyle"><strong><span id="prp:prop1"></span>Proposition 3.1  </strong></span><p>Let $T \subseteq S$ be dense in $S$. Then, for all $x_0 \in S$, there exists a sequence $(x_n)_n$ in $T$ such that $(x_n)_n$ converges to $x_0$ in $S$.</p></div>\EndKnitrBlock{proposition}
-This is the property that we used in Example <a href="#exm:ex2">1.2</a> of Section <a href="#sec1">1.2</a> to generate our convergent sequences! Note that the convergence has to be in $S$, since $x_0$ may not be in $T$ (take for example the sequence $1, 1.4, 1.41,\ldots$ in $\mathbb{Q}$ converging to $\sqrt{2}$.)
-
-## Open and Closed Sets
-The next two concepts we discuss here go hand-in-hand, and are quite important for the Nested Intervals Theorem (Theorem <a href="#thm:thm1">1.1</a>) and the Intermediate Value Theorem (Theorem <a href="#thm:thm2">1.2</a>). We first discuss *open sets*.
-
-\BeginKnitrBlock{definition}<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def4"><span class="def:def4" custom-style="NameStyle"><strong><span id="def:def4"></span>Definition 3.2   (Open Set) </strong></span><div>Let $S \subseteq \mathbb{R}$. Then $S$ is open if $$\forall s \in S, \exists \epsilon > 0 \;\; \text{such that} \;\; (s-\epsilon,s+\epsilon) \subseteq S.$$</div></div>\EndKnitrBlock{definition}
-Some examples here would be useful. Working in $\mathbb{R}$:
-
-* For any $a,b \in \mathbb{R}$ with $a < b$ the interval $(a,b) = \lbrace x \;\lvert\; a < x < b \rbrace$ is open, because for any $s \in (a,b)$, taking $\epsilon = \min\left\lbrace s-a, b-s\right\rbrace$, we find that $(s-\epsilon, s + \epsilon) \subseteq (a,b)$.
-* Intervals of the form $(a, \infty)$ or $(-\infty, a)$ are open.
-* $\mathbb{R}$ is open.
-* The empty set $\emptyset$ is open (!!)
-
-The last of these is vacuously true — since there's no elements in the empty set, the statement is automatically true. We can use the concept of an open set to define a closed set[^5].
-
-\BeginKnitrBlock{definition}<div class="bookdown-definition" custom-style="DefinitionStyle" id="def:def5"><span class="def:def5" custom-style="NameStyle"><strong><span id="def:def5"></span>Definition 3.3   (Closed Set) </strong></span><div>Let $S \subseteq \mathbb{R}$. Then $S$ is closed if its complement $\mathbb{R}\setminus S$ is open. </div></div>\EndKnitrBlock{definition}
-Again, some examples are in order. Working in $\mathbb{R}$:
-
-* For any $a,b \in \mathbb{R}$ with $a < b$ the interval $[a,b] = \lbrace x \;\lvert\; a \leq x \leq b \rbrace$ is closed. This is because $$\mathbb{R}\setminus[a,b] = (-\infty,a)\cup(b,\infty),$$ which is a union of open sets, hence open.
-* Intervals of the form $[a, \infty)$ or $(-\infty, a]$ are closed.
-* $\mathbb{R}$ is closed.
-* The empty set $\emptyset$ is closed.
-
-#### Warnings! {-}
-These next few words are hardly inventive, but we need to mention it: **sets are not doors**! If a set is not open, we can't automatically conclude that it is closed (and vice versa). Similarly, sets can be both open and closed simultaneously. We finish on some examples to illustrate this:
-
-For any $a,b \in \mathbb{R}$ with $a < b$:
-
-* the interval $(a,b)$ is open, but *not* closed.
-* the interval $[a,b]$ is closed, but *not* open.
-* the intervals $(a,b]$ and $[a,b)$ are neither open or closed.
-* the sets $\emptyset$ and $\mathbb{R}$ are both open and closed.
-
-
-[^5]: We could instead define 'closed-ness' in terms of sequences, but for brevity we defer this to Analysis 2A.
 
 <!--chapter:end:index.Rmd-->
 

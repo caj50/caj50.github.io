@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="sec1.html"/>
-<link rel="next" href="sets.html"/>
+<link rel="prev" href="multiplying-series.html"/>
+
 
 <script src="libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -269,23 +269,14 @@ MathJax.Hub.Config({
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="1" data-path="lecture-recap.html"><a href="lecture-recap.html"><i class="fa fa-check"></i><b>1</b> Lecture Recap</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="nested-intervals-theorem.html"><a href="nested-intervals-theorem.html"><i class="fa fa-check"></i><b>1.1</b> Nested Intervals Theorem</a>
+<li class="chapter" data-level="1.1" data-path="two-more-convergence-tests.html"><a href="two-more-convergence-tests.html"><i class="fa fa-check"></i><b>1.1</b> Two More Convergence Tests</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="nested-intervals-theorem.html"><a href="nested-intervals-theorem.html#intervals"><i class="fa fa-check"></i><b>1.1.1</b> Intervals</a></li>
-<li class="chapter" data-level="1.1.2" data-path="nested-intervals-theorem.html"><a href="nested-intervals-theorem.html#the-theorem"><i class="fa fa-check"></i><b>1.1.2</b> The Theorem!</a></li>
+<li class="chapter" data-level="1.1.1" data-path="two-more-convergence-tests.html"><a href="two-more-convergence-tests.html#cauchy-condensation-test"><i class="fa fa-check"></i><b>1.1.1</b> Cauchy Condensation Test</a></li>
+<li class="chapter" data-level="1.1.2" data-path="two-more-convergence-tests.html"><a href="two-more-convergence-tests.html#leibniz-alternating-series-test"><i class="fa fa-check"></i><b>1.1.2</b> Leibniz Alternating Series Test</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="sec1.html"><a href="sec1.html"><i class="fa fa-check"></i><b>1.2</b> Real Functions</a>
-<ul>
-<li class="chapter" data-level="1.2.1" data-path="sec1.html"><a href="sec1.html#sequential-continuity"><i class="fa fa-check"></i><b>1.2.1</b> Sequential Continuity</a></li>
-<li class="chapter" data-level="1.2.2" data-path="sec1.html"><a href="sec1.html#intermediate-value-theorem"><i class="fa fa-check"></i><b>1.2.2</b> Intermediate Value Theorem</a></li>
-</ul></li>
+<li class="chapter" data-level="1.2" data-path="multiplying-series.html"><a href="multiplying-series.html"><i class="fa fa-check"></i><b>1.2</b> Multiplying Series</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="hints.html"><a href="hints.html"><i class="fa fa-check"></i><b>2</b> Hints</a></li>
-<li class="chapter" data-level="3" data-path="sets.html"><a href="sets.html"><i class="fa fa-check"></i><b>3</b> Sets</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="dense-sets.html"><a href="dense-sets.html"><i class="fa fa-check"></i><b>3.1</b> Dense Sets</a></li>
-<li class="chapter" data-level="3.2" data-path="open-and-closed-sets.html"><a href="open-and-closed-sets.html"><i class="fa fa-check"></i><b>3.2</b> Open and Closed Sets</a></li>
-</ul></li>
 </ul>
 
       </nav>
@@ -305,21 +296,31 @@ MathJax.Hub.Config({
             <section class="normal" id="section-">
 <div id="hints" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Hints</h1>
-<p>As per usual, here’s where you’ll find the problem sheet hints! There’s no official hand in this week, but I’ll still mark anything handed in by Friday. The questions on this problem sheet are sort of split into two groups. The first two questions are all about theorem hypotheses (and are definitely worth thinking about!) In a way, the third question is about theorem hypotheses too. Question 4 is a more standard example, mainly to check you can perform power series calculations.</p>
-<ul>
-<li>[H1.] Primarily, the idea is to think of an interval that fits the given description, and explain why the conclusion of the theorem doesn’t hold. A word of warning, the empty set <span class="math inline">\(\emptyset\)</span> is a closed set.</li>
-<li>[H2.] Pretty much the same idea as H1. The examples required won’t necessarily be complicated functions. My best advice is to just play around with this question.</li>
-<li>[H3.] Check the hypotheses of the Intermediate Value Theorem are satisfied by the given function.</li>
-<li>[H4.] Look back over the examples from last week, or the first tutorial question from this week.</li>
-</ul>
+<p>As per usual, here’s where you’ll find the problem sheet hints!</p>
+<ol style="list-style-type: decimal">
+<li>In this one, remember what we did in tutorials. One uses Leibniz, one can be done with Leibniz (but its quicker not to), and one diverges. Make sure you check the hypotheses of any test you use!</li>
+<li><ol style="list-style-type: lower-alpha">
+<li>Work out an expression for <span class="math inline">\(\frac{a_{n+1}}{a_n}\)</span> (this will depend on whether <span class="math inline">\(n\)</span> is odd or even).</li>
+<li>Check whether <span class="math inline">\((a_n)\)</span> is an increasing or decreasing sequence first: this will help you calculate the <span class="math inline">\(\limsup\)</span>.</li>
+</ol></li>
+<li>To begin here, you’ve seen a similar trick for the square roots in previous problem sheets. Think about your tests for convergence again on this one!</li>
+<li>Use the alternative characterisation of suprema (Theorem 3.2 in the lecture notes).</li>
+</ol>
+
 </div>
+
+
+
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="sec1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="sets.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="multiplying-series.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -351,7 +352,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": [["Tutorial10.html", "HTML page"], ["Tutorial10.pdf", "Standard print PDF"], ["Tutorial10Clear.pdf", "Clear print PDF"], ["Tutorial10Large.pdf", "Large print PDF"], ["Tutorial10.docx", "Accessible Word document"], ["Tutorial10.epub", "Accessible EPub book"]],
+"download": [["Tutorial10.html", "HTML page"], ["Tutorial10.pdf", "Standard print PDF"], ["Tutorial10Clear.pdf", "Clear print PDF"], ["Tutorial19Large.pdf", "Large print PDF"], ["Tutorial10.docx", "Accessible Word document"], ["Tutorial10.epub", "Accessible EPub book"]],
 "search": {
 "engine": "fuse",
 "options": null

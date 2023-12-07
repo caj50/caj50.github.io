@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 Sets | Analysis 1A — Tutorial 10</title>
-  <meta name="description" content="3 Sets | Analysis 1A — Tutorial 10" />
+  <title>1.2 Multiplying Series | Analysis 1A — Tutorial 10</title>
+  <meta name="description" content="1.2 Multiplying Series | Analysis 1A — Tutorial 10" />
   <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 Sets | Analysis 1A — Tutorial 10" />
+  <meta property="og:title" content="1.2 Multiplying Series | Analysis 1A — Tutorial 10" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 Sets | Analysis 1A — Tutorial 10" />
+  <meta name="twitter:title" content="1.2 Multiplying Series | Analysis 1A — Tutorial 10" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="hints.html"/>
-<link rel="next" href="dense-sets.html"/>
+<link rel="prev" href="two-more-convergence-tests.html"/>
+<link rel="next" href="hints.html"/>
 
 <script src="libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -269,23 +269,14 @@ MathJax.Hub.Config({
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="1" data-path="lecture-recap.html"><a href="lecture-recap.html"><i class="fa fa-check"></i><b>1</b> Lecture Recap</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="nested-intervals-theorem.html"><a href="nested-intervals-theorem.html"><i class="fa fa-check"></i><b>1.1</b> Nested Intervals Theorem</a>
+<li class="chapter" data-level="1.1" data-path="two-more-convergence-tests.html"><a href="two-more-convergence-tests.html"><i class="fa fa-check"></i><b>1.1</b> Two More Convergence Tests</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="nested-intervals-theorem.html"><a href="nested-intervals-theorem.html#intervals"><i class="fa fa-check"></i><b>1.1.1</b> Intervals</a></li>
-<li class="chapter" data-level="1.1.2" data-path="nested-intervals-theorem.html"><a href="nested-intervals-theorem.html#the-theorem"><i class="fa fa-check"></i><b>1.1.2</b> The Theorem!</a></li>
+<li class="chapter" data-level="1.1.1" data-path="two-more-convergence-tests.html"><a href="two-more-convergence-tests.html#cauchy-condensation-test"><i class="fa fa-check"></i><b>1.1.1</b> Cauchy Condensation Test</a></li>
+<li class="chapter" data-level="1.1.2" data-path="two-more-convergence-tests.html"><a href="two-more-convergence-tests.html#leibniz-alternating-series-test"><i class="fa fa-check"></i><b>1.1.2</b> Leibniz Alternating Series Test</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="sec1.html"><a href="sec1.html"><i class="fa fa-check"></i><b>1.2</b> Real Functions</a>
-<ul>
-<li class="chapter" data-level="1.2.1" data-path="sec1.html"><a href="sec1.html#sequential-continuity"><i class="fa fa-check"></i><b>1.2.1</b> Sequential Continuity</a></li>
-<li class="chapter" data-level="1.2.2" data-path="sec1.html"><a href="sec1.html#intermediate-value-theorem"><i class="fa fa-check"></i><b>1.2.2</b> Intermediate Value Theorem</a></li>
-</ul></li>
+<li class="chapter" data-level="1.2" data-path="multiplying-series.html"><a href="multiplying-series.html"><i class="fa fa-check"></i><b>1.2</b> Multiplying Series</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="hints.html"><a href="hints.html"><i class="fa fa-check"></i><b>2</b> Hints</a></li>
-<li class="chapter" data-level="3" data-path="sets.html"><a href="sets.html"><i class="fa fa-check"></i><b>3</b> Sets</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="dense-sets.html"><a href="dense-sets.html"><i class="fa fa-check"></i><b>3.1</b> Dense Sets</a></li>
-<li class="chapter" data-level="3.2" data-path="open-and-closed-sets.html"><a href="open-and-closed-sets.html"><i class="fa fa-check"></i><b>3.2</b> Open and Closed Sets</a></li>
-</ul></li>
 </ul>
 
       </nav>
@@ -303,17 +294,41 @@ MathJax.Hub.Config({
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="sets" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Sets</h1>
-<p>This week, we’ve been exposed to a fair few definitions regarding sets, some of which come up a fair bit on the problem sheet. The precise definitions of open and closed sets are non-examinable, but you’ll need to be aware of some examples for the exam.</p>
+<div id="multiplying-series" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Multiplying Series</h2>
+Recall the statement of the Algebra of Series:
+
+<div id="thm:thm3" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm3" custom-style="NameStyle"><strong>Theorem 1.3:  (Algebra of Series) </strong></span>
+<p>
+Let <span class="math inline">\(\sum_{n=1}^{\infty}a_n\)</span> and <span class="math inline">\(\sum_{n=1}^{\infty}b_n\)</span> be convergent series, and let <span class="math inline">\(\alpha, \beta \in \mathbb{R}\)</span>. Then <span class="math display">\[\sum_{n=1}^{\infty}(\alpha a_n + \beta b_n) = \alpha\sum_{n=1}^{\infty}a_n + \beta\sum_{n=1}^{\infty}b_n.\]</span>
+</p>
+</div>
+<p>Now, compare this to the statement of the Algebra of Limits. Notice that we’ve suspiciously omitted any mention about multiplying infinite series together. This is because while for convergent sequences <span class="math inline">\((x_n)_n\)</span> and <span class="math inline">\((y_n)_n\)</span>, <span class="math display">\[\lim_{n\to\infty}(x_ny_n) = \lim_{n\to\infty}x_n \cdot \lim_{n\to\infty}y_n,\]</span> it does <strong>not</strong> follow that for convergent series <span class="math inline">\(\sum_{n=1}^{\infty}a_n\)</span> and <span class="math inline">\(\sum_{n=1}^{\infty}b_n\)</span>, <span class="math display">\[\sum_{n=1}^{\infty} a_nb_n = \left(\sum_{n=1}^{\infty}a_n\right)\left(\sum_{n=1}^{\infty}b_n\right).\]</span></p>
+<p>If you’re not convinced, we can try this with <span class="math inline">\(a_n = b_n = \frac{(-1)^{n}}{\sqrt{n}}\)</span>. Using the Leibniz test, we can see that both <span class="math inline">\(\sum_{n=1}^{\infty}a_n\)</span> and <span class="math inline">\(\sum_{n=1}^{\infty}b_n\)</span> converge, but <span class="math display">\[\sum_{n=1}^{\infty} a_nb_n = \sum_{n=1}^{\infty}\frac{1}{n} = \infty.\]</span> So, the next question we need to ask is whether a formula for multiplying convergent series exists, and if so, which series can we apply it to. This question was answered by Cauchy<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, and is summarised in the below theorem:</p>
+
+<div id="thm:thm4" class="bookdown-theorem" custom-style="TheoremStyle">
+<span class="thm:thm4" custom-style="NameStyle"><strong>Theorem 1.4:  (Cauchy Multiplication Theorem) </strong></span>
+<p>
+Assume that the real series <span class="math inline">\(\sum_{n=0}^{\infty}a_n\)</span> and <span class="math inline">\(\sum_{n=0}^{\infty}b_n\)</span> converge absolutely, and for <span class="math inline">\(n \in \mathbb{N}\)</span>, define <span class="math display">\[c_n:=\sum_{j=0}^{n}a_j b_{n - j}.\]</span> Then <span class="math inline">\(\sum_{n=0}^{\infty} c_n\)</span> converges absolutely, and <span class="math display">\[\sum_{n=0}^{\infty} c_n = \left(\sum_{n=0}^{\infty}a_n\right)\left(\sum_{n=0}^{\infty}b_n\right).\]</span>
+</p>
+</div>
+<p>Note that we index the sums starting at <span class="math inline">\(n=0\)</span> here. This is purely for convenience, and you could equally formulate this theorem for sums starting at <span class="math inline">\(n=1\)</span> (or any other value of <span class="math inline">\(n\)</span> for that matter). Furthermore, we require the condition that the two individual sums are <em>absolutely convergent</em>. As you’ve seen in lectures, the Cauchy Multiplication Theorem will fail if the series involved are only conditionally convergent.</p>
+</div>
+<!-- </div> -->
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>If you’re keeping track, this is the third time Cauchy has appeared in this course.<a href="multiplying-series.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="hints.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="dense-sets.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="two-more-convergence-tests.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="hints.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -345,7 +360,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": [["Tutorial10.html", "HTML page"], ["Tutorial10.pdf", "Standard print PDF"], ["Tutorial10Clear.pdf", "Clear print PDF"], ["Tutorial10Large.pdf", "Large print PDF"], ["Tutorial10.docx", "Accessible Word document"], ["Tutorial10.epub", "Accessible EPub book"]],
+"download": [["Tutorial10.html", "HTML page"], ["Tutorial10.pdf", "Standard print PDF"], ["Tutorial10Clear.pdf", "Clear print PDF"], ["Tutorial19Large.pdf", "Large print PDF"], ["Tutorial10.docx", "Accessible Word document"], ["Tutorial10.epub", "Accessible EPub book"]],
 "search": {
 "engine": "fuse",
 "options": null
