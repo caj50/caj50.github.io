@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Cauchy Condensation Example</title>
-  <meta name="description" content="Cauchy Condensation Example" />
+  <title>2 Another example involving logarithms | Cauchy Condensation Example</title>
+  <meta name="description" content="2 Another example involving logarithms | Cauchy Condensation Example" />
   <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Cauchy Condensation Example" />
+  <meta property="og:title" content="2 Another example involving logarithms | Cauchy Condensation Example" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Cauchy Condensation Example" />
+  <meta name="twitter:title" content="2 Another example involving logarithms | Cauchy Condensation Example" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="index.html"/>
 
-<link rel="next" href="another-example-involving-logarithms.html"/>
 
 <script src="libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -285,40 +285,35 @@ MathJax.Hub.Config({
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title"><span style="font-size:150%; margin-bottom:0">Cauchy Condensation Example</span></h1>
-<p class="author" style="font-size:120%; margin-bottom:0"><em>Christian Jones: University of Bath</em></p>
-<p class="date" style="font-size:120%; margin-bottom:0"><em>December 2023</em></p>
-</div>
-<div id="example-involving-logarithms" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Example involving logarithms</h1>
+<div id="another-example-involving-logarithms" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Another example involving logarithms</h1>
 
-<div id="exm:ex1" class="bookdown-example" custom-style="ExampleStyle">
-<span class="exm:ex1" custom-style="NameStyle"><strong>Example 1.1:  </strong></span>
+<div id="exm:ex2" class="bookdown-example" custom-style="ExampleStyle">
+<span class="exm:ex2" custom-style="NameStyle"><strong>Example 2.1:  </strong></span>
 <div>
-Prove that <span class="math display">\[\sum_{n=4}^{\infty} \frac{1}{n\ln(n)\ln(\ln(n))}\]</span> diverges.
+Prove that <span class="math display">\[\sum_{n=3}^{\infty}\frac{n^2}{\left(\ln(\ln(n))\right)^{\ln(n)}}\]</span> converges.
 </div>
 </div>
 
 <div class="bookdown-solution" custom-style="ProofStyle">
 <span class="solution" custom-style="NameStyleItalics">Solution. </span>
 <p>
-For <span class="math inline">\(n\geq4\)</span>, define <span class="math display">\[a_n = \frac{1}{n\ln(n)\ln(\ln(n))},\]</span> and for <span class="math inline">\(k\geq 2\)</span>, define <span class="math display">\[b_k := 2^{k}a_{2^k} = \frac{2^k}{2^k\ln(2^k)\ln(\ln(2^k))}.\]</span> Then, by properties of logarithms,
+For <span class="math inline">\(n\geq3\)</span>, define <span class="math display">\[a_n = \frac{n^2}{\left(\ln(\ln(n))\right)^{\ln(n)}},\]</span> and for <span class="math inline">\(k\geq 2\)</span>, define <span class="math display">\[b_k := 2^{k}a_{2^k} = \frac{2^{3k}}{\left(\ln(\ln(2^k))\right)^{\ln(2^k)}}.\]</span> Then, by properties of logarithms,
 <span class="math display">\[\begin{align*}
-b_k = \frac{1}{k\ln(2)\ln(k\ln(2))} = \frac{1}{k\ln(2)[\ln(k) + \ln(\ln(2))]}.
+b_k = \frac{2^{3k}}{\left(\ln(k\ln(2))\right)^{k\ln(2)}} = \frac{2^{3k}}{[\ln(k) + \ln(\ln(2))]^{k\ln(2)}}.
 \end{align*}\]</span>
 Also, for <span class="math inline">\(k\geq 2\)</span>, we know that (under the assumption that <span class="math inline">\(\ln : (0,\infty) \to \mathbb{R}\)</span> is an increasing function), <span class="math display">\[\ln(k) \geq \ln(2) \geq \ln(\ln(2))).\]</span> Hence <span class="math display">\[b_k \geq \frac{1}{2\ln(2)k\ln(k)} =: c_k.\]</span> From lectures (or by applying the Cauchy condensation test again to <span class="math inline">\(c_k\)</span>), we know that <span class="math inline">\(\sum_{k=2}^{\infty}c_k\)</span> diverges. Hence, by comparison (as <span class="math inline">\(c_k \geq 0\)</span>), we find that <span class="math inline">\(\sum_{k=2}^{\infty} b_k\)</span> diverges. Finally, by the Cauchy condensation test, we conclude that <span class="math display">\[\sum_{n=4}^{\infty} a_n = \sum_{n=4}^{\infty} \frac{1}{n\ln(n)\ln(\ln(n))} \quad \text{diverges.}\]</span>
 </p>
 </div>
-<p>It turns out that this example is a special case of what is known as a <em>generalised Bertrand series</em>, and it’s quite surprising how general we can make this example! See <a href="https://en.wikipedia.org/wiki/Cauchy_condensation_test#Examples">here</a> for details!</p>
+
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="another-example-involving-logarithms.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

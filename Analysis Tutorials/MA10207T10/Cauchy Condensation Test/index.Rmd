@@ -9,15 +9,15 @@ classoption: a4paper
 fontsize: 10pt
 geometry: margin=2.5cm
 output:
-  clavertondown::epub_clav:
-    toc: false
-    pandoc_args: --default-image-extension=svg
   clavertondown::gitbook_clav:
     split_by: section
     keep_md: true
     config:
       download: [["Cauchy.html", "HTML page"], ["Cauchy.pdf","Standard print PDF"], ["CauchyClear.pdf","Clear print PDF"], ["CauchyLarge.pdf","Large print PDF"], ["Cauchy.docx","Accessible Word document"], ["Cauchy.epub","Accessible EPub book" ]]
       sharing: no
+    pandoc_args: --default-image-extension=svg
+  clavertondown::epub_clav:
+    toc: false
     pandoc_args: --default-image-extension=svg
   clavertondown::word_clav:
     toc: true
@@ -55,4 +55,3 @@ b_k = \frac{1}{k\ln(2)\ln(k\ln(2))} = \frac{1}{k\ln(2)[\ln(k) + \ln(\ln(2))]}.
 Also, for $k\geq 2$, we know that (under the assumption that $\ln : (0,\infty) \to \mathbb{R}$ is an increasing function), $$\ln(k) \geq \ln(2) \geq \ln(\ln(2))).$$ Hence $$b_k \geq \frac{1}{2\ln(2)k\ln(k)} =: c_k.$$ From lectures (or by applying the Cauchy condensation test again to $c_k$), we know that $\sum_{k=2}^{\infty}c_k$ diverges. Hence, by comparison (as $c_k \geq 0$), we find that $\sum_{k=2}^{\infty} b_k$ diverges. Finally, by the Cauchy condensation test, we conclude that $$\sum_{n=4}^{\infty} a_n = \sum_{n=4}^{\infty} \frac{1}{n\ln(n)\ln(\ln(n))} \quad \text{diverges.}$$
 ```
 It turns out that this example is a special case of what is known as a *generalised Bertrand series*, and it's quite surprising how general we can make this example! See [here](https://en.wikipedia.org/wiki/Cauchy_condensation_test#Examples) for details!
-
