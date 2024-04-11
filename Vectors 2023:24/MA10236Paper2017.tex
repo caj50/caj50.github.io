@@ -1,0 +1,304 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  10pt,
+  a4paper]{article}
+\title{Vectors, Vector Calculus and Mechanics --- Past Paper 2017}
+\author{Christian Jones: University of Bath}
+\date{April 2024}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Vectors, Vector Calculus and Mechanics --- Past Paper 2017},
+  pdfauthor={Christian Jones: University of Bath},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\newcommand{\BOO}{BOO}
+\usepackage {hyperref}
+\hypersetup {colorlinks = true, linkcolor = blue, urlcolor = blue}
+\usepackage{float}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}\newtheorem{definition}{Definition}[section]
+\theoremstyle{plain}
+\newtheorem*{proposition*}{Proposition}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{Definitions*}{Definitions}\newtheorem{Definitions}[definition]{Definitions}
+\theoremstyle{plain}
+\newtheorem*{lemma*}{Lemma}\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{plain}
+\newtheorem*{corollary*}{Corollary}\newtheorem{corollary}{Corollary}[section]
+\theoremstyle{plain}
+\newtheorem*{conjecture*}{Conjecture}\newtheorem{conjecture}{Conjecture}[section]
+\theoremstyle{definition}
+\newtheorem*{example*}{Example}\newtheorem{example}{Example}[section]
+\theoremstyle{definition}
+\newtheorem*{exercise*}{Exercise}\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{Non-theorem*}{Non-theorem}\newtheorem{Non-theorem}{Non-theorem}[section]
+\newtheorem*{Question*}{Question}\newtheorem{Question}{Question}[section]
+\newtheorem*{Thought*}{Thought}\newtheorem{Thought}{Thought}[section]
+\theoremstyle{remark}
+\newtheorem*{remark*}{Remark}
+\newtheorem*{solution*}{Solution}
+\newtheorem*{Example*}{Example}
+\theoremstyle{remark}
+\newtheorem*{Proof*}{Proof}
+\newtheorem*{Examples*}{Examples}
+\let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\newpage
+\pagenumbering{arabic}
+
+\hypertarget{introduction}{%
+\section*{Introduction}\label{introduction}}
+\addcontentsline{toc}{section}{Introduction}
+
+Here are the solutions to the past paper discussed in the revision session on XXth May 2024. This is designed as a guide to how much to write in the exam, and how you might want to style your solutions. To return to the homepage, click \href{http://caj50.github.io/tutoring.html}{here}.
+
+\hypertarget{section-a}{%
+\section*{Section A}\label{section-a}}
+\addcontentsline{toc}{section}{Section A}
+
+\hypertarget{question-1}{%
+\subsection*{Question 1}\label{question-1}}
+\addcontentsline{toc}{subsection}{Question 1}
+
+\BeginKnitrBlock{Question*}
+{}In the triangle \(OAB,\) we set \(\overrightarrow{OA} = \mathbf{a}\) and \(\overrightarrow{OB} = \mathbf{b}.\) The point \(C\) is located at the midpoint of the side \(AB.\) The point \(D\) divides the side \(OB\) in the ratio \(2:1,\) i.e.~\(OD = \frac23 OB.\)
+
+The lines \(AD\) and \(OC\) cross at \(X.\) Using vectors, show that \(AX = \frac35 AD\) and find the ratio in which the point \(X\) divides \(OC.\)\hspace{4cm}
+\EndKnitrBlock{Question*}
+
+\BeginKnitrBlock{solution*}
+TBD
+\EndKnitrBlock{solution*}
+
+\hypertarget{question-2}{%
+\subsection*{Question 2}\label{question-2}}
+\addcontentsline{toc}{subsection}{Question 2}
+
+\BeginKnitrBlock{Question*}
+{}Let \(\mathbf{a} = \mathbf{i} + 3\mathbf{j}\) and \(\mathbf{b} = 2\mathbf{i}-\mathbf{k}.\)
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\item
+  Find the lengths of \(\mathbf{a}\) and \(\mathbf{b}.\)
+\item
+  Find the cosine of the acute angle between \(\mathbf{a}\) and \(\mathbf{b}.\)
+\item
+  Find a unit vector \(\hat{\mathbf{c}}\) which is orthogonal to both \(\mathbf{a}\) and \(\mathbf{b},\) such that \(\mathbf{a},\mathbf{b},\hat{\mathbf{c}}\) form a right-handed system.
+\end{enumerate}
+\EndKnitrBlock{Question*}
+
+\BeginKnitrBlock{solution*}
+TBD
+\EndKnitrBlock{solution*}
+
+\hypertarget{question-3}{%
+\subsection*{Question 3}\label{question-3}}
+\addcontentsline{toc}{subsection}{Question 3}
+
+\BeginKnitrBlock{Question*}
+{}State the expansion formula for the vector triple product \(\mathbf{a}\times\left(\mathbf{b}\times\mathbf{c}\right).\) Use it to prove that \[\left(\mathbf{a}\times\mathbf{b}\right)\cdot\left\lbrace\left(\mathbf{b}\times\mathbf{c}\right)\times\left(\mathbf{c}\times\mathbf{a}\right)\right\rbrace = \left[\mathbf{a},\mathbf{b},\mathbf{c}\right]^2,\] where \(\left[\mathbf{a},\mathbf{b},\mathbf{c}\right]\) is the scalar triple product.
+
+State, but do not prove, the results of vector algebra which you use.
+\EndKnitrBlock{Question*}
+
+\BeginKnitrBlock{solution*}
+TBD
+\EndKnitrBlock{solution*}
+
+\hypertarget{question-4}{%
+\subsection*{Question 4}\label{question-4}}
+\addcontentsline{toc}{subsection}{Question 4}
+
+\BeginKnitrBlock{Question*}
+{}a) Let \(T(x,y)\) be a differentiable function of \(x\) and \(y\), and let \((a,b)\) be a point on the \(xy\)-plane. Define the gradient vector \(\nabla T(a,b),\) and prove that the rate of change of \(T(x,y)\) at \((a,b)\) in the direction of the unit vector \(\mathbf{u}\) is given by \[D_{\mathbf{u}}T(a,b) = \mathbf{u}\cdot\nabla T(a,b).\]
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Find the gradient vector of the function \[T(x,y) = 3x^2 + 2y^2 + 6\] at the point \((2,1),\) and find the equation of the tangent plane to the 3D surface \(z=T(x,y)\) at the point \((2,1,c)\) where \(c = T(2,1).\)
+\end{enumerate}
+\EndKnitrBlock{Question*}
+
+\BeginKnitrBlock{solution*}
+TBD
+\EndKnitrBlock{solution*}
+
+\hypertarget{question-5}{%
+\subsection*{Question 5}\label{question-5}}
+\addcontentsline{toc}{subsection}{Question 5}
+
+\BeginKnitrBlock{Question*}
+{}In planar polar coordinates \((r.\theta),\) the position vector of a particle at time \(t\) can be written as \[\mathbf{x}(t) = r\cos(\theta)\mathbf{i} + r\sin(\theta)\mathbf{j}\] where \(r,\theta\) are functions of \(t.\)
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\item
+  Express the radial and angular unit vectors \(\mathbf{e}_r,\mathbf{e}_{\theta}\) in terms of \(\mathbf{i},\mathbf{j}.\) Derive expressions for \(\dot{\mathbf{e}}_r\) and \(\dot{\mathbf{e}}_{\theta},\) and hence show that \[\dot{\mathbf{x}} = \dot{r}\mathbf{e}_r + r\dot{\theta}\mathbf{e}_{\theta}\] and \[\ddot{\mathbf{x}} = \left(\ddot{r} - r\dot{\theta}^2\right)\mathbf{e}_r + \left(2\dot{r}\dot{\theta} + r\ddot{\theta}\right)\mathbf{e}_{\theta}.\]
+\item
+  Find the acceleration vector of a particle which travels in a circular orbit of radius \(a,\) at a constant angular speed \(\omega.\)
+\end{enumerate}
+\EndKnitrBlock{Question*}
+
+\BeginKnitrBlock{solution*}
+TBD
+\EndKnitrBlock{solution*}
+
+\hypertarget{section-b}{%
+\section*{Section B}\label{section-b}}
+\addcontentsline{toc}{section}{Section B}
+
+\hypertarget{question-6}{%
+\subsection*{Question 6}\label{question-6}}
+\addcontentsline{toc}{subsection}{Question 6}
+
+\BeginKnitrBlock{Question*}
+{}a) Prove that the shortest distance from a point \(A\) with position vector \(\mathbf{a},\) to the plane \(\Pi\) defined by \(\mathbf{r}\cdot\mathbf{n} = d\) is \[h = \frac{\lvert d - \mathbf{a}\cdot\mathbf{n}\rvert}{\lVert\mathbf{n}\rVert},\] and find the position vector of the point on \(\Pi\) which achieves this distance.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\item
+  Let \(\mathbf{a},\mathbf{b},\mathbf{l},\mathbf{m}\) be given vectors, and let \(\mathbf{r} = \mathbf{a} + \lambda\mathbf{l}\) and \(\mathbf{r} = \mathbf{b} + \mu\mathbf{m}\) be two non-parallel and non-intersecting lines \(L_1\) and \(L_2\) respectively.
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii})}
+  \item
+    Find the vector equations of two parallel planes \(\Pi_1\) and \(\Pi_2,\) such that \(\Pi_1\) contains \(L_1\) and \(\Pi_2\) contains \(L_2.\)
+  \item
+    Find the distance between the two planes \(\Pi_1\) and \(\Pi_2.\)
+  \end{enumerate}
+\end{enumerate}
+\EndKnitrBlock{Question*}
+
+\BeginKnitrBlock{solution*}
+TBD
+\EndKnitrBlock{solution*}
+
+\hypertarget{question-7}{%
+\subsection*{Question 7}\label{question-7}}
+\addcontentsline{toc}{subsection}{Question 7}
+
+\BeginKnitrBlock{Question*}
+{}a) By either finding the Complementary Function and Particular Integral, or using the Integrating Factor method, solve the vector differential equation \[\ddot{\mathbf{x}} + k\dot{\mathbf{x}} = \mathbf{h}, \quad \mathbf{x}(0) = \mathbf{x}_0, \quad \dot{\mathbf{x}}(0) = \mathbf{0}\] where \(k\) is a non-zero scalar and \(\mathbf{h}\) is a constant vector. Show that the solution can be written as \[\mathbf{x}  = \mathbf{x}_0 + \frac{1}{k^2}\left(\mathrm{e}^{-kt} + kt - 1\right)\mathbf{h}.\]
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\item
+  A food parcel of mass \(m\) is dropped from a helicopter hovering at a height \(D\) directly above a target on horizontal ground. There is a constant horizontal crosswind of velocity \(u,\) and the air resistance is proportional to the relative velocity of the parcel with respect to the wind, with coefficient \(\mu.\) Derive the vector differential equation of motion of the parcel, and hence find its position vector \(\mathbf{x}(t).\)
+\item
+  How far away from the target will the food parcel land?
+\end{enumerate}
+\EndKnitrBlock{Question*}
+
+\BeginKnitrBlock{solution*}
+TBD
+\EndKnitrBlock{solution*}
+
+\hypertarget{question-8}{%
+\subsection*{Question 8}\label{question-8}}
+\addcontentsline{toc}{subsection}{Question 8}
+
+\BeginKnitrBlock{Question*}
+{}A particle of mass \(m\) moves under the action of a central ``planetary'' force \[\mathbf{F} = -\mu m \lVert \dot{\mathbf{x}}\rVert^2\frac{\mathbf{x}}{r^2}\] where \(r = \lVert\mathbf{x}\rVert\) and \(\mu > 0\) is a constant.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\item
+  Prove that the motion takes place in a plane.
+\item
+  Using polar coordinates \((r,\theta)\) on the plane, show that the equations of motion are \[r^2\dot{\theta} = h, \quad \ddot{r} + (\mu-1)\frac{h^2}{r^3} + \mu\frac{\dot{r}^2}{r} = 0,\] where \(h\) is a constant.
+
+  Note: You may use without proof the formulae for velocity and acceleration in polar coordinates, given in Question 5(a).
+\item
+  The particle is projected radially outwards from the surface of a ``planet'' of radius \(R,\) with initial speed \(v_0.\) Show that \(h=0\) in part (b).
+
+  Integrate the second equation of motion in part (b) to obtain \[\ln(\dot{r}) = -\mu \ln(r) + c\] where \(c\) is a constant of integration. Hence deduce that for all \(v_0 > 0\) the particle will never fall back to the ``planet''.
+
+  Hint: \(\frac{d}{dr}\left(\ln(r)\right) = \frac{1}{r}\frac{dr}{dt}.\)
+\end{enumerate}
+\EndKnitrBlock{Question*}
+
+\BeginKnitrBlock{solution*}
+TBD
+\EndKnitrBlock{solution*}
+
+\end{document}
