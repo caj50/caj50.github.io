@@ -312,7 +312,21 @@ State, but do not prove, the results of vector algebra which you use.
 <div class="bookdown-solution" custom-style="ProofStyle">
 <span class="solution" custom-style="NameStyleItalics">Solution. </span>
 <p>
-TBD
+The required expansion is <span class="math display">\[\mathbf{a}\times\left(\mathbf{b}\times\mathbf{c}\right) = \left(\mathbf{a}\cdot\mathbf{c}\right)\mathbf{b} - \left(\mathbf{a}\cdot\mathbf{b}\right)\mathbf{c}.\]</span>
+Using this expansion, we have that
+<span class="math display">\[\begin{align*}
+\left(\mathbf{a}\times\mathbf{b}\right)\cdot\left\lbrace\left(\mathbf{b}\times\mathbf{c}\right)\times\left(\mathbf{c}\times\mathbf{a}\right)\right\rbrace &amp;= \left(\mathbf{a}\times\mathbf{b}\right)\cdot\lbrace\left(\mathbf{b}\times\mathbf{c}\cdot\mathbf{a}\right)\mathbf{c} - \left(\mathbf{b}\times\mathbf{c}\cdot\mathbf{c})\mathbf{a}\right)\rbrace\\
+&amp;=\left(\mathbf{a}\times\mathbf{b}\right)\cdot\left\lbrace[\mathbf{a},\mathbf{b},\mathbf{c}]\mathbf{c} - [\mathbf{c},\mathbf{b},\mathbf{c}]\mathbf{a}\right\rbrace,
+\end{align*}\]</span>
+by commutativity of the dot product and the definition of the scalar triple product. As a STP with a repeated vector is equal to <span class="math inline">\(0\)</span>,
+<span class="math display">\[\begin{align*}
+\left(\mathbf{a}\times\mathbf{b}\right)\cdot\left\lbrace\left(\mathbf{b}\times\mathbf{c}\right)\times\left(\mathbf{c}\times\mathbf{a}\right)\right\rbrace &amp;=\left(\mathbf{a}\times\mathbf{b}\right)\cdot[\mathbf{a},\mathbf{b},\mathbf{c}]\mathbf{c},\\
+&amp;= [\mathbf{a},\mathbf{b},\mathbf{c}]\left\lbrace\left(\mathbf{a}\times\mathbf{b}\right)\cdot\mathbf{c}\right\rbrace \quad \text{(by linearity of the dot product)},\\
+&amp;= [\mathbf{a},\mathbf{b},\mathbf{c}][\mathbf{c},\mathbf{a},\mathbf{b}], \quad \text{(definition of STP)}\\
+&amp;= [\mathbf{a},\mathbf{b},\mathbf{c}][\mathbf{a},\mathbf{b},\mathbf{c}], \quad \text{(STPs are cyclic)}\\
+&amp;= [\mathbf{a},\mathbf{b},\mathbf{c}]^2,
+\end{align*}\]</span>
+as required.
 </p>
 </div>
 </div>

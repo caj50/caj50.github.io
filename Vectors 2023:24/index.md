@@ -70,8 +70,14 @@ TBD
 </p></div>\EndKnitrBlock{Question}
 
 \BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyleItalics"><strong>Solution. </strong></span> <p>
-TBD
-</p></div>\EndKnitrBlock{solution}
+  a) We have $$\lVert \mathbf{a} \rVert = \sqrt{1^2 + 3^2} = \sqrt{10} = \sqrt{2}\sqrt{5},$$ and $$\lVert \mathbf{b} \rVert = \sqrt{2^2 + (-1)^2} = \sqrt{5}.$$
+  b)  Since $$\mathbf{a} \cdot \mathbf{b} = 1\times 2 = 2,$$ the cosine of the acute angle $\theta$ between $\mathbf{a}$ and $\mathbf{b}$ is $$\cos(\theta) = \frac{\mathbf{a}\cdot\mathbf{b}}{\lVert \mathbf{a}\rVert\lVert \mathbf{b}\rVert} = \frac{2}{5\sqrt{2}} = \frac{\sqrt{2}}{5}.$$
+  c) Setting $$\hat{\mathbf{c}}:= \frac{\mathbf{a}\times\mathbf{b}}{\lVert\mathbf{a}\times\mathbf{b}\rVert},$$ we have that since $$\mathbf{a}\times\mathbf{b} = \begin{vmatrix}
+  \mathbf{i} & \mathbf{j} & \mathbf{k}\\
+  1 & 3 & 0\\
+  2 & 0 & -1
+  \end{vmatrix} = -3\mathbf{i} + \mathbf{j} - 6\mathbf{k},$$ and $$\lVert\mathbf{a}\times\mathbf{b}\rVert = \sqrt{9 + 1 + 36} = \sqrt{46},$$ the required unit vector is $$\hat{\mathbf{c}} = \frac{1}{\sqrt{46}}\left(-3\mathbf{i} + \mathbf{j} - 6\mathbf{k}\right).$$
+By definition of the cross product, $\mathbf{a},\mathbf{b}$ and $\hat{\mathbf{c}}$ form a right-handed system.</p></div>\EndKnitrBlock{solution}
 
 ## Question 3 {-}
 \BeginKnitrBlock{Question}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="Question" custom-style="TheoremStyle" id="Question:unnamed-chunk-6"><span class="Question" custom-style="NameStyle"><strong> Question: </strong></span><p>State the expansion formula for the vector triple product $\mathbf{a}\times\left(\mathbf{b}\times\mathbf{c}\right).$ Use it to prove that $$\left(\mathbf{a}\times\mathbf{b}\right)\cdot\left\lbrace\left(\mathbf{b}\times\mathbf{c}\right)\times\left(\mathbf{c}\times\mathbf{a}\right)\right\rbrace = \left[\mathbf{a},\mathbf{b},\mathbf{c}\right]^2,$$ where $\left[\mathbf{a},\mathbf{b},\mathbf{c}\right]$ is the scalar triple product.
@@ -80,8 +86,21 @@ State, but do not prove, the results of vector algebra which you use.
   </p></div>\EndKnitrBlock{Question}
 
 \BeginKnitrBlock{solution}<div class="bookdown-solution" custom-style="ProofStyle"><span class="solution" custom-style="NameStyleItalics"><strong>Solution. </strong></span> <p>
-TBD
-</p></div>\EndKnitrBlock{solution}
+The required expansion is $$\mathbf{a}\times\left(\mathbf{b}\times\mathbf{c}\right) = \left(\mathbf{a}\cdot\mathbf{c}\right)\mathbf{b} - \left(\mathbf{a}\cdot\mathbf{b}\right)\mathbf{c}.$$
+Using this expansion, we have that
+\begin{align*}
+\left(\mathbf{a}\times\mathbf{b}\right)\cdot\left\lbrace\left(\mathbf{b}\times\mathbf{c}\right)\times\left(\mathbf{c}\times\mathbf{a}\right)\right\rbrace &= \left(\mathbf{a}\times\mathbf{b}\right)\cdot\lbrace\left(\mathbf{b}\times\mathbf{c}\cdot\mathbf{a}\right)\mathbf{c} - \left(\mathbf{b}\times\mathbf{c}\cdot\mathbf{c})\mathbf{a}\right)\rbrace\\
+&=\left(\mathbf{a}\times\mathbf{b}\right)\cdot\left\lbrace[\mathbf{a},\mathbf{b},\mathbf{c}]\mathbf{c} - [\mathbf{c},\mathbf{b},\mathbf{c}]\mathbf{a}\right\rbrace,
+\end{align*}
+by commutativity of the dot product and the definition of the scalar triple product. As a STP with a repeated vector is equal to $0$,
+\begin{align*}
+\left(\mathbf{a}\times\mathbf{b}\right)\cdot\left\lbrace\left(\mathbf{b}\times\mathbf{c}\right)\times\left(\mathbf{c}\times\mathbf{a}\right)\right\rbrace &=\left(\mathbf{a}\times\mathbf{b}\right)\cdot[\mathbf{a},\mathbf{b},\mathbf{c}]\mathbf{c},\\
+&= [\mathbf{a},\mathbf{b},\mathbf{c}]\left\lbrace\left(\mathbf{a}\times\mathbf{b}\right)\cdot\mathbf{c}\right\rbrace \quad \text{(by linearity of the dot product)},\\
+&= [\mathbf{a},\mathbf{b},\mathbf{c}][\mathbf{c},\mathbf{a},\mathbf{b}], \quad \text{(definition of STP)}\\
+&= [\mathbf{a},\mathbf{b},\mathbf{c}][\mathbf{a},\mathbf{b},\mathbf{c}], \quad \text{(STPs are cyclic)}\\
+&= [\mathbf{a},\mathbf{b},\mathbf{c}]^2,
+\end{align*}
+as required.</p></div>\EndKnitrBlock{solution}
 
 ## Question 4 {-}
 \BeginKnitrBlock{Question}BEGINSORTNAMEOUTMARKER-ENDSORTNAMEOUTMARKER<div class="Question" custom-style="TheoremStyle" id="Question:unnamed-chunk-8"><span class="Question" custom-style="NameStyle"><strong> Question: </strong></span><p>a)  Let $T(x,y)$ be a differentiable function of $x$ and $y$, and let $(a,b)$ be a point on the $xy$-plane. Define the gradient vector $\nabla T(a,b),$ and prove that the rate of change of $T(x,y)$ at $(a,b)$ in the direction of the unit vector $\mathbf{u}$ is given by $$D_{\mathbf{u}}T(a,b) = \mathbf{u}\cdot\nabla T(a,b).$$

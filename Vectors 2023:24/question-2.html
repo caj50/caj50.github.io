@@ -316,9 +316,18 @@ MathJax.Hub.Config({
 <div class="bookdown-solution" custom-style="ProofStyle">
 <span class="solution" custom-style="NameStyleItalics">Solution. </span>
 <p>
-TBD
+<ol style="list-style-type: lower-alpha">
+<li>We have <span class="math display">\[\lVert \mathbf{a} \rVert = \sqrt{1^2 + 3^2} = \sqrt{10} = \sqrt{2}\sqrt{5},\]</span> and <span class="math display">\[\lVert \mathbf{b} \rVert = \sqrt{2^2 + (-1)^2} = \sqrt{5}.\]</span></li>
+<li>Since <span class="math display">\[\mathbf{a} \cdot \mathbf{b} = 1\times 2 = 2,\]</span> the cosine of the acute angle <span class="math inline">\(\theta\)</span> between <span class="math inline">\(\mathbf{a}\)</span> and <span class="math inline">\(\mathbf{b}\)</span> is <span class="math display">\[\cos(\theta) = \frac{\mathbf{a}\cdot\mathbf{b}}{\lVert \mathbf{a}\rVert\lVert \mathbf{b}\rVert} = \frac{2}{5\sqrt{2}} = \frac{\sqrt{2}}{5}.\]</span></li>
+<li>Setting <span class="math display">\[\hat{\mathbf{c}}:= \frac{\mathbf{a}\times\mathbf{b}}{\lVert\mathbf{a}\times\mathbf{b}\rVert},\]</span> we have that since <span class="math display">\[\mathbf{a}\times\mathbf{b} = \begin{vmatrix}
+  \mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k}\\
+  1 &amp; 3 &amp; 0\\
+  2 &amp; 0 &amp; -1
+  \end{vmatrix} = -3\mathbf{i} + \mathbf{j} - 6\mathbf{k},\]</span> and <span class="math display">\[\lVert\mathbf{a}\times\mathbf{b}\rVert = \sqrt{9 + 1 + 36} = \sqrt{46},\]</span> the required unit vector is <span class="math display">\[\hat{\mathbf{c}} = \frac{1}{\sqrt{46}}\left(-3\mathbf{i} + \mathbf{j} - 6\mathbf{k}\right).\]</span>
+By definition of the cross product, <span class="math inline">\(\mathbf{a},\mathbf{b}\)</span> and <span class="math inline">\(\hat{\mathbf{c}}\)</span> form a right-handed system.
 </p>
-</div>
+</div></li>
+</ol>
 </div>
             </section>
 
